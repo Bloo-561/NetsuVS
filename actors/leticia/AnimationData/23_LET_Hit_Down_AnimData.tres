@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bbnetyavixhg1"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://bkn4vydoewzro" path="res://actors/leticia/Hitboxes/0_Hitbox_Lying.tres" id="5"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="6"]
+[ext_resource type="Resource" uid="uid://1geatzyh3006" path="res://actors/leticia/Hitboxes/-2_Hitbox_CollisionOnly_Low.tres" id="7"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="8"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/down.png" id="t_down"]
+
+[sub_resource type="Resource" id="Resource_dpo3q"]
+script = ExtResource("6")
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="Resource_m6rv3"]
+script = ExtResource("6")
+AtFrame = 4
+HitboxData = ExtResource("7")
+metadata/_custom_type_script = "uid://5qrsoteskjym"
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_down")
+Offset = Vector2(-385, -13)
+Scale = Vector2(0.82, 0.82)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[resource]
+script = ExtResource("8")
+Duration = 64
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("Resource_dpo3q"), SubResource("Resource_m6rv3")]
+AttackProfiles = []

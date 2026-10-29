@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://blhp5i2tgnfsj"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_react.png" id="t_ad_react"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/adfx_block.png" id="t_adfx_block"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_load.png" id="t_ad_load"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_bash.png" id="t_ad_bash"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/adfx_up.png" id="t_adfx_up"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/adfx_fade.png" id="t_adfx_fade"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_recover.png" id="t_ad_recover"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://68ikbpvbs25r" path="res://actors/assists/adin/Hitboxes/2_Hitbox_ADN_5S_hit_0.tres" id="hb_2_Hitbox_ADN_5S_hit_0"]
+[ext_resource type="Resource" uid="uid://bb032f4pooupi" path="res://actors/assists/adin/Hitboxes/2_Hitbox_ADN_5S_hit_1.tres" id="hb_2_Hitbox_ADN_5S_hit_1"]
+[ext_resource type="Resource" uid="uid://2p8e2fzql1fo" path="res://actors/assists/adin/Hitboxes/2_Hitbox_ADN_5S_hit_2.tres" id="hb_2_Hitbox_ADN_5S_hit_2"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_react")
+Offset = Vector2(-181, -5)
+
+[sub_resource type="Resource" id="M0_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_adfx_block")
+Offset = Vector2(-20, 290)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0"), SubResource("M0_1")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_load")
+Offset = Vector2(-181, -6)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_bash")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="M2_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_adfx_up")
+Offset = Vector2(90, 240)
+OnlyOnContact = true
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_bash")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="M3_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_adfx_fade")
+Offset = Vector2(52, 316)
+OnlyOnContact = true
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 22
+Modifiers = [SubResource("M3_0"), SubResource("M3_1")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_recover")
+Offset = Vector2(-180, -4)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 32
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb_2_Hitbox_ADN_5S_hit_0")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("hb_2_Hitbox_ADN_5S_hit_1")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("hs")
+AtFrame = 21
+animationStage = 2
+HitboxData = ExtResource("hb_2_Hitbox_ADN_5S_hit_2")
+
+[resource]
+script = ExtResource("1")
+Duration = 56
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2")]

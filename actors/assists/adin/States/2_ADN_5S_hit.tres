@@ -1,0 +1,133 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://0pedrpxd2ne4"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://blhp5i2tgnfsj" path="res://actors/assists/adin/AnimationData/2_ADN_5S_hit_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://d2vhk55lqtwt2" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetActiveAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="10"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[ext_resource type="Script" uid="uid://bb1qo8k7w704n" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuAimAction.cs" id="aim"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="rng"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+Active = false
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("6")
+Velocity = 0
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2"), SubResource("s3"), SubResource("s4")]
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("6")
+Velocity = 0
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("8")
+Frame = 14
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+Conditions = [SubResource("s8")]
+Actions = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("8")
+Frame = 14
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("10")
+Amplitude = 0.04
+Duration = 12
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Conditions = [SubResource("s11")]
+Actions = [SubResource("s12")]
+
+[sub_resource type="Resource" id="netsu_ev1"]
+script = ExtResource("3")
+Actions = [SubResource("s6"), SubResource("s7")]
+
+[sub_resource type="Resource" id="sfx_0_0_play"]
+script = ExtResource("sfx_play")
+Index = 81
+
+[sub_resource type="Resource" id="sfx_0_0"]
+script = ExtResource("3")
+Actions = [SubResource("sfx_0_0_play")]
+
+[sub_resource type="Resource" id="sfx_12_1_play"]
+script = ExtResource("sfx_play")
+Index = 82
+
+[sub_resource type="Resource" id="sfx_12_1_at"]
+script = ExtResource("8")
+Frame = 12
+
+[sub_resource type="Resource" id="sfx_12_1"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_12_1_at")]
+Actions = [SubResource("sfx_12_1_play")]
+
+[sub_resource type="Resource" id="rush_a"]
+script = ExtResource("aim")
+OffsetX = -5500
+Frames = 8
+MinSpeed = -400000
+MaxSpeed = 400000
+
+[sub_resource type="Resource" id="rush_r"]
+script = ExtResource("rng")
+MinFrame = 0
+MaxFrame = 7
+
+[sub_resource type="Resource" id="rush"]
+script = ExtResource("3")
+Conditions = [SubResource("rush_r")]
+Actions = [SubResource("rush_a")]
+
+[sub_resource type="Resource" id="rush_stop_f"]
+script = ExtResource("8")
+Frame = 8
+
+[sub_resource type="Resource" id="rush_stop"]
+script = ExtResource("3")
+Conditions = [SubResource("rush_stop_f")]
+Actions = [SubResource("s6")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Shield Counter (bash)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s5")]
+OnEnterEvents = [SubResource("netsu_ev1"), SubResource("sfx_0_0")]
+OnTickEvents = [SubResource("rush"), SubResource("rush_stop"), SubResource("sfx_12_1"), SubResource("s10"), SubResource("s13")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null

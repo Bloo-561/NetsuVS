@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://0l15tgdnnr3c"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cgu3jrjka1a8d" path="res://actors/_shared/sakuga/Inputs/9_Input_66.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+MoveName = "Dash (shot cancel)"
+MoveState = 16
+Inputs = ExtResource("2")
+Priority = 6
+MoveEnd = 1
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true
+SkipCheck = true
+MoveEndState = 17

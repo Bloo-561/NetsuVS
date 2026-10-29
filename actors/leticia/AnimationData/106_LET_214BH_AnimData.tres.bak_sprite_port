@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://7fajnrv8habi"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://yazeo8bfxzq2" path="res://actors/leticia/Hitboxes/49_Hitbox_RicochetPrism_Held_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://8xjniykj333c" path="res://actors/leticia/Hitboxes/49_Hitbox_RicochetPrism_Held_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://4x0xrgql6ugu" path="res://actors/leticia/Hitboxes/49_Hitbox_RicochetPrism_Held_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bfyv7i6604lqb" path="res://actors/leticia/Hitboxes/49_Hitbox_RicochetPrism_Held_3.tres" id="6"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 19
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 30
+animationStage = 2
+HitboxData = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+Duration = 46
+Animations = []
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

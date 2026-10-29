@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SpawnsList" format=3 uid="uid://bmtyhgbad4hyf"]
+
+[ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="1"]
+[ext_resource type="Script" uid="uid://fshoagbsdqd4" path="res://engine/sakuga/Resources/SpawnObject.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://bi0f00n081nch" path="res://actors/noah/projectiles/Instances/NOA_Wave.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://3y6mg5qvoij6" path="res://actors/noah/projectiles/Instances/NOA_Wall.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bijnfsezondzk" path="res://actors/noah/projectiles/Instances/NOA_Hole.tscn" id="5"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Key = "NoahWave"
+Instance = ExtResource("3")
+PoolSize = 3
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+Key = "NoahWall"
+Instance = ExtResource("4")
+PoolSize = 1
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+Key = "NoahHole"
+Instance = ExtResource("5")
+PoolSize = 2
+
+[resource]
+script = ExtResource("1")
+SpawnObjects = [SubResource("s1"), SubResource("s2"), SubResource("s3")]

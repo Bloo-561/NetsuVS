@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3 uid="uid://bdyluycm00ywh"]
+
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cc6na07fk5pf2" path="res://actors/_shared/sakuga/HitboxTemplates/Box_Neutral_std.tres" id="2"]
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+Center = Vector2i(800, 12100)
+Size = Vector2i(2900, 3000)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Center = Vector2i(400, 8200)
+Size = Vector2i(6000, 5400)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Center = Vector2i(300, 3100)
+Size = Vector2i(9000, 5900)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+Center = Vector2i(4100, 9400)
+Size = Vector2i(2000, 900)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[resource]
+script = ExtResource("1")
+Pushbox = ExtResource("2")
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

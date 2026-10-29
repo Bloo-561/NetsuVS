@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://7ayhrljwz5o0"]
+
+[ext_resource type="Script" uid="uid://d4e1sv1gy8i8a" path="res://engine/sakuga/Components/SakugaVFX.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://uetrnauc547e" path="res://actors/_shared/sakuga/Sprites/VFX/Hits/some effects2.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://brlyduavnxfod" path="res://actors/_shared/sakuga/Sprites/VFX/Hits/some effects3.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cwkbarfb8fkb1" path="res://actors/_shared/sakuga/Sprites/VFX/Hits/some effects4.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://l8quqh4e7nft" path="res://actors/_shared/sakuga/Sprites/VFX/Hits/some effects5.png" id="5"]
+[ext_resource type="Script" uid="uid://3uu6r0mhj3p3" path="res://engine/sakuga/Components/SoundQueue.cs" id="6"]
+[ext_resource type="AudioStream" uid="uid://bfdjofak0jylx" path="res://actors/_shared/sakuga/SFX/WeakStrikeHitFINAL.wav" id="7"]
+
+[sub_resource type="Animation" id="Animation_b6bqa"]
+resource_name = "GFX"
+length = 0.266669
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Sprite3D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266669),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Visuals/Sprite3D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nv8md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Sprite3D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-250, -200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Visuals/Sprite3D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmuae"]
+_data = {
+&"GFX": SubResource("Animation_b6bqa"),
+&"RESET": SubResource("Animation_nv8md")
+}
+
+[node name="VFX" type="Node" unique_id=404846289 node_paths=PackedStringArray("Player", "Graphics", "Sound")]
+script = ExtResource("1")
+Duration = 16
+Player = NodePath("Graphics/Visuals/AnimationPlayer")
+Graphics = NodePath("Graphics")
+AnimationName = "GFX"
+Sound = NodePath("SFX")
+metadata/_custom_type_script = "uid://d4e1sv1gy8i8a"
+
+[node name="Graphics" type="Node3D" parent="." unique_id=1337161005]
+
+[node name="Visuals" type="Node3D" parent="Graphics" unique_id=463336210]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Visuals" unique_id=2025607681]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_bmuae")
+
+[node name="Sprite3D" type="Sprite3D" parent="Graphics/Visuals" unique_id=85979567]
+modulate = Color(1, 0.84, 0.22, 1)
+layers = 2
+sorting_offset = 10.0
+offset = Vector2(-250, -200)
+pixel_size = 0.02
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=40895307]
+script = ExtResource("6")
+DefaultSound = ExtResource("7")
+metadata/_custom_type_script = "uid://3uu6r0mhj3p3"

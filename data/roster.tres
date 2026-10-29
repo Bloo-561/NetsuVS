@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="FighterList" format=3 uid="uid://c8s3ip7gkhwq6"]
+
+[ext_resource type="Script" uid="uid://dg21wno6w513c" path="res://engine/sakuga/Resources/ColorPaletteElement.cs" id="2"]
+[ext_resource type="Script" uid="uid://dclkxgxahdy5l" path="res://engine/sakuga/Resources/FighterElement.cs" id="5"]
+[ext_resource type="Script" uid="uid://c1vwroelg1kwb" path="res://engine/sakuga/Resources/FighterList.cs" id="9"]
+[ext_resource type="Resource" uid="uid://gmph3u4n51ab" path="res://actors/cecilia/0_CEC_Profile.tres" id="12"]
+[ext_resource type="Resource" uid="uid://bv75v206c1m3c" path="res://actors/flan/0_FLN_Profile.tres" id="14"]
+[ext_resource type="Resource" uid="uid://7fmd4kvd7d6j" path="res://actors/leticia/0_LET_Profile.tres" id="let_profile"]
+[ext_resource type="Resource" uid="uid://bk2rhjw27ji60" path="res://actors/noah/0_NOA_Profile.tres" id="noa_profile"]
+
+[sub_resource type="Resource" id="netsu_cec_pal0"]
+script = ExtResource("2")
+PaletteName = "Crimson"
+ScenePath = "res://actors/cecilia/Instances/CEC_Fighter_Skin00.tscn"
+
+[sub_resource type="Resource" id="netsu_cec_pal1"]
+script = ExtResource("2")
+PaletteName = "Azure"
+ScenePath = "res://actors/cecilia/Instances/CEC_Fighter_Skin01.tscn"
+
+[sub_resource type="Resource" id="netsu_cec_pal2"]
+script = ExtResource("2")
+PaletteName = "Sakura"
+ScenePath = "res://actors/cecilia/Instances/CEC_Fighter_Skin02.tscn"
+
+[sub_resource type="Resource" id="netsu_cec_pal3"]
+script = ExtResource("2")
+PaletteName = "Fujin"
+ScenePath = "res://actors/cecilia/Instances/CEC_Fighter_Skin03.tscn"
+
+[sub_resource type="Resource" id="netsu_cec"]
+script = ExtResource("5")
+Profile = ExtResource("12")
+ColorPalettes = [SubResource("netsu_cec_pal0"), SubResource("netsu_cec_pal1"), SubResource("netsu_cec_pal2"), SubResource("netsu_cec_pal3")]
+
+[sub_resource type="Resource" id="netsu_fln_pal0"]
+script = ExtResource("2")
+PaletteName = "Starlight"
+ScenePath = "res://actors/flan/Instances/FLN_Fighter_Skin00.tscn"
+
+[sub_resource type="Resource" id="netsu_fln_pal1"]
+script = ExtResource("2")
+PaletteName = "Polaris"
+ScenePath = "res://actors/flan/Instances/FLN_Fighter_Skin01.tscn"
+
+[sub_resource type="Resource" id="netsu_fln_pal2"]
+script = ExtResource("2")
+PaletteName = "Stigmata"
+ScenePath = "res://actors/flan/Instances/FLN_Fighter_Skin02.tscn"
+
+[sub_resource type="Resource" id="netsu_fln_pal3"]
+script = ExtResource("2")
+PaletteName = "Rose Gold"
+ScenePath = "res://actors/flan/Instances/FLN_Fighter_Skin03.tscn"
+
+[sub_resource type="Resource" id="netsu_fln"]
+script = ExtResource("5")
+Profile = ExtResource("14")
+ColorPalettes = [SubResource("netsu_fln_pal0"), SubResource("netsu_fln_pal1"), SubResource("netsu_fln_pal2"), SubResource("netsu_fln_pal3")]
+
+[sub_resource type="Resource" id="netsu_let_pal0"]
+script = ExtResource("2")
+PaletteName = "Rose"
+ScenePath = "res://actors/leticia/Instances/LET_Fighter_Skin00.tscn"
+
+[sub_resource type="Resource" id="netsu_let_pal1"]
+script = ExtResource("2")
+PaletteName = "Azure"
+ScenePath = "res://actors/leticia/Instances/LET_Fighter_Skin01.tscn"
+
+[sub_resource type="Resource" id="netsu_let_pal2"]
+script = ExtResource("2")
+PaletteName = "Platinum"
+ScenePath = "res://actors/leticia/Instances/LET_Fighter_Skin02.tscn"
+
+[sub_resource type="Resource" id="netsu_let_pal3"]
+script = ExtResource("2")
+PaletteName = "Violet"
+ScenePath = "res://actors/leticia/Instances/LET_Fighter_Skin03.tscn"
+
+[sub_resource type="Resource" id="netsu_let"]
+script = ExtResource("5")
+Profile = ExtResource("let_profile")
+ColorPalettes = [SubResource("netsu_let_pal0"), SubResource("netsu_let_pal1"), SubResource("netsu_let_pal2"), SubResource("netsu_let_pal3")]
+
+[sub_resource type="Resource" id="netsu_noa_pal0"]
+script = ExtResource("2")
+PaletteName = "Umbra"
+ScenePath = "res://actors/noah/Instances/NOA_Fighter_Skin00.tscn"
+
+[sub_resource type="Resource" id="netsu_noa_pal1"]
+script = ExtResource("2")
+PaletteName = "Crimson"
+ScenePath = "res://actors/noah/Instances/NOA_Fighter_Skin01.tscn"
+
+[sub_resource type="Resource" id="netsu_noa_pal2"]
+script = ExtResource("2")
+PaletteName = "Azure"
+ScenePath = "res://actors/noah/Instances/NOA_Fighter_Skin02.tscn"
+
+[sub_resource type="Resource" id="netsu_noa_pal3"]
+script = ExtResource("2")
+PaletteName = "Pale"
+ScenePath = "res://actors/noah/Instances/NOA_Fighter_Skin03.tscn"
+
+[sub_resource type="Resource" id="netsu_noa"]
+script = ExtResource("5")
+Profile = ExtResource("noa_profile")
+ColorPalettes = [SubResource("netsu_noa_pal0"), SubResource("netsu_noa_pal1"), SubResource("netsu_noa_pal2"), SubResource("netsu_noa_pal3")]
+
+[resource]
+script = ExtResource("9")
+elements = [SubResource("netsu_cec"), SubResource("netsu_fln"), SubResource("netsu_let"), SubResource("netsu_noa")]

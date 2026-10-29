@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="FighterStance" format=3 uid="uid://347jjugdob2w"]
+
+[ext_resource type="Resource" uid="uid://biqgn48x4ggwh" path="res://actors/_shared/sakuga/Inputs/1_Input_4.tres" id="1"]
+[ext_resource type="Script" uid="uid://d0re6r8d145i6" path="res://engine/sakuga/Resources/BlockSettings.cs" id="2"]
+[ext_resource type="Resource" uid="uid://j1w64hweu08j" path="res://actors/_shared/sakuga/Inputs/8_Input_1.tres" id="3"]
+[ext_resource type="Resource" uid="uid://137bva8aeoar" path="res://actors/flan/Moves/0_FLN_MoveForward.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bj1eeju75dpwe" path="res://actors/flan/Moves/1_FLN_MoveBackwards.tres" id="5"]
+[ext_resource type="Resource" uid="uid://b0cdbg22973zt" path="res://actors/flan/Moves/2_FLN_DashForward.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bd0zmwx0tfygj" path="res://actors/flan/Moves/3_FLN_DashBackwards.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bjzrd16gqe6em" path="res://actors/flan/Moves/4_FLN_JumpNeutral.tres" id="8"]
+[ext_resource type="Resource" uid="uid://5fzme3a8cium" path="res://actors/flan/Moves/5_FLN_JumpForward.tres" id="9"]
+[ext_resource type="Resource" uid="uid://b5j6koku1weht" path="res://actors/flan/Moves/6_FLN_JumpBackwards.tres" id="10"]
+[ext_resource type="Resource" uid="uid://qyrbegkxb6yp" path="res://actors/flan/Moves/7_FLN_AirDashForward.tres" id="11"]
+[ext_resource type="Resource" uid="uid://kignq8tjss8r" path="res://actors/flan/Moves/8_FLN_AirDashForwardUp.tres" id="12"]
+[ext_resource type="Resource" uid="uid://bf1zlq4mu7j6f" path="res://actors/flan/Moves/9_FLN_AirDashForwardDown.tres" id="13"]
+[ext_resource type="Resource" uid="uid://3tyattqs8nkq" path="res://actors/flan/Moves/10_FLN_AirDashBackwards.tres" id="14"]
+[ext_resource type="Resource" uid="uid://bi1ibcfop2jgn" path="res://actors/flan/Moves/11_FLN_Crouch.tres" id="15"]
+[ext_resource type="Resource" uid="uid://883neyc2g3hk" path="res://actors/flan/Moves/12_FLN_Uncrouch.tres" id="16"]
+[ext_resource type="Resource" uid="uid://zgrylqa8t3n9" path="res://actors/flan/Moves/13_FLN_AirJumpNeutral.tres" id="17"]
+[ext_resource type="Resource" uid="uid://go3fn9k4j4ke" path="res://actors/flan/Moves/14_FLN_AirJumpForward.tres" id="18"]
+[ext_resource type="Resource" uid="uid://b7bbmb5v84axf" path="res://actors/flan/Moves/15_FLN_AirJumpBackwards.tres" id="19"]
+[ext_resource type="Resource" uid="uid://f6akfhldtdhe" path="res://actors/flan/Moves/16_FLN_SuperJumpNeutral.tres" id="20"]
+[ext_resource type="Resource" uid="uid://fcgp58to28fd" path="res://actors/flan/Moves/17_FLN_SuperJumpForward.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bfq8ayi9a3vrj" path="res://actors/flan/Moves/18_FLN_SuperJumpBackwards.tres" id="22"]
+[ext_resource type="Resource" uid="uid://blieeapw298xu" path="res://actors/flan/Moves/19_FLN_DashJump.tres" id="23"]
+[ext_resource type="Resource" uid="uid://8ukc8aeu08gt" path="res://actors/flan/Moves/20_FLN_AirDashJump.tres" id="24"]
+[ext_resource type="Resource" uid="uid://bvggc67hktqkx" path="res://actors/flan/Moves/21_FLN_GetUpForward.tres" id="25"]
+[ext_resource type="Resource" uid="uid://slxg31o8yvco" path="res://actors/flan/Moves/22_FLN_GetUpBackwards.tres" id="26"]
+[ext_resource type="Resource" uid="uid://e0upvb2w7xe6" path="res://actors/flan/Moves/23_FLN_5A.tres" id="27"]
+[ext_resource type="Resource" uid="uid://bh1wipbun1qwo" path="res://actors/flan/Moves/24_FLN_5B.tres" id="28"]
+[ext_resource type="Resource" uid="uid://hd79o4sxd8t2" path="res://actors/flan/Moves/25_FLN_5C.tres" id="29"]
+[ext_resource type="Resource" uid="uid://ofknvwduveng" path="res://actors/flan/Moves/26_FLN_2A.tres" id="30"]
+[ext_resource type="Resource" uid="uid://b06jldw2y6wga" path="res://actors/flan/Moves/27_FLN_2B.tres" id="31"]
+[ext_resource type="Resource" uid="uid://3qay4ve3pyvq" path="res://actors/flan/Moves/28_FLN_2C.tres" id="32"]
+[ext_resource type="Resource" uid="uid://uau3wbgjnojj" path="res://actors/flan/Moves/29_FLN_j_5A.tres" id="33"]
+[ext_resource type="Resource" uid="uid://8ugqi25b7p9y" path="res://actors/flan/Moves/30_FLN_j_5B.tres" id="34"]
+[ext_resource type="Resource" uid="uid://bxr1mog91yazx" path="res://actors/flan/Moves/31_FLN_j_5C.tres" id="35"]
+[ext_resource type="Resource" uid="uid://00hi48dtqbcs" path="res://actors/flan/Moves/32_FLN_6C.tres" id="36"]
+[ext_resource type="Resource" uid="uid://bi0i2amxcqmem" path="res://actors/flan/Moves/45_FLN_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://18kniq710m5k" path="res://actors/flan/Moves/46_FLN_Recovery_GroundForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://vlbggvfqf6oe" path="res://actors/flan/Moves/47_FLN_Recovery_GroundBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://oxrn7655vovr" path="res://actors/flan/Moves/48_FLN_Recovery_AirBackwards.tres" id="52"]
+[ext_resource type="Resource" uid="uid://bi0rcbbia0ual" path="res://actors/flan/Moves/49_FLN_Recovery_AirForward.tres" id="53"]
+[ext_resource type="Resource" uid="uid://b053pb1sdv4d3" path="res://actors/flan/Moves/50_FLN_ExcelCancel.tres" id="54"]
+[ext_resource type="Resource" uid="uid://b5mu9o141stvf" path="res://actors/flan/Moves/51_FLN_Burst.tres" id="55"]
+[ext_resource type="Script" uid="uid://00dse0vp38l7" path="res://engine/sakuga/Resources/FighterStance.cs" id="57"]
+[ext_resource type="Resource" uid="uid://e61v4p2mypbq" path="res://actors/flan/Moves/FLN_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://65ifyhstu3ck" path="res://actors/flan/Moves/53_FLN_StarFist_A.tres" id="mv_53_FLN_StarFist_A"]
+[ext_resource type="Resource" uid="uid://bgo6j15augki8" path="res://actors/flan/Moves/54_FLN_StarFist_B.tres" id="mv_54_FLN_StarFist_B"]
+[ext_resource type="Resource" uid="uid://212wezluv8yf" path="res://actors/flan/Moves/55_FLN_StarFist_EX.tres" id="mv_55_FLN_StarFist_EX"]
+[ext_resource type="Resource" uid="uid://bfdiq8poi70l7" path="res://actors/flan/Moves/56_FLN_RisingStar_A.tres" id="mv_56_FLN_RisingStar_A"]
+[ext_resource type="Resource" uid="uid://6u5sdpvaeevr" path="res://actors/flan/Moves/57_FLN_RisingStar_B.tres" id="mv_57_FLN_RisingStar_B"]
+[ext_resource type="Resource" uid="uid://4bltohiuhamb" path="res://actors/flan/Moves/58_FLN_SpiralStar.tres" id="mv_58_FLN_SpiralStar"]
+[ext_resource type="Resource" uid="uid://5nylx83a8f0s" path="res://actors/flan/Moves/59_FLN_FallingStar.tres" id="mv_59_FLN_FallingStar"]
+[ext_resource type="Resource" uid="uid://bdtjrsoy22etm" path="res://actors/flan/Moves/60_FLN_MeteorDrop_A.tres" id="mv_60_FLN_MeteorDrop_A"]
+[ext_resource type="Resource" uid="uid://bikszb2f8h2tf" path="res://actors/flan/Moves/61_FLN_MeteorDrop_B.tres" id="mv_61_FLN_MeteorDrop_B"]
+[ext_resource type="Resource" uid="uid://bmxqi0xamawb6" path="res://actors/flan/Moves/62_FLN_MeteorImpact.tres" id="mv_62_FLN_MeteorImpact"]
+[ext_resource type="Resource" uid="uid://ztp3djxcojef" path="res://actors/flan/Moves/63_FLN_RadiantBreaker.tres" id="mv_63_FLN_RadiantBreaker"]
+[ext_resource type="Resource" uid="uid://blbstbazllztx" path="res://actors/flan/Moves/64_FLN_BigBangCrash.tres" id="mv_64_FLN_BigBangCrash"]
+[ext_resource type="Resource" uid="uid://bccoepn1thjoj" path="res://actors/flan/Moves/FLN_Throw.tres" id="mv_FLN_Throw"]
+[ext_resource type="Resource" uid="uid://bkabshkxjtbrk" path="res://actors/_shared/sakuga/Inputs/52_Input_ThrowBreak.tres" id="in_throwbreak"]
+[ext_resource type="Resource" uid="uid://bjx2pwz2s6c4x" path="res://actors/flan/Moves/65_FLN_FallingStar_Air.tres" id="mv_65_FLN_FallingStar_Air"]
+[ext_resource type="Resource" path="res://actors/flan/Moves/FLN_Pushblock_Crouch.tres" id="netsu_pb_crouch_mv"]
+
+[ext_resource type="Resource" path="res://actors/flan/Moves/FLN_AirThrow.tres" id="mv_c12_airthrow"]
+[sub_resource type="Resource" id="Resource_3wthg"]
+script = ExtResource("2")
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 48
+StunState = 49
+ExitState = 50
+GuardCrushState = 51
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_rn7us"]
+script = ExtResource("2")
+ReferenceStance = 1
+BlockType = 6
+InputToCheck = ExtResource("3")
+EnterState = 53
+StunState = 54
+ExitState = 55
+GuardCrushState = 56
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_r7wbv"]
+script = ExtResource("2")
+ReferenceStance = 2
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 58
+StunState = 59
+ExitState = 60
+GuardCrushState = 61
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[resource]
+script = ExtResource("57")
+IsDamagePersistent = true
+IsRoundPersistent = true
+Moves = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("net_Breakthrough"), ExtResource("mv_53_FLN_StarFist_A"), ExtResource("mv_54_FLN_StarFist_B"), ExtResource("mv_55_FLN_StarFist_EX"), ExtResource("mv_56_FLN_RisingStar_A"), ExtResource("mv_57_FLN_RisingStar_B"), ExtResource("mv_58_FLN_SpiralStar"), ExtResource("mv_59_FLN_FallingStar"), ExtResource("mv_60_FLN_MeteorDrop_A"), ExtResource("mv_61_FLN_MeteorDrop_B"), ExtResource("mv_62_FLN_MeteorImpact"), ExtResource("mv_63_FLN_RadiantBreaker"), ExtResource("mv_64_FLN_BigBangCrash"), ExtResource("mv_65_FLN_FallingStar_Air"), ExtResource("mv_FLN_Throw"), ExtResource("mv_c12_airthrow"), ExtResource("netsu_pb_crouch_mv")]
+HitReactions = PackedInt32Array(23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 102)
+BlockReactions = [SubResource("Resource_3wthg"), SubResource("Resource_rn7us"), SubResource("Resource_r7wbv")]
+ThrowEscapeInput = ExtResource("in_throwbreak")
+GroundThrowEscapeState = 103
+AirThrowEscapeState = 103

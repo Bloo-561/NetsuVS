@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bbvkonq7ifmcq"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://6bcccjceh5kr" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ba3rlugcdrqxe" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://blh1suzlfcpjw" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_2.tres" id="5"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 10
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 12
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = []
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+Afterimages = true

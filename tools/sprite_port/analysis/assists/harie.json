@@ -1,0 +1,155 @@
+{
+ "reference": "Harie/5S/05_Uppercut_Rise.png",
+ "ref": {
+  "empty": false,
+  "top": 349,
+  "bot": 799,
+  "left": 455,
+  "right": 677,
+  "h": 451,
+  "rear_x": 535,
+  "front_x": 565,
+  "hip_x": 575.0,
+  "cx": 573.028241335045,
+  "cy": 585.2433604336044,
+  "mask": "dark"
+ },
+ "frames": {
+  "Harie/5S/01_Dive_Load.png": {
+   "empty": false,
+   "top": 256,
+   "bot": 1401,
+   "left": 134,
+   "right": 965,
+   "h": 1146,
+   "rear_x": 180,
+   "front_x": 693,
+   "hip_x": 551.5,
+   "cx": 490.64786113409633,
+   "cy": 924.9861468802588,
+   "mask": "dark",
+   "size": [
+    1038,
+    1515
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Harie/5S/02_Dive.png": {
+   "empty": false,
+   "top": 44,
+   "bot": 927,
+   "left": 18,
+   "right": 1409,
+   "h": 884,
+   "rear_x": 1161,
+   "front_x": 1409,
+   "hip_x": 860.0,
+   "cx": 642.353767218356,
+   "cy": 493.7330448849876,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Harie/5S/03_Submerge.png": {
+   "empty": false,
+   "top": 35,
+   "bot": 830,
+   "left": 528,
+   "right": 1166,
+   "h": 796,
+   "rear_x": 599,
+   "front_x": 977,
+   "hip_x": 781.0,
+   "cx": 857.3955597076441,
+   "cy": 403.5850964444689,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Harie/5S/04_Uppercut_Start.png": {
+   "empty": false,
+   "top": 63,
+   "bot": 1037,
+   "left": 382,
+   "right": 1021,
+   "h": 975,
+   "rear_x": 529,
+   "front_x": 951,
+   "hip_x": 701.5,
+   "cx": 676.4671980327417,
+   "cy": 707.9634148438574,
+   "mask": "dark",
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Harie/5S/05_Uppercut_Rise.png": {
+   "empty": false,
+   "top": 349,
+   "bot": 799,
+   "left": 455,
+   "right": 677,
+   "h": 451,
+   "rear_x": 535,
+   "front_x": 565,
+   "hip_x": 575.0,
+   "cx": 573.028241335045,
+   "cy": 585.2433604336044,
+   "mask": "dark",
+   "size": [
+    1038,
+    1515
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 109,
+    "good": 109
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Harie/5S/06_Uppercut_Apex.png": {
+   "empty": false,
+   "top": 430,
+   "bot": 796,
+   "left": 455,
+   "right": 687,
+   "h": 367,
+   "rear_x": 541,
+   "front_x": 592,
+   "hip_x": 564.0,
+   "cx": 579.5799658651674,
+   "cy": 610.386853069625,
+   "mask": "dark",
+   "size": [
+    1038,
+    1515
+   ],
+   "sift": {
+    "scale": 1.0183429285704821,
+    "rot": 0.04488260208821022,
+    "inliers": 32,
+    "good": 35
+   },
+   "scale_how": "head",
+   "scale": 1.0183429285704821
+  }
+ }
+}

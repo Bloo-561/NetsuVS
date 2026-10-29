@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://ba8zj5oa11h4q"]
+
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/52_Hitbox_214B_0.tres" id="e1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="e2"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r214_dash.png" id="e3"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="e4"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="e5"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/ld_rec.png" id="e6"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="e7"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e2")
+HitboxData = ExtResource("e1")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e4")
+Sprite = ExtResource("e3")
+Offset = Vector2(-401.0, -4.0)
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e5")
+Modifiers = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e4")
+Sprite = ExtResource("e6")
+Offset = Vector2(-185.0, -4.0)
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e5")
+AtFrame = 24
+Modifiers = [SubResource("s4")]
+
+[resource]
+script = ExtResource("e7")
+Duration = 32
+Animations = [SubResource("s3"), SubResource("s5")]
+Hitboxes = [SubResource("s1")]
+AttackProfiles = []
+Afterimages = true

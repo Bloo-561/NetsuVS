@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SpawnsList" format=3]
+
+[ext_resource type="PackedScene" uid="uid://nepa8gzdhd13k" path="res://actors/cecilia/Spawnables/0/Instances/Kaede_Spawnable_0.tscn" id="1"]
+[ext_resource type="Script" uid="uid://fshoagbsdqd4" path="res://engine/sakuga/Resources/SpawnObject.cs" id="2"]
+[ext_resource type="PackedScene" path="res://actors/leticia/projectiles/Instances/LET_Fragment.tscn" id="3"]
+[ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Key = "Firebal_Basic"
+Instance = ExtResource("1")
+PoolSize = 3
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+Key = "LetFragment"
+Instance = ExtResource("3")
+PoolSize = 8
+
+[resource]
+script = ExtResource("4")
+SpawnObjects = [SubResource("s1"), SubResource("s2")]

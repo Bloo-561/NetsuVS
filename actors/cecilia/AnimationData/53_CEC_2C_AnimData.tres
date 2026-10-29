@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://dcjsdf51eiivh"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL3.tres" id="lvl"]
+[ext_resource type="Resource" uid="uid://dtywden3lhtga" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_0.tres" id="nhb0"]
+[ext_resource type="Resource" uid="uid://dnouy1gdqlmy5" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_1.tres" id="nhb1"]
+[ext_resource type="Resource" uid="uid://74a9cgi9fzrj" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_2.tres" id="nhb2"]
+[ext_resource type="Resource" uid="uid://fma8s37q1y27" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_3.tres" id="nhb3"]
+[ext_resource type="Resource" uid="uid://gpsggpv4ozpj" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_5.tres" id="nhb5"]
+[ext_resource type="Resource" uid="uid://t20x7q4ihju9" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_6.tres" id="nhb6"]
+[ext_resource type="Resource" uid="uid://id994sh27ioc" path="res://actors/cecilia/Hitboxes/12_Hitbox_2C_7.tres" id="nhb7"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/2c_1.png" id="t_2c_1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/2c_2.png" id="t_2c_2"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/2c_3.png" id="t_2c_3"]
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("ap")
+BaseDamage = 460
+GuardCrushDamage = 340
+AttackLevel = ExtResource("lvl")
+
+[sub_resource type="Resource" id="NH0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("nhb0")
+
+[sub_resource type="Resource" id="NH1"]
+script = ExtResource("hs")
+AtFrame = 5
+HitboxData = ExtResource("nhb1")
+
+[sub_resource type="Resource" id="NH2"]
+script = ExtResource("hs")
+AtFrame = 9
+animationStage = 1
+HitboxData = ExtResource("nhb2")
+
+[sub_resource type="Resource" id="NH3"]
+script = ExtResource("hs")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("nhb3")
+
+[sub_resource type="Resource" id="NH5"]
+script = ExtResource("hs")
+AtFrame = 20
+animationStage = 2
+HitboxData = ExtResource("nhb5")
+
+[sub_resource type="Resource" id="NH6"]
+script = ExtResource("hs")
+AtFrame = 30
+animationStage = 2
+HitboxData = ExtResource("nhb6")
+
+[sub_resource type="Resource" id="NH7"]
+script = ExtResource("hs")
+AtFrame = 36
+animationStage = 2
+HitboxData = ExtResource("nhb7")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_2c_1")
+Offset = Vector2(-185, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_2c_2")
+Offset = Vector2(-208, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("as")
+AtFrame = 9
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_2c_3")
+Offset = Vector2(-168, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("as")
+AtFrame = 25
+Modifiers = [SubResource("M2_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 42
+Afterimages = true
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("NH0"), SubResource("NH1"), SubResource("NH2"), SubResource("NH3"), SubResource("NH5"), SubResource("NH6"), SubResource("NH7")]
+AttackProfiles = [SubResource("P0")]

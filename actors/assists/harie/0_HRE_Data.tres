@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://2r751qz2ssc0"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ba8wkhq5yqp73" path="res://actors/assists/harie/States/0_HRE_Hidden.tres" id="2"]
+[ext_resource type="Resource" uid="uid://508quvtipdez" path="res://actors/assists/harie/States/1_HRE_5S.tres" id="3"]
+[ext_resource type="Resource" uid="uid://6zlit710y26f" path="res://actors/assists/harie/States/2_HRE_trap.tres" id="4"]
+[ext_resource type="Resource" uid="uid://57bam6magrix" path="res://actors/assists/harie/States/3_HRE_up.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bluk6dej0y24d" path="res://actors/assists/harie/States/4_HRE_6S.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bmle82pz87q0i" path="res://actors/assists/harie/States/5_HRE_6S_carry.tres" id="7"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/6_HRE_6S_back.tres" id="nf1"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/7_HRE_6S_last.tres" id="nf2"]
+
+[resource]
+script = ExtResource("1")
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("nf1"), ExtResource("nf2")]
+BaseAttack = 100
+BaseDefense = 100

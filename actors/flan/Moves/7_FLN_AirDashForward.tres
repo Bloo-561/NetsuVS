@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://qyrbegkxb6yp"]
+
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cgu3jrjka1a8d" path="res://actors/_shared/sakuga/Inputs/9_Input_66.tres" id="2"]
+[ext_resource type="Script" uid="uid://dh03r2nvy3pmu" path="res://engine/sakuga/Resources/CustomVariableChange.cs" id="3"]
+[ext_resource type="Script" uid="uid://cuch5yr7c7dag" path="res://engine/sakuga/Resources/CustomVariableCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="5"]
+
+[sub_resource type="Resource" id="Resource_mdkuq"]
+script = ExtResource("1")
+MoveIndex = 8
+Conditions = 1
+FrameThreshold = Vector2i(3, 6)
+metadata/_custom_type_script = "uid://dpgs1fcn5u351"
+
+[sub_resource type="Resource" id="Resource_4kydk"]
+script = ExtResource("1")
+MoveIndex = 9
+Conditions = 1
+FrameThreshold = Vector2i(3, 6)
+metadata/_custom_type_script = "uid://dpgs1fcn5u351"
+
+[sub_resource type="Resource" id="Resource_opnpq"]
+script = ExtResource("3")
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_jjsyd"]
+script = ExtResource("3")
+ByIndex = 1
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_op3mk"]
+script = ExtResource("3")
+ByIndex = 2
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_snbjd"]
+script = ExtResource("4")
+ByIndex = 1
+Value = 1
+CompareMode = 4
+metadata/_custom_type_script = "uid://cuch5yr7c7dag"
+
+[resource]
+script = ExtResource("5")
+MoveName = "Forward Air Dash"
+MoveState = 19
+Inputs = ExtResource("2")
+Priority = 4
+CanCancelTo = [SubResource("Resource_mdkuq"), SubResource("Resource_4kydk")]
+VariablesRequirement = [SubResource("Resource_snbjd")]
+VariablesChange = [SubResource("Resource_opnpq"), SubResource("Resource_jjsyd"), SubResource("Resource_op3mk")]
+CanBeOverrided = true
+UseOnAir = true

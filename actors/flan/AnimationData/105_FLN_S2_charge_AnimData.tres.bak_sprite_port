@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bed8otrytyp4a"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://be5tfqhdwv155" path="res://actors/flan/Hitboxes/49_Hitbox_BigBangCrash_Charge_0.tres" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+Duration = 15
+Animations = []
+Hitboxes = [SubResource("s1")]

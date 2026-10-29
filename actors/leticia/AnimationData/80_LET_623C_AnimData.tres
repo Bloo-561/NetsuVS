@@ -1,0 +1,384 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://5toage6z1r0p"]
+
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_startup.png" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_right.png" id="4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_up.png" id="5"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_left.png" id="6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_spin_01_front.png" id="7"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_spin_02_side.png" id="8"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_spin_03_back.png" id="9"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_spin_04_side.png" id="10"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_finisher.png" id="11"]
+[ext_resource type="Resource" uid="uid://bhbi3a15pv5of" path="res://actors/leticia/Hitboxes/35_Hitbox_RisingComet_A_0.tres" id="12"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="13"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_R1.tres" id="14"]
+[ext_resource type="Resource" uid="uid://bldqb0ncd7p4k" path="res://actors/leticia/Hitboxes/35_Hitbox_RisingComet_A_2.tres" id="15"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_R2.tres" id="16"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_R3.tres" id="17"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_R4.tres" id="18"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_S1.tres" id="19"]
+[ext_resource type="Resource" uid="uid://7fkfohpolmwu" path="res://actors/leticia/Hitboxes/36_Hitbox_RisingComet_B_4.tres" id="20"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_S2.tres" id="21"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_S3.tres" id="22"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_S4.tres" id="23"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_Fin.tres" id="24"]
+[ext_resource type="Resource" uid="uid://2f860fovnw31" path="res://actors/leticia/Hitboxes/37_Hitbox_CometBurst_6.tres" id="25"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="26"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Sprite = ExtResource("1")
+Offset = Vector2(-249, 3)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Modifiers = [SubResource("s1")]
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+Sprite = ExtResource("4")
+Offset = Vector2(-428, -63)
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+AtFrame = 4
+Modifiers = [SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("2")
+Sprite = ExtResource("5")
+Offset = Vector2(-333, -102)
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("3")
+AtFrame = 7
+Modifiers = [SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("2")
+Sprite = ExtResource("6")
+Offset = Vector2(-397, -80)
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("3")
+AtFrame = 10
+Modifiers = [SubResource("s7")]
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+AtFrame = 30
+Modifiers = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("2")
+Sprite = ExtResource("8")
+Offset = Vector2(-435, -58)
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("3")
+AtFrame = 31
+Modifiers = [SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("2")
+Sprite = ExtResource("9")
+Offset = Vector2(-424, -50)
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("3")
+AtFrame = 33
+Modifiers = [SubResource("s13")]
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("2")
+Sprite = ExtResource("10")
+Offset = Vector2(-412, -53)
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("3")
+AtFrame = 34
+Modifiers = [SubResource("s15")]
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("3")
+AtFrame = 36
+Modifiers = [SubResource("s17")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("2")
+Sprite = ExtResource("8")
+Offset = Vector2(-435, -58)
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("3")
+AtFrame = 37
+Modifiers = [SubResource("s19")]
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("2")
+Sprite = ExtResource("9")
+Offset = Vector2(-424, -50)
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("3")
+AtFrame = 39
+Modifiers = [SubResource("s21")]
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("2")
+Sprite = ExtResource("10")
+Offset = Vector2(-412, -53)
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("3")
+AtFrame = 40
+Modifiers = [SubResource("s23")]
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("3")
+AtFrame = 42
+Modifiers = [SubResource("s25")]
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("2")
+Sprite = ExtResource("8")
+Offset = Vector2(-435, -58)
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("3")
+AtFrame = 43
+Modifiers = [SubResource("s27")]
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("2")
+Sprite = ExtResource("9")
+Offset = Vector2(-424, -50)
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("3")
+AtFrame = 45
+Modifiers = [SubResource("s29")]
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("2")
+Sprite = ExtResource("10")
+Offset = Vector2(-412, -53)
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("3")
+AtFrame = 46
+Modifiers = [SubResource("s31")]
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s34"]
+script = ExtResource("3")
+AtFrame = 48
+Modifiers = [SubResource("s33")]
+
+[sub_resource type="Resource" id="s35"]
+script = ExtResource("2")
+Sprite = ExtResource("8")
+Offset = Vector2(-435, -58)
+
+[sub_resource type="Resource" id="s36"]
+script = ExtResource("3")
+AtFrame = 49
+Modifiers = [SubResource("s35")]
+
+[sub_resource type="Resource" id="s37"]
+script = ExtResource("2")
+Sprite = ExtResource("9")
+Offset = Vector2(-424, -50)
+
+[sub_resource type="Resource" id="s38"]
+script = ExtResource("3")
+AtFrame = 51
+Modifiers = [SubResource("s37")]
+
+[sub_resource type="Resource" id="s39"]
+script = ExtResource("2")
+Sprite = ExtResource("10")
+Offset = Vector2(-412, -53)
+
+[sub_resource type="Resource" id="s40"]
+script = ExtResource("3")
+AtFrame = 52
+Modifiers = [SubResource("s39")]
+
+[sub_resource type="Resource" id="s41"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s42"]
+script = ExtResource("3")
+AtFrame = 54
+Modifiers = [SubResource("s41")]
+
+[sub_resource type="Resource" id="s43"]
+script = ExtResource("2")
+Sprite = ExtResource("7")
+Offset = Vector2(-415, -81)
+
+[sub_resource type="Resource" id="s44"]
+script = ExtResource("3")
+AtFrame = 55
+Modifiers = [SubResource("s43")]
+
+[sub_resource type="Resource" id="s45"]
+script = ExtResource("2")
+Sprite = ExtResource("11")
+Offset = Vector2(-302, -82)
+
+[sub_resource type="Resource" id="s46"]
+script = ExtResource("3")
+AtFrame = 56
+Modifiers = [SubResource("s45")]
+
+[sub_resource type="Resource" id="s47"]
+script = ExtResource("13")
+HitboxData = ExtResource("12")
+
+[sub_resource type="Resource" id="s48"]
+script = ExtResource("13")
+AtFrame = 4
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("14")
+
+[sub_resource type="Resource" id="s49"]
+script = ExtResource("13")
+AtFrame = 9
+animationStage = 2
+HitboxData = ExtResource("15")
+
+[sub_resource type="Resource" id="s50"]
+script = ExtResource("13")
+AtFrame = 11
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("16")
+
+[sub_resource type="Resource" id="s51"]
+script = ExtResource("13")
+AtFrame = 14
+animationStage = 2
+HitboxData = ExtResource("15")
+
+[sub_resource type="Resource" id="s52"]
+script = ExtResource("13")
+AtFrame = 18
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("17")
+
+[sub_resource type="Resource" id="s53"]
+script = ExtResource("13")
+AtFrame = 21
+animationStage = 2
+HitboxData = ExtResource("15")
+
+[sub_resource type="Resource" id="s54"]
+script = ExtResource("13")
+AtFrame = 25
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("18")
+
+[sub_resource type="Resource" id="s55"]
+script = ExtResource("13")
+AtFrame = 28
+animationStage = 2
+HitboxData = ExtResource("15")
+
+[sub_resource type="Resource" id="s56"]
+script = ExtResource("13")
+AtFrame = 31
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("19")
+
+[sub_resource type="Resource" id="s57"]
+script = ExtResource("13")
+AtFrame = 35
+animationStage = 2
+HitboxData = ExtResource("20")
+
+[sub_resource type="Resource" id="s58"]
+script = ExtResource("13")
+AtFrame = 37
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("21")
+
+[sub_resource type="Resource" id="s59"]
+script = ExtResource("13")
+AtFrame = 41
+animationStage = 2
+HitboxData = ExtResource("20")
+
+[sub_resource type="Resource" id="s60"]
+script = ExtResource("13")
+AtFrame = 43
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("22")
+
+[sub_resource type="Resource" id="s61"]
+script = ExtResource("13")
+AtFrame = 47
+animationStage = 2
+HitboxData = ExtResource("20")
+
+[sub_resource type="Resource" id="s62"]
+script = ExtResource("13")
+AtFrame = 49
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("23")
+
+[sub_resource type="Resource" id="s63"]
+script = ExtResource("13")
+AtFrame = 53
+animationStage = 2
+HitboxData = ExtResource("20")
+
+[sub_resource type="Resource" id="s64"]
+script = ExtResource("13")
+AtFrame = 57
+animationStage = 1
+NetsuRehit = true
+HitboxData = ExtResource("24")
+
+[sub_resource type="Resource" id="s65"]
+script = ExtResource("13")
+AtFrame = 62
+animationStage = 2
+HitboxData = ExtResource("25")
+
+[resource]
+script = ExtResource("26")
+Duration = 240
+Animations = [SubResource("s2"), SubResource("s4"), SubResource("s6"), SubResource("s8"), SubResource("s10"), SubResource("s12"), SubResource("s14"), SubResource("s16"), SubResource("s18"), SubResource("s20"), SubResource("s22"), SubResource("s24"), SubResource("s26"), SubResource("s28"), SubResource("s30"), SubResource("s32"), SubResource("s34"), SubResource("s36"), SubResource("s38"), SubResource("s40"), SubResource("s42"), SubResource("s44"), SubResource("s46")]
+Hitboxes = [SubResource("s47"), SubResource("s48"), SubResource("s49"), SubResource("s50"), SubResource("s51"), SubResource("s52"), SubResource("s53"), SubResource("s54"), SubResource("s55"), SubResource("s56"), SubResource("s57"), SubResource("s58"), SubResource("s59"), SubResource("s60"), SubResource("s61"), SubResource("s62"), SubResource("s63"), SubResource("s64"), SubResource("s65")]

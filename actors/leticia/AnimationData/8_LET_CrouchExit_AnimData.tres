@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bcscydvkpalf6"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://0ih5afbcliaj" path="res://actors/leticia/Hitboxes/1_Hitbox_Crouch.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/crouch_3.png" id="t_crouch_3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/crouch_1.png" id="t_crouch_1"]
+
+[sub_resource type="Resource" id="Resource_sv2n2"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_crouch_3")
+Offset = Vector2(-159, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_crouch_1")
+Offset = Vector2(-187, -8)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 5
+Modifiers = [SubResource("M1_0")]
+
+[resource]
+script = ExtResource("6")
+Duration = 12
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("Resource_sv2n2")]
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

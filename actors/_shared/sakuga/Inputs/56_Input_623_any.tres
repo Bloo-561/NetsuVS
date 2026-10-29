@@ -1,0 +1,748 @@
+[gd_resource type="Resource" script_class="MotionInputs" format=3 uid="uid://66ko1b57dbwd"]
+
+[ext_resource type="Script" uid="uid://di4jwsd3y2x8w" path="res://engine/sakuga/Resources/MotionInputs.cs" id="1"]
+[ext_resource type="Script" uid="uid://ce6shsv0dij5v" path="res://engine/sakuga/Resources/InputOption.cs" id="2"]
+[ext_resource type="Script" uid="uid://87xpa7lbksa8" path="res://engine/sakuga/Resources/InputSequence.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("3")
+Buttons = 1
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("2")
+Inputs = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("2")
+Inputs = [SubResource("s7"), SubResource("s8"), SubResource("s9"), SubResource("s10"), SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("2")
+Inputs = [SubResource("s13"), SubResource("s14"), SubResource("s15"), SubResource("s16")]
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("3")
+Buttons = 1
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("2")
+Inputs = [SubResource("s18"), SubResource("s19"), SubResource("s20"), SubResource("s21")]
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("2")
+Inputs = [SubResource("s23"), SubResource("s24"), SubResource("s25")]
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("3")
+Buttons = 1
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("2")
+Inputs = [SubResource("s27"), SubResource("s28"), SubResource("s29"), SubResource("s30"), SubResource("s31")]
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s34"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s35"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s36"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s37"]
+script = ExtResource("2")
+Inputs = [SubResource("s33"), SubResource("s34"), SubResource("s35"), SubResource("s36")]
+
+[sub_resource type="Resource" id="s38"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s39"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s40"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s41"]
+script = ExtResource("3")
+Buttons = 1
+
+[sub_resource type="Resource" id="s42"]
+script = ExtResource("2")
+Inputs = [SubResource("s38"), SubResource("s39"), SubResource("s40"), SubResource("s41")]
+
+[sub_resource type="Resource" id="s43"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s44"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s45"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s46"]
+script = ExtResource("2")
+Inputs = [SubResource("s43"), SubResource("s44"), SubResource("s45")]
+
+[sub_resource type="Resource" id="s47"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s48"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s49"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s50"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s51"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s52"]
+script = ExtResource("2")
+Inputs = [SubResource("s47"), SubResource("s48"), SubResource("s49"), SubResource("s50"), SubResource("s51")]
+
+[sub_resource type="Resource" id="s53"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s54"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s55"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s56"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s57"]
+script = ExtResource("3")
+Buttons = 2
+
+[sub_resource type="Resource" id="s58"]
+script = ExtResource("2")
+Inputs = [SubResource("s53"), SubResource("s54"), SubResource("s55"), SubResource("s56"), SubResource("s57")]
+
+[sub_resource type="Resource" id="s59"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s60"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s61"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s62"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s63"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s64"]
+script = ExtResource("2")
+Inputs = [SubResource("s59"), SubResource("s60"), SubResource("s61"), SubResource("s62"), SubResource("s63")]
+
+[sub_resource type="Resource" id="s65"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s66"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s67"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s68"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s69"]
+script = ExtResource("2")
+Inputs = [SubResource("s65"), SubResource("s66"), SubResource("s67"), SubResource("s68")]
+
+[sub_resource type="Resource" id="s70"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s71"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s72"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s73"]
+script = ExtResource("3")
+Buttons = 2
+
+[sub_resource type="Resource" id="s74"]
+script = ExtResource("2")
+Inputs = [SubResource("s70"), SubResource("s71"), SubResource("s72"), SubResource("s73")]
+
+[sub_resource type="Resource" id="s75"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s76"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s77"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s78"]
+script = ExtResource("2")
+Inputs = [SubResource("s75"), SubResource("s76"), SubResource("s77")]
+
+[sub_resource type="Resource" id="s79"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s80"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s81"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s82"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s83"]
+script = ExtResource("3")
+Buttons = 2
+
+[sub_resource type="Resource" id="s84"]
+script = ExtResource("2")
+Inputs = [SubResource("s79"), SubResource("s80"), SubResource("s81"), SubResource("s82"), SubResource("s83")]
+
+[sub_resource type="Resource" id="s85"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s86"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s87"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s88"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s89"]
+script = ExtResource("2")
+Inputs = [SubResource("s85"), SubResource("s86"), SubResource("s87"), SubResource("s88")]
+
+[sub_resource type="Resource" id="s90"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s91"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s92"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s93"]
+script = ExtResource("3")
+Buttons = 2
+
+[sub_resource type="Resource" id="s94"]
+script = ExtResource("2")
+Inputs = [SubResource("s90"), SubResource("s91"), SubResource("s92"), SubResource("s93")]
+
+[sub_resource type="Resource" id="s95"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s96"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s97"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s98"]
+script = ExtResource("2")
+Inputs = [SubResource("s95"), SubResource("s96"), SubResource("s97")]
+
+[sub_resource type="Resource" id="s99"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s100"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s101"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s102"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s103"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s104"]
+script = ExtResource("2")
+Inputs = [SubResource("s99"), SubResource("s100"), SubResource("s101"), SubResource("s102"), SubResource("s103")]
+
+[sub_resource type="Resource" id="s105"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s106"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s107"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s108"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s109"]
+script = ExtResource("3")
+Buttons = 4
+
+[sub_resource type="Resource" id="s110"]
+script = ExtResource("2")
+Inputs = [SubResource("s105"), SubResource("s106"), SubResource("s107"), SubResource("s108"), SubResource("s109")]
+
+[sub_resource type="Resource" id="s111"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s112"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s113"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s114"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s115"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s116"]
+script = ExtResource("2")
+Inputs = [SubResource("s111"), SubResource("s112"), SubResource("s113"), SubResource("s114"), SubResource("s115")]
+
+[sub_resource type="Resource" id="s117"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s118"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s119"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s120"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s121"]
+script = ExtResource("2")
+Inputs = [SubResource("s117"), SubResource("s118"), SubResource("s119"), SubResource("s120")]
+
+[sub_resource type="Resource" id="s122"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s123"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s124"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s125"]
+script = ExtResource("3")
+Buttons = 4
+
+[sub_resource type="Resource" id="s126"]
+script = ExtResource("2")
+Inputs = [SubResource("s122"), SubResource("s123"), SubResource("s124"), SubResource("s125")]
+
+[sub_resource type="Resource" id="s127"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s128"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s129"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s130"]
+script = ExtResource("2")
+Inputs = [SubResource("s127"), SubResource("s128"), SubResource("s129")]
+
+[sub_resource type="Resource" id="s131"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s132"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s133"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s134"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s135"]
+script = ExtResource("3")
+Buttons = 4
+
+[sub_resource type="Resource" id="s136"]
+script = ExtResource("2")
+Inputs = [SubResource("s131"), SubResource("s132"), SubResource("s133"), SubResource("s134"), SubResource("s135")]
+
+[sub_resource type="Resource" id="s137"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s138"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s139"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s140"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s141"]
+script = ExtResource("2")
+Inputs = [SubResource("s137"), SubResource("s138"), SubResource("s139"), SubResource("s140")]
+
+[sub_resource type="Resource" id="s142"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s143"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s144"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s145"]
+script = ExtResource("3")
+Buttons = 4
+
+[sub_resource type="Resource" id="s146"]
+script = ExtResource("2")
+Inputs = [SubResource("s142"), SubResource("s143"), SubResource("s144"), SubResource("s145")]
+
+[sub_resource type="Resource" id="s147"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s148"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s149"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s150"]
+script = ExtResource("2")
+Inputs = [SubResource("s147"), SubResource("s148"), SubResource("s149")]
+
+[sub_resource type="Resource" id="s151"]
+script = ExtResource("3")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s152"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s153"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s154"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s155"]
+script = ExtResource("3")
+Directional = 5
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s156"]
+script = ExtResource("2")
+Inputs = [SubResource("s151"), SubResource("s152"), SubResource("s153"), SubResource("s154"), SubResource("s155")]
+
+[resource]
+script = ExtResource("1")
+ValidInputs = [SubResource("s6"), SubResource("s12"), SubResource("s17"), SubResource("s22"), SubResource("s26"), SubResource("s32"), SubResource("s37"), SubResource("s42"), SubResource("s46"), SubResource("s52"), SubResource("s58"), SubResource("s64"), SubResource("s69"), SubResource("s74"), SubResource("s78"), SubResource("s84"), SubResource("s89"), SubResource("s94"), SubResource("s98"), SubResource("s104"), SubResource("s110"), SubResource("s116"), SubResource("s121"), SubResource("s126"), SubResource("s130"), SubResource("s136"), SubResource("s141"), SubResource("s146"), SubResource("s150"), SubResource("s156")]
+AbsoluteDirection = true

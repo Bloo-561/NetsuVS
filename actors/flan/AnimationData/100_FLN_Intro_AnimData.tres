@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bjq1i2pkb48m4"]
+
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="1"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/idle_base.png" id="t_idle_base"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/6c_1.png" id="t_6c_1"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/6c_2.png" id="t_6c_2"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/6c_3.png" id="t_6c_3"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_idle_base")
+Offset = Vector2(-128, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("1")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_6c_1")
+Offset = Vector2(-129, -4)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("1")
+AtFrame = 34
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_6c_2")
+Offset = Vector2(-160, -4)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("1")
+AtFrame = 42
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_6c_3")
+Offset = Vector2(-128, -4)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("1")
+AtFrame = 74
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_idle_base")
+Offset = Vector2(-128, -4)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("1")
+AtFrame = 90
+Modifiers = [SubResource("M4_0")]
+
+[resource]
+script = ExtResource("2")
+Duration = 120
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = []
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

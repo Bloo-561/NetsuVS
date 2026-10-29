@@ -1,0 +1,2425 @@
+{
+ "reference": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+ "ref": {
+  "empty": false,
+  "top": 13,
+  "bot": 1446,
+  "left": 94,
+  "right": 1037,
+  "h": 1434,
+  "rear_x": 94,
+  "front_x": 1037,
+  "hip_x": 498.5,
+  "cx": 578.415372141581,
+  "cy": 699.1446352249544,
+  "fx_px": 7666
+ },
+ "frames": {
+  "Cecilia_Original_Idle_Style/01_Idle/01_ready.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1446,
+   "left": 94,
+   "right": 1037,
+   "h": 1434,
+   "rear_x": 94,
+   "front_x": 1037,
+   "hip_x": 498.5,
+   "cx": 578.415372141581,
+   "cy": 699.1446352249544,
+   "fx_px": 7666,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 308,
+    "good": 308
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Cecilia_Original_Idle_Style/01_Idle/02_inhale.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1447,
+   "left": 95,
+   "right": 1033,
+   "h": 1435,
+   "rear_x": 95,
+   "front_x": 1033,
+   "hip_x": 499.5,
+   "cx": 576.3680264984652,
+   "cy": 702.3484769147254,
+   "fx_px": 7748,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9947755562613857,
+    "rot": -0.3228379015958001,
+    "inliers": 120,
+    "good": 127
+   },
+   "scale_how": "head",
+   "scale": 0.9947755562613857
+  },
+  "Cecilia_Original_Idle_Style/01_Idle/03_exhale.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1444,
+   "left": 94,
+   "right": 1035,
+   "h": 1428,
+   "rear_x": 94,
+   "front_x": 1035,
+   "hip_x": 509.0,
+   "cx": 575.6377465451799,
+   "cy": 706.8515726909836,
+   "fx_px": 7587,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9694665327453411,
+    "rot": -0.5605223783744083,
+    "inliers": 112,
+    "good": 121
+   },
+   "scale_how": "head",
+   "scale": 0.9694665327453411
+  },
+  "Cecilia_Original_Idle_Style/01_Idle/04_half_blink.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1445,
+   "left": 94,
+   "right": 1034,
+   "h": 1433,
+   "rear_x": 94,
+   "front_x": 1034,
+   "hip_x": 497.5,
+   "cx": 574.8876080418894,
+   "cy": 702.7353142294688,
+   "fx_px": 7542,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.999764976866519,
+    "rot": -0.0461273986199309,
+    "inliers": 101,
+    "good": 116
+   },
+   "scale_how": "head",
+   "scale": 0.999764976866519
+  },
+  "Cecilia_Original_Idle_Style/01_Idle/05_blink.png": {
+   "empty": false,
+   "top": 14,
+   "bot": 1447,
+   "left": 94,
+   "right": 1031,
+   "h": 1434,
+   "rear_x": 94,
+   "front_x": 1031,
+   "hip_x": 497.0,
+   "cx": 573.7753858535447,
+   "cy": 702.325948025849,
+   "fx_px": 7551,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9979635980814547,
+    "rot": -0.14478424970561227,
+    "inliers": 110,
+    "good": 117
+   },
+   "scale_how": "head",
+   "scale": 0.9979635980814547
+  },
+  "Cecilia_Original_Idle_Style/02_Crouch/01_transition.png": {
+   "empty": false,
+   "top": 84,
+   "bot": 1445,
+   "left": 82,
+   "right": 1036,
+   "h": 1362,
+   "rear_x": 82,
+   "front_x": 211,
+   "hip_x": 509.5,
+   "cx": 583.723104471133,
+   "cy": 739.1744727608161,
+   "fx_px": 8387,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0553625339586985,
+    "rot": -1.0431431437695378,
+    "inliers": 79,
+    "good": 101
+   },
+   "scale_how": "head",
+   "scale": 1.0553625339586985
+  },
+  "Cecilia_Original_Idle_Style/02_Crouch/02_low_crouch.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1279,
+   "left": 85,
+   "right": 1199,
+   "h": 1267,
+   "rear_x": 85,
+   "front_x": 1199,
+   "hip_x": 588.0,
+   "cx": 679.8219863581996,
+   "cy": 636.2397702660475,
+   "fx_px": 9724,
+   "size": [
+    1207,
+    1303
+   ],
+   "sift": {
+    "scale": 1.1214068084159965,
+    "rot": 0.3412435629146381,
+    "inliers": 61,
+    "good": 76
+   },
+   "scale_how": "head",
+   "scale": 1.1214068084159965
+  },
+  "Cecilia_Original_Idle_Style/03_Standing_5A/01_startup.png": {
+   "empty": false,
+   "top": 21,
+   "bot": 1437,
+   "left": 92,
+   "right": 1040,
+   "h": 1417,
+   "rear_x": 92,
+   "front_x": 1040,
+   "hip_x": 502.5,
+   "cx": 575.4203883213654,
+   "cy": 696.9819514646616,
+   "fx_px": 8421,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.997322963480794,
+    "rot": 0.021592495425856933,
+    "inliers": 114,
+    "good": 125
+   },
+   "scale_how": "head",
+   "scale": 0.997322963480794
+  },
+  "Cecilia_Original_Idle_Style/03_Standing_5A/02_attack.png": {
+   "empty": false,
+   "top": 21,
+   "bot": 1436,
+   "left": 58,
+   "right": 1030,
+   "h": 1416,
+   "rear_x": 58,
+   "front_x": 1030,
+   "hip_x": 443.0,
+   "cx": 545.2595611943286,
+   "cy": 694.8420099437885,
+   "fx_px": 6928,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9542502535018221,
+    "rot": 1.2944777343734413,
+    "inliers": 113,
+    "good": 122
+   },
+   "scale_how": "head",
+   "scale": 0.9542502535018221
+  },
+  "Cecilia_Original_Idle_Style/03_Standing_5A/03_recovery.png": {
+   "empty": false,
+   "top": 14,
+   "bot": 1444,
+   "left": 91,
+   "right": 1036,
+   "h": 1431,
+   "rear_x": 91,
+   "front_x": 1036,
+   "hip_x": 516.5,
+   "cx": 572.9898729458545,
+   "cy": 697.6091525820642,
+   "fx_px": 7347,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0242365167216594,
+    "rot": 0.0028788094354923514,
+    "inliers": 111,
+    "good": 140
+   },
+   "scale_how": "head",
+   "scale": 1.0242365167216594
+  },
+  "Cecilia_Original_Idle_Style/04_Crouching_2A/01_startup.png": {
+   "empty": false,
+   "top": 55,
+   "bot": 1247,
+   "left": 63,
+   "right": 1190,
+   "h": 1193,
+   "rear_x": 63,
+   "front_x": 1190,
+   "hip_x": 591.5,
+   "cx": 688.1731470602059,
+   "cy": 644.588024627532,
+   "fx_px": 9181,
+   "size": [
+    1212,
+    1297
+   ],
+   "sift": {
+    "scale": 1.152423882767629,
+    "rot": 0.45333642419398895,
+    "inliers": 67,
+    "good": 102
+   },
+   "scale_how": "head",
+   "scale": 1.152423882767629
+  },
+  "Cecilia_Original_Idle_Style/04_Crouching_2A/02_attack.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 987,
+   "left": 78,
+   "right": 1480,
+   "h": 971,
+   "rear_x": 78,
+   "front_x": 1386,
+   "hip_x": 932.5,
+   "cx": 845.7571783612552,
+   "cy": 527.7621309089973,
+   "fx_px": 4153,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.033764243829851,
+    "rot": 0.8659901949308794,
+    "inliers": 70,
+    "good": 93
+   },
+   "scale_how": "head",
+   "scale": 1.033764243829851
+  },
+  "Cecilia_Original_Idle_Style/04_Crouching_2A/03_recovery.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1116,
+   "left": 92,
+   "right": 1346,
+   "h": 1101,
+   "rear_x": 92,
+   "front_x": 1346,
+   "hip_x": 743.0,
+   "cx": 786.4617668485074,
+   "cy": 594.221089011622,
+   "fx_px": 6419,
+   "size": [
+    1371,
+    1148
+   ],
+   "sift": {
+    "scale": 1.1298022573789384,
+    "rot": -0.41433211608951176,
+    "inliers": 58,
+    "good": 94
+   },
+   "scale_how": "head",
+   "scale": 1.1298022573789384
+  },
+  "Cecilia_Original_Idle_Style/05_Light_Damage/01_impact.png": {
+   "empty": false,
+   "top": 20,
+   "bot": 1444,
+   "left": 87,
+   "right": 1042,
+   "h": 1425,
+   "rear_x": 87,
+   "front_x": 1042,
+   "hip_x": 504.0,
+   "cx": 585.8619683665589,
+   "cy": 696.3037306104549,
+   "fx_px": 7402,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.00798211605525,
+    "rot": 2.744779889013681,
+    "inliers": 29,
+    "good": 64
+   },
+   "scale_how": "head",
+   "scale": 1.00798211605525
+  },
+  "Cecilia_Original_Idle_Style/05_Light_Damage/02_recovery.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1447,
+   "left": 95,
+   "right": 1031,
+   "h": 1435,
+   "rear_x": 95,
+   "front_x": 1031,
+   "hip_x": 500.5,
+   "cx": 573.92897842105,
+   "cy": 699.9063572920877,
+   "fx_px": 7098,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9924801460541547,
+    "rot": -0.2211193570144133,
+    "inliers": 104,
+    "good": 120
+   },
+   "scale_how": "head",
+   "scale": 0.9924801460541547
+  },
+  "Cecilia_Original_Idle_Style/06_Heavy_Damage/01_impact.png": {
+   "empty": false,
+   "top": 27,
+   "bot": 1431,
+   "left": 145,
+   "right": 1028,
+   "h": 1405,
+   "rear_x": 234,
+   "front_x": 1028,
+   "hip_x": 536.0,
+   "cx": 524.7613100053937,
+   "cy": 689.2256655493912,
+   "fx_px": 8205,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9460789406481492,
+    "rot": -30.228986774765318,
+    "inliers": 39,
+    "good": 236
+   },
+   "scale_how": "body",
+   "scale": 0.9460789406481492
+  },
+  "Cecilia_Original_Idle_Style/06_Heavy_Damage/02_recovery.png": {
+   "empty": false,
+   "top": 49,
+   "bot": 1444,
+   "left": 90,
+   "right": 1013,
+   "h": 1396,
+   "rear_x": 90,
+   "front_x": 1013,
+   "hip_x": 506.0,
+   "cx": 574.3791571576588,
+   "cy": 688.0267742059273,
+   "fx_px": 6797,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.037552322774367,
+    "rot": 6.859445214432201,
+    "inliers": 34,
+    "good": 61
+   },
+   "scale_how": "head",
+   "scale": 1.037552322774367
+  },
+  "Cecilia_Original_Idle_Style/07_Ground_5B/01_startup.png": {
+   "empty": false,
+   "top": 72,
+   "bot": 1440,
+   "left": 83,
+   "right": 1035,
+   "h": 1369,
+   "rear_x": 83,
+   "front_x": 1035,
+   "hip_x": 551.5,
+   "cx": 585.4945001598162,
+   "cy": 710.3132565734926,
+   "fx_px": 7978,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.013393045730773,
+    "rot": 1.288296182220467,
+    "inliers": 72,
+    "good": 96
+   },
+   "scale_how": "head",
+   "scale": 1.013393045730773
+  },
+  "Cecilia_Original_Idle_Style/07_Ground_5B/02_attack.png": {
+   "empty": false,
+   "top": 90,
+   "bot": 1380,
+   "left": 19,
+   "right": 1048,
+   "h": 1291,
+   "rear_x": 19,
+   "front_x": 908,
+   "hip_x": 484.0,
+   "cx": 436.44974598415524,
+   "cy": 697.8381325671216,
+   "fx_px": 19982,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.882044300549845,
+    "rot": -0.893314667101595,
+    "inliers": 81,
+    "good": 102
+   },
+   "scale_how": "head",
+   "scale": 0.882044300549845
+  },
+  "Cecilia_Original_Idle_Style/07_Ground_5B/03_recovery.png": {
+   "empty": false,
+   "top": 75,
+   "bot": 1397,
+   "left": 51,
+   "right": 1023,
+   "h": 1323,
+   "rear_x": 51,
+   "front_x": 951,
+   "hip_x": 548.5,
+   "cx": 485.7525845683963,
+   "cy": 704.2143049406181,
+   "fx_px": 13928,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9254959211502204,
+    "rot": 0.9570393883104349,
+    "inliers": 105,
+    "good": 113
+   },
+   "scale_how": "head",
+   "scale": 0.9254959211502204
+  },
+  "Cecilia_Original_Idle_Style/08_Ground_2B/01_startup.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 1171,
+   "left": 143,
+   "right": 1299,
+   "h": 1160,
+   "rear_x": 251,
+   "front_x": 1299,
+   "hip_x": 799.5,
+   "cx": 759.87273385947,
+   "cy": 668.9957384482342,
+   "fx_px": 6146,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 1.1749030195787669,
+    "rot": 0.5917263905187569,
+    "inliers": 62,
+    "good": 81
+   },
+   "scale_how": "head",
+   "scale": 1.1749030195787669
+  },
+  "Cecilia_Original_Idle_Style/08_Ground_2B/02_attack.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1006,
+   "left": 67,
+   "right": 1518,
+   "h": 990,
+   "rear_x": 1015,
+   "front_x": 1161,
+   "hip_x": 905.0,
+   "cx": 747.6954367827407,
+   "cy": 563.6954367827407,
+   "fx_px": 30076,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0087812354685235,
+    "rot": -0.6093956562169414,
+    "inliers": 45,
+    "good": 85
+   },
+   "scale_how": "head",
+   "scale": 1.0087812354685235
+  },
+  "Cecilia_Original_Idle_Style/08_Ground_2B/03_recovery.png": {
+   "empty": false,
+   "top": 90,
+   "bot": 1240,
+   "left": 56,
+   "right": 1133,
+   "h": 1151,
+   "rear_x": 198,
+   "front_x": 319,
+   "hip_x": 516.0,
+   "cx": 601.3538042368646,
+   "cy": 643.5230464872324,
+   "fx_px": 20262,
+   "size": [
+    1211,
+    1299
+   ],
+   "sift": {
+    "scale": 1.0347729984702838,
+    "rot": 2.4656690328944526,
+    "inliers": 47,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 1.0347729984702838
+  },
+  "Cecilia_Original_Idle_Style/09_Ground_5C/01_startup.png": {
+   "empty": false,
+   "top": 4,
+   "bot": 1106,
+   "left": 72,
+   "right": 1351,
+   "h": 1103,
+   "rear_x": 72,
+   "front_x": 1046,
+   "hip_x": 504.0,
+   "cx": 585.9076491296831,
+   "cy": 546.8704428222482,
+   "fx_px": 13203,
+   "size": [
+    1385,
+    1136
+   ],
+   "sift": {
+    "scale": 0.748461240347808,
+    "rot": 6.114508742861293,
+    "inliers": 45,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 0.748461240347808
+  },
+  "Cecilia_Original_Idle_Style/09_Ground_5C/02_attack.png": {
+   "empty": false,
+   "top": 14,
+   "bot": 976,
+   "left": 55,
+   "right": 1495,
+   "h": 963,
+   "rear_x": 55,
+   "front_x": 1143,
+   "hip_x": 807.5,
+   "cx": 654.7065003589375,
+   "cy": 501.8922648959081,
+   "fx_px": 67383,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.6857314999627975,
+    "rot": 5.6282214767314755,
+    "inliers": 32,
+    "good": 42
+   },
+   "scale_how": "head",
+   "scale": 0.6857314999627975
+  },
+  "Cecilia_Original_Idle_Style/09_Ground_5C/03_recovery.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 992,
+   "left": 147,
+   "right": 1495,
+   "h": 978,
+   "rear_x": 147,
+   "front_x": 1053,
+   "hip_x": 713.0,
+   "cx": 681.9820821801442,
+   "cy": 482.40537911380267,
+   "fx_px": 25298,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7762907921941858,
+    "rot": 11.423474240491007,
+    "inliers": 60,
+    "good": 77
+   },
+   "scale_how": "head",
+   "scale": 0.7762907921941858
+  },
+  "Cecilia_Original_Idle_Style/10_Ground_2C/01_startup.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 969,
+   "left": 160,
+   "right": 1483,
+   "h": 957,
+   "rear_x": 479,
+   "front_x": 1478,
+   "hip_x": 533.5,
+   "cx": 687.7105989027915,
+   "cy": 561.0353618130983,
+   "fx_px": 7709,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0364982729383405,
+    "rot": 0.3109650070857427,
+    "inliers": 68,
+    "good": 85
+   },
+   "scale_how": "head",
+   "scale": 1.0364982729383405
+  },
+  "Cecilia_Original_Idle_Style/10_Ground_2C/02_attack.png": {
+   "empty": false,
+   "top": 83,
+   "bot": 911,
+   "left": 69,
+   "right": 1478,
+   "h": 829,
+   "rear_x": 461,
+   "front_x": 718,
+   "hip_x": 576.5,
+   "cx": 632.3677565166557,
+   "cy": 568.7499112670029,
+   "fx_px": 13812,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9364280035630496,
+    "rot": -0.817387809232742,
+    "inliers": 48,
+    "good": 68
+   },
+   "scale_how": "head",
+   "scale": 0.9364280035630496
+  },
+  "Cecilia_Original_Idle_Style/10_Ground_2C/03_recovery.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 967,
+   "left": 161,
+   "right": 1420,
+   "h": 951,
+   "rear_x": 168,
+   "front_x": 1420,
+   "hip_x": 778.5,
+   "cx": 857.5427407275722,
+   "cy": 548.0095365369722,
+   "fx_px": 9535,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.1030860359542307,
+    "rot": 0.03742875705442736,
+    "inliers": 45,
+    "good": 57
+   },
+   "scale_how": "head",
+   "scale": 1.1030860359542307
+  },
+  "Cecilia_Original_Idle_Style/11_Air_5A/01_startup.png": {
+   "empty": false,
+   "top": 19,
+   "bot": 1127,
+   "left": 245,
+   "right": 990,
+   "h": 1109,
+   "rear_x": 246,
+   "front_x": 321,
+   "hip_x": 613.0,
+   "cx": 661.2725570083171,
+   "cy": 564.6213825201123,
+   "fx_px": 5201,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 0.9621829103375784,
+    "rot": 1.913015368001926,
+    "inliers": 57,
+    "good": 77
+   },
+   "scale_how": "head",
+   "scale": 0.9621829103375784
+  },
+  "Cecilia_Original_Idle_Style/11_Air_5A/02_attack.png": {
+   "empty": false,
+   "top": 19,
+   "bot": 1125,
+   "left": 181,
+   "right": 1300,
+   "h": 1107,
+   "rear_x": 554,
+   "front_x": 640,
+   "hip_x": 503.5,
+   "cx": 627.080516163892,
+   "cy": 550.929097554262,
+   "fx_px": 7748,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 0.9839615097088338,
+    "rot": 4.130523039993323,
+    "inliers": 43,
+    "good": 74
+   },
+   "scale_how": "head",
+   "scale": 0.9839615097088338
+  },
+  "Cecilia_Original_Idle_Style/11_Air_5A/03_recovery.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1372,
+   "left": 181,
+   "right": 873,
+   "h": 1358,
+   "rear_x": 247,
+   "front_x": 346,
+   "hip_x": 503.0,
+   "cx": 571.7101783033266,
+   "cy": 673.6513493727743,
+   "fx_px": 6681,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9999641605432263,
+    "rot": 0.23990155521544768,
+    "inliers": 123,
+    "good": 130
+   },
+   "scale_how": "head",
+   "scale": 0.9999641605432263
+  },
+  "Cecilia_Original_Idle_Style/12_Air_5B/01_startup.png": {
+   "empty": false,
+   "top": 14,
+   "bot": 1139,
+   "left": 69,
+   "right": 1289,
+   "h": 1126,
+   "rear_x": 601,
+   "front_x": 681,
+   "hip_x": 667.0,
+   "cx": 576.2334398240284,
+   "cy": 566.8766366397821,
+   "fx_px": 13566,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 1.0321929230748026,
+    "rot": 3.3246340029393107,
+    "inliers": 38,
+    "good": 63
+   },
+   "scale_how": "head",
+   "scale": 1.0321929230748026
+  },
+  "Cecilia_Original_Idle_Style/12_Air_5B/02_attack.png": {
+   "empty": false,
+   "top": 78,
+   "bot": 1071,
+   "left": 100,
+   "right": 1275,
+   "h": 994,
+   "rear_x": 432,
+   "front_x": 841,
+   "hip_x": 687.5,
+   "cx": 563.0780604742048,
+   "cy": 557.806950571772,
+   "fx_px": 64868,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 0.7399278984488254,
+    "rot": 3.7118797085228,
+    "inliers": 41,
+    "good": 65
+   },
+   "scale_how": "head",
+   "scale": 0.7399278984488254
+  },
+  "Cecilia_Original_Idle_Style/12_Air_5B/03_recovery.png": {
+   "empty": false,
+   "top": 52,
+   "bot": 1121,
+   "left": 262,
+   "right": 1143,
+   "h": 1070,
+   "rear_x": 632,
+   "front_x": 1143,
+   "hip_x": 702.5,
+   "cx": 671.2923755389492,
+   "cy": 540.6339729941809,
+   "fx_px": 34497,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 0.9303779158468848,
+    "rot": 7.056812334703984,
+    "inliers": 45,
+    "good": 61
+   },
+   "scale_how": "head",
+   "scale": 0.9303779158468848
+  },
+  "Cecilia_Original_Idle_Style/13_Air_5C/01_startup.png": {
+   "empty": false,
+   "top": 4,
+   "bot": 1408,
+   "left": 58,
+   "right": 988,
+   "h": 1405,
+   "rear_x": 484,
+   "front_x": 583,
+   "hip_x": 433.0,
+   "cx": 530.4758598257721,
+   "cy": 761.256665535317,
+   "fx_px": 17925,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.8947956376423921,
+    "rot": 13.573797475021133,
+    "inliers": 33,
+    "good": 47
+   },
+   "scale_how": "head",
+   "scale": 0.8947956376423921
+  },
+  "Cecilia_Original_Idle_Style/13_Air_5C/02_attack.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1470,
+   "left": 88,
+   "right": 1033,
+   "h": 1458,
+   "rear_x": 270,
+   "front_x": 655,
+   "hip_x": 560.5,
+   "cx": 611.8961029493038,
+   "cy": 695.5927510294695,
+   "fx_px": 75661,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.8159388707537923,
+    "rot": 17.946261717995363,
+    "inliers": 42,
+    "good": 60
+   },
+   "scale_how": "head",
+   "scale": 0.8159388707537923
+  },
+  "Cecilia_Original_Idle_Style/13_Air_5C/03_recovery.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1243,
+   "left": 126,
+   "right": 1008,
+   "h": 1227,
+   "rear_x": 990,
+   "front_x": 1008,
+   "hip_x": 455.0,
+   "cx": 506.7042539205003,
+   "cy": 497.2840674894585,
+   "fx_px": 26436,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9868158661430729,
+    "rot": 4.489850881344789,
+    "inliers": 39,
+    "good": 74
+   },
+   "scale_how": "head",
+   "scale": 0.9868158661430729
+  },
+  "Cecilia_Original_Idle_Style/14_236_Dash_Slash/01_preparation.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1003,
+   "left": 100,
+   "right": 1444,
+   "h": 988,
+   "rear_x": 100,
+   "front_x": 216,
+   "hip_x": 835.5,
+   "cx": 877.5004394139333,
+   "cy": 494.11956684397404,
+   "fx_px": 4925,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9519611952365692,
+    "rot": 2.07894523043646,
+    "inliers": 52,
+    "good": 63
+   },
+   "scale_how": "head",
+   "scale": 0.9519611952365692
+  },
+  "Cecilia_Original_Idle_Style/14_236_Dash_Slash/02_dash.png": {
+   "empty": false,
+   "top": 50,
+   "bot": 944,
+   "left": 41,
+   "right": 1460,
+   "h": 895,
+   "rear_x": 231,
+   "front_x": 1460,
+   "hip_x": 674.5,
+   "cx": 909.5967217793623,
+   "cy": 499.8178677295305,
+   "fx_px": 13002,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8789893966647011,
+    "rot": 5.637312516384096,
+    "inliers": 26,
+    "good": 175
+   },
+   "scale_how": "body",
+   "scale": 0.8789893966647011
+  },
+  "Cecilia_Original_Idle_Style/14_236_Dash_Slash/03_slash.png": {
+   "empty": false,
+   "top": 79,
+   "bot": 956,
+   "left": 80,
+   "right": 1521,
+   "h": 878,
+   "rear_x": 80,
+   "front_x": 174,
+   "hip_x": 924.5,
+   "cx": 799.321671039763,
+   "cy": 497.33066305424643,
+   "fx_px": 64748,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7165040103934077,
+    "rot": 6.621963771554893,
+    "inliers": 25,
+    "good": 45
+   },
+   "scale_how": "head",
+   "scale": 0.7165040103934077
+  },
+  "Cecilia_Original_Idle_Style/14_236_Dash_Slash/04_recovery.png": {
+   "empty": false,
+   "top": 80,
+   "bot": 967,
+   "left": 90,
+   "right": 1424,
+   "h": 888,
+   "rear_x": 93,
+   "front_x": 1283,
+   "hip_x": 789.5,
+   "cx": 748.8254861370347,
+   "cy": 518.8911663895204,
+   "fx_px": 12928,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7902337989901869,
+    "rot": 3.1481241335020593,
+    "inliers": 54,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 0.7902337989901869
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/01_startup.png": {
+   "empty": false,
+   "top": 107,
+   "bot": 1287,
+   "left": 81,
+   "right": 1123,
+   "h": 1181,
+   "rear_x": 454,
+   "front_x": 1123,
+   "hip_x": 567.0,
+   "cx": 635.5496515628503,
+   "cy": 733.9373144511262,
+   "fx_px": 8708,
+   "size": [
+    1162,
+    1353
+   ],
+   "sift": {
+    "scale": 1.1899614922415953,
+    "rot": 15.548762780824374,
+    "inliers": 24,
+    "good": 179
+   },
+   "scale_how": "via 06_landing.png",
+   "scale": 0.8191297357358764,
+   "sift_chain": {
+    "scale": 0.8078731422991048,
+    "rot": -2.252210675287135,
+    "inliers": 29,
+    "good": 191
+   }
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/02_normal_slash_effect.png": {
+   "empty": false,
+   "top": 102,
+   "bot": 1330,
+   "left": 123,
+   "right": 961,
+   "h": 1229,
+   "rear_x": 123,
+   "front_x": 164,
+   "hip_x": 562.0,
+   "cx": 580.2011468278629,
+   "cy": 695.7081520818033,
+   "fx_px": 99282,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/03_EX_slash_effect.png": {
+   "empty": false,
+   "top": 88,
+   "bot": 1412,
+   "left": 93,
+   "right": 1007,
+   "h": 1325,
+   "rear_x": 941,
+   "front_x": 986,
+   "hip_x": 535.5,
+   "cx": 598.5321377466045,
+   "cy": 744.5648033029158,
+   "fx_px": 175990,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/04_reappear.png": {
+   "empty": false,
+   "top": 38,
+   "bot": 1395,
+   "left": 195,
+   "right": 1014,
+   "h": 1358,
+   "rear_x": 196,
+   "front_x": 274,
+   "hip_x": 516.0,
+   "cx": 549.7161132862461,
+   "cy": 720.0420595201194,
+   "fx_px": 13491,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.814420321114256,
+    "rot": 0.7574681923929913,
+    "inliers": 63,
+    "good": 78
+   },
+   "scale_how": "head",
+   "scale": 0.814420321114256
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/05_float_down.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 1431,
+   "left": 116,
+   "right": 928,
+   "h": 1420,
+   "rear_x": 320,
+   "front_x": 416,
+   "hip_x": 462.0,
+   "cx": 578.9896967330603,
+   "cy": 679.3460777715557,
+   "fx_px": 7306,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9526970475326421,
+    "rot": 0.317792419103178,
+    "inliers": 102,
+    "good": 112
+   },
+   "scale_how": "head",
+   "scale": 0.9526970475326421
+  },
+  "Cecilia_Original_Idle_Style/15_623_Teleport/06_landing.png": {
+   "empty": false,
+   "top": 35,
+   "bot": 1446,
+   "left": 95,
+   "right": 1033,
+   "h": 1412,
+   "rear_x": 95,
+   "front_x": 1033,
+   "hip_x": 494.0,
+   "cx": 575.1142771481396,
+   "cy": 714.0485367356797,
+   "fx_px": 8305,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0139336151276632,
+    "rot": 1.6966405924219028,
+    "inliers": 84,
+    "good": 117
+   },
+   "scale_how": "head",
+   "scale": 1.0139336151276632
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/01_charge.png": {
+   "empty": false,
+   "top": 128,
+   "bot": 1426,
+   "left": 56,
+   "right": 1028,
+   "h": 1299,
+   "rear_x": 56,
+   "front_x": 172,
+   "hip_x": 504.0,
+   "cx": 550.0133650464555,
+   "cy": 722.4796932675819,
+   "fx_px": 14974,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9271258210334312,
+    "rot": 7.921767091377957,
+    "inliers": 38,
+    "good": 188
+   },
+   "scale_how": "body",
+   "scale": 0.9271258210334312
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/02_held_lightning_form.png": {
+   "empty": false,
+   "top": 63,
+   "bot": 1411,
+   "left": 142,
+   "right": 922,
+   "h": 1349,
+   "rear_x": 509,
+   "front_x": 523,
+   "hip_x": 529.5,
+   "cx": 537.9110235628185,
+   "cy": 779.2068563476691,
+   "fx_px": 315567,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/03_dash_loop_1.png": {
+   "empty": false,
+   "top": 170,
+   "bot": 672,
+   "left": 128,
+   "right": 1726,
+   "h": 503,
+   "rear_x": 1249,
+   "front_x": 1393,
+   "hip_x": 983.5,
+   "cx": 1126.3135145812382,
+   "cy": 443.92242493894554,
+   "fx_px": 177693,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/04_dash_loop_2.png": {
+   "empty": false,
+   "top": 143,
+   "bot": 790,
+   "left": 119,
+   "right": 1733,
+   "h": 648,
+   "rear_x": 677,
+   "front_x": 762,
+   "hip_x": 929.0,
+   "cx": 965.133559622196,
+   "cy": 451.0104110765268,
+   "fx_px": 399695,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/05_dash_loop_3.png": {
+   "empty": false,
+   "top": 99,
+   "bot": 792,
+   "left": 17,
+   "right": 1731,
+   "h": 694,
+   "rear_x": 668,
+   "front_x": 842,
+   "hip_x": 875.0,
+   "cx": 904.7191358024692,
+   "cy": 447.493099358456,
+   "fx_px": 325830,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/06_single_slash.png": {
+   "empty": false,
+   "top": 118,
+   "bot": 921,
+   "left": 29,
+   "right": 1520,
+   "h": 804,
+   "rear_x": 29,
+   "front_x": 945,
+   "hip_x": 824.0,
+   "cx": 662.1607208923384,
+   "cy": 513.6294583467809,
+   "fx_px": 52924,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7257369213839293,
+    "rot": 4.605533114448542,
+    "inliers": 55,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 0.7257369213839293
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/07_second_slash.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1003,
+   "left": 160,
+   "right": 1469,
+   "h": 991,
+   "rear_x": 160,
+   "front_x": 1078,
+   "hip_x": 797.0,
+   "cx": 730.6103128480178,
+   "cy": 456.7389082321015,
+   "fx_px": 55668,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7530491858741521,
+    "rot": -1.588627944283988,
+    "inliers": 40,
+    "good": 69
+   },
+   "scale_how": "head",
+   "scale": 0.7530491858741521
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/08_EX_third_slash.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 954,
+   "left": 19,
+   "right": 1516,
+   "h": 891,
+   "rear_x": 217,
+   "front_x": 1132,
+   "hip_x": 928.0,
+   "cx": 865.63076598614,
+   "cy": 522.64522309454,
+   "fx_px": 79797,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.6939449160865231,
+    "rot": 10.480160686084576,
+    "inliers": 46,
+    "good": 58
+   },
+   "scale_how": "head",
+   "scale": 0.6939449160865231
+  },
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash/09_recovery.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1445,
+   "left": 96,
+   "right": 1033,
+   "h": 1433,
+   "rear_x": 96,
+   "front_x": 1033,
+   "hip_x": 526.5,
+   "cx": 577.0552657485065,
+   "cy": 699.2042721473174,
+   "fx_px": 8081,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9961211773751615,
+    "rot": 0.0027781855693721166,
+    "inliers": 117,
+    "good": 123
+   },
+   "scale_how": "head",
+   "scale": 0.9961211773751615
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/01_counter_stance.png": {
+   "empty": false,
+   "top": 9,
+   "bot": 1450,
+   "left": 137,
+   "right": 1032,
+   "h": 1442,
+   "rear_x": 137,
+   "front_x": 1032,
+   "hip_x": 505.0,
+   "cx": 585.178844637224,
+   "cy": 697.0832462539432,
+   "fx_px": 7040,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.94526163373671,
+    "rot": -1.8899988896732993,
+    "inliers": 31,
+    "good": 65
+   },
+   "scale_how": "head",
+   "scale": 0.94526163373671
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/02_dash_preparation.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 1004,
+   "left": 63,
+   "right": 1305,
+   "h": 993,
+   "rear_x": 78,
+   "front_x": 1295,
+   "hip_x": 584.5,
+   "cx": 780.6286488423614,
+   "cy": 477.2494108639937,
+   "fx_px": 18854,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9163691548470669,
+    "rot": 6.892349252187408,
+    "inliers": 27,
+    "good": 58
+   },
+   "scale_how": "head",
+   "scale": 0.9163691548470669
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/03_dash_slash.png": {
+   "empty": false,
+   "top": 81,
+   "bot": 826,
+   "left": 88,
+   "right": 1732,
+   "h": 746,
+   "rear_x": 90,
+   "front_x": 1139,
+   "hip_x": 889.0,
+   "cx": 800.3262086092715,
+   "cy": 439.7804105960265,
+   "fx_px": 74840,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.6916768496286382,
+    "rot": 7.619883506733297,
+    "inliers": 39,
+    "good": 54
+   },
+   "scale_how": "head",
+   "scale": 0.6916768496286382
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/04_launcher.png": {
+   "empty": false,
+   "top": 36,
+   "bot": 1405,
+   "left": 17,
+   "right": 1036,
+   "h": 1370,
+   "rear_x": 80,
+   "front_x": 482,
+   "hip_x": 565.0,
+   "cx": 576.6469428394375,
+   "cy": 774.248349748084,
+   "fx_px": 120582,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.789630888526013,
+    "rot": -12.142706863919473,
+    "inliers": 35,
+    "good": 50
+   },
+   "scale_how": "head",
+   "scale": 0.789630888526013
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/05_knockdown_slash.png": {
+   "empty": false,
+   "top": 29,
+   "bot": 1471,
+   "left": 70,
+   "right": 1014,
+   "h": 1443,
+   "rear_x": 575,
+   "front_x": 869,
+   "hip_x": 505.0,
+   "cx": 531.7061565762245,
+   "cy": 563.5401238135976,
+   "fx_px": 58678,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.8160323097744103,
+    "rot": 19.19683067971568,
+    "inliers": 31,
+    "good": 51
+   },
+   "scale_how": "head",
+   "scale": 0.8160323097744103
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/06_kick.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1005,
+   "left": 57,
+   "right": 1436,
+   "h": 991,
+   "rear_x": 488,
+   "front_x": 590,
+   "hip_x": 541.5,
+   "cx": 721.7099215601222,
+   "cy": 406.8080527390699,
+   "fx_px": 10390,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.6863362718287053,
+    "rot": -1.5013595397853434,
+    "inliers": 41,
+    "good": 52
+   },
+   "scale_how": "head",
+   "scale": 0.6863362718287053
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/07_final_slash.png": {
+   "empty": false,
+   "top": 23,
+   "bot": 992,
+   "left": 45,
+   "right": 1499,
+   "h": 970,
+   "rear_x": 45,
+   "front_x": 931,
+   "hip_x": 579.0,
+   "cx": 580.9070760144205,
+   "cy": 475.04799800567616,
+   "fx_px": 18932,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.6777194158415725,
+    "rot": 1.3725516508263227,
+    "inliers": 53,
+    "good": 70
+   },
+   "scale_how": "head",
+   "scale": 0.6777194158415725
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/08_sheathing_start_corrected.png": {
+   "empty": false,
+   "top": 1,
+   "bot": 1493,
+   "left": 100,
+   "right": 897,
+   "h": 1493,
+   "rear_x": 100,
+   "front_x": 896,
+   "hip_x": 433.5,
+   "cx": 468.3312331924702,
+   "cy": 694.2884316173646,
+   "fx_px": 10161,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.7895940526475346,
+    "rot": 3.6649618466830516,
+    "inliers": 7,
+    "good": 21
+   },
+   "scale_how": "via 01_counter_stance.png",
+   "scale": 0.9282558995399226,
+   "sift_chain": {
+    "scale": 0.9820094949484387,
+    "rot": -7.314359239616398,
+    "inliers": 20,
+    "good": 117
+   }
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/09_sheathing_nearly_closed.png": {
+   "empty": false,
+   "top": 1,
+   "bot": 1493,
+   "left": 100,
+   "right": 898,
+   "h": 1493,
+   "rear_x": 100,
+   "front_x": 897,
+   "hip_x": 442.5,
+   "cx": 463.3405095519758,
+   "cy": 705.2688412146337,
+   "fx_px": 8234,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.9509522174835374,
+    "rot": 1.9770209741554081,
+    "inliers": 7,
+    "good": 23
+   },
+   "scale_how": "via 01_counter_stance.png",
+   "scale": 0.9327130423473055,
+   "sift_chain": {
+    "scale": 0.9867247427150949,
+    "rot": -7.168686258985039,
+    "inliers": 20,
+    "good": 120
+   }
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/10_sheath_click.png": {
+   "empty": false,
+   "top": 0,
+   "bot": 1493,
+   "left": 100,
+   "right": 899,
+   "h": 1494,
+   "rear_x": 100,
+   "front_x": 898,
+   "hip_x": 474.5,
+   "cx": 465.50166078977617,
+   "cy": 708.166266486139,
+   "fx_px": 8317,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.8531516181410534,
+    "rot": -2.117349982888948,
+    "inliers": 6,
+    "good": 20
+   },
+   "scale_how": "via 01_counter_stance.png",
+   "scale": 0.9351493406587296,
+   "sift_chain": {
+    "scale": 0.9893021225901176,
+    "rot": -7.442331323061071,
+    "inliers": 25,
+    "good": 117
+   }
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/11_explosion_ignition.png": {
+   "empty": false,
+   "top": 25,
+   "bot": 1522,
+   "left": 85,
+   "right": 1001,
+   "h": 1498,
+   "rear_x": 659,
+   "front_x": 761,
+   "hip_x": 493.0,
+   "cx": 563.190159802967,
+   "cy": 761.4692054036805,
+   "fx_px": 266924,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/12_explosion_peak.png": {
+   "empty": false,
+   "top": 28,
+   "bot": 1463,
+   "left": 40,
+   "right": 970,
+   "h": 1436,
+   "rear_x": 554,
+   "front_x": 678,
+   "hip_x": 494.0,
+   "cx": 550.5277920133591,
+   "cy": 775.3004001957793,
+   "fx_px": 512931,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/02_Counter_Super/13_explosion_fade.png": {
+   "empty": false,
+   "top": 9,
+   "bot": 1492,
+   "left": 15,
+   "right": 996,
+   "h": 1484,
+   "rear_x": 649,
+   "front_x": 727,
+   "hip_x": 517.5,
+   "cx": 510.1625799706256,
+   "cy": 763.5056881830176,
+   "fx_px": 134202,
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/01_front_preparation.png": {
+   "empty": false,
+   "top": 24,
+   "bot": 1444,
+   "left": 30,
+   "right": 1020,
+   "h": 1421,
+   "rear_x": 30,
+   "front_x": 1020,
+   "hip_x": 583.5,
+   "cx": 525.8155237532437,
+   "cy": 712.3557322408328,
+   "fx_px": 11241,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.042712553616873,
+    "rot": 0.3214954624750818,
+    "inliers": 34,
+    "good": 163
+   },
+   "scale_how": "body",
+   "scale": 1.042712553616873
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/02_blade_ground_plunge.png": {
+   "empty": false,
+   "top": 92,
+   "bot": 1446,
+   "left": 22,
+   "right": 1037,
+   "h": 1355,
+   "rear_x": 440,
+   "front_x": 679,
+   "hip_x": 543.0,
+   "cx": 531.0246420411015,
+   "cy": 760.5668208666503,
+   "fx_px": 130132,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.1428447577530776,
+    "rot": -2.9637387853157686,
+    "inliers": 7,
+    "good": 22
+   },
+   "scale_how": "via 01_front_preparation.png",
+   "scale": 1.0012542130628812,
+   "sift_chain": {
+    "scale": 0.960239914240809,
+    "rot": 0.1186921910117896,
+    "inliers": 108,
+    "good": 237
+   }
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/03_air_blade_first_descent.png": {
+   "empty": false,
+   "top": 34,
+   "bot": 1462,
+   "left": 186,
+   "right": 960,
+   "h": 1429,
+   "rear_x": 516,
+   "front_x": 529,
+   "hip_x": 585.0,
+   "cx": 533.7614613428484,
+   "cy": 635.1061497290605,
+   "fx_px": 27135,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0709008439378964,
+    "rot": -3.9070871366052295,
+    "inliers": 6,
+    "good": 18
+   },
+   "scale_how": "via 01_front_preparation.png",
+   "scale": 0.9537072989178375,
+   "sift_chain": {
+    "scale": 0.9146406606592568,
+    "rot": 0.34279970979944774,
+    "inliers": 130,
+    "good": 306
+   }
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/04_surge_start.png": {
+   "empty": false,
+   "top": 326,
+   "bot": 608,
+   "left": 75,
+   "right": 1668,
+   "h": 283,
+   "rear_x": 802,
+   "front_x": 1307,
+   "hip_x": 875.0,
+   "cx": 875.9441755188024,
+   "cy": 488.08805073730446,
+   "fx_px": 103331,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/05_surge_peak.png": {
+   "empty": false,
+   "top": 63,
+   "bot": 811,
+   "left": 57,
+   "right": 1717,
+   "h": 749,
+   "rear_x": 445,
+   "front_x": 1370,
+   "hip_x": 887.0,
+   "cx": 870.2525237500248,
+   "cy": 552.1700184446956,
+   "fx_px": 447350,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/06_surge_fade.png": {
+   "empty": false,
+   "top": 109,
+   "bot": 836,
+   "left": 44,
+   "right": 1728,
+   "h": 728,
+   "rear_x": 302,
+   "front_x": 1584,
+   "hip_x": 888.0,
+   "cx": 814.5838586984838,
+   "cy": 567.4415672380555,
+   "fx_px": 123223,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected/07_recovery.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1440,
+   "left": 102,
+   "right": 1018,
+   "h": 1428,
+   "rear_x": 102,
+   "front_x": 1018,
+   "hip_x": 572.0,
+   "cx": 584.2452941028163,
+   "cy": 697.2850717293195,
+   "fx_px": 7013,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9867659491639161,
+    "rot": 0.4270579054832052,
+    "inliers": 106,
+    "good": 118
+   },
+   "scale_how": "head",
+   "scale": 0.9867659491639161
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_AirDash_01.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 1377,
+   "left": 86,
+   "right": 1027,
+   "h": 1308,
+   "rear_x": 258,
+   "front_x": 348,
+   "hip_x": 481.5,
+   "cx": 612.5255110724908,
+   "cy": 656.1630885620095,
+   "fx_px": 7846,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0567600335874017,
+    "rot": 4.114411039101242,
+    "inliers": 53,
+    "good": 79
+   },
+   "scale_how": "head",
+   "scale": 1.0567600335874017
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_AirDash_02.png": {
+   "empty": false,
+   "top": 14,
+   "bot": 973,
+   "left": 76,
+   "right": 1181,
+   "h": 960,
+   "rear_x": 80,
+   "front_x": 143,
+   "hip_x": 706.5,
+   "cx": 750.3031395958586,
+   "cy": 448.19081779490494,
+   "fx_px": 5948,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.842418516712804,
+    "rot": 10.532810228388952,
+    "inliers": 28,
+    "good": 165
+   },
+   "scale_how": "body",
+   "scale": 0.842418516712804
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_BackAirDash_01.png": {
+   "empty": false,
+   "top": 38,
+   "bot": 1251,
+   "left": 109,
+   "right": 986,
+   "h": 1214,
+   "rear_x": 112,
+   "front_x": 488,
+   "hip_x": 547.5,
+   "cx": 574.4119893220316,
+   "cy": 647.9735734041528,
+   "fx_px": 8741,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.0293015896646551,
+    "rot": 3.7696837288620038,
+    "inliers": 29,
+    "good": 53
+   },
+   "scale_how": "head",
+   "scale": 1.0293015896646551
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_BackAirDash_02.png": {
+   "empty": false,
+   "top": 75,
+   "bot": 1397,
+   "left": 39,
+   "right": 1015,
+   "h": 1323,
+   "rear_x": 39,
+   "front_x": 145,
+   "hip_x": 591.5,
+   "cx": 602.9036319268403,
+   "cy": 676.4906228529461,
+   "fx_px": 8115,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 1.013198147654641,
+    "rot": 2.890036087301408,
+    "inliers": 36,
+    "good": 60
+   },
+   "scale_how": "head",
+   "scale": 1.013198147654641
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_BackStep_01.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 1440,
+   "left": 41,
+   "right": 1026,
+   "h": 1428,
+   "rear_x": 41,
+   "front_x": 1026,
+   "hip_x": 511.0,
+   "cx": 578.6676012926821,
+   "cy": 707.9161964784764,
+   "fx_px": 7022,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9950990397429483,
+    "rot": 0.24327150621248667,
+    "inliers": 78,
+    "good": 90
+   },
+   "scale_how": "head",
+   "scale": 0.9950990397429483
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_BackStep_02.png": {
+   "empty": false,
+   "top": 126,
+   "bot": 1370,
+   "left": 75,
+   "right": 1010,
+   "h": 1245,
+   "rear_x": 76,
+   "front_x": 953,
+   "hip_x": 534.0,
+   "cx": 629.6445522599314,
+   "cy": 747.047929837805,
+   "fx_px": 6448,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.947675845014127,
+    "rot": 0.12713895043859708,
+    "inliers": 49,
+    "good": 77
+   },
+   "scale_how": "head",
+   "scale": 0.947675845014127
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_Downed_01.png": {
+   "empty": false,
+   "top": 193,
+   "bot": 645,
+   "left": 50,
+   "right": 2007,
+   "h": 453,
+   "rear_x": 57,
+   "front_x": 1628,
+   "hip_x": 1098.0,
+   "cx": 1124.86656384244,
+   "cy": 439.24398668353854,
+   "fx_px": 6729,
+   "size": [
+    2048,
+    768
+   ],
+   "sift": {
+    "scale": 0.03817330898604481,
+    "rot": 154.50093985285798,
+    "inliers": 22,
+    "good": 113
+   },
+   "scale_how": "via Cecilia_BackStep_01.png",
+   "scale": 0.020977769856407254,
+   "sift_chain": {
+    "scale": 0.021081087428067646,
+    "rot": -76.93673945104429,
+    "inliers": 22,
+    "good": 121
+   }
+  },
+  "Cecilia/13_Movement_and_Victory/Cecilia_Victory_01.png": {
+   "empty": false,
+   "top": 6,
+   "bot": 1472,
+   "left": 140,
+   "right": 935,
+   "h": 1467,
+   "rear_x": 547,
+   "front_x": 653,
+   "hip_x": 601.5,
+   "cx": 546.0330663846773,
+   "cy": 662.4755303216948,
+   "fx_px": 6219,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9487804238533637,
+    "rot": -11.371920907997055,
+    "inliers": 22,
+    "good": 162
+   },
+   "scale_how": "via Cecilia_BackStep_02.png",
+   "scale": 0.8915872096232329,
+   "sift_chain": {
+    "scale": 0.9408145351746746,
+    "rot": -16.661380730145574,
+    "inliers": 21,
+    "good": 146
+   }
+  },
+  "Cecilia/Forward/Cecilia_Walk_Forward_01.png": {
+   "empty": false,
+   "top": 24,
+   "bot": 1435,
+   "left": 138,
+   "right": 1014,
+   "h": 1412,
+   "rear_x": 277,
+   "front_x": 1014,
+   "hip_x": 470.5,
+   "cx": 608.0405594513528,
+   "cy": 716.3175454933657,
+   "fx_px": 7213,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9744166300681868,
+    "rot": 1.0015412650495703,
+    "inliers": 57,
+    "good": 86
+   },
+   "scale_how": "head",
+   "scale": 0.9744166300681868
+  },
+  "Cecilia/Forward/Cecilia_Walk_Forward_02.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1427,
+   "left": 170,
+   "right": 912,
+   "h": 1411,
+   "rear_x": 312,
+   "front_x": 853,
+   "hip_x": 463.5,
+   "cx": 567.8896692697286,
+   "cy": 688.3239602224038,
+   "fx_px": 6741,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9444357435648161,
+    "rot": 0.11103664178066877,
+    "inliers": 87,
+    "good": 99
+   },
+   "scale_how": "head",
+   "scale": 0.9444357435648161
+  },
+  "Cecilia/Forward/Cecilia_Walk_Forward_03.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1419,
+   "left": 130,
+   "right": 1030,
+   "h": 1405,
+   "rear_x": 182,
+   "front_x": 1030,
+   "hip_x": 466.5,
+   "cx": 580.9068298234212,
+   "cy": 716.2406387816035,
+   "fx_px": 7536,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9718918806881777,
+    "rot": -0.8170938427292471,
+    "inliers": 83,
+    "good": 102
+   },
+   "scale_how": "head",
+   "scale": 0.9718918806881777
+  },
+  "Cecilia/Forward/Cecilia_Walk_Forward_04.png": {
+   "empty": false,
+   "top": 19,
+   "bot": 1423,
+   "left": 146,
+   "right": 1045,
+   "h": 1405,
+   "rear_x": 244,
+   "front_x": 1023,
+   "hip_x": 465.0,
+   "cx": 582.4208788580862,
+   "cy": 714.0231915883885,
+   "fx_px": 7342,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9704933921010801,
+    "rot": 1.0928962648881129,
+    "inliers": 94,
+    "good": 108
+   },
+   "scale_how": "head",
+   "scale": 0.9704933921010801
+  },
+  "Cecilia/Backward/Cecilia_Walk_Backward_01.png": {
+   "empty": false,
+   "top": 22,
+   "bot": 1439,
+   "left": 163,
+   "right": 972,
+   "h": 1418,
+   "rear_x": 207,
+   "front_x": 951,
+   "hip_x": 499.5,
+   "cx": 605.4359500940737,
+   "cy": 714.6454167225876,
+   "fx_px": 7487,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9466939528979667,
+    "rot": -0.7552478955812313,
+    "inliers": 102,
+    "good": 126
+   },
+   "scale_how": "head",
+   "scale": 0.9466939528979667
+  },
+  "Cecilia/Backward/Cecilia_Walk_Backward_02.png": {
+   "empty": false,
+   "top": 18,
+   "bot": 1421,
+   "left": 151,
+   "right": 937,
+   "h": 1404,
+   "rear_x": 278,
+   "front_x": 832,
+   "hip_x": 465.5,
+   "cx": 571.01755557108,
+   "cy": 707.9894174965782,
+   "fx_px": 7305,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.960116235153434,
+    "rot": -0.49590817368559365,
+    "inliers": 109,
+    "good": 122
+   },
+   "scale_how": "head",
+   "scale": 0.960116235153434
+  },
+  "Cecilia/Backward/Cecilia_Walk_Backward_03.png": {
+   "empty": false,
+   "top": 26,
+   "bot": 1422,
+   "left": 155,
+   "right": 937,
+   "h": 1397,
+   "rear_x": 233,
+   "front_x": 909,
+   "hip_x": 471.5,
+   "cx": 580.843085106383,
+   "cy": 710.7410223394036,
+   "fx_px": 7578,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9712614869618368,
+    "rot": -0.041211960307193894,
+    "inliers": 107,
+    "good": 117
+   },
+   "scale_how": "head",
+   "scale": 0.9712614869618368
+  },
+  "Cecilia/Backward/Cecilia_Walk_Backward_04.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1431,
+   "left": 130,
+   "right": 932,
+   "h": 1416,
+   "rear_x": 162,
+   "front_x": 703,
+   "hip_x": 461.5,
+   "cx": 548.8297147393015,
+   "cy": 701.8876704874493,
+   "fx_px": 7424,
+   "size": [
+    1049,
+    1500
+   ],
+   "sift": {
+    "scale": 0.9885149762292358,
+    "rot": -0.3236338357442727,
+    "inliers": 99,
+    "good": 114
+   },
+   "scale_how": "head",
+   "scale": 0.9885149762292358
+  }
+ }
+}

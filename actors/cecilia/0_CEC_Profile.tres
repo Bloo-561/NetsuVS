@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FighterProfile" format=3 uid="uid://l1ub9amvdrnjl"]
+
+[ext_resource type="Texture2D" uid="uid://ixijxskfeahj" path="res://actors/cecilia/Artwork/ceciliachibi.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dl3o8w5c3tp66" path="res://actors/cecilia/Artwork/cecilia-winrender.png" id="4"]
+[ext_resource type="Script" uid="uid://c5w04j5my3h8p" path="res://engine/sakuga/Resources/FighterProfile.cs" id="5"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Artwork/Cecilia_Select_Portrait.png" id="sel_portrait"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Artwork/Cecilia_Select_FullBody.png" id="sel_render"]
+
+[resource]
+script = ExtResource("5")
+FighterName = "Cecilia Richter"
+ShortName = "Cecilia"
+Render = ExtResource("sel_render")
+Portrait = ExtResource("sel_portrait")
+Bio = "Swordswoman of the Eight Leaves One Blade style."
+VictoryRender = ExtResource("4")
+OnlineIcon = ExtResource("1")
+NetsuAuraColor = Color(0.96, 0.2, 0.34, 1)
+metadata/_custom_type_script = "uid://c5w04j5my3h8p"

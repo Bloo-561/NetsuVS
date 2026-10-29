@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="FighterStance" format=3 uid="uid://bcw22yesv4aod"]
+
+[ext_resource type="Resource" uid="uid://biqgn48x4ggwh" path="res://actors/_shared/sakuga/Inputs/1_Input_4.tres" id="1"]
+[ext_resource type="Script" uid="uid://d0re6r8d145i6" path="res://engine/sakuga/Resources/BlockSettings.cs" id="2"]
+[ext_resource type="Resource" uid="uid://j1w64hweu08j" path="res://actors/_shared/sakuga/Inputs/8_Input_1.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ba8eckie560fg" path="res://actors/noah/Moves/0_NOA_MoveForward.tres" id="4"]
+[ext_resource type="Resource" uid="uid://zzgnc4kxv810" path="res://actors/noah/Moves/1_NOA_MoveBackwards.tres" id="5"]
+[ext_resource type="Resource" uid="uid://7op3qkt0wi8e" path="res://actors/noah/Moves/2_NOA_DashForward.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bav2yha3i7swy" path="res://actors/noah/Moves/3_NOA_DashBackwards.tres" id="7"]
+[ext_resource type="Resource" uid="uid://y8vu877oamrt" path="res://actors/noah/Moves/4_NOA_JumpNeutral.tres" id="8"]
+[ext_resource type="Resource" uid="uid://6bxwazyfega5" path="res://actors/noah/Moves/5_NOA_JumpForward.tres" id="9"]
+[ext_resource type="Resource" uid="uid://bilb4yjm5dueu" path="res://actors/noah/Moves/6_NOA_JumpBackwards.tres" id="10"]
+[ext_resource type="Resource" uid="uid://764ff6na6d21" path="res://actors/noah/Moves/7_NOA_AirDashForward.tres" id="11"]
+[ext_resource type="Resource" uid="uid://bgt3bpflg7pbd" path="res://actors/noah/Moves/8_NOA_AirDashForwardUp.tres" id="12"]
+[ext_resource type="Resource" uid="uid://4utiyjoy1avd" path="res://actors/noah/Moves/9_NOA_AirDashForwardDown.tres" id="13"]
+[ext_resource type="Resource" uid="uid://bhv1gtptgc63z" path="res://actors/noah/Moves/10_NOA_AirDashBackwards.tres" id="14"]
+[ext_resource type="Resource" uid="uid://55igoniaivj4" path="res://actors/noah/Moves/11_NOA_Crouch.tres" id="15"]
+[ext_resource type="Resource" uid="uid://1ix8wr2xj4p4" path="res://actors/noah/Moves/12_NOA_Uncrouch.tres" id="16"]
+[ext_resource type="Resource" uid="uid://bfw18xylr7x7l" path="res://actors/noah/Moves/13_NOA_AirJumpNeutral.tres" id="17"]
+[ext_resource type="Resource" uid="uid://bemkstta835nd" path="res://actors/noah/Moves/14_NOA_AirJumpForward.tres" id="18"]
+[ext_resource type="Resource" uid="uid://bajhfyhop3ejj" path="res://actors/noah/Moves/15_NOA_AirJumpBackwards.tres" id="19"]
+[ext_resource type="Resource" uid="uid://bej2hyr5s54oo" path="res://actors/noah/Moves/16_NOA_SuperJumpNeutral.tres" id="20"]
+[ext_resource type="Resource" uid="uid://yliv5w5bqc5o" path="res://actors/noah/Moves/17_NOA_SuperJumpForward.tres" id="21"]
+[ext_resource type="Resource" uid="uid://8om00vbq7nri" path="res://actors/noah/Moves/18_NOA_SuperJumpBackwards.tres" id="22"]
+[ext_resource type="Resource" uid="uid://1djv4pxc7z4u" path="res://actors/noah/Moves/19_NOA_DashJump.tres" id="23"]
+[ext_resource type="Resource" uid="uid://0si0feazttmf" path="res://actors/noah/Moves/20_NOA_AirDashJump.tres" id="24"]
+[ext_resource type="Resource" uid="uid://bf6qhjy6zzacf" path="res://actors/noah/Moves/21_NOA_GetUpForward.tres" id="25"]
+[ext_resource type="Resource" uid="uid://bdz2bqfawhkul" path="res://actors/noah/Moves/22_NOA_GetUpBackwards.tres" id="26"]
+[ext_resource type="Resource" uid="uid://bjgd43xrcj63h" path="res://actors/noah/Moves/23_NOA_5A.tres" id="27"]
+[ext_resource type="Resource" uid="uid://2wu1bgpzya4f" path="res://actors/noah/Moves/24_NOA_5B.tres" id="28"]
+[ext_resource type="Resource" uid="uid://bkz636zfdiq61" path="res://actors/noah/Moves/25_NOA_5C.tres" id="29"]
+[ext_resource type="Resource" uid="uid://853t0bluqodg" path="res://actors/noah/Moves/26_NOA_2A.tres" id="30"]
+[ext_resource type="Resource" uid="uid://bbbhx68748ao5" path="res://actors/noah/Moves/27_NOA_2B.tres" id="31"]
+[ext_resource type="Resource" uid="uid://6gotnickubji" path="res://actors/noah/Moves/28_NOA_2C.tres" id="32"]
+[ext_resource type="Resource" uid="uid://yhxr6ifpblov" path="res://actors/noah/Moves/29_NOA_j_5A.tres" id="33"]
+[ext_resource type="Resource" uid="uid://bf1eg0mgiouwo" path="res://actors/noah/Moves/30_NOA_j_5B.tres" id="34"]
+[ext_resource type="Resource" uid="uid://bfwoztatfhchp" path="res://actors/noah/Moves/31_NOA_j_5C.tres" id="35"]
+[ext_resource type="Resource" uid="uid://bcnl38gnigix6" path="res://actors/noah/Moves/32_NOA_6C.tres" id="36"]
+[ext_resource type="Resource" uid="uid://barefbfeykjhs" path="res://actors/noah/Moves/45_NOA_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://8d8uzg7yxzt2" path="res://actors/noah/Moves/46_NOA_Recovery_GroundForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://3zua26cypwez" path="res://actors/noah/Moves/47_NOA_Recovery_GroundBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://bhz2s4mzih14y" path="res://actors/noah/Moves/48_NOA_Recovery_AirBackwards.tres" id="52"]
+[ext_resource type="Resource" uid="uid://3s3mhebyz3js" path="res://actors/noah/Moves/49_NOA_Recovery_AirForward.tres" id="53"]
+[ext_resource type="Resource" uid="uid://6lrwa6fu4ose" path="res://actors/noah/Moves/50_NOA_ExcelCancel.tres" id="54"]
+[ext_resource type="Resource" uid="uid://8zjzxmlbrx4v" path="res://actors/noah/Moves/51_NOA_Burst.tres" id="55"]
+[ext_resource type="Script" uid="uid://00dse0vp38l7" path="res://engine/sakuga/Resources/FighterStance.cs" id="57"]
+[ext_resource type="Resource" uid="uid://ybdfs7pelo4v" path="res://actors/noah/Moves/NOA_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://ba0us58fdddps" path="res://actors/noah/Moves/NOA_Throw.tres" id="mv_FLN_Throw"]
+[ext_resource type="Resource" uid="uid://bkabshkxjtbrk" path="res://actors/_shared/sakuga/Inputs/52_Input_ThrowBreak.tres" id="in_throwbreak"]
+[ext_resource type="Resource" uid="uid://bjr0hueo7jx4i" path="res://actors/noah/Moves/53_NOA_ShadeWave_A.tres" id="mv_53_NOA_ShadeWave_A"]
+[ext_resource type="Resource" uid="uid://7smpwidsg86p" path="res://actors/noah/Moves/54_NOA_ShadeWave_B.tres" id="mv_54_NOA_ShadeWave_B"]
+[ext_resource type="Resource" uid="uid://bi6b0nvmxk8jk" path="res://actors/noah/Moves/55_NOA_UmbralWall.tres" id="mv_55_NOA_UmbralWall"]
+[ext_resource type="Resource" uid="uid://7cdob60ivubb" path="res://actors/noah/Moves/56_NOA_EventHorizon_A.tres" id="mv_56_NOA_EventHorizon_A"]
+[ext_resource type="Resource" uid="uid://bfv3iqufuxhst" path="res://actors/noah/Moves/57_NOA_EventHorizon_B.tres" id="mv_57_NOA_EventHorizon_B"]
+[ext_resource type="Resource" uid="uid://8frt707ireaw" path="res://actors/noah/Moves/58_NOA_TwinHorizon.tres" id="mv_58_NOA_TwinHorizon"]
+[ext_resource type="Resource" uid="uid://bmwf63z6cpjfo" path="res://actors/noah/Moves/60_NOA_VoidGrasp.tres" id="mv_60_NOA_VoidGrasp"]
+[ext_resource type="Resource" uid="uid://5imifajnafxt" path="res://actors/noah/Moves/61_NOA_AbyssHammer.tres" id="mv_61_NOA_AbyssHammer"]
+[ext_resource type="Resource" uid="uid://0ek5dpwyau2d" path="res://actors/noah/Moves/62_NOA_VoidDevour.tres" id="mv_62_NOA_VoidDevour"]
+[ext_resource type="Resource" uid="uid://56no6310gbj6" path="res://actors/noah/Moves/64_NOA_FallenGrasp.tres" id="mv_64_NOA_FallenGrasp"]
+[ext_resource type="Resource" uid="uid://6cgiekrrad40" path="res://actors/noah/Moves/65_NOA_AbyssHammer_Air.tres" id="mv_65_NOA_AbyssHammer_Air"]
+[ext_resource type="Resource" uid="uid://bfnkcg4kve2f0" path="res://actors/noah/Moves/63_NOA_OverflowRay.tres" id="mv_63_NOA_OverflowRay"]
+[ext_resource type="Resource" uid="uid://bb47yfsbc3qzy" path="res://actors/noah/Moves/59_NOA_Collapse.tres" id="mv_59_NOA_Collapse"]
+[ext_resource type="Resource" uid="uid://bh2jsxnbunx0l" path="res://actors/noah/Moves/68_NOA_RagingStorm_BC.tres" id="mv_68_NOA_RagingStorm_BC"]
+[ext_resource type="Resource" uid="uid://bie3j80r4ochq" path="res://actors/noah/Moves/69_NOA_GodPress_BC.tres" id="mv_69_NOA_GodPress_BC"]
+[ext_resource type="Resource" uid="uid://behz31qzajwje" path="res://actors/noah/Moves/66_NOA_RagingStorm.tres" id="mv_66_NOA_RagingStorm"]
+[ext_resource type="Resource" uid="uid://bgqr74oim00mk" path="res://actors/noah/Moves/67_NOA_GodPress.tres" id="mv_67_NOA_GodPress"]
+[ext_resource type="Resource" path="res://actors/noah/Moves/NOA_Pushblock_Crouch.tres" id="netsu_pb_crouch_mv"]
+
+[ext_resource type="Resource" path="res://actors/noah/Moves/NOA_AirThrow.tres" id="mv_c12_airthrow"]
+[ext_resource type="Resource" path="res://actors/noah/Moves/70_NOA_OverflowRay_Air.tres" id="c30_0"]
+[ext_resource type="Resource" path="res://actors/noah/Moves/71_NOA_AbyssRiser.tres" id="c30_1"]
+[sub_resource type="Resource" id="Resource_3wthg"]
+script = ExtResource("2")
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 48
+StunState = 49
+ExitState = 50
+GuardCrushState = 51
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_rn7us"]
+script = ExtResource("2")
+ReferenceStance = 1
+BlockType = 6
+InputToCheck = ExtResource("3")
+EnterState = 53
+StunState = 54
+ExitState = 55
+GuardCrushState = 56
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_r7wbv"]
+script = ExtResource("2")
+ReferenceStance = 2
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 58
+StunState = 59
+ExitState = 60
+GuardCrushState = 61
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[resource]
+script = ExtResource("57")
+IsDamagePersistent = true
+IsRoundPersistent = true
+Moves = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("net_Breakthrough"), ExtResource("mv_53_NOA_ShadeWave_A"), ExtResource("mv_54_NOA_ShadeWave_B"), ExtResource("mv_55_NOA_UmbralWall"), ExtResource("mv_56_NOA_EventHorizon_A"), ExtResource("mv_57_NOA_EventHorizon_B"), ExtResource("mv_58_NOA_TwinHorizon"), ExtResource("mv_60_NOA_VoidGrasp"), ExtResource("mv_61_NOA_AbyssHammer"), ExtResource("mv_62_NOA_VoidDevour"), ExtResource("mv_64_NOA_FallenGrasp"), ExtResource("mv_65_NOA_AbyssHammer_Air"), ExtResource("mv_63_NOA_OverflowRay"), ExtResource("mv_59_NOA_Collapse"), ExtResource("mv_68_NOA_RagingStorm_BC"), ExtResource("mv_69_NOA_GodPress_BC"), ExtResource("mv_66_NOA_RagingStorm"), ExtResource("mv_67_NOA_GodPress"), ExtResource("mv_FLN_Throw"), ExtResource("mv_c12_airthrow"), ExtResource("c30_0"), ExtResource("c30_1"), ExtResource("netsu_pb_crouch_mv")]
+HitReactions = PackedInt32Array(23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 102)
+BlockReactions = [SubResource("Resource_3wthg"), SubResource("Resource_rn7us"), SubResource("Resource_r7wbv")]
+ThrowEscapeInput = ExtResource("in_throwbreak")
+GroundThrowEscapeState = 103
+AirThrowEscapeState = 103

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/l623_left.png" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://bldqb0ncd7p4k" path="res://actors/leticia/Hitboxes/35_Hitbox_RisingComet_A_2.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+
+[sub_resource type="Resource" id="m0"]
+script = ExtResource("2")
+Sprite = ExtResource("1")
+Offset = Vector2(-397, -80)
+
+[sub_resource type="Resource" id="a0"]
+script = ExtResource("3")
+Modifiers = [SubResource("m0")]
+
+[sub_resource type="Resource" id="h0"]
+script = ExtResource("5")
+animationStage = 2
+HitboxData = ExtResource("4")
+
+[resource]
+script = ExtResource("6")
+Duration = 240
+Animations = [SubResource("a0")]
+Hitboxes = [SubResource("h0")]

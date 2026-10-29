@@ -1,0 +1,3597 @@
+{
+ "reference": "Noah_Complete/Basics/PNG/Idle_Reference.png",
+ "ref": {
+  "empty": false,
+  "top": 312,
+  "bot": 729,
+  "left": 326,
+  "right": 584,
+  "h": 418,
+  "rear_x": 343,
+  "front_x": 584,
+  "hip_x": 457.0,
+  "cx": 448.75001390511153,
+  "cy": 517.4929362033483,
+  "mask": "dark"
+ },
+ "frames": {
+  "Noah_Complete/Basics/PNG/2A_Hit.png": {
+   "empty": false,
+   "top": 385,
+   "bot": 728,
+   "left": 212,
+   "right": 703,
+   "h": 344,
+   "rear_x": 212,
+   "front_x": 703,
+   "hip_x": 431.0,
+   "cx": 418.5495682328143,
+   "cy": 579.3071156592099,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.6306808628119995,
+    "rot": 5.237239115589224,
+    "inliers": 21,
+    "good": 23
+   },
+   "scale_how": "via 5A_Hit.png",
+   "scale": 1.5979632272706936,
+   "sift_chain": {
+    "scale": 1.355554430978604,
+    "rot": 1.218898361135574,
+    "inliers": 22,
+    "good": 41
+   }
+  },
+  "Noah_Complete/Basics/PNG/2A_Recover.png": {
+   "empty": false,
+   "top": 404,
+   "bot": 721,
+   "left": 314,
+   "right": 565,
+   "h": 318,
+   "rear_x": 320,
+   "front_x": 565,
+   "hip_x": 416.5,
+   "cx": 420.0182144483433,
+   "cy": 573.4571290815096,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.4105087580576205,
+    "rot": 5.027002705740336,
+    "inliers": 17,
+    "good": 20
+   },
+   "scale_how": "via 5A_Recover.png",
+   "scale": 1.0307967839838346,
+   "sift_chain": {
+    "scale": 0.9765299159775434,
+    "rot": 7.308150030824281,
+    "inliers": 33,
+    "good": 50
+   }
+  },
+  "Noah_Complete/Basics/PNG/2B_Hit.png": {
+   "empty": false,
+   "top": 388,
+   "bot": 729,
+   "left": 232,
+   "right": 702,
+   "h": 342,
+   "rear_x": 232,
+   "front_x": 648,
+   "hip_x": 485.0,
+   "cx": 424.27972972972975,
+   "cy": 575.0846792575708,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.5845532097361807,
+    "rot": 3.024200328337938,
+    "inliers": 24,
+    "good": 26
+   },
+   "scale_how": "via 5A_Recover.png",
+   "scale": 1.243211681214112,
+   "sift_chain": {
+    "scale": 1.1777621132133416,
+    "rot": 12.115977358991552,
+    "inliers": 28,
+    "good": 37
+   }
+  },
+  "Noah_Complete/Basics/PNG/2B_Recover.png": {
+   "empty": false,
+   "top": 402,
+   "bot": 721,
+   "left": 304,
+   "right": 601,
+   "h": 320,
+   "rear_x": 308,
+   "front_x": 597,
+   "hip_x": 426.0,
+   "cx": 433.9785354165627,
+   "cy": 571.7086307592473,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0927318853539045,
+    "rot": 17.32043821173927,
+    "inliers": 23,
+    "good": 43
+   },
+   "scale_how": "via 5A_Recover.png",
+   "scale": 1.0806837445868362,
+   "sift_chain": {
+    "scale": 1.023790549890026,
+    "rot": 9.601983744114115,
+    "inliers": 38,
+    "good": 62
+   }
+  },
+  "Noah_Complete/Basics/PNG/2C_Follow.png": {
+   "empty": false,
+   "top": 417,
+   "bot": 730,
+   "left": 302,
+   "right": 589,
+   "h": 314,
+   "rear_x": 311,
+   "front_x": 582,
+   "hip_x": 460.0,
+   "cx": 437.42505951764826,
+   "cy": 574.8726322326881,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.2806598460295036,
+    "rot": 3.8378160800946866,
+    "inliers": 11,
+    "good": 13
+   },
+   "scale_how": "via 5A_Recover.png",
+   "scale": 0.927175545075551,
+   "sift_chain": {
+    "scale": 0.8783638746230896,
+    "rot": 22.66601332005143,
+    "inliers": 22,
+    "good": 37
+   }
+  },
+  "Noah_Complete/Basics/PNG/2C_Hit.png": {
+   "empty": false,
+   "top": 406,
+   "bot": 726,
+   "left": 199,
+   "right": 639,
+   "h": 321,
+   "rear_x": 294,
+   "front_x": 594,
+   "hip_x": 419.5,
+   "cx": 436.1740069163632,
+   "cy": 565.655206484548,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.6769139630179801,
+    "rot": 7.50094363861666,
+    "inliers": 18,
+    "good": 19
+   },
+   "scale_how": "head",
+   "scale": 1.6769139630179801
+  },
+  "Noah_Complete/Basics/PNG/5A_Hit.png": {
+   "empty": false,
+   "top": 313,
+   "bot": 728,
+   "left": 303,
+   "right": 613,
+   "h": 416,
+   "rear_x": 304,
+   "front_x": 613,
+   "hip_x": 448.0,
+   "cx": 447.0620520973462,
+   "cy": 516.0496270025682,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.1788263095544524,
+    "rot": 3.98934494799454,
+    "inliers": 25,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": 1.1788263095544524
+  },
+  "Noah_Complete/Basics/PNG/5A_Recover.png": {
+   "empty": false,
+   "top": 328,
+   "bot": 732,
+   "left": 263,
+   "right": 634,
+   "h": 405,
+   "rear_x": 279,
+   "front_x": 634,
+   "hip_x": 445.0,
+   "cx": 440.1056666453715,
+   "cy": 540.246789752763,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0555711270268335,
+    "rot": 6.879081387791798,
+    "inliers": 37,
+    "good": 56
+   },
+   "scale_how": "body",
+   "scale": 1.0555711270268335
+  },
+  "Noah_Complete/Basics/PNG/5B_Hit.png": {
+   "empty": false,
+   "top": 309,
+   "bot": 720,
+   "left": 309,
+   "right": 601,
+   "h": 412,
+   "rear_x": 418,
+   "front_x": 491,
+   "hip_x": 453.5,
+   "cx": 418.52010006687635,
+   "cy": 497.0802021152751,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.9908589659379172,
+    "rot": 5.663762416449848,
+    "inliers": 25,
+    "good": 38
+   },
+   "scale_how": "body",
+   "scale": 0.9908589659379172
+  },
+  "Noah_Complete/Basics/PNG/5C_Hit.png": {
+   "empty": false,
+   "top": 326,
+   "bot": 729,
+   "left": 298,
+   "right": 613,
+   "h": 404,
+   "rear_x": 298,
+   "front_x": 613,
+   "hip_x": 459.5,
+   "cx": 457.66839107843805,
+   "cy": 520.5789712522406,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.1299397967392242,
+    "rot": 10.538202166891237,
+    "inliers": 31,
+    "good": 51
+   },
+   "scale_how": "body",
+   "scale": 1.1299397967392242
+  },
+  "Noah_Complete/Basics/PNG/6C_Hit.png": {
+   "empty": false,
+   "top": 286,
+   "bot": 728,
+   "left": 333,
+   "right": 603,
+   "h": 443,
+   "rear_x": 334,
+   "front_x": 602,
+   "hip_x": 460.0,
+   "cx": 468.81117916588744,
+   "cy": 510.89283710491867,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0720068741672244,
+    "rot": -5.917473667877944,
+    "inliers": 32,
+    "good": 53
+   },
+   "scale_how": "body",
+   "scale": 1.0720068741672244
+  },
+  "Noah_Complete/Basics/PNG/AirDash_Back.png": {
+   "empty": false,
+   "top": 377,
+   "bot": 730,
+   "left": 282,
+   "right": 611,
+   "h": 354,
+   "rear_x": 473,
+   "front_x": 611,
+   "hip_x": 465.5,
+   "cx": 422.2374456879526,
+   "cy": 543.131323238973,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.3040489896180336,
+    "rot": -2.5958868782994617,
+    "inliers": 12,
+    "good": 14
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Basics/PNG/AirDash_Forward.png": {
+   "empty": false,
+   "top": 433,
+   "bot": 721,
+   "left": 213,
+   "right": 713,
+   "h": 289,
+   "rear_x": 214,
+   "front_x": 577,
+   "hip_x": 511.0,
+   "cx": 454.12908315565033,
+   "cy": 555.5059914712153,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.2427540097314198,
+    "rot": 12.624630028767111,
+    "inliers": 12,
+    "good": 12
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Basics/PNG/AirDash_Recover.png": {
+   "empty": false,
+   "top": 380,
+   "bot": 722,
+   "left": 282,
+   "right": 584,
+   "h": 343,
+   "rear_x": 361,
+   "front_x": 392,
+   "hip_x": 431.5,
+   "cx": 437.1534228839618,
+   "cy": 541.3737390084696,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0487653455781127,
+    "rot": 14.85678499437419,
+    "inliers": 23,
+    "good": 33
+   },
+   "scale_how": "via 5A_Hit.png",
+   "scale": 1.0851118591510738,
+   "sift_chain": {
+    "scale": 0.9205019012183409,
+    "rot": 11.33416853179198,
+    "inliers": 33,
+    "good": 45
+   }
+  },
+  "Noah_Complete/Basics/PNG/Backstep.png": {
+   "empty": false,
+   "top": 322,
+   "bot": 706,
+   "left": 286,
+   "right": 647,
+   "h": 385,
+   "rear_x": 310,
+   "front_x": 468,
+   "hip_x": 473.0,
+   "cx": 436.38793752137724,
+   "cy": 509.7071713601642,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.1768101436446916,
+    "rot": 10.699265586784753,
+    "inliers": 11,
+    "good": 13
+   },
+   "scale_how": "via 5A_Hit.png",
+   "scale": 1.0975701021278648,
+   "sift_chain": {
+    "scale": 0.9310702460846,
+    "rot": 5.323817112305024,
+    "inliers": 24,
+    "good": 37
+   }
+  },
+  "Noah_Complete/Basics/PNG/Crouch_Exit.png": {
+   "empty": false,
+   "top": 373,
+   "bot": 728,
+   "left": 272,
+   "right": 615,
+   "h": 356,
+   "rear_x": 299,
+   "front_x": 615,
+   "hip_x": 448.0,
+   "cx": 445.45838232118433,
+   "cy": 555.9298653933824,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0936626784529933,
+    "rot": 11.52821978642898,
+    "inliers": 15,
+    "good": 18
+   },
+   "scale_how": "via 5C_Hit.png",
+   "scale": 1.0637193358099708,
+   "sift_chain": {
+    "scale": 0.9413946998589198,
+    "rot": 10.738825277812863,
+    "inliers": 30,
+    "good": 55
+   }
+  },
+  "Noah_Complete/Basics/PNG/Crouch_Hold.png": {
+   "empty": false,
+   "top": 451,
+   "bot": 727,
+   "left": 258,
+   "right": 639,
+   "h": 277,
+   "rear_x": 258,
+   "front_x": 639,
+   "hip_x": 456.0,
+   "cx": 449.842334997366,
+   "cy": 613.0441512179214,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.3069145320523086,
+    "rot": 14.237586058237445,
+    "inliers": 6,
+    "good": 10
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Basics/PNG/Crouch_Lower.png": {
+   "empty": false,
+   "top": 440,
+   "bot": 730,
+   "left": 272,
+   "right": 605,
+   "h": 291,
+   "rear_x": 291,
+   "front_x": 591,
+   "hip_x": 461.5,
+   "cx": 439.4303370786517,
+   "cy": 603.3659013190035,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.1779721988668563,
+    "rot": 8.2826467733339,
+    "inliers": 13,
+    "good": 16
+   },
+   "scale_how": "via 5A_Hit.png",
+   "scale": 1.1322070270932623,
+   "sift_chain": {
+    "scale": 0.9604527977672892,
+    "rot": 24.635557411362996,
+    "inliers": 26,
+    "good": 39
+   }
+  },
+  "Noah_Complete/Basics/PNG/Damage_Heavy.png": {
+   "empty": false,
+   "top": 293,
+   "bot": 733,
+   "left": 293,
+   "right": 623,
+   "h": 441,
+   "rear_x": 308,
+   "front_x": 605,
+   "hip_x": 470.5,
+   "cx": 425.80748193542485,
+   "cy": 521.3790359462179,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Basics/PNG/Damage_Light.png": {
+   "empty": false,
+   "top": 294,
+   "bot": 733,
+   "left": 279,
+   "right": 633,
+   "h": 440,
+   "rear_x": 318,
+   "front_x": 611,
+   "hip_x": 449.0,
+   "cx": 441.3368492373052,
+   "cy": 525.1216466150269,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": "via 5A_Hit.png",
+   "scale": 1.3482805209413322,
+   "sift_chain": {
+    "scale": 1.1437482434973194,
+    "rot": -3.176269768253143,
+    "inliers": 25,
+    "good": 46
+   }
+  },
+  "Noah_Complete/Basics/PNG/Downed.png": {
+   "empty": false,
+   "top": 617,
+   "bot": 733,
+   "left": 193,
+   "right": 708,
+   "h": 117,
+   "rear_x": 233,
+   "front_x": 690,
+   "hip_x": 450.5,
+   "cx": 408.92873258604016,
+   "cy": 684.2846040898185,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Basics/PNG/Idle_Reference.png": {
+   "empty": false,
+   "top": 312,
+   "bot": 729,
+   "left": 326,
+   "right": 584,
+   "h": 418,
+   "rear_x": 343,
+   "front_x": 584,
+   "hip_x": 457.0,
+   "cx": 448.75001390511153,
+   "cy": 517.4929362033483,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 79,
+    "good": 79
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Noah_Complete/Basics/PNG/Win_01.png": {
+   "empty": false,
+   "top": 328,
+   "bot": 731,
+   "left": 331,
+   "right": 566,
+   "h": 404,
+   "rear_x": 363,
+   "front_x": 526,
+   "hip_x": 462.0,
+   "cx": 444.22627086985256,
+   "cy": 530.359952872209,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.9147572854530791,
+    "rot": 1.9992022175791198,
+    "inliers": 34,
+    "good": 47
+   },
+   "scale_how": "body",
+   "scale": 0.9147572854530791
+  },
+  "Noah_Complete/Basics/PNG/Win_02.png": {
+   "empty": false,
+   "top": 343,
+   "bot": 730,
+   "left": 314,
+   "right": 578,
+   "h": 388,
+   "rear_x": 331,
+   "front_x": 578,
+   "hip_x": 443.0,
+   "cx": 441.7261112337929,
+   "cy": 543.7468374396668,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.942089394077435,
+    "rot": 2.8420575893644457,
+    "inliers": 44,
+    "good": 59
+   },
+   "scale_how": "body",
+   "scale": 0.942089394077435
+  },
+  "Noah_Complete/Basics/PNG/Win_03.png": {
+   "empty": false,
+   "top": 390,
+   "bot": 731,
+   "left": 321,
+   "right": 565,
+   "h": 342,
+   "rear_x": 354,
+   "front_x": 558,
+   "hip_x": 443.5,
+   "cx": 444.07871544509254,
+   "cy": 556.8857785949784,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": "via Win_02.png",
+   "scale": 0.7647177034856798,
+   "sift_chain": {
+    "scale": 0.8117252017623541,
+    "rot": 6.6872317868991065,
+    "inliers": 20,
+    "good": 45
+   }
+  },
+  "Noah_Complete/Basics/PNG/Win_04.png": {
+   "empty": false,
+   "top": 375,
+   "bot": 727,
+   "left": 311,
+   "right": 588,
+   "h": 353,
+   "rear_x": 324,
+   "front_x": 586,
+   "hip_x": 449.5,
+   "cx": 449.081074204947,
+   "cy": 544.2608056537102,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": "via Win_02.png",
+   "scale": 0.9762142482123035,
+   "sift_chain": {
+    "scale": 1.036222522352336,
+    "rot": -2.925903171013116,
+    "inliers": 31,
+    "good": 50
+   }
+  },
+  "Noah_Complete/Basics/PNG/Win_05.png": {
+   "empty": false,
+   "top": 373,
+   "bot": 729,
+   "left": 320,
+   "right": 563,
+   "h": 357,
+   "rear_x": 349,
+   "front_x": 563,
+   "hip_x": 437.0,
+   "cx": 447.3406243232373,
+   "cy": 546.964730996504,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.9845535137378789,
+    "rot": 34.96656890397403,
+    "inliers": 10,
+    "good": 12
+   },
+   "scale_how": "via Win_02.png",
+   "scale": 0.8573702870054012,
+   "sift_chain": {
+    "scale": 0.9100731760652108,
+    "rot": 24.40551414161167,
+    "inliers": 24,
+    "good": 62
+   }
+  },
+  "Noah_Complete/Basics/PNG/Win_06.png": {
+   "empty": false,
+   "top": 334,
+   "bot": 726,
+   "left": 343,
+   "right": 553,
+   "h": 393,
+   "rear_x": 371,
+   "front_x": 547,
+   "hip_x": 457.5,
+   "cx": 448.47396228802836,
+   "cy": 541.1847000759301,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.9440092455685954,
+    "rot": 1.2808650410175897,
+    "inliers": 30,
+    "good": 49
+   },
+   "scale_how": "body",
+   "scale": 0.9440092455685954
+  },
+  "Noah_Complete/Idle/Character_Base/Idle_00_Neutral.png": {
+   "empty": false,
+   "top": 21,
+   "bot": 1514,
+   "left": 67,
+   "right": 991,
+   "h": 1494,
+   "rear_x": 128,
+   "front_x": 991,
+   "hip_x": 566.5,
+   "cx": 509.123454707786,
+   "cy": 762.4377621402564,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 3.5684643860193703,
+    "rot": 0.03552865737135131,
+    "inliers": 54,
+    "good": 54
+   },
+   "scale_how": "head",
+   "scale": 3.5684643860193703
+  },
+  "Noah_Complete/Idle/Character_Base/Idle_01_Inhale.png": {
+   "empty": false,
+   "top": 19,
+   "bot": 1514,
+   "left": 64,
+   "right": 992,
+   "h": 1496,
+   "rear_x": 128,
+   "front_x": 992,
+   "hip_x": 569.5,
+   "cx": 508.7826976756822,
+   "cy": 761.2255428200153,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 3.546921985828714,
+    "rot": -0.11645956175066989,
+    "inliers": 43,
+    "good": 48
+   },
+   "scale_how": "head",
+   "scale": 3.546921985828714
+  },
+  "Noah_Complete/Idle/Character_Base/Idle_02_Exhale.png": {
+   "empty": false,
+   "top": 24,
+   "bot": 1515,
+   "left": 69,
+   "right": 993,
+   "h": 1492,
+   "rear_x": 128,
+   "front_x": 993,
+   "hip_x": 568.5,
+   "cx": 505.2382086931214,
+   "cy": 741.5474895609044,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 3.5449552599877387,
+    "rot": 0.28510605542572376,
+    "inliers": 46,
+    "good": 47
+   },
+   "scale_how": "head",
+   "scale": 3.5449552599877387
+  },
+  "Noah_Complete/Idle/Character_Base/Idle_03_Blink.png": {
+   "empty": false,
+   "top": 21,
+   "bot": 1515,
+   "left": 66,
+   "right": 993,
+   "h": 1495,
+   "rear_x": 128,
+   "front_x": 993,
+   "hip_x": 567.5,
+   "cx": 505.6467496555748,
+   "cy": 737.9664743115172,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 3.579703771278585,
+    "rot": 0.2132152783345859,
+    "inliers": 39,
+    "good": 41
+   },
+   "scale_how": "head",
+   "scale": 3.579703771278585
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_01.png": {
+   "empty": false,
+   "top": 299,
+   "bot": 548,
+   "left": 181,
+   "right": 455,
+   "h": 250,
+   "rear_x": 248,
+   "front_x": 442,
+   "hip_x": 319.5,
+   "cx": 330.0502931069335,
+   "cy": 430.21847584394584,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.8971270622819543,
+    "rot": 11.680876883159177,
+    "inliers": 27,
+    "good": 37
+   },
+   "scale_how": "body",
+   "scale": 0.8971270622819543
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_02.png": {
+   "empty": false,
+   "top": 144,
+   "bot": 483,
+   "left": 197,
+   "right": 439,
+   "h": 340,
+   "rear_x": 222,
+   "front_x": 339,
+   "hip_x": 319.0,
+   "cx": 329.5062400474021,
+   "cy": 308.70466244491354,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.9213715800564636,
+    "rot": 0.7984362749539302,
+    "inliers": 28,
+    "good": 29
+   },
+   "scale_how": "head",
+   "scale": 0.9213715800564636
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_03.png": {
+   "empty": false,
+   "top": 68,
+   "bot": 408,
+   "left": 202,
+   "right": 435,
+   "h": 341,
+   "rear_x": 269,
+   "front_x": 297,
+   "hip_x": 318.5,
+   "cx": 323.9199034704666,
+   "cy": 226.87194514670958,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.9367969857768007,
+    "rot": 2.8145207822542284,
+    "inliers": 27,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 0.9367969857768007
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_04.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 388,
+   "left": 188,
+   "right": 452,
+   "h": 319,
+   "rear_x": 254,
+   "front_x": 349,
+   "hip_x": 315.0,
+   "cx": 320.3296860298986,
+   "cy": 231.32093947102484,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.8782905743247102,
+    "rot": 8.386591867836055,
+    "inliers": 49,
+    "good": 57
+   },
+   "scale_how": "body",
+   "scale": 0.8782905743247102
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_05.png": {
+   "empty": false,
+   "top": 129,
+   "bot": 474,
+   "left": 191,
+   "right": 449,
+   "h": 346,
+   "rear_x": 269,
+   "front_x": 386,
+   "hip_x": 317.0,
+   "cx": 331.8048648453571,
+   "cy": 291.74087841495543,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.9051175219187996,
+    "rot": 1.7593334708522035,
+    "inliers": 25,
+    "good": 26
+   },
+   "scale_how": "head",
+   "scale": 0.9051175219187996
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_06.png": {
+   "empty": false,
+   "top": 286,
+   "bot": 549,
+   "left": 178,
+   "right": 461,
+   "h": 264,
+   "rear_x": 248,
+   "front_x": 410,
+   "hip_x": 331.5,
+   "cx": 332.11992761992764,
+   "cy": 424.7081312081312,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.8695013574746964,
+    "rot": 8.371439026341134,
+    "inliers": 30,
+    "good": 50
+   },
+   "scale_how": "body",
+   "scale": 0.8695013574746964
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_01.png": {
+   "empty": false,
+   "top": 214,
+   "bot": 536,
+   "left": 161,
+   "right": 479,
+   "h": 323,
+   "rear_x": 183,
+   "front_x": 479,
+   "hip_x": 315.0,
+   "cx": 321.4416887606135,
+   "cy": 369.5095143806424,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.9337019337173353,
+    "rot": 13.743976055663484,
+    "inliers": 41,
+    "good": 51
+   },
+   "scale_how": "body",
+   "scale": 0.9337019337173353
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_02.png": {
+   "empty": false,
+   "top": 216,
+   "bot": 549,
+   "left": 181,
+   "right": 455,
+   "h": 334,
+   "rear_x": 290,
+   "front_x": 344,
+   "hip_x": 319.5,
+   "cx": 333.5744290021835,
+   "cy": 368.7506671749905,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.8744789885507503,
+    "rot": 11.38142312415741,
+    "inliers": 23,
+    "good": 36
+   },
+   "scale_how": "via Run_Low_Arm_01.png",
+   "scale": 0.8884420611934449,
+   "sift_chain": {
+    "scale": 0.9515264230591257,
+    "rot": -2.823463196799122,
+    "inliers": 48,
+    "good": 64
+   }
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_03.png": {
+   "empty": false,
+   "top": 227,
+   "bot": 537,
+   "left": 153,
+   "right": 487,
+   "h": 311,
+   "rear_x": 177,
+   "front_x": 487,
+   "hip_x": 321.5,
+   "cx": 344.51118738464527,
+   "cy": 375.41197422530195,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.9028316083102981,
+    "rot": 16.20917219036729,
+    "inliers": 25,
+    "good": 48
+   },
+   "scale_how": "body",
+   "scale": 0.9028316083102981
+  },
+  "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_04.png": {
+   "empty": false,
+   "top": 211,
+   "bot": 548,
+   "left": 185,
+   "right": 451,
+   "h": 338,
+   "rear_x": 300,
+   "front_x": 363,
+   "hip_x": 320.0,
+   "cx": 321.836622886583,
+   "cy": 362.913431536173,
+   "mask": "dark",
+   "size": [
+    640,
+    600
+   ],
+   "sift": {
+    "scale": 0.8811893231161093,
+    "rot": 8.089544792514543,
+    "inliers": 22,
+    "good": 42
+   },
+   "scale_how": "via Run_Low_Arm_01.png",
+   "scale": 0.898072319527859,
+   "sift_chain": {
+    "scale": 0.96184048366739,
+    "rot": -5.48971102903898,
+    "inliers": 49,
+    "good": 56
+   }
+  },
+  "Noah_Complete/Normals/Air/jA/Frame_01.png": {
+   "empty": false,
+   "top": 9,
+   "bot": 511,
+   "left": 118,
+   "right": 638,
+   "h": 503,
+   "rear_x": 188,
+   "front_x": 479,
+   "hip_x": 373.5,
+   "cx": 382.42745347358687,
+   "cy": 266.5699919084499,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": {
+    "scale": 1.732939068435564,
+    "rot": 9.579769885643335,
+    "inliers": 26,
+    "good": 39
+   },
+   "scale_how": "body",
+   "scale": 1.732939068435564
+  },
+  "Noah_Complete/Normals/Air/jA/Frame_02.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 511,
+   "left": 46,
+   "right": 665,
+   "h": 500,
+   "rear_x": 202,
+   "front_x": 569,
+   "hip_x": 294.5,
+   "cx": 330.95218921333935,
+   "cy": 262.63573784597736,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": {
+    "scale": 1.7549870933213467,
+    "rot": 13.188191536785531,
+    "inliers": 23,
+    "good": 33
+   },
+   "scale_how": "via Frame_03.png",
+   "scale": 1.6270816092243348,
+   "sift_chain": {
+    "scale": 0.9991896041803205,
+    "rot": -1.37912193598053,
+    "inliers": 82,
+    "good": 115
+   }
+  },
+  "Noah_Complete/Normals/Air/jA/Frame_03.png": {
+   "empty": false,
+   "top": 3,
+   "bot": 501,
+   "left": 117,
+   "right": 670,
+   "h": 499,
+   "rear_x": 267,
+   "front_x": 463,
+   "hip_x": 391.5,
+   "cx": 400.4680373873078,
+   "cy": 256.8745912144246,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": {
+    "scale": 1.6284012587972247,
+    "rot": 8.464872471905462,
+    "inliers": 32,
+    "good": 53
+   },
+   "scale_how": "body",
+   "scale": 1.6284012587972247
+  },
+  "Noah_Complete/Normals/Air/jA/Frame_04.png": {
+   "empty": false,
+   "top": 0,
+   "bot": 501,
+   "left": 93,
+   "right": 609,
+   "h": 502,
+   "rear_x": 161,
+   "front_x": 434,
+   "hip_x": 352.0,
+   "cx": 351.14796436619224,
+   "cy": 255.8301089329706,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": {
+    "scale": 1.6719648953558857,
+    "rot": 3.0977462002552345,
+    "inliers": 28,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 1.6719648953558857
+  },
+  "Noah_Complete/Normals/Air/jB/Frame_01.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 555,
+   "left": 24,
+   "right": 655,
+   "h": 492,
+   "rear_x": 172,
+   "front_x": 517,
+   "hip_x": 344.0,
+   "cx": 326.94931861429905,
+   "cy": 315.503433522049,
+   "mask": "dark",
+   "size": [
+    656,
+    599
+   ],
+   "sift": {
+    "scale": 1.6414215182371548,
+    "rot": 6.170487350902509,
+    "inliers": 28,
+    "good": 35
+   },
+   "scale_how": "body",
+   "scale": 1.6414215182371548
+  },
+  "Noah_Complete/Normals/Air/jB/Frame_02.png": {
+   "empty": false,
+   "top": 106,
+   "bot": 542,
+   "left": 0,
+   "right": 419,
+   "h": 437,
+   "rear_x": 40,
+   "front_x": 370,
+   "hip_x": 209.5,
+   "cx": 179.40035520070413,
+   "cy": 315.5237953038066,
+   "mask": "dark",
+   "size": [
+    656,
+    599
+   ],
+   "sift": {
+    "scale": 1.5380496469734104,
+    "rot": 10.723270192563694,
+    "inliers": 14,
+    "good": 17
+   },
+   "scale_how": "via Frame_01.png",
+   "scale": 1.5824260561874037,
+   "sift_chain": {
+    "scale": 0.964058310802998,
+    "rot": 9.470856729381921,
+    "inliers": 42,
+    "good": 102
+   }
+  },
+  "Noah_Complete/Normals/Air/jB/Frame_03.png": {
+   "empty": false,
+   "top": 46,
+   "bot": 484,
+   "left": 25,
+   "right": 515,
+   "h": 439,
+   "rear_x": 199,
+   "front_x": 515,
+   "hip_x": 257.0,
+   "cx": 292.78405546399335,
+   "cy": 260.9937208003596,
+   "mask": "dark",
+   "size": [
+    656,
+    600
+   ],
+   "sift": {
+    "scale": 1.5629024281940707,
+    "rot": 6.726539368191598,
+    "inliers": 17,
+    "good": 18
+   },
+   "scale_how": "via Frame_01.png",
+   "scale": 1.534222718150726,
+   "sift_chain": {
+    "scale": 0.9346914860714404,
+    "rot": 6.945731286963323,
+    "inliers": 32,
+    "good": 97
+   }
+  },
+  "Noah_Complete/Normals/Air/jB/Frame_04.png": {
+   "empty": false,
+   "top": 48,
+   "bot": 501,
+   "left": 62,
+   "right": 537,
+   "h": 454,
+   "rear_x": 191,
+   "front_x": 521,
+   "hip_x": 279.5,
+   "cx": 307.73509471863406,
+   "cy": 274.3843846776218,
+   "mask": "dark",
+   "size": [
+    656,
+    600
+   ],
+   "sift": {
+    "scale": 1.557853494481071,
+    "rot": 7.162987347021484,
+    "inliers": 23,
+    "good": 42
+   },
+   "scale_how": "via Frame_01.png",
+   "scale": 1.5019736347375165,
+   "sift_chain": {
+    "scale": 0.9150444404741314,
+    "rot": -1.5601899263269021,
+    "inliers": 74,
+    "good": 144
+   }
+  },
+  "Noah_Complete/Normals/Air/jC/Frame_01.png": {
+   "empty": false,
+   "top": 25,
+   "bot": 560,
+   "left": 103,
+   "right": 642,
+   "h": 536,
+   "rear_x": 153,
+   "front_x": 642,
+   "hip_x": 353.0,
+   "cx": 358.54246255495667,
+   "cy": 316.66048585409476,
+   "mask": "dark",
+   "size": [
+    701,
+    561
+   ],
+   "sift": {
+    "scale": 1.5650458800304894,
+    "rot": 8.754145730545034,
+    "inliers": 25,
+    "good": 40
+   },
+   "scale_how": "body",
+   "scale": 1.5650458800304894
+  },
+  "Noah_Complete/Normals/Air/jC/Frame_02.png": {
+   "empty": false,
+   "top": 115,
+   "bot": 548,
+   "left": 22,
+   "right": 487,
+   "h": 434,
+   "rear_x": 66,
+   "front_x": 468,
+   "hip_x": 255.5,
+   "cx": 263.2057266946673,
+   "cy": 335.8984174869641,
+   "mask": "dark",
+   "size": [
+    701,
+    561
+   ],
+   "sift": {
+    "scale": 1.410699953190276,
+    "rot": 29.32683953587357,
+    "inliers": 24,
+    "good": 44
+   },
+   "scale_how": "via Frame_04.png",
+   "scale": 1.6318927955298026,
+   "sift_chain": {
+    "scale": 0.9662081823021503,
+    "rot": 8.70036608317176,
+    "inliers": 52,
+    "good": 106
+   }
+  },
+  "Noah_Complete/Normals/Air/jC/Frame_03.png": {
+   "empty": false,
+   "top": 61,
+   "bot": 492,
+   "left": 81,
+   "right": 561,
+   "h": 432,
+   "rear_x": 289,
+   "front_x": 531,
+   "hip_x": 320.5,
+   "cx": 354.53164954936074,
+   "cy": 264.3855061831901,
+   "mask": "dark",
+   "size": [
+    701,
+    561
+   ],
+   "sift": {
+    "scale": 1.713608994041214,
+    "rot": 23.885792807226874,
+    "inliers": 10,
+    "good": 11
+   },
+   "scale_how": "via Frame_04.png",
+   "scale": 1.6018778407987404,
+   "sift_chain": {
+    "scale": 0.9484369813188372,
+    "rot": 12.597095311738583,
+    "inliers": 40,
+    "good": 80
+   }
+  },
+  "Noah_Complete/Normals/Air/jC/Frame_04.png": {
+   "empty": false,
+   "top": 29,
+   "bot": 515,
+   "left": 85,
+   "right": 611,
+   "h": 487,
+   "rear_x": 271,
+   "front_x": 606,
+   "hip_x": 329.0,
+   "cx": 357.32541688332105,
+   "cy": 278.8915921980241,
+   "mask": "dark",
+   "size": [
+    701,
+    561
+   ],
+   "sift": {
+    "scale": 1.6889660276334535,
+    "rot": 5.244057554619008,
+    "inliers": 25,
+    "good": 29
+   },
+   "scale_how": "head",
+   "scale": 1.6889660276334535
+  },
+  "Noah_Complete/Normals/Crouching/2A_Active.png": {
+   "empty": false,
+   "top": 113,
+   "bot": 604,
+   "left": 21,
+   "right": 723,
+   "h": 492,
+   "rear_x": 21,
+   "front_x": 723,
+   "hip_x": 335.0,
+   "cx": 315.40385452868696,
+   "cy": 391.400421829236,
+   "mask": "dark",
+   "size": [
+    724,
+    659
+   ],
+   "sift": {
+    "scale": 2.2951296929158107,
+    "rot": 6.010593678088196,
+    "inliers": 20,
+    "good": 21
+   },
+   "scale_how": "head",
+   "scale": 2.2951296929158107
+  },
+  "Noah_Complete/Normals/Crouching/2B_Active.png": {
+   "empty": false,
+   "top": 118,
+   "bot": 605,
+   "left": 50,
+   "right": 723,
+   "h": 488,
+   "rear_x": 50,
+   "front_x": 645,
+   "hip_x": 412.0,
+   "cx": 322.1750640967882,
+   "cy": 386.3640615656818,
+   "mask": "dark",
+   "size": [
+    724,
+    659
+   ],
+   "sift": {
+    "scale": 2.2682794696293134,
+    "rot": 2.9851363752798292,
+    "inliers": 20,
+    "good": 20
+   },
+   "scale_how": "head",
+   "scale": 2.2682794696293134
+  },
+  "Noah_Complete/Normals/Crouching/2C_Active.png": {
+   "empty": false,
+   "top": 152,
+   "bot": 609,
+   "left": 0,
+   "right": 632,
+   "h": 458,
+   "rear_x": 139,
+   "front_x": 506,
+   "hip_x": 318.0,
+   "cx": 337.5120295488459,
+   "cy": 379.03567415212865,
+   "mask": "dark",
+   "size": [
+    724,
+    659
+   ],
+   "sift": {
+    "scale": 2.359670005412591,
+    "rot": 6.733975728662641,
+    "inliers": 21,
+    "good": 31
+   },
+   "scale_how": "body",
+   "scale": 2.359670005412591
+  },
+  "Noah_Complete/Normals/Standing/5A_Active.png": {
+   "empty": false,
+   "top": 36,
+   "bot": 686,
+   "left": 26,
+   "right": 511,
+   "h": 651,
+   "rear_x": 27,
+   "front_x": 511,
+   "hip_x": 253.0,
+   "cx": 250.07987368334432,
+   "cy": 355.49070111915734,
+   "mask": "dark",
+   "size": [
+    512,
+    699
+   ],
+   "sift": {
+    "scale": 1.8221860639502234,
+    "rot": 5.273468666881573,
+    "inliers": 28,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 1.8221860639502234
+  },
+  "Noah_Complete/Normals/Standing/5B_Active.png": {
+   "empty": false,
+   "top": 40,
+   "bot": 684,
+   "left": 35,
+   "right": 493,
+   "h": 645,
+   "rear_x": 206,
+   "front_x": 321,
+   "hip_x": 261.0,
+   "cx": 206.32952922896018,
+   "cy": 337.0489564085335,
+   "mask": "dark",
+   "size": [
+    512,
+    699
+   ],
+   "sift": {
+    "scale": 1.8117788547824656,
+    "rot": 8.100574804497306,
+    "inliers": 22,
+    "good": 31
+   },
+   "scale_how": "via 5A_Active.png",
+   "scale": 1.7907630999389736,
+   "sift_chain": {
+    "scale": 0.9827553482967982,
+    "rot": 3.421367150310341,
+    "inliers": 36,
+    "good": 62
+   }
+  },
+  "Noah_Complete/Normals/Standing/5C_Active.png": {
+   "empty": false,
+   "top": 42,
+   "bot": 673,
+   "left": 19,
+   "right": 511,
+   "h": 632,
+   "rear_x": 19,
+   "front_x": 511,
+   "hip_x": 271.0,
+   "cx": 265.45979175471626,
+   "cy": 349.1243612402505,
+   "mask": "dark",
+   "size": [
+    512,
+    699
+   ],
+   "sift": {
+    "scale": 1.7497519968516353,
+    "rot": 10.672458103403962,
+    "inliers": 32,
+    "good": 57
+   },
+   "scale_how": "body",
+   "scale": 1.7497519968516353
+  },
+  "Noah_Complete/Normals/Standing/6C_Active.png": {
+   "empty": false,
+   "top": 0,
+   "bot": 692,
+   "left": 73,
+   "right": 495,
+   "h": 693,
+   "rear_x": 75,
+   "front_x": 493,
+   "hip_x": 272.0,
+   "cx": 283.58357814919214,
+   "cy": 357.09257016951847,
+   "mask": "dark",
+   "size": [
+    512,
+    699
+   ],
+   "sift": {
+    "scale": 1.6763186389406415,
+    "rot": -5.788701980087393,
+    "inliers": 31,
+    "good": 44
+   },
+   "scale_how": "body",
+   "scale": 1.6763186389406415
+  },
+  "Noah_Complete/Specials/214A/01_Startup.png": {
+   "empty": false,
+   "top": 76,
+   "bot": 978,
+   "left": 258,
+   "right": 1248,
+   "h": 903,
+   "rear_x": 265,
+   "front_x": 1194,
+   "hip_x": 768.5,
+   "cx": 746.3797533039055,
+   "cy": 559.3690221246525,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.090394892589328,
+    "rot": 3.6165084525825555,
+    "inliers": 15,
+    "good": 21
+   },
+   "scale_how": "via 05_Absorb.png",
+   "scale": 2.954815794808609,
+   "sift_chain": {
+    "scale": 1.1058513015413638,
+    "rot": 9.868655408266344,
+    "inliers": 43,
+    "good": 151
+   }
+  },
+  "Noah_Complete/Specials/214A/02_Straight_Grab_Lunge.png": {
+   "empty": false,
+   "top": 238,
+   "bot": 933,
+   "left": 39,
+   "right": 1528,
+   "h": 696,
+   "rear_x": 39,
+   "front_x": 1344,
+   "hip_x": 784.0,
+   "cx": 683.9923894056576,
+   "cy": 542.4938244933986,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214A/04_Compact_Recoil.png": {
+   "empty": false,
+   "top": 21,
+   "bot": 998,
+   "left": 210,
+   "right": 1367,
+   "h": 978,
+   "rear_x": 262,
+   "front_x": 1335,
+   "hip_x": 754.5,
+   "cx": 753.9158259625997,
+   "cy": 545.0766815376724,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.8218382097664927,
+    "rot": 3.098866026612394,
+    "inliers": 25,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 2.8218382097664927
+  },
+  "Noah_Complete/Specials/214A/05_Absorb.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1005,
+   "left": 310,
+   "right": 1256,
+   "h": 990,
+   "rear_x": 383,
+   "front_x": 1249,
+   "hip_x": 728.5,
+   "cx": 772.664999426737,
+   "cy": 550.3737674845219,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.6719829245488174,
+    "rot": 7.605576526388397,
+    "inliers": 34,
+    "good": 37
+   },
+   "scale_how": "head",
+   "scale": 2.6719829245488174
+  },
+  "Noah_Complete/Specials/214A/06_Recovery.png": {
+   "empty": false,
+   "top": 18,
+   "bot": 1001,
+   "left": 421,
+   "right": 1175,
+   "h": 984,
+   "rear_x": 473,
+   "front_x": 1161,
+   "hip_x": 826.0,
+   "cx": 777.4768346424908,
+   "cy": 538.0505231022825,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.589371330952598,
+    "rot": 2.0028193748588183,
+    "inliers": 30,
+    "good": 37
+   },
+   "scale_how": "head",
+   "scale": 2.589371330952598
+  },
+  "Noah_Complete/Specials/214B/01_Prepare.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 1000,
+   "left": 151,
+   "right": 1177,
+   "h": 931,
+   "rear_x": 244,
+   "front_x": 1141,
+   "hip_x": 636.5,
+   "cx": 684.1637053894905,
+   "cy": 537.5859042526049,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.675269647762963,
+    "rot": 2.3381589632093727,
+    "inliers": 15,
+    "good": 19
+   },
+   "scale_how": "via 05_Land.png",
+   "scale": 2.771475266795146,
+   "sift_chain": {
+    "scale": 0.8501478130136481,
+    "rot": -10.60543159537014,
+    "inliers": 66,
+    "good": 146
+   }
+  },
+  "Noah_Complete/Specials/214B/02_Jump_Turn.png": {
+   "empty": false,
+   "top": 85,
+   "bot": 989,
+   "left": 99,
+   "right": 1294,
+   "h": 905,
+   "rear_x": 688,
+   "front_x": 789,
+   "hip_x": 764.5,
+   "cx": 730.3542080342141,
+   "cy": 516.774631464048,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.2911777234255646,
+    "rot": 15.435785235667423,
+    "inliers": 8,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Specials/214B/03_Overhead_Active.png": {
+   "empty": false,
+   "top": 215,
+   "bot": 978,
+   "left": 99,
+   "right": 1259,
+   "h": 764,
+   "rear_x": 536,
+   "front_x": 619,
+   "hip_x": 745.5,
+   "cx": 666.4011858286365,
+   "cy": 554.9248835720473,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.0767740977408655,
+    "rot": 13.895154653205232,
+    "inliers": 9,
+    "good": 11
+   },
+   "scale_how": "via 06_Recover.png",
+   "scale": 1.6358469132556759,
+   "sift_chain": {
+    "scale": 0.6517397899616574,
+    "rot": 16.532323920724565,
+    "inliers": 24,
+    "good": 58
+   }
+  },
+  "Noah_Complete/Specials/214B/04_Followthrough.png": {
+   "empty": false,
+   "top": 121,
+   "bot": 995,
+   "left": 51,
+   "right": 1067,
+   "h": 875,
+   "rear_x": 816,
+   "front_x": 966,
+   "hip_x": 602.5,
+   "cx": 599.065103600174,
+   "cy": 467.1084266913204,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.675601411710867,
+    "rot": 12.43092026125834,
+    "inliers": 15,
+    "good": 17
+   },
+   "scale_how": "via 05_Land.png",
+   "scale": 2.7145922630847825,
+   "sift_chain": {
+    "scale": 0.8326989972939488,
+    "rot": 4.364004540012423,
+    "inliers": 24,
+    "good": 88
+   }
+  },
+  "Noah_Complete/Specials/214B/05_Land.png": {
+   "empty": false,
+   "top": 83,
+   "bot": 960,
+   "left": 111,
+   "right": 1442,
+   "h": 878,
+   "rear_x": 386,
+   "front_x": 1312,
+   "hip_x": 706.0,
+   "cx": 795.4475273467397,
+   "cy": 535.5355449128213,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.25999223237507,
+    "rot": 8.437644065912448,
+    "inliers": 25,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 3.25999223237507
+  },
+  "Noah_Complete/Specials/214B/06_Recover.png": {
+   "empty": false,
+   "top": 20,
+   "bot": 996,
+   "left": 372,
+   "right": 1162,
+   "h": 977,
+   "rear_x": 415,
+   "front_x": 1154,
+   "hip_x": 774.5,
+   "cx": 760.7034133547348,
+   "cy": 524.3312704000795,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.5099693749738905,
+    "rot": 2.1558594372539646,
+    "inliers": 32,
+    "good": 42
+   },
+   "scale_how": "head",
+   "scale": 2.5099693749738905
+  },
+  "Noah_Complete/Specials/214EX/03_Face_Grab.png": {
+   "empty": false,
+   "top": 79,
+   "bot": 983,
+   "left": 67,
+   "right": 1513,
+   "h": 905,
+   "rear_x": 67,
+   "front_x": 1440,
+   "hip_x": 670.0,
+   "cx": 719.5933793837573,
+   "cy": 530.5540282550592,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.9154016713792257,
+    "rot": 0.43220290346748386,
+    "inliers": 13,
+    "good": 18
+   },
+   "scale_how": "via 05_Drain.png",
+   "scale": 2.9191338154842947,
+   "sift_chain": {
+    "scale": 1.1517792368624395,
+    "rot": 29.089153062438665,
+    "inliers": 24,
+    "good": 114
+   }
+  },
+  "Noah_Complete/Specials/214EX/04_Lift.png": {
+   "empty": false,
+   "top": 18,
+   "bot": 1016,
+   "left": 256,
+   "right": 1293,
+   "h": 999,
+   "rear_x": 429,
+   "front_x": 1293,
+   "hip_x": 727.5,
+   "cx": 813.842044922212,
+   "cy": 556.872013609803,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.111014797623401,
+    "rot": -31.484627170366313,
+    "inliers": 7,
+    "good": 9
+   },
+   "scale_how": "via 05_Drain.png",
+   "scale": 2.529936000216883,
+   "sift_chain": {
+    "scale": 0.998216573760317,
+    "rot": -2.7875941413096097,
+    "inliers": 37,
+    "good": 127
+   }
+  },
+  "Noah_Complete/Specials/214EX/05_Drain.png": {
+   "empty": false,
+   "top": 73,
+   "bot": 1008,
+   "left": 299,
+   "right": 1197,
+   "h": 936,
+   "rear_x": 434,
+   "front_x": 1197,
+   "hip_x": 737.0,
+   "cx": 746.8876424205492,
+   "cy": 575.1820305430908,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.534456015578388,
+    "rot": -7.074360163855757,
+    "inliers": 28,
+    "good": 54
+   },
+   "scale_how": "body",
+   "scale": 2.534456015578388
+  },
+  "Noah_Complete/Specials/214EX/07_Recoil.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 1008,
+   "left": 33,
+   "right": 1288,
+   "h": 997,
+   "rear_x": 526,
+   "front_x": 676,
+   "hip_x": 623.5,
+   "cx": 606.4183897823563,
+   "cy": 488.40197695101165,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.997837738776706,
+    "rot": -13.206557825051503,
+    "inliers": 12,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_01.png": {
+   "empty": false,
+   "top": 135,
+   "bot": 359,
+   "left": 157,
+   "right": 363,
+   "h": 225,
+   "rear_x": 227,
+   "front_x": 296,
+   "hip_x": 254.5,
+   "cx": 260.41729938960844,
+   "cy": 254.5380378145005,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_02.png": {
+   "empty": false,
+   "top": 74,
+   "bot": 410,
+   "left": 77,
+   "right": 415,
+   "h": 337,
+   "rear_x": 107,
+   "front_x": 349,
+   "hip_x": 246.0,
+   "cx": 248.13826232247285,
+   "cy": 253.4600389863548,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_03.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 437,
+   "left": 28,
+   "right": 436,
+   "h": 374,
+   "rear_x": 389,
+   "front_x": 436,
+   "hip_x": 212.0,
+   "cx": 194.63129788716043,
+   "cy": 240.6953796145809,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_04.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 436,
+   "left": 12,
+   "right": 511,
+   "h": 425,
+   "rear_x": 73,
+   "front_x": 422,
+   "hip_x": 273.0,
+   "cx": 247.76895261845385,
+   "cy": 217.8345386533666,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_05.png": {
+   "empty": false,
+   "top": 11,
+   "bot": 453,
+   "left": 29,
+   "right": 511,
+   "h": 443,
+   "rear_x": 108,
+   "front_x": 445,
+   "hip_x": 263.0,
+   "cx": 246.7352496217852,
+   "cy": 237.87783661119516,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214EX/Explosion/Frame_06.png": {
+   "empty": false,
+   "top": 41,
+   "bot": 475,
+   "left": 0,
+   "right": 485,
+   "h": 435,
+   "rear_x": 298,
+   "front_x": 303,
+   "hip_x": 256.5,
+   "cx": 212.99176470588236,
+   "cy": 233.89980392156863,
+   "fx_px": 4413,
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214_Stocked_Beam/Pained_Horizontal_Release.png": {
+   "empty": false,
+   "top": 8,
+   "bot": 1003,
+   "left": 10,
+   "right": 1377,
+   "h": 996,
+   "rear_x": 254,
+   "front_x": 1377,
+   "hip_x": 610.5,
+   "cx": 643.4980730083942,
+   "cy": 524.1212718144599,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/214_Stocked_Beam/Purple_Beam_Effect.png": {
+   "empty": false,
+   "top": 190,
+   "bot": 538,
+   "left": 301,
+   "right": 1713,
+   "h": 349,
+   "rear_x": 454,
+   "front_x": 1475,
+   "hip_x": 1032.091698506426,
+   "cx": 1032.091698506426,
+   "cy": 334.7387981938173,
+   "mask": "dark",
+   "size": [
+    1937,
+    812
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/01_Gather.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1011,
+   "left": 173,
+   "right": 1221,
+   "h": 995,
+   "rear_x": 234,
+   "front_x": 1187,
+   "hip_x": 618.5,
+   "cx": 669.8029952546495,
+   "cy": 538.4702258998321,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.849601512610423,
+    "rot": 11.38205998706663,
+    "inliers": 16,
+    "good": 22
+   },
+   "scale_how": "via 02_Low_Windup.png",
+   "scale": 2.6121300815023916,
+   "sift_chain": {
+    "scale": 0.8022328565971694,
+    "rot": 4.204121352366808,
+    "inliers": 36,
+    "good": 134
+   }
+  },
+  "Noah_Complete/Specials/236/02_Low_Windup.png": {
+   "empty": false,
+   "top": 10,
+   "bot": 998,
+   "left": 31,
+   "right": 1381,
+   "h": 989,
+   "rear_x": 144,
+   "front_x": 1381,
+   "hip_x": 679.5,
+   "cx": 747.8136198477391,
+   "cy": 539.4461439749308,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.256074667126278,
+    "rot": 4.885737083733436,
+    "inliers": 32,
+    "good": 66
+   },
+   "scale_how": "body",
+   "scale": 3.256074667126278
+  },
+  "Noah_Complete/Specials/236/03_Devil_Arm_Release.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 1003,
+   "left": 141,
+   "right": 1231,
+   "h": 940,
+   "rear_x": 229,
+   "front_x": 1231,
+   "hip_x": 607.0,
+   "cx": 647.2160176854948,
+   "cy": 541.8405087378097,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.0117248147147144,
+    "rot": 0.867368737682246,
+    "inliers": 16,
+    "good": 20
+   },
+   "scale_how": "via 02_Low_Windup.png",
+   "scale": 2.9386343160774278,
+   "sift_chain": {
+    "scale": 0.9025082703864975,
+    "rot": -4.072774123006302,
+    "inliers": 37,
+    "good": 114
+   }
+  },
+  "Noah_Complete/Specials/236/04_Human_Arm_Release.png": {
+   "empty": false,
+   "top": 29,
+   "bot": 989,
+   "left": 108,
+   "right": 1259,
+   "h": 961,
+   "rear_x": 284,
+   "front_x": 1259,
+   "hip_x": 583.0,
+   "cx": 654.466307695941,
+   "cy": 529.4158628623867,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.8502639485509924,
+    "rot": -5.206744181565369,
+    "inliers": 11,
+    "good": 12
+   },
+   "scale_how": "via 02_Low_Windup.png",
+   "scale": 2.7769300282643368,
+   "sift_chain": {
+    "scale": 0.8528459301933573,
+    "rot": -10.251680246342257,
+    "inliers": 30,
+    "good": 91
+   }
+  },
+  "Noah_Complete/Specials/236/EX_Wall/Frame_01.png": {
+   "empty": false,
+   "top": 11,
+   "bot": 492,
+   "left": 41,
+   "right": 571,
+   "h": 482,
+   "rear_x": 41,
+   "front_x": 493,
+   "hip_x": 397.5,
+   "cx": 351.36241251543845,
+   "cy": 291.3183614656237,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/EX_Wall/Frame_02.png": {
+   "empty": false,
+   "top": 9,
+   "bot": 494,
+   "left": 15,
+   "right": 621,
+   "h": 486,
+   "rear_x": 15,
+   "front_x": 621,
+   "hip_x": 357.5,
+   "cx": 324.95216622458,
+   "cy": 297.80884173297966,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/EX_Wall/Frame_03.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 495,
+   "left": 40,
+   "right": 647,
+   "h": 480,
+   "rear_x": 40,
+   "front_x": 647,
+   "hip_x": 395.5,
+   "cx": 353.3919038751441,
+   "cy": 293.6147911678638,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/EX_Wall/Frame_04.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 496,
+   "left": 29,
+   "right": 635,
+   "h": 482,
+   "rear_x": 29,
+   "front_x": 635,
+   "hip_x": 390.5,
+   "cx": 329.85421308486934,
+   "cy": 321.4659205995544,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/Traveling_Wave/Frame_01.png": {
+   "empty": false,
+   "top": 159,
+   "bot": 461,
+   "left": 240,
+   "right": 711,
+   "h": 303,
+   "rear_x": 243,
+   "front_x": 711,
+   "hip_x": 527.5,
+   "cx": 506.5802217234578,
+   "cy": 319.47888186084475,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/Traveling_Wave/Frame_02.png": {
+   "empty": false,
+   "top": 122,
+   "bot": 464,
+   "left": 121,
+   "right": 689,
+   "h": 343,
+   "rear_x": 121,
+   "front_x": 689,
+   "hip_x": 502.0,
+   "cx": 447.41859698293626,
+   "cy": 327.9657901244745,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/Traveling_Wave/Frame_03.png": {
+   "empty": false,
+   "top": 99,
+   "bot": 447,
+   "left": 139,
+   "right": 708,
+   "h": 349,
+   "rear_x": 139,
+   "front_x": 708,
+   "hip_x": 399.0,
+   "cx": 448.1131739855475,
+   "cy": 280.86770428015564,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/236/Traveling_Wave/Frame_04.png": {
+   "empty": false,
+   "top": 157,
+   "bot": 447,
+   "left": 231,
+   "right": 702,
+   "h": 291,
+   "rear_x": 233,
+   "front_x": 702,
+   "hip_x": 531.5,
+   "cx": 510.9025339642803,
+   "cy": 305.35231262402687,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Activate_Finger_Snap.png": {
+   "empty": false,
+   "top": 6,
+   "bot": 1014,
+   "left": 399,
+   "right": 1136,
+   "h": 1009,
+   "rear_x": 449,
+   "front_x": 1136,
+   "hip_x": 780.0,
+   "cx": 760.1589378092215,
+   "cy": 533.3830639312823,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.4995694496412684,
+    "rot": 10.120947240452477,
+    "inliers": 25,
+    "good": 31
+   },
+   "scale_how": "head",
+   "scale": 2.4995694496412684
+  },
+  "Noah_Complete/Specials/623/Hole_Idle/Frame_01.png": {
+   "empty": false,
+   "top": 57,
+   "bot": 455,
+   "left": 211,
+   "right": 688,
+   "h": 399,
+   "rear_x": 415,
+   "front_x": 525,
+   "hip_x": 449.5,
+   "cx": 430.85168198479624,
+   "cy": 260.3867030208916,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Hole_Idle/Frame_02.png": {
+   "empty": false,
+   "top": 89,
+   "bot": 463,
+   "left": 102,
+   "right": 533,
+   "h": 375,
+   "rear_x": 257,
+   "front_x": 446,
+   "hip_x": 278.0,
+   "cx": 332.0724069028156,
+   "cy": 263.2764032697548,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Hole_Idle/Frame_03.png": {
+   "empty": false,
+   "top": 43,
+   "bot": 475,
+   "left": 181,
+   "right": 663,
+   "h": 433,
+   "rear_x": 385,
+   "front_x": 472,
+   "hip_x": 422.0,
+   "cx": 431.9733029381966,
+   "cy": 252.31102668017562,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Hole_Idle/Frame_04.png": {
+   "empty": false,
+   "top": 32,
+   "bot": 462,
+   "left": 97,
+   "right": 572,
+   "h": 431,
+   "rear_x": 355,
+   "front_x": 436,
+   "hip_x": 325.0,
+   "cx": 330.6490776265307,
+   "cy": 255.73344895849758,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Suction/Frame_01.png": {
+   "empty": false,
+   "top": 169,
+   "bot": 366,
+   "left": 60,
+   "right": 505,
+   "h": 198,
+   "rear_x": 346,
+   "front_x": 460,
+   "hip_x": 290.5,
+   "cx": 394.1139998704915,
+   "cy": 265.88920546525935,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Suction/Frame_02.png": {
+   "empty": false,
+   "top": 182,
+   "bot": 395,
+   "left": 133,
+   "right": 505,
+   "h": 214,
+   "rear_x": 133,
+   "front_x": 145,
+   "hip_x": 332.5,
+   "cx": 405.2569058515855,
+   "cy": 272.77688787185355,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Suction/Frame_03.png": {
+   "empty": false,
+   "top": 166,
+   "bot": 335,
+   "left": 321,
+   "right": 496,
+   "h": 170,
+   "rear_x": 366,
+   "front_x": 459,
+   "hip_x": 408.5,
+   "cx": 409.11231063130305,
+   "cy": 249.4850948509485,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Suction/Frame_04.png": {
+   "empty": false,
+   "top": 174,
+   "bot": 383,
+   "left": 127,
+   "right": 499,
+   "h": 210,
+   "rear_x": 127,
+   "front_x": 138,
+   "hip_x": 327.5,
+   "cx": 408.3472045068027,
+   "cy": 252.97427721088437,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/623/Summon_Hand_Out.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1006,
+   "left": 339,
+   "right": 1193,
+   "h": 992,
+   "rear_x": 417,
+   "front_x": 1150,
+   "hip_x": 738.0,
+   "cx": 742.7827981060362,
+   "cy": 526.0930071506797,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.592619065156405,
+    "rot": 0.9526257541081253,
+    "inliers": 29,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 2.592619065156405
+  },
+  "Noah_Complete/Specials/Air_214A/01_Reach.png": {
+   "empty": false,
+   "top": 19,
+   "bot": 877,
+   "left": 23,
+   "right": 1480,
+   "h": 859,
+   "rear_x": 672,
+   "front_x": 1454,
+   "hip_x": 660.0,
+   "cx": 688.8446908540199,
+   "cy": 387.81244222032,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.518627387403059,
+    "rot": 14.661708517478507,
+    "inliers": 21,
+    "good": 41
+   },
+   "scale_how": "body",
+   "scale": 3.518627387403059
+  },
+  "Noah_Complete/Specials/Air_214A/02_Grab.png": {
+   "empty": false,
+   "top": 71,
+   "bot": 873,
+   "left": 48,
+   "right": 1509,
+   "h": 803,
+   "rear_x": 660,
+   "front_x": 1184,
+   "hip_x": 785.5,
+   "cx": 737.3148128102432,
+   "cy": 442.21694991262933,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.33426739994626,
+    "rot": 12.819587935025105,
+    "inliers": 12,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/03_Diagonal_Descent.png": {
+   "empty": false,
+   "top": 10,
+   "bot": 1011,
+   "left": 62,
+   "right": 1489,
+   "h": 1002,
+   "rear_x": 1259,
+   "front_x": 1473,
+   "hip_x": 867.5,
+   "cx": 729.0057726345917,
+   "cy": 364.7088504763903,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.361781001904825,
+    "rot": 18.793384820533554,
+    "inliers": 13,
+    "good": 14
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/04_Land.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 1009,
+   "left": 17,
+   "right": 1400,
+   "h": 993,
+   "rear_x": 331,
+   "front_x": 1270,
+   "hip_x": 734.0,
+   "cx": 723.2288866390469,
+   "cy": 487.8635618847163,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 3.6488494832365435,
+    "rot": 10.706823143999724,
+    "inliers": 10,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_01.png": {
+   "empty": false,
+   "top": 292,
+   "bot": 511,
+   "left": 179,
+   "right": 711,
+   "h": 220,
+   "rear_x": 676,
+   "front_x": 698,
+   "hip_x": 382.0,
+   "cx": 394.2064820585878,
+   "cy": 396.09758703588284,
+   "fx_px": 15660,
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_02.png": {
+   "empty": false,
+   "top": 127,
+   "bot": 438,
+   "left": 165,
+   "right": 704,
+   "h": 312,
+   "rear_x": 200,
+   "front_x": 587,
+   "hip_x": 434.5,
+   "cx": 400.596876319122,
+   "cy": 276.6872097931617,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_03.png": {
+   "empty": false,
+   "top": 13,
+   "bot": 453,
+   "left": 20,
+   "right": 764,
+   "h": 441,
+   "rear_x": 163,
+   "front_x": 550,
+   "hip_x": 392.0,
+   "cx": 372.6334216284694,
+   "cy": 270.59092479557756,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_04.png": {
+   "empty": false,
+   "top": 73,
+   "bot": 461,
+   "left": 0,
+   "right": 713,
+   "h": 389,
+   "rear_x": 107,
+   "front_x": 686,
+   "hip_x": 356.0,
+   "cx": 362.200184501845,
+   "cy": 370.4469557195572,
+   "mask": "dark",
+   "size": [
+    768,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/01_Lean_Back.png": {
+   "empty": false,
+   "top": 89,
+   "bot": 549,
+   "left": 77,
+   "right": 753,
+   "h": 461,
+   "rear_x": 203,
+   "front_x": 753,
+   "hip_x": 375.5,
+   "cx": 399.7163433949271,
+   "cy": 318.8053483300815,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/02_Sliding_Grab_Carry.png": {
+   "empty": false,
+   "top": 95,
+   "bot": 549,
+   "left": 67,
+   "right": 765,
+   "h": 455,
+   "rear_x": 80,
+   "front_x": 765,
+   "hip_x": 370.5,
+   "cx": 416.74536905412793,
+   "cy": 328.20012028430835,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/05_Wall_Pullback.png": {
+   "empty": false,
+   "top": 89,
+   "bot": 549,
+   "left": 77,
+   "right": 753,
+   "h": 461,
+   "rear_x": 203,
+   "front_x": 753,
+   "hip_x": 375.5,
+   "cx": 399.7163433949271,
+   "cy": 318.8053483300815,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/06_Wall_Slam.png": {
+   "empty": false,
+   "top": 90,
+   "bot": 549,
+   "left": 69,
+   "right": 751,
+   "h": 460,
+   "rear_x": 133,
+   "front_x": 751,
+   "hip_x": 332.0,
+   "cx": 413.14257398242603,
+   "cy": 315.1121225128775,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/07_Lift.png": {
+   "empty": false,
+   "top": 92,
+   "bot": 549,
+   "left": 119,
+   "right": 686,
+   "h": 458,
+   "rear_x": 210,
+   "front_x": 686,
+   "hip_x": 364.5,
+   "cx": 395.6290591818823,
+   "cy": 332.58603658641516,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/08_Energy_Discharge.png": {
+   "empty": false,
+   "top": 94,
+   "bot": 549,
+   "left": 87,
+   "right": 736,
+   "h": 456,
+   "rear_x": 187,
+   "front_x": 722,
+   "hip_x": 387.5,
+   "cx": 408.80534938147775,
+   "cy": 329.5094884653962,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/09_Blast_Knockback.png": {
+   "empty": false,
+   "top": 165,
+   "bot": 550,
+   "left": 135,
+   "right": 710,
+   "h": 386,
+   "rear_x": 558,
+   "front_x": 612,
+   "hip_x": 420.0,
+   "cx": 408.59394924365546,
+   "cy": 338.96987123390426,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/10_One_Knee_Landing.png": {
+   "empty": false,
+   "top": 246,
+   "bot": 548,
+   "left": 169,
+   "right": 656,
+   "h": 303,
+   "rear_x": 292,
+   "front_x": 656,
+   "hip_x": 409.5,
+   "cx": 435.602263731091,
+   "cy": 408.11303678028116,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/11_Push_Up.png": {
+   "empty": false,
+   "top": 185,
+   "bot": 548,
+   "left": 210,
+   "right": 598,
+   "h": 364,
+   "rear_x": 286,
+   "front_x": 598,
+   "hip_x": 416.5,
+   "cx": 440.5751454981171,
+   "cy": 364.03135912358783,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": {
+    "scale": 1.3354571094208776,
+    "rot": 9.283300586169213,
+    "inliers": 6,
+    "good": 8
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Noah_Complete/Supers/214214_God_Press/Character/12_Standing_Recovery.png": {
+   "empty": false,
+   "top": 95,
+   "bot": 548,
+   "left": 222,
+   "right": 631,
+   "h": 454,
+   "rear_x": 260,
+   "front_x": 575,
+   "hip_x": 412.0,
+   "cx": 432.9558450206001,
+   "cy": 325.46724790877687,
+   "mask": "dark",
+   "size": [
+    800,
+    600
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_00.png": {
+   "empty": false,
+   "top": 367,
+   "bot": 819,
+   "left": 289,
+   "right": 708,
+   "h": 453,
+   "rear_x": 289,
+   "front_x": 708,
+   "hip_x": 495.5,
+   "cx": 484.9357900070153,
+   "cy": 598.824791488035,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.088724589233661,
+    "rot": 10.331788995933252,
+    "inliers": 23,
+    "good": 45
+   },
+   "scale_how": "via Pose_54.png",
+   "scale": 1.1753834845841888,
+   "sift_chain": {
+    "scale": 1.0342400436552974,
+    "rot": -5.561925845088031,
+    "inliers": 39,
+    "good": 64
+   }
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_10.png": {
+   "empty": false,
+   "top": 365,
+   "bot": 818,
+   "left": 309,
+   "right": 678,
+   "h": 454,
+   "rear_x": 318,
+   "front_x": 678,
+   "hip_x": 494.5,
+   "cx": 484.92131302348497,
+   "cy": 608.4811134833305,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.22362088292671,
+    "rot": -4.3195279190508895,
+    "inliers": 29,
+    "good": 46
+   },
+   "scale_how": "body",
+   "scale": 1.22362088292671
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_11.png": {
+   "empty": false,
+   "top": 277,
+   "bot": 819,
+   "left": 309,
+   "right": 699,
+   "h": 543,
+   "rear_x": 310,
+   "front_x": 699,
+   "hip_x": 497.5,
+   "cx": 493.147948820333,
+   "cy": 577.7520876373674,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.2266292470885374,
+    "rot": -8.177009269475874,
+    "inliers": 37,
+    "good": 72
+   },
+   "scale_how": "body",
+   "scale": 1.2266292470885374
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_12.png": {
+   "empty": false,
+   "top": 314,
+   "bot": 819,
+   "left": 306,
+   "right": 671,
+   "h": 506,
+   "rear_x": 319,
+   "front_x": 671,
+   "hip_x": 486.5,
+   "cx": 479.8004284522636,
+   "cy": 580.42155152802,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.0524363070886629,
+    "rot": -0.6976903475435812,
+    "inliers": 41,
+    "good": 76
+   },
+   "scale_how": "body",
+   "scale": 1.0524363070886629
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_13.png": {
+   "empty": false,
+   "top": 311,
+   "bot": 818,
+   "left": 285,
+   "right": 696,
+   "h": 508,
+   "rear_x": 285,
+   "front_x": 696,
+   "hip_x": 490.5,
+   "cx": 483.98330798882483,
+   "cy": 590.1792269335502,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.0668649530866403,
+    "rot": 9.129702771430399,
+    "inliers": 27,
+    "good": 52
+   },
+   "scale_how": "body",
+   "scale": 1.0668649530866403
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_14.png": {
+   "empty": false,
+   "top": 399,
+   "bot": 818,
+   "left": 244,
+   "right": 755,
+   "h": 420,
+   "rear_x": 251,
+   "front_x": 693,
+   "hip_x": 451.5,
+   "cx": 475.1882959180496,
+   "cy": 595.2564218326743,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.0655880799954496,
+    "rot": 21.072324942773257,
+    "inliers": 21,
+    "good": 51
+   },
+   "scale_how": "via Pose_54.png",
+   "scale": 1.183416597316847,
+   "sift_chain": {
+    "scale": 1.0413085170278422,
+    "rot": 11.248059294382227,
+    "inliers": 32,
+    "good": 64
+   }
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_15.png": {
+   "empty": false,
+   "top": 548,
+   "bot": 817,
+   "left": 141,
+   "right": 778,
+   "h": 270,
+   "rear_x": 141,
+   "front_x": 778,
+   "hip_x": 471.5,
+   "cx": 497.50343782586026,
+   "cy": 696.5652535192909,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_51.png": {
+   "empty": false,
+   "top": 490,
+   "bot": 820,
+   "left": 255,
+   "right": 655,
+   "h": 331,
+   "rear_x": 255,
+   "front_x": 642,
+   "hip_x": 482.5,
+   "cx": 479.6294209133693,
+   "cy": 671.4067947241915,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.327704873013387,
+    "rot": 21.900702841515983,
+    "inliers": 10,
+    "good": 18
+   },
+   "scale_how": "via Pose_53.png",
+   "scale": 1.195267050155933,
+   "sift_chain": {
+    "scale": 1.0432721096267863,
+    "rot": 14.479825961583932,
+    "inliers": 26,
+    "good": 40
+   }
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_52.png": {
+   "empty": false,
+   "top": 391,
+   "bot": 819,
+   "left": 263,
+   "right": 652,
+   "h": 429,
+   "rear_x": 296,
+   "front_x": 652,
+   "hip_x": 449.5,
+   "cx": 470.1614913816646,
+   "cy": 608.5640873238984,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.3349258795230137,
+    "rot": 15.936405379392713,
+    "inliers": 21,
+    "good": 49
+   },
+   "scale_how": "via Pose_53.png",
+   "scale": 1.0830627037722271,
+   "sift_chain": {
+    "scale": 0.9453361168745791,
+    "rot": 14.736757538611618,
+    "inliers": 27,
+    "good": 57
+   }
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_53.png": {
+   "empty": false,
+   "top": 395,
+   "bot": 818,
+   "left": 279,
+   "right": 678,
+   "h": 424,
+   "rear_x": 282,
+   "front_x": 668,
+   "hip_x": 467.0,
+   "cx": 477.26118599319113,
+   "cy": 614.3754602931981,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.1456906008764296,
+    "rot": 19.990990753688585,
+    "inliers": 27,
+    "good": 63
+   },
+   "scale_how": "body",
+   "scale": 1.1456906008764296
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_54.png": {
+   "empty": false,
+   "top": 360,
+   "bot": 819,
+   "left": 293,
+   "right": 666,
+   "h": 460,
+   "rear_x": 321,
+   "front_x": 666,
+   "hip_x": 468.5,
+   "cx": 473.43236036036035,
+   "cy": 595.5856576576576,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.1364706789248369,
+    "rot": 10.749294807541142,
+    "inliers": 28,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 1.1364706789248369
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_55.png": {
+   "empty": false,
+   "top": 354,
+   "bot": 818,
+   "left": 315,
+   "right": 637,
+   "h": 465,
+   "rear_x": 335,
+   "front_x": 637,
+   "hip_x": 474.0,
+   "cx": 471.91407374374154,
+   "cy": 594.0833721849472,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.14521794396739,
+    "rot": 0.3483631777145213,
+    "inliers": 55,
+    "good": 81
+   },
+   "scale_how": "body",
+   "scale": 1.14521794396739
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_60.png": {
+   "empty": false,
+   "top": 351,
+   "bot": 819,
+   "left": 327,
+   "right": 649,
+   "h": 469,
+   "rear_x": 338,
+   "front_x": 649,
+   "hip_x": 482.0,
+   "cx": 481.68013382458815,
+   "cy": 591.7255113708551,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.1548875282002684,
+    "rot": -0.12404064469291426,
+    "inliers": 53,
+    "good": 75
+   },
+   "scale_how": "body",
+   "scale": 1.1548875282002684
+  },
+  "Noah_Complete/Supers/Raging_Storm/Character/Pose_65.png": {
+   "empty": false,
+   "top": 358,
+   "bot": 819,
+   "left": 329,
+   "right": 676,
+   "h": 462,
+   "rear_x": 332,
+   "front_x": 676,
+   "hip_x": 497.5,
+   "cx": 491.35188160356853,
+   "cy": 597.8395675430472,
+   "mask": "dark",
+   "size": [
+    900,
+    900
+   ],
+   "sift": {
+    "scale": 1.2497541928597757,
+    "rot": 2.3342771170632077,
+    "inliers": 36,
+    "good": 38
+   },
+   "scale_how": "head",
+   "scale": 1.2497541928597757
+  }
+ }
+}

@@ -1,0 +1,199 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://kgmweawj0ihw"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://oof6e7w83ipy" path="res://actors/cecilia/Hitboxes/0_Hitbox_Basic.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://b7g2uemmm501d" path="res://actors/cecilia/Sprites/idle1.png" id="t1"]
+[ext_resource type="Texture2D" uid="uid://dmuyyyk2l2gju" path="res://actors/cecilia/Sprites/idle2.png" id="t2"]
+[ext_resource type="Texture2D" uid="uid://cisc71xuqy28e" path="res://actors/cecilia/Sprites/idle3.png" id="t3"]
+[ext_resource type="Texture2D" uid="uid://dc3xlf48lxbp3" path="res://actors/cecilia/Sprites/idle4.png" id="t4"]
+[ext_resource type="Texture2D" uid="uid://b7fwxq7qkogmd" path="res://actors/cecilia/Sprites/idle5.png" id="t5"]
+[ext_resource type="Texture2D" uid="uid://b1331ar8mijrf" path="res://actors/cecilia/Sprites/idle6.png" id="t6"]
+[ext_resource type="Texture2D" uid="uid://cdsdj22jgtguq" path="res://actors/cecilia/Sprites/idle7.png" id="t7"]
+[ext_resource type="Texture2D" uid="uid://bewkqhbeg1af2" path="res://actors/cecilia/Sprites/idle8.png" id="t8"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle9.png" id="t9"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle10.png" id="t10"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle11.png" id="t11"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle12.png" id="t12"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle13.png" id="t13"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/idle14.png" id="t14"]
+
+[sub_resource type="Resource" id="Mod_1"]
+script = ExtResource("2")
+Sprite = ExtResource("t1")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_1"]
+script = ExtResource("3")
+Modifiers = [SubResource("Mod_1")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_2"]
+script = ExtResource("2")
+Sprite = ExtResource("t2")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_2"]
+script = ExtResource("3")
+AtFrame = 6
+Modifiers = [SubResource("Mod_2")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_3"]
+script = ExtResource("2")
+Sprite = ExtResource("t3")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_3"]
+script = ExtResource("3")
+AtFrame = 12
+Modifiers = [SubResource("Mod_3")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_4"]
+script = ExtResource("2")
+Sprite = ExtResource("t4")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_4"]
+script = ExtResource("3")
+AtFrame = 18
+Modifiers = [SubResource("Mod_4")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_5"]
+script = ExtResource("2")
+Sprite = ExtResource("t5")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_5"]
+script = ExtResource("3")
+AtFrame = 24
+Modifiers = [SubResource("Mod_5")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_6"]
+script = ExtResource("2")
+Sprite = ExtResource("t6")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_6"]
+script = ExtResource("3")
+AtFrame = 30
+Modifiers = [SubResource("Mod_6")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_7"]
+script = ExtResource("2")
+Sprite = ExtResource("t7")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_7"]
+script = ExtResource("3")
+AtFrame = 36
+Modifiers = [SubResource("Mod_7")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_8"]
+script = ExtResource("2")
+Sprite = ExtResource("t8")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_8"]
+script = ExtResource("3")
+AtFrame = 42
+Modifiers = [SubResource("Mod_8")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_9"]
+script = ExtResource("2")
+Sprite = ExtResource("t9")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_9"]
+script = ExtResource("3")
+AtFrame = 48
+Modifiers = [SubResource("Mod_9")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_10"]
+script = ExtResource("2")
+Sprite = ExtResource("t10")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_10"]
+script = ExtResource("3")
+AtFrame = 54
+Modifiers = [SubResource("Mod_10")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_11"]
+script = ExtResource("2")
+Sprite = ExtResource("t11")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_11"]
+script = ExtResource("3")
+AtFrame = 60
+Modifiers = [SubResource("Mod_11")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_12"]
+script = ExtResource("2")
+Sprite = ExtResource("t12")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_12"]
+script = ExtResource("3")
+AtFrame = 66
+Modifiers = [SubResource("Mod_12")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_13"]
+script = ExtResource("2")
+Sprite = ExtResource("t13")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_13"]
+script = ExtResource("3")
+AtFrame = 72
+Modifiers = [SubResource("Mod_13")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Mod_14"]
+script = ExtResource("2")
+Sprite = ExtResource("t14")
+Offset = Vector2(-496, -404)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Anim_14"]
+script = ExtResource("3")
+AtFrame = 78
+Modifiers = [SubResource("Mod_14")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Resource_dpo3q"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+
+[resource]
+script = ExtResource("6")
+Duration = 84
+Animations = [SubResource("Anim_1"), SubResource("Anim_2"), SubResource("Anim_3"), SubResource("Anim_4"), SubResource("Anim_5"), SubResource("Anim_6"), SubResource("Anim_7"), SubResource("Anim_8"), SubResource("Anim_9"), SubResource("Anim_10"), SubResource("Anim_11"), SubResource("Anim_12"), SubResource("Anim_13"), SubResource("Anim_14")]
+Hitboxes = [SubResource("Resource_dpo3q")]
+AttackProfiles = []

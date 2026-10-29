@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bkgg6cv40a5w8"]
+
+[ext_resource type="Resource" uid="uid://crjaji1l41fhx" path="res://actors/cecilia/AnimationData/9_CEC_DashFw_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="5"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="6"]
+[ext_resource type="Resource" uid="uid://bcohsdcwcstxy" path="res://actors/_shared/sakuga/FrameDataEvents/Event_Template_WillGain_DashF.tres" id="7"]
+[ext_resource type="Script" uid="uid://b1wnmgsdqaa50" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="8"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="9"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="10"]
+
+[sub_resource type="Resource" id="Resource_s3jbf"]
+script = ExtResource("2")
+Velocity = 20000
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_udfrb"]
+script = ExtResource("3")
+Index = 15
+metadata/_custom_type_script = "uid://cydr41sr3vjdw"
+
+[sub_resource type="Resource" id="Resource_di1a1"]
+script = ExtResource("4")
+xRelativeTo = 1
+yRelativeTo = 1
+Index = 13
+metadata/_custom_type_script = "uid://gx2c16shb4hs"
+
+[sub_resource type="Resource" id="Resource_34c7v"]
+script = ExtResource("4")
+xRelativeTo = 1
+yRelativeTo = 1
+Index = 7
+AttachToParent = true
+metadata/_custom_type_script = "uid://gx2c16shb4hs"
+
+[sub_resource type="Resource" id="Resource_te18j"]
+script = ExtResource("5")
+Conditions = null
+Actions = [SubResource("Resource_s3jbf"), SubResource("Resource_udfrb"), SubResource("Resource_di1a1"), SubResource("Resource_34c7v")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_hwduh"]
+script = ExtResource("2")
+Velocity = 74000
+UseInertia = true
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_4m50j"]
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_2vikd"]
+script = ExtResource("5")
+Conditions = []
+Actions = [SubResource("Resource_hwduh"), SubResource("Resource_4m50j")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_ptbpc"]
+script = ExtResource("8")
+Frame = 4
+metadata/_custom_type_script = "uid://b1wnmgsdqaa50"
+
+[sub_resource type="Resource" id="Resource_kgbcy"]
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_j2n86"]
+script = ExtResource("5")
+Conditions = [SubResource("Resource_kgbcy")]
+Actions = [SubResource("Resource_ptbpc")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("10")
+StateName = "Dash_Forward"
+Type = 1
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_j2n86")]
+OnEnterEvents = [SubResource("Resource_te18j")]
+OnTickEvents = [SubResource("Resource_2vikd"), ExtResource("7")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 10

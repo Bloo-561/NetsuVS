@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://u3vjxjj8ki4v"]
+
+[ext_resource type="Resource" uid="uid://d78urkyv25qg" path="res://actors/flan/AnimationData/14_FLN_AirDashBw_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="5"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="10"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="11"]
+
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="ad_g"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="ad_r"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="ad_og"]
+
+[sub_resource type="Resource" id="ad_vy"]
+script = ExtResource("3")
+Velocity = 15000
+
+[sub_resource type="Resource" id="ad_r1"]
+script = ExtResource("ad_r")
+MinFrame = 4
+MaxFrame = 15
+
+[sub_resource type="Resource" id="ad_g1"]
+script = ExtResource("ad_g")
+SetValue = true
+UseDefault = false
+Force = 75000
+
+[sub_resource type="Resource" id="ad_e1"]
+script = ExtResource("5")
+Conditions = [SubResource("ad_r1")]
+Actions = [SubResource("ad_g1")]
+
+[sub_resource type="Resource" id="ad_r2"]
+script = ExtResource("ad_r")
+MinFrame = 16
+MaxFrame = 999
+
+[sub_resource type="Resource" id="ad_g2"]
+script = ExtResource("ad_g")
+SetValue = true
+UseDefault = false
+Force = 300000
+
+[sub_resource type="Resource" id="ad_e2"]
+script = ExtResource("5")
+Conditions = [SubResource("ad_r2")]
+Actions = [SubResource("ad_g2")]
+
+[sub_resource type="Resource" id="ad_lr"]
+script = ExtResource("ad_r")
+MinFrame = 5
+MaxFrame = 999
+
+[sub_resource type="Resource" id="ad_lg"]
+script = ExtResource("ad_og")
+
+[sub_resource type="Resource" id="ad_la"]
+script = ExtResource("9")
+StateIndex = 11
+
+[sub_resource type="Resource" id="ad_land"]
+script = ExtResource("5")
+Conditions = [SubResource("ad_lr"), SubResource("ad_lg")]
+Actions = [SubResource("ad_la")]
+
+[sub_resource type="Resource" id="Resource_sikox"]
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_p3vgl"]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_ovkjv"]
+script = ExtResource("4")
+Properties = 16
+ChangeMode = 1
+metadata/_custom_type_script = "uid://cfq32y8apqltb"
+
+[sub_resource type="Resource" id="Resource_lu0xe"]
+script = ExtResource("5")
+Conditions = null
+Actions = [SubResource("Resource_sikox"), SubResource("Resource_p3vgl"), SubResource("Resource_ovkjv")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_gvjut"]
+script = ExtResource("4")
+Properties = 16
+ChangeMode = 2
+metadata/_custom_type_script = "uid://cfq32y8apqltb"
+
+[sub_resource type="Resource" id="Resource_cilpm"]
+script = ExtResource("5")
+Conditions = []
+Actions = [SubResource("Resource_gvjut")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_2inp6"]
+script = ExtResource("2")
+Velocity = -8000
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_kqndp"]
+script = ExtResource("4")
+Properties = 16
+ChangeMode = 2
+metadata/_custom_type_script = "uid://cfq32y8apqltb"
+
+[sub_resource type="Resource" id="Resource_80ny8"]
+script = ExtResource("6")
+Index = 17
+metadata/_custom_type_script = "uid://cydr41sr3vjdw"
+
+[sub_resource type="Resource" id="Resource_u0n5y"]
+script = ExtResource("7")
+xRelativeTo = 1
+yRelativeTo = 1
+Index = 8
+AttachToParent = true
+metadata/_custom_type_script = "uid://gx2c16shb4hs"
+
+[sub_resource type="Resource" id="Resource_65gl7"]
+script = ExtResource("8")
+Frame = 4
+metadata/_custom_type_script = "uid://50grsd2r3wl8"
+
+[sub_resource type="Resource" id="Resource_ecovm"]
+script = ExtResource("5")
+Conditions = [SubResource("Resource_65gl7")]
+Actions = [SubResource("Resource_2inp6"), SubResource("Resource_kqndp"), SubResource("Resource_80ny8"), SubResource("Resource_u0n5y"), SubResource("ad_vy")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_kc2vs"]
+script = ExtResource("9")
+StateIndex = 10
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_x62a2"]
+script = ExtResource("10")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="netsu_endx"]
+script = ExtResource("2")
+Velocity = -21000
+
+[sub_resource type="Resource" id="Resource_mp00y"]
+script = ExtResource("5")
+Conditions = [SubResource("Resource_x62a2")]
+Actions = [SubResource("Resource_kc2vs")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+
+[resource]
+script = ExtResource("11")
+StateName = "Air Dash Backwards"
+Type = 1
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("ad_land"), SubResource("Resource_mp00y")]
+OnEnterEvents = [SubResource("Resource_lu0xe")]
+OnTickEvents = [SubResource("Resource_ecovm"), SubResource("ad_e1"), SubResource("ad_e2")]
+OnExitEvents = [SubResource("Resource_cilpm")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = [SubResource("Resource_cilpm")]
+AIFlags = 12

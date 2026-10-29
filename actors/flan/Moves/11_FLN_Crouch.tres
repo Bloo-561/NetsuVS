@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bi1ibcfop2jgn"]
+
+[ext_resource type="Resource" uid="uid://ykyxja0283a" path="res://actors/_shared/sakuga/Inputs/8_Input_2.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Crouching"
+MoveState = 14
+Inputs = ExtResource("1")
+IgnoreStates = PackedInt32Array(15, 53, 54, 55, 56, 57)
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+PriorityBuffer = true
+IgnoreSamePriority = false
+UseOnGround = true

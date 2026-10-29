@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="BGMList" format=3 uid="uid://fxj4uvd0y37r"]
+
+[ext_resource type="AudioStream" uid="uid://inh0p6ko1cae" path="res://actors/cecilia/Music/cecilia_theme_lobelia.ogg" id="1"]
+[ext_resource type="Script" uid="uid://bldnphonm50nq" path="res://engine/sakuga/Resources/BGMElement.cs" id="2"]
+[ext_resource type="AudioStream" uid="uid://tvmp22jb16te" path="res://assets/audio/music/netsu/battle_in_the_moonlight.mp3" id="3"]
+[ext_resource type="AudioStream" uid="uid://cmo21ptvg402w" path="res://actors/flan/Music/flan_theme_odore_glockenspiel.ogg" id="4"]
+[ext_resource type="AudioStream" uid="uid://c6k7hr8bintxx" path="res://assets/audio/music/netsu/interception.ogg" id="5"]
+[ext_resource type="AudioStream" uid="uid://b8mvfcxgdf66h" path="res://assets/audio/music/netsu/will_you_still_cry.ogg" id="6"]
+[ext_resource type="Script" uid="uid://nup8upyemx4m" path="res://engine/sakuga/Resources/BGMList.cs" id="7"]
+[ext_resource type="AudioStream" uid="uid://dlc760ruupxcg" path="res://assets/audio/music/netsu/emotional_catharsis.ogg" id="8"]
+
+[sub_resource type="Resource" id="bgm_lobelia"]
+script = ExtResource("2")
+SongName = "Lobelia (ロベリア)"
+clip = ExtResource("1")
+Artist = "Manbou Nitouhei (まんぼう二等兵)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/4769"
+Character = "Cecilia"
+LoopStart = 26.666
+
+[sub_resource type="Resource" id="bgm_moonlight"]
+script = ExtResource("2")
+SongName = "Battle in the Moonlight"
+clip = ExtResource("3")
+
+[sub_resource type="Resource" id="bgm_glockenspiel"]
+script = ExtResource("2")
+SongName = "Dance, Glockenspiel! (おどれグロッケンシュピール)"
+clip = ExtResource("4")
+Artist = "Sharou (しゃろう)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/8662"
+Character = "Flan"
+
+[sub_resource type="Resource" id="bgm_interception"]
+script = ExtResource("2")
+SongName = "Interception"
+clip = ExtResource("5")
+Artist = "Manbou Nitouhei (まんぼう二等兵)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/23675"
+LoopStart = 10.555
+
+[sub_resource type="Resource" id="bgm_willyoustillcry"]
+script = ExtResource("2")
+SongName = "Will you still cry?"
+clip = ExtResource("6")
+Artist = "Manbou Nitouhei (まんぼう二等兵)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/5060"
+LoopStart = 10.847
+
+[sub_resource type="Resource" id="bgm_catharsis"]
+script = ExtResource("2")
+SongName = "Emotional Catharsis (情動カタルシス)"
+clip = ExtResource("8")
+Artist = "Manbou Nitouhei (まんぼう二等兵)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/6391"
+LoopStart = 6.486
+
+[resource]
+script = ExtResource("7")
+elements = [SubResource("bgm_lobelia"), SubResource("bgm_moonlight"), SubResource("bgm_glockenspiel"), SubResource("bgm_interception"), SubResource("bgm_willyoustillcry"), SubResource("bgm_catharsis")]

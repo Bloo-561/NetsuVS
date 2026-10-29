@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bb724j4qncewp"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ceak3kopd0qqb" path="res://actors/_shared/sakuga/Inputs/24_Input_623C.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+MoveName = "EX Teleport Slash"
+MoveState = 84
+Inputs = ExtResource("2")
+SuperFlash = 15
+Priority = 9
+MoveEnd = 2
+SuperGaugeRequired = 2000
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true

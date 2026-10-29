@@ -1,0 +1,198 @@
+{
+ "dirs": 96,
+ "t_buffers": 17.6,
+ "objects": {
+  "leg_R": {
+   "ao_mean": 0.653,
+   "deep": 0.236,
+   "shadow": 0.267
+  },
+  "leg_L": {
+   "ao_mean": 0.646,
+   "deep": 0.242,
+   "shadow": 0.27
+  },
+  "shoe_R": {
+   "ao_mean": 0.875,
+   "deep": 0.048,
+   "shadow": 0.053
+  },
+  "shoe_L": {
+   "ao_mean": 0.876,
+   "deep": 0.046,
+   "shadow": 0.052
+  },
+  "bow_R": {
+   "ao_mean": 0.504,
+   "deep": 0.343,
+   "shadow": 0.382
+  },
+  "bow_L": {
+   "ao_mean": 0.505,
+   "deep": 0.35,
+   "shadow": 0.387
+  },
+  "arm_R": {
+   "ao_mean": 0.898,
+   "deep": 0.009,
+   "shadow": 0.01
+  },
+  "arm_L": {
+   "ao_mean": 0.903,
+   "deep": 0.01,
+   "shadow": 0.011
+  },
+  "hand_R": {
+   "ao_mean": 0.777,
+   "deep": 0.095,
+   "shadow": 0.133
+  },
+  "hand_L": {
+   "ao_mean": 0.772,
+   "deep": 0.095,
+   "shadow": 0.136
+  },
+  "body": {
+   "ao_mean": 0.431,
+   "deep": 0.401,
+   "shadow": 0.439
+  },
+  "jacket": {
+   "ao_mean": 0.757,
+   "deep": 0.079,
+   "shadow": 0.122
+  },
+  "collar": {
+   "ao_mean": 0.298,
+   "deep": 0.405,
+   "shadow": 0.496
+  },
+  "neckerchief": {
+   "ao_mean": 0.868,
+   "deep": 0.047,
+   "shadow": 0.052
+  },
+  "brooch": {
+   "ao_mean": 0.805,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "tie": {
+   "ao_mean": 0.827,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "shirt_collar": {
+   "ao_mean": 0.278,
+   "deep": 0.44,
+   "shadow": 0.596
+  },
+  "skirt": {
+   "ao_mean": 0.914,
+   "deep": 0.01,
+   "shadow": 0.013
+  },
+  "lace": {
+   "ao_mean": 0.787,
+   "deep": 0.016,
+   "shadow": 0.047
+  },
+  "belt_A": {
+   "ao_mean": 0.888,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "belt_B": {
+   "ao_mean": 0.907,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "buckle_A": {
+   "ao_mean": 0.996,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "buckle_B": {
+   "ao_mean": 0.975,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "kashira": {
+   "ao_mean": 0.696,
+   "deep": 0.039,
+   "shadow": 0.087
+  },
+  "tsuka": {
+   "ao_mean": 0.677,
+   "deep": 0.05,
+   "shadow": 0.147
+  },
+  "tsuba": {
+   "ao_mean": 0.51,
+   "deep": 0.207,
+   "shadow": 0.345
+  },
+  "saya_mouth": {
+   "ao_mean": 0.565,
+   "deep": 0.178,
+   "shadow": 0.303
+  },
+  "saya": {
+   "ao_mean": 0.644,
+   "deep": 0.17,
+   "shadow": 0.24
+  },
+  "saya_tip": {
+   "ao_mean": 0.747,
+   "deep": 0.062,
+   "shadow": 0.088
+  },
+  "hanger_strap": {
+   "ao_mean": 0.536,
+   "deep": 0.094,
+   "shadow": 0.283
+  },
+  "blade": {
+   "ao_mean": 0.264,
+   "deep": 0.607,
+   "shadow": 0.682
+  },
+  "headband": {
+   "ao_mean": 1.0,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "clip_R": {
+   "ao_mean": 0.578,
+   "deep": 0.157,
+   "shadow": 0.282
+  },
+  "clip_L": {
+   "ao_mean": 0.584,
+   "deep": 0.152,
+   "shadow": 0.27
+  },
+  "hair": {
+   "ao_mean": 0.87,
+   "deep": 0.036,
+   "shadow": 0.074
+  },
+  "bangs": {
+   "ao_mean": 0.958,
+   "deep": 0.0,
+   "shadow": 0.0
+  },
+  "skull": {
+   "ao_mean": 0.175,
+   "deep": 0.688,
+   "shadow": 0.777
+  },
+  "ahoge": {
+   "ao_mean": 0.802,
+   "deep": 0.008,
+   "shadow": 0.022
+  }
+ },
+ "lapel_texels": 10108,
+ "t": 32.5
+}

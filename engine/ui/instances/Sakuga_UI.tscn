@@ -1,0 +1,2437 @@
+[gd_scene format=3 uid="uid://blnwu2aaw8s60"]
+
+[ext_resource type="Script" uid="uid://cfclgt0r2avr4" path="res://engine/sakuga/UI/HealthHUD.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://cbqpoqm3ja6jq" path="res://assets/sakuga_ui/UI/Decorative Moon [Clock].png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bp43kgr00s28" path="res://assets/sakuga_ui/UI/Moon Shine [Clock].png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cbpwhk7tr5ogn" path="res://assets/sakuga_ui/UI/Bar set [depleted].png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c6eb05l6y5y3r" path="res://assets/sakuga_ui/UI/HP bar[Full].png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cvab2ufqb2xht" path="res://assets/sakuga_ui/UI/Motiv bar [Full].png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b70je55bnweea" path="res://assets/sakuga_ui/UI/Portrait Frame [Simple].png" id="7"]
+[ext_resource type="Texture2D" uid="uid://drn680divme5w" path="res://assets/sakuga_ui/Locked.png" id="8"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Artwork/Portrait-Cecilia.png" id="9"]
+[ext_resource type="FontFile" uid="uid://bk6j5d0vmbukm" path="res://assets/fonts/mahou/Sparky Stones_Niskala Huruf(nhfonts).ttf" id="10"]
+[ext_resource type="Script" uid="uid://drp1aulrijkrn" path="res://engine/sakuga/UI/RoundsCounter.cs" id="11"]
+[ext_resource type="Texture2D" uid="uid://ci75vndhupycf" path="res://assets/sakuga_ui/UI/Portrait Frame.png" id="12"]
+[ext_resource type="Script" uid="uid://g6vbpbaj5xi6" path="res://engine/sakuga/UI/OnlineInfo.cs" id="13"]
+[ext_resource type="Texture2D" uid="uid://df50nf7a0i58" path="res://assets/sakuga_ui/LobbyIcons/lobbyicons_platform_pc.png" id="14"]
+[ext_resource type="FontFile" uid="uid://eean5m2bnybu" path="res://assets/fonts/mahou/maagkramp_Salvo Nicolosi.ttf" id="15"]
+[ext_resource type="Script" uid="uid://bu3dc4gatmgm1" path="res://engine/sakuga/UI/ComboCounter.cs" id="16"]
+[ext_resource type="Texture2D" uid="uid://cnlbw0s44d6if" path="res://assets/sakuga_ui/UI/Comet Trail [Combo gauge].png" id="17"]
+[ext_resource type="Texture2D" uid="uid://bcquyajifep3k" path="res://assets/sakuga_ui/UI/Star [Combo gauge].png" id="18"]
+[ext_resource type="Script" uid="uid://cgpiypqbc11wt" path="res://engine/sakuga/UI/HitNotificationController.cs" id="19"]
+[ext_resource type="PackedScene" uid="uid://dmgys15jxs1pe" path="res://engine/ui/instances/HitNotifWidgetP1.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://ckkwi0ny7hg01" path="res://engine/ui/instances/HitNotifWidgetP2.tscn" id="21"]
+[ext_resource type="Script" uid="uid://bxtx4t4kufbsq" path="res://engine/sakuga/UI/MetersHUD.cs" id="22"]
+[ext_resource type="Texture2D" uid="uid://w0l6eb62wpno" path="res://assets/sakuga_ui/UI/Gem Sparkles.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://4hy0fobk2ccl" path="res://assets/sakuga_ui/UI/Blank Gems.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://cfta0150jtsvv" path="res://assets/sakuga_ui/UI/Magic meter gems.png" id="25"]
+[ext_resource type="Script" uid="uid://bxh004jlgsbbb" path="res://engine/sakuga/UI/InputHistory.cs" id="26"]
+[ext_resource type="PackedScene" uid="uid://cjtsw7lf6uyuy" path="res://engine/ui/instances/InputHistory_Pref_P1.tscn" id="27"]
+[ext_resource type="PackedScene" uid="uid://cljylybqkoasi" path="res://engine/ui/instances/InputHistory_Pref_P2.tscn" id="28"]
+[ext_resource type="Script" uid="uid://tduqq7pxgphg" path="res://engine/sakuga/UI/MatchCardsController.cs" id="29"]
+[ext_resource type="Script" uid="uid://c74ackq5g2cbw" path="res://engine/sakuga/Resources/MatchAnimation.cs" id="30"]
+[ext_resource type="Script" uid="uid://3uu6r0mhj3p3" path="res://engine/sakuga/Components/SoundQueue.cs" id="31"]
+[ext_resource type="Shader" uid="uid://c01dtqblho3gi" path="res://assets/shaders/sakuga/background_scroll.gdshader" id="32"]
+[ext_resource type="Texture2D" uid="uid://3epb31dymsuc" path="res://assets/sakuga_ui/wppatterns.png" id="33"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Artwork/cecilia-winrender.png" id="34"]
+[ext_resource type="Script" uid="uid://hm7bsfnod2vb" path="res://engine/sakuga/UI/FadeScreen.cs" id="35"]
+[ext_resource type="Script" uid="uid://b6yldfeec8kg2" path="res://engine/sakuga/Utils/ShowFPS.cs" id="36"]
+[ext_resource type="PackedScene" uid="uid://d3j2wj8p0ms8o" path="res://engine/ui/instances/TouchInputs.tscn" id="37"]
+[ext_resource type="PackedScene" uid="uid://dxj20xhmbkdbs" path="res://engine/ui/PleaseResync_UI.tscn" id="38"]
+[ext_resource type="Script" uid="uid://cedml1i8ld8de" path="res://engine/sakuga/UI/PauseMenu.cs" id="39"]
+
+[sub_resource type="Resource" id="Resource_4120v"]
+script = ExtResource("30")
+Name = "CatchPhrase"
+Duration = 140
+AnnouncerLineIndex = 9
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_hctok"]
+script = ExtResource("30")
+Name = "RoundStart"
+Duration = 140
+DelaySubtract = 10
+AnnouncerLineIndex = 10
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_t2vuu"]
+script = ExtResource("30")
+Name = "KO_Left"
+Duration = 100
+AnnouncerLineIndex = 17
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_lp1f3"]
+script = ExtResource("30")
+Name = "KO_Right"
+Duration = 100
+AnnouncerLineIndex = 17
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_p30di"]
+script = ExtResource("30")
+Name = "P1_Win"
+Duration = 120
+AnnouncerLineIndex = 22
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_8c81w"]
+script = ExtResource("30")
+Name = "P2_Win"
+Duration = 120
+AnnouncerLineIndex = 22
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_fi7j4"]
+script = ExtResource("30")
+Name = "Draw"
+Duration = 120
+AnnouncerLineIndex = 21
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Resource" id="Resource_5ipgc"]
+script = ExtResource("30")
+Name = "KO_Left"
+Duration = 60
+AnnouncerLineIndex = 17
+metadata/_custom_type_script = "uid://c74ackq5g2cbw"
+
+[sub_resource type="Animation" id="Animation_4120v"]
+resource_name = "CatchPhrase"
+length = 1.5333351
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundCard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FIGHT!:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KO:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Draw:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("P1Win:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("P2Win:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CatchPhrase:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.11666667, 1.4000001, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-660, 140), Vector2(315, 140), Vector2(315, 140), Vector2(1300, 140)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CatchPhrase:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5158978, 1.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_p30di"]
+resource_name = "Draw"
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Draw:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Draw:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Draw:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(0.61557275, 1),
+"update": 0,
+"values": [Vector2(450, 100), Vector2(450, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_ytmxh"]
+resource_name = "KO_Left"
+length = 1.6666684
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KO:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.116666675, 1.5000001, 1.5500001, 1.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-320, 300), Vector2(450, 300), Vector2(450, 300), Vector2(400, 300), Vector2(1200, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KO:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6500001, 1.6666684),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hctok"]
+resource_name = "KO_Right"
+length = 1.6666684
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KO:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.116666675, 1.5000001, 1.5500001, 1.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1200, 300), Vector2(450, 300), Vector2(450, 300), Vector2(500, 300), Vector2(-320, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("KO:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6500001, 1.6666684),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_t2vuu"]
+resource_name = "P1_Win"
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("P1Win:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("P1Win:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.116666675),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-230, 300), Vector2(0, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_lp1f3"]
+resource_name = "P2_Win"
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("P2Win:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("P2Win:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.116666675),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1090, 300), Vector2(860, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_201fe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundCard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FIGHT!:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FIGHT!:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FIGHT!:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("KO:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("P1Win:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("P2Win:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Draw:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Draw:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CatchPhrase:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(398.5, 213)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CatchPhrase:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xjl2p"]
+resource_name = "RoundStart"
+length = 2.3333352
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RoundCard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.6500001, 1.6666684),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FIGHT!:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6500001, 1.6666667, 2.3166668, 2.3333352),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RoundCard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.116706595, 1.4000244, 1.5166911),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-500, 300), Vector2(450, 300), Vector2(450, 300), Vector2(1300, 300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FIGHT!:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6666667, 1.7327822, 2.1666667, 2.2, 2.3166668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FIGHT!:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.2500002, 2.3333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("KO:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Draw:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("P1Win:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("P2Win:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CatchPhrase:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4120v"]
+_data = {
+&"CatchPhrase": SubResource("Animation_4120v"),
+&"Draw": SubResource("Animation_p30di"),
+&"KO_Left": SubResource("Animation_ytmxh"),
+&"KO_Right": SubResource("Animation_hctok"),
+&"P1_Win": SubResource("Animation_t2vuu"),
+&"P2_Win": SubResource("Animation_lp1f3"),
+&"RESET": SubResource("Animation_201fe"),
+&"RoundStart": SubResource("Animation_xjl2p")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvqvx"]
+shader = ExtResource("32")
+shader_parameter/scroll_speed = Vector2(0.3, 0.3)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1639285127]
+
+[node name="GameHUD_Background" type="Control" parent="." unique_id=1728610067 node_paths=PackedStringArray("P1Portrait", "P1Health", "P1LostHealth", "P1Will", "P1WillLock", "P1Rounds", "P1Combo", "P1Name", "P1Notif", "P2Portrait", "P2Health", "P2LostHealth", "P2Will", "P2WillLock", "P2Rounds", "P2Combo", "P2Name", "P2Notif", "Timer", "P1Debug", "P2Debug")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+P1Portrait = NodePath("HealthBars/P1Portrait")
+P1Health = NodePath("HealthBars/P1Health")
+P1LostHealth = NodePath("HealthBars/P1LostHealth")
+P1Will = NodePath("HealthBars/P1Will")
+P1WillLock = NodePath("HealthBars/P1WillLocked")
+P1Rounds = NodePath("HealthBars/P1Rounds")
+P1Combo = NodePath("ComboCounters/P1ComboCounter")
+P1Name = NodePath("HealthBars/P1Name")
+P1Notif = NodePath("NotifsP1")
+P2Portrait = NodePath("HealthBars/P2Portrait")
+P2Health = NodePath("HealthBars/P2Health")
+P2LostHealth = NodePath("HealthBars/P2LostHealth")
+P2Will = NodePath("HealthBars/P2Will")
+P2WillLock = NodePath("HealthBars/P2WillLocked")
+P2Rounds = NodePath("HealthBars/P2Rounds")
+P2Combo = NodePath("ComboCounters/P2ComboCounter")
+P2Name = NodePath("HealthBars/P2Name")
+P2Notif = NodePath("NotifsP2")
+Timer = NodePath("HealthBars/Timer")
+P1Debug = NodePath("../Debug/P1Debug")
+P2Debug = NodePath("../Debug/P2Debug")
+
+[node name="HealthBars" type="Control" parent="GameHUD_Background" unique_id=1101058686]
+anchors_preset = 0
+anchor_right = 1.0
+
+[node name="TimerFrame" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=848199495]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.0
+offset_top = -190.0
+offset_right = 228.0
+offset_bottom = 280.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=2020596465]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -161.0
+offset_top = -22.664991
+offset_right = 635.0
+offset_bottom = 523.335
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3")
+
+[node name="P1Frame" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=2044758603]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -625.0
+offset_top = 37.0
+offset_right = 296.0
+offset_bottom = 329.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+texture = ExtResource("4")
+stretch_mode = 2
+flip_h = true
+
+[node name="P2Frame" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=422323182]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -295.44995
+offset_top = 37.0
+offset_right = 625.55005
+offset_bottom = 329.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+pivot_offset = Vector2(921, 0)
+texture = ExtResource("4")
+stretch_mode = 2
+
+[node name="P1LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=997365537]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.94995
+offset_top = 70.0
+offset_right = 486.05005
+offset_bottom = 126.0
+grow_horizontal = 2
+scale = Vector2(-0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 10000.0
+fill_mode = 1
+texture_progress = ExtResource("5")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+tint_progress = Color(0.72882, 0, 0.08201, 1)
+
+[node name="P1Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=799365614]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.94995
+offset_top = 70.0
+offset_right = 486.05005
+offset_bottom = 126.0
+grow_horizontal = 2
+scale = Vector2(-0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 10000.0
+fill_mode = 1
+texture_progress = ExtResource("5")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+
+[node name="P2LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=1499953177]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 124.55005
+offset_top = 70.0
+offset_right = 735.55005
+offset_bottom = 126.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 10000.0
+fill_mode = 1
+texture_progress = ExtResource("5")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+tint_progress = Color(0.72882, 0, 0.08201, 1)
+
+[node name="P2Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=907058496]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 124.55005
+offset_top = 70.0
+offset_right = 735.55005
+offset_bottom = 126.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 10000.0
+fill_mode = 1
+texture_progress = ExtResource("5")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+
+[node name="P1Will" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=1469504791]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -158.0
+offset_top = 103.5
+offset_right = 340.0
+offset_bottom = 149.5
+grow_horizontal = 2
+scale = Vector2(-0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 10000.0
+fill_mode = 1
+texture_progress = ExtResource("6")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+
+[node name="P2Will" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=138139758]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 157.55005
+offset_top = 104.0
+offset_right = 655.55005
+offset_bottom = 154.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+max_value = 10000.0
+step = 0.0
+value = 5000.0
+fill_mode = 1
+texture_progress = ExtResource("6")
+tint_under = Color(0.509804, 0.509804, 0.509804, 1)
+
+[node name="P1PortraitFrame" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=320253552]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 24.0
+offset_right = -277.649
+offset_bottom = 383.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7")
+expand_mode = 3
+
+[node name="P2PortraitFrame" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=1126896441]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 440.0
+offset_top = 24.0
+offset_right = 802.3512
+offset_bottom = 383.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("7")
+expand_mode = 3
+flip_h = true
+
+[node name="P1WillLocked" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=1674852912]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -318.55
+offset_top = 95.0
+offset_right = -233.91364
+offset_bottom = 179.63635
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+texture = ExtResource("8")
+expand_mode = 1
+
+[node name="P2WillLocked" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=1233193125]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 272.0
+offset_top = 95.0
+offset_right = 356.63635
+offset_bottom = 179.63635
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55297375)
+texture = ExtResource("8")
+expand_mode = 1
+
+[node name="P1Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=685425323]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = -29.0
+offset_right = -318.9398
+offset_bottom = 330.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("9")
+expand_mode = 3
+
+[node name="P2Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=89658278]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 319.0
+offset_top = -29.0
+offset_right = 640.0603
+offset_bottom = 330.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55)
+pivot_offset_ratio = Vector2(1, 0)
+texture = ExtResource("9")
+expand_mode = 3
+flip_h = true
+
+[node name="P1Name" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1019002984]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -453.0
+offset_top = 30.335007
+offset_right = -117.0
+offset_bottom = 66.33501
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 37
+text = "Fighter 1"
+
+[node name="P2Name" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1485341128]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 131.0
+offset_top = 30.335007
+offset_right = 461.0
+offset_bottom = 66.33501
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 37
+text = "Fighter 2"
+horizontal_alignment = 2
+
+[node name="P1Rounds" type="VBoxContainer" parent="GameHUD_Background/HealthBars" unique_id=959112012 node_paths=PackedStringArray("RoundViews")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -233.99997
+offset_top = -1.0
+offset_right = 675.0001
+offset_bottom = 521.0
+grow_horizontal = 2
+scale = Vector2(0.15, 0.15)
+theme_override_constants/separation = -130
+script = ExtResource("11")
+RoundsLimit = 5
+RoundViews = [NodePath("Odd/Round1"), NodePath("Even/Round2"), NodePath("Odd/Round3"), NodePath("Even/Round4"), NodePath("Odd/Round5")]
+
+[node name="Odd" type="HBoxContainer" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=1659736716]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 2
+
+[node name="Round5" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds/Odd" unique_id=481281020]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round3" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds/Odd" unique_id=96866374]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round1" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds/Odd" unique_id=590624714]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Even" type="HBoxContainer" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=1600215023]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 2
+
+[node name="Round4" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds/Even" unique_id=1270703837]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round2" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds/Even" unique_id=1989885292]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="ColorRect" type="ColorRect" parent="GameHUD_Background/HealthBars/P1Rounds/Even" unique_id=163012298]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="P2Rounds" type="VBoxContainer" parent="GameHUD_Background/HealthBars" unique_id=1584582307 node_paths=PackedStringArray("RoundViews")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 100.0
+offset_top = -1.0
+offset_right = 1009.0017
+offset_bottom = 521.0
+grow_horizontal = 2
+scale = Vector2(0.15, 0.15)
+theme_override_constants/separation = -130
+script = ExtResource("11")
+RoundsLimit = 5
+RoundViews = [NodePath("Odd/Round1"), NodePath("Even/Round2"), NodePath("Odd/Round3"), NodePath("Even/Round4"), NodePath("Odd/Round5")]
+
+[node name="Odd" type="HBoxContainer" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=2005540406]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Round1" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds/Odd" unique_id=1274080835]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round3" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds/Odd" unique_id=718647370]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round5" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds/Odd" unique_id=1443227500]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Even" type="HBoxContainer" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=233546591]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="ColorRect" type="ColorRect" parent="GameHUD_Background/HealthBars/P2Rounds/Even" unique_id=434546600]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Round2" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds/Even" unique_id=2037802423]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Round4" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds/Even" unique_id=236826423]
+layout_mode = 2
+texture = ExtResource("12")
+
+[node name="Timer" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1943638377]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 106.0
+grow_horizontal = 2
+pivot_offset = Vector2(46, 55)
+theme_override_colors/font_outline_color = Color(0.5594522, 0.0008903226, 0.67732304, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 90
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OnlineInfo" type="Control" parent="GameHUD_Background" unique_id=1490443186 node_paths=PackedStringArray("P1Name", "P2Name", "P1Platform", "P2Platform")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("13")
+P1Name = NodePath("P1OnlineInfoContainer/P1OnlineName")
+P2Name = NodePath("P2OnlineInfoContainer/P2OnlineName")
+P1Platform = NodePath("P1OnlineInfoContainer/P1OnlinePlatform")
+P2Platform = NodePath("P2OnlineInfoContainer/P2OnlinePlatform")
+
+[node name="P1OnlineInfoContainer" type="ColorRect" parent="GameHUD_Background/OnlineInfo" unique_id=1570429287]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -434.0
+offset_top = 135.0
+offset_right = -151.0
+offset_bottom = 162.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.62352943)
+metadata/_edit_group_ = true
+
+[node name="P1OnlinePlatform" type="TextureRect" parent="GameHUD_Background/OnlineInfo/P1OnlineInfoContainer" unique_id=1236602341]
+layout_mode = 0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("14")
+expand_mode = 2
+
+[node name="P1OnlineName" type="Label" parent="GameHUD_Background/OnlineInfo/P1OnlineInfoContainer" unique_id=225587910]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 281.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 16
+text = "Space reserved for online player"
+vertical_alignment = 1
+
+[node name="P2OnlineInfoContainer" type="ColorRect" parent="GameHUD_Background/OnlineInfo" unique_id=1946343934]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 151.0
+offset_top = 135.0
+offset_right = 432.0
+offset_bottom = 162.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.62352943)
+metadata/_edit_group_ = true
+
+[node name="P2OnlinePlatform" type="TextureRect" parent="GameHUD_Background/OnlineInfo/P2OnlineInfoContainer" unique_id=1677514822]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -27.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture = ExtResource("14")
+expand_mode = 2
+
+[node name="P2OnlineName" type="Label" parent="GameHUD_Background/OnlineInfo/P2OnlineInfoContainer" unique_id=196373825]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -281.0
+offset_right = -32.0
+offset_bottom = 27.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 16
+text = "Space reserved for online player"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ComboCounters" type="Control" parent="GameHUD_Background" unique_id=604988746]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1ComboCounter" type="Control" parent="GameHUD_Background/ComboCounters" unique_id=491802711 node_paths=PackedStringArray("Star")]
+anchors_preset = 0
+anchor_bottom = 1.0
+offset_top = -66.0
+offset_bottom = -66.0
+script = ExtResource("16")
+InvalidHitColor = Color(0.47088772, 0.5106312, 0.62510693, 1)
+Star = NodePath("Star")
+
+[node name="StunBar" type="TextureProgressBar" parent="GameHUD_Background/ComboCounters/P1ComboCounter" unique_id=2053226157]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_right = 460.0
+offset_bottom = 60.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.75)
+max_value = 60.0
+step = 0.0
+value = 60.0
+fill_mode = 1
+texture_under = ExtResource("17")
+texture_progress = ExtResource("17")
+tint_under = Color(0.43134022, 0.43134025, 0.43134025, 1)
+tint_progress = Color(0.7633532, 0.43761435, 0.91702867, 1)
+
+[node name="Star" type="TextureRect" parent="GameHUD_Background/ComboCounters/P1ComboCounter" unique_id=1453487081]
+layout_mode = 0
+offset_left = 144.62
+offset_top = -40.0
+offset_right = 284.6201
+offset_bottom = 100.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("18")
+
+[node name="ComboCount" type="Label" parent="GameHUD_Background/ComboCounters/P1ComboCounter" unique_id=680650778]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -115.0
+offset_right = 218.0
+offset_bottom = -22.0
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.5353641, 0.43244046, 0.9748532, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 100
+text = "1"
+
+[node name="ComboText" type="Label" parent="GameHUD_Background/ComboCounters/P1ComboCounter" unique_id=1490831895]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 67.0
+offset_top = -65.73
+offset_right = 221.0
+offset_bottom = -30.730003
+grow_vertical = 2
+rotation = 0.143117
+theme_override_colors/font_outline_color = Color(0.638641, 0.0015367186, 0.28350827, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 32
+text = "Hit Combo"
+
+[node name="P2ComboCounter" type="Control" parent="GameHUD_Background/ComboCounters" unique_id=6327371 node_paths=PackedStringArray("Star")]
+anchors_preset = 0
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -66.0
+offset_bottom = -66.0
+script = ExtResource("16")
+InvalidHitColor = Color(0.47058824, 0.50980395, 0.62352943, 1)
+Star = NodePath("Star")
+inverseRotation = true
+
+[node name="StunBar" type="TextureProgressBar" parent="GameHUD_Background/ComboCounters/P2ComboCounter" unique_id=1346246422]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_right = 460.0
+offset_bottom = 60.0
+grow_vertical = 2
+scale = Vector2(-0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.75)
+max_value = 60.0
+step = 0.0
+value = 60.0
+fill_mode = 1
+texture_under = ExtResource("17")
+texture_progress = ExtResource("17")
+tint_under = Color(0.43134022, 0.43134025, 0.43134025, 1)
+tint_progress = Color(0.7633532, 0.43761435, 0.91702867, 1)
+
+[node name="Star" type="TextureRect" parent="GameHUD_Background/ComboCounters/P2ComboCounter" unique_id=1173715181]
+layout_mode = 0
+offset_left = -288.0
+offset_top = -40.0
+offset_right = -147.99988
+offset_bottom = 100.0
+rotation = -0.6981317
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("18")
+
+[node name="ComboCount" type="Label" parent="GameHUD_Background/ComboCounters/P2ComboCounter" unique_id=919207766]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -115.0
+offset_right = -18.0
+offset_bottom = -22.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(1, 0)
+theme_override_colors/font_outline_color = Color(0.5353641, 0.43244046, 0.9748532, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 2
+
+[node name="ComboText" type="Label" parent="GameHUD_Background/ComboCounters/P2ComboCounter" unique_id=1277486383]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -213.72
+offset_top = -65.73
+offset_right = -59.72
+offset_bottom = -30.730003
+grow_vertical = 2
+rotation = -0.143117
+pivot_offset_ratio = Vector2(1, 0)
+theme_override_colors/font_outline_color = Color(0.638641, 0.0015367186, 0.28350827, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 32
+text = "Hit Combo"
+
+[node name="NotifsP1" type="VBoxContainer" parent="GameHUD_Background" unique_id=1332514953 node_paths=PackedStringArray("Widgets")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/separation = 45
+script = ExtResource("19")
+Widgets = [NodePath("Notif1"), NodePath("Notif2"), NodePath("Notif3"), NodePath("Notif4"), NodePath("Notif5")]
+
+[node name="Notif1" parent="GameHUD_Background/NotifsP1" unique_id=196358421 instance=ExtResource("20")]
+layout_mode = 2
+
+[node name="Notif2" parent="GameHUD_Background/NotifsP1" unique_id=704281923 instance=ExtResource("20")]
+layout_mode = 2
+
+[node name="Notif3" parent="GameHUD_Background/NotifsP1" unique_id=933839913 instance=ExtResource("20")]
+layout_mode = 2
+
+[node name="Notif4" parent="GameHUD_Background/NotifsP1" unique_id=299971261 instance=ExtResource("20")]
+layout_mode = 2
+
+[node name="Notif5" parent="GameHUD_Background/NotifsP1" unique_id=1323305603 instance=ExtResource("20")]
+layout_mode = 2
+
+[node name="NotifsP2" type="VBoxContainer" parent="GameHUD_Background" unique_id=2057056236 node_paths=PackedStringArray("Widgets")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 45
+script = ExtResource("19")
+Widgets = [NodePath("Notif1"), NodePath("Notif2"), NodePath("Notif3"), NodePath("Notif4"), NodePath("Notif5")]
+
+[node name="Notif1" parent="GameHUD_Background/NotifsP2" unique_id=37838264 instance=ExtResource("21")]
+layout_mode = 2
+
+[node name="Notif2" parent="GameHUD_Background/NotifsP2" unique_id=741147497 instance=ExtResource("21")]
+layout_mode = 2
+
+[node name="Notif3" parent="GameHUD_Background/NotifsP2" unique_id=1617395493 instance=ExtResource("21")]
+layout_mode = 2
+
+[node name="Notif4" parent="GameHUD_Background/NotifsP2" unique_id=873044637 instance=ExtResource("21")]
+layout_mode = 2
+
+[node name="Notif5" parent="GameHUD_Background/NotifsP2" unique_id=857070379 instance=ExtResource("21")]
+layout_mode = 2
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=616342288]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+focus_behavior_recursive = 1
+mouse_filter = 2
+mouse_behavior_recursive = 1
+stretch = true
+
+[node name="Viewport_Foreground" type="SubViewport" parent="ViewportContainer" unique_id=1652349718]
+transparent_bg = true
+handle_input_locally = false
+oversampling_override = 1.5
+size = Vector2i(1280, 720)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="CharacterCamera" type="Camera3D" parent="ViewportContainer/Viewport_Foreground" unique_id=1195241898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 9)
+cull_mask = 18
+projection = 1
+fov = 45.0
+near = 0.01
+
+[node name="GameHUD_Foreground" type="Control" parent="." unique_id=595347272 node_paths=PackedStringArray("P1Meter", "P2Meter", "P1MeterCount", "P2MeterCount", "P1TrainingInfo", "P2TrainingInfo", "P1InputHistory", "P2InputHistory")]
+process_priority = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("22")
+P1Meter = NodePath("Meters/P1Meter")
+P2Meter = NodePath("Meters/P2Meter")
+P1MeterCount = NodePath("Meters/P1MeterCount")
+P2MeterCount = NodePath("Meters/P2MeterCount")
+P1TrainingInfo = NodePath("TrainingInfo/P1Info/Information")
+P2TrainingInfo = NodePath("TrainingInfo/P2Info/Information")
+P1InputHistory = NodePath("InputHistory/P1InputHistory")
+P2InputHistory = NodePath("InputHistory/P2InputHistory")
+
+[node name="Meters" type="Control" parent="GameHUD_Foreground" unique_id=1096578342]
+anchors_preset = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="P1Frame" type="TextureRect" parent="GameHUD_Foreground/Meters" unique_id=1569902499]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -172.0
+offset_right = 562.0
+offset_bottom = 366.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("23")
+flip_h = true
+
+[node name="P2Frame" type="TextureRect" parent="GameHUD_Foreground/Meters" unique_id=632026752]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -181.00012
+offset_top = -172.00005
+offset_right = 404.99988
+offset_bottom = 365.99994
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("23")
+
+[node name="P1Meter" type="TextureProgressBar" parent="GameHUD_Foreground/Meters" unique_id=1041470327]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 373.0
+offset_top = -78.0
+offset_right = 1074.0
+offset_bottom = 78.0
+grow_vertical = 0
+scale = Vector2(-0.4, 0.4)
+max_value = 12000.0
+step = 0.0
+value = 12000.0
+fill_mode = 1
+texture_under = ExtResource("24")
+texture_progress = ExtResource("25")
+texture_progress_offset = Vector2(16, 16)
+
+[node name="P2Meter" type="TextureProgressBar" parent="GameHUD_Foreground/Meters" unique_id=1631360117]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -373.0
+offset_top = -78.0
+offset_right = 328.0
+offset_bottom = 78.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+max_value = 12000.0
+step = 0.0
+value = 12000.0
+fill_mode = 1
+texture_under = ExtResource("24")
+texture_progress = ExtResource("25")
+texture_progress_offset = Vector2(16, 16)
+
+[node name="P1MeterCount" type="Label" parent="GameHUD_Foreground/Meters" unique_id=102794398]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -102.0
+offset_right = 105.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+theme_override_colors/font_outline_color = Color(0.3911979, 0.050704002, 0.40549266, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2MeterCount" type="Label" parent="GameHUD_Foreground/Meters" unique_id=67254082]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -110.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(1, 1)
+theme_override_colors/font_outline_color = Color(0.39215687, 0.050980393, 0.40392157, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConnectionStatus" type="Control" parent="GameHUD_Foreground" unique_id=1209200009]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RollbackInfo" type="Label" parent="GameHUD_Foreground/ConnectionStatus" unique_id=1431988643]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -43.0
+offset_right = -115.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.32241842, 0.096879445, 0.22361112, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 20
+text = "RB: 8F"
+vertical_alignment = 1
+
+[node name="PingInfo" type="Label" parent="GameHUD_Foreground/ConnectionStatus" unique_id=1485408509]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 93.5
+offset_top = -43.0
+offset_right = 200.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0.32241842, 0.096879445, 0.22361112, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 20
+text = "Ping: 999ms"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TrainingInfo" type="Control" parent="GameHUD_Foreground" unique_id=108050585]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="P1Info" type="Control" parent="GameHUD_Foreground/TrainingInfo" unique_id=1092314173]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 130.0
+offset_right = -290.0
+offset_bottom = 130.0
+
+[node name="Background" type="ColorRect" parent="GameHUD_Foreground/TrainingInfo/P1Info" unique_id=812274031]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 209.0
+offset_bottom = 156.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Descriptions" type="Label" parent="GameHUD_Foreground/TrainingInfo/P1Info" unique_id=1100564771]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = 123.0
+offset_bottom = 153.0
+grow_vertical = 2
+text = "Damage 
+Current combo
+Highest combo
+Hit type
+Damage Scl.
+Frame data"
+
+[node name="Information" type="Label" parent="GameHUD_Foreground/TrainingInfo/P1Info" unique_id=1033807718]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_right = 205.0
+offset_bottom = 153.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0 
+0
+0
+HIGH
+100
+0(+0)"
+
+[node name="P2Info" type="Control" parent="GameHUD_Foreground/TrainingInfo" unique_id=1297068344]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 100.0
+offset_top = 130.0
+offset_right = 100.0
+offset_bottom = 130.0
+
+[node name="Background" type="ColorRect" parent="GameHUD_Foreground/TrainingInfo/P2Info" unique_id=1521455846]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 209.0
+offset_bottom = 156.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Descriptions" type="Label" parent="GameHUD_Foreground/TrainingInfo/P2Info" unique_id=333085343]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = 123.0
+offset_bottom = 153.0
+grow_vertical = 2
+text = "Damage 
+Current combo
+Highest combo
+Hit type
+Damage Scl.
+Frame data"
+
+[node name="Information" type="Label" parent="GameHUD_Foreground/TrainingInfo/P2Info" unique_id=1961395200]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 141.0
+offset_right = 205.0
+offset_bottom = 153.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "0 
+0
+0
+HIGH
+100
+0(+0)"
+
+[node name="InputHistory" type="Control" parent="GameHUD_Foreground" unique_id=1672551536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="P1InputHistory" type="VBoxContainer" parent="GameHUD_Foreground/InputHistory" unique_id=724805458 node_paths=PackedStringArray("elements")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -336.0
+offset_right = 50.0
+offset_bottom = 384.0
+grow_vertical = 2
+theme_override_constants/separation = 45
+script = ExtResource("26")
+elements = [NodePath("InputHistory_Pref1"), NodePath("InputHistory_Pref2"), NodePath("InputHistory_Pref3"), NodePath("InputHistory_Pref4"), NodePath("InputHistory_Pref5"), NodePath("InputHistory_Pref6"), NodePath("InputHistory_Pref7"), NodePath("InputHistory_Pref8"), NodePath("InputHistory_Pref9"), NodePath("InputHistory_Pref10"), NodePath("InputHistory_Pref11"), NodePath("InputHistory_Pref12"), NodePath("InputHistory_Pref13"), NodePath("InputHistory_Pref14"), NodePath("InputHistory_Pref15"), NodePath("InputHistory_Pref16")]
+
+[node name="InputHistory_Pref1" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1091900169 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref2" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=583928846 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref3" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=778200703 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref4" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=678128048 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref5" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1335290717 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref6" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1809108745 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref7" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=2061008270 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref8" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=149608436 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref9" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1106825608 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref10" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1680718884 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref11" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=9332039 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref12" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=938672882 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref13" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=937148573 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref14" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=844756490 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref15" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1035907082 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="InputHistory_Pref16" parent="GameHUD_Foreground/InputHistory/P1InputHistory" unique_id=1692589733 instance=ExtResource("27")]
+layout_mode = 2
+
+[node name="P2InputHistory" type="VBoxContainer" parent="GameHUD_Foreground/InputHistory" unique_id=1189791505 node_paths=PackedStringArray("elements")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -336.0
+offset_right = -50.0
+offset_bottom = 384.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 45
+script = ExtResource("26")
+elements = [NodePath("InputHistory_Pref"), NodePath("InputHistory_Pref2"), NodePath("InputHistory_Pref3"), NodePath("InputHistory_Pref4"), NodePath("InputHistory_Pref5"), NodePath("InputHistory_Pref6"), NodePath("InputHistory_Pref7"), NodePath("InputHistory_Pref8"), NodePath("InputHistory_Pref9"), NodePath("InputHistory_Pref10"), NodePath("InputHistory_Pref11"), NodePath("InputHistory_Pref12"), NodePath("InputHistory_Pref13"), NodePath("InputHistory_Pref14"), NodePath("InputHistory_Pref15"), NodePath("InputHistory_Pref16")]
+
+[node name="InputHistory_Pref" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1967977251 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref2" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1037225960 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref3" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1272700081 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref4" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1216754971 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref5" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=208335303 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref6" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=327847503 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref7" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1219955713 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref8" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=677636742 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref9" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1967262787 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref10" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=233699371 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref11" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=207765877 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref12" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=2000349901 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref13" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=1104319291 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref14" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=429238891 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref15" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=2114572054 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="InputHistory_Pref16" parent="GameHUD_Foreground/InputHistory/P2InputHistory" unique_id=459642963 instance=ExtResource("28")]
+layout_mode = 2
+
+[node name="MatchCards" type="Control" parent="." unique_id=411599120 node_paths=PackedStringArray("animator", "RoundLabel", "KO_Label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("29")
+animator = NodePath("AnimationPlayer")
+RoundLabel = NodePath("RoundCard")
+KO_Label = NodePath("KO")
+RoundName = "Bout"
+RoundNaming = 1
+Animations = [SubResource("Resource_4120v"), SubResource("Resource_hctok"), SubResource("Resource_t2vuu"), SubResource("Resource_lp1f3"), SubResource("Resource_p30di"), SubResource("Resource_8c81w"), SubResource("Resource_fi7j4"), SubResource("Resource_5ipgc")]
+KOAnimationDefault = 7
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MatchCards" unique_id=840061698]
+libraries/ = SubResource("AnimationLibrary_4120v")
+
+[node name="CatchPhrase" type="Label" parent="MatchCards" unique_id=513353691]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -241.5
+offset_top = -147.0
+offset_right = 414.5
+offset_bottom = 344.99994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(328, 147)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 70
+text = "May the
+magic be in
+your hearts!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundCard" type="Label" parent="MatchCards" unique_id=1745501468]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 660.0
+offset_top = -60.0
+offset_right = 1078.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(209, 68.5)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 80
+text = "Round N"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FIGHT!" type="Label" parent="MatchCards" unique_id=1073739411]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -68.5
+offset_right = 209.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(209, 68.5)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 100
+text = "DUEL!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KO" type="Label" parent="MatchCards" unique_id=228166061]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -60.0
+offset_right = -542.00037
+offset_bottom = 77.00012
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(209, 68.5)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 100
+text = "K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Draw" type="Label" parent="MatchCards" unique_id=821729647]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -60.0
+offset_right = 228.00098
+offset_bottom = 77.00055
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(209, 68.5)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 80
+text = "Draw..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1Win" type="Label" parent="MatchCards" unique_id=1995650479]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 418.0
+offset_bottom = 77.0
+grow_vertical = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 60
+text = "P1 Win!"
+
+[node name="P2Win" type="Label" parent="MatchCards" unique_id=981754637]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -60.0
+offset_right = 227.99951
+offset_bottom = 76.99994
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(418, 0)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 60
+text = "P2 Win!"
+horizontal_alignment = 2
+
+[node name="SoundQueue" type="AudioStreamPlayer3D" parent="MatchCards" unique_id=537292548]
+bus = &"Announcer"
+script = ExtResource("31")
+metadata/_custom_type_script = "uid://3uu6r0mhj3p3"
+
+[node name="ResultsScreen" type="Control" parent="." unique_id=661745059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="ResultsScreen" unique_id=813076439]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3060459, 0.04012543, 0.32281289, 0.20392157)
+
+[node name="Background" type="TextureRect" parent="ResultsScreen" unique_id=1544018874]
+z_index = -10
+material = SubResource("ShaderMaterial_pvqvx")
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -197.33337
+offset_top = -1773.0
+offset_right = 3152.0
+offset_bottom = 111.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 1)
+texture = ExtResource("33")
+stretch_mode = 1
+
+[node name="Character" type="TextureRect" parent="ResultsScreen" unique_id=880045392]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -360.0
+offset_right = 276.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("34")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Star1" type="TextureRect" parent="ResultsScreen" unique_id=1595731121]
+layout_mode = 0
+offset_left = 317.0
+offset_top = -22.0
+offset_right = 457.0
+offset_bottom = 118.0
+texture = ExtResource("18")
+
+[node name="Star2" type="TextureRect" parent="ResultsScreen" unique_id=1169238024]
+layout_mode = 0
+offset_left = 815.0
+offset_top = -13.0
+offset_right = 955.0
+offset_bottom = 127.0
+texture = ExtResource("18")
+
+[node name="Title" type="Label" parent="ResultsScreen" unique_id=1032263509]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -228.5
+offset_right = 228.5
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.46677786, 0.2635256, 0.6162547, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 70
+text = "Battle is over!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WinBannerP1" type="Control" parent="ResultsScreen" unique_id=1910856377]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Star" type="TextureRect" parent="ResultsScreen/WinBannerP1" unique_id=965648067]
+modulate = Color(0.827451, 0.827451, 0.827451, 0.9137255)
+layout_mode = 1
+offset_left = -108.0
+offset_top = -111.0
+offset_right = 179.0
+offset_bottom = 215.0
+texture = ExtResource("7")
+
+[node name="Winner" type="Label" parent="ResultsScreen/WinBannerP1" unique_id=1715785789]
+layout_mode = 0
+offset_right = 586.0
+offset_bottom = 69.0
+theme_override_colors/font_outline_color = Color(0.46677786, 0.2635256, 0.6162547, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 1 WIN!"
+vertical_alignment = 2
+
+[node name="NamePlayer1" type="Label" parent="ResultsScreen/WinBannerP1" unique_id=386612944]
+layout_mode = 0
+offset_top = 58.0
+offset_right = 640.0
+offset_bottom = 113.0
+theme_override_colors/font_outline_color = Color(0.46677786, 0.2635256, 0.6162547, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 44
+text = "Player 1 name"
+
+[node name="WinBannerP2" type="Control" parent="ResultsScreen" unique_id=682353987]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="Star" type="TextureRect" parent="ResultsScreen/WinBannerP2" unique_id=1022738645]
+modulate = Color(0.827451, 0.827451, 0.827451, 0.9137255)
+layout_mode = 0
+offset_left = -185.0
+offset_top = -111.0
+offset_right = 102.0
+offset_bottom = 215.0
+texture = ExtResource("7")
+
+[node name="Winner" type="Label" parent="ResultsScreen/WinBannerP2" unique_id=2016089178]
+layout_mode = 0
+offset_left = -674.0
+offset_bottom = 69.0
+pivot_offset = Vector2(352, 0)
+theme_override_colors/font_outline_color = Color(0.46677786, 0.2635256, 0.6162547, 1)
+theme_override_constants/outline_size = 17
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 50
+text = "PLAYER 2 WIN!"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="NamePlayer2" type="Label" parent="ResultsScreen/WinBannerP2" unique_id=1614180938]
+layout_mode = 0
+offset_left = -640.0
+offset_top = 58.0
+offset_right = 1.0
+offset_bottom = 113.0
+pivot_offset = Vector2(641, 0)
+theme_override_colors/font_outline_color = Color(0.46677786, 0.2635256, 0.6162547, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 44
+text = "Player 2 name"
+horizontal_alignment = 2
+
+[node name="TextWindowBG" type="ColorRect" parent="ResultsScreen" unique_id=507614909]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -361.0
+offset_top = -237.0
+offset_right = 366.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextWindow" type="ColorRect" parent="ResultsScreen" unique_id=711964875]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -358.0
+offset_top = -232.0
+offset_right = 358.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.1971913, 0.5355519, 0.84982127, 1)
+
+[node name="VictoryMessage" type="Label" parent="ResultsScreen" unique_id=419266798]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 282.0
+offset_top = 488.0
+offset_right = -282.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("10")
+theme_override_font_sizes/font_size = 28
+text = "Victory is mine hehe!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="FadeScreen" type="ColorRect" parent="." unique_id=1110242483]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("35")
+FadeIntensity = 100
+
+[node name="Debug" type="Control" parent="." unique_id=682411219]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect1" type="ColorRect" parent="Debug" unique_id=527098255]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 426.0
+color = Color(0, 0, 0, 0.156863)
+
+[node name="ColorRect2" type="ColorRect" parent="Debug" unique_id=1740915217]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_bottom = 426.0
+color = Color(0, 0, 0, 0.156863)
+
+[node name="P1Debug" type="Label" parent="Debug" unique_id=1662448426]
+layout_mode = 1
+offset_right = 97.0
+offset_bottom = 23.0
+text = "Lorem ipsun"
+
+[node name="P2Debug" type="Label" parent="Debug" unique_id=1460702931]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_right = -6.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Lorem ipsun"
+horizontal_alignment = 2
+
+[node name="FPSDisplay" type="Control" parent="." unique_id=1091833598]
+visible = false
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Background" type="ColorRect" parent="FPSDisplay" unique_id=999708256]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 30.0
+offset_bottom = 24.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FPS" type="Label" parent="FPSDisplay" unique_id=319862601]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "999 fps"
+horizontal_alignment = 1
+script = ExtResource("36")
+
+[node name="TouchInputs" parent="." unique_id=2082938867 instance=ExtResource("37")]
+visible = false
+
+[node name="PleaseResync_UI" parent="." unique_id=1086814857 instance=ExtResource("38")]
+
+[node name="PauseMenu" type="Control" parent="." unique_id=1680744868 node_paths=PackedStringArray("firstButton")]
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("39")
+firstButton = NodePath("HBoxContainer/Button_Resume")
+
+[node name="BG" type="ColorRect" parent="PauseMenu" unique_id=1716431296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -85.0
+offset_right = 351.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2784314)
+
+[node name="Title" type="Label" parent="PauseMenu" unique_id=1185394463]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_top = -69.0
+offset_right = 142.0
+offset_bottom = -28.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.40240046, 0.08223467, 0.44700748, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 35
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="BG2" type="ColorRect" parent="PauseMenu" unique_id=1079881989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = 44.0
+offset_right = 351.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.2784314)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu" unique_id=1508268126]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 53.0
+offset_right = 254.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Button_Resume" type="Button" parent="PauseMenu/HBoxContainer" unique_id=999863619]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.30872852, 0.08296607, 0.2994319, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 17
+text = "RESUME"
+
+[node name="Button_Restart" type="Button" parent="PauseMenu/HBoxContainer" unique_id=1739327044]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.30872852, 0.08296607, 0.2994319, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 17
+text = "RESTART"
+
+[node name="Button_CharSelect" type="Button" parent="PauseMenu/HBoxContainer" unique_id=1185418082]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.30872852, 0.08296607, 0.2994319, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 17
+text = "CHARACTER SELECT"
+
+[node name="Button_MainMenu" type="Button" parent="PauseMenu/HBoxContainer" unique_id=917067297]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.30872852, 0.08296607, 0.2994319, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15")
+theme_override_font_sizes/font_size = 17
+text = "MAIN MENU"
+
+[node name="StarLeft" type="TextureRect" parent="PauseMenu" unique_id=1973371646]
+layout_mode = 1
+offset_left = -400.0
+offset_top = -140.0
+offset_right = -260.0
+texture = ExtResource("18")
+
+[node name="StarRight" type="TextureRect" parent="PauseMenu" unique_id=1597402792]
+layout_mode = 1
+offset_left = 267.0
+offset_top = -145.0
+offset_right = 407.0
+offset_bottom = -5.0
+texture = ExtResource("18")
+flip_h = true
+
+[node name="Seed" type="Label" parent="." unique_id=737444796]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -37.0
+offset_right = 33.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "Seed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Button_Resume" to="PauseMenu" method="_on_button_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Button_Restart" to="PauseMenu" method="_on_button_restart_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Button_CharSelect" to="PauseMenu" method="_on_button_char_select_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Button_MainMenu" to="PauseMenu" method="_on_button_main_menu_pressed"]

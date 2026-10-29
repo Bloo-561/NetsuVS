@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bb6p2lcu6z4dh"]
+
+[ext_resource type="Resource" uid="uid://bghv6x8z4p5k2" path="res://actors/noah/AnimationData/31_NOA_Stand_Blockstun_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="6"]
+
+[sub_resource type="Resource" id="Resource_lym3b"]
+script = ExtResource("2")
+UseInertia = true
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_7oll4"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_lym3b")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_ndb76"]
+script = ExtResource("4")
+StateIndex = 50
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_fskh1"]
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_rcm5l"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_fskh1")]
+Actions = [SubResource("Resource_ndb76")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("6")
+StateName = "Blockstun_Neutral"
+Type = 3
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_rcm5l")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("Resource_7oll4")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 322

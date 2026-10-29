@@ -1,0 +1,167 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://stages/celdic/celdic.glb" id="1_glb"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_floor.gdshader" id="2_floor"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_sky.gdshader" id="3_sky"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_bunting.gdshader" id="4_bunting"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_window.gdshader" id="5_window"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_fire.gdshader" id="6_fire"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_smoke.gdshader" id="7_smoke"]
+[ext_resource type="Shader" path="res://stages/celdic/ce_haze.gdshader" id="8_haze"]
+[ext_resource type="Texture2D" path="res://stages/celdic/textures/cobble.png" id="t_cobble"]
+[ext_resource type="Texture2D" path="res://stages/celdic/textures/floor_light.png" id="t_light"]
+[ext_resource type="Texture2D" path="res://stages/celdic/textures/dot.png" id="t_dot"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+shader = ExtResource("2_floor")
+shader_parameter/cobble_tex = ExtResource("t_cobble")
+shader_parameter/light_tex = ExtResource("t_light")
+shader_parameter/scorch = 0.6
+
+[sub_resource type="ShaderMaterial" id="Mat_sky"]
+render_priority = -2
+shader = ExtResource("3_sky")
+
+[sub_resource type="ShaderMaterial" id="Mat_bunting"]
+shader = ExtResource("4_bunting")
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="Mat_window"]
+shader = ExtResource("5_window")
+shader_parameter/fire = 0.0
+
+[sub_resource type="ShaderMaterial" id="Mat_fire"]
+render_priority = 2
+shader = ExtResource("6_fire")
+
+[sub_resource type="ShaderMaterial" id="Mat_smoke"]
+render_priority = 1
+shader = ExtResource("7_smoke")
+shader_parameter/smoke_color = Color(0.36, 0.34, 0.33, 1)
+shader_parameter/lit_color = Color(0.3, 0.27, 0.25, 1)
+shader_parameter/opacity = 0.55
+shader_parameter/count = 8.0
+
+[sub_resource type="ShaderMaterial" id="Mat_haze"]
+render_priority = 1
+shader = ExtResource("8_haze")
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(80, 84)
+
+[sub_resource type="StandardMaterial3D" id="Mat_particle"]
+transparency = 1
+blend_mode = 0
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.96, 0.8, 0.6)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="StandardMaterial3D" id="Mat_ash"]
+transparency = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.12, 0.1, 0.1, 0.8)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_particle"]
+material = SubResource("Mat_particle")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="QuadMesh" id="Mesh_ash"]
+material = SubResource("Mat_ash")
+size = Vector2(0.08, 0.08)
+
+[sub_resource type="Gradient" id="Grad"]
+offsets = PackedFloat32Array(0, 0.15, 0.7, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 0.8, 0.6, 0.8, 1, 0.5, 0.3, 0)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.45, 0.65, 0.9, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.9, 0.92, 1, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 0
+glow_enabled = true
+glow_intensity = 0.3
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.95
+fog_enabled = false
+
+[node name="CeldicDay" type="Node3D"]
+
+[node name="Stage" parent="." instance=ExtResource("1_glb")]
+
+[node name="Sky" parent="Stage"]
+material_override = SubResource("Mat_sky")
+cast_shadow = 0
+
+[node name="Bunting" parent="Stage"]
+material_override = SubResource("Mat_bunting")
+cast_shadow = 0
+
+[node name="Window" parent="Stage"]
+material_override = SubResource("Mat_window")
+cast_shadow = 0
+
+[node name="Fire" parent="Stage"]
+visible = false
+material_override = SubResource("Mat_fire")
+cast_shadow = 0
+
+[node name="Smoke" parent="Stage"]
+material_override = SubResource("Mat_smoke")
+cast_shadow = 0
+
+[node name="Haze" parent="Stage"]
+visible = false
+material_override = SubResource("Mat_haze")
+cast_shadow = 0
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+cast_shadow = 0
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
+
+[node name="FX" type="Node3D" parent="."]
+
+[node name="Motes" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -12)
+cast_shadow = 0
+amount = 60
+lifetime = 12.0
+preprocess = 12.0
+randomness = 0.6
+local_coords = true
+mesh = SubResource("Mesh_particle")
+emission_shape = 3
+emission_box_extents = Vector3(20, 2.5, 10)
+direction = Vector3(1, 0.2, 0)
+spread = 60.0
+gravity = Vector3(0.02, -0.005, 0)
+initial_velocity_min = 0.05
+initial_velocity_max = 0.2
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+color_ramp = SubResource("Grad")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[editable path="Stage"]

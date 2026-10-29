@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpawnsList" format=3 uid="uid://zg7cfgoq3bzh"]
+
+[ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="1"]
+[ext_resource type="Script" uid="uid://fshoagbsdqd4" path="res://engine/sakuga/Resources/SpawnObject.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://0325udfsoc0l" path="res://actors/assists/mary/Instances/MRY_Note.tscn" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Key = "MaryNote"
+Instance = ExtResource("3")
+PoolSize = 2
+
+[resource]
+script = ExtResource("1")
+SpawnObjects = [SubResource("s1")]

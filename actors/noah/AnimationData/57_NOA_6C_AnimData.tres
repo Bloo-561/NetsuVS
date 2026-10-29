@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://ba5augyfd7avs"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://btuurbbxj3aqr" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL1.tres" id="lvl"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Resource" uid="uid://baswoknv3zp7x" path="res://actors/noah/Hitboxes/8_Hitbox_6C_0.tres" id="nhb0"]
+[ext_resource type="Resource" uid="uid://6sb7szfqb4a0" path="res://actors/noah/Hitboxes/8_Hitbox_6C_1.tres" id="nhb1"]
+[ext_resource type="Resource" uid="uid://bfzkd82ia3awv" path="res://actors/noah/Hitboxes/8_Hitbox_6C_2.tres" id="nhb2"]
+[ext_resource type="Resource" uid="uid://4gbsuyayd522" path="res://actors/noah/Hitboxes/8_Hitbox_6C_3.tres" id="nhb3"]
+[ext_resource type="Resource" uid="uid://85w0zoga53k8" path="res://actors/noah/Hitboxes/8_Hitbox_6C_4.tres" id="nhb4"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/n27_6c_active_uppercut.png" id="t_n27_6c_active_uppercut"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/n27_6c_lower_arm.png" id="t_n27_6c_lower_arm"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/n27_6c_recovery.png" id="t_n27_6c_recovery"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/n27_6c_rising_punch.png" id="t_n27_6c_rising_punch"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/n27_6c_startup.png" id="t_n27_6c_startup"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/stand.png" id="t_stand"]
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("ap")
+BaseDamage = 250
+GuardCrushDamage = 190
+AttackLevel = ExtResource("lvl")
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("nhb0")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 6
+HitboxData = ExtResource("nhb1")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("hs")
+AtFrame = 16
+animationStage = 1
+HitboxData = ExtResource("nhb2")
+
+[sub_resource type="Resource" id="H3"]
+script = ExtResource("hs")
+AtFrame = 20
+animationStage = 2
+HitboxData = ExtResource("nhb3")
+
+[sub_resource type="Resource" id="H4"]
+script = ExtResource("hs")
+AtFrame = 26
+animationStage = 2
+HitboxData = ExtResource("nhb4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n27_6c_startup")
+Offset = Vector2(-211, -6)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n27_6c_rising_punch")
+Offset = Vector2(-225, -7)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("as")
+AtFrame = 10
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n27_6c_active_uppercut")
+Offset = Vector2(-243, -7)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("as")
+AtFrame = 16
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n27_6c_lower_arm")
+Offset = Vector2(-225, -7)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("as")
+AtFrame = 22
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n27_6c_recovery")
+Offset = Vector2(-188, -4)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("as")
+AtFrame = 26
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_stand")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("as")
+AtFrame = 32
+Modifiers = [SubResource("M5_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 38
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2"), SubResource("H3"), SubResource("H4")]
+AttackProfiles = [SubResource("P0")]

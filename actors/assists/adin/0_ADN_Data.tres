@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://zrprlwvobtck"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ba2kw62z0qwgh" path="res://actors/assists/adin/States/0_ADN_Hidden.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bk8qrfv8lzfhq" path="res://actors/assists/adin/States/1_ADN_5S.tres" id="3"]
+[ext_resource type="Resource" uid="uid://0pedrpxd2ne4" path="res://actors/assists/adin/States/2_ADN_5S_hit.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bmroykq4fnbz7" path="res://actors/assists/adin/States/3_ADN_6S.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bjndb6cvb0q7o" path="res://actors/assists/adin/States/4_ADN_6S_return.tres" id="6"]
+[ext_resource type="Resource" uid="uid://zdptk6z0ea8z" path="res://actors/assists/adin/States/5_ADN_6S_hit.tres" id="7"]
+
+[resource]
+script = ExtResource("1")
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7")]
+BaseAttack = 100
+BaseDefense = 100

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ba4tumnf8r0f8" path="res://actors/_shared/sakuga/Inputs/57_Input_214_any.tres" id="2"]
+[ext_resource type="Script" uid="uid://cuch5yr7c7dag" path="res://engine/sakuga/Resources/CustomVariableCondition.cs" id="3"]
+[ext_resource type="Script" uid="uid://dh03r2nvy3pmu" path="res://engine/sakuga/Resources/CustomVariableChange.cs" id="4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+ByIndex = 3
+Value = 1
+CompareMode = 3
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("4")
+ByIndex = 3
+Value = 0
+
+[resource]
+script = ExtResource("1")
+MoveName = "Overflow Ray (air)"
+MoveState = 115
+Inputs = ExtResource("2")
+Priority = 9
+MoveEnd = 2
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnAir = true
+VariablesRequirement = [SubResource("s1")]
+VariablesChange = [SubResource("s2")]

@@ -1,0 +1,195 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bem247l5juael"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://032uekd2i6no" path="res://actors/leticia/AnimationData/83_LET_214C_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="8"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="9"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="10"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="11"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("8")
+Properties = 3
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Actions = [SubResource("s4"), SubResource("s5"), SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("9")
+Frame = 16
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("10")
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+Conditions = [SubResource("s8")]
+Actions = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("9")
+Frame = 34
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("10")
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Conditions = [SubResource("s11")]
+Actions = [SubResource("s12")]
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("9")
+Frame = 38
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("10")
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("3")
+Conditions = [SubResource("s14")]
+Actions = [SubResource("s15")]
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("9")
+Frame = 34
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("11")
+Amplitude = 0.03
+Duration = 10
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("3")
+Conditions = [SubResource("s17")]
+Actions = [SubResource("s18")]
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("9")
+Frame = 42
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("8")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("3")
+Conditions = [SubResource("s20")]
+Actions = [SubResource("s21")]
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("9")
+Frame = 46
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("7")
+Velocity = -10000
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("3")
+Conditions = [SubResource("s23")]
+Actions = [SubResource("s24")]
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("9")
+Frame = 52
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("3")
+Conditions = [SubResource("s26")]
+Actions = [SubResource("s27")]
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("8")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("3")
+Actions = [SubResource("s29")]
+
+[sub_resource type="Resource" id="sfx_4_0_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_4_0_at"]
+script = ExtResource("9")
+Frame = 4
+
+[sub_resource type="Resource" id="sfx_4_0"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_4_0_at")]
+Actions = [SubResource("sfx_4_0_play")]
+
+[sub_resource type="Resource" id="sfx_15_1_play"]
+script = ExtResource("sfx_play")
+Source = 3
+Index = 66
+
+[sub_resource type="Resource" id="sfx_15_1_at"]
+script = ExtResource("9")
+Frame = 15
+
+[sub_resource type="Resource" id="sfx_15_1"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_15_1_at")]
+Actions = [SubResource("sfx_15_1_play")]
+
+[sub_resource type="Resource" id="sfx_33_2_play"]
+script = ExtResource("sfx_play")
+Source = 4
+Index = 67
+
+[sub_resource type="Resource" id="sfx_33_2_at"]
+script = ExtResource("9")
+Frame = 33
+
+[sub_resource type="Resource" id="sfx_33_2"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_33_2_at")]
+Actions = [SubResource("sfx_33_2_play")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Prism Overdrive"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = [SubResource("s7")]
+OnTickEvents = [SubResource("sfx_4_0"), SubResource("sfx_15_1"), SubResource("sfx_33_2"), SubResource("s10"), SubResource("s13"), SubResource("s16"), SubResource("s19"), SubResource("s22"), SubResource("s25"), SubResource("s28")]
+OnExitEvents = [SubResource("s30")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 4114

@@ -1,0 +1,298 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bjxtjqp8ynaw6"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://71nybnxdwyt8" path="res://actors/leticia/Hitboxes/0_Hitbox_Basic.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Om3.png" id="t_idle_Om3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Om2.png" id="t_idle_Om2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Om1.png" id="t_idle_Om1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_O0.png" id="t_idle_O0"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Op1.png" id="t_idle_Op1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Op2.png" id="t_idle_Op2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Op3.png" id="t_idle_Op3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_HBm3.png" id="t_idle_HBm3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_Bm2.png" id="t_idle_Bm2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_HBm2.png" id="t_idle_HBm2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_HBm1.png" id="t_idle_HBm1"]
+
+[sub_resource type="Resource" id="Resource_dpo3q"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om3")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 5
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+AtFrame = 10
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("3")
+AtFrame = 15
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("3")
+AtFrame = 20
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("3")
+AtFrame = 25
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op3")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("3")
+AtFrame = 30
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("3")
+AtFrame = 35
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="M8_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A8"]
+script = ExtResource("3")
+AtFrame = 40
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="M9_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A9"]
+script = ExtResource("3")
+AtFrame = 45
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="M10_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A10"]
+script = ExtResource("3")
+AtFrame = 50
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="M11_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A11"]
+script = ExtResource("3")
+AtFrame = 55
+Modifiers = [SubResource("M11_0")]
+
+[sub_resource type="Resource" id="M12_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om3")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A12"]
+script = ExtResource("3")
+AtFrame = 60
+Modifiers = [SubResource("M12_0")]
+
+[sub_resource type="Resource" id="M13_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_HBm3")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A13"]
+script = ExtResource("3")
+AtFrame = 62
+Modifiers = [SubResource("M13_0")]
+
+[sub_resource type="Resource" id="M14_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Bm2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A14"]
+script = ExtResource("3")
+AtFrame = 65
+Modifiers = [SubResource("M14_0")]
+
+[sub_resource type="Resource" id="M15_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_HBm2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A15"]
+script = ExtResource("3")
+AtFrame = 69
+Modifiers = [SubResource("M15_0")]
+
+[sub_resource type="Resource" id="M16_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_HBm1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A16"]
+script = ExtResource("3")
+AtFrame = 70
+Modifiers = [SubResource("M16_0")]
+
+[sub_resource type="Resource" id="M17_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A17"]
+script = ExtResource("3")
+AtFrame = 72
+Modifiers = [SubResource("M17_0")]
+
+[sub_resource type="Resource" id="M18_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A18"]
+script = ExtResource("3")
+AtFrame = 75
+Modifiers = [SubResource("M18_0")]
+
+[sub_resource type="Resource" id="M19_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A19"]
+script = ExtResource("3")
+AtFrame = 80
+Modifiers = [SubResource("M19_0")]
+
+[sub_resource type="Resource" id="M20_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A20"]
+script = ExtResource("3")
+AtFrame = 85
+Modifiers = [SubResource("M20_0")]
+
+[sub_resource type="Resource" id="M21_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op3")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A21"]
+script = ExtResource("3")
+AtFrame = 90
+Modifiers = [SubResource("M21_0")]
+
+[sub_resource type="Resource" id="M22_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A22"]
+script = ExtResource("3")
+AtFrame = 95
+Modifiers = [SubResource("M22_0")]
+
+[sub_resource type="Resource" id="M23_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Op1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A23"]
+script = ExtResource("3")
+AtFrame = 100
+Modifiers = [SubResource("M23_0")]
+
+[sub_resource type="Resource" id="M24_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A24"]
+script = ExtResource("3")
+AtFrame = 105
+Modifiers = [SubResource("M24_0")]
+
+[sub_resource type="Resource" id="M25_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om1")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A25"]
+script = ExtResource("3")
+AtFrame = 110
+Modifiers = [SubResource("M25_0")]
+
+[sub_resource type="Resource" id="M26_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_idle_Om2")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A26"]
+script = ExtResource("3")
+AtFrame = 115
+Modifiers = [SubResource("M26_0")]
+
+[resource]
+script = ExtResource("6")
+Duration = 120
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7"), SubResource("A8"), SubResource("A9"), SubResource("A10"), SubResource("A11"), SubResource("A12"), SubResource("A13"), SubResource("A14"), SubResource("A15"), SubResource("A16"), SubResource("A17"), SubResource("A18"), SubResource("A19"), SubResource("A20"), SubResource("A21"), SubResource("A22"), SubResource("A23"), SubResource("A24"), SubResource("A25"), SubResource("A26")]
+Hitboxes = [SubResource("Resource_dpo3q")]
+AttackProfiles = []

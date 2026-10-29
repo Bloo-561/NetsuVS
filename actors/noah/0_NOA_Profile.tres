@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FighterProfile" format=3 uid="uid://bk2rhjw27ji6z"]
+
+[ext_resource type="Script" uid="uid://c5w04j5my3h8p" path="res://engine/sakuga/Resources/FighterProfile.cs" id="5"]
+[ext_resource type="Texture2D" path="res://actors/noah/Artwork/Noah_Select_FullBody.png" id="sel_render"]
+[ext_resource type="Texture2D" path="res://actors/noah/Artwork/Noah_Select_Portrait.png" id="sel_portrait"]
+[ext_resource type="Texture2D" path="res://actors/noah/Artwork/Noah_WinRender.png" id="win"]
+[ext_resource type="Texture2D" path="res://actors/noah/Artwork/Noah_Icon_Small.png" id="icon"]
+
+[resource]
+script = ExtResource("5")
+FighterName = "Noah Swallowtail"
+ShortName = "Noah"
+Render = ExtResource("sel_render")
+Portrait = ExtResource("sel_portrait")
+Bio = "A hooded youth whose cursed devil arm devours light: shadow waves, black holes and stolen energy."
+VictoryRender = ExtResource("win")
+OnlineIcon = ExtResource("icon")
+NetsuAuraColor = Color(0.68, 0.32, 1, 1)
+metadata/_custom_type_script = "uid://c5w04j5my3h8p"

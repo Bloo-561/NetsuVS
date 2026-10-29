@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://x62r35ileemwe"]
+
+[ext_resource type="Resource" uid="uid://c72glkrh8i8u" path="res://actors/cecilia/Spawnables/0/States/0_Spawn.tres" id="1"]
+[ext_resource type="Resource" uid="uid://b3f5xnrdbxv65" path="res://actors/cecilia/Spawnables/0/States/1_Travel.tres" id="2"]
+[ext_resource type="Resource" uid="uid://dmk70oncylv1j" path="res://actors/cecilia/Spawnables/0/States/2_Death.tres" id="3"]
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="4"]
+
+[resource]
+script = ExtResource("4")
+Profile = null
+States = [ExtResource("1"), ExtResource("2"), ExtResource("3")]
+Stances = null
+_aiData = null
+Intros = null
+Outros = null
+VictoryPoses = null
+metadata/_custom_type_script = "uid://bsbjg1nuyall1"

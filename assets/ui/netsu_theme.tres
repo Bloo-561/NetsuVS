@@ -1,0 +1,54 @@
+[gd_resource type="Theme" format=3 uid="uid://dp6sdyj0xuwx3"]
+
+[ext_resource type="FontFile" uid="uid://c0ydrhsjf6b8k" path="res://assets/fonts/maximum_impact.ttf" id="1_body"]
+[ext_resource type="FontFile" uid="uid://blkirmvvitxcn" path="res://assets/fonts/megapunch_italic.ttf" id="2_menu"]
+[ext_resource type="FontFile" uid="uid://c3xrvk36yn60i" path="res://assets/fonts/dragonlands.ttf" id="3_header"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_focus"]
+content_margin_left = 48.0
+content_margin_top = 10.0
+content_margin_right = 48.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2, 0.6, 1, 1)
+skew = Vector2(0.35, 0)
+border_width_left = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+content_margin_left = 48.0
+content_margin_top = 10.0
+content_margin_right = 48.0
+content_margin_bottom = 10.0
+bg_color = Color(0.02, 0.04, 0.12, 0.8)
+skew = Vector2(0.35, 0)
+border_width_left = 8
+border_color = Color(0.2, 0.6, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+content_margin_left = 48.0
+content_margin_top = 10.0
+content_margin_right = 48.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+skew = Vector2(0.35, 0)
+border_width_left = 8
+border_color = Color(0.2, 0.6, 1, 1)
+
+[resource]
+default_font = ExtResource("1_body")
+default_font_size = 32
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(0.02, 0.04, 0.12, 1)
+Button/colors/font_pressed_color = Color(0.02, 0.04, 0.12, 1)
+Button/font_sizes/font_size = 46
+Button/fonts/font = ExtResource("2_menu")
+Button/styles/focus = SubResource("StyleBoxFlat_focus")
+Button/styles/hover = SubResource("StyleBoxFlat_focus")
+Button/styles/normal = SubResource("StyleBoxFlat_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_pressed")
+HeaderLabel/base_type = &"Label"
+HeaderLabel/fonts/font = ExtResource("3_header")
+MenuItemLabel/base_type = &"Label"
+MenuItemLabel/fonts/font = ExtResource("2_menu")

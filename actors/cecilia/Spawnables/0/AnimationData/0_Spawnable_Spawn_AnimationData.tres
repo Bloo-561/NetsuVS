@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://cgxcls1k88uk0"]
+
+[ext_resource type="Texture2D" uid="uid://4d250653gu2i" path="res://actors/cecilia/Spawnables/0/Sprites/1210-0.png" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://iakd558jieet" path="res://actors/cecilia/Spawnables/0/Hitboxes/0_Hitbox_Spawnable_Basic.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+
+[sub_resource type="Resource" id="Resource_7g78o"]
+script = ExtResource("2")
+Sprite = ExtResource("1")
+Offset = Vector2(-108, -70)
+metadata/_custom_type_script = "uid://cai1mj5geilcj"
+
+[sub_resource type="Resource" id="Resource_dx8og"]
+script = ExtResource("3")
+Modifiers = [SubResource("Resource_7g78o")]
+metadata/_custom_type_script = "uid://b8vqwkv52qq3e"
+
+[sub_resource type="Resource" id="Resource_7gh8r"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+metadata/_custom_type_script = "uid://5qrsoteskjym"
+
+[resource]
+script = ExtResource("6")
+Duration = 6
+Animations = [SubResource("Resource_dx8og")]
+Hitboxes = [SubResource("Resource_7gh8r")]
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

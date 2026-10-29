@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bh08tm7hq03gk"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bb50pe2cji850" path="res://actors/noah/Hitboxes/33_Hitbox_EventHorizon_A_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://beuag8a0i6lun" path="res://actors/noah/Hitboxes/33_Hitbox_EventHorizon_A_1.tres" id="4"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/stand.png" id="t_stand"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/bh_summon.png" id="t_bh_summon"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 5
+animationStage = 2
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_stand")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_bh_summon")
+Offset = Vector2(-200, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 5
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_bh_summon")
+Offset = Vector2(-203, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 22
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_stand")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 28
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 36
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("s1"), SubResource("s2")]

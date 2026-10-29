@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3 uid="uid://z7rzqvcqc6b5"]
+
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="1"]
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="2"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Center = Vector2i(1100, 4500)
+Size = Vector2i(13500, 9100)
+HitboxType = 1
+OpponentSuperGaugeGain = 60
+SelfSuperGaugeGain = 150
+HitEffectIndex = 6
+HitType = 2
+BaseDamage = 450
+SelfHitStopDuration = 8
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 3
+GroundHitReaction = 7
+CrouchHitReaction = 7
+GroundHitKnockback = Vector2i(-32000, 30000)
+GroundHitKnockbackGravity = 220000
+GroundHitstun = 42
+GroundBlockKnockback = Vector2i(-32000, 0)
+GroundBlockstun = 22
+AirHitstunType = 3
+AirHitReaction = 7
+AirHitKnockback = Vector2i(-32000, 30000)
+AirHitKnockbackGravity = 220000
+AirHitstun = 42
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 22
+AllowSelfPushback = false
+ChipDamage = 0
+
+[resource]
+script = ExtResource("1")
+Hitboxes = [SubResource("s1")]

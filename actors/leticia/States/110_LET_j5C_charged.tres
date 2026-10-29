@@ -1,0 +1,156 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="nf1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuBounceOpponentAction.cs" id="nf2"]
+[ext_resource type="Resource" path="res://actors/leticia/AnimationData/110_LET_j5C_charged_AnimData.tres" id="nf4"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="nf6"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="nf8"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="nf10"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="nf12"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="nf16"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="nf19"]
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="nf21"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="nf25"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="nf29"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="nf31"]
+[ext_resource type="Script" uid="uid://6o7vtk08qcty" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs" id="nf34"]
+
+[ext_resource type="Script" uid="uid://culfsmxfb5o0x" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="ch_in"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/43_Input_HoldB_or_C.tres" id="ch_hold"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="ch_goto"]
+
+[sub_resource type="Resource" id="ch_r"]
+script = ExtResource("nf19")
+MinFrame = 1
+MaxFrame = 8
+
+[sub_resource type="Resource" id="ch_rel"]
+script = ExtResource("ch_in")
+Input = ExtResource("ch_hold")
+Not = true
+
+[sub_resource type="Resource" id="ch_back"]
+script = ExtResource("nf8")
+StateIndex = 71
+
+[sub_resource type="Resource" id="ch_frame"]
+script = ExtResource("ch_goto")
+Frame = 9
+
+[sub_resource type="Resource" id="ch_ev"]
+script = ExtResource("nf10")
+Conditions = [SubResource("ch_r"), SubResource("ch_rel")]
+Actions = [SubResource("ch_back"), SubResource("ch_frame")]
+
+[sub_resource type="Resource" id="nf_bo"]
+script = ExtResource("nf2")
+BounceTime = 120
+BounceY = 40
+HitReaction = 9
+Knockback = Vector2i(-10000, -70000)
+KnockbackTime = 8
+KnockbackGravity = 200000
+Hitstun = 60
+HitstunType = 2
+GroundedPopVelocity = 70000
+GroundedHitReaction = 8
+
+[sub_resource type="Resource" id="nf_s5"]
+script = ExtResource("nf6")
+
+[sub_resource type="Resource" id="nf_s7"]
+script = ExtResource("nf8")
+StateIndex = 10
+
+[sub_resource type="Resource" id="nf_s9"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s5")]
+Actions = [SubResource("nf_s7")]
+
+[sub_resource type="Resource" id="nf_s11"]
+script = ExtResource("nf12")
+
+[sub_resource type="Resource" id="nf_s13"]
+script = ExtResource("nf8")
+StateIndex = 11
+
+[sub_resource type="Resource" id="nf_s14"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s11")]
+Actions = [SubResource("nf_s13")]
+
+[sub_resource type="Resource" id="nf_s15"]
+script = ExtResource("nf16")
+Velocity = 0
+
+[sub_resource type="Resource" id="nf_s17"]
+script = ExtResource("nf10")
+Actions = [SubResource("nf_s15")]
+
+[sub_resource type="Resource" id="nf_s24"]
+script = ExtResource("nf25")
+UseInertia = true
+
+[sub_resource type="Resource" id="nf_s18"]
+script = ExtResource("nf19")
+MinFrame = 0
+MaxFrame = 17
+
+[sub_resource type="Resource" id="nf_s20"]
+script = ExtResource("nf21")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="nf_s22"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s18")]
+Actions = [SubResource("nf_s20")]
+
+[sub_resource type="Resource" id="nf_s23"]
+script = ExtResource("nf19")
+MinFrame = 18
+MaxFrame = 999
+
+[sub_resource type="Resource" id="nf_s26"]
+script = ExtResource("nf21")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="nf_s27"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s23")]
+Actions = [SubResource("nf_s26")]
+
+[sub_resource type="Resource" id="nf_s28"]
+script = ExtResource("nf29")
+Frame = 18
+
+[sub_resource type="Resource" id="nf_s30"]
+script = ExtResource("nf31")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="nf_s32"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s28")]
+Actions = [SubResource("nf_s30")]
+
+[sub_resource type="Resource" id="nf_s33"]
+script = ExtResource("nf34")
+HitCheck = 2
+
+[sub_resource type="Resource" id="nf_s35"]
+script = ExtResource("nf10")
+Conditions = [SubResource("nf_s33")]
+Actions = [SubResource("nf_bo")]
+
+[resource]
+script = ExtResource("nf1")
+StateName = "j_5C (charged)"
+Type = 2
+AnimationData = ExtResource("nf4")
+TransitionEvents = [SubResource("ch_ev"), SubResource("nf_s9"), SubResource("nf_s14")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("nf_s22"), SubResource("nf_s27"), SubResource("nf_s32")]
+OnHitConfirmEvents = [SubResource("nf_s35")]
+AIFlags = 20

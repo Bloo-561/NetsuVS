@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://4ot7hy38l3sc"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bcs6gj2tz1y5g" path="res://actors/_shared/sakuga/Inputs/54_Input_214A_or_B.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+MoveIndex = 57
+Conditions = 2
+FrameThreshold = Vector2i(8, 34)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+MoveIndex = 56
+Conditions = 2
+FrameThreshold = Vector2i(8, 34)
+
+[resource]
+script = ExtResource("1")
+MoveName = "Lightning Dash: Final Slash"
+MoveState = 107
+Inputs = ExtResource("2")
+Priority = 9
+MoveEnd = 2
+CanCancelTo = [SubResource("s1"), SubResource("s2")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true
+SkipCheck = true
+IsSequenceFromStates = PackedInt32Array(106)

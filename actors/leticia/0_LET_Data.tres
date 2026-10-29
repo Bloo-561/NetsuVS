@@ -1,0 +1,181 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://bcqxohwsbucgt"]
+
+[ext_resource type="Script" uid="uid://bne635raru5sj" path="res://engine/sakuga/Resources/FighterOutro.cs" id="1"]
+[ext_resource type="Resource" uid="uid://7fmd4kvd7d6j" path="res://actors/leticia/0_LET_Profile.tres" id="2"]
+[ext_resource type="Resource" uid="uid://7tji7hiwy5fy" path="res://actors/leticia/Stances/LET_Stance_Main.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bdpujdrnb0cye" path="res://actors/leticia/States/0_LET_IdleState.tres" id="4"]
+[ext_resource type="Resource" uid="uid://yehlleki780l" path="res://actors/leticia/States/1_LET_MoveForwardState.tres" id="5"]
+[ext_resource type="Resource" uid="uid://3gwb5uul0w8w" path="res://actors/leticia/States/2_LET_MoveBackwardsState.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bk51rog2wskx0" path="res://actors/leticia/States/3_LET_JumpIdleState.tres" id="7"]
+[ext_resource type="Resource" uid="uid://78l2xq2i43n4" path="res://actors/leticia/States/4_LET_JumpForwardState.tres" id="8"]
+[ext_resource type="Resource" uid="uid://bidsemk305mn5" path="res://actors/leticia/States/5_LET_JumpBackwardsState.tres" id="9"]
+[ext_resource type="Resource" uid="uid://5h7861j02dig" path="res://actors/leticia/States/6_LET_DashJumpState.tres" id="10"]
+[ext_resource type="Resource" uid="uid://bfndp3ewgl3h0" path="res://actors/leticia/States/7_LET_SuperJumpIdleState.tres" id="11"]
+[ext_resource type="Resource" uid="uid://bd3kukbsun0bj" path="res://actors/leticia/States/8_LET_SuperJumpForwardState.tres" id="12"]
+[ext_resource type="Resource" uid="uid://bj8kox1mo3z1f" path="res://actors/leticia/States/9_LET_SuperJumpBackwardsState.tres" id="13"]
+[ext_resource type="Resource" uid="uid://bfpltkm0356gu" path="res://actors/leticia/States/10_LET_FallingState.tres" id="14"]
+[ext_resource type="Resource" uid="uid://8betrdjr7woh" path="res://actors/leticia/States/11_LET_LandingNeutralState.tres" id="15"]
+[ext_resource type="Resource" uid="uid://2ua0czfuoqu1" path="res://actors/leticia/States/12_LET_LandingForwardState.tres" id="16"]
+[ext_resource type="Resource" uid="uid://zvkznkxpysya" path="res://actors/leticia/States/13_LET_LandingBackwardsState.tres" id="17"]
+[ext_resource type="Resource" uid="uid://ykm3zae5c63o" path="res://actors/leticia/States/14_LET_CrouchEnter.tres" id="18"]
+[ext_resource type="Resource" uid="uid://bi5iko6xggr7z" path="res://actors/leticia/States/15_LET_Crouching.tres" id="19"]
+[ext_resource type="Resource" uid="uid://bl3tc70og7wzl" path="res://actors/leticia/States/16_LET_ForwardDashState.tres" id="20"]
+[ext_resource type="Resource" uid="uid://bj4wgxr7cg1wk" path="res://actors/leticia/States/17_LET_DashStopState.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bh1rmoauzl830" path="res://actors/leticia/States/18_LET_BackwardsDashState.tres" id="22"]
+[ext_resource type="Resource" uid="uid://5v3ulhpm0zr6" path="res://actors/leticia/States/19_LET_ForwardAirDashState.tres" id="23"]
+[ext_resource type="Resource" uid="uid://1okekregsknf" path="res://actors/leticia/States/20_LET_ForwardAirDashUpState.tres" id="24"]
+[ext_resource type="Resource" uid="uid://betjphcgpc2h3" path="res://actors/leticia/States/21_LET_ForwardAirDashDownState.tres" id="25"]
+[ext_resource type="Resource" uid="uid://6dcdevbta26y" path="res://actors/leticia/States/22_LET_BackwardsAirDashState.tres" id="26"]
+[ext_resource type="Resource" uid="uid://bflnpefk5zshu" path="res://actors/leticia/States/23_LET_Hit_Ground_Weak.tres" id="27"]
+[ext_resource type="Resource" uid="uid://3pqwfoc2cch7" path="res://actors/leticia/States/24_LET_Hit_Ground_Strong.tres" id="28"]
+[ext_resource type="Resource" uid="uid://7pelngmly6r4" path="res://actors/leticia/States/25_LET_Hit_Crouch_Weak.tres" id="29"]
+[ext_resource type="Resource" uid="uid://66ggri5n3g12" path="res://actors/leticia/States/26_LET_Hit_Sweep.tres" id="30"]
+[ext_resource type="Resource" uid="uid://7y1b7vshueen" path="res://actors/leticia/States/27_LET_Hit_Air_Weak.tres" id="31"]
+[ext_resource type="Resource" uid="uid://beutpckmmg1t4" path="res://actors/leticia/States/28_LET_Hit_Air_Strong.tres" id="32"]
+[ext_resource type="Resource" uid="uid://bgjrhokg1e8qq" path="res://actors/leticia/States/29_LET_Hit_Crumple.tres" id="33"]
+[ext_resource type="Resource" uid="uid://6mlebeexka2c" path="res://actors/leticia/States/30_LET_Hit_LaunchAway.tres" id="34"]
+[ext_resource type="Resource" uid="uid://3n3lvcmqwq37" path="res://actors/leticia/States/31_LET_Hit_LaunchUp.tres" id="35"]
+[ext_resource type="Resource" uid="uid://bh2jvhxm4r1pm" path="res://actors/leticia/States/32_LET_Hit_LaunchDown.tres" id="36"]
+[ext_resource type="Resource" uid="uid://8h7wnqot1gd7" path="res://actors/leticia/States/33_LET_Hit_Bounce_Ground.tres" id="37"]
+[ext_resource type="Resource" uid="uid://3e3j3kcc1egl" path="res://actors/leticia/States/34_LET_Hit_Bounce_Wall.tres" id="38"]
+[ext_resource type="Resource" uid="uid://bcnvdto3aarhe" path="res://actors/leticia/States/35_LET_Hit_UpToDown.tres" id="39"]
+[ext_resource type="Resource" uid="uid://7al4fiix2jbx" path="res://actors/leticia/States/36_LET_Hit_Falling.tres" id="40"]
+[ext_resource type="Resource" uid="uid://7jyjnjqg5l0q" path="res://actors/leticia/States/37_LET_Hit_Knockdown.tres" id="41"]
+[ext_resource type="Resource" uid="uid://8qmw6ouqoucv" path="res://actors/leticia/States/38_LET_Hit_Knockdown_Slide.tres" id="42"]
+[ext_resource type="Resource" uid="uid://6fm5uub01si0" path="res://actors/leticia/States/39_LET_Hit_Knockdown_Spin.tres" id="43"]
+[ext_resource type="Resource" uid="uid://4agdbdht5sjg" path="res://actors/leticia/States/40_LET_Hit_Down.tres" id="44"]
+[ext_resource type="Resource" uid="uid://0u1hy2f4c3hf" path="res://actors/leticia/States/41_LET_Hit_GetUp.tres" id="45"]
+[ext_resource type="Resource" uid="uid://bmlnknrg2xhxn" path="res://actors/leticia/States/42_LET_KO.tres" id="46"]
+[ext_resource type="Resource" uid="uid://5zmbktg43ncz" path="res://actors/leticia/States/43_LET_Recovery_GroundForward.tres" id="47"]
+[ext_resource type="Resource" uid="uid://8e2iw2e86rha" path="res://actors/leticia/States/44_LET_Recovery_GroundBackwards.tres" id="48"]
+[ext_resource type="Resource" uid="uid://bhw1al0vcujwi" path="res://actors/leticia/States/45_LET_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://0jxocvvnjpwf" path="res://actors/leticia/States/46_LET_Recovery_AirForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://470jm57lh6m0" path="res://actors/leticia/States/47_LET_Recovery_AirBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://blh6dzv3cwv42" path="res://actors/leticia/States/48_LET_Block_Neutral_Enter.tres" id="52"]
+[ext_resource type="Resource" uid="uid://bglbk4m6bxdve" path="res://actors/leticia/States/49_LET_Blockstun_Neutral.tres" id="53"]
+[ext_resource type="Resource" uid="uid://bmflpcz7pxm02" path="res://actors/leticia/States/50_LET_Block_Neutral_Exit.tres" id="54"]
+[ext_resource type="Resource" uid="uid://bmy5clpmm3ss8" path="res://actors/leticia/States/51_LET_Guard_Break_Neutral.tres" id="55"]
+[ext_resource type="Resource" uid="uid://7s3lslcew4ap" path="res://actors/leticia/States/52_LET_Blocking_Neutral.tres" id="56"]
+[ext_resource type="Resource" uid="uid://4nz2i3fqjg78" path="res://actors/leticia/States/53_LET_Block_Crouch_Enter.tres" id="57"]
+[ext_resource type="Resource" uid="uid://4lra47raxqke" path="res://actors/leticia/States/54_LET_Blockstun_Crouch.tres" id="58"]
+[ext_resource type="Resource" uid="uid://bbvh6xy7urjbs" path="res://actors/leticia/States/55_LET_Block_Crouch_Exit.tres" id="59"]
+[ext_resource type="Resource" uid="uid://bmtj4h37ha1fj" path="res://actors/leticia/States/56_LET_Guard_Break_Crouch.tres" id="60"]
+[ext_resource type="Resource" uid="uid://2nx0j0zwxu4z" path="res://actors/leticia/States/57_LET_Blocking_Crouch.tres" id="61"]
+[ext_resource type="Resource" uid="uid://bcz8j6ayotg4b" path="res://actors/leticia/States/58_LET_Block_Air_Enter.tres" id="62"]
+[ext_resource type="Resource" uid="uid://beg43o6jz7w7e" path="res://actors/leticia/States/59_LET_Blockstun_Air.tres" id="63"]
+[ext_resource type="Resource" uid="uid://7j50qzkz13pp" path="res://actors/leticia/States/60_LET_Block_Air_Exit.tres" id="64"]
+[ext_resource type="Resource" uid="uid://bga64tqy4o2vc" path="res://actors/leticia/States/61_LET_Guard_Break_Air.tres" id="65"]
+[ext_resource type="Resource" uid="uid://1hhihjmum13m" path="res://actors/leticia/States/62_LET_Blocking_Air.tres" id="66"]
+[ext_resource type="Resource" uid="uid://bcwcak3sjm3ll" path="res://actors/leticia/States/63_LET_5A.tres" id="67"]
+[ext_resource type="Resource" uid="uid://00hom2kivqkk" path="res://actors/leticia/States/64_LET_5B.tres" id="68"]
+[ext_resource type="Resource" uid="uid://7eq2d736a5je" path="res://actors/leticia/States/65_LET_5C.tres" id="69"]
+[ext_resource type="Resource" uid="uid://bdrl7j56ptvfp" path="res://actors/leticia/States/66_LET_2A.tres" id="70"]
+[ext_resource type="Resource" uid="uid://bkqac04m0yp07" path="res://actors/leticia/States/67_LET_2B.tres" id="71"]
+[ext_resource type="Resource" uid="uid://bgcmii0hqpwrt" path="res://actors/leticia/States/68_LET_2C.tres" id="72"]
+[ext_resource type="Resource" uid="uid://bigfg6l4kvvhb" path="res://actors/leticia/States/69_LET_J5A.tres" id="73"]
+[ext_resource type="Resource" uid="uid://bkqdd3gc7ku8k" path="res://actors/leticia/States/70_LET_J5B.tres" id="74"]
+[ext_resource type="Resource" uid="uid://1tzpaylbv6w1" path="res://actors/leticia/States/71_LET_J5C.tres" id="75"]
+[ext_resource type="Resource" uid="uid://8aek8g0kopsb" path="res://actors/leticia/States/72_LET_4A.tres" id="76"]
+[ext_resource type="Resource" uid="uid://60vhjoaz2imd" path="res://actors/leticia/States/86_LET_XCancelState.tres" id="90"]
+[ext_resource type="Resource" uid="uid://8ddrvlu0yxjq" path="res://actors/leticia/States/87_LET_BurstState.tres" id="91"]
+[ext_resource type="Resource" uid="uid://bjxps0bc3hwg5" path="res://actors/leticia/States/88_LET_LastWishBurstState.tres" id="92"]
+[ext_resource type="Resource" uid="uid://be8pdz2ej8y8m" path="res://actors/leticia/States/1000_LET_Intro.tres" id="93"]
+[ext_resource type="Resource" uid="uid://bluhv6v2scj4t" path="res://actors/leticia/States/1001_LET_Victory.tres" id="94"]
+[ext_resource type="Resource" uid="uid://bfxyd0g0lhhq3" path="res://actors/leticia/States/1002_LET_Defeat.tres" id="95"]
+[ext_resource type="Resource" uid="uid://bbyav3pgruy3q" path="res://actors/leticia/AI/LET_AIData.tres" id="96"]
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="97"]
+[ext_resource type="Resource" uid="uid://binqd8cq8qkr4" path="res://actors/leticia/States/LET_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://0a8uxheja47r" path="res://actors/leticia/States/73_LET_R1A.tres" id="st_73_LET_R1A"]
+[ext_resource type="Resource" uid="uid://bhk1wscu5mhiw" path="res://actors/leticia/States/74_LET_R1B.tres" id="st_74_LET_R1B"]
+[ext_resource type="Resource" uid="uid://88h0hsgznphq" path="res://actors/leticia/States/75_LET_R2.tres" id="st_75_LET_R2"]
+[ext_resource type="Resource" uid="uid://bmgcaawdfavlu" path="res://actors/leticia/States/76_LET_R3.tres" id="st_76_LET_R3"]
+[ext_resource type="Resource" uid="uid://bdxh0wooh8uz4" path="res://actors/leticia/States/77_LET_REX.tres" id="st_77_LET_REX"]
+[ext_resource type="Resource" uid="uid://bmm4c0ow5i48e" path="res://actors/leticia/States/78_LET_623A.tres" id="st_78_LET_623A"]
+[ext_resource type="Resource" uid="uid://bmv8tonon7l64" path="res://actors/leticia/States/79_LET_623B.tres" id="st_79_LET_623B"]
+[ext_resource type="Resource" uid="uid://bllmxvig648ef" path="res://actors/leticia/States/80_LET_623C.tres" id="st_80_LET_623C"]
+[ext_resource type="Resource" uid="uid://76y7p2skhp7q" path="res://actors/leticia/States/81_LET_214A.tres" id="st_81_LET_214A"]
+[ext_resource type="Resource" uid="uid://zmbcxufontum" path="res://actors/leticia/States/82_LET_214B.tres" id="st_82_LET_214B"]
+[ext_resource type="Resource" uid="uid://bem247l5juael" path="res://actors/leticia/States/83_LET_214C.tres" id="st_83_LET_214C"]
+[ext_resource type="Resource" uid="uid://150dlmope57k" path="res://actors/leticia/States/84_LET_FA.tres" id="st_84_LET_FA"]
+[ext_resource type="Resource" uid="uid://bj417u5n3hrv0" path="res://actors/leticia/States/85_LET_FB.tres" id="st_85_LET_FB"]
+[ext_resource type="Resource" uid="uid://5xt15qli4af4" path="res://actors/leticia/States/92_LET_FC.tres" id="st_92_LET_FC"]
+[ext_resource type="Resource" uid="uid://bg1jsj7m02sg5" path="res://actors/leticia/States/93_LET_FLAND.tres" id="st_93_LET_FLAND"]
+[ext_resource type="Resource" uid="uid://bb0auponaeq4d" path="res://actors/leticia/States/94_LET_S1.tres" id="st_94_LET_S1"]
+[ext_resource type="Resource" uid="uid://bbk5ry8sqjlwp" path="res://actors/leticia/States/95_LET_S2.tres" id="st_95_LET_S2"]
+[ext_resource type="Resource" uid="uid://1nma6l058o5y" path="res://actors/leticia/States/97_LET_S2_hit.tres" id="st_97_LET_S2_hit"]
+[ext_resource type="Resource" uid="uid://z75snws85kjl" path="res://actors/leticia/States/98_LET_DPLAND.tres" id="st_98_LET_DPLAND"]
+[ext_resource type="Resource" uid="uid://zw2whegp1zoe" path="res://actors/leticia/States/LET_AssistCall.tres" id="st_LET_AssistCall"]
+[ext_resource type="Resource" uid="uid://bb2i8xyhel4zy" path="res://actors/leticia/States/LET_Throw.tres" id="st_LET_Throw"]
+[ext_resource type="Resource" uid="uid://bdcawvcjd65ud" path="res://actors/leticia/States/LET_ThrowForward.tres" id="st_LET_ThrowForward"]
+[ext_resource type="Resource" uid="uid://bk5ypmqrpix06" path="res://actors/leticia/States/LET_ThrowBack.tres" id="st_LET_ThrowBack"]
+[ext_resource type="Resource" uid="uid://bluprjw6e2oo0" path="res://actors/leticia/States/LET_Grabbed.tres" id="st_LET_Grabbed"]
+[ext_resource type="Resource" uid="uid://bi6thwy2cithk" path="res://actors/leticia/States/LET_ThrowBreak.tres" id="st_LET_ThrowBreak"]
+[ext_resource type="Resource" uid="uid://bdo5cstri7bdq" path="res://actors/leticia/States/LET_CrouchExit.tres" id="st_LET_CrouchExit"]
+[ext_resource type="Resource" uid="uid://bhllpr6jt6bul" path="res://actors/leticia/States/106_LET_214BH.tres" id="st_106_LET_214BH"]
+[ext_resource type="Resource" uid="uid://bjhy8mo62ttqd" path="res://actors/leticia/States/LET_6C.tres" id="st_LET_6C"]
+[ext_resource type="Resource" uid="uid://3cj1lmhj05zp" path="res://actors/leticia/States/108_LET_CB_SLAM.tres" id="st_108_LET_CB_SLAM"]
+[ext_resource type="Resource" uid="uid://8gzp2mz74ths" path="res://actors/leticia/States/109_LET_CB_LAND.tres" id="st_109_LET_CB_LAND"]
+[ext_resource type="Resource" path="res://actors/leticia/States/110_LET_j5C_charged.tres" id="nf1"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_Pushblock_Crouch.tres" id="netsu_pb_crouch"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_623_NoFollow.tres" id="netsu_623_nofollow"]
+
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_AirThrow.tres" id="st_c12_at"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_AirThrowForward.tres" id="st_c12_af"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_AirThrowBack.tres" id="st_c12_ab"]
+
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_214A_Frag.tres" id="lf_LET_214A_Frag"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_214B_Frag.tres" id="lf_LET_214B_Frag"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_214C_Frag.tres" id="lf_LET_214C_Frag"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j236A.tres" id="lf_LET_j236A"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j236B.tres" id="lf_LET_j236B"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j236C.tres" id="lf_LET_j236C"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j214A.tres" id="lf_LET_j214A"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j214B.tres" id="lf_LET_j214B"]
+[ext_resource type="Resource" path="res://actors/leticia/States/LET_j214C.tres" id="lf_LET_j214C"]
+
+[sub_resource type="Resource" id="outro_0"]
+script = ExtResource("1")
+StateIndex = -1
+FinalMessage = "Two guns, one board, zero chance.
+Better luck next time!"
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_1"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Leticia"
+FinalMessage = "Nice hair. Nicer aim?
+Not even close."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_2"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Cecilia"
+FinalMessage = "Your blade's fast, Cecilia...
+but light is faster."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_3"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Flan"
+FinalMessage = "All that armor, and you still
+couldn't lay a finger on me."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[resource]
+script = ExtResource("97")
+Profile = ExtResource("2")
+States = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("37"), ExtResource("38"), ExtResource("39"), ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("43"), ExtResource("44"), ExtResource("45"), ExtResource("46"), ExtResource("47"), ExtResource("48"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("56"), ExtResource("57"), ExtResource("58"), ExtResource("59"), ExtResource("60"), ExtResource("61"), ExtResource("62"), ExtResource("63"), ExtResource("64"), ExtResource("65"), ExtResource("66"), ExtResource("67"), ExtResource("68"), ExtResource("69"), ExtResource("70"), ExtResource("71"), ExtResource("72"), ExtResource("73"), ExtResource("74"), ExtResource("75"), ExtResource("76"), ExtResource("st_73_LET_R1A"), ExtResource("st_74_LET_R1B"), ExtResource("st_75_LET_R2"), ExtResource("st_76_LET_R3"), ExtResource("st_77_LET_REX"), ExtResource("st_78_LET_623A"), ExtResource("st_79_LET_623B"), ExtResource("st_80_LET_623C"), ExtResource("st_81_LET_214A"), ExtResource("st_82_LET_214B"), ExtResource("st_83_LET_214C"), ExtResource("st_84_LET_FA"), ExtResource("st_85_LET_FB"), ExtResource("90"), ExtResource("91"), ExtResource("92"), ExtResource("93"), ExtResource("94"), ExtResource("95"), ExtResource("st_92_LET_FC"), ExtResource("st_93_LET_FLAND"), ExtResource("st_94_LET_S1"), ExtResource("st_95_LET_S2"), ExtResource("net_Breakthrough"), ExtResource("st_97_LET_S2_hit"), ExtResource("st_98_LET_DPLAND"), ExtResource("st_LET_AssistCall"), ExtResource("st_LET_Throw"), ExtResource("st_LET_ThrowForward"), ExtResource("st_LET_ThrowBack"), ExtResource("st_LET_Grabbed"), ExtResource("st_LET_ThrowBreak"), ExtResource("st_LET_CrouchExit"), ExtResource("st_106_LET_214BH"), ExtResource("st_LET_6C"), ExtResource("st_108_LET_CB_SLAM"), ExtResource("st_109_LET_CB_LAND"), ExtResource("nf1"), ExtResource("st_c12_at"), ExtResource("st_c12_af"), ExtResource("st_c12_ab"), ExtResource("lf_LET_214A_Frag"), ExtResource("lf_LET_214B_Frag"), ExtResource("lf_LET_214C_Frag"), ExtResource("lf_LET_j236A"), ExtResource("lf_LET_j236B"), ExtResource("lf_LET_j236C"), ExtResource("lf_LET_j214A"), ExtResource("lf_LET_j214B"), ExtResource("lf_LET_j214C"), ExtResource("netsu_pb_crouch"), ExtResource("netsu_623_nofollow")]
+Stances = [ExtResource("3")]
+MaxSuperGauge = 8000
+SuperGaugeChargeRate = 0
+MaxWill = 6000
+_aiData = ExtResource("96")
+Intros = null
+Outros = [SubResource("outro_0"), SubResource("outro_1"), SubResource("outro_2"), SubResource("outro_3")]
+VictoryPoses = null
+metadata/_custom_type_script = "uid://bsbjg1nuyall1"
+MaxHealth = 12500
+NetsuScale = 940

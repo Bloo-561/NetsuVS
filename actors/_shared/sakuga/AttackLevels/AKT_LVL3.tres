@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackLevel" format=3 uid="uid://tsikemb02jci"]
+
+[ext_resource type="Script" uid="uid://ctxsjny0a8mlj" path="res://engine/sakuga/Resources/AttackLevel.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+Priority = 2
+Hitstun = 18
+Blockstun = 11
+GroundHitReaction = 1
+CrouchHitReaction = 2
+AirHitReaction = 5
+CornerPushback = 40000
+metadata/_custom_type_script = "uid://ctxsjny0a8mlj"

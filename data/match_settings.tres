@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MatchSettings" format=3 uid="uid://c320twmibeytx"]
+
+[ext_resource type="Resource" uid="uid://cael5gk6lucpo" path="res://data/game_modes/GM_Arcade.tres" id="1"]
+[ext_resource type="Resource" uid="uid://yxnfsmpj1d2d" path="res://data/game_modes/GM_Versus.tres" id="2"]
+[ext_resource type="Resource" uid="uid://cpbx0rea3ud0k" path="res://data/game_modes/GM_Online.tres" id="3"]
+[ext_resource type="Resource" uid="uid://dtmnvy5026dqe" path="res://data/game_modes/GM_Training.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bfdtyaj07885k" path="res://data/game_modes/GM_Replay.tres" id="5"]
+[ext_resource type="Resource" uid="uid://cowlfyoj6rfoj" path="res://data/game_modes/GM_Debug.tres" id="6"]
+[ext_resource type="Script" uid="uid://uuxc0vny3l5x" path="res://engine/sakuga/Resources/MatchSettings.cs" id="7"]
+
+[resource]
+script = ExtResource("7")
+GameModes = [ExtResource("1"), ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6")]
+SelectedMode = 5
+SelectedBGM = 1
+P1SelectedColor = 1
+P1SelectedDevice = 0
+P2SelectedCharacter = 1
+P2SelectedColor = 1
+P2SelectedDevice = 1
+OnlineP1PlatformIcon = null
+OnlineP2PlatformIcon = null
+metadata/_custom_type_script = "uid://uuxc0vny3l5x"

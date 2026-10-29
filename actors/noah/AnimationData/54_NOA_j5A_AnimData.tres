@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bkwn5sg57kbke"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL1.tres" id="lvl"]
+[ext_resource type="Resource" uid="uid://yqn7sqqw6gkp" path="res://actors/noah/Hitboxes/13_Hitbox_j_5A_0.tres" id="nhb0"]
+[ext_resource type="Resource" uid="uid://bjd72h53x5as8" path="res://actors/noah/Hitboxes/13_Hitbox_j_5A_1.tres" id="nhb1"]
+[ext_resource type="Resource" uid="uid://be6yquv8k4dv8" path="res://actors/noah/Hitboxes/13_Hitbox_j_5A_2.tres" id="nhb2"]
+[ext_resource type="Resource" uid="uid://bcw3zwih26iwb" path="res://actors/noah/Hitboxes/13_Hitbox_j_5A_3.tres" id="nhb3"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ja_1.png" id="t_ja_1"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ja_2.png" id="t_ja_2"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ja_3.png" id="t_ja_3"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ja_4.png" id="t_ja_4"]
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("ap")
+BaseDamage = 220
+GuardCrushDamage = 160
+AttackLevel = ExtResource("lvl")
+
+[sub_resource type="Resource" id="NH0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("nhb0")
+
+[sub_resource type="Resource" id="NH1"]
+script = ExtResource("hs")
+AtFrame = 4
+animationStage = 1
+HitboxData = ExtResource("nhb1")
+
+[sub_resource type="Resource" id="NH2"]
+script = ExtResource("hs")
+AtFrame = 8
+animationStage = 2
+HitboxData = ExtResource("nhb2")
+
+[sub_resource type="Resource" id="NH3"]
+script = ExtResource("hs")
+AtFrame = 11
+animationStage = 2
+HitboxData = ExtResource("nhb3")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ja_1")
+Offset = Vector2(-225, 87)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ja_2")
+Offset = Vector2(-241, 84)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("as")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ja_3")
+Offset = Vector2(-239, 82)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("as")
+AtFrame = 8
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ja_4")
+Offset = Vector2(-220, 82)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("as")
+AtFrame = 11
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 15
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("NH0"), SubResource("NH1"), SubResource("NH2"), SubResource("NH3")]
+AttackProfiles = [SubResource("P0")]

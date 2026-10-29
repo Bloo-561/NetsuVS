@@ -1,0 +1,158 @@
+[gd_resource type="Resource" script_class="NetsuAssistList" format=3 uid="uid://7jjht8m6mlzp"]
+
+[ext_resource type="Script" uid="uid://bdroacfvruc7z" path="res://engine/sakuga/Resources/NetsuAssistList.cs" id="1"]
+[ext_resource type="Script" uid="uid://zvzyqv8776rk" path="res://engine/sakuga/Resources/NetsuAssistElement.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://6fvjint1v6y4" path="res://actors/assists/mary/Instances/MRY_Assist.tscn" id="3"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Artwork/Icon.png" id="4"]
+[ext_resource type="Script" uid="uid://bdiok3bf063ds" path="res://engine/sakuga/Resources/NetsuAssistMove.cs" id="5"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Artwork/BuffAura_1.png" id="6"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Artwork/BuffAura_2.png" id="7"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Artwork/BuffAura_3.png" id="8"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Artwork/BuffPulse.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://bhzpu8kka2woi" path="res://actors/assists/adin/Instances/ADN_Assist.tscn" id="10"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Artwork/Icon.png" id="11"]
+[ext_resource type="PackedScene" uid="uid://7vtzfpoxnsbk" path="res://actors/assists/eren/Instances/ERN_Assist.tscn" id="12"]
+[ext_resource type="Texture2D" path="res://actors/assists/eren/Artwork/Icon.png" id="13"]
+[ext_resource type="PackedScene" uid="uid://bhp70g58mgmu1" path="res://actors/assists/harie/Instances/HRE_Assist.tscn" id="14"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Artwork/Icon.png" id="15"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("5")
+MoveName = "5S"
+DisplayName = "Encore"
+StateIndex = 1
+SpawnOffset = Vector2i(-11825, 0)
+OnGround = true
+Cooldown = 840
+AIRange = Vector2i(13750, 101750)
+Description = "Mary plays behind you. When the song peaks you deal 115% damage and gain 125% Craft Gauge for 8 seconds."
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+MoveName = "6S"
+DisplayName = "Fermata Note"
+Direction = 1
+StateIndex = 2
+SpawnOffset = Vector2i(-10450, 0)
+OnGround = true
+Cooldown = 900
+AIRange = Vector2i(4125, 49500)
+Description = "Mary plays a note that floats forward and explodes when it reaches the opponent (or after about 3 s). Two notes chase the opponent. Launches."
+NetsuFaceCaller = true
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AssistName = "Mary"
+Instance = ExtResource("3")
+Icon = ExtResource("4")
+Moves = [SubResource("s1"), SubResource("s2")]
+StartingCooldown = 600
+MaxOnScreen = 600
+Description = "Violinist. 5S plays a song that powers up her fighter; 6S leaves a floating note that explodes."
+BuffAura = [ExtResource("6"), ExtResource("7"), ExtResource("8")]
+BuffPulse = ExtResource("9")
+BuffAuraOffset = Vector2(-234.5, -56.10307802433787)
+BuffAuraTint = Color(1, 1, 1, 0.8)
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("5")
+MoveName = "5S"
+DisplayName = "Shield Counter"
+StateIndex = 1
+SpawnOffset = Vector2i(6000, 0)
+OnGround = true
+Cooldown = 540
+AIRange = Vector2i(0, 11550)
+Description = "Adin raises his shield in front of you for about 2/3 of a second. An attack that hits the shield is absorbed and he rushes up to the attacker and bashes them into the air."
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("5")
+MoveName = "6S"
+DisplayName = "Rush Return"
+Direction = 1
+StateIndex = 3
+SpawnOffset = Vector2i(-6050, 0)
+OnGround = true
+Cooldown = 720
+AIRange = Vector2i(8250, 101750)
+Description = "Adin runs through and off the screen, then charges back from behind the opponent and launches them high. Block it facing him."
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("2")
+AssistName = "Adin"
+Instance = ExtResource("10")
+Icon = ExtResource("11")
+Moves = [SubResource("s4"), SubResource("s5")]
+StartingCooldown = 600
+MaxOnScreen = 600
+Description = "Shield knight. 5S counters the next attack with a rising shield bash; 6S runs off the screen and charges back from the other side."
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("5")
+MoveName = "5S"
+DisplayName = "Low Double Slash"
+StateIndex = 1
+SpawnOffset = Vector2i(-8250, 0)
+OnGround = true
+Cooldown = 600
+AIRange = Vector2i(0, 49500)
+Description = "Eren dashes in low and cuts twice: the first cut pops the opponent up, the second knocks them down. Block low."
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("5")
+MoveName = "6S"
+DisplayName = "Falling Spin"
+Direction = 1
+StateIndex = 3
+SpawnOffset = Vector2i(-8250, 0)
+OnGround = true
+Cooldown = 780
+AIRange = Vector2i(8250, 55000)
+Description = "Eren jumps over the opponent with a spinning slash (block high), lands behind them and does the low double slash back the other way."
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("2")
+AssistName = "Eren"
+Instance = ExtResource("12")
+Icon = ExtResource("13")
+Moves = [SubResource("s7"), SubResource("s8")]
+StartingCooldown = 600
+MaxOnScreen = 600
+Description = "Swordsman. 5S dashes in low with two cuts; 6S jumps over the opponent with a spinning slash and comes back the other way."
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("5")
+MoveName = "5S"
+DisplayName = "Puddle Trap"
+StateIndex = 1
+SpawnOffset = Vector2i(8250, 0)
+OnGround = true
+Cooldown = 720
+AIRange = Vector2i(0, 30250)
+Description = "Harie dives into a magic puddle in front of you. When the opponent steps on it (or after 4 seconds) she bursts out with a rising uppercut that launches."
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("5")
+MoveName = "6S"
+DisplayName = "Swimming Wave"
+Direction = 1
+StateIndex = 4
+SpawnOffset = Vector2i(-17875, 0)
+OnGround = true
+Cooldown = 780
+AIRange = Vector2i(8250, 101750)
+Description = "A wave sweeps across the screen from behind you with Harie swimming inside it: 4 hits that carry the opponent along, the last one launches."
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("2")
+AssistName = "Harie"
+Instance = ExtResource("14")
+Icon = ExtResource("15")
+Moves = [SubResource("s10"), SubResource("s11")]
+StartingCooldown = 600
+MaxOnScreen = 600
+Description = "Swimmer. 5S hides in a magic puddle that bursts into a rising uppercut; 6S rides a wave across the screen."
+
+[resource]
+script = ExtResource("1")
+Assists = [SubResource("s3"), SubResource("s6"), SubResource("s9"), SubResource("s12")]

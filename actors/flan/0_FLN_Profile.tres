@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="FighterProfile" format=3 uid="uid://bv75v206c1m3c"]
+
+[ext_resource type="Texture2D" path="res://actors/flan/Artwork/flanchibi.png" id="1"]
+[ext_resource type="Texture2D" path="res://actors/flan/Artwork/Portrait-Flan.png" id="2"]
+[ext_resource type="Texture2D" path="res://actors/flan/Artwork/Flan_MainRender.png" id="3"]
+[ext_resource type="Texture2D" path="res://actors/flan/Artwork/flan-winrender.png" id="4"]
+[ext_resource type="Script" uid="uid://c5w04j5my3h8p" path="res://engine/sakuga/Resources/FighterProfile.cs" id="5"]
+
+[resource]
+script = ExtResource("5")
+FighterName = "Flan Returna"
+ShortName = "Flan"
+AutoBGM = 2
+Render = ExtResource("3")
+Portrait = ExtResource("2")
+Bio = "A cheerful bare-knuckle brawler whose gauntlets carry the light of the stars."
+VictoryRender = ExtResource("4")
+OnlineIcon = ExtResource("1")
+NetsuAuraColor = Color(1, 0.74, 0.2, 1)
+metadata/_custom_type_script = "uid://c5w04j5my3h8p"

@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bul88se4f8oqm"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://cmb4wpg9uof" path="res://actors/flan/Hitboxes/1_Hitbox_Crouch.tres" id="9"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="10"]
+[ext_resource type="Resource" uid="uid://bvu7wrfg294su" path="res://actors/flan/Hitboxes/4_Hitbox_BDash.tres" id="11"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="12"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/backstep_1.png" id="t_backstep_1"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/backstep_2.png" id="t_backstep_2"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/jump_load.png" id="t_jump_load"]
+
+[sub_resource type="Resource" id="5"]
+script = ExtResource("10")
+HitboxData = ExtResource("9")
+
+[sub_resource type="Resource" id="6"]
+script = ExtResource("10")
+AtFrame = 4
+HitboxData = ExtResource("11")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_backstep_1")
+Offset = Vector2(-185, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_backstep_2")
+Offset = Vector2(-135, -4)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 7
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_jump_load")
+Offset = Vector2(-106, -4)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+AtFrame = 18
+Modifiers = [SubResource("M2_0")]
+
+[resource]
+script = ExtResource("12")
+Duration = 22
+Afterimages = true
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("5"), SubResource("6")]
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

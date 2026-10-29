@@ -1,0 +1,671 @@
+[gd_resource type="Resource" script_class="AIData" format=3 uid="uid://y24s660upder"]
+
+[ext_resource type="Script" uid="uid://qkcdnntram58" path="res://engine/sakuga/Resources/AI/AIInput.cs" id="1"]
+[ext_resource type="Script" uid="uid://be0e6utc5xgk8" path="res://engine/sakuga/Resources/AI/AIAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://dhvotekjrqw07" path="res://engine/sakuga/Resources/AI/AIData.cs" id="3"]
+[ext_resource type="Resource" uid="uid://bxs0ss8hzr3rv" path="res://actors/flan/AI/FLN_AI_Beginner.tres" id="b0"]
+[ext_resource type="Resource" uid="uid://9vg6b0ije1d0" path="res://actors/flan/AI/FLN_AI_Easy.tres" id="b1"]
+[ext_resource type="Resource" uid="uid://b0lh4hu0c4dog" path="res://actors/flan/AI/FLN_AI_Normal.tres" id="b2"]
+[ext_resource type="Resource" uid="uid://bnp8cs64kccy2" path="res://actors/flan/AI/FLN_AI_Hard.tres" id="b3"]
+[ext_resource type="Resource" uid="uid://b6yprqjkotvij" path="res://actors/flan/AI/FLN_AI_VeryHard.tres" id="b4"]
+[ext_resource type="Resource" uid="uid://b7ww793pnnqjj" path="res://actors/flan/AI/FLN_AI_Pro.tres" id="b5"]
+
+[sub_resource type="Resource" id="in_0_0"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="act_0"]
+script = ExtResource("2")
+InputName = "Walk Forward"
+Inputs = [SubResource("in_0_0")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_1_0"]
+script = ExtResource("1")
+Direction = 2
+
+[sub_resource type="Resource" id="act_1"]
+script = ExtResource("2")
+InputName = "Walk Back / Guard"
+Inputs = [SubResource("in_1_0")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_2_0"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="in_2_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="in_2_2"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="act_2"]
+script = ExtResource("2")
+InputName = "Dash Forward"
+Inputs = [SubResource("in_2_0"), SubResource("in_2_1"), SubResource("in_2_2")]
+AutoAdvance = true
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_3_0"]
+script = ExtResource("1")
+Direction = 2
+
+[sub_resource type="Resource" id="in_3_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="in_3_2"]
+script = ExtResource("1")
+Direction = 2
+
+[sub_resource type="Resource" id="in_3_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_3"]
+script = ExtResource("2")
+InputName = "Back Dash"
+Inputs = [SubResource("in_3_0"), SubResource("in_3_1"), SubResource("in_3_2"), SubResource("in_3_3")]
+AutoAdvance = true
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_4_0"]
+script = ExtResource("1")
+Direction = 8
+
+[sub_resource type="Resource" id="in_4_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_4"]
+script = ExtResource("2")
+InputName = "Jump Neutral"
+Inputs = [SubResource("in_4_0"), SubResource("in_4_1")]
+AutoAdvance = true
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_5_0"]
+script = ExtResource("1")
+Direction = 12
+
+[sub_resource type="Resource" id="in_5_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_5"]
+script = ExtResource("2")
+InputName = "Jump Forward"
+Inputs = [SubResource("in_5_0"), SubResource("in_5_1")]
+AutoAdvance = true
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_6_0"]
+script = ExtResource("1")
+Direction = 10
+
+[sub_resource type="Resource" id="in_6_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_6"]
+script = ExtResource("2")
+InputName = "Jump Back"
+Inputs = [SubResource("in_6_0"), SubResource("in_6_1")]
+AutoAdvance = true
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_7_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="act_7"]
+script = ExtResource("2")
+InputName = "Crouch"
+Inputs = [SubResource("in_7_0")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_8_0"]
+script = ExtResource("1")
+Direction = 3
+
+[sub_resource type="Resource" id="act_8"]
+script = ExtResource("2")
+InputName = "Crouch Guard"
+Inputs = [SubResource("in_8_0")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_9_0"]
+script = ExtResource("1")
+Buttons = 1
+
+[sub_resource type="Resource" id="in_9_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_9"]
+script = ExtResource("2")
+InputName = "A"
+Inputs = [SubResource("in_9_0"), SubResource("in_9_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_10_0"]
+script = ExtResource("1")
+Buttons = 2
+
+[sub_resource type="Resource" id="in_10_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_10"]
+script = ExtResource("2")
+InputName = "B"
+Inputs = [SubResource("in_10_0"), SubResource("in_10_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_11_0"]
+script = ExtResource("1")
+Buttons = 4
+
+[sub_resource type="Resource" id="in_11_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_11"]
+script = ExtResource("2")
+InputName = "C"
+Inputs = [SubResource("in_11_0"), SubResource("in_11_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_12_0"]
+script = ExtResource("1")
+Direction = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="in_12_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_12"]
+script = ExtResource("2")
+InputName = "2A"
+Inputs = [SubResource("in_12_0"), SubResource("in_12_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_13_0"]
+script = ExtResource("1")
+Direction = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="in_13_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_13"]
+script = ExtResource("2")
+InputName = "2B"
+Inputs = [SubResource("in_13_0"), SubResource("in_13_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_14_0"]
+script = ExtResource("1")
+Direction = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="in_14_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_14"]
+script = ExtResource("2")
+InputName = "2C"
+Inputs = [SubResource("in_14_0"), SubResource("in_14_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_15_0"]
+script = ExtResource("1")
+Buttons = 1
+
+[sub_resource type="Resource" id="in_15_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_15"]
+script = ExtResource("2")
+InputName = "Tech / Recover"
+Inputs = [SubResource("in_15_0"), SubResource("in_15_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_16_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_16_1"]
+script = ExtResource("1")
+Direction = 5
+
+[sub_resource type="Resource" id="in_16_2"]
+script = ExtResource("1")
+Direction = 4
+Buttons = 4
+
+[sub_resource type="Resource" id="in_16_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_16"]
+script = ExtResource("2")
+InputName = "236C Supernova Fist"
+Inputs = [SubResource("in_16_0"), SubResource("in_16_1"), SubResource("in_16_2"), SubResource("in_16_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_17_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_17_1"]
+script = ExtResource("1")
+Direction = 5
+
+[sub_resource type="Resource" id="in_17_2"]
+script = ExtResource("1")
+Direction = 4
+Buttons = 2
+
+[sub_resource type="Resource" id="in_17_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_17"]
+script = ExtResource("2")
+InputName = "236B Twirling Star Fist"
+Inputs = [SubResource("in_17_0"), SubResource("in_17_1"), SubResource("in_17_2"), SubResource("in_17_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_18_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_18_1"]
+script = ExtResource("1")
+Direction = 5
+
+[sub_resource type="Resource" id="in_18_2"]
+script = ExtResource("1")
+Direction = 4
+Buttons = 1
+
+[sub_resource type="Resource" id="in_18_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_18"]
+script = ExtResource("2")
+InputName = "236A Star Fist"
+Inputs = [SubResource("in_18_0"), SubResource("in_18_1"), SubResource("in_18_2"), SubResource("in_18_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_19_0"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="in_19_1"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_19_2"]
+script = ExtResource("1")
+Direction = 5
+Buttons = 4
+
+[sub_resource type="Resource" id="in_19_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_19"]
+script = ExtResource("2")
+InputName = "623C Spiral Star"
+Inputs = [SubResource("in_19_0"), SubResource("in_19_1"), SubResource("in_19_2"), SubResource("in_19_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_20_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_20_1"]
+script = ExtResource("1")
+Direction = 3
+
+[sub_resource type="Resource" id="in_20_2"]
+script = ExtResource("1")
+Direction = 2
+Buttons = 4
+
+[sub_resource type="Resource" id="in_20_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_20"]
+script = ExtResource("2")
+InputName = "214C Meteor Impact"
+Inputs = [SubResource("in_20_0"), SubResource("in_20_1"), SubResource("in_20_2"), SubResource("in_20_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_21_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_21_1"]
+script = ExtResource("1")
+Direction = 5
+
+[sub_resource type="Resource" id="in_21_2"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="in_21_3"]
+script = ExtResource("1")
+Buttons = 6
+
+[sub_resource type="Resource" id="in_21_4"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_21"]
+script = ExtResource("2")
+InputName = "236BC Radiant Breaker"
+Inputs = [SubResource("in_21_0"), SubResource("in_21_1"), SubResource("in_21_2"), SubResource("in_21_3"), SubResource("in_21_4")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_22_0"]
+script = ExtResource("1")
+Buttons = 1
+
+[sub_resource type="Resource" id="in_22_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_22"]
+script = ExtResource("2")
+InputName = "Falling Star (any button)"
+Inputs = [SubResource("in_22_0"), SubResource("in_22_1")]
+AutoAdvance = false
+StartDelay = 16
+
+[sub_resource type="Resource" id="in_23_0"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_23"]
+script = ExtResource("2")
+InputName = "Wait"
+Inputs = [SubResource("in_23_0")]
+AutoAdvance = true
+StartDelay = 10
+
+[sub_resource type="Resource" id="in_24_0"]
+script = ExtResource("1")
+Buttons = 2
+
+[sub_resource type="Resource" id="in_24_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_24"]
+script = ExtResource("2")
+InputName = "Jump-in B (late)"
+Inputs = [SubResource("in_24_0"), SubResource("in_24_1")]
+AutoAdvance = false
+StartDelay = 14
+
+[sub_resource type="Resource" id="in_25_0"]
+script = ExtResource("1")
+Buttons = 4
+
+[sub_resource type="Resource" id="in_25_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_25"]
+script = ExtResource("2")
+InputName = "Jump-in C (late)"
+Inputs = [SubResource("in_25_0"), SubResource("in_25_1")]
+AutoAdvance = false
+StartDelay = 14
+
+[sub_resource type="Resource" id="in_26_0"]
+script = ExtResource("1")
+Direction = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="in_26_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_26"]
+script = ExtResource("2")
+InputName = "2B after landing"
+Inputs = [SubResource("in_26_0"), SubResource("in_26_1")]
+AutoAdvance = false
+StartDelay = 10
+
+[sub_resource type="Resource" id="in_27_0"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="in_27_1"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_27_2"]
+script = ExtResource("1")
+Direction = 5
+Buttons = 2
+
+[sub_resource type="Resource" id="in_27_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_27"]
+script = ExtResource("2")
+InputName = "623B Rising Star"
+Inputs = [SubResource("in_27_0"), SubResource("in_27_1"), SubResource("in_27_2"), SubResource("in_27_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_28_0"]
+script = ExtResource("1")
+Direction = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="in_28_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_28"]
+script = ExtResource("2")
+InputName = "2A after dash"
+Inputs = [SubResource("in_28_0"), SubResource("in_28_1")]
+AutoAdvance = false
+StartDelay = 6
+
+[sub_resource type="Resource" id="in_29_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_29_1"]
+script = ExtResource("1")
+Direction = 3
+
+[sub_resource type="Resource" id="in_29_2"]
+script = ExtResource("1")
+Direction = 2
+
+[sub_resource type="Resource" id="in_29_3"]
+script = ExtResource("1")
+Buttons = 6
+
+[sub_resource type="Resource" id="in_29_4"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_29"]
+script = ExtResource("2")
+InputName = "214BC Big Bang Crash"
+Inputs = [SubResource("in_29_0"), SubResource("in_29_1"), SubResource("in_29_2"), SubResource("in_29_3"), SubResource("in_29_4")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_30_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_30_1"]
+script = ExtResource("1")
+Direction = 3
+
+[sub_resource type="Resource" id="in_30_2"]
+script = ExtResource("1")
+Direction = 2
+Buttons = 1
+
+[sub_resource type="Resource" id="in_30_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_30"]
+script = ExtResource("2")
+InputName = "214A Meteor Drop"
+Inputs = [SubResource("in_30_0"), SubResource("in_30_1"), SubResource("in_30_2"), SubResource("in_30_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_31_0"]
+script = ExtResource("1")
+Direction = 4
+
+[sub_resource type="Resource" id="in_31_1"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_31_2"]
+script = ExtResource("1")
+Direction = 5
+Buttons = 1
+
+[sub_resource type="Resource" id="in_31_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_31"]
+script = ExtResource("2")
+InputName = "623A Rising Star"
+Inputs = [SubResource("in_31_0"), SubResource("in_31_1"), SubResource("in_31_2"), SubResource("in_31_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_32_0"]
+script = ExtResource("1")
+Direction = 1
+
+[sub_resource type="Resource" id="in_32_1"]
+script = ExtResource("1")
+Direction = 3
+
+[sub_resource type="Resource" id="in_32_2"]
+script = ExtResource("1")
+Direction = 2
+Buttons = 2
+
+[sub_resource type="Resource" id="in_32_3"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_32"]
+script = ExtResource("2")
+InputName = "214B Meteor Drop"
+Inputs = [SubResource("in_32_0"), SubResource("in_32_1"), SubResource("in_32_2"), SubResource("in_32_3")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_33_0"]
+script = ExtResource("1")
+Direction = 4
+Buttons = 4
+
+[sub_resource type="Resource" id="in_33_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_33"]
+script = ExtResource("2")
+InputName = "6C fist pump"
+Inputs = [SubResource("in_33_0"), SubResource("in_33_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_34_0"]
+script = ExtResource("1")
+Buttons = 6
+
+[sub_resource type="Resource" id="in_34_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_34"]
+script = ExtResource("2")
+InputName = "Throw (B+C) / throw break"
+Inputs = [SubResource("in_34_0"), SubResource("in_34_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_35_0"]
+script = ExtResource("1")
+Direction = 2
+Buttons = 6
+
+[sub_resource type="Resource" id="in_35_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_35"]
+script = ExtResource("2")
+InputName = "Back throw (4 + B+C)"
+Inputs = [SubResource("in_35_0"), SubResource("in_35_1")]
+AutoAdvance = false
+StartDelay = 0
+
+[sub_resource type="Resource" id="in_36_0"]
+script = ExtResource("1")
+Buttons = 6
+
+[sub_resource type="Resource" id="in_36_1"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_36"]
+script = ExtResource("2")
+InputName = "Throw after a dash"
+Inputs = [SubResource("in_36_0"), SubResource("in_36_1")]
+AutoAdvance = false
+StartDelay = 7
+
+[sub_resource type="Resource" id="in_37_0"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_37"]
+script = ExtResource("2")
+InputName = "Wait (blockstun + throw protection)"
+Inputs = [SubResource("in_37_0")]
+AutoAdvance = true
+StartDelay = 16
+
+[sub_resource type="Resource" id="in_38_0"]
+script = ExtResource("1")
+
+[sub_resource type="Resource" id="act_38"]
+script = ExtResource("2")
+InputName = "Short wait"
+Inputs = [SubResource("in_38_0")]
+AutoAdvance = true
+StartDelay = 4
+
+[resource]
+script = ExtResource("3")
+Actions = [SubResource("act_0"), SubResource("act_1"), SubResource("act_2"), SubResource("act_3"), SubResource("act_4"), SubResource("act_5"), SubResource("act_6"), SubResource("act_7"), SubResource("act_8"), SubResource("act_9"), SubResource("act_10"), SubResource("act_11"), SubResource("act_12"), SubResource("act_13"), SubResource("act_14"), SubResource("act_15"), SubResource("act_16"), SubResource("act_17"), SubResource("act_18"), SubResource("act_19"), SubResource("act_20"), SubResource("act_21"), SubResource("act_22"), SubResource("act_23"), SubResource("act_24"), SubResource("act_25"), SubResource("act_26"), SubResource("act_27"), SubResource("act_28"), SubResource("act_29"), SubResource("act_30"), SubResource("act_31"), SubResource("act_32"), SubResource("act_33"), SubResource("act_34"), SubResource("act_35"), SubResource("act_36"), SubResource("act_37"), SubResource("act_38")]
+HighBlockAction = 1
+LowBlockAction = 8
+ForwardRecoveryAction = 15
+BackRecoveryAction = 15
+ThrowEscapeAction = 34
+BehaviorBeginner = ExtResource("b0")
+BehaviorEasy = ExtResource("b1")
+BehaviorMedium = ExtResource("b2")
+BehaviorHard = ExtResource("b3")
+BehaviorVeryHard = ExtResource("b4")
+BehaviorPro = ExtResource("b5")

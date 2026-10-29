@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bis8lb8duos2v"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://0ih5afbcliaj" path="res://actors/leticia/Hitboxes/1_Hitbox_Crouch.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/block_cr.png" id="t_block_cr"]
+
+[ext_resource type="Texture2D" path="res://actors/_shared/fx/block_seal_0.png" id="fx_block_seal_0"]
+[ext_resource type="Texture2D" path="res://actors/_shared/fx/block_seal_1.png" id="fx_block_seal_1"]
+[ext_resource type="Texture2D" path="res://actors/_shared/fx/block_seal_2.png" id="fx_block_seal_2"]
+[ext_resource type="Texture2D" path="res://actors/_shared/fx/block_seal_3.png" id="fx_block_seal_3"]
+[sub_resource type="Resource" id="Resource_cu0e1"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_block_cr")
+Offset = Vector2(-181, -6)
+Rotation = 2
+
+[sub_resource type="Resource" id="fx_A0"]
+script = ExtResource("2")
+Sprite = ExtResource("fx_block_seal_0")
+Offset = Vector2(23, -13)
+Scale = Vector2(0.75, 0.75)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0"), SubResource("fx_A0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_block_cr")
+Offset = Vector2(-183, -5)
+Rotation = 1
+
+[sub_resource type="Resource" id="fx_A1"]
+script = ExtResource("2")
+Sprite = ExtResource("fx_block_seal_1")
+Offset = Vector2(23, -13)
+Scale = Vector2(0.75, 0.75)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 2
+Modifiers = [SubResource("M1_0"), SubResource("fx_A1")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_block_cr")
+Offset = Vector2(-184, -5)
+
+[sub_resource type="Resource" id="fx_A2"]
+script = ExtResource("2")
+Sprite = ExtResource("fx_block_seal_2")
+Offset = Vector2(23, -13)
+Scale = Vector2(0.75, 0.75)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+AtFrame = 4
+Modifiers = [SubResource("M2_0"), SubResource("fx_A2")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_block_cr")
+Offset = Vector2(-182, -5)
+
+[sub_resource type="Resource" id="fx_A3"]
+script = ExtResource("2")
+Sprite = ExtResource("fx_block_seal_3")
+Offset = Vector2(23, -13)
+Scale = Vector2(0.75, 0.75)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("3")
+AtFrame = 7
+Modifiers = [SubResource("M3_0"), SubResource("fx_A3")]
+
+[resource]
+script = ExtResource("6")
+Duration = 8
+HitstunHold = 1
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("Resource_cu0e1")]

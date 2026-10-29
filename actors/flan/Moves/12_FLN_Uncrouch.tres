@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://883neyc2g3hk"]
+
+[ext_resource type="Resource" uid="uid://cjtxv3hfn8vc4" path="res://actors/_shared/sakuga/Inputs/8_Input_]2[.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Uncrouching"
+MoveState = 104
+Inputs = ExtResource("1")
+IsSequenceFromStates = PackedInt32Array(14, 15)
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+CanOverrideToSelf = true
+PriorityBuffer = true
+IgnoreSamePriority = false
+UseOnGround = true

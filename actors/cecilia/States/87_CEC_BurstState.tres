@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bt6ent6igqvbr"]
+
+[ext_resource type="Resource" uid="uid://uprf2mutjeq0" path="res://actors/cecilia/AnimationData/1001_CEC_Burst_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="7"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="9"]
+
+[sub_resource type="Resource" id="Resource_j3pk8"]
+script = ExtResource("2")
+TargetPosition = Vector2i(0, 4500)
+xRelativeTo = 1
+yRelativeTo = 1
+Index = 17
+AttachToParent = true
+metadata/_custom_type_script = "uid://gx2c16shb4hs"
+
+[sub_resource type="Resource" id="Resource_6lubj"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_j3pk8")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_xxutx"]
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_pmcsu"]
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_r6o2x"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_xxutx"), SubResource("Resource_pmcsu")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_ha4og"]
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_6na75"]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_ma5ka"]
+script = ExtResource("8")
+metadata/_custom_type_script = "uid://baguhnol5ww4w"
+
+[sub_resource type="Resource" id="Resource_kpung"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_6na75"), SubResource("Resource_ma5ka")]
+Actions = [SubResource("Resource_ha4og")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_y364o"]
+script = ExtResource("6")
+StateIndex = 10
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_qcb2o"]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_6pvsy"]
+script = ExtResource("8")
+Not = true
+metadata/_custom_type_script = "uid://baguhnol5ww4w"
+
+[sub_resource type="Resource" id="Resource_dlk7n"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_qcb2o"), SubResource("Resource_6pvsy")]
+Actions = [SubResource("Resource_y364o")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("9")
+StateName = "Burst"
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_kpung"), SubResource("Resource_dlk7n")]
+OnEnterEvents = [SubResource("Resource_6lubj")]
+OnTickEvents = [SubResource("Resource_r6o2x")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 1

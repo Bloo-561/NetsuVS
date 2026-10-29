@@ -1,0 +1,88 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://blmkqk7fse6m0"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://ba30vb51nxua1" path="res://actors/noah/Hitboxes/31_Hitbox_ShadeWave_B_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://3galt1zxtzl1" path="res://actors/noah/Hitboxes/31_Hitbox_ShadeWave_B_1.tres" id="4"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/w_gather.png" id="t_w_gather"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/w_windup.png" id="t_w_windup"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/w_devil.png" id="t_w_devil"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/w_human.png" id="t_w_human"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/stand.png" id="t_stand"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 13
+animationStage = 2
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_w_gather")
+Offset = Vector2(-187, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_w_windup")
+Offset = Vector2(-204, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 6
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_w_devil")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 13
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_w_human")
+Offset = Vector2(-245, -4)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 25
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_w_human")
+Offset = Vector2(-249, -4)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 36
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_stand")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 46
+Modifiers = [SubResource("M5_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 58
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5")]
+Hitboxes = [SubResource("s1"), SubResource("s2")]

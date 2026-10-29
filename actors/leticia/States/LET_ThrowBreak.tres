@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bi6thwy2cithk"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bh68vk17upp7u" path="res://actors/leticia/AnimationData/LET_ThrowBreak_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="6"]
+[ext_resource type="Script" uid="uid://6kbrdw6wei0q" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/StopKnockbackAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="8"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+Frame = 8
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("8")
+Velocity = 0
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Conditions = [SubResource("s4")]
+Actions = [SubResource("s5"), SubResource("s6")]
+
+[sub_resource type="Resource" id="sfx_0_0_play"]
+script = ExtResource("sfx_play")
+Source = 4
+Index = 31
+
+[sub_resource type="Resource" id="sfx_0_0"]
+script = ExtResource("3")
+Actions = [SubResource("sfx_0_0_play")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Throw Break"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = [SubResource("sfx_0_0")]
+OnTickEvents = [SubResource("s7")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 2

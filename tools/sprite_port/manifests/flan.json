@@ -1,0 +1,3542 @@
+{
+ "character": "flan",
+ "tag": "FLN",
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "reference": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Idle_Reference.png",
+ "source_dirs": [
+  "Flan_All_Sprites/01_Idles",
+  "Flan_All_Sprites/02_Basics",
+  "Flan_All_Sprites/03_Low_Normals",
+  "Flan_All_Sprites/04_Air_Normals",
+  "Flan_All_Sprites/05_236",
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG",
+  "Flan_All_Sprites/07_623_AB_Latest",
+  "Flan_All_Sprites/08_214",
+  "Flan_All_Sprites/09_236236_Super",
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG"
+ ],
+ "fx": "radiant",
+ "head_frac": 0.24,
+ "game": {
+  "height_px": 490,
+  "base": 0.95331,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5
+ },
+ "face_box": [
+  440,
+  232,
+  532,
+  314
+ ],
+ "frames": {
+  "fx_5c": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_Radiant_Extension.png",
+   "anchor": "attach",
+   "attach": [
+    "5c_2",
+    [
+     733,
+     478
+    ],
+    [
+     400,
+     414
+    ]
+   ],
+   "scale": 6.0
+  },
+  "fx_236b": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_Radiant_Extension.png",
+   "anchor": "attach",
+   "attach": [
+    "p236",
+    [
+     730,
+     423
+    ],
+    [
+     400,
+     414
+    ]
+   ],
+   "scale": 5.0
+  },
+  "fx_236c": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_Radiant_Extension.png",
+   "anchor": "attach",
+   "attach": [
+    "p236",
+    [
+     730,
+     423
+    ],
+    [
+     400,
+     414
+    ]
+   ],
+   "scale": 3.4
+  },
+  "dp_burst_a": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_held",
+    [
+     243,
+     35
+    ],
+    [
+     768,
+     516
+    ]
+   ],
+   "scale": 5.0
+  },
+  "dp_burst_b": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_held",
+    [
+     243,
+     35
+    ],
+    [
+     768,
+     516
+    ]
+   ],
+   "scale": 3.5
+  },
+  "dp_burst_c": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_rise2",
+    [
+     218,
+     6
+    ],
+    [
+     768,
+     516
+    ]
+   ],
+   "scale": 2.6
+  },
+  "spin_c": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/Effects/Spin_C.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_rise2",
+    [
+     28,
+     1
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "scale": 1.0
+  },
+  "k214_exfx": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png",
+   "anchor": "attach",
+   "attach": [
+    "k214_impact",
+    [
+     235,
+     255
+    ],
+    [
+     768,
+     516
+    ]
+   ],
+   "scale": 2.4
+  },
+  "s1_burst": {
+   "src": "derived/flan/radiant_burst.png",
+   "anchor": "attach",
+   "attach": [
+    "s1_fire",
+    [
+     563,
+     461
+    ],
+    [
+     215,
+     515
+    ]
+   ],
+   "scale": 1.0596
+  },
+  "fx_burst": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png",
+   "anchor": "center",
+   "at": [
+    0,
+    250
+   ],
+   "scale": 2.2
+  },
+  "beam_1": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/Effects/Beam_01.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_aim",
+    [
+     350.6,
+     260.4
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "scale": 1.0
+  },
+  "beam_2": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/Effects/Beam_02.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_aim",
+    [
+     350.6,
+     260.4
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "scale": 1.0
+  },
+  "beam_3": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/Effects/Beam_03.png",
+   "anchor": "attach",
+   "attach": [
+    "dp_aim",
+    [
+     350.6,
+     260.4
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "scale": 1.0
+  },
+  "exp_1": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_01.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "exp_2": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_02.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "exp_3": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_03.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "exp_4": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_04.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "exp_5": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_05.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "exp_6": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/Effects/Explosion_06.png",
+   "anchor": "pin",
+   "pin": [
+    255.7,
+    458.2
+   ],
+   "scale": 0.4016
+  },
+  "idle_base": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/00_Base.png",
+   "scale": 1.226
+  },
+  "idle_inhale": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/01_Inhale.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_exhale": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/02_Exhale.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_blink": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/03_Blink.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_shiftb": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/04_Shift_Back.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_shiftf": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/05_Shift_Forward.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_half": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/06_Turn_Half.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "idle_center": {
+   "src": "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/07_Turn_Center.png",
+   "anchor": "like",
+   "like": "idle_base"
+  },
+  "walk_f1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Forward_01.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "walk_b1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Back_01.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "dash_1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Dash_Forward_01.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "backstep_1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_01.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "airdash_f1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Forward_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "airdash_b1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Back_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "walk_f2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Forward_02.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "walk_b2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Back_02.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "dash_2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Dash_Forward_02.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "backstep_2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_02.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "airdash_f2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Forward_02.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "airdash_b2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Back_02.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "jump_load": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_01_Load.png",
+   "anchor": "hips",
+   "scale": 1.0
+  },
+  "jump_rise": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_02_Rise.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "jump_fall": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_03_Fall.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dmg_l": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Light.png",
+   "anchor": "hips",
+   "scale": 1.0
+  },
+  "dmg_h": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Heavy.png",
+   "anchor": "hips",
+   "scale": 1.0873,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed +8.7%)"
+  },
+  "dmg_l_air": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Light.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dmg_h_air": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Heavy.png",
+   "anchor": "air",
+   "scale": 1.0873,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed +8.7%)"
+  },
+  "down": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Downed_01.png",
+   "anchor": "lying",
+   "scale": 1.0
+  },
+  "victory": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Win_01.png",
+   "scale": 1.0
+  },
+  "5a_1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_01_Start.png",
+   "scale": 1.0
+  },
+  "5a_2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_02_Hit.png",
+   "scale": 1.0
+  },
+  "5a_3": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_03_Recover.png",
+   "scale": 1.0
+  },
+  "5b_1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_01_Start.png",
+   "scale": 1.0
+  },
+  "5b_2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_02_Hit.png",
+   "scale": 1.0
+  },
+  "5b_3": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_03_Recover.png",
+   "scale": 1.0
+  },
+  "5c_1": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_01_Start.png",
+   "scale": 1.0,
+   "anchor": "front"
+  },
+  "5c_2": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_02_Hit.png",
+   "scale": 1.0,
+   "anchor": "front"
+  },
+  "5c_3": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_03_Recover.png",
+   "scale": 1.0,
+   "anchor": "front"
+  },
+  "crouch_1": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_01_Lower.png",
+   "scale": 1.0
+  },
+  "crouch_2": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_02_Hold.png",
+   "scale": 1.0
+  },
+  "2a_1": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_01_Start.png",
+   "scale": 1.0
+  },
+  "2a_2": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_02_Hit.png",
+   "scale": 1.0
+  },
+  "2a_3": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_03_Recover.png",
+   "scale": 0.9488,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed -5.1%)"
+  },
+  "2b_1": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_01_Start.png",
+   "scale": 1.0
+  },
+  "2b_2": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_02_Hit.png",
+   "scale": 1.0
+  },
+  "2b_3": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_03_Recover.png",
+   "scale": 1.0
+  },
+  "2c_1": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_01_Push.png",
+   "scale": 1.0
+  },
+  "2c_2": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_02_Slide_Hit.png",
+   "scale": 1.0
+  },
+  "2c_3": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_03_Brake.png",
+   "scale": 1.0
+  },
+  "6c_1": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_01_Load.png",
+   "scale": 1.0
+  },
+  "6c_2": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_02_Pump.png",
+   "anchor": "front",
+   "scale": 1.0
+  },
+  "6c_3": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_03_Recover.png",
+   "scale": 1.0
+  },
+  "ja_1": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_01_Start.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.0
+  },
+  "ja_2": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_02_Hit.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.0
+  },
+  "ja_3": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_03_Recover.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.0
+  },
+  "jb_1": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_01_Start.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 0.786,
+   "scale_note": "sizefix.py Oct 25 (second pass, body -21.4%, like jb_3): was 1.000"
+  },
+  "jb_2": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_02_Hit.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 0.876,
+   "scale_note": "sizefix.py Oct 25 (second pass, jb_1 x 1.114 (their comparison)): was 1.000"
+  },
+  "jb_3": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_03_Recover.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 0.8108,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed -18.9%)"
+  },
+  "jc_1": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_01_Start.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.1075,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed +10.7%)"
+  },
+  "jc_2": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_02_Hit.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.0
+  },
+  "jc_3": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_03_Recover.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.052,
+   "scale_note": "sizefix.py Oct 25 (second pass, body+face +5.2%): was 1.000"
+  },
+  "w236_1": {
+   "src": "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_01.png",
+   "scale": 1.3277,
+   "scale_note": "sizefix.py Oct 25: was 1.078 (showed +23.2%)"
+  },
+  "w236_2": {
+   "src": "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_02.png",
+   "scale": 1.2584,
+   "scale_note": "sizefix.py Oct 25: was 1.078 (showed +16.7%)"
+  },
+  "w236_3": {
+   "src": "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_03.png",
+   "scale": 1.3274,
+   "scale_note": "sizefix.py Oct 25: was 1.078 (showed +23.1%)"
+  },
+  "w236_4": {
+   "src": "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_04.png",
+   "scale": 1.291,
+   "scale_note": "sizefix.py Oct 25: was 1.078 (showed +19.8%)"
+  },
+  "p236": {
+   "src": "Flan_All_Sprites/05_236/Flan_236_Standalone/Punch_01.png",
+   "anchor": "hips",
+   "scale": 1.078
+  },
+  "dp_hit": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Hit_01.png",
+   "scale": 0.8791,
+   "scale_note": "sizefix.py Oct 25: was 1.000 (showed -12.1%)"
+  },
+  "dp_held": {
+   "src": "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Held_Uppercut.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_rise1": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_rise2": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_02.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_apex": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Apex_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_aim": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Beam_Aim_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_spin": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Spin_Back_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_fall": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Fall_Front_01.png",
+   "anchor": "air",
+   "scale": 1.0
+  },
+  "dp_rise2_m": {
+   "src": "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_02.png",
+   "anchor": "air",
+   "scale": 1.0,
+   "flip": true
+  },
+  "k214_idle": {
+   "src": "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Idle.png",
+   "scale": 0.7739,
+   "scale_note": "sizefix.py Oct 25: was 0.730 (showed +6.0%)"
+  },
+  "k214_knee": {
+   "src": "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Knee.png",
+   "anchor": "air",
+   "scale": 0.73
+  },
+  "k214_load": {
+   "src": "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Load.png",
+   "anchor": "air",
+   "scale": 0.73
+  },
+  "k214_punch": {
+   "src": "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Punch.png",
+   "anchor": "air",
+   "scale": 0.73
+  },
+  "k214_impact": {
+   "src": "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Impact.png",
+   "anchor": "hips",
+   "scale": 0.73
+  },
+  "s1_idle": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Idle.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.69
+  },
+  "s1_w1": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_01.png",
+   "anchor": "ground",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8541,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +23.8%)"
+  },
+  "s1_w2": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_02.png",
+   "anchor": "ground",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8047,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +16.6%)"
+  },
+  "s1_w3": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_03.png",
+   "anchor": "ground",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8479,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +22.9%)"
+  },
+  "s1_w4": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_04.png",
+   "anchor": "ground",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8348,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +21.0%)"
+  },
+  "s1_dash": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Dash_Punch.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8397,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +21.7%)"
+  },
+  "s1_fire": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Fire.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.7879,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +14.2%)"
+  },
+  "s1_recoil": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Recoil.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8687,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +25.9%)"
+  },
+  "s1_roll": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.69
+  },
+  "s1_exit": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll_Exit.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    700
+   ],
+   "scale": 0.8278,
+   "scale_note": "sizefix.py Oct 25: was 0.690 (showed +20.0%)"
+  },
+  "roll_air": {
+   "src": "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll.png",
+   "anchor": "air",
+   "scale": 0.69
+  },
+  "s2_w1": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_01.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.8253,
+   "scale_note": "sizefix.py Oct 25: was 0.745 (showed +10.8%)"
+  },
+  "s2_w2": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_02.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.8133,
+   "scale_note": "sizefix.py Oct 25: was 0.745 (showed +9.2%)"
+  },
+  "s2_w3": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_03.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.8218,
+   "scale_note": "sizefix.py Oct 25: was 0.745 (showed +10.3%)"
+  },
+  "s2_diag": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Diagonal_Punch.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.745
+  },
+  "s2_load": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Load.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.745
+  },
+  "s2_down": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Punch.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.745
+  },
+  "s2_impact": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Ground_Impact.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.6299,
+   "scale_note": "sizefix.py Oct 25: was 0.745 (showed -15.4%)"
+  },
+  "s2_stand": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Stand.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.745
+  },
+  "s2_sweat": {
+   "src": "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Sweat_Wipe.png",
+   "anchor": "pin",
+   "pin": [
+    450,
+    760
+   ],
+   "scale": 0.745
+  },
+  "block_st": {
+   "src": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_01.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "block_cr": {
+   "src": "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_02_Hold.png",
+   "scale": 1.0
+  },
+  "block_air": {
+   "src": "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_01_Start.png",
+   "anchor": "pin",
+   "pin": [
+    480,
+    440
+   ],
+   "pin_at": "air",
+   "scale": 1.0
+  }
+ },
+ "animations": {
+  "73_FLN_236A": {
+   "keys": [
+    [
+     "dash_1",
+     0
+    ],
+    [
+     "p236",
+     8
+    ],
+    [
+     "p236",
+     20,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "crouch_1",
+     26
+    ]
+   ],
+   "duration": 36,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "30_Hitbox_StarFist_A_0"
+    ],
+    [
+     8,
+     1,
+     "30_Hitbox_StarFist_A_1"
+    ],
+    [
+     12,
+     2,
+     "30_Hitbox_StarFist_A_2"
+    ],
+    [
+     26,
+     2,
+     "30_Hitbox_StarFist_A_3"
+    ]
+   ]
+  },
+  "74_FLN_236B": {
+   "keys": [
+    [
+     "w236_1",
+     0
+    ],
+    [
+     "w236_2",
+     3
+    ],
+    [
+     "w236_3",
+     6
+    ],
+    [
+     "w236_4",
+     9
+    ],
+    [
+     "w236_1",
+     12
+    ],
+    [
+     "w236_2",
+     15
+    ],
+    [
+     "w236_3",
+     18
+    ],
+    [
+     "w236_4",
+     21
+    ],
+    [
+     "p236",
+     24,
+     {
+      "fx": "fx_236b",
+      "fx_always": true
+     }
+    ],
+    [
+     "p236",
+     31
+    ],
+    [
+     "p236",
+     38,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "crouch_1",
+     42
+    ]
+   ],
+   "duration": 52,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "31_Hitbox_StarFist_B_0"
+    ],
+    [
+     24,
+     1,
+     "31_Hitbox_StarFist_B_1"
+    ],
+    [
+     30,
+     2,
+     "31_Hitbox_StarFist_B_2"
+    ],
+    [
+     42,
+     2,
+     "31_Hitbox_StarFist_B_3"
+    ]
+   ]
+  },
+  "75_FLN_236C": {
+   "keys": [
+    [
+     "w236_1",
+     0
+    ],
+    [
+     "w236_2",
+     3
+    ],
+    [
+     "w236_3",
+     6
+    ],
+    [
+     "w236_4",
+     9
+    ],
+    [
+     "w236_1",
+     12
+    ],
+    [
+     "p236",
+     16,
+     {
+      "fx": "fx_236c",
+      "fx_always": true
+     }
+    ],
+    [
+     "p236",
+     30
+    ],
+    [
+     "p236",
+     36,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "crouch_1",
+     40
+    ]
+   ],
+   "duration": 50,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "32_Hitbox_StarFist_EX_0"
+    ],
+    [
+     16,
+     1,
+     "32_Hitbox_StarFist_EX_1"
+    ],
+    [
+     22,
+     2,
+     "32_Hitbox_StarFist_EX_2"
+    ],
+    [
+     40,
+     2,
+     "32_Hitbox_StarFist_EX_3"
+    ]
+   ]
+  },
+  "76_FLN_623A": {
+   "keys": [
+    [
+     "dp_hit",
+     0
+    ],
+    [
+     "dp_held",
+     7
+    ],
+    [
+     "dp_held",
+     19,
+     {
+      "fx": "dp_burst_a",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_apex",
+     26
+    ],
+    [
+     "dp_fall",
+     32
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "33_Hitbox_RisingStar_A_0"
+    ],
+    [
+     3,
+     1,
+     "33_Hitbox_RisingStar_A_1"
+    ],
+    [
+     7,
+     2,
+     "33_Hitbox_RisingStar_A_2"
+    ],
+    [
+     8,
+     1,
+     "33_Hitbox_RisingStar_A_3"
+    ],
+    [
+     15,
+     2,
+     "33_Hitbox_RisingStar_A_4"
+    ],
+    [
+     19,
+     1,
+     "33_Hitbox_RisingStar_A_5"
+    ],
+    [
+     24,
+     2,
+     "33_Hitbox_RisingStar_A_6"
+    ]
+   ]
+  },
+  "77_FLN_623B": {
+   "keys": [
+    [
+     "dp_hit",
+     0
+    ],
+    [
+     "dp_held",
+     7
+    ],
+    [
+     "dp_held",
+     23,
+     {
+      "fx": "dp_burst_b",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_apex",
+     30
+    ],
+    [
+     "dp_fall",
+     36
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "34_Hitbox_RisingStar_B_0"
+    ],
+    [
+     3,
+     1,
+     "34_Hitbox_RisingStar_B_1"
+    ],
+    [
+     7,
+     2,
+     "34_Hitbox_RisingStar_B_2"
+    ],
+    [
+     8,
+     1,
+     "34_Hitbox_RisingStar_B_3"
+    ],
+    [
+     17,
+     2,
+     "34_Hitbox_RisingStar_B_4"
+    ],
+    [
+     23,
+     1,
+     "34_Hitbox_RisingStar_B_5"
+    ],
+    [
+     28,
+     2,
+     "34_Hitbox_RisingStar_B_6"
+    ]
+   ]
+  },
+  "79_FLN_BEAM": {
+   "keys": [
+    [
+     "dp_aim",
+     0
+    ],
+    [
+     "dp_aim",
+     4,
+     {
+      "fx": "beam_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_aim",
+     8,
+     {
+      "fx": "beam_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_aim",
+     12,
+     {
+      "fx": "beam_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_fall",
+     18
+    ]
+   ],
+   "duration": 60,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "36_Hitbox_FallingStar_0"
+    ],
+    [
+     4,
+     1,
+     "36_Hitbox_FallingStar_1"
+    ],
+    [
+     12,
+     2,
+     "36_Hitbox_FallingStar_2"
+    ],
+    [
+     18,
+     2,
+     "36_Hitbox_FallingStar_3"
+    ]
+   ]
+  },
+  "78_FLN_623C": {
+   "keys": [
+    [
+     "dp_hit",
+     0
+    ],
+    [
+     "dp_rise2",
+     12,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_spin",
+     15,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_rise2_m",
+     18,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_rise2",
+     21,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_spin",
+     24,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_rise2_m",
+     27,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_rise2",
+     30,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_spin",
+     33,
+     {
+      "fx": "spin_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_rise2",
+     36,
+     {
+      "fx": "dp_burst_c",
+      "fx_always": true
+     }
+    ],
+    [
+     "dp_apex",
+     42
+    ],
+    [
+     "dp_fall",
+     48
+    ]
+   ],
+   "duration": 120,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "35_Hitbox_SpiralStar_0"
+    ],
+    [
+     3,
+     1,
+     "35_Hitbox_SpiralStar_1"
+    ],
+    [
+     7,
+     2,
+     "35_Hitbox_SpiralStar_2"
+    ],
+    [
+     12,
+     1,
+     "35_Hitbox_SpiralStar_3"
+    ],
+    [
+     32,
+     2,
+     "35_Hitbox_SpiralStar_4"
+    ],
+    [
+     36,
+     1,
+     "35_Hitbox_SpiralStar_5"
+    ],
+    [
+     41,
+     2,
+     "35_Hitbox_SpiralStar_6"
+    ]
+   ]
+  },
+  "80_FLN_DPLAND": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "crouch_1",
+     8
+    ]
+   ],
+   "duration": 16,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "37_Hitbox_StarLanding_0"
+    ],
+    [
+     8,
+     0,
+     "37_Hitbox_StarLanding_1"
+    ]
+   ]
+  },
+  "81_FLN_214A": {
+   "keys": [
+    [
+     "k214_idle",
+     0
+    ],
+    [
+     "k214_knee",
+     4
+    ],
+    [
+     "k214_load",
+     19
+    ],
+    [
+     "k214_punch",
+     24
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "38_Hitbox_MeteorDrop_A_0"
+    ],
+    [
+     5,
+     1,
+     "38_Hitbox_MeteorDrop_A_1"
+    ],
+    [
+     12,
+     2,
+     "38_Hitbox_MeteorDrop_A_2"
+    ],
+    [
+     24,
+     1,
+     "38_Hitbox_MeteorDrop_A_3"
+    ]
+   ]
+  },
+  "82_FLN_214B": {
+   "keys": [
+    [
+     "k214_idle",
+     0
+    ],
+    [
+     "k214_knee",
+     4
+    ],
+    [
+     "k214_load",
+     23
+    ],
+    [
+     "k214_punch",
+     28
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "39_Hitbox_MeteorDrop_B_0"
+    ],
+    [
+     5,
+     1,
+     "39_Hitbox_MeteorDrop_B_1"
+    ],
+    [
+     14,
+     2,
+     "39_Hitbox_MeteorDrop_B_2"
+    ],
+    [
+     28,
+     1,
+     "39_Hitbox_MeteorDrop_B_3"
+    ]
+   ]
+  },
+  "83_FLN_214C": {
+   "keys": [
+    [
+     "k214_idle",
+     0
+    ],
+    [
+     "k214_knee",
+     4
+    ],
+    [
+     "k214_load",
+     19
+    ],
+    [
+     "k214_punch",
+     24
+    ]
+   ],
+   "duration": 120,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "40_Hitbox_MeteorImpact_0"
+    ],
+    [
+     5,
+     1,
+     "40_Hitbox_MeteorImpact_1"
+    ],
+    [
+     12,
+     2,
+     "40_Hitbox_MeteorImpact_2"
+    ],
+    [
+     24,
+     1,
+     "40_Hitbox_MeteorImpact_3"
+    ]
+   ]
+  },
+  "84_FLN_IMPACT": {
+   "keys": [
+    [
+     "k214_impact",
+     0
+    ],
+    [
+     "k214_idle",
+     18
+    ]
+   ],
+   "duration": 30,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "41_Hitbox_MeteorDrop_Impact_0"
+    ],
+    [
+     5,
+     2,
+     "41_Hitbox_MeteorDrop_Impact_1"
+    ],
+    [
+     18,
+     2,
+     "41_Hitbox_MeteorDrop_Impact_2"
+    ]
+   ]
+  },
+  "85_FLN_IMPACT_C": {
+   "keys": [
+    [
+     "k214_impact",
+     0,
+     {
+      "fx": "k214_exfx",
+      "fx_always": true
+     }
+    ],
+    [
+     "k214_impact",
+     10
+    ],
+    [
+     "k214_idle",
+     20
+    ]
+   ],
+   "duration": 34,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "42_Hitbox_MeteorImpact_Impact_0"
+    ],
+    [
+     6,
+     2,
+     "42_Hitbox_MeteorImpact_Impact_1"
+    ],
+    [
+     20,
+     2,
+     "42_Hitbox_MeteorImpact_Impact_2"
+    ]
+   ]
+  },
+  "92_FLN_S1": {
+   "keys": [
+    [
+     "s1_w1",
+     0
+    ],
+    [
+     "s1_w2",
+     3
+    ],
+    [
+     "s1_w3",
+     6
+    ],
+    [
+     "s1_w4",
+     9
+    ],
+    [
+     "s1_w1",
+     12
+    ],
+    [
+     "s1_w2",
+     15
+    ],
+    [
+     "s1_w3",
+     18
+    ],
+    [
+     "s1_w4",
+     21
+    ],
+    [
+     "s1_dash",
+     24
+    ],
+    [
+     "s1_dash",
+     44,
+     {
+      "dx": -8
+     }
+    ],
+    [
+     "s1_exit",
+     48
+    ],
+    [
+     "s1_idle",
+     58
+    ]
+   ],
+   "duration": 66,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "43_Hitbox_RadiantBreaker_0"
+    ],
+    [
+     24,
+     1,
+     "43_Hitbox_RadiantBreaker_1"
+    ],
+    [
+     44,
+     2,
+     "43_Hitbox_RadiantBreaker_2"
+    ],
+    [
+     58,
+     2,
+     "43_Hitbox_RadiantBreaker_3"
+    ]
+   ]
+  },
+  "93_FLN_S1_hit": {
+   "keys": [
+    [
+     "s1_fire",
+     0
+    ],
+    [
+     "s1_fire",
+     6,
+     {
+      "fx": "s1_burst",
+      "fx_always": true
+     }
+    ],
+    [
+     "s1_fire",
+     36
+    ],
+    [
+     "s1_recoil",
+     40
+    ],
+    [
+     "s1_roll",
+     52
+    ],
+    [
+     "s1_roll",
+     56,
+     {
+      "rot": 60
+     }
+    ],
+    [
+     "s1_roll",
+     60,
+     {
+      "rot": 120
+     }
+    ],
+    [
+     "s1_roll",
+     64,
+     {
+      "rot": 180
+     }
+    ],
+    [
+     "s1_exit",
+     68
+    ],
+    [
+     "s1_idle",
+     82
+    ]
+   ],
+   "duration": 96,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "44_Hitbox_RadiantBreaker_Burst_0"
+    ],
+    [
+     6,
+     1,
+     "44_Hitbox_RadiantBreaker_Burst_1"
+    ],
+    [
+     10,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_2"
+    ],
+    [
+     12,
+     1,
+     "44_Hitbox_RadiantBreaker_Burst_3"
+    ],
+    [
+     16,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_4"
+    ],
+    [
+     18,
+     1,
+     "44_Hitbox_RadiantBreaker_Burst_5"
+    ],
+    [
+     22,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_6"
+    ],
+    [
+     24,
+     1,
+     "44_Hitbox_RadiantBreaker_Burst_7"
+    ],
+    [
+     28,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_8"
+    ],
+    [
+     30,
+     1,
+     "44_Hitbox_RadiantBreaker_Burst_9"
+    ],
+    [
+     36,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_10"
+    ],
+    [
+     68,
+     2,
+     "44_Hitbox_RadiantBreaker_Burst_11"
+    ]
+   ]
+  },
+  "94_FLN_S2": {
+   "keys": [
+    [
+     "s2_w1",
+     0
+    ],
+    [
+     "s2_w2",
+     4
+    ],
+    [
+     "s2_w3",
+     8
+    ],
+    [
+     "s2_diag",
+     12
+    ],
+    [
+     "s2_load",
+     30
+    ],
+    [
+     "jump_fall",
+     38
+    ]
+   ],
+   "duration": 110,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "45_Hitbox_BigBangCrash_0"
+    ],
+    [
+     12,
+     1,
+     "45_Hitbox_BigBangCrash_1"
+    ],
+    [
+     28,
+     2,
+     "45_Hitbox_BigBangCrash_2"
+    ]
+   ]
+  },
+  "95_FLN_S2_hit": {
+   "keys": [
+    [
+     "s2_diag",
+     0
+    ]
+   ],
+   "duration": 60,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "46_Hitbox_BigBangCrash_Rise_0"
+    ],
+    [
+     8,
+     1,
+     "46_Hitbox_BigBangCrash_Rise_1"
+    ],
+    [
+     10,
+     2,
+     "46_Hitbox_BigBangCrash_Rise_2"
+    ],
+    [
+     16,
+     1,
+     "46_Hitbox_BigBangCrash_Rise_3"
+    ],
+    [
+     18,
+     2,
+     "46_Hitbox_BigBangCrash_Rise_4"
+    ],
+    [
+     24,
+     1,
+     "46_Hitbox_BigBangCrash_Rise_5"
+    ],
+    [
+     26,
+     2,
+     "46_Hitbox_BigBangCrash_Rise_6"
+    ]
+   ]
+  },
+  "97_FLN_S2_boom": {
+   "keys": [
+    [
+     "s2_impact",
+     0,
+     {
+      "fx": "exp_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     3,
+     {
+      "fx": "exp_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     7,
+     {
+      "fx": "exp_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     13,
+     {
+      "fx": "exp_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     19,
+     {
+      "fx": "exp_5",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     26,
+     {
+      "fx": "exp_6",
+      "fx_always": true
+     }
+    ],
+    [
+     "s2_impact",
+     32
+    ],
+    [
+     "s2_stand",
+     40
+    ],
+    [
+     "s2_sweat",
+     54
+    ]
+   ],
+   "duration": 100,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "47_Hitbox_BigBangCrash_Boom_0"
+    ],
+    [
+     4,
+     2,
+     "47_Hitbox_BigBangCrash_Boom_1"
+    ],
+    [
+     6,
+     1,
+     "47_Hitbox_BigBangCrash_Boom_2"
+    ],
+    [
+     10,
+     2,
+     "47_Hitbox_BigBangCrash_Boom_3"
+    ],
+    [
+     12,
+     1,
+     "47_Hitbox_BigBangCrash_Boom_4"
+    ],
+    [
+     16,
+     2,
+     "47_Hitbox_BigBangCrash_Boom_5"
+    ],
+    [
+     19,
+     1,
+     "47_Hitbox_BigBangCrash_Boom_6"
+    ],
+    [
+     25,
+     2,
+     "47_Hitbox_BigBangCrash_Boom_7"
+    ],
+    [
+     40,
+     2,
+     "47_Hitbox_BigBangCrash_Boom_8"
+    ]
+   ]
+  },
+  "0_FLN_Neutral": {
+   "keys": [
+    [
+     "idle_base",
+     0
+    ],
+    [
+     "idle_half",
+     18
+    ],
+    [
+     "idle_center",
+     29
+    ],
+    [
+     "idle_half",
+     47
+    ],
+    [
+     "idle_base",
+     58
+    ],
+    [
+     "idle_inhale",
+     76
+    ],
+    [
+     "idle_base",
+     94
+    ],
+    [
+     "idle_half",
+     112
+    ],
+    [
+     "idle_center",
+     123
+    ],
+    [
+     "idle_half",
+     141
+    ],
+    [
+     "idle_base",
+     152
+    ],
+    [
+     "idle_exhale",
+     170
+    ],
+    [
+     "idle_base",
+     188
+    ],
+    [
+     "idle_blink",
+     206
+    ],
+    [
+     "idle_base",
+     212
+    ],
+    [
+     "idle_half",
+     230
+    ],
+    [
+     "idle_center",
+     241
+    ],
+    [
+     "idle_half",
+     259
+    ],
+    [
+     "idle_base",
+     270
+    ]
+   ],
+   "duration": 306
+  },
+  "1_FLN_MoveF": {
+   "keys": [
+    [
+     "walk_f1",
+     0
+    ],
+    [
+     "walk_f2",
+     10
+    ],
+    [
+     "walk_f1",
+     20
+    ],
+    [
+     "walk_f2",
+     30
+    ]
+   ],
+   "duration": 40
+  },
+  "2_FLN_MoveB": {
+   "keys": [
+    [
+     "walk_b1",
+     0
+    ],
+    [
+     "walk_b2",
+     11
+    ],
+    [
+     "walk_b1",
+     22
+    ],
+    [
+     "walk_b2",
+     33
+    ]
+   ],
+   "duration": 44
+  },
+  "3_FLN_Jump": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "jump_rise",
+     4
+    ],
+    [
+     "jump_fall",
+     19
+    ]
+   ]
+  },
+  "3b_FLN_JumpForward": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "jump_rise",
+     4,
+     {
+      "rot": -4
+     }
+    ],
+    [
+     "jump_rise",
+     10,
+     {
+      "rot": -8
+     }
+    ],
+    [
+     "jump_fall",
+     19,
+     {
+      "rot": -4
+     }
+    ]
+   ]
+  },
+  "3c_FLN_JumpBackward": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "jump_rise",
+     4,
+     {
+      "rot": 5
+     }
+    ],
+    [
+     "jump_rise",
+     10,
+     {
+      "rot": 9
+     }
+    ],
+    [
+     "jump_fall",
+     19,
+     {
+      "rot": 4
+     }
+    ]
+   ]
+  },
+  "4_FLN_Falling": {
+   "keys": [
+    [
+     "jump_fall",
+     0
+    ]
+   ]
+  },
+  "5_FLN_Landing": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "crouch_1",
+     7
+    ]
+   ]
+  },
+  "6_FLN_CrouchEnter": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "crouch_2",
+     4
+    ]
+   ]
+  },
+  "7_FLN_Crouching": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ]
+   ]
+  },
+  "8_FLN_CrouchExit": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_1",
+     4
+    ]
+   ]
+  },
+  "9_FLN_DashFw": {
+   "keys": [
+    [
+     "dash_1",
+     0
+    ],
+    [
+     "dash_2",
+     5
+    ],
+    [
+     "dash_1",
+     11
+    ],
+    [
+     "dash_2",
+     17
+    ],
+    [
+     "dash_1",
+     23
+    ],
+    [
+     "dash_2",
+     29
+    ]
+   ]
+  },
+  "10_FLN_RunStop": {
+   "keys": [
+    [
+     "jump_load",
+     0
+    ],
+    [
+     "crouch_1",
+     9
+    ]
+   ]
+  },
+  "11_FLN_DashBw": {
+   "keys": [
+    [
+     "backstep_1",
+     0
+    ],
+    [
+     "backstep_2",
+     7
+    ],
+    [
+     "jump_load",
+     18
+    ]
+   ]
+  },
+  "12_FLN_AirDashFw": {
+   "keys": [
+    [
+     "airdash_f1",
+     0
+    ],
+    [
+     "airdash_f2",
+     4
+    ],
+    [
+     "jump_fall",
+     18
+    ]
+   ]
+  },
+  "13_FLN_AirDashDir": {
+   "keys": [
+    [
+     "airdash_f1",
+     0
+    ],
+    [
+     "airdash_f2",
+     4
+    ],
+    [
+     "jump_fall",
+     24
+    ]
+   ]
+  },
+  "14_FLN_AirDashBw": {
+   "keys": [
+    [
+     "airdash_b1",
+     0
+    ],
+    [
+     "airdash_b2",
+     4
+    ],
+    [
+     "jump_fall",
+     18
+    ]
+   ]
+  },
+  "15_FLN_Hit_Weak": {
+   "keys": [
+    [
+     "dmg_l",
+     0,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "dmg_l",
+     2,
+     {
+      "dx": -6,
+      "rot": 1
+     }
+    ],
+    [
+     "dmg_l",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "dmg_l",
+     6,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "dmg_l",
+     7
+    ]
+   ]
+  },
+  "16_FLN_Hit_Strong": {
+   "keys": [
+    [
+     "dmg_h",
+     0,
+     {
+      "dx": -16,
+      "rot": 5
+     }
+    ],
+    [
+     "dmg_h",
+     2,
+     {
+      "dx": -12,
+      "rot": 3
+     }
+    ],
+    [
+     "dmg_h",
+     4,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "dmg_h",
+     6,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "dmg_h",
+     7
+    ]
+   ]
+  },
+  "17_FLN_Hit_Crouch": {
+   "keys": [
+    [
+     "crouch_2",
+     0,
+     {
+      "dx": -6,
+      "rot": 4
+     }
+    ],
+    [
+     "crouch_2",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "crouch_2",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "crouch_2",
+     7
+    ]
+   ]
+  },
+  "18_FLN_Hit_Sweep": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 24
+     }
+    ],
+    [
+     "dmg_h_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "dmg_h_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     6,
+     {
+      "rot": 12
+     }
+    ]
+   ]
+  },
+  "19_FLN_Hit_AirWeak": {
+   "keys": [
+    [
+     "dmg_l_air",
+     0,
+     {
+      "rot": 10
+     }
+    ],
+    [
+     "dmg_l_air",
+     2,
+     {
+      "rot": 12
+     }
+    ],
+    [
+     "dmg_l_air",
+     4,
+     {
+      "rot": 9
+     }
+    ],
+    [
+     "dmg_l_air",
+     6,
+     {
+      "rot": 5
+     }
+    ]
+   ]
+  },
+  "20_FLN_Hit_AirStrong": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "dmg_h_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     6,
+     {
+      "rot": 10
+     }
+    ]
+   ]
+  },
+  "21_FLN_Hit_Fall1": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 150
+     }
+    ]
+   ]
+  },
+  "21_FLN_Hit_Fall2": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 90
+     }
+    ]
+   ]
+  },
+  "21_FLN_Hit_FallTransition": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 45
+     }
+    ]
+   ]
+  },
+  "22_FLN_Hit_Knockdown1": {
+   "keys": [
+    [
+     "down",
+     0,
+     {
+      "dy": 14
+     }
+    ],
+    [
+     "down",
+     6,
+     {
+      "dy": 6
+     }
+    ]
+   ]
+  },
+  "22_FLN_Hit_Knockdown2": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "22_FLN_Hit_Knockdown3": {
+   "keys": [
+    [
+     "down",
+     0
+    ],
+    [
+     "down",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "down",
+     8
+    ]
+   ]
+  },
+  "23_FLN_Hit_Down": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "24_FLN_Hit_GetUp": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_1",
+     6
+    ]
+   ]
+  },
+  "25_FLN_Hit_LaunchAway": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 35
+     }
+    ]
+   ]
+  },
+  "25_FLN_Hit_LaunchDown": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 120
+     }
+    ]
+   ]
+  },
+  "25_FLN_Hit_LaunchUp": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 15
+     }
+    ]
+   ]
+  },
+  "26_FLN_Hit_GroundBounce": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "dmg_h_air",
+     12,
+     {
+      "rot": 60
+     }
+    ]
+   ]
+  },
+  "26_FLN_Hit_WallBounce": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": -20
+     }
+    ],
+    [
+     "dmg_h_air",
+     1,
+     {
+      "rot": 30
+     }
+    ]
+   ]
+  },
+  "27_FLN_Hit_Crumple": {
+   "keys": [
+    [
+     "dmg_h",
+     0
+    ],
+    [
+     "dmg_l",
+     10,
+     {
+      "rot": -6,
+      "dy": -6
+     }
+    ],
+    [
+     "crouch_1",
+     20
+    ],
+    [
+     "crouch_2",
+     32
+    ]
+   ]
+  },
+  "28_FLN_Hit_KO": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "29_FLN_Stand_Block_Transition": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "30_FLN_Stand_Block": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "31_FLN_Stand_Blockstun": {
+   "keys": [
+    [
+     "block_st",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_st",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_st",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_st",
+     7
+    ]
+   ]
+  },
+  "32_FLN_Crouch_Block_Transition": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "33_FLN_Crouch_Block": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "34_FLN_Crouch_Blockstun": {
+   "keys": [
+    [
+     "block_cr",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_cr",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_cr",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_cr",
+     7
+    ]
+   ]
+  },
+  "35_FLN_Air_Block_Transition": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "36_FLN_Air_Block": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "37_FLN_Air_Blockstun": {
+   "keys": [
+    [
+     "block_air",
+     0,
+     {
+      "dx": -6,
+      "rot": 3
+     }
+    ],
+    [
+     "block_air",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "block_air",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "block_air",
+     7
+    ]
+   ]
+  },
+  "48_FLN_5A": {
+   "keys": [
+    [
+     "5a_1",
+     0
+    ],
+    [
+     "5a_2",
+     5
+    ],
+    [
+     "5a_3",
+     11
+    ]
+   ]
+  },
+  "49_FLN_5B": {
+   "keys": [
+    [
+     "5b_1",
+     0
+    ],
+    [
+     "5b_2",
+     8
+    ],
+    [
+     "5b_3",
+     18
+    ]
+   ]
+  },
+  "50_FLN_5C": {
+   "keys": [
+    [
+     "5c_1",
+     0
+    ],
+    [
+     "5c_2",
+     13,
+     {
+      "fx": "fx_5c",
+      "fx_always": true
+     }
+    ],
+    [
+     "5c_2",
+     18
+    ],
+    [
+     "5c_3",
+     21
+    ]
+   ]
+  },
+  "51_FLN_2A": {
+   "keys": [
+    [
+     "2a_1",
+     0
+    ],
+    [
+     "2a_2",
+     5
+    ],
+    [
+     "2a_3",
+     10
+    ]
+   ]
+  },
+  "52_FLN_2B": {
+   "keys": [
+    [
+     "2b_1",
+     0
+    ],
+    [
+     "2b_2",
+     7
+    ],
+    [
+     "2b_3",
+     13
+    ]
+   ]
+  },
+  "53_FLN_2C": {
+   "keys": [
+    [
+     "2c_1",
+     0
+    ],
+    [
+     "2c_2",
+     9
+    ],
+    [
+     "2c_3",
+     25
+    ]
+   ],
+   "afterimages": false
+  },
+  "54_FLN_j5A": {
+   "keys": [
+    [
+     "ja_1",
+     0
+    ],
+    [
+     "ja_2",
+     4
+    ],
+    [
+     "ja_3",
+     10
+    ]
+   ]
+  },
+  "55_FLN_j5B": {
+   "keys": [
+    [
+     "jb_1",
+     0
+    ],
+    [
+     "jb_2",
+     6
+    ],
+    [
+     "jb_3",
+     12
+    ]
+   ]
+  },
+  "56_FLN_j5C": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     9
+    ],
+    [
+     "jc_3",
+     18
+    ]
+   ]
+  },
+  "57_FLN_6C": {
+   "keys": [
+    [
+     "6c_1",
+     0
+    ],
+    [
+     "6c_2",
+     16
+    ],
+    [
+     "6c_3",
+     26
+    ]
+   ],
+   "duration": 38,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "8_Hitbox_6C_0"
+    ],
+    [
+     6,
+     0,
+     "8_Hitbox_6C_1"
+    ],
+    [
+     16,
+     1,
+     "8_Hitbox_6C_2"
+    ],
+    [
+     20,
+     2,
+     "8_Hitbox_6C_3"
+    ],
+    [
+     26,
+     2,
+     "8_Hitbox_6C_4"
+    ]
+   ]
+  },
+  "100_FLN_Intro": {
+   "keys": [
+    [
+     "idle_base",
+     0
+    ],
+    [
+     "6c_1",
+     34
+    ],
+    [
+     "6c_2",
+     42
+    ],
+    [
+     "6c_3",
+     74
+    ],
+    [
+     "idle_base",
+     90
+    ]
+   ]
+  },
+  "101_FLN_Outro": {
+   "keys": [
+    [
+     "victory",
+     0
+    ]
+   ]
+  },
+  "200_FLN_Recovery_Backwards": {
+   "keys": [
+    [
+     "roll_air",
+     0
+    ],
+    [
+     "roll_air",
+     5,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "roll_air",
+     10,
+     {
+      "rot": 180
+     }
+    ],
+    [
+     "roll_air",
+     15,
+     {
+      "rot": 270
+     }
+    ]
+   ]
+  },
+  "200_FLN_Recovery_Forward": {
+   "keys": [
+    [
+     "roll_air",
+     0
+    ],
+    [
+     "roll_air",
+     5,
+     {
+      "rot": -90
+     }
+    ],
+    [
+     "roll_air",
+     10,
+     {
+      "rot": -180
+     }
+    ],
+    [
+     "roll_air",
+     15,
+     {
+      "rot": -270
+     }
+    ]
+   ]
+  },
+  "200_FLN_Recovery_Neutral": {
+   "keys": [
+    [
+     "jump_fall",
+     0
+    ]
+   ]
+  },
+  "1000_FLN_Cancel": {
+   "keys": [
+    [
+     "s1_w1",
+     0
+    ],
+    [
+     "s1_w2",
+     4
+    ],
+    [
+     "s1_w3",
+     8
+    ]
+   ]
+  },
+  "1001_FLN_Burst": {
+   "keys": [
+    [
+     "6c_1",
+     0
+    ],
+    [
+     "6c_2",
+     4,
+     {
+      "fx": "fx_burst",
+      "fx_always": true
+     }
+    ],
+    [
+     "6c_2",
+     24
+    ],
+    [
+     "6c_3",
+     34
+    ]
+   ]
+  },
+  "FLN_Breakthrough": {
+   "keys": [
+    [
+     "5b_1",
+     0
+    ],
+    [
+     "5b_2",
+     8
+    ],
+    [
+     "5b_3",
+     18
+    ]
+   ]
+  },
+  "FLN_AssistCall": {
+   "keys": [
+    [
+     "victory",
+     0
+    ]
+   ],
+   "duration": 30,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "FLN_Hitbox_AssistCall_0"
+    ]
+   ]
+  },
+  "105_FLN_S2_charge": {
+   "keys": [
+    [
+     "s2_w1",
+     0
+    ],
+    [
+     "s2_w2",
+     5
+    ],
+    [
+     "s2_w3",
+     10
+    ]
+   ],
+   "duration": 15,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "49_Hitbox_BigBangCrash_Charge_0"
+    ]
+   ]
+  },
+  "106_FLN_S2_top": {
+   "keys": [
+    [
+     "s2_load",
+     0
+    ],
+    [
+     "s2_down",
+     10
+    ]
+   ],
+   "duration": 90,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "48_Hitbox_BigBangCrash_Slam_0"
+    ],
+    [
+     10,
+     1,
+     "48_Hitbox_BigBangCrash_Slam_1"
+    ],
+    [
+     12,
+     2,
+     "48_Hitbox_BigBangCrash_Slam_2"
+    ]
+   ]
+  }
+ },
+ "hitfit": {
+  "skip": [
+   "-1_Hitbox_CollisionOnly",
+   "-2_Hitbox_CollisionOnly_Low",
+   "100_Hitbox_Burst",
+   "100_Hitbox_Cancel",
+   "FLN_Hitbox_Invincible",
+   "FLN_Hitbox_Breakthrough_nhb2",
+   "18_Hitbox_Grab_stUp",
+   "19_Hitbox_Grab"
+  ],
+  "split": {
+   "3_Hitbox_FDash": {
+    "3_Hitbox_AirDash": [
+     "12_FLN_AirDashFw",
+     "13_FLN_AirDashDir"
+    ]
+   },
+   "4_Hitbox_BDash": {
+    "4_Hitbox_AirDashBw": [
+     "14_FLN_AirDashBw"
+    ]
+   },
+   "0_Hitbox_Horizontal": {
+    "0_Hitbox_Lying": [
+     "23_FLN_Hit_Down"
+    ]
+   },
+   "0_Hitbox_Basic": {
+    "0_Hitbox_Lying": [
+     "22_FLN_Hit_Knockdown1",
+     "22_FLN_Hit_Knockdown2",
+     "22_FLN_Hit_Knockdown3"
+    ]
+   }
+  },
+  "fit_from": {
+   "0_Hitbox_Basic": [
+    "0_FLN_Neutral",
+    0
+   ],
+   "1_Hitbox_Crouch": [
+    "7_FLN_Crouching",
+    0
+   ],
+   "3_Hitbox_FDash": [
+    "9_FLN_DashFw",
+    5
+   ],
+   "3_Hitbox_AirDash": [
+    "12_FLN_AirDashFw",
+    8
+   ],
+   "4_Hitbox_AirDashBw": [
+    "14_FLN_AirDashBw",
+    8
+   ],
+   "0_Hitbox_Lying": [
+    "23_FLN_Hit_Down",
+    0
+   ],
+   "2_Hitbox_Jump": [
+    "4_FLN_Falling",
+    0
+   ]
+  },
+  "attack_part": {
+   "53_FLN_2C": "edge",
+   "55_FLN_j5B": "edge",
+   "57_FLN_6C": "top",
+   "92_FLN_S1": "edge",
+   "94_FLN_S2": "top",
+   "81_FLN_214A": "auto",
+   "97_FLN_S2_boom": "trail_all"
+  },
+  "min_fx": 400,
+  "boxes": {
+   "45_Hitbox_BigBangCrash_1": {
+    "attack": [
+     [
+      -20,
+      60,
+      330,
+      700
+     ]
+    ]
+   },
+   "46_Hitbox_BigBangCrash_Rise_1": {
+    "attack": [
+     [
+      60,
+      120,
+      420,
+      820
+     ]
+    ]
+   },
+   "46_Hitbox_BigBangCrash_Rise_3": {
+    "attack": [
+     [
+      60,
+      120,
+      420,
+      820
+     ]
+    ]
+   },
+   "46_Hitbox_BigBangCrash_Rise_5": {
+    "attack": [
+     [
+      60,
+      120,
+      420,
+      820
+     ]
+    ]
+   },
+   "48_Hitbox_BigBangCrash_Slam_1": {
+    "attack": [
+     [
+      -40,
+      -480,
+      330,
+      150
+     ]
+    ]
+   },
+   "8_Hitbox_6C_2": {
+    "attack": [
+     [
+      25,
+      110,
+      355,
+      510
+     ]
+    ]
+   }
+  },
+  "fresh_size": true
+ },
+ "artwork": {
+  "name": "Flan",
+  "cutin_ex": "Flan_All_Sprites/12_EX_Cut_In/Flan_EX_Cut_In.png"
+ }
+}

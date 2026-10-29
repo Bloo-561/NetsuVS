@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://bhswwj8yfqw0a"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="1"]
+[ext_resource type="Resource" uid="uid://0hjug2tp3uy3" path="res://actors/noah/projectiles/States/0_NOX_Hidden.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bg8uyq7qqx8h6" path="res://actors/noah/projectiles/States/1_NOX_Push.tres" id="3"]
+[ext_resource type="Resource" path="res://actors/noah/projectiles/States/2_NOX_Burst.tres" id="4"]
+
+[resource]
+script = ExtResource("1")
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4")]
+BaseAttack = 100
+BaseDefense = 100

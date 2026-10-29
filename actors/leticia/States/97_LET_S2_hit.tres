@@ -1,0 +1,1508 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://1nma6l058o5y"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bf7nwb3tg37bi" path="res://actors/leticia/AnimationData/97_LET_S2_hit_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="8"]
+[ext_resource type="Script" uid="uid://bfayujh0d4o3n" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuOrbitAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="10"]
+[ext_resource type="Script" uid="uid://bai1jwcnpy2jc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="11"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="12"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="13"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="14"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("8")
+Velocity = 0
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("9")
+Offset = Vector2i(12000, 0)
+Start = true
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("3")
+Actions = [SubResource("s4"), SubResource("s5"), SubResource("s6"), SubResource("s7")]
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("10")
+MinFrame = 0
+MaxFrame = 103
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("11")
+Offset = Vector2i(26000, 24000)
+LiftRate = 110
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("3")
+Conditions = [SubResource("s9")]
+Actions = [SubResource("s10")]
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("12")
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("9")
+Offset = Vector2i(12224, 28)
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("3")
+Conditions = [SubResource("s12")]
+Actions = [SubResource("s13")]
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("12")
+Frame = 1
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("9")
+Offset = Vector2i(12832, 104)
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("3")
+Conditions = [SubResource("s15")]
+Actions = [SubResource("s16")]
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("12")
+Frame = 2
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("9")
+Offset = Vector2i(13728, 216)
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("3")
+Conditions = [SubResource("s18")]
+Actions = [SubResource("s19")]
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("12")
+Frame = 3
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("9")
+Offset = Vector2i(14816, 352)
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("3")
+Conditions = [SubResource("s21")]
+Actions = [SubResource("s22")]
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("12")
+Frame = 4
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("9")
+Offset = Vector2i(16000, 500)
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("3")
+Conditions = [SubResource("s24")]
+Actions = [SubResource("s25")]
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("12")
+Frame = 5
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("9")
+Offset = Vector2i(17184, 648)
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("3")
+Conditions = [SubResource("s27")]
+Actions = [SubResource("s28")]
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("12")
+Frame = 6
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("9")
+Offset = Vector2i(18272, 784)
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("3")
+Conditions = [SubResource("s30")]
+Actions = [SubResource("s31")]
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("12")
+Frame = 7
+
+[sub_resource type="Resource" id="s34"]
+script = ExtResource("9")
+Offset = Vector2i(19168, 896)
+
+[sub_resource type="Resource" id="s35"]
+script = ExtResource("3")
+Conditions = [SubResource("s33")]
+Actions = [SubResource("s34")]
+
+[sub_resource type="Resource" id="s36"]
+script = ExtResource("12")
+Frame = 8
+
+[sub_resource type="Resource" id="s37"]
+script = ExtResource("9")
+Offset = Vector2i(19776, 972)
+
+[sub_resource type="Resource" id="s38"]
+script = ExtResource("3")
+Conditions = [SubResource("s36")]
+Actions = [SubResource("s37")]
+
+[sub_resource type="Resource" id="s39"]
+script = ExtResource("12")
+Frame = 9
+
+[sub_resource type="Resource" id="s40"]
+script = ExtResource("9")
+Offset = Vector2i(20000, 1000)
+
+[sub_resource type="Resource" id="s41"]
+script = ExtResource("3")
+Conditions = [SubResource("s39")]
+Actions = [SubResource("s40")]
+
+[sub_resource type="Resource" id="s42"]
+script = ExtResource("12")
+Frame = 10
+
+[sub_resource type="Resource" id="s43"]
+script = ExtResource("9")
+Offset = Vector2i(19829, 2958)
+
+[sub_resource type="Resource" id="s44"]
+script = ExtResource("3")
+Conditions = [SubResource("s42")]
+Actions = [SubResource("s43")]
+
+[sub_resource type="Resource" id="s45"]
+script = ExtResource("12")
+Frame = 11
+
+[sub_resource type="Resource" id="s46"]
+script = ExtResource("9")
+Offset = Vector2i(19319, 4882)
+
+[sub_resource type="Resource" id="s47"]
+script = ExtResource("3")
+Conditions = [SubResource("s45")]
+Actions = [SubResource("s46")]
+
+[sub_resource type="Resource" id="s48"]
+script = ExtResource("12")
+Frame = 12
+
+[sub_resource type="Resource" id="s49"]
+script = ExtResource("9")
+Offset = Vector2i(18478, 6740)
+
+[sub_resource type="Resource" id="s50"]
+script = ExtResource("3")
+Conditions = [SubResource("s48")]
+Actions = [SubResource("s49")]
+
+[sub_resource type="Resource" id="s51"]
+script = ExtResource("12")
+Frame = 13
+
+[sub_resource type="Resource" id="s52"]
+script = ExtResource("9")
+Offset = Vector2i(17321, 8500)
+
+[sub_resource type="Resource" id="s53"]
+script = ExtResource("3")
+Conditions = [SubResource("s51")]
+Actions = [SubResource("s52")]
+
+[sub_resource type="Resource" id="s54"]
+script = ExtResource("12")
+Frame = 14
+
+[sub_resource type="Resource" id="s55"]
+script = ExtResource("9")
+Offset = Vector2i(15867, 10131)
+
+[sub_resource type="Resource" id="s56"]
+script = ExtResource("3")
+Conditions = [SubResource("s54")]
+Actions = [SubResource("s55")]
+
+[sub_resource type="Resource" id="s57"]
+script = ExtResource("12")
+Frame = 15
+
+[sub_resource type="Resource" id="s58"]
+script = ExtResource("9")
+Offset = Vector2i(14142, 11607)
+
+[sub_resource type="Resource" id="s59"]
+script = ExtResource("3")
+Conditions = [SubResource("s57")]
+Actions = [SubResource("s58")]
+
+[sub_resource type="Resource" id="s60"]
+script = ExtResource("12")
+Frame = 16
+
+[sub_resource type="Resource" id="s61"]
+script = ExtResource("9")
+Offset = Vector2i(12175, 12900)
+
+[sub_resource type="Resource" id="s62"]
+script = ExtResource("3")
+Conditions = [SubResource("s60")]
+Actions = [SubResource("s61")]
+
+[sub_resource type="Resource" id="s63"]
+script = ExtResource("12")
+Frame = 17
+
+[sub_resource type="Resource" id="s64"]
+script = ExtResource("9")
+Offset = Vector2i(10000, 13990)
+
+[sub_resource type="Resource" id="s65"]
+script = ExtResource("3")
+Conditions = [SubResource("s63")]
+Actions = [SubResource("s64")]
+
+[sub_resource type="Resource" id="s66"]
+script = ExtResource("12")
+Frame = 18
+
+[sub_resource type="Resource" id="s67"]
+script = ExtResource("9")
+Offset = Vector2i(7654, 14858)
+
+[sub_resource type="Resource" id="s68"]
+script = ExtResource("3")
+Conditions = [SubResource("s66")]
+Actions = [SubResource("s67")]
+
+[sub_resource type="Resource" id="s69"]
+script = ExtResource("12")
+Frame = 19
+
+[sub_resource type="Resource" id="s70"]
+script = ExtResource("9")
+Offset = Vector2i(5176, 15489)
+
+[sub_resource type="Resource" id="s71"]
+script = ExtResource("3")
+Conditions = [SubResource("s69")]
+Actions = [SubResource("s70")]
+
+[sub_resource type="Resource" id="s72"]
+script = ExtResource("12")
+Frame = 20
+
+[sub_resource type="Resource" id="s73"]
+script = ExtResource("9")
+Offset = Vector2i(2611, 15872)
+
+[sub_resource type="Resource" id="s74"]
+script = ExtResource("3")
+Conditions = [SubResource("s72")]
+Actions = [SubResource("s73")]
+
+[sub_resource type="Resource" id="s75"]
+script = ExtResource("12")
+Frame = 21
+
+[sub_resource type="Resource" id="s76"]
+script = ExtResource("9")
+Offset = Vector2i(0, 16000)
+
+[sub_resource type="Resource" id="s77"]
+script = ExtResource("3")
+Conditions = [SubResource("s75")]
+Actions = [SubResource("s76")]
+
+[sub_resource type="Resource" id="s78"]
+script = ExtResource("12")
+Frame = 22
+
+[sub_resource type="Resource" id="s79"]
+script = ExtResource("9")
+Offset = Vector2i(-2611, 15872)
+
+[sub_resource type="Resource" id="s80"]
+script = ExtResource("3")
+Conditions = [SubResource("s78")]
+Actions = [SubResource("s79")]
+
+[sub_resource type="Resource" id="s81"]
+script = ExtResource("12")
+Frame = 23
+
+[sub_resource type="Resource" id="s82"]
+script = ExtResource("9")
+Offset = Vector2i(-5176, 15489)
+
+[sub_resource type="Resource" id="s83"]
+script = ExtResource("3")
+Conditions = [SubResource("s81")]
+Actions = [SubResource("s82")]
+
+[sub_resource type="Resource" id="s84"]
+script = ExtResource("12")
+Frame = 24
+
+[sub_resource type="Resource" id="s85"]
+script = ExtResource("9")
+Offset = Vector2i(-7654, 14858)
+
+[sub_resource type="Resource" id="s86"]
+script = ExtResource("3")
+Conditions = [SubResource("s84")]
+Actions = [SubResource("s85")]
+
+[sub_resource type="Resource" id="s87"]
+script = ExtResource("12")
+Frame = 25
+
+[sub_resource type="Resource" id="s88"]
+script = ExtResource("9")
+Offset = Vector2i(-10000, 13990)
+
+[sub_resource type="Resource" id="s89"]
+script = ExtResource("3")
+Conditions = [SubResource("s87")]
+Actions = [SubResource("s88")]
+
+[sub_resource type="Resource" id="s90"]
+script = ExtResource("12")
+Frame = 26
+
+[sub_resource type="Resource" id="s91"]
+script = ExtResource("9")
+Offset = Vector2i(-12175, 12900)
+
+[sub_resource type="Resource" id="s92"]
+script = ExtResource("3")
+Conditions = [SubResource("s90")]
+Actions = [SubResource("s91")]
+
+[sub_resource type="Resource" id="s93"]
+script = ExtResource("12")
+Frame = 27
+
+[sub_resource type="Resource" id="s94"]
+script = ExtResource("9")
+Offset = Vector2i(-14142, 11607)
+
+[sub_resource type="Resource" id="s95"]
+script = ExtResource("3")
+Conditions = [SubResource("s93")]
+Actions = [SubResource("s94")]
+
+[sub_resource type="Resource" id="s96"]
+script = ExtResource("12")
+Frame = 28
+
+[sub_resource type="Resource" id="s97"]
+script = ExtResource("9")
+Offset = Vector2i(-15867, 10131)
+
+[sub_resource type="Resource" id="s98"]
+script = ExtResource("3")
+Conditions = [SubResource("s96")]
+Actions = [SubResource("s97")]
+
+[sub_resource type="Resource" id="s99"]
+script = ExtResource("12")
+Frame = 29
+
+[sub_resource type="Resource" id="s100"]
+script = ExtResource("9")
+Offset = Vector2i(-17321, 8500)
+
+[sub_resource type="Resource" id="s101"]
+script = ExtResource("3")
+Conditions = [SubResource("s99")]
+Actions = [SubResource("s100")]
+
+[sub_resource type="Resource" id="s102"]
+script = ExtResource("12")
+Frame = 30
+
+[sub_resource type="Resource" id="s103"]
+script = ExtResource("9")
+Offset = Vector2i(-18478, 6740)
+
+[sub_resource type="Resource" id="s104"]
+script = ExtResource("3")
+Conditions = [SubResource("s102")]
+Actions = [SubResource("s103")]
+
+[sub_resource type="Resource" id="s105"]
+script = ExtResource("12")
+Frame = 31
+
+[sub_resource type="Resource" id="s106"]
+script = ExtResource("9")
+Offset = Vector2i(-19319, 4882)
+
+[sub_resource type="Resource" id="s107"]
+script = ExtResource("3")
+Conditions = [SubResource("s105")]
+Actions = [SubResource("s106")]
+
+[sub_resource type="Resource" id="s108"]
+script = ExtResource("12")
+Frame = 32
+
+[sub_resource type="Resource" id="s109"]
+script = ExtResource("9")
+Offset = Vector2i(-19829, 2958)
+
+[sub_resource type="Resource" id="s110"]
+script = ExtResource("3")
+Conditions = [SubResource("s108")]
+Actions = [SubResource("s109")]
+
+[sub_resource type="Resource" id="s111"]
+script = ExtResource("12")
+Frame = 33
+
+[sub_resource type="Resource" id="s112"]
+script = ExtResource("9")
+Offset = Vector2i(-20000, 1000)
+
+[sub_resource type="Resource" id="s113"]
+script = ExtResource("3")
+Conditions = [SubResource("s111")]
+Actions = [SubResource("s112")]
+
+[sub_resource type="Resource" id="s114"]
+script = ExtResource("12")
+Frame = 34
+
+[sub_resource type="Resource" id="s115"]
+script = ExtResource("9")
+Offset = Vector2i(-19829, -958)
+
+[sub_resource type="Resource" id="s116"]
+script = ExtResource("3")
+Conditions = [SubResource("s114")]
+Actions = [SubResource("s115")]
+
+[sub_resource type="Resource" id="s117"]
+script = ExtResource("12")
+Frame = 35
+
+[sub_resource type="Resource" id="s118"]
+script = ExtResource("9")
+Offset = Vector2i(-19319, -2882)
+
+[sub_resource type="Resource" id="s119"]
+script = ExtResource("3")
+Conditions = [SubResource("s117")]
+Actions = [SubResource("s118")]
+
+[sub_resource type="Resource" id="s120"]
+script = ExtResource("12")
+Frame = 36
+
+[sub_resource type="Resource" id="s121"]
+script = ExtResource("9")
+Offset = Vector2i(-18478, -4740)
+
+[sub_resource type="Resource" id="s122"]
+script = ExtResource("3")
+Conditions = [SubResource("s120")]
+Actions = [SubResource("s121")]
+
+[sub_resource type="Resource" id="s123"]
+script = ExtResource("12")
+Frame = 37
+
+[sub_resource type="Resource" id="s124"]
+script = ExtResource("9")
+Offset = Vector2i(-17321, -6500)
+
+[sub_resource type="Resource" id="s125"]
+script = ExtResource("3")
+Conditions = [SubResource("s123")]
+Actions = [SubResource("s124")]
+
+[sub_resource type="Resource" id="s126"]
+script = ExtResource("12")
+Frame = 38
+
+[sub_resource type="Resource" id="s127"]
+script = ExtResource("9")
+Offset = Vector2i(-15867, -8131)
+
+[sub_resource type="Resource" id="s128"]
+script = ExtResource("3")
+Conditions = [SubResource("s126")]
+Actions = [SubResource("s127")]
+
+[sub_resource type="Resource" id="s129"]
+script = ExtResource("12")
+Frame = 39
+
+[sub_resource type="Resource" id="s130"]
+script = ExtResource("9")
+Offset = Vector2i(-14142, -9607)
+
+[sub_resource type="Resource" id="s131"]
+script = ExtResource("3")
+Conditions = [SubResource("s129")]
+Actions = [SubResource("s130")]
+
+[sub_resource type="Resource" id="s132"]
+script = ExtResource("12")
+Frame = 40
+
+[sub_resource type="Resource" id="s133"]
+script = ExtResource("9")
+Offset = Vector2i(-12175, -10900)
+
+[sub_resource type="Resource" id="s134"]
+script = ExtResource("3")
+Conditions = [SubResource("s132")]
+Actions = [SubResource("s133")]
+
+[sub_resource type="Resource" id="s135"]
+script = ExtResource("12")
+Frame = 41
+
+[sub_resource type="Resource" id="s136"]
+script = ExtResource("9")
+Offset = Vector2i(-10000, -11990)
+
+[sub_resource type="Resource" id="s137"]
+script = ExtResource("3")
+Conditions = [SubResource("s135")]
+Actions = [SubResource("s136")]
+
+[sub_resource type="Resource" id="s138"]
+script = ExtResource("12")
+Frame = 42
+
+[sub_resource type="Resource" id="s139"]
+script = ExtResource("9")
+Offset = Vector2i(-7654, -12858)
+
+[sub_resource type="Resource" id="s140"]
+script = ExtResource("3")
+Conditions = [SubResource("s138")]
+Actions = [SubResource("s139")]
+
+[sub_resource type="Resource" id="s141"]
+script = ExtResource("12")
+Frame = 43
+
+[sub_resource type="Resource" id="s142"]
+script = ExtResource("9")
+Offset = Vector2i(-5176, -13489)
+
+[sub_resource type="Resource" id="s143"]
+script = ExtResource("3")
+Conditions = [SubResource("s141")]
+Actions = [SubResource("s142")]
+
+[sub_resource type="Resource" id="s144"]
+script = ExtResource("12")
+Frame = 44
+
+[sub_resource type="Resource" id="s145"]
+script = ExtResource("9")
+Offset = Vector2i(-2611, -13872)
+
+[sub_resource type="Resource" id="s146"]
+script = ExtResource("3")
+Conditions = [SubResource("s144")]
+Actions = [SubResource("s145")]
+
+[sub_resource type="Resource" id="s147"]
+script = ExtResource("12")
+Frame = 45
+
+[sub_resource type="Resource" id="s148"]
+script = ExtResource("9")
+Offset = Vector2i(0, -14000)
+
+[sub_resource type="Resource" id="s149"]
+script = ExtResource("3")
+Conditions = [SubResource("s147")]
+Actions = [SubResource("s148")]
+
+[sub_resource type="Resource" id="s150"]
+script = ExtResource("12")
+Frame = 46
+
+[sub_resource type="Resource" id="s151"]
+script = ExtResource("9")
+Offset = Vector2i(2611, -13872)
+
+[sub_resource type="Resource" id="s152"]
+script = ExtResource("3")
+Conditions = [SubResource("s150")]
+Actions = [SubResource("s151")]
+
+[sub_resource type="Resource" id="s153"]
+script = ExtResource("12")
+Frame = 47
+
+[sub_resource type="Resource" id="s154"]
+script = ExtResource("9")
+Offset = Vector2i(5176, -13489)
+
+[sub_resource type="Resource" id="s155"]
+script = ExtResource("3")
+Conditions = [SubResource("s153")]
+Actions = [SubResource("s154")]
+
+[sub_resource type="Resource" id="s156"]
+script = ExtResource("12")
+Frame = 48
+
+[sub_resource type="Resource" id="s157"]
+script = ExtResource("9")
+Offset = Vector2i(7654, -12858)
+
+[sub_resource type="Resource" id="s158"]
+script = ExtResource("3")
+Conditions = [SubResource("s156")]
+Actions = [SubResource("s157")]
+
+[sub_resource type="Resource" id="s159"]
+script = ExtResource("12")
+Frame = 49
+
+[sub_resource type="Resource" id="s160"]
+script = ExtResource("9")
+Offset = Vector2i(10000, -11990)
+
+[sub_resource type="Resource" id="s161"]
+script = ExtResource("3")
+Conditions = [SubResource("s159")]
+Actions = [SubResource("s160")]
+
+[sub_resource type="Resource" id="s162"]
+script = ExtResource("12")
+Frame = 50
+
+[sub_resource type="Resource" id="s163"]
+script = ExtResource("9")
+Offset = Vector2i(12175, -10900)
+
+[sub_resource type="Resource" id="s164"]
+script = ExtResource("3")
+Conditions = [SubResource("s162")]
+Actions = [SubResource("s163")]
+
+[sub_resource type="Resource" id="s165"]
+script = ExtResource("12")
+Frame = 51
+
+[sub_resource type="Resource" id="s166"]
+script = ExtResource("9")
+Offset = Vector2i(14142, -9607)
+
+[sub_resource type="Resource" id="s167"]
+script = ExtResource("3")
+Conditions = [SubResource("s165")]
+Actions = [SubResource("s166")]
+
+[sub_resource type="Resource" id="s168"]
+script = ExtResource("12")
+Frame = 52
+
+[sub_resource type="Resource" id="s169"]
+script = ExtResource("9")
+Offset = Vector2i(15867, -8131)
+
+[sub_resource type="Resource" id="s170"]
+script = ExtResource("3")
+Conditions = [SubResource("s168")]
+Actions = [SubResource("s169")]
+
+[sub_resource type="Resource" id="s171"]
+script = ExtResource("12")
+Frame = 53
+
+[sub_resource type="Resource" id="s172"]
+script = ExtResource("9")
+Offset = Vector2i(17321, -6500)
+
+[sub_resource type="Resource" id="s173"]
+script = ExtResource("3")
+Conditions = [SubResource("s171")]
+Actions = [SubResource("s172")]
+
+[sub_resource type="Resource" id="s174"]
+script = ExtResource("12")
+Frame = 54
+
+[sub_resource type="Resource" id="s175"]
+script = ExtResource("9")
+Offset = Vector2i(18478, -4740)
+
+[sub_resource type="Resource" id="s176"]
+script = ExtResource("3")
+Conditions = [SubResource("s174")]
+Actions = [SubResource("s175")]
+
+[sub_resource type="Resource" id="s177"]
+script = ExtResource("12")
+Frame = 55
+
+[sub_resource type="Resource" id="s178"]
+script = ExtResource("9")
+Offset = Vector2i(19319, -2882)
+
+[sub_resource type="Resource" id="s179"]
+script = ExtResource("3")
+Conditions = [SubResource("s177")]
+Actions = [SubResource("s178")]
+
+[sub_resource type="Resource" id="s180"]
+script = ExtResource("12")
+Frame = 56
+
+[sub_resource type="Resource" id="s181"]
+script = ExtResource("9")
+Offset = Vector2i(19829, -958)
+
+[sub_resource type="Resource" id="s182"]
+script = ExtResource("3")
+Conditions = [SubResource("s180")]
+Actions = [SubResource("s181")]
+
+[sub_resource type="Resource" id="s183"]
+script = ExtResource("12")
+Frame = 57
+
+[sub_resource type="Resource" id="s184"]
+script = ExtResource("9")
+Offset = Vector2i(20000, 1000)
+
+[sub_resource type="Resource" id="s185"]
+script = ExtResource("3")
+Conditions = [SubResource("s183")]
+Actions = [SubResource("s184")]
+
+[sub_resource type="Resource" id="s186"]
+script = ExtResource("12")
+Frame = 58
+
+[sub_resource type="Resource" id="s187"]
+script = ExtResource("9")
+Offset = Vector2i(19829, 2958)
+
+[sub_resource type="Resource" id="s188"]
+script = ExtResource("3")
+Conditions = [SubResource("s186")]
+Actions = [SubResource("s187")]
+
+[sub_resource type="Resource" id="s189"]
+script = ExtResource("12")
+Frame = 59
+
+[sub_resource type="Resource" id="s190"]
+script = ExtResource("9")
+Offset = Vector2i(19319, 4882)
+
+[sub_resource type="Resource" id="s191"]
+script = ExtResource("3")
+Conditions = [SubResource("s189")]
+Actions = [SubResource("s190")]
+
+[sub_resource type="Resource" id="s192"]
+script = ExtResource("12")
+Frame = 60
+
+[sub_resource type="Resource" id="s193"]
+script = ExtResource("9")
+Offset = Vector2i(18478, 6740)
+
+[sub_resource type="Resource" id="s194"]
+script = ExtResource("3")
+Conditions = [SubResource("s192")]
+Actions = [SubResource("s193")]
+
+[sub_resource type="Resource" id="s195"]
+script = ExtResource("12")
+Frame = 61
+
+[sub_resource type="Resource" id="s196"]
+script = ExtResource("9")
+Offset = Vector2i(17321, 8500)
+
+[sub_resource type="Resource" id="s197"]
+script = ExtResource("3")
+Conditions = [SubResource("s195")]
+Actions = [SubResource("s196")]
+
+[sub_resource type="Resource" id="s198"]
+script = ExtResource("12")
+Frame = 62
+
+[sub_resource type="Resource" id="s199"]
+script = ExtResource("9")
+Offset = Vector2i(15867, 10131)
+
+[sub_resource type="Resource" id="s200"]
+script = ExtResource("3")
+Conditions = [SubResource("s198")]
+Actions = [SubResource("s199")]
+
+[sub_resource type="Resource" id="s201"]
+script = ExtResource("12")
+Frame = 63
+
+[sub_resource type="Resource" id="s202"]
+script = ExtResource("9")
+Offset = Vector2i(14142, 11607)
+
+[sub_resource type="Resource" id="s203"]
+script = ExtResource("3")
+Conditions = [SubResource("s201")]
+Actions = [SubResource("s202")]
+
+[sub_resource type="Resource" id="s204"]
+script = ExtResource("12")
+Frame = 64
+
+[sub_resource type="Resource" id="s205"]
+script = ExtResource("9")
+Offset = Vector2i(12175, 12900)
+
+[sub_resource type="Resource" id="s206"]
+script = ExtResource("3")
+Conditions = [SubResource("s204")]
+Actions = [SubResource("s205")]
+
+[sub_resource type="Resource" id="s207"]
+script = ExtResource("12")
+Frame = 65
+
+[sub_resource type="Resource" id="s208"]
+script = ExtResource("9")
+Offset = Vector2i(10000, 13990)
+
+[sub_resource type="Resource" id="s209"]
+script = ExtResource("3")
+Conditions = [SubResource("s207")]
+Actions = [SubResource("s208")]
+
+[sub_resource type="Resource" id="s210"]
+script = ExtResource("12")
+Frame = 66
+
+[sub_resource type="Resource" id="s211"]
+script = ExtResource("9")
+Offset = Vector2i(7654, 14858)
+
+[sub_resource type="Resource" id="s212"]
+script = ExtResource("3")
+Conditions = [SubResource("s210")]
+Actions = [SubResource("s211")]
+
+[sub_resource type="Resource" id="s213"]
+script = ExtResource("12")
+Frame = 67
+
+[sub_resource type="Resource" id="s214"]
+script = ExtResource("9")
+Offset = Vector2i(5176, 15489)
+
+[sub_resource type="Resource" id="s215"]
+script = ExtResource("3")
+Conditions = [SubResource("s213")]
+Actions = [SubResource("s214")]
+
+[sub_resource type="Resource" id="s216"]
+script = ExtResource("12")
+Frame = 68
+
+[sub_resource type="Resource" id="s217"]
+script = ExtResource("9")
+Offset = Vector2i(2611, 15872)
+
+[sub_resource type="Resource" id="s218"]
+script = ExtResource("3")
+Conditions = [SubResource("s216")]
+Actions = [SubResource("s217")]
+
+[sub_resource type="Resource" id="s219"]
+script = ExtResource("12")
+Frame = 69
+
+[sub_resource type="Resource" id="s220"]
+script = ExtResource("9")
+Offset = Vector2i(0, 16000)
+
+[sub_resource type="Resource" id="s221"]
+script = ExtResource("3")
+Conditions = [SubResource("s219")]
+Actions = [SubResource("s220")]
+
+[sub_resource type="Resource" id="s222"]
+script = ExtResource("12")
+Frame = 70
+
+[sub_resource type="Resource" id="s223"]
+script = ExtResource("9")
+Offset = Vector2i(472, 15701)
+
+[sub_resource type="Resource" id="s224"]
+script = ExtResource("3")
+Conditions = [SubResource("s222")]
+Actions = [SubResource("s223")]
+
+[sub_resource type="Resource" id="s225"]
+script = ExtResource("12")
+Frame = 71
+
+[sub_resource type="Resource" id="s226"]
+script = ExtResource("9")
+Offset = Vector2i(1778, 14806)
+
+[sub_resource type="Resource" id="s227"]
+script = ExtResource("3")
+Conditions = [SubResource("s225")]
+Actions = [SubResource("s226")]
+
+[sub_resource type="Resource" id="s228"]
+script = ExtResource("12")
+Frame = 72
+
+[sub_resource type="Resource" id="s229"]
+script = ExtResource("9")
+Offset = Vector2i(3750, 13312)
+
+[sub_resource type="Resource" id="s230"]
+script = ExtResource("3")
+Conditions = [SubResource("s228")]
+Actions = [SubResource("s229")]
+
+[sub_resource type="Resource" id="s231"]
+script = ExtResource("12")
+Frame = 73
+
+[sub_resource type="Resource" id="s232"]
+script = ExtResource("9")
+Offset = Vector2i(6222, 11222)
+
+[sub_resource type="Resource" id="s233"]
+script = ExtResource("3")
+Conditions = [SubResource("s231")]
+Actions = [SubResource("s232")]
+
+[sub_resource type="Resource" id="s234"]
+script = ExtResource("12")
+Frame = 74
+
+[sub_resource type="Resource" id="s235"]
+script = ExtResource("9")
+Offset = Vector2i(9028, 8535)
+
+[sub_resource type="Resource" id="s236"]
+script = ExtResource("3")
+Conditions = [SubResource("s234")]
+Actions = [SubResource("s235")]
+
+[sub_resource type="Resource" id="s237"]
+script = ExtResource("12")
+Frame = 75
+
+[sub_resource type="Resource" id="s238"]
+script = ExtResource("9")
+Offset = Vector2i(12000, 5250)
+
+[sub_resource type="Resource" id="s239"]
+script = ExtResource("3")
+Conditions = [SubResource("s237")]
+Actions = [SubResource("s238")]
+
+[sub_resource type="Resource" id="s240"]
+script = ExtResource("12")
+Frame = 76
+
+[sub_resource type="Resource" id="s241"]
+script = ExtResource("9")
+Offset = Vector2i(14972, 1368)
+
+[sub_resource type="Resource" id="s242"]
+script = ExtResource("3")
+Conditions = [SubResource("s240")]
+Actions = [SubResource("s241")]
+
+[sub_resource type="Resource" id="s243"]
+script = ExtResource("12")
+Frame = 77
+
+[sub_resource type="Resource" id="s244"]
+script = ExtResource("9")
+Offset = Vector2i(17778, -3111)
+
+[sub_resource type="Resource" id="s245"]
+script = ExtResource("3")
+Conditions = [SubResource("s243")]
+Actions = [SubResource("s244")]
+
+[sub_resource type="Resource" id="s246"]
+script = ExtResource("12")
+Frame = 78
+
+[sub_resource type="Resource" id="s247"]
+script = ExtResource("9")
+Offset = Vector2i(20250, -8188)
+
+[sub_resource type="Resource" id="s248"]
+script = ExtResource("3")
+Conditions = [SubResource("s246")]
+Actions = [SubResource("s247")]
+
+[sub_resource type="Resource" id="s249"]
+script = ExtResource("12")
+Frame = 79
+
+[sub_resource type="Resource" id="s250"]
+script = ExtResource("9")
+Offset = Vector2i(22222, -13861)
+
+[sub_resource type="Resource" id="s251"]
+script = ExtResource("3")
+Conditions = [SubResource("s249")]
+Actions = [SubResource("s250")]
+
+[sub_resource type="Resource" id="s252"]
+script = ExtResource("12")
+Frame = 80
+
+[sub_resource type="Resource" id="s253"]
+script = ExtResource("9")
+Offset = Vector2i(23528, -20132)
+
+[sub_resource type="Resource" id="s254"]
+script = ExtResource("3")
+Conditions = [SubResource("s252")]
+Actions = [SubResource("s253")]
+
+[sub_resource type="Resource" id="s255"]
+script = ExtResource("12")
+Frame = 81
+
+[sub_resource type="Resource" id="s256"]
+script = ExtResource("9")
+Offset = Vector2i(24000, -27000)
+
+[sub_resource type="Resource" id="s257"]
+script = ExtResource("3")
+Conditions = [SubResource("s255")]
+Actions = [SubResource("s256")]
+
+[sub_resource type="Resource" id="s258"]
+script = ExtResource("12")
+Frame = 4
+
+[sub_resource type="Resource" id="s259"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s260"]
+script = ExtResource("3")
+Conditions = [SubResource("s258")]
+Actions = [SubResource("s259")]
+
+[sub_resource type="Resource" id="s261"]
+script = ExtResource("12")
+Frame = 14
+
+[sub_resource type="Resource" id="s262"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s263"]
+script = ExtResource("3")
+Conditions = [SubResource("s261")]
+Actions = [SubResource("s262")]
+
+[sub_resource type="Resource" id="s264"]
+script = ExtResource("12")
+Frame = 22
+
+[sub_resource type="Resource" id="s265"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s266"]
+script = ExtResource("3")
+Conditions = [SubResource("s264")]
+Actions = [SubResource("s265")]
+
+[sub_resource type="Resource" id="s267"]
+script = ExtResource("12")
+Frame = 30
+
+[sub_resource type="Resource" id="s268"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s269"]
+script = ExtResource("3")
+Conditions = [SubResource("s267")]
+Actions = [SubResource("s268")]
+
+[sub_resource type="Resource" id="s270"]
+script = ExtResource("12")
+Frame = 38
+
+[sub_resource type="Resource" id="s271"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s272"]
+script = ExtResource("3")
+Conditions = [SubResource("s270")]
+Actions = [SubResource("s271")]
+
+[sub_resource type="Resource" id="s273"]
+script = ExtResource("12")
+Frame = 46
+
+[sub_resource type="Resource" id="s274"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s275"]
+script = ExtResource("3")
+Conditions = [SubResource("s273")]
+Actions = [SubResource("s274")]
+
+[sub_resource type="Resource" id="s276"]
+script = ExtResource("12")
+Frame = 54
+
+[sub_resource type="Resource" id="s277"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s278"]
+script = ExtResource("3")
+Conditions = [SubResource("s276")]
+Actions = [SubResource("s277")]
+
+[sub_resource type="Resource" id="s279"]
+script = ExtResource("12")
+Frame = 62
+
+[sub_resource type="Resource" id="s280"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s281"]
+script = ExtResource("3")
+Conditions = [SubResource("s279")]
+Actions = [SubResource("s280")]
+
+[sub_resource type="Resource" id="s282"]
+script = ExtResource("12")
+Frame = 104
+
+[sub_resource type="Resource" id="s283"]
+script = ExtResource("13")
+
+[sub_resource type="Resource" id="s284"]
+script = ExtResource("3")
+Conditions = [SubResource("s282")]
+Actions = [SubResource("s283")]
+
+[sub_resource type="Resource" id="s285"]
+script = ExtResource("12")
+Frame = 4
+
+[sub_resource type="Resource" id="s286"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s287"]
+script = ExtResource("3")
+Conditions = [SubResource("s285")]
+Actions = [SubResource("s286")]
+
+[sub_resource type="Resource" id="s288"]
+script = ExtResource("12")
+Frame = 14
+
+[sub_resource type="Resource" id="s289"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s290"]
+script = ExtResource("3")
+Conditions = [SubResource("s288")]
+Actions = [SubResource("s289")]
+
+[sub_resource type="Resource" id="s291"]
+script = ExtResource("12")
+Frame = 22
+
+[sub_resource type="Resource" id="s292"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s293"]
+script = ExtResource("3")
+Conditions = [SubResource("s291")]
+Actions = [SubResource("s292")]
+
+[sub_resource type="Resource" id="s294"]
+script = ExtResource("12")
+Frame = 30
+
+[sub_resource type="Resource" id="s295"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s296"]
+script = ExtResource("3")
+Conditions = [SubResource("s294")]
+Actions = [SubResource("s295")]
+
+[sub_resource type="Resource" id="s297"]
+script = ExtResource("12")
+Frame = 38
+
+[sub_resource type="Resource" id="s298"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s299"]
+script = ExtResource("3")
+Conditions = [SubResource("s297")]
+Actions = [SubResource("s298")]
+
+[sub_resource type="Resource" id="s300"]
+script = ExtResource("12")
+Frame = 46
+
+[sub_resource type="Resource" id="s301"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s302"]
+script = ExtResource("3")
+Conditions = [SubResource("s300")]
+Actions = [SubResource("s301")]
+
+[sub_resource type="Resource" id="s303"]
+script = ExtResource("12")
+Frame = 54
+
+[sub_resource type="Resource" id="s304"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s305"]
+script = ExtResource("3")
+Conditions = [SubResource("s303")]
+Actions = [SubResource("s304")]
+
+[sub_resource type="Resource" id="s306"]
+script = ExtResource("12")
+Frame = 62
+
+[sub_resource type="Resource" id="s307"]
+script = ExtResource("14")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s308"]
+script = ExtResource("3")
+Conditions = [SubResource("s306")]
+Actions = [SubResource("s307")]
+
+[sub_resource type="Resource" id="s309"]
+script = ExtResource("12")
+Frame = 104
+
+[sub_resource type="Resource" id="s310"]
+script = ExtResource("14")
+Amplitude = 0.06
+Duration = 20
+
+[sub_resource type="Resource" id="s311"]
+script = ExtResource("3")
+Conditions = [SubResource("s309")]
+Actions = [SubResource("s310")]
+
+[sub_resource type="Resource" id="s312"]
+script = ExtResource("12")
+Frame = 120
+
+[sub_resource type="Resource" id="s313"]
+script = ExtResource("6")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s314"]
+script = ExtResource("3")
+Conditions = [SubResource("s312")]
+Actions = [SubResource("s313")]
+
+[sub_resource type="Resource" id="s315"]
+script = ExtResource("6")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s316"]
+script = ExtResource("3")
+Actions = [SubResource("s315")]
+
+[sub_resource type="Resource" id="sfx_0_0_play"]
+script = ExtResource("sfx_play")
+Source = 4
+Index = 74
+
+[sub_resource type="Resource" id="sfx_0_0"]
+script = ExtResource("3")
+Actions = [SubResource("sfx_0_0_play")]
+
+[sub_resource type="Resource" id="sfx_4_1_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 73
+
+[sub_resource type="Resource" id="sfx_4_1_at"]
+script = ExtResource("12")
+Frame = 4
+
+[sub_resource type="Resource" id="sfx_4_1"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_4_1_at")]
+Actions = [SubResource("sfx_4_1_play")]
+
+[sub_resource type="Resource" id="sfx_17_2_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_17_2_at"]
+script = ExtResource("12")
+Frame = 17
+
+[sub_resource type="Resource" id="sfx_17_2"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_17_2_at")]
+Actions = [SubResource("sfx_17_2_play")]
+
+[sub_resource type="Resource" id="sfx_24_3_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_24_3_at"]
+script = ExtResource("12")
+Frame = 24
+
+[sub_resource type="Resource" id="sfx_24_3"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_24_3_at")]
+Actions = [SubResource("sfx_24_3_play")]
+
+[sub_resource type="Resource" id="sfx_35_4_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_35_4_at"]
+script = ExtResource("12")
+Frame = 35
+
+[sub_resource type="Resource" id="sfx_35_4"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_35_4_at")]
+Actions = [SubResource("sfx_35_4_play")]
+
+[sub_resource type="Resource" id="sfx_42_5_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_42_5_at"]
+script = ExtResource("12")
+Frame = 42
+
+[sub_resource type="Resource" id="sfx_42_5"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_42_5_at")]
+Actions = [SubResource("sfx_42_5_play")]
+
+[sub_resource type="Resource" id="sfx_53_6_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 63
+
+[sub_resource type="Resource" id="sfx_53_6_at"]
+script = ExtResource("12")
+Frame = 53
+
+[sub_resource type="Resource" id="sfx_53_6"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_53_6_at")]
+Actions = [SubResource("sfx_53_6_play")]
+
+[sub_resource type="Resource" id="sfx_105_7_play"]
+script = ExtResource("sfx_play")
+Source = 4
+Index = 75
+
+[sub_resource type="Resource" id="sfx_105_7_at"]
+script = ExtResource("12")
+Frame = 105
+
+[sub_resource type="Resource" id="sfx_105_7"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_105_7_at")]
+Actions = [SubResource("sfx_105_7_play")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Crimson Waltz (flame prison)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = [SubResource("s8"), SubResource("sfx_0_0")]
+OnTickEvents = [SubResource("sfx_4_1"), SubResource("sfx_17_2"), SubResource("sfx_24_3"), SubResource("sfx_35_4"), SubResource("sfx_42_5"), SubResource("sfx_53_6"), SubResource("sfx_105_7"), SubResource("s11"), SubResource("s14"), SubResource("s17"), SubResource("s20"), SubResource("s23"), SubResource("s26"), SubResource("s29"), SubResource("s32"), SubResource("s35"), SubResource("s38"), SubResource("s41"), SubResource("s44"), SubResource("s47"), SubResource("s50"), SubResource("s53"), SubResource("s56"), SubResource("s59"), SubResource("s62"), SubResource("s65"), SubResource("s68"), SubResource("s71"), SubResource("s74"), SubResource("s77"), SubResource("s80"), SubResource("s83"), SubResource("s86"), SubResource("s89"), SubResource("s92"), SubResource("s95"), SubResource("s98"), SubResource("s101"), SubResource("s104"), SubResource("s107"), SubResource("s110"), SubResource("s113"), SubResource("s116"), SubResource("s119"), SubResource("s122"), SubResource("s125"), SubResource("s128"), SubResource("s131"), SubResource("s134"), SubResource("s137"), SubResource("s140"), SubResource("s143"), SubResource("s146"), SubResource("s149"), SubResource("s152"), SubResource("s155"), SubResource("s158"), SubResource("s161"), SubResource("s164"), SubResource("s167"), SubResource("s170"), SubResource("s173"), SubResource("s176"), SubResource("s179"), SubResource("s182"), SubResource("s185"), SubResource("s188"), SubResource("s191"), SubResource("s194"), SubResource("s197"), SubResource("s200"), SubResource("s203"), SubResource("s206"), SubResource("s209"), SubResource("s212"), SubResource("s215"), SubResource("s218"), SubResource("s221"), SubResource("s224"), SubResource("s227"), SubResource("s230"), SubResource("s233"), SubResource("s236"), SubResource("s239"), SubResource("s242"), SubResource("s245"), SubResource("s248"), SubResource("s251"), SubResource("s254"), SubResource("s257"), SubResource("s260"), SubResource("s263"), SubResource("s266"), SubResource("s269"), SubResource("s272"), SubResource("s275"), SubResource("s278"), SubResource("s281"), SubResource("s284"), SubResource("s287"), SubResource("s290"), SubResource("s293"), SubResource("s296"), SubResource("s299"), SubResource("s302"), SubResource("s305"), SubResource("s308"), SubResource("s311"), SubResource("s314")]
+OnExitEvents = [SubResource("s316")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+NetsuShowStage = true
+AIFlags = 4114

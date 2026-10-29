@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dyraso6pdd3ea"]
+
+[ext_resource type="Script" uid="uid://d4e1sv1gy8i8a" path="res://engine/sakuga/Components/SakugaVFX.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://1lo4r5k17f7w" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://gx5b5uro6akp" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://07xdhe1wff8c" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M5.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b6kpgos4nuwad" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M6.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b5wqfke6nvepf" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M8.png" id="6"]
+[ext_resource type="Script" uid="uid://3uu6r0mhj3p3" path="res://engine/sakuga/Components/SoundQueue.cs" id="7"]
+[ext_resource type="Texture2D" uid="uid://cwv2qd381w40t" path="res://actors/_shared/sakuga/Sprites/VFX/CaraVFX/VFX2M7.png" id="8"]
+
+[sub_resource type="Animation" id="Animation_b6bqa"]
+resource_name = "GFX"
+length = 0.30000225
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Tail:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.30000225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("8"), ExtResource("6"), null]
+}
+
+[sub_resource type="Animation" id="Animation_nv8md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Tail:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmuae"]
+_data = {
+&"GFX": SubResource("Animation_b6bqa"),
+&"RESET": SubResource("Animation_nv8md")
+}
+
+[node name="VFX" type="Node" unique_id=1269773548 node_paths=PackedStringArray("Player", "Graphics", "Sound")]
+script = ExtResource("1")
+Duration = 16
+Player = NodePath("Graphics/Visuals/AnimationPlayer")
+Graphics = NodePath("Graphics")
+AnimationName = "GFX"
+Sound = NodePath("SFX")
+metadata/_custom_type_script = "uid://d4e1sv1gy8i8a"
+
+[node name="Graphics" type="Node3D" parent="." unique_id=1795020045]
+
+[node name="Visuals" type="Node3D" parent="Graphics" unique_id=389985840]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Visuals" unique_id=1897009256]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_bmuae")
+
+[node name="Tail" type="Sprite3D" parent="Graphics/Visuals" unique_id=756038145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+layers = 2
+sorting_offset = 10.0
+pixel_size = 0.02
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=812060221]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://3uu6r0mhj3p3"

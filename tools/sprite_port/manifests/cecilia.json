@@ -1,0 +1,3946 @@
+{
+ "character": "cecilia",
+ "tag": "CEC",
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "reference": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+ "source_dirs": [
+  "Cecilia_Original_Idle_Style",
+  "Cecilia_214_and_Supers/01_214_Lightning_Dash",
+  "Cecilia_214_and_Supers/02_Counter_Super",
+  "Cecilia_214_and_Supers/03_AOE_Super_Corrected",
+  "Cecilia/13_Movement_and_Victory",
+  "Cecilia/Forward",
+  "Cecilia/Backward"
+ ],
+ "fx": "yellow",
+ "head_frac": 0.23,
+ "game": {
+  "height_px": 500,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5
+ },
+ "frames": {
+  "idle_Om3": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -8.5,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_Om2": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -7.36,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_Om1": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -4.25,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_O0": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": 0.0,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_Op1": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": 4.25,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_Op2": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": 7.36,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_Op3": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": 8.5,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ]
+  },
+  "idle_HBm3": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -8.5,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ],
+   "blink": {
+    "src": "Cecilia_Original_Idle_Style/01_Idle/04_half_blink.png",
+    "shift": [
+     9.4,
+     0.1
+    ],
+    "box": [
+     625,
+     205,
+     800,
+     295
+    ],
+    "feather": 6
+   }
+  },
+  "idle_Bm2": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -7.36,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ],
+   "blink": {
+    "src": "Cecilia_Original_Idle_Style/01_Idle/05_blink.png",
+    "shift": [
+     10.0,
+     0.3
+    ],
+    "box": [
+     625,
+     205,
+     800,
+     295
+    ],
+    "feather": 6
+   }
+  },
+  "idle_HBm2": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -7.36,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ],
+   "blink": {
+    "src": "Cecilia_Original_Idle_Style/01_Idle/04_half_blink.png",
+    "shift": [
+     9.4,
+     0.1
+    ],
+    "box": [
+     625,
+     205,
+     800,
+     295
+    ],
+    "feather": 6
+   }
+  },
+  "idle_HBm1": {
+   "src": "Cecilia_Original_Idle_Style/01_Idle/01_ready.png",
+   "anchor": "ref",
+   "breath": -4.25,
+   "breath_rows": [
+    [
+     0,
+     1.0
+    ],
+    [
+     230,
+     1.0
+    ],
+    [
+     560,
+     0.7
+    ],
+    [
+     860,
+     0.25
+    ],
+    [
+     905,
+     0.0
+    ],
+    [
+     1500,
+     0.0
+    ]
+   ],
+   "blink": {
+    "src": "Cecilia_Original_Idle_Style/01_Idle/04_half_blink.png",
+    "shift": [
+     9.4,
+     0.1
+    ],
+    "box": [
+     625,
+     205,
+     800,
+     295
+    ],
+    "feather": 6
+   }
+  },
+  "crouch_1": {
+   "src": "Cecilia_Original_Idle_Style/02_Crouch/01_transition.png"
+  },
+  "crouch_2": {
+   "src": "Cecilia_Original_Idle_Style/02_Crouch/02_low_crouch.png"
+  },
+  "5a_1": {
+   "src": "Cecilia_Original_Idle_Style/03_Standing_5A/01_startup.png"
+  },
+  "5a_2": {
+   "src": "Cecilia_Original_Idle_Style/03_Standing_5A/02_attack.png"
+  },
+  "5a_3": {
+   "src": "Cecilia_Original_Idle_Style/03_Standing_5A/03_recovery.png"
+  },
+  "2a_1": {
+   "src": "Cecilia_Original_Idle_Style/04_Crouching_2A/01_startup.png"
+  },
+  "2a_2": {
+   "src": "Cecilia_Original_Idle_Style/04_Crouching_2A/02_attack.png"
+  },
+  "2a_3": {
+   "src": "Cecilia_Original_Idle_Style/04_Crouching_2A/03_recovery.png"
+  },
+  "5b_1": {
+   "src": "Cecilia_Original_Idle_Style/07_Ground_5B/01_startup.png"
+  },
+  "5b_2": {
+   "src": "derived/cecilia/5b_attack.png",
+   "scale": 0.882044300549845
+  },
+  "5b_3": {
+   "src": "Cecilia_Original_Idle_Style/07_Ground_5B/03_recovery.png"
+  },
+  "2b_1": {
+   "src": "Cecilia_Original_Idle_Style/08_Ground_2B/01_startup.png"
+  },
+  "2b_2": {
+   "src": "Cecilia_Original_Idle_Style/08_Ground_2B/02_attack.png"
+  },
+  "2b_3": {
+   "src": "Cecilia_Original_Idle_Style/08_Ground_2B/03_recovery.png"
+  },
+  "5c_1": {
+   "src": "Cecilia_Original_Idle_Style/09_Ground_5C/01_startup.png"
+  },
+  "5c_2": {
+   "src": "Cecilia_Original_Idle_Style/09_Ground_5C/02_attack.png"
+  },
+  "5c_3": {
+   "src": "Cecilia_Original_Idle_Style/09_Ground_5C/03_recovery.png"
+  },
+  "2c_1": {
+   "src": "Cecilia_Original_Idle_Style/10_Ground_2C/01_startup.png"
+  },
+  "2c_2": {
+   "src": "Cecilia_Original_Idle_Style/10_Ground_2C/02_attack.png"
+  },
+  "2c_3": {
+   "src": "Cecilia_Original_Idle_Style/10_Ground_2C/03_recovery.png"
+  },
+  "ja_1": {
+   "src": "Cecilia_Original_Idle_Style/11_Air_5A/01_startup.png",
+   "anchor": "air"
+  },
+  "ja_2": {
+   "src": "Cecilia_Original_Idle_Style/11_Air_5A/02_attack.png",
+   "anchor": "air"
+  },
+  "ja_3": {
+   "src": "Cecilia_Original_Idle_Style/11_Air_5A/03_recovery.png",
+   "anchor": "air"
+  },
+  "jb_1": {
+   "src": "Cecilia_Original_Idle_Style/12_Air_5B/01_startup.png",
+   "anchor": "air"
+  },
+  "jb_2": {
+   "src": "Cecilia_Original_Idle_Style/12_Air_5B/02_attack.png",
+   "anchor": "air"
+  },
+  "jb_3": {
+   "src": "Cecilia_Original_Idle_Style/12_Air_5B/03_recovery.png",
+   "anchor": "air"
+  },
+  "jc_1": {
+   "src": "Cecilia_Original_Idle_Style/13_Air_5C/01_startup.png",
+   "anchor": "air"
+  },
+  "jc_2": {
+   "src": "Cecilia_Original_Idle_Style/13_Air_5C/02_attack.png",
+   "anchor": "air"
+  },
+  "jc_3": {
+   "src": "Cecilia_Original_Idle_Style/13_Air_5C/03_recovery.png",
+   "anchor": "air"
+  },
+  "hit_l1": {
+   "src": "Cecilia_Original_Idle_Style/05_Light_Damage/01_impact.png"
+  },
+  "hit_l2": {
+   "src": "Cecilia_Original_Idle_Style/05_Light_Damage/02_recovery.png"
+  },
+  "hit_h1": {
+   "src": "Cecilia_Original_Idle_Style/06_Heavy_Damage/01_impact.png"
+  },
+  "hit_h2": {
+   "src": "Cecilia_Original_Idle_Style/06_Heavy_Damage/02_recovery.png"
+  },
+  "hit_l1_air": {
+   "src": "Cecilia_Original_Idle_Style/05_Light_Damage/01_impact.png",
+   "anchor": "air"
+  },
+  "hit_h1_air": {
+   "src": "Cecilia_Original_Idle_Style/06_Heavy_Damage/01_impact.png",
+   "anchor": "air"
+  },
+  "d236_1": {
+   "src": "Cecilia_Original_Idle_Style/14_236_Dash_Slash/01_preparation.png"
+  },
+  "d236_2": {
+   "src": "Cecilia_Original_Idle_Style/14_236_Dash_Slash/02_dash.png"
+  },
+  "d236_3": {
+   "src": "Cecilia_Original_Idle_Style/14_236_Dash_Slash/03_slash.png"
+  },
+  "d236_4": {
+   "src": "Cecilia_Original_Idle_Style/14_236_Dash_Slash/04_recovery.png"
+  },
+  "dp_1": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/01_startup.png",
+   "scale": 1.1
+  },
+  "dp_fx": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/02_normal_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    60,
+    330
+   ]
+  },
+  "dp_fx_ex": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/03_EX_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    60,
+    330
+   ]
+  },
+  "dp_4": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/04_reappear.png",
+   "anchor": "air"
+  },
+  "dp_5": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/05_float_down.png",
+   "anchor": "air"
+  },
+  "dp_6": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/06_landing.png"
+  },
+  "ld_charge": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/01_charge.png",
+   "scale": 0.9869,
+   "scale_note": "sizefix.py Oct 25: was 0.927 (showed +6.5%)"
+  },
+  "ld_hold": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/02_held_lightning_form.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    0,
+    250
+   ]
+  },
+  "ld_loop1": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/03_dash_loop_1.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    40,
+    230
+   ]
+  },
+  "ld_loop2": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/04_dash_loop_2.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    40,
+    230
+   ]
+  },
+  "ld_loop3": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/05_dash_loop_3.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    40,
+    230
+   ]
+  },
+  "ld_s1": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/06_single_slash.png"
+  },
+  "ld_s2": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/07_second_slash.png"
+  },
+  "ld_s3": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/08_EX_third_slash.png"
+  },
+  "ld_rec": {
+   "src": "Cecilia_214_and_Supers/01_214_Lightning_Dash/09_recovery.png"
+  },
+  "cs_1": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/01_counter_stance.png"
+  },
+  "cs_2": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/02_dash_preparation.png"
+  },
+  "cs_3": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/03_dash_slash.png"
+  },
+  "cs_4": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/04_launcher.png",
+   "anchor": "air"
+  },
+  "cs_5": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/05_knockdown_slash.png",
+   "anchor": "air"
+  },
+  "cs_6": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/06_kick.png"
+  },
+  "cs_7": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/07_final_slash.png"
+  },
+  "cs_8": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/08_sheathing_start_corrected.png"
+  },
+  "cs_9": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/09_sheathing_nearly_closed.png"
+  },
+  "cs_10": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/10_sheath_click.png"
+  },
+  "cs_boom1": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/11_explosion_ignition.png",
+   "anchor": "center",
+   "scale": 0.75,
+   "at": [
+    0,
+    260
+   ]
+  },
+  "cs_boom2": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/12_explosion_peak.png",
+   "anchor": "center",
+   "scale": 0.75,
+   "at": [
+    0,
+    260
+   ]
+  },
+  "cs_boom3": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/13_explosion_fade.png",
+   "anchor": "center",
+   "scale": 0.75,
+   "at": [
+    0,
+    260
+   ]
+  },
+  "aoe_1": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/01_front_preparation.png"
+  },
+  "aoe_2": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/02_blade_ground_plunge.png"
+  },
+  "aoe_air": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/03_air_blade_first_descent.png",
+   "anchor": "air"
+  },
+  "aoe_fx1": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/04_surge_start.png",
+   "anchor": "center",
+   "scale": 0.8,
+   "at": [
+    0,
+    110
+   ]
+  },
+  "aoe_fx2": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/05_surge_peak.png",
+   "anchor": "center",
+   "scale": 0.8,
+   "at": [
+    0,
+    110
+   ]
+  },
+  "aoe_fx3": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/06_surge_fade.png",
+   "anchor": "center",
+   "scale": 0.8,
+   "at": [
+    0,
+    110
+   ]
+  },
+  "aoe_rec": {
+   "src": "Cecilia_214_and_Supers/03_AOE_Super_Corrected/07_recovery.png"
+  },
+  "airdash_1": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_AirDash_01.png",
+   "anchor": "air"
+  },
+  "airdash_2": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_AirDash_02.png",
+   "anchor": "air"
+  },
+  "bairdash_1": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_BackAirDash_01.png",
+   "anchor": "air"
+  },
+  "bairdash_2": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_BackAirDash_02.png",
+   "anchor": "air"
+  },
+  "backstep_1": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_BackStep_01.png"
+  },
+  "backstep_2": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_BackStep_02.png"
+  },
+  "down": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_Downed_01.png",
+   "anchor": "lying",
+   "flip": true,
+   "scale": 1.25
+  },
+  "victory": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_Victory_01.png"
+  },
+  "wf_1": {
+   "src": "Cecilia/Forward/Cecilia_Walk_Forward_01.png",
+   "anchor": "body_ground"
+  },
+  "wb_1": {
+   "src": "Cecilia/Backward/Cecilia_Walk_Backward_01.png",
+   "anchor": "body_ground"
+  },
+  "wf_2": {
+   "src": "Cecilia/Forward/Cecilia_Walk_Forward_02.png",
+   "anchor": "body_ground"
+  },
+  "wb_2": {
+   "src": "Cecilia/Backward/Cecilia_Walk_Backward_02.png",
+   "anchor": "body_ground"
+  },
+  "wf_3": {
+   "src": "Cecilia/Forward/Cecilia_Walk_Forward_03.png",
+   "anchor": "body_ground"
+  },
+  "wb_3": {
+   "src": "Cecilia/Backward/Cecilia_Walk_Backward_03.png",
+   "anchor": "body_ground"
+  },
+  "wf_4": {
+   "src": "Cecilia/Forward/Cecilia_Walk_Forward_04.png",
+   "anchor": "body_ground"
+  },
+  "wb_4": {
+   "src": "Cecilia/Backward/Cecilia_Walk_Backward_04.png",
+   "anchor": "body_ground"
+  },
+  "block_st": {
+   "src": "Cecilia_214_and_Supers/02_Counter_Super/01_counter_stance.png"
+  },
+  "block_cr": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/01_startup.png",
+   "scale": 1.1
+  },
+  "block_air": {
+   "src": "Cecilia/13_Movement_and_Victory/Cecilia_BackAirDash_01.png",
+   "anchor": "air"
+  },
+  "5c_arc": {
+   "src": "derived/cecilia/5c_arc.png",
+   "anchor": "like",
+   "like": "5c_2"
+  },
+  "dp_fx_flat": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/02_normal_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "rotate": -24,
+   "at": [
+    210,
+    290
+   ]
+  },
+  "dp_fx_ex_flat": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/03_EX_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "rotate": -14,
+   "at": [
+    200,
+    300
+   ]
+  },
+  "j236_trail": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/02_normal_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.15,
+   "flip": true,
+   "at": [
+    -150,
+    430
+   ]
+  },
+  "j236_streak": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/02_normal_slash_effect.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "flip": true,
+   "at": [
+    -170,
+    330
+   ]
+  },
+  "j236c_x": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/03_EX_slash_effect.png",
+   "anchor": "center",
+   "scale": 0.95,
+   "at": [
+    0,
+    290
+   ]
+  },
+  "l6c_1": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/01_startup.png",
+   "scale": 1.1
+  },
+  "l6c_2": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/04_reappear.png"
+  },
+  "l6c_3": {
+   "src": "Cecilia_Original_Idle_Style/15_623_Teleport/06_landing.png"
+  }
+ },
+ "animations": {
+  "0_CEC_Neutral": {
+   "keys": [
+    [
+     "idle_Om3",
+     0
+    ],
+    [
+     "idle_Om2",
+     5
+    ],
+    [
+     "idle_Om1",
+     10
+    ],
+    [
+     "idle_O0",
+     15
+    ],
+    [
+     "idle_Op1",
+     20
+    ],
+    [
+     "idle_Op2",
+     25
+    ],
+    [
+     "idle_Op3",
+     30
+    ],
+    [
+     "idle_Op2",
+     35
+    ],
+    [
+     "idle_Op1",
+     40
+    ],
+    [
+     "idle_O0",
+     45
+    ],
+    [
+     "idle_Om1",
+     50
+    ],
+    [
+     "idle_Om2",
+     55
+    ],
+    [
+     "idle_Om3",
+     60
+    ],
+    [
+     "idle_HBm3",
+     62
+    ],
+    [
+     "idle_Bm2",
+     65
+    ],
+    [
+     "idle_HBm2",
+     69
+    ],
+    [
+     "idle_HBm1",
+     70
+    ],
+    [
+     "idle_Om1",
+     72
+    ],
+    [
+     "idle_O0",
+     75
+    ],
+    [
+     "idle_Op1",
+     80
+    ],
+    [
+     "idle_Op2",
+     85
+    ],
+    [
+     "idle_Op3",
+     90
+    ],
+    [
+     "idle_Op2",
+     95
+    ],
+    [
+     "idle_Op1",
+     100
+    ],
+    [
+     "idle_O0",
+     105
+    ],
+    [
+     "idle_Om1",
+     110
+    ],
+    [
+     "idle_Om2",
+     115
+    ]
+   ],
+   "duration": 120
+  },
+  "1_CEC_MoveF": {
+   "keys": [
+    [
+     "wf_1",
+     0
+    ],
+    [
+     "wf_2",
+     9
+    ],
+    [
+     "wf_3",
+     18
+    ],
+    [
+     "wf_4",
+     27
+    ]
+   ],
+   "duration": 36
+  },
+  "2_CEC_MoveB": {
+   "keys": [
+    [
+     "wb_1",
+     0
+    ],
+    [
+     "wb_2",
+     10
+    ],
+    [
+     "wb_3",
+     20
+    ],
+    [
+     "wb_4",
+     30
+    ]
+   ],
+   "duration": 40
+  },
+  "3_CEC_Jump": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "ja_3",
+     4
+    ],
+    [
+     "dp_5",
+     19
+    ]
+   ]
+  },
+  "3b_CEC_JumpForward": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "ja_3",
+     4
+    ],
+    [
+     "airdash_1",
+     8,
+     {
+      "rot": -90
+     }
+    ],
+    [
+     "airdash_1",
+     11,
+     {
+      "rot": -180
+     }
+    ],
+    [
+     "airdash_1",
+     14,
+     {
+      "rot": -270
+     }
+    ],
+    [
+     "airdash_1",
+     17
+    ],
+    [
+     "dp_5",
+     20
+    ]
+   ]
+  },
+  "3c_CEC_JumpBackward": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "bairdash_1",
+     4
+    ],
+    [
+     "airdash_1",
+     8,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "airdash_1",
+     11,
+     {
+      "rot": 180
+     }
+    ],
+    [
+     "airdash_1",
+     14,
+     {
+      "rot": 270
+     }
+    ],
+    [
+     "bairdash_1",
+     17
+    ],
+    [
+     "dp_5",
+     20
+    ]
+   ]
+  },
+  "4_CEC_Falling": {
+   "keys": [
+    [
+     "dp_5",
+     0
+    ]
+   ]
+  },
+  "5_CEC_Landing": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "dp_6",
+     7
+    ]
+   ]
+  },
+  "6_CEC_CrouchEnter": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "crouch_2",
+     4
+    ]
+   ]
+  },
+  "7_CEC_Crouching": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ]
+   ]
+  },
+  "8_CEC_CrouchExit": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_1",
+     4
+    ]
+   ]
+  },
+  "9_CEC_DashFw": {
+   "keys": [
+    [
+     "d236_1",
+     0
+    ],
+    [
+     "d236_2",
+     4
+    ],
+    [
+     "d236_2",
+     9,
+     {
+      "dy": -3
+     }
+    ],
+    [
+     "d236_2",
+     14
+    ],
+    [
+     "d236_2",
+     19,
+     {
+      "dy": -3
+     }
+    ],
+    [
+     "d236_2",
+     24
+    ],
+    [
+     "d236_2",
+     29,
+     {
+      "dy": -3
+     }
+    ]
+   ]
+  },
+  "10_CEC_RunStop": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "dp_6",
+     9
+    ]
+   ]
+  },
+  "11_CEC_DashBw": {
+   "keys": [
+    [
+     "backstep_1",
+     0
+    ],
+    [
+     "backstep_2",
+     7
+    ],
+    [
+     "crouch_1",
+     18
+    ]
+   ]
+  },
+  "12_CEC_AirDashFw": {
+   "keys": [
+    [
+     "airdash_1",
+     0
+    ],
+    [
+     "airdash_2",
+     4
+    ],
+    [
+     "dp_5",
+     18
+    ]
+   ]
+  },
+  "13_CEC_AirDashDir": {
+   "keys": [
+    [
+     "airdash_1",
+     0
+    ],
+    [
+     "airdash_2",
+     4
+    ],
+    [
+     "dp_5",
+     24
+    ]
+   ]
+  },
+  "14_CEC_AirDashBw": {
+   "keys": [
+    [
+     "bairdash_1",
+     0
+    ],
+    [
+     "bairdash_2",
+     4
+    ],
+    [
+     "dp_5",
+     18
+    ]
+   ]
+  },
+  "15_CEC_Hit_Weak": {
+   "keys": [
+    [
+     "hit_l1",
+     0,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "hit_l1",
+     2,
+     {
+      "dx": -6,
+      "rot": 1
+     }
+    ],
+    [
+     "hit_l2",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "hit_l2",
+     6,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "hit_l2",
+     7
+    ]
+   ]
+  },
+  "16_CEC_Hit_Strong": {
+   "keys": [
+    [
+     "hit_h1",
+     0,
+     {
+      "dx": -16,
+      "rot": 6
+     }
+    ],
+    [
+     "hit_h1",
+     2,
+     {
+      "dx": -12,
+      "rot": 4
+     }
+    ],
+    [
+     "hit_h2",
+     4,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "hit_h2",
+     6,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "hit_h2",
+     7
+    ]
+   ]
+  },
+  "17_CEC_Hit_Crouch": {
+   "keys": [
+    [
+     "crouch_2",
+     0,
+     {
+      "dx": -6,
+      "rot": 4
+     }
+    ],
+    [
+     "crouch_2",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "crouch_2",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "crouch_2",
+     7
+    ]
+   ]
+  },
+  "18_CEC_Hit_Sweep": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 24
+     }
+    ],
+    [
+     "hit_h1_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "hit_h1_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "hit_h1_air",
+     6,
+     {
+      "rot": 12
+     }
+    ]
+   ]
+  },
+  "19_CEC_Hit_AirWeak": {
+   "keys": [
+    [
+     "hit_l1_air",
+     0,
+     {
+      "rot": 10
+     }
+    ],
+    [
+     "hit_l1_air",
+     2,
+     {
+      "rot": 12
+     }
+    ],
+    [
+     "hit_l1_air",
+     4,
+     {
+      "rot": 9
+     }
+    ],
+    [
+     "hit_l1_air",
+     6,
+     {
+      "rot": 5
+     }
+    ]
+   ]
+  },
+  "20_CEC_Hit_AirStrong": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "hit_h1_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "hit_h1_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "hit_h1_air",
+     6,
+     {
+      "rot": 10
+     }
+    ]
+   ]
+  },
+  "21_CEC_Hit_Fall1": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 150
+     }
+    ]
+   ]
+  },
+  "21_CEC_Hit_Fall2": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 90
+     }
+    ]
+   ]
+  },
+  "21_CEC_Hit_FallTransition": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 45
+     }
+    ]
+   ]
+  },
+  "22_CEC_Hit_Knockdown1": {
+   "keys": [
+    [
+     "down",
+     0,
+     {
+      "dy": 14
+     }
+    ],
+    [
+     "down",
+     6,
+     {
+      "dy": 6
+     }
+    ]
+   ]
+  },
+  "22_CEC_Hit_Knockdown2": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "22_CEC_Hit_Knockdown3": {
+   "keys": [
+    [
+     "down",
+     0
+    ],
+    [
+     "down",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "down",
+     8
+    ]
+   ]
+  },
+  "23_CEC_Hit_Down": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "24_CEC_Hit_GetUp": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_1",
+     6
+    ]
+   ]
+  },
+  "25_CEC_Hit_LaunchAway": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 35
+     }
+    ]
+   ]
+  },
+  "25_CEC_Hit_LaunchDown": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 120
+     }
+    ]
+   ]
+  },
+  "25_CEC_Hit_LaunchUp": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 15
+     }
+    ]
+   ]
+  },
+  "26_CEC_Hit_GroundBounce": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "hit_h1_air",
+     12,
+     {
+      "rot": 60
+     }
+    ]
+   ]
+  },
+  "26_CEC_Hit_WallBounce": {
+   "keys": [
+    [
+     "hit_h1_air",
+     0,
+     {
+      "rot": -20
+     }
+    ],
+    [
+     "hit_h1_air",
+     1,
+     {
+      "rot": 30
+     }
+    ]
+   ]
+  },
+  "27_CEC_Hit_Crumple": {
+   "keys": [
+    [
+     "hit_h2",
+     0
+    ],
+    [
+     "hit_h1",
+     10,
+     {
+      "rot": -6,
+      "dy": -6
+     }
+    ],
+    [
+     "crouch_1",
+     20
+    ],
+    [
+     "crouch_2",
+     32
+    ]
+   ]
+  },
+  "28_CEC_Hit_KO": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "29_CEC_Stand_Block_Transition": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "30_CEC_Stand_Block": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "31_CEC_Stand_Blockstun": {
+   "keys": [
+    [
+     "block_st",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_st",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_st",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_st",
+     7
+    ]
+   ]
+  },
+  "32_CEC_Crouch_Block_Transition": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "33_CEC_Crouch_Block": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "34_CEC_Crouch_Blockstun": {
+   "keys": [
+    [
+     "block_cr",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_cr",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_cr",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_cr",
+     7
+    ]
+   ]
+  },
+  "35_CEC_Air_Block_Transition": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "36_CEC_Air_Block": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "37_CEC_Air_Blockstun": {
+   "keys": [
+    [
+     "block_air",
+     0,
+     {
+      "dx": -6,
+      "rot": 3
+     }
+    ],
+    [
+     "block_air",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "block_air",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "block_air",
+     7
+    ]
+   ]
+  },
+  "48_CEC_5A": {
+   "keys": [
+    [
+     "5a_1",
+     0
+    ],
+    [
+     "5a_2",
+     5
+    ],
+    [
+     "5a_3",
+     11
+    ]
+   ]
+  },
+  "49_CEC_5B": {
+   "keys": [
+    [
+     "5b_1",
+     0
+    ],
+    [
+     "5b_2",
+     8
+    ],
+    [
+     "5b_3",
+     18
+    ]
+   ]
+  },
+  "50_CEC_5C": {
+   "keys": [
+    [
+     "5c_1",
+     0
+    ],
+    [
+     "5c_3",
+     13,
+     {
+      "fx": "5c_arc",
+      "fx_always": true
+     }
+    ],
+    [
+     "5c_3",
+     19
+    ]
+   ]
+  },
+  "51_CEC_2A": {
+   "keys": [
+    [
+     "2a_1",
+     0
+    ],
+    [
+     "2a_2",
+     5
+    ],
+    [
+     "2a_3",
+     10
+    ]
+   ]
+  },
+  "52_CEC_2B": {
+   "keys": [
+    [
+     "2b_1",
+     0
+    ],
+    [
+     "2b_2",
+     7
+    ],
+    [
+     "2b_3",
+     13
+    ]
+   ]
+  },
+  "53_CEC_2C": {
+   "keys": [
+    [
+     "2c_1",
+     0
+    ],
+    [
+     "2c_2",
+     9
+    ],
+    [
+     "2c_3",
+     25
+    ]
+   ]
+  },
+  "54_CEC_j5A": {
+   "keys": [
+    [
+     "ja_1",
+     0
+    ],
+    [
+     "ja_2",
+     4
+    ],
+    [
+     "ja_3",
+     10
+    ]
+   ]
+  },
+  "55_CEC_j5B": {
+   "keys": [
+    [
+     "jb_1",
+     0
+    ],
+    [
+     "jb_2",
+     6
+    ],
+    [
+     "jb_3",
+     12
+    ]
+   ]
+  },
+  "56_CEC_j5C": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     9
+    ],
+    [
+     "jc_3",
+     18
+    ]
+   ]
+  },
+  "57_CEC_4A": {
+   "keys": [
+    [
+     "5a_1",
+     0
+    ],
+    [
+     "5a_2",
+     7,
+     {
+      "dx": 12
+     }
+    ],
+    [
+     "5a_3",
+     14
+    ]
+   ]
+  },
+  "100_CEC_Intro": {
+   "keys": [
+    [
+     "cs_8",
+     0
+    ],
+    [
+     "cs_9",
+     20
+    ],
+    [
+     "cs_10",
+     40
+    ],
+    [
+     "cs_10",
+     44,
+     {
+      "fx": "cs_boom1"
+     }
+    ],
+    [
+     "cs_10",
+     50,
+     {
+      "fx": "cs_boom2"
+     }
+    ],
+    [
+     "cs_10",
+     58,
+     {
+      "fx": "cs_boom3"
+     }
+    ],
+    [
+     "cs_10",
+     66
+    ],
+    [
+     "idle_O0",
+     90
+    ]
+   ]
+  },
+  "101_CEC_Outro": {
+   "keys": [
+    [
+     "victory",
+     0
+    ]
+   ]
+  },
+  "200_CEC_Recovery_Backwards": {
+   "keys": [
+    [
+     "airdash_1",
+     0
+    ],
+    [
+     "airdash_1",
+     5,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "airdash_1",
+     10,
+     {
+      "rot": 180
+     }
+    ],
+    [
+     "airdash_1",
+     15,
+     {
+      "rot": 270
+     }
+    ]
+   ]
+  },
+  "200_CEC_Recovery_Forward": {
+   "keys": [
+    [
+     "airdash_1",
+     0
+    ],
+    [
+     "airdash_1",
+     5,
+     {
+      "rot": -90
+     }
+    ],
+    [
+     "airdash_1",
+     10,
+     {
+      "rot": -180
+     }
+    ],
+    [
+     "airdash_1",
+     15,
+     {
+      "rot": -270
+     }
+    ]
+   ]
+  },
+  "200_CEC_Recovery_Neutral": {
+   "keys": [
+    [
+     "bairdash_2",
+     0
+    ]
+   ]
+  },
+  "1000_CEC_Cancel": {
+   "keys": [
+    [
+     "ld_charge",
+     0
+    ]
+   ]
+  },
+  "1001_CEC_Burst": {
+   "keys": [
+    [
+     "ld_charge",
+     0,
+     {
+      "fx": "cs_boom1"
+     }
+    ],
+    [
+     "ld_charge",
+     6,
+     {
+      "fx": "cs_boom2"
+     }
+    ],
+    [
+     "ld_charge",
+     20,
+     {
+      "fx": "cs_boom3"
+     }
+    ],
+    [
+     "ld_charge",
+     30
+    ]
+   ]
+  },
+  "CEC_Breakthrough": {
+   "keys": [
+    [
+     "5b_1",
+     0
+    ],
+    [
+     "5b_2",
+     8
+    ],
+    [
+     "5b_3",
+     18
+    ]
+   ]
+  },
+  "79_CEC_236A": {
+   "keys": [
+    [
+     "d236_1",
+     0
+    ],
+    [
+     "d236_2",
+     4
+    ],
+    [
+     "d236_3",
+     11
+    ],
+    [
+     "d236_4",
+     19
+    ]
+   ],
+   "duration": 33,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "40_Hitbox_236A_0"
+    ],
+    [
+     4,
+     0,
+     "40_Hitbox_236A_1"
+    ],
+    [
+     11,
+     1,
+     "40_Hitbox_236A_2"
+    ],
+    [
+     15,
+     2,
+     "40_Hitbox_236A_3"
+    ],
+    [
+     19,
+     2,
+     "40_Hitbox_236A_4"
+    ]
+   ]
+  },
+  "80_CEC_236B": {
+   "keys": [
+    [
+     "d236_1",
+     0
+    ],
+    [
+     "d236_2",
+     6
+    ],
+    [
+     "d236_3",
+     15
+    ],
+    [
+     "d236_4",
+     23
+    ]
+   ],
+   "duration": 41,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "41_Hitbox_236B_0"
+    ],
+    [
+     6,
+     0,
+     "41_Hitbox_236B_1"
+    ],
+    [
+     15,
+     1,
+     "41_Hitbox_236B_2"
+    ],
+    [
+     19,
+     2,
+     "41_Hitbox_236B_3"
+    ],
+    [
+     23,
+     2,
+     "41_Hitbox_236B_4"
+    ]
+   ]
+  },
+  "81_CEC_236C": {
+   "keys": [
+    [
+     "d236_1",
+     0
+    ],
+    [
+     "d236_2",
+     3
+    ],
+    [
+     "d236_3",
+     15
+    ],
+    [
+     "d236_4",
+     22
+    ]
+   ],
+   "duration": 38,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "42_Hitbox_236C_0"
+    ],
+    [
+     3,
+     1,
+     "42_Hitbox_236C_1"
+    ],
+    [
+     15,
+     1,
+     "42_Hitbox_236C_2"
+    ],
+    [
+     18,
+     2,
+     "42_Hitbox_236C_3"
+    ]
+   ]
+  },
+  "82_CEC_623A": {
+   "keys": [
+    [
+     "dp_1",
+     0
+    ],
+    [
+     "dp_fx_flat",
+     4
+    ],
+    [
+     "dp_4",
+     13
+    ],
+    [
+     "dp_5",
+     16
+    ]
+   ],
+   "duration": 200,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "43_Hitbox_623A_0"
+    ],
+    [
+     4,
+     0,
+     "43_Hitbox_623A_1"
+    ],
+    [
+     6,
+     1,
+     "43_Hitbox_623A_2"
+    ],
+    [
+     8,
+     0,
+     "43_Hitbox_623A_3"
+    ],
+    [
+     13,
+     2,
+     "43_Hitbox_623A_4"
+    ],
+    [
+     16,
+     2,
+     "43_Hitbox_623A_5"
+    ]
+   ]
+  },
+  "83_CEC_623B": {
+   "keys": [
+    [
+     "dp_1",
+     0
+    ],
+    [
+     "dp_fx_flat",
+     6
+    ],
+    [
+     "dp_4",
+     15
+    ],
+    [
+     "dp_5",
+     18
+    ]
+   ],
+   "duration": 200,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "44_Hitbox_623B_0"
+    ],
+    [
+     6,
+     0,
+     "44_Hitbox_623B_1"
+    ],
+    [
+     8,
+     1,
+     "44_Hitbox_623B_2"
+    ],
+    [
+     10,
+     0,
+     "44_Hitbox_623B_3"
+    ],
+    [
+     15,
+     2,
+     "44_Hitbox_623B_4"
+    ],
+    [
+     18,
+     2,
+     "44_Hitbox_623B_5"
+    ]
+   ]
+  },
+  "84_CEC_623C": {
+   "keys": [
+    [
+     "dp_1",
+     0
+    ],
+    [
+     "dp_fx_ex_flat",
+     3
+    ],
+    [
+     "dp_4",
+     12
+    ],
+    [
+     "dp_5",
+     15
+    ]
+   ],
+   "duration": 200,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "45_Hitbox_623C_0"
+    ],
+    [
+     3,
+     0,
+     "45_Hitbox_623C_1"
+    ],
+    [
+     5,
+     1,
+     "45_Hitbox_623C_2"
+    ],
+    [
+     7,
+     0,
+     "45_Hitbox_623C_3"
+    ],
+    [
+     9,
+     1,
+     "45_Hitbox_623C_4"
+    ],
+    [
+     11,
+     0,
+     "45_Hitbox_623C_5"
+    ],
+    [
+     12,
+     2,
+     "45_Hitbox_623C_6"
+    ],
+    [
+     15,
+     2,
+     "45_Hitbox_623C_7"
+    ]
+   ]
+  },
+  "85_CEC_S1": {
+   "keys": [
+    [
+     "cs_1",
+     0
+    ],
+    [
+     "ld_rec",
+     47
+    ]
+   ],
+   "duration": 72,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "46_Hitbox_Sakura_Stance_0"
+    ],
+    [
+     1,
+     1,
+     "46_Hitbox_Sakura_Stance_1"
+    ],
+    [
+     47,
+     2,
+     "46_Hitbox_Sakura_Stance_2"
+    ]
+   ]
+  },
+  "92_CEC_S1_hit": {
+   "keys": [
+    [
+     "cs_2",
+     0
+    ],
+    [
+     "cs_3",
+     10
+    ],
+    [
+     "cs_4",
+     18
+    ],
+    [
+     "cs_5",
+     34
+    ],
+    [
+     "cs_6",
+     50
+    ],
+    [
+     "cs_7",
+     64
+    ],
+    [
+     "cs_8",
+     76
+    ],
+    [
+     "cs_9",
+     92
+    ],
+    [
+     "cs_10",
+     106
+    ],
+    [
+     "cs_10",
+     110,
+     {
+      "fx": "cs_boom1",
+      "fx_dx": -400,
+      "fx_always": true
+     }
+    ],
+    [
+     "cs_10",
+     116,
+     {
+      "fx": "cs_boom2",
+      "fx_dx": -400,
+      "fx_always": true
+     }
+    ],
+    [
+     "cs_10",
+     128,
+     {
+      "fx": "cs_boom3",
+      "fx_dx": -400,
+      "fx_always": true
+     }
+    ],
+    [
+     "cs_10",
+     140
+    ]
+   ],
+   "duration": 150,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "47_Hitbox_Sakura_Attack_0"
+    ],
+    [
+     13,
+     1,
+     "47_Hitbox_Sakura_Attack_1"
+    ],
+    [
+     16,
+     2,
+     "47_Hitbox_Sakura_Attack_2"
+    ],
+    [
+     19,
+     1,
+     "47_Hitbox_Sakura_Attack_3"
+    ],
+    [
+     22,
+     2,
+     "47_Hitbox_Sakura_Attack_4"
+    ],
+    [
+     36,
+     1,
+     "47_Hitbox_Sakura_Attack_5"
+    ],
+    [
+     39,
+     2,
+     "47_Hitbox_Sakura_Attack_6"
+    ],
+    [
+     53,
+     1,
+     "47_Hitbox_Sakura_Attack_7"
+    ],
+    [
+     56,
+     2,
+     "47_Hitbox_Sakura_Attack_8"
+    ],
+    [
+     66,
+     1,
+     "47_Hitbox_Sakura_Attack_9"
+    ],
+    [
+     69,
+     2,
+     "47_Hitbox_Sakura_Attack_10"
+    ],
+    [
+     110,
+     1,
+     "47_Hitbox_Sakura_Attack_11"
+    ],
+    [
+     116,
+     2,
+     "47_Hitbox_Sakura_Attack_12"
+    ]
+   ]
+  },
+  "93_CEC_S2": {
+   "keys": [
+    [
+     "aoe_1",
+     0
+    ],
+    [
+     "aoe_2",
+     10,
+     {
+      "fx": "aoe_fx1",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     16,
+     {
+      "fx": "aoe_fx2",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     34,
+     {
+      "fx": "aoe_fx3",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     46
+    ],
+    [
+     "aoe_rec",
+     48
+    ]
+   ],
+   "duration": 66,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "48_Hitbox_Raijin_0"
+    ],
+    [
+     12,
+     1,
+     "48_Hitbox_Raijin_1"
+    ],
+    [
+     15,
+     2,
+     "48_Hitbox_Raijin_2"
+    ],
+    [
+     17,
+     1,
+     "48_Hitbox_Raijin_3"
+    ],
+    [
+     20,
+     2,
+     "48_Hitbox_Raijin_4"
+    ],
+    [
+     22,
+     1,
+     "48_Hitbox_Raijin_5"
+    ],
+    [
+     25,
+     2,
+     "48_Hitbox_Raijin_6"
+    ],
+    [
+     26,
+     2,
+     "48_Hitbox_Raijin_7"
+    ],
+    [
+     27,
+     1,
+     "48_Hitbox_Raijin_8"
+    ],
+    [
+     30,
+     2,
+     "48_Hitbox_Raijin_9"
+    ],
+    [
+     32,
+     1,
+     "48_Hitbox_Raijin_10"
+    ],
+    [
+     35,
+     2,
+     "48_Hitbox_Raijin_11"
+    ]
+   ]
+  },
+  "94_CEC_S2_air": {
+   "keys": [
+    [
+     "aoe_air",
+     0
+    ]
+   ],
+   "duration": 60,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "49_Hitbox_Raijin_Air_0"
+    ],
+    [
+     1,
+     1,
+     "49_Hitbox_Raijin_Air_1"
+    ]
+   ]
+  },
+  "95_CEC_S2_land": {
+   "keys": [
+    [
+     "aoe_1",
+     0
+    ],
+    [
+     "aoe_2",
+     2,
+     {
+      "fx": "aoe_fx1",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     8,
+     {
+      "fx": "aoe_fx2",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     26,
+     {
+      "fx": "aoe_fx3",
+      "fx_always": true
+     }
+    ],
+    [
+     "aoe_2",
+     38
+    ],
+    [
+     "aoe_rec",
+     40
+    ]
+   ],
+   "duration": 58,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "50_Hitbox_Raijin_Land_0"
+    ],
+    [
+     4,
+     1,
+     "50_Hitbox_Raijin_Land_1"
+    ],
+    [
+     7,
+     2,
+     "50_Hitbox_Raijin_Land_2"
+    ],
+    [
+     9,
+     1,
+     "50_Hitbox_Raijin_Land_3"
+    ],
+    [
+     12,
+     2,
+     "50_Hitbox_Raijin_Land_4"
+    ],
+    [
+     14,
+     1,
+     "50_Hitbox_Raijin_Land_5"
+    ],
+    [
+     17,
+     2,
+     "50_Hitbox_Raijin_Land_6"
+    ],
+    [
+     19,
+     1,
+     "50_Hitbox_Raijin_Land_7"
+    ],
+    [
+     22,
+     2,
+     "50_Hitbox_Raijin_Land_8"
+    ],
+    [
+     24,
+     1,
+     "50_Hitbox_Raijin_Land_9"
+    ],
+    [
+     27,
+     2,
+     "50_Hitbox_Raijin_Land_10"
+    ],
+    [
+     40,
+     2,
+     "50_Hitbox_Raijin_Land_11"
+    ]
+   ]
+  },
+  "97_CEC_RUSH": {
+   "keys": [
+    [
+     "d236_3",
+     0
+    ],
+    [
+     "d236_2",
+     8
+    ],
+    [
+     "d236_3",
+     13
+    ],
+    [
+     "d236_2",
+     20
+    ],
+    [
+     "d236_3",
+     25
+    ],
+    [
+     "d236_2",
+     32
+    ],
+    [
+     "d236_3",
+     37
+    ],
+    [
+     "d236_2",
+     44
+    ],
+    [
+     "d236_3",
+     49
+    ],
+    [
+     "d236_4",
+     56
+    ]
+   ],
+   "duration": 105,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "57_Hitbox_DashRush_0"
+    ],
+    [
+     10,
+     1,
+     "57_Hitbox_DashRush_1"
+    ],
+    [
+     13,
+     0,
+     "57_Hitbox_DashRush_2"
+    ],
+    [
+     22,
+     1,
+     "57_Hitbox_DashRush_3"
+    ],
+    [
+     25,
+     0,
+     "57_Hitbox_DashRush_4"
+    ],
+    [
+     34,
+     1,
+     "57_Hitbox_DashRush_5"
+    ],
+    [
+     37,
+     0,
+     "57_Hitbox_DashRush_6"
+    ],
+    [
+     46,
+     1,
+     "57_Hitbox_DashRush_7"
+    ],
+    [
+     49,
+     0,
+     "57_Hitbox_DashRush_8"
+    ],
+    [
+     78,
+     1,
+     "57_Hitbox_DashRush_9"
+    ],
+    [
+     82,
+     2,
+     "57_Hitbox_DashRush_10"
+    ],
+    [
+     96,
+     2,
+     "57_Hitbox_DashRush_11"
+    ]
+   ]
+  },
+  "73_CEC_214A": {
+   "keys": [
+    [
+     "ld_charge",
+     0
+    ],
+    [
+     "ld_hold",
+     8
+    ],
+    [
+     "ld_loop1",
+     11
+    ],
+    [
+     "ld_loop2",
+     13
+    ],
+    [
+     "ld_loop3",
+     15
+    ],
+    [
+     "ld_loop1",
+     17
+    ],
+    [
+     "ld_loop2",
+     19
+    ],
+    [
+     "ld_loop3",
+     21
+    ]
+   ],
+   "duration": 24,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "51_Hitbox_214A_0"
+    ],
+    [
+     8,
+     0,
+     "51_Hitbox_214A_1"
+    ]
+   ]
+  },
+  "74_CEC_214B": {
+   "keys": [
+    [
+     "ld_charge",
+     0
+    ],
+    [
+     "ld_hold",
+     10
+    ],
+    [
+     "ld_loop1",
+     13
+    ],
+    [
+     "ld_loop2",
+     15
+    ],
+    [
+     "ld_loop3",
+     17
+    ],
+    [
+     "ld_loop1",
+     19
+    ],
+    [
+     "ld_loop2",
+     21
+    ],
+    [
+     "ld_loop3",
+     23
+    ],
+    [
+     "ld_loop1",
+     25
+    ]
+   ],
+   "duration": 28,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "52_Hitbox_214B_0"
+    ],
+    [
+     10,
+     0,
+     "52_Hitbox_214B_1"
+    ]
+   ]
+  },
+  "76_CEC_214C": {
+   "keys": [
+    [
+     "ld_charge",
+     0
+    ],
+    [
+     "ld_hold",
+     5
+    ],
+    [
+     "ld_loop1",
+     8
+    ],
+    [
+     "ld_loop2",
+     10
+    ],
+    [
+     "ld_loop3",
+     12
+    ],
+    [
+     "ld_loop1",
+     14
+    ],
+    [
+     "ld_loop2",
+     16
+    ],
+    [
+     "ld_loop3",
+     18
+    ],
+    [
+     "ld_loop1",
+     20
+    ],
+    [
+     "ld_loop2",
+     22
+    ]
+   ],
+   "duration": 25,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "53_Hitbox_214C_0"
+    ],
+    [
+     5,
+     0,
+     "53_Hitbox_214C_1"
+    ]
+   ]
+  },
+  "75_CEC_214A_SL": {
+   "keys": [
+    [
+     "ld_s1",
+     0
+    ],
+    [
+     "ld_rec",
+     8
+    ]
+   ],
+   "duration": 17,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "54_Hitbox_214A_Slash_0"
+    ],
+    [
+     2,
+     1,
+     "54_Hitbox_214A_Slash_1"
+    ],
+    [
+     5,
+     2,
+     "54_Hitbox_214A_Slash_2"
+    ],
+    [
+     8,
+     2,
+     "54_Hitbox_214A_Slash_3"
+    ]
+   ]
+  },
+  "77_CEC_214B_SL": {
+   "keys": [
+    [
+     "ld_s1",
+     0
+    ],
+    [
+     "ld_rec",
+     8
+    ]
+   ],
+   "duration": 17,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "55_Hitbox_214B_Slash_0"
+    ],
+    [
+     2,
+     1,
+     "55_Hitbox_214B_Slash_1"
+    ],
+    [
+     5,
+     2,
+     "55_Hitbox_214B_Slash_2"
+    ],
+    [
+     8,
+     2,
+     "55_Hitbox_214B_Slash_3"
+    ]
+   ]
+  },
+  "78_CEC_214C_SL": {
+   "keys": [
+    [
+     "ld_s1",
+     0
+    ],
+    [
+     "ld_s2",
+     8
+    ],
+    [
+     "ld_s3",
+     16
+    ],
+    [
+     "ld_rec",
+     24
+    ]
+   ],
+   "duration": 36,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "56_Hitbox_214C_Slash_0"
+    ],
+    [
+     2,
+     1,
+     "56_Hitbox_214C_Slash_1"
+    ],
+    [
+     5,
+     2,
+     "56_Hitbox_214C_Slash_2"
+    ],
+    [
+     8,
+     2,
+     "56_Hitbox_214C_Slash_3"
+    ],
+    [
+     10,
+     1,
+     "56_Hitbox_214C_Slash_4"
+    ],
+    [
+     13,
+     2,
+     "56_Hitbox_214C_Slash_5"
+    ],
+    [
+     16,
+     2,
+     "56_Hitbox_214C_Slash_6"
+    ],
+    [
+     18,
+     1,
+     "56_Hitbox_214C_Slash_7"
+    ],
+    [
+     21,
+     2,
+     "56_Hitbox_214C_Slash_8"
+    ],
+    [
+     24,
+     2,
+     "56_Hitbox_214C_Slash_9"
+    ]
+   ]
+  },
+  "98_CEC_TP_LAND": {
+   "keys": [
+    [
+     "dp_6",
+     0
+    ]
+   ],
+   "duration": 12,
+   "hitboxes": [
+    [
+     0,
+     2,
+     "58_Hitbox_TP_Land_0"
+    ]
+   ]
+  },
+  "CEC_AssistCall": {
+   "keys": [
+    [
+     "victory",
+     0
+    ]
+   ],
+   "duration": 30,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "CEC_Hitbox_AssistCall_0"
+    ]
+   ]
+  },
+  "106_CEC_214R2": {
+   "keys": [
+    [
+     "ld_s2",
+     0
+    ],
+    [
+     "ld_rec",
+     13
+    ]
+   ],
+   "duration": 27,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "59_Hitbox_214R2_0"
+    ],
+    [
+     7,
+     1,
+     "59_Hitbox_214R2_1"
+    ],
+    [
+     10,
+     2,
+     "59_Hitbox_214R2_2"
+    ],
+    [
+     13,
+     2,
+     "59_Hitbox_214R2_3"
+    ]
+   ]
+  },
+  "107_CEC_214R3": {
+   "keys": [
+    [
+     "ld_s3",
+     0
+    ],
+    [
+     "ld_rec",
+     14
+    ]
+   ],
+   "duration": 33,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "60_Hitbox_214R3_0"
+    ],
+    [
+     8,
+     1,
+     "60_Hitbox_214R3_1"
+    ],
+    [
+     11,
+     2,
+     "60_Hitbox_214R3_2"
+    ],
+    [
+     14,
+     2,
+     "60_Hitbox_214R3_3"
+    ]
+   ]
+  },
+  "108_CEC_J236A": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     3,
+     {
+      "fx": "j236_trail",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 90,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "61_Hitbox_J236A_0"
+    ],
+    [
+     3,
+     1,
+     "61_Hitbox_J236A_1"
+    ]
+   ]
+  },
+  "109_CEC_J236B": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     4,
+     {
+      "fx": "j236_trail",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 90,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "62_Hitbox_J236B_0"
+    ],
+    [
+     4,
+     1,
+     "62_Hitbox_J236B_1"
+    ]
+   ]
+  },
+  "110_CEC_J236C": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     3,
+     {
+      "fx": "j236_trail",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 90,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "63_Hitbox_J236C_0"
+    ],
+    [
+     3,
+     1,
+     "63_Hitbox_J236C_1"
+    ]
+   ]
+  },
+  "111_CEC_J236_LAND": {
+   "keys": [
+    [
+     "d236_4",
+     0,
+     {
+      "fx": "j236_streak",
+      "fx_always": true
+     }
+    ],
+    [
+     "d236_4",
+     5
+    ]
+   ],
+   "duration": 15,
+   "hitboxes": [
+    [
+     0,
+     2,
+     "64_Hitbox_J236_Land_0"
+    ]
+   ]
+  },
+  "112_CEC_J236C_LAND": {
+   "keys": [
+    [
+     "d236_4",
+     0,
+     {
+      "fx": "j236c_x",
+      "fx_always": true
+     }
+    ],
+    [
+     "d236_4",
+     8
+    ]
+   ],
+   "duration": 16,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "65_Hitbox_J236C_Land_0"
+    ],
+    [
+     4,
+     2,
+     "65_Hitbox_J236C_Land_1"
+    ]
+   ]
+  },
+  "113_CEC_6C": {
+   "keys": [
+    [
+     "l6c_1",
+     0
+    ],
+    [
+     "l6c_2",
+     14,
+     {
+      "dy": 30
+     }
+    ],
+    [
+     "l6c_2",
+     19,
+     {
+      "dy": 50
+     }
+    ],
+    [
+     "l6c_3",
+     26
+    ],
+    [
+     "idle_O0",
+     36
+    ]
+   ],
+   "duration": 42,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "CEC_Hitbox_6C_0"
+    ],
+    [
+     14,
+     1,
+     "CEC_Hitbox_6C_1"
+    ],
+    [
+     18,
+     2,
+     "CEC_Hitbox_6C_2"
+    ]
+   ]
+  },
+  "114_CEC_S2_drag": {
+   "keys": [
+    [
+     "aoe_air",
+     0
+    ]
+   ],
+   "duration": 60,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "66_Hitbox_Raijin_Drag_0"
+    ]
+   ]
+  }
+ },
+ "hitfit": {
+  "skip": [
+   "-1_Hitbox_CollisionOnly",
+   "-2_Hitbox_CollisionOnly_Low",
+   "100_Hitbox_Burst",
+   "100_Hitbox_Cancel",
+   "CEC_Hitbox_Invincible",
+   "CEC_Hitbox_Breakthrough_nhb2",
+   "18_Hitbox_Grab_stUp",
+   "19_Hitbox_Grab"
+  ],
+  "split": {
+   "3_Hitbox_FDash": {
+    "3_Hitbox_AirDash": [
+     "12_CEC_AirDashFw",
+     "13_CEC_AirDashDir"
+    ]
+   },
+   "4_Hitbox_BDash": {
+    "4_Hitbox_AirDashBw": [
+     "14_CEC_AirDashBw"
+    ]
+   },
+   "0_Hitbox_Horizontal": {
+    "0_Hitbox_Lying": [
+     "23_CEC_Hit_Down"
+    ]
+   },
+   "0_Hitbox_Basic": {
+    "0_Hitbox_Lying": [
+     "22_CEC_Hit_Knockdown1",
+     "22_CEC_Hit_Knockdown2",
+     "22_CEC_Hit_Knockdown3"
+    ]
+   }
+  },
+  "fit_from": {
+   "0_Hitbox_Basic": [
+    "0_CEC_Neutral",
+    0
+   ],
+   "1_Hitbox_Crouch": [
+    "7_CEC_Crouching",
+    0
+   ],
+   "3_Hitbox_FDash": [
+    "9_CEC_DashFw",
+    9
+   ],
+   "3_Hitbox_AirDash": [
+    "12_CEC_AirDashFw",
+    8
+   ],
+   "4_Hitbox_AirDashBw": [
+    "14_CEC_AirDashBw",
+    8
+   ],
+   "0_Hitbox_Lying": [
+    "23_CEC_Hit_Down",
+    0
+   ]
+  },
+  "attack_part": {
+   "48_CEC_5A": "weapon",
+   "51_CEC_2A": "weapon",
+   "54_CEC_j5A": "weapon",
+   "57_CEC_4A": "weapon",
+   "53_CEC_2C": "edge",
+   "50_CEC_5C": "trail",
+   "113_CEC_6C": "top"
+  },
+  "boxes": {
+   "CEC_Hitbox_6C_1": {
+    "attack": [
+     [
+      25,
+      110,
+      355,
+      510
+     ]
+    ]
+   },
+   "57_Hitbox_DashRush_1": {
+    "attack": [
+     [
+      -260,
+      -10,
+      260,
+      440
+     ]
+    ]
+   },
+   "57_Hitbox_DashRush_3": {
+    "attack": [
+     [
+      -260,
+      -10,
+      260,
+      440
+     ]
+    ]
+   },
+   "57_Hitbox_DashRush_5": {
+    "attack": [
+     [
+      -260,
+      -10,
+      260,
+      440
+     ]
+    ]
+   },
+   "57_Hitbox_DashRush_7": {
+    "attack": [
+     [
+      -260,
+      -10,
+      260,
+      440
+     ]
+    ]
+   },
+   "57_Hitbox_DashRush_9": {
+    "attack": [
+     [
+      -480,
+      -10,
+      -120,
+      520
+     ]
+    ]
+   },
+   "43_Hitbox_623A_2": {
+    "attack": [
+     [
+      -40,
+      30,
+      520,
+      500
+     ]
+    ]
+   },
+   "44_Hitbox_623B_2": {
+    "attack": [
+     [
+      -40,
+      30,
+      600,
+      540
+     ]
+    ]
+   },
+   "45_Hitbox_623C_2": {
+    "attack": [
+     [
+      -60,
+      30,
+      600,
+      560
+     ]
+    ]
+   },
+   "45_Hitbox_623C_4": {
+    "attack": [
+     [
+      -60,
+      30,
+      600,
+      560
+     ]
+    ]
+   },
+   "61_Hitbox_J236A_1": {
+    "attack": [
+     [
+      -40,
+      -100,
+      420,
+      520
+     ]
+    ]
+   },
+   "62_Hitbox_J236B_1": {
+    "attack": [
+     [
+      -40,
+      -100,
+      420,
+      520
+     ]
+    ]
+   },
+   "63_Hitbox_J236C_1": {
+    "attack": [
+     [
+      -40,
+      -100,
+      420,
+      520
+     ]
+    ]
+   },
+   "65_Hitbox_J236C_Land_0": {
+    "attack": [
+     [
+      -430,
+      -10,
+      430,
+      520
+     ]
+    ]
+   },
+   "47_Hitbox_Sakura_Attack_11": {
+    "attack": [
+     [
+      -760,
+      -10,
+      -60,
+      560
+     ]
+    ]
+   },
+   "48_Hitbox_Raijin_1": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "48_Hitbox_Raijin_3": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "48_Hitbox_Raijin_5": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "48_Hitbox_Raijin_8": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "48_Hitbox_Raijin_10": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "49_Hitbox_Raijin_Air_1": {
+    "attack": [
+     [
+      -140,
+      -320,
+      300,
+      380
+     ]
+    ]
+   },
+   "50_Hitbox_Raijin_Land_1": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "50_Hitbox_Raijin_Land_3": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "50_Hitbox_Raijin_Land_5": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "50_Hitbox_Raijin_Land_7": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   },
+   "50_Hitbox_Raijin_Land_9": {
+    "attack": [
+     [
+      -640,
+      -10,
+      640,
+      360
+     ]
+    ]
+   }
+  }
+ }
+}

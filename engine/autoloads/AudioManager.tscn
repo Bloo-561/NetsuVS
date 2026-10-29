@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctp31e1cj4yky"]
+
+[ext_resource type="Script" uid="uid://bl6rvsfvnqh8u" path="res://engine/sakuga/Components/AudioManager.cs" id="1"]
+[ext_resource type="Resource" uid="uid://nwduyxc1a3ns" path="res://assets/audio/announcer/mahou/MaSen Announcer/Announcer_MaSen.tres" id="2"]
+[ext_resource type="Resource" uid="uid://2g4xuaptj3sw" path="res://data/menu_sounds.tres" id="3"]
+
+[node name="AudioManager" type="Node" unique_id=519106305 node_paths=PackedStringArray("Announcer", "Menu", "BGM")]
+script = ExtResource("1")
+Announcer = NodePath("Announcer")
+Menu = NodePath("Menu")
+BGM = NodePath("BGM")
+AnnouncerClips = ExtResource("2")
+MenuClips = ExtResource("3")
+
+[node name="Announcer" type="AudioStreamPlayer" parent="." unique_id=1258603002]
+bus = &"Announcer"
+
+[node name="Menu" type="AudioStreamPlayer" parent="." unique_id=1866846115]
+bus = &"SFX"
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=382217910]
+bus = &"BGM"

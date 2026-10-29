@@ -1,0 +1,47 @@
+{
+ "params": {
+  "az": -55.0,
+  "el": 5.0,
+  "front": 0.3,
+  "rear": 0.5,
+  "drop": 0.215,
+  "torso_fwd": -0.05,
+  "hips_yaw": 0.0,
+  "sheath_up": 0.085,
+  "sheath_cam": 0.215,
+  "sheath_fwd": 0.07
+ },
+ "score": 0.36819387617463245,
+ "start": 0.2964701936782091,
+ "i": 0,
+ "passes": 0,
+ "steps": {
+  "az": 5.0,
+  "el": 2.5,
+  "front": 0.03,
+  "rear": 0.03,
+  "drop": 0.02,
+  "torso_fwd": 0.03,
+  "hips_yaw": 5.0,
+  "sheath_up": 0.02,
+  "sheath_cam": 0.03,
+  "sheath_fwd": 0.03
+ },
+ "history": [
+  [
+   "az",
+   -45.0,
+   0.3189
+  ],
+  [
+   "az",
+   -50.0,
+   0.3462
+  ],
+  [
+   "az",
+   -55.0,
+   0.3682
+  ]
+ ]
+}

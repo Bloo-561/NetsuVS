@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bfxyd0g0lhhq3"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+StateName = "Defeat"
+Type = 5
+TransitionEvents = null
+OnEnterEvents = null
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+metadata/_custom_type_script = "uid://bf60srwkccsm8"

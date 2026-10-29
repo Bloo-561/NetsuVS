@@ -1,0 +1,189 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bfde064uehpwr"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bd5kpzf7koefp" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bbiho6ei81gto" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bj0sf28227mna" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://7kgvy2dixyh1" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_3.tres" id="6"]
+[ext_resource type="Resource" uid="uid://bled8l4l2qu5t" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_4.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bl3usv6govnxh" path="res://actors/noah/projectiles/Hitboxes/1_Hitbox_NOX_Push_5.tres" id="8"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/wall_1.png" id="t_wall_1"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/wall_2.png" id="t_wall_2"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/wall_3.png" id="t_wall_3"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/wall_4.png" id="t_wall_4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+AtFrame = 2
+animationStage = 1
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 6
+animationStage = 2
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 16
+animationStage = 1
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 20
+animationStage = 2
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("2")
+AtFrame = 30
+animationStage = 1
+HitboxData = ExtResource("7")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("2")
+AtFrame = 34
+animationStage = 2
+HitboxData = ExtResource("8")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_1")
+Offset = Vector2(-338, 4)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_2")
+Offset = Vector2(-358, 3)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 5
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_3")
+Offset = Vector2(-338, 2)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 10
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_4")
+Offset = Vector2(-349, 1)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 15
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_1")
+Offset = Vector2(-338, 4)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 20
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_2")
+Offset = Vector2(-358, 3)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 25
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_3")
+Offset = Vector2(-338, 2)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("an")
+AtFrame = 30
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_4")
+Offset = Vector2(-349, 1)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("an")
+AtFrame = 35
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="M8_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_1")
+Offset = Vector2(-338, 4)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A8"]
+script = ExtResource("an")
+AtFrame = 40
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="M9_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_2")
+Offset = Vector2(-358, 3)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A9"]
+script = ExtResource("an")
+AtFrame = 45
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="M10_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_3")
+Offset = Vector2(-338, 2)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A10"]
+script = ExtResource("an")
+AtFrame = 50
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="M11_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wall_4")
+Offset = Vector2(-349, 1)
+Scale = Vector2(1.6, 1.6)
+
+[sub_resource type="Resource" id="A11"]
+script = ExtResource("an")
+AtFrame = 55
+Modifiers = [SubResource("M11_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 60
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7"), SubResource("A8"), SubResource("A9"), SubResource("A10"), SubResource("A11")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5"), SubResource("s6")]

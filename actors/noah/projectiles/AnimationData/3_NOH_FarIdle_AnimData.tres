@@ -1,0 +1,577 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://1825ocelq4ky"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bipw3qg2yfe7m" path="res://actors/noah/projectiles/Hitboxes/3_Hitbox_NOH_FarIdle_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bdt6guppnmzlu" path="res://actors/noah/projectiles/Hitboxes/3_Hitbox_NOH_FarIdle_1.tres" id="4"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/hole_1.png" id="t_hole_1"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/hole_2.png" id="t_hole_2"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/hole_3.png" id="t_hole_3"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/hole_4.png" id="t_hole_4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 6
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 6
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 12
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 18
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 24
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 30
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("an")
+AtFrame = 36
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("an")
+AtFrame = 42
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="M8_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A8"]
+script = ExtResource("an")
+AtFrame = 48
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="M9_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A9"]
+script = ExtResource("an")
+AtFrame = 54
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="M10_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A10"]
+script = ExtResource("an")
+AtFrame = 60
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="M11_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A11"]
+script = ExtResource("an")
+AtFrame = 66
+Modifiers = [SubResource("M11_0")]
+
+[sub_resource type="Resource" id="M12_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A12"]
+script = ExtResource("an")
+AtFrame = 72
+Modifiers = [SubResource("M12_0")]
+
+[sub_resource type="Resource" id="M13_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A13"]
+script = ExtResource("an")
+AtFrame = 78
+Modifiers = [SubResource("M13_0")]
+
+[sub_resource type="Resource" id="M14_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A14"]
+script = ExtResource("an")
+AtFrame = 84
+Modifiers = [SubResource("M14_0")]
+
+[sub_resource type="Resource" id="M15_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A15"]
+script = ExtResource("an")
+AtFrame = 90
+Modifiers = [SubResource("M15_0")]
+
+[sub_resource type="Resource" id="M16_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A16"]
+script = ExtResource("an")
+AtFrame = 96
+Modifiers = [SubResource("M16_0")]
+
+[sub_resource type="Resource" id="M17_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A17"]
+script = ExtResource("an")
+AtFrame = 102
+Modifiers = [SubResource("M17_0")]
+
+[sub_resource type="Resource" id="M18_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A18"]
+script = ExtResource("an")
+AtFrame = 108
+Modifiers = [SubResource("M18_0")]
+
+[sub_resource type="Resource" id="M19_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A19"]
+script = ExtResource("an")
+AtFrame = 114
+Modifiers = [SubResource("M19_0")]
+
+[sub_resource type="Resource" id="M20_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A20"]
+script = ExtResource("an")
+AtFrame = 120
+Modifiers = [SubResource("M20_0")]
+
+[sub_resource type="Resource" id="M21_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A21"]
+script = ExtResource("an")
+AtFrame = 126
+Modifiers = [SubResource("M21_0")]
+
+[sub_resource type="Resource" id="M22_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A22"]
+script = ExtResource("an")
+AtFrame = 132
+Modifiers = [SubResource("M22_0")]
+
+[sub_resource type="Resource" id="M23_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A23"]
+script = ExtResource("an")
+AtFrame = 138
+Modifiers = [SubResource("M23_0")]
+
+[sub_resource type="Resource" id="M24_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A24"]
+script = ExtResource("an")
+AtFrame = 144
+Modifiers = [SubResource("M24_0")]
+
+[sub_resource type="Resource" id="M25_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A25"]
+script = ExtResource("an")
+AtFrame = 150
+Modifiers = [SubResource("M25_0")]
+
+[sub_resource type="Resource" id="M26_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A26"]
+script = ExtResource("an")
+AtFrame = 156
+Modifiers = [SubResource("M26_0")]
+
+[sub_resource type="Resource" id="M27_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A27"]
+script = ExtResource("an")
+AtFrame = 162
+Modifiers = [SubResource("M27_0")]
+
+[sub_resource type="Resource" id="M28_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A28"]
+script = ExtResource("an")
+AtFrame = 168
+Modifiers = [SubResource("M28_0")]
+
+[sub_resource type="Resource" id="M29_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A29"]
+script = ExtResource("an")
+AtFrame = 174
+Modifiers = [SubResource("M29_0")]
+
+[sub_resource type="Resource" id="M30_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A30"]
+script = ExtResource("an")
+AtFrame = 180
+Modifiers = [SubResource("M30_0")]
+
+[sub_resource type="Resource" id="M31_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A31"]
+script = ExtResource("an")
+AtFrame = 186
+Modifiers = [SubResource("M31_0")]
+
+[sub_resource type="Resource" id="M32_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A32"]
+script = ExtResource("an")
+AtFrame = 192
+Modifiers = [SubResource("M32_0")]
+
+[sub_resource type="Resource" id="M33_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A33"]
+script = ExtResource("an")
+AtFrame = 198
+Modifiers = [SubResource("M33_0")]
+
+[sub_resource type="Resource" id="M34_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A34"]
+script = ExtResource("an")
+AtFrame = 204
+Modifiers = [SubResource("M34_0")]
+
+[sub_resource type="Resource" id="M35_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A35"]
+script = ExtResource("an")
+AtFrame = 210
+Modifiers = [SubResource("M35_0")]
+
+[sub_resource type="Resource" id="M36_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A36"]
+script = ExtResource("an")
+AtFrame = 216
+Modifiers = [SubResource("M36_0")]
+
+[sub_resource type="Resource" id="M37_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A37"]
+script = ExtResource("an")
+AtFrame = 222
+Modifiers = [SubResource("M37_0")]
+
+[sub_resource type="Resource" id="M38_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A38"]
+script = ExtResource("an")
+AtFrame = 228
+Modifiers = [SubResource("M38_0")]
+
+[sub_resource type="Resource" id="M39_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A39"]
+script = ExtResource("an")
+AtFrame = 234
+Modifiers = [SubResource("M39_0")]
+
+[sub_resource type="Resource" id="M40_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A40"]
+script = ExtResource("an")
+AtFrame = 240
+Modifiers = [SubResource("M40_0")]
+
+[sub_resource type="Resource" id="M41_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A41"]
+script = ExtResource("an")
+AtFrame = 246
+Modifiers = [SubResource("M41_0")]
+
+[sub_resource type="Resource" id="M42_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A42"]
+script = ExtResource("an")
+AtFrame = 252
+Modifiers = [SubResource("M42_0")]
+
+[sub_resource type="Resource" id="M43_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A43"]
+script = ExtResource("an")
+AtFrame = 258
+Modifiers = [SubResource("M43_0")]
+
+[sub_resource type="Resource" id="M44_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A44"]
+script = ExtResource("an")
+AtFrame = 264
+Modifiers = [SubResource("M44_0")]
+
+[sub_resource type="Resource" id="M45_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A45"]
+script = ExtResource("an")
+AtFrame = 270
+Modifiers = [SubResource("M45_0")]
+
+[sub_resource type="Resource" id="M46_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_3")
+Offset = Vector2(-98, -98)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A46"]
+script = ExtResource("an")
+AtFrame = 276
+Modifiers = [SubResource("M46_0")]
+
+[sub_resource type="Resource" id="M47_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_4")
+Offset = Vector2(-125, -97)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A47"]
+script = ExtResource("an")
+AtFrame = 282
+Modifiers = [SubResource("M47_0")]
+
+[sub_resource type="Resource" id="M48_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_1")
+Offset = Vector2(-89, -96)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A48"]
+script = ExtResource("an")
+AtFrame = 288
+Modifiers = [SubResource("M48_0")]
+
+[sub_resource type="Resource" id="M49_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hole_2")
+Offset = Vector2(-126, -101)
+Scale = Vector2(1.25, 1.25)
+
+[sub_resource type="Resource" id="A49"]
+script = ExtResource("an")
+AtFrame = 294
+Modifiers = [SubResource("M49_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 300
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7"), SubResource("A8"), SubResource("A9"), SubResource("A10"), SubResource("A11"), SubResource("A12"), SubResource("A13"), SubResource("A14"), SubResource("A15"), SubResource("A16"), SubResource("A17"), SubResource("A18"), SubResource("A19"), SubResource("A20"), SubResource("A21"), SubResource("A22"), SubResource("A23"), SubResource("A24"), SubResource("A25"), SubResource("A26"), SubResource("A27"), SubResource("A28"), SubResource("A29"), SubResource("A30"), SubResource("A31"), SubResource("A32"), SubResource("A33"), SubResource("A34"), SubResource("A35"), SubResource("A36"), SubResource("A37"), SubResource("A38"), SubResource("A39"), SubResource("A40"), SubResource("A41"), SubResource("A42"), SubResource("A43"), SubResource("A44"), SubResource("A45"), SubResource("A46"), SubResource("A47"), SubResource("A48"), SubResource("A49")]
+Hitboxes = [SubResource("s1"), SubResource("s2")]

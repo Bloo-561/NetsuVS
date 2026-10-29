@@ -1,0 +1,519 @@
+{
+ "px_m": 0.002323529411764706,
+ "height_m": 1.58,
+ "views": {
+  "front": {
+   "file": "cecilia_ref_front.png",
+   "W": 549,
+   "H": 706,
+   "sole_v": 695.0,
+   "centre_u": 270.13
+  },
+  "back": {
+   "file": "cecilia_ref_back.png",
+   "W": 533,
+   "H": 706,
+   "sole_v": 694.0,
+   "centre_u": 264.3
+  },
+  "side": {
+   "file": "cecilia_ref_side.png",
+   "W": 220,
+   "H": 706,
+   "sole_v": 696.0,
+   "centre_u": 129.75
+  }
+ },
+ "landmarks": [
+  {
+   "key": "head_top",
+   "name": "Head top (ahoge tip)",
+   "v": {
+    "front": 15.0,
+    "back": 14.0,
+    "side": 16.0
+   },
+   "method": "top edge of the first mask row",
+   "confidence": "exact",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 680.0,
+     "m": 1.58
+    },
+    "back": {
+     "px": 680.0,
+     "m": 1.58
+    },
+    "side": {
+     "px": 680.0,
+     "m": 1.58
+    }
+   },
+   "spread_px": 0.0,
+   "spread_mm": 0.0
+  },
+  {
+   "key": "crown",
+   "name": "Crown (hair, no ahoge)",
+   "v": {
+    "front": 32.0,
+    "back": 31.0,
+    "side": 32.0
+   },
+   "method": "first row where the hair dome is wider than 20 px",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 663.0,
+     "m": 1.5405
+    },
+    "back": {
+     "px": 663.0,
+     "m": 1.5405
+    },
+    "side": {
+     "px": 664.0,
+     "m": 1.5428
+    }
+   },
+   "spread_px": 1.0,
+   "spread_mm": 2.3
+  },
+  {
+   "key": "chin",
+   "name": "Chin",
+   "v": {
+    "front": 141.0,
+    "back": null,
+    "side": 143.0
+   },
+   "method": "front: outer edge of the jaw line at the centre; side: bottom of the chin silhouette; back: hidden by hair",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 554.0,
+     "m": 1.2872
+    },
+    "back": null,
+    "side": {
+     "px": 553.0,
+     "m": 1.2849
+    }
+   },
+   "spread_px": 1.0,
+   "spread_mm": 2.3
+  },
+  {
+   "key": "shoulder",
+   "name": "Shoulder (arm top)",
+   "v": {
+    "front": 152.0,
+    "back": 152.0,
+    "side": 151.5
+   },
+   "method": "front/back: arm top contour at the shoulder (rows 151-153); side: visual, top of jacket shoulder, partly hidden by hair",
+   "confidence": "+-1 px (side +-2, visual)",
+   "tol_px": 2,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 543.0,
+     "m": 1.2617
+    },
+    "back": {
+     "px": 542.0,
+     "m": 1.2594
+    },
+    "side": {
+     "px": 544.5,
+     "m": 1.2652
+    }
+   },
+   "spread_px": 2.5,
+   "spread_mm": 5.8
+  },
+  {
+   "key": "arm_axis",
+   "name": "Arm axis (cuff centre)",
+   "v": {
+    "front": 168.0,
+    "back": 168.0,
+    "side": 175.05147671778792
+   },
+   "method": "front/back: middle of the white cuff block; side: circle fit of the end-on cuff ring (r=18.4 px, u=118.2)",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 527.0,
+     "m": 1.2245
+    },
+    "back": {
+     "px": 526.0,
+     "m": 1.2222
+    },
+    "side": {
+     "px": 520.9,
+     "m": 1.2104
+    }
+   },
+   "spread_px": 6.1,
+   "spread_mm": 14.2
+  },
+  {
+   "key": "jacket_hem",
+   "name": "Jacket hem (side seams)",
+   "v": {
+    "front": 250.0,
+    "back": 251.0,
+    "side": 252.0
+   },
+   "method": "last row where the black jacket covers >15 % of the torso width",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 445.0,
+     "m": 1.034
+    },
+    "back": {
+     "px": 443.0,
+     "m": 1.0293
+    },
+    "side": {
+     "px": 444.0,
+     "m": 1.0316
+    }
+   },
+   "spread_px": 2.0,
+   "spread_mm": 4.6
+  },
+  {
+   "key": "waist",
+   "name": "Waist (narrowest)",
+   "v": {
+    "front": 250.5,
+    "back": 247.5,
+    "side": 254.0
+   },
+   "method": "front/back: narrowest torso row (73 / 69 px wide); side: middle of the flat 246-261 depth plateau (57-60 px deep)",
+   "confidence": "front/back +-1 px; side +-7 px",
+   "tol_px": 7,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 444.5,
+     "m": 1.0328
+    },
+    "back": {
+     "px": 446.5,
+     "m": 1.0375
+    },
+    "side": {
+     "px": 442.0,
+     "m": 1.027
+    }
+   },
+   "spread_px": 4.5,
+   "spread_mm": 10.5
+  },
+  {
+   "key": "hem_front",
+   "name": "Skirt hem, front",
+   "v": {
+    "front": 376.0,
+    "back": null,
+    "side": 371.0
+   },
+   "method": "front: lowest red row at the centre (drawn line); side: red hem at the skirt's front extreme (silhouette)",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": "side",
+   "height": {
+    "front": {
+     "px": 319.0,
+     "m": 0.7412
+    },
+    "back": null,
+    "side": {
+     "px": 325.0,
+     "m": 0.7551
+    }
+   },
+   "spread_px": 6.0,
+   "spread_mm": 13.9
+  },
+  {
+   "key": "hem_back",
+   "name": "Skirt hem, back",
+   "v": {
+    "front": null,
+    "back": 375.0,
+    "side": 356.0
+   },
+   "method": "back: lowest red row at the centre (drawn line); side: red hem at the skirt's back extreme (silhouette)",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": "side",
+   "height": {
+    "front": null,
+    "back": {
+     "px": 319.0,
+     "m": 0.7412
+    },
+    "side": {
+     "px": 340.0,
+     "m": 0.79
+    }
+   },
+   "spread_px": 21.0,
+   "spread_mm": 48.8
+  },
+  {
+   "key": "stocking_top",
+   "name": "Stocking top (R leg)",
+   "v": {
+    "front": 417.0,
+    "back": 416.5,
+    "side": 413.0
+   },
+   "method": "median first dark row across the leg",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 278.0,
+     "m": 0.6459
+    },
+    "back": {
+     "px": 277.5,
+     "m": 0.6448
+    },
+    "side": {
+     "px": 283.0,
+     "m": 0.6576
+    }
+   },
+   "spread_px": 5.5,
+   "spread_mm": 12.8
+  },
+  {
+   "key": "knee",
+   "name": "Knee",
+   "v": {
+    "front": 490.0,
+    "back": 484.0,
+    "side": 480.0
+   },
+   "method": "visual: front = kneecap/below-kneecap shading (left leg), back = knee crease lines, side = contour bend",
+   "confidence": "+-5 px (no sharp feature)",
+   "tol_px": 5,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 205.0,
+     "m": 0.4763
+    },
+    "back": {
+     "px": 210.0,
+     "m": 0.4879
+    },
+    "side": {
+     "px": 216.0,
+     "m": 0.5019
+    }
+   },
+   "spread_px": 11.0,
+   "spread_mm": 25.6
+  },
+  {
+   "key": "sock_top",
+   "name": "Sock top (L leg)",
+   "v": {
+    "front": 519.0,
+    "back": 516.0,
+    "side": null
+   },
+   "method": "median first dark row across the leg; side: far leg, hidden",
+   "confidence": "+-1 px",
+   "tol_px": 1,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 176.0,
+     "m": 0.4089
+    },
+    "back": {
+     "px": 178.0,
+     "m": 0.4136
+    },
+    "side": null
+   },
+   "spread_px": 2.0,
+   "spread_mm": 4.6
+  },
+  {
+   "key": "ankle_narrowest",
+   "name": "Ankle (narrowest leg)",
+   "v": {
+    "front": 616.5,
+    "back": 619.5,
+    "side": 609.5
+   },
+   "method": "narrowest lower-leg width (front/back) or depth (side); NOT the same anatomical point in every view",
+   "confidence": "info only",
+   "tol_px": 99,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 78.5,
+     "m": 0.1824
+    },
+    "back": {
+     "px": 74.5,
+     "m": 0.1731
+    },
+    "side": {
+     "px": 86.5,
+     "m": 0.201
+    }
+   },
+   "spread_px": 12.0,
+   "spread_mm": 27.9
+  },
+  {
+   "key": "bow",
+   "name": "Ankle (bow centre)",
+   "v": {
+    "front": 639.5,
+    "back": null,
+    "side": 641.5
+   },
+   "method": "middle of the rows where the bow is >12 px wide; back: hidden behind the heel",
+   "confidence": "+-2 px",
+   "tol_px": 2,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 55.5,
+     "m": 0.129
+    },
+    "back": null,
+    "side": {
+     "px": 54.5,
+     "m": 0.1266
+    }
+   },
+   "spread_px": 1.0,
+   "spread_mm": 2.3
+  },
+  {
+   "key": "sole",
+   "name": "Sole",
+   "v": {
+    "front": 695.0,
+    "back": 694.0,
+    "side": 696.0
+   },
+   "method": "bottom edge of the last mask row",
+   "confidence": "exact",
+   "tol_px": 0,
+   "silhouette": null,
+   "height": {
+    "front": {
+     "px": 0.0,
+     "m": 0.0
+    },
+    "back": {
+     "px": 0.0,
+     "m": 0.0
+    },
+    "side": {
+     "px": 0.0,
+     "m": 0.0
+    }
+   },
+   "spread_px": 0.0,
+   "spread_mm": 0.0
+  }
+ ],
+ "front_vs_back_mirror": {
+  "iou": 0.913,
+  "ceiling_both": 0.9561,
+  "front_only_px": 4560,
+  "back_only_px": 2374,
+  "both_px": 72749,
+  "bands": [
+   {
+    "band": "head/hair",
+    "rows": [
+     0,
+     150
+    ],
+    "iou": 0.929,
+    "front_only_px": 585,
+    "back_only_px": 233
+   },
+   {
+    "band": "arms",
+    "rows": [
+     150,
+     192
+    ],
+    "iou": 0.916,
+    "front_only_px": 907,
+    "back_only_px": 367
+   },
+   {
+    "band": "jacket",
+    "rows": [
+     192,
+     252
+    ],
+    "iou": 0.873,
+    "front_only_px": 815,
+    "back_only_px": 2
+   },
+   {
+    "band": "skirt+sword",
+    "rows": [
+     252,
+     390
+    ],
+    "iou": 0.957,
+    "front_only_px": 744,
+    "back_only_px": 112
+   },
+   {
+    "band": "legs",
+    "rows": [
+     390,
+     630
+    ],
+    "iou": 0.892,
+    "front_only_px": 1037,
+    "back_only_px": 1293
+   },
+   {
+    "band": "feet",
+    "rows": [
+     630,
+     706
+    ],
+    "iou": 0.832,
+    "front_only_px": 471,
+    "back_only_px": 366
+   }
+  ]
+ },
+ "note": "v = continuous image row (0 = top edge of the crop). height px = sole_v - v."
+}

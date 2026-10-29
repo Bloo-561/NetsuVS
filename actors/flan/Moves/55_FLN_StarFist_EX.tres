@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://212wezluv8yf"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cxbefdoq5df5p" path="res://actors/_shared/sakuga/Inputs/20_Input_236C.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+MoveIndex = 51
+Conditions = 2
+FrameThreshold = Vector2i(16, 46)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+MoveIndex = 52
+Conditions = 2
+FrameThreshold = Vector2i(16, 46)
+
+[resource]
+script = ExtResource("1")
+MoveName = "Supernova Fist"
+MoveState = 75
+Inputs = ExtResource("2")
+SuperFlash = 15
+Priority = 9
+MoveEnd = 2
+SuperGaugeRequired = 2000
+CanCancelTo = [SubResource("s1"), SubResource("s2")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true

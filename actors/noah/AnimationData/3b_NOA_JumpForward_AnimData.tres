@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://yo0nrehua0bo"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Resource" uid="uid://8ptst1g4nmok" path="res://actors/noah/Hitboxes/0_Hitbox_Basic.tres" id="hb0"]
+[ext_resource type="Resource" uid="uid://1v4xted2po4n" path="res://actors/noah/Hitboxes/1_Hitbox_Crouch.tres" id="hb1"]
+[ext_resource type="Resource" uid="uid://bfcnsprdbeqfr" path="res://actors/noah/Hitboxes/2_Hitbox_Jump.tres" id="hb2"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/jump_1.png" id="t_jump_1"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/jump_2.png" id="t_jump_2"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/jump_3.png" id="t_jump_3"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/jump_4.png" id="t_jump_4"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/jump_5.png" id="t_jump_5"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb1")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 4
+HitboxData = ExtResource("hb0")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("hs")
+AtFrame = 19
+HitboxData = ExtResource("hb2")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_jump_1")
+Offset = Vector2(-199, -8)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_jump_2")
+Offset = Vector2(-229, 23)
+Rotation = 356
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("as")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_jump_3")
+Offset = Vector2(-220, 10)
+Rotation = 354
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("as")
+AtFrame = 8
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_jump_4")
+Offset = Vector2(-227, 48)
+Rotation = 356
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("as")
+AtFrame = 16
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_jump_5")
+Offset = Vector2(-221, 15)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("as")
+AtFrame = 24
+Modifiers = [SubResource("M4_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 25
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2")]
+AttackProfiles = []

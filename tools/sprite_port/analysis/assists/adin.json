@@ -1,0 +1,363 @@
+{
+ "reference": "Adin/5S_Counter/Adin_06_Recovery.png",
+ "ref": {
+  "empty": false,
+  "top": 153,
+  "bot": 1449,
+  "left": 95,
+  "right": 989,
+  "h": 1297,
+  "rear_x": 95,
+  "front_x": 948,
+  "hip_x": 620.5,
+  "cx": 559.1585528111353,
+  "cy": 722.8287902565502,
+  "mask": "dark"
+ },
+ "frames": {
+  "Adin/5S_Counter/Adin_01_Raise.png": {
+   "empty": false,
+   "top": 185,
+   "bot": 1454,
+   "left": 53,
+   "right": 1022,
+   "h": 1270,
+   "rear_x": 53,
+   "front_x": 1022,
+   "hip_x": 574.0,
+   "cx": 606.9580916894538,
+   "cy": 753.7040175486043,
+   "mask": "dark",
+   "size": [
+    1054,
+    1492
+   ],
+   "sift": {
+    "scale": 0.7990357565431252,
+    "rot": -5.3165250092882195,
+    "inliers": 27,
+    "good": 87
+   },
+   "scale_how": "body",
+   "scale": 0.7990357565431252
+  },
+  "Adin/5S_Counter/Adin_02_Counter_Hold.png": {
+   "empty": false,
+   "top": 90,
+   "bot": 1462,
+   "left": 32,
+   "right": 1040,
+   "h": 1373,
+   "rear_x": 32,
+   "front_x": 1040,
+   "hip_x": 592.0,
+   "cx": 572.5412685612818,
+   "cy": 763.6724010132851,
+   "mask": "dark",
+   "size": [
+    1054,
+    1492
+   ],
+   "sift": {
+    "scale": 1.1311779690303356,
+    "rot": 5.911208780940527,
+    "inliers": 12,
+    "good": 36
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/5S_Counter/Adin_03_Block_React.png": {
+   "empty": false,
+   "top": 203,
+   "bot": 1458,
+   "left": 145,
+   "right": 962,
+   "h": 1256,
+   "rear_x": 145,
+   "front_x": 278,
+   "hip_x": 637.0,
+   "cx": 573.4281711591218,
+   "cy": 754.3588757309799,
+   "mask": "dark",
+   "size": [
+    1054,
+    1492
+   ],
+   "sift": {
+    "scale": 0.9738684529521456,
+    "rot": -30.90218150465885,
+    "inliers": 13,
+    "good": 45
+   },
+   "scale_how": "via Adin_01_Raise.png",
+   "scale": 0.7311017590691055,
+   "sift_chain": {
+    "scale": 0.9149800282181074,
+    "rot": -3.9455618025922377,
+    "inliers": 20,
+    "good": 96
+   }
+  },
+  "Adin/5S_Counter/Adin_04_Bash_Load.png": {
+   "empty": false,
+   "top": 47,
+   "bot": 1249,
+   "left": 36,
+   "right": 1215,
+   "h": 1203,
+   "rear_x": 36,
+   "front_x": 1080,
+   "hip_x": 829.5,
+   "cx": 736.6949338918706,
+   "cy": 676.2183270061527,
+   "mask": "dark",
+   "size": [
+    1236,
+    1272
+   ],
+   "sift": {
+    "scale": 1.0228660074638636,
+    "rot": 6.848215980074969,
+    "inliers": 14,
+    "good": 41
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/5S_Counter/Adin_05_Rising_Bash.png": {
+   "empty": false,
+   "top": 6,
+   "bot": 1388,
+   "left": 22,
+   "right": 1092,
+   "h": 1383,
+   "rear_x": 65,
+   "front_x": 1002,
+   "hip_x": 440.0,
+   "cx": 614.3673982531507,
+   "cy": 727.9761487875888,
+   "mask": "dark",
+   "size": [
+    1108,
+    1420
+   ],
+   "sift": {
+    "scale": 0.7734925635338408,
+    "rot": 11.499253531469302,
+    "inliers": 30,
+    "good": 117
+   },
+   "scale_how": "body",
+   "scale": 0.7734925635338408
+  },
+  "Adin/5S_Counter/Adin_06_Recovery.png": {
+   "empty": false,
+   "top": 153,
+   "bot": 1449,
+   "left": 95,
+   "right": 989,
+   "h": 1297,
+   "rear_x": 95,
+   "front_x": 948,
+   "hip_x": 620.5,
+   "cx": 559.1585528111353,
+   "cy": 722.8287902565502,
+   "mask": "dark",
+   "size": [
+    1054,
+    1492
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 532,
+    "good": 532
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Adin/6S_Run_Return/Adin_01_Run_Right.png": {
+   "empty": false,
+   "top": 103,
+   "bot": 1252,
+   "left": 47,
+   "right": 1203,
+   "h": 1150,
+   "rear_x": 965,
+   "front_x": 1198,
+   "hip_x": 496.0,
+   "cx": 680.339187449963,
+   "cy": 605.3106093618574,
+   "mask": "dark",
+   "size": [
+    1214,
+    1296
+   ],
+   "sift": {
+    "scale": 1.0713649796072457,
+    "rot": 17.617225510947087,
+    "inliers": 6,
+    "good": 25
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_02_Run_Right_Passing.png": {
+   "empty": false,
+   "top": 131,
+   "bot": 1429,
+   "left": 21,
+   "right": 1034,
+   "h": 1299,
+   "rear_x": 105,
+   "front_x": 213,
+   "hip_x": 524.0,
+   "cx": 505.5640536544634,
+   "cy": 729.0155738897954,
+   "mask": "dark",
+   "size": [
+    1055,
+    1491
+   ],
+   "sift": {
+    "scale": 1.0866171903015347,
+    "rot": 5.451186042973726,
+    "inliers": 10,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_03_Return_Left_Load.png": {
+   "empty": false,
+   "top": 94,
+   "bot": 1010,
+   "left": 46,
+   "right": 1513,
+   "h": 917,
+   "rear_x": 1415,
+   "front_x": 1513,
+   "hip_x": 676.5,
+   "cx": 689.4179016323025,
+   "cy": 495.83500680126,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.3798478681449233,
+    "rot": -44.38565061676902,
+    "inliers": 9,
+    "good": 23
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_04_Charge_Left_Contact.png": {
+   "empty": false,
+   "top": 55,
+   "bot": 978,
+   "left": 91,
+   "right": 1488,
+   "h": 924,
+   "rear_x": 217,
+   "front_x": 1472,
+   "hip_x": 668.5,
+   "cx": 638.5501542497183,
+   "cy": 514.4856279903202,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.185584822865,
+    "rot": -41.92812513702327,
+    "inliers": 11,
+    "good": 25
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_05_Charge_Left_Passing.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 997,
+   "left": 136,
+   "right": 1424,
+   "h": 986,
+   "rear_x": 853,
+   "front_x": 1424,
+   "hip_x": 701.0,
+   "cx": 760.8310898587579,
+   "cy": 484.0570128159061,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9152608569099363,
+    "rot": -32.89338559387231,
+    "inliers": 11,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_06_Launch_Bash_Left.png": {
+   "empty": false,
+   "top": 7,
+   "bot": 1117,
+   "left": 17,
+   "right": 1360,
+   "h": 1111,
+   "rear_x": 265,
+   "front_x": 1360,
+   "hip_x": 840.5,
+   "cx": 638.8808876225014,
+   "cy": 582.8872555368475,
+   "mask": "dark",
+   "size": [
+    1375,
+    1144
+   ],
+   "sift": {
+    "scale": 1.0199866436837381,
+    "rot": -29.18017329312639,
+    "inliers": 8,
+    "good": 24
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Adin/6S_Run_Return/Adin_07_Brake_Left.png": {
+   "empty": false,
+   "top": 175,
+   "bot": 1333,
+   "left": 45,
+   "right": 1045,
+   "h": 1159,
+   "rear_x": 180,
+   "front_x": 1045,
+   "hip_x": 417.0,
+   "cx": 473.5170479731502,
+   "cy": 783.0854524565545,
+   "mask": "dark",
+   "size": [
+    1054,
+    1492
+   ],
+   "sift": {
+    "scale": 0.7989277768187021,
+    "rot": -36.598300254857506,
+    "inliers": 8,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": null
+  }
+ }
+}

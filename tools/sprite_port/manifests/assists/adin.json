@@ -1,0 +1,551 @@
+{
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "fx": "none",
+ "head_frac": 0.23,
+ "character": "assists/adin",
+ "tag": "ADN",
+ "reference": "Adin/5S_Counter/Adin_06_Recovery.png",
+ "source_dirs": [
+  "Adin/5S_Counter",
+  "Adin/6S_Run_Return"
+ ],
+ "game": {
+  "height_px": 535,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5
+ },
+ "frames": {
+  "ad_raise": {
+   "src": "Adin/5S_Counter/Adin_01_Raise.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_hold": {
+   "src": "Adin/5S_Counter/Adin_02_Counter_Hold.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_react": {
+   "src": "Adin/5S_Counter/Adin_03_Block_React.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_load": {
+   "src": "Adin/5S_Counter/Adin_04_Bash_Load.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_bash": {
+   "src": "Adin/5S_Counter/Adin_05_Rising_Bash.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_recover": {
+   "src": "Adin/5S_Counter/Adin_06_Recovery.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "ad_run1": {
+   "src": "Adin/6S_Run_Return/Adin_01_Run_Right.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "ad_run2": {
+   "src": "Adin/6S_Run_Return/Adin_02_Run_Right_Passing.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "ad_retload": {
+   "src": "Adin/6S_Run_Return/Adin_03_Return_Left_Load.png",
+   "anchor": "body_ground",
+   "scale": 1.0,
+   "flip": true
+  },
+  "ad_ret1": {
+   "src": "Adin/6S_Run_Return/Adin_04_Charge_Left_Contact.png",
+   "anchor": "body_ground",
+   "scale": 1.0,
+   "flip": true
+  },
+  "ad_ret2": {
+   "src": "Adin/6S_Run_Return/Adin_05_Charge_Left_Passing.png",
+   "anchor": "body_ground",
+   "scale": 1.0,
+   "flip": true
+  },
+  "ad_launch": {
+   "src": "Adin/6S_Run_Return/Adin_06_Launch_Bash_Left.png",
+   "anchor": "body_ground",
+   "scale": 1.0,
+   "flip": true
+  },
+  "ad_brake": {
+   "src": "Adin/6S_Run_Return/Adin_07_Brake_Left.png",
+   "anchor": "ground",
+   "scale": 1.0,
+   "flip": true
+  },
+  "adfx_block": {
+   "src": "Adin/Separate_Effects/Adin_01_Counter_Block.png",
+   "anchor": "center",
+   "at": [
+    120,
+    420
+   ],
+   "scale": 1.47342
+  },
+  "adfx_up": {
+   "src": "Adin/Separate_Effects/Adin_02_Upward_Launch.png",
+   "anchor": "center",
+   "at": [
+    215,
+    520
+   ],
+   "scale": 1.08573
+  },
+  "adfx_trail": {
+   "src": "Adin/Separate_Effects/Adin_03_Charge_Trail.png",
+   "anchor": "center",
+   "at": [
+    -330,
+    240
+   ],
+   "flip": true,
+   "scale": 1.07247
+  },
+  "adfx_fade": {
+   "src": "Adin/Separate_Effects/Adin_04_Launch_Fade.png",
+   "anchor": "center",
+   "at": [
+    215,
+    560
+   ],
+   "scale": 1.00841
+  },
+  "adfx_up2": {
+   "src": "Adin/Separate_Effects/Adin_02_Upward_Launch.png",
+   "anchor": "center",
+   "at": [
+    225,
+    470
+   ],
+   "scale": 1.08573
+  },
+  "adfx_fade2": {
+   "src": "Adin/Separate_Effects/Adin_04_Launch_Fade.png",
+   "anchor": "center",
+   "at": [
+    225,
+    520
+   ],
+   "scale": 1.00841
+  }
+ },
+ "animations": {
+  "1_ADN_5S": {
+   "keys": [
+    [
+     "ad_raise",
+     0
+    ],
+    [
+     "ad_hold",
+     8
+    ],
+    [
+     "ad_recover",
+     48
+    ]
+   ],
+   "duration": 62,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "1_Hitbox_ADN_5S_0"
+    ],
+    [
+     8,
+     1,
+     "1_Hitbox_ADN_5S_1"
+    ],
+    [
+     48,
+     2,
+     "1_Hitbox_ADN_5S_2"
+    ]
+   ]
+  },
+  "2_ADN_5S_hit": {
+   "keys": [
+    [
+     "ad_react",
+     0,
+     {
+      "fx": "adfx_block",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_load",
+     8
+    ],
+    [
+     "ad_bash",
+     14,
+     {
+      "fx": "adfx_up"
+     }
+    ],
+    [
+     "ad_bash",
+     22,
+     {
+      "fx": "adfx_fade"
+     }
+    ],
+    [
+     "ad_recover",
+     32
+    ]
+   ],
+   "duration": 56,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "2_Hitbox_ADN_5S_hit_0"
+    ],
+    [
+     14,
+     1,
+     "2_Hitbox_ADN_5S_hit_1"
+    ],
+    [
+     21,
+     2,
+     "2_Hitbox_ADN_5S_hit_2"
+    ]
+   ]
+  },
+  "3_ADN_6S": {
+   "keys": [
+    [
+     "ad_run1",
+     0
+    ],
+    [
+     "ad_run2",
+     5
+    ],
+    [
+     "ad_run1",
+     10
+    ],
+    [
+     "ad_run2",
+     15
+    ],
+    [
+     "ad_run1",
+     20
+    ],
+    [
+     "ad_run2",
+     25
+    ],
+    [
+     "ad_run1",
+     30
+    ],
+    [
+     "ad_run2",
+     35
+    ],
+    [
+     "ad_run1",
+     40
+    ],
+    [
+     "ad_run2",
+     45
+    ],
+    [
+     "ad_run1",
+     50
+    ],
+    [
+     "ad_run2",
+     55
+    ],
+    [
+     "ad_run1",
+     60
+    ],
+    [
+     "ad_run2",
+     65
+    ],
+    [
+     "ad_run1",
+     70
+    ],
+    [
+     "ad_run2",
+     75
+    ],
+    [
+     "ad_run1",
+     80
+    ],
+    [
+     "ad_run2",
+     85
+    ]
+   ],
+   "duration": 90,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "3_Hitbox_ADN_6S_0"
+    ]
+   ],
+   "afterimages": true
+  },
+  "4_ADN_6S_return": {
+   "keys": [
+    [
+     "ad_retload",
+     0
+    ],
+    [
+     "ad_ret1",
+     8,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     12,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     16,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     20,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     24,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     28,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     32,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     36,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     40,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     44,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     48,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     52,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     56,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     60,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     64,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     68,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     72,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     76,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     80,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret2",
+     84,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_ret1",
+     88,
+     {
+      "fx": "adfx_trail",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 90,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "4_Hitbox_ADN_6S_return_0"
+    ],
+    [
+     8,
+     1,
+     "4_Hitbox_ADN_6S_return_1"
+    ]
+   ],
+   "afterimages": true
+  },
+  "5_ADN_6S_hit": {
+   "keys": [
+    [
+     "ad_launch",
+     0,
+     {
+      "fx": "adfx_up2",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_launch",
+     6,
+     {
+      "fx": "adfx_fade2",
+      "fx_always": true
+     }
+    ],
+    [
+     "ad_brake",
+     14
+    ]
+   ],
+   "duration": 30,
+   "hitboxes": [
+    [
+     0,
+     2,
+     "5_Hitbox_ADN_6S_hit_0"
+    ]
+   ]
+  },
+  "0_ADN_Hidden": {
+   "keys": [
+    [
+     "ad_raise",
+     0
+    ]
+   ],
+   "duration": 1,
+   "hitboxes": []
+  }
+ }
+}

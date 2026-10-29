@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://biry63p21vqls"]
+
+[ext_resource type="Resource" uid="uid://3yh0pky7gxrc" path="res://actors/_shared/sakuga/Inputs/8_Input_3.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Directional Air Dash Down"
+MoveState = 21
+Inputs = ExtResource("1")
+Priority = 5
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+SkipCheck = true
+CanBeOverrided = true
+UseOnAir = true

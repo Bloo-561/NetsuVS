@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bj8gr622jybcu"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bb44nbbyog3zz" path="res://actors/noah/AnimationData/111_NOA_S2_land_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+Velocity = 0
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("3")
+Actions = [SubResource("s4"), SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("8")
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("9")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Conditions = [SubResource("s7")]
+Actions = [SubResource("s8")]
+
+[sub_resource type="Resource" id="sfx_0_0_play"]
+script = ExtResource("sfx_play")
+Source = 1
+Index = 6
+
+[sub_resource type="Resource" id="sfx_0_0"]
+script = ExtResource("3")
+Actions = [SubResource("sfx_0_0_play")]
+
+[resource]
+script = ExtResource("1")
+StateName = "God Press (landing)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = [SubResource("s6"), SubResource("sfx_0_0")]
+OnTickEvents = [SubResource("s9")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

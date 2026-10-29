@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://cw47wkgimxqs2"]
+
+[ext_resource type="Resource" uid="uid://0v0j2e1ptrkf" path="res://actors/cecilia/AnimationData/17_CEC_Hit_Crouch_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="6"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="7"]
+
+[sub_resource type="Resource" id="Resource_kbwwx"]
+script = ExtResource("2")
+UseInertia = true
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_8fq2h"]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_6dgy2"]
+script = ExtResource("4")
+Conditions = null
+Actions = [SubResource("Resource_kbwwx"), SubResource("Resource_8fq2h")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_d3b64"]
+script = ExtResource("5")
+StateIndex = 15
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_73m7b"]
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_ctpcp"]
+script = ExtResource("4")
+Conditions = [SubResource("Resource_73m7b")]
+Actions = [SubResource("Resource_d3b64")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("7")
+StateName = "Hit_Crouch_Weak"
+BaseStance = 1
+Type = 4
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_ctpcp")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("Resource_6dgy2")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 34

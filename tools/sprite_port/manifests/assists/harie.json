@@ -1,0 +1,513 @@
+{
+ "character": "assists/harie",
+ "tag": "HRE",
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "reference": "Harie/5S/05_Uppercut_Rise.png",
+ "fx": "none",
+ "head_frac": 0.23,
+ "game": {
+  "height_px": 520,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5,
+  "base": 0.37
+ },
+ "source_dirs": [
+  "Harie/5S"
+ ],
+ "frames": {
+  "hr_load": {
+   "src": "Harie/5S/01_Dive_Load.png",
+   "anchor": "center",
+   "scale": 1.07,
+   "at": [
+    -141.64,
+    222.17
+   ]
+  },
+  "hr_dive": {
+   "src": "Harie/5S/02_Dive.png",
+   "anchor": "center",
+   "scale": 1.05,
+   "at": [
+    -193.93,
+    182.58
+   ]
+  },
+  "hr_sub": {
+   "src": "Harie/5S/03_Submerge.png",
+   "anchor": "center",
+   "scale": 1.05,
+   "at": [
+    0.35,
+    140.24
+   ]
+  },
+  "hr_start": {
+   "src": "Harie/5S/04_Uppercut_Start.png",
+   "anchor": "center",
+   "scale": 1.56,
+   "at": [
+    0.0,
+    129.31
+   ]
+  },
+  "hr_rise": {
+   "src": "Harie/5S/05_Uppercut_Rise.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    -4.17,
+    255.12
+   ]
+  },
+  "hr_apex": {
+   "src": "Harie/5S/06_Uppercut_Apex.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    -4.17,
+    255.12
+   ]
+  },
+  "hrfx_pud1": {
+   "src": "Harie/Effects/5S_Puddle_01.png",
+   "anchor": "center",
+   "scale": 2.11229,
+   "at": [
+    0.0,
+    46.29
+   ]
+  },
+  "hrfx_pud2": {
+   "src": "Harie/Effects/5S_Puddle_02.png",
+   "anchor": "center",
+   "scale": 2.10926,
+   "at": [
+    -2.11,
+    40.22
+   ]
+  },
+  "hrfx_splash": {
+   "src": "Harie/Effects/5S_Trigger_Splash.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    -4.17,
+    255.12
+   ]
+  },
+  "hrfx_vanish": {
+   "src": "Harie/Effects/5S_Air_Vanish.png",
+   "anchor": "center",
+   "scale": 1.0,
+   "at": [
+    -4.17,
+    255.12
+   ]
+  },
+  "hr_wave1": {
+   "src": "derived/assists/harie/wave_swim_1.png",
+   "anchor": "center",
+   "scale": 0.37,
+   "at": [
+    1.0,
+    171.5
+   ]
+  },
+  "hr_wave2": {
+   "src": "derived/assists/harie/wave_swim_2.png",
+   "anchor": "center",
+   "scale": 0.37,
+   "at": [
+    0.5,
+    181.0
+   ]
+  }
+ },
+ "animations": {
+  "1_HRE_5S": {
+   "keys": [
+    [
+     "hr_load",
+     0
+    ],
+    [
+     "hr_dive",
+     7
+    ],
+    [
+     "hr_sub",
+     14
+    ]
+   ],
+   "duration": 26,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "1_Hitbox_HRE_5S_0"
+    ]
+   ]
+  },
+  "2_HRE_trap": {
+   "keys": [
+    [
+     "hrfx_pud1",
+     0
+    ],
+    [
+     "hrfx_pud2",
+     12
+    ],
+    [
+     "hrfx_pud1",
+     24
+    ],
+    [
+     "hrfx_pud2",
+     36
+    ],
+    [
+     "hrfx_pud1",
+     48
+    ],
+    [
+     "hrfx_pud2",
+     60
+    ],
+    [
+     "hrfx_pud1",
+     72
+    ],
+    [
+     "hrfx_pud2",
+     84
+    ],
+    [
+     "hrfx_pud1",
+     96
+    ],
+    [
+     "hrfx_pud2",
+     108
+    ],
+    [
+     "hrfx_pud1",
+     120
+    ],
+    [
+     "hrfx_pud2",
+     132
+    ],
+    [
+     "hrfx_pud1",
+     144
+    ],
+    [
+     "hrfx_pud2",
+     156
+    ],
+    [
+     "hrfx_pud1",
+     168
+    ],
+    [
+     "hrfx_pud2",
+     180
+    ],
+    [
+     "hrfx_pud1",
+     192
+    ],
+    [
+     "hrfx_pud2",
+     204
+    ],
+    [
+     "hrfx_pud1",
+     216
+    ],
+    [
+     "hrfx_pud2",
+     228
+    ]
+   ],
+   "duration": 240,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "2_Hitbox_HRE_trap_0"
+    ]
+   ]
+  },
+  "3_HRE_up": {
+   "keys": [
+    [
+     "hrfx_splash",
+     0
+    ],
+    [
+     "hr_start",
+     3
+    ],
+    [
+     "hr_rise",
+     8
+    ],
+    [
+     "hr_apex",
+     18
+    ],
+    [
+     "hrfx_vanish",
+     28
+    ]
+   ],
+   "duration": 44,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "3_Hitbox_HRE_up_0"
+    ],
+    [
+     3,
+     1,
+     "3_Hitbox_HRE_up_1"
+    ],
+    [
+     16,
+     2,
+     "3_Hitbox_HRE_up_2"
+    ]
+   ]
+  },
+  "4_HRE_6S": {
+   "keys": [
+    [
+     "hr_wave1",
+     0
+    ],
+    [
+     "hr_wave2",
+     6
+    ],
+    [
+     "hr_wave1",
+     12
+    ],
+    [
+     "hr_wave2",
+     18
+    ],
+    [
+     "hr_wave1",
+     24
+    ],
+    [
+     "hr_wave2",
+     30
+    ],
+    [
+     "hr_wave1",
+     36
+    ],
+    [
+     "hr_wave2",
+     42
+    ],
+    [
+     "hr_wave1",
+     48
+    ],
+    [
+     "hr_wave2",
+     54
+    ],
+    [
+     "hr_wave1",
+     60
+    ],
+    [
+     "hr_wave2",
+     66
+    ],
+    [
+     "hr_wave1",
+     72
+    ],
+    [
+     "hr_wave2",
+     78
+    ],
+    [
+     "hr_wave1",
+     84
+    ],
+    [
+     "hr_wave2",
+     90
+    ],
+    [
+     "hr_wave1",
+     96
+    ],
+    [
+     "hr_wave2",
+     102
+    ],
+    [
+     "hr_wave1",
+     108
+    ],
+    [
+     "hr_wave2",
+     114
+    ],
+    [
+     "hr_wave1",
+     120
+    ],
+    [
+     "hr_wave2",
+     126
+    ],
+    [
+     "hr_wave1",
+     132
+    ],
+    [
+     "hr_wave2",
+     138
+    ],
+    [
+     "hr_wave1",
+     144
+    ]
+   ],
+   "duration": 150,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "4_Hitbox_HRE_6S_0"
+    ]
+   ]
+  },
+  "5_HRE_6S_carry": {
+   "keys": [
+    [
+     "hr_wave1",
+     0
+    ],
+    [
+     "hr_wave2",
+     6
+    ],
+    [
+     "hr_wave1",
+     12
+    ],
+    [
+     "hr_wave2",
+     18
+    ],
+    [
+     "hr_wave1",
+     24
+    ],
+    [
+     "hr_wave2",
+     30
+    ],
+    [
+     "hr_wave1",
+     36
+    ],
+    [
+     "hr_wave2",
+     42
+    ],
+    [
+     "hr_wave1",
+     48
+    ],
+    [
+     "hr_wave2",
+     54
+    ],
+    [
+     "hr_wave1",
+     60
+    ],
+    [
+     "hr_wave2",
+     66
+    ],
+    [
+     "hr_wave1",
+     72
+    ],
+    [
+     "hr_wave2",
+     78
+    ],
+    [
+     "hr_wave1",
+     84
+    ],
+    [
+     "hr_wave2",
+     90
+    ],
+    [
+     "hr_wave1",
+     96
+    ],
+    [
+     "hr_wave2",
+     102
+    ],
+    [
+     "hr_wave1",
+     108
+    ],
+    [
+     "hr_wave2",
+     114
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "5_Hitbox_HRE_6S_carry_0"
+    ],
+    [
+     16,
+     1,
+     "5_Hitbox_HRE_6S_carry_1"
+    ],
+    [
+     22,
+     2,
+     "5_Hitbox_HRE_6S_carry_2"
+    ]
+   ]
+  },
+  "0_HRE_Hidden": {
+   "keys": [
+    [
+     "hr_load",
+     0
+    ]
+   ],
+   "duration": 1,
+   "hitboxes": []
+  }
+ }
+}

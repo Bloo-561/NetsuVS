@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpawnsList" format=3 uid="uid://5w0ffcesv6ec"]
+
+[ext_resource type="PackedScene" uid="uid://nepa8gzdhd13k" path="res://actors/cecilia/Spawnables/0/Instances/Kaede_Spawnable_0.tscn" id="1"]
+[ext_resource type="Script" uid="uid://fshoagbsdqd4" path="res://engine/sakuga/Resources/SpawnObject.cs" id="2"]
+[ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="3"]
+
+[sub_resource type="Resource" id="Resource_42ym4"]
+script = ExtResource("2")
+Key = "Firebal_Basic"
+Instance = ExtResource("1")
+PoolSize = 3
+
+[resource]
+script = ExtResource("3")
+SpawnObjects = [SubResource("Resource_42ym4")]

@@ -1,0 +1,75 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bizbqes6yn6ey"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ba5gktatinukt" path="res://actors/_shared/sakuga/Inputs/45_Input_236B_or_C.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="9"]
+
+[sub_resource type="Resource" id="jc0"]
+script = ExtResource("9")
+MoveIndex = 29
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc1"]
+script = ExtResource("9")
+MoveIndex = 30
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc2"]
+script = ExtResource("9")
+MoveIndex = 31
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc3"]
+script = ExtResource("9")
+MoveIndex = 61
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc4"]
+script = ExtResource("9")
+MoveIndex = 62
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc5"]
+script = ExtResource("9")
+MoveIndex = 63
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc6"]
+script = ExtResource("9")
+MoveIndex = 13
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc7"]
+script = ExtResource("9")
+MoveIndex = 14
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[sub_resource type="Resource" id="jc8"]
+script = ExtResource("9")
+MoveIndex = 15
+Conditions = 7
+FrameThreshold = Vector2i(11, 99)
+
+[resource]
+script = ExtResource("1")
+MoveName = "Flux Dash B"
+MoveState = 118
+Inputs = ExtResource("2")
+Priority = 7
+MoveEnd = 2
+CanCancelTo = [SubResource("jc0"), SubResource("jc1"), SubResource("jc2"), SubResource("jc3"), SubResource("jc4"), SubResource("jc5"), SubResource("jc6"), SubResource("jc7"), SubResource("jc8")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnAir = true
+NetsuOncePerJump = true
+NetsuAirLandLag = 12

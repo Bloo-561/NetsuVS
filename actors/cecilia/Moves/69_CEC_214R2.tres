@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://34wrz4wqp1au"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://d0wfxlb0qkmur" path="res://actors/_shared/sakuga/Inputs/11_Input_5A.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+MoveIndex = 56
+Conditions = 2
+FrameThreshold = Vector2i(3, 26)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+MoveIndex = 56
+Conditions = 2
+FrameThreshold = Vector2i(7, 28)
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+MoveIndex = 57
+Conditions = 2
+FrameThreshold = Vector2i(7, 28)
+
+[resource]
+script = ExtResource("1")
+MoveName = "Command Dash: Pierce"
+MoveState = 75
+Inputs = ExtResource("2")
+Priority = 8
+MoveEnd = 2
+CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true
+SkipCheck = true
+IsSequenceFromStates = PackedInt32Array(73, 74)

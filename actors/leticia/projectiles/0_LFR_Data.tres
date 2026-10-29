@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3]
+
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_0_Hidden.tres" id="1"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_1_A1_Kick.tres" id="2"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_2_A2_Kick.tres" id="3"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_3_B1_Kick.tres" id="4"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_4_B2_Kick.tres" id="5"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_5_C1_Kick.tres" id="6"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_6_C2_Kick.tres" id="7"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_7_A1_Arc.tres" id="8"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_8_A2_Arc.tres" id="9"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_9_B1_Arc.tres" id="10"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_10_B2_Arc.tres" id="11"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_11_C1_Arc.tres" id="12"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_12_C2_Arc.tres" id="13"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_13_Boom.tres" id="14"]
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/States/LFR_14_BoomEX.tres" id="15"]
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="16"]
+
+[resource]
+script = ExtResource("16")
+States = [ExtResource("1"), ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15")]
+BaseAttack = 100
+BaseDefense = 100

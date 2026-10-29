@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://6lrwa6fu4ose"]
+
+[ext_resource type="Resource" uid="uid://dwcpulqdfhm6v" path="res://actors/_shared/sakuga/Inputs/35_Input_ABC.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Overdrive"
+MoveState = 86
+Inputs = ExtResource("1")
+Priority = 10
+WillGaugeRequired = 6000
+SuperFlash = 20
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+SkipCheck = false
+Unlockable = true
+IgnoreSamePriority = false
+AcceptMovementStates = true
+AcceptCombatStates = false
+IgnoreHitstop = true
+UseOnGround = true
+UseOnAir = true

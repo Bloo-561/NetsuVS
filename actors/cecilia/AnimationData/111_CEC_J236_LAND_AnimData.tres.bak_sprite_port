@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://6yo0ljpno5wm"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bd5lmbkib1n7h" path="res://actors/cecilia/Hitboxes/64_Hitbox_J236_Land_0.tres" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+animationStage = 2
+HitboxData = ExtResource("3")
+
+[resource]
+script = ExtResource("1")
+Duration = 15
+Animations = []
+Hitboxes = [SubResource("s1")]

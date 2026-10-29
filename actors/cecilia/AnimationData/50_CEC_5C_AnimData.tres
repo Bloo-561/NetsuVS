@@ -1,0 +1,149 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://d1cvochp5rmhc"]
+
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_0.tres" id="e1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="e2"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_1.tres" id="e3"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_2.tres" id="e4"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_3.tres" id="e5"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_4.tres" id="e6"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_5.tres" id="e7"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/7_Hitbox_5C_6.tres" id="e8"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL3.tres" id="e9"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="e10"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_1.png" id="e11"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="e12"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="e13"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_2.png" id="e14"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_3.png" id="e15"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_4.png" id="e16"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_5.png" id="e17"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_6.png" id="e18"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r5c_7.png" id="e19"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="e20"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e2")
+HitboxData = ExtResource("e1")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e2")
+AtFrame = 4
+HitboxData = ExtResource("e3")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e2")
+AtFrame = 9
+animationStage = 1
+HitboxData = ExtResource("e4")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e2")
+AtFrame = 11
+animationStage = 1
+HitboxData = ExtResource("e5")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e2")
+AtFrame = 15
+animationStage = 2
+HitboxData = ExtResource("e6")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e2")
+AtFrame = 21
+animationStage = 2
+HitboxData = ExtResource("e7")
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e2")
+AtFrame = 27
+animationStage = 2
+HitboxData = ExtResource("e8")
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e10")
+BaseDamage = 650
+GuardCrushDamage = 300
+AttackLevel = ExtResource("e9")
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("e12")
+Sprite = ExtResource("e11")
+Offset = Vector2(-187.0, -4.0)
+Scale = Vector2(1.081, 1.081)
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("e13")
+Modifiers = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("e12")
+Sprite = ExtResource("e14")
+Offset = Vector2(-299.0, -4.0)
+Scale = Vector2(0.93, 0.93)
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("e13")
+AtFrame = 4
+Modifiers = [SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("e12")
+Sprite = ExtResource("e15")
+Offset = Vector2(-330.0, -4.0)
+Scale = Vector2(0.905, 0.905)
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("e13")
+AtFrame = 9
+Modifiers = [SubResource("s13")]
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("e12")
+Sprite = ExtResource("e16")
+Offset = Vector2(-363.0, -4.0)
+Scale = Vector2(0.885, 0.885)
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("e13")
+AtFrame = 11
+Modifiers = [SubResource("s15")]
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("e12")
+Sprite = ExtResource("e17")
+Offset = Vector2(-421.0, -4.0)
+Scale = Vector2(0.851, 0.851)
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("e13")
+AtFrame = 15
+Modifiers = [SubResource("s17")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("e12")
+Sprite = ExtResource("e18")
+Offset = Vector2(-247.0, -4.0)
+Scale = Vector2(0.868, 0.868)
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("e13")
+AtFrame = 21
+Modifiers = [SubResource("s19")]
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("e12")
+Sprite = ExtResource("e19")
+Offset = Vector2(-175.0, -4.0)
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("e13")
+AtFrame = 27
+Modifiers = [SubResource("s21")]
+
+[resource]
+script = ExtResource("e20")
+Duration = 33
+Animations = [SubResource("s10"), SubResource("s12"), SubResource("s14"), SubResource("s16"), SubResource("s18"), SubResource("s20"), SubResource("s22")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5"), SubResource("s6"), SubResource("s7")]
+AttackProfiles = [SubResource("s8")]

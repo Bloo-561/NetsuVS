@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dxru04ay20v8y"
+path="res://.godot/imported/ANNOUNCER_MATCH_ROUND_1.wav-099ac391d3c4c93cca45a58a724a7919.sample"
+
+[deps]
+
+source_file="res://assets/audio/announcer/mahou/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_1.wav"
+dest_files=["res://.godot/imported/ANNOUNCER_MATCH_ROUND_1.wav-099ac391d3c4c93cca45a58a724a7919.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=48000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

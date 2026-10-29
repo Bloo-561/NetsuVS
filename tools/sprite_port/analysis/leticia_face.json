@@ -1,0 +1,182 @@
+{
+ "Leticia/01_Idle/Leticia_01_Idle_02.png": {
+  "face_scale": 1.01,
+  "face_rot": 0,
+  "score": 0.923,
+  "face_at": [
+   540,
+   56
+  ]
+ },
+ "Leticia/02_Damage/Leticia_02_Damage_01.png": {
+  "face_scale": 0.96,
+  "face_rot": -28,
+  "score": 0.625,
+  "face_at": [
+   666,
+   130
+  ]
+ },
+ "Leticia/03_Crouch/Leticia_03_Crouch_02.png": {
+  "face_scale": 1.25,
+  "face_rot": -8,
+  "score": 0.777,
+  "face_at": [
+   616,
+   158
+  ]
+ },
+ "Leticia/04_Dash/Leticia_04_Dash_02.png": {
+  "face_scale": 0.92,
+  "face_rot": -42,
+  "score": 0.56,
+  "face_at": [
+   1032,
+   1006
+  ]
+ },
+ "Leticia/06_Ground_Normals/5A/Leticia_5A_02_Jab.png": {
+  "face_scale": 0.97,
+  "face_rot": -10,
+  "score": 0.734,
+  "face_at": [
+   514,
+   88
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_AirDash_02.png": {
+  "face_scale": 0.67,
+  "face_rot": -41,
+  "score": 0.661,
+  "face_at": [
+   946,
+   810
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_BackAirDash_02.png": {
+  "face_scale": 0.91,
+  "face_rot": -13,
+  "score": 0.684,
+  "face_at": [
+   526,
+   122
+  ]
+ },
+ "Leticia/04_Dash/Leticia_04_Dash_01.png": {
+  "face_scale": 1.1,
+  "face_rot": -27,
+  "score": 0.603,
+  "face_at": [
+   834,
+   188
+  ]
+ },
+ "Leticia/04_Dash/Leticia_04_Dash_03.png": {
+  "face_scale": 0.62,
+  "face_rot": -44,
+  "score": 0.58,
+  "face_at": [
+   1364,
+   570
+  ]
+ },
+ "Leticia/04_Dash/Leticia_04_Dash_04.png": {
+  "face_scale": 1.13,
+  "face_rot": -11,
+  "score": 0.694,
+  "face_at": [
+   718,
+   86
+  ]
+ },
+ "Leticia/07_Air_Normals/jC/Leticia_jC_02.png": {
+  "face_scale": 0.91,
+  "face_rot": -25,
+  "score": 0.677,
+  "face_at": [
+   726,
+   262
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_AirDash_01.png": {
+  "face_scale": 0.71,
+  "face_rot": -51,
+  "score": 0.603,
+  "face_at": [
+   796,
+   904
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_BackAirDash_01.png": {
+  "face_scale": 0.95,
+  "face_rot": -15,
+  "score": 0.707,
+  "face_at": [
+   484,
+   128
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_BoardJump_01.png": {
+  "face_scale": 0.72,
+  "face_rot": -47,
+  "score": 0.679,
+  "face_at": [
+   824,
+   928
+  ]
+ },
+ "Leticia/13_Movement_and_Victory/Leticia_Downed_01.png": {
+  "face_scale": 0.52,
+  "face_rot": -38,
+  "score": 0.573,
+  "face_at": [
+   268,
+   466
+  ]
+ },
+ "Leticia/14_Supers/Super2_03_OrbitHigh.png": {
+  "face_scale": 0.81,
+  "face_rot": -15,
+  "score": 0.669,
+  "face_at": [
+   570,
+   66
+  ]
+ },
+ "Leticia/14_Supers/Super2_04_OrbitBack.png": {
+  "face_scale": 0.58,
+  "face_rot": -13,
+  "score": 0.597,
+  "face_at": [
+   644,
+   130
+  ]
+ },
+ "Leticia/14_Supers/Super2_05_OrbitLow.png": {
+  "face_scale": 0.56,
+  "face_rot": 49,
+  "score": 0.62,
+  "face_at": [
+   580,
+   324
+  ]
+ },
+ "Leticia/Forward/Leticia_Walk_Forward_01.png": {
+  "face_scale": 0.82,
+  "face_rot": -33,
+  "score": 0.594,
+  "face_at": [
+   818,
+   1054
+  ]
+ },
+ "Leticia/Forward/Leticia_Walk_Forward_02.png": {
+  "face_scale": 0.87,
+  "face_rot": -40,
+  "score": 0.585,
+  "face_at": [
+   708,
+   1286
+  ]
+ }
+}

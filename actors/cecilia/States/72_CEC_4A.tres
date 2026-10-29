@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://b5rss8vntwm1b"]
+
+[ext_resource type="Resource" uid="uid://cvwrjtny2vbrw" path="res://actors/cecilia/AnimationData/57_CEC_4A_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="6"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="sfx_atframe"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="Resource_ukvj3"]
+script = ExtResource("2")
+UseInertia = true
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_e1e4u"]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_dwywx"]
+script = ExtResource("4")
+Conditions = null
+Actions = [SubResource("Resource_ukvj3"), SubResource("Resource_e1e4u")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_8hck7"]
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_rapu1"]
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_fig2y"]
+script = ExtResource("4")
+Conditions = [SubResource("Resource_rapu1")]
+Actions = [SubResource("Resource_8hck7")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="sfx_5_0_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 32
+
+[sub_resource type="Resource" id="sfx_5_0_at"]
+script = ExtResource("sfx_atframe")
+Frame = 5
+
+[sub_resource type="Resource" id="sfx_5_0"]
+script = ExtResource("4")
+Conditions = [SubResource("sfx_5_0_at")]
+Actions = [SubResource("sfx_5_0_play")]
+
+[resource]
+script = ExtResource("7")
+StateName = "4A"
+Type = 2
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_fig2y")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("sfx_5_0"), SubResource("Resource_dwywx")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

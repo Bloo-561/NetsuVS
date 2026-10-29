@@ -1,0 +1,343 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://113edscgqb60"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://3j5i2twgp0if" path="res://actors/leticia/Hitboxes/45_Hitbox_StardriveCannon_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://zi20usejdrmk" path="res://actors/leticia/Hitboxes/45_Hitbox_StardriveCannon_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://4wfyrmy3lri1" path="res://actors/leticia/Hitboxes/45_Hitbox_StardriveCannon_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bek6lzwfs87pr" path="res://actors/leticia/Hitboxes/45_Hitbox_StardriveCannon_3.tres" id="6"]
+[ext_resource type="Resource" uid="uid://44bha1wyog7r" path="res://actors/leticia/Hitboxes/45_Hitbox_StardriveCannon_4.tres" id="7"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_1.png" id="t_s1_1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_2.png" id="t_s1_2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_beam_a.png" id="t_s1_beam_a"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_beam_b.png" id="t_s1_beam_b"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_beam_c.png" id="t_s1_beam_c"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s1_3.png" id="t_s1_3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 22
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 67
+animationStage = 1
+HitboxData = ExtResource("5")
+NetsuRehit = true
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 72
+animationStage = 2
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("2")
+AtFrame = 74
+animationStage = 2
+HitboxData = ExtResource("7")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_1")
+Offset = Vector2(-154, -7)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M1_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 22
+Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M2_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_b")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 25
+Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M3_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 28
+Modifiers = [SubResource("M3_0"), SubResource("M3_1")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M4_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_c")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 31
+Modifiers = [SubResource("M4_0"), SubResource("M4_1")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M5_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 34
+Modifiers = [SubResource("M5_0"), SubResource("M5_1")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M6_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_b")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("an")
+AtFrame = 37
+Modifiers = [SubResource("M6_0"), SubResource("M6_1")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M7_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("an")
+AtFrame = 40
+Modifiers = [SubResource("M7_0"), SubResource("M7_1")]
+
+[sub_resource type="Resource" id="M8_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M8_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_c")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A8"]
+script = ExtResource("an")
+AtFrame = 43
+Modifiers = [SubResource("M8_0"), SubResource("M8_1")]
+
+[sub_resource type="Resource" id="M9_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M9_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A9"]
+script = ExtResource("an")
+AtFrame = 46
+Modifiers = [SubResource("M9_0"), SubResource("M9_1")]
+
+[sub_resource type="Resource" id="M10_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M10_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_b")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A10"]
+script = ExtResource("an")
+AtFrame = 49
+Modifiers = [SubResource("M10_0"), SubResource("M10_1")]
+
+[sub_resource type="Resource" id="M11_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M11_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A11"]
+script = ExtResource("an")
+AtFrame = 52
+Modifiers = [SubResource("M11_0"), SubResource("M11_1")]
+
+[sub_resource type="Resource" id="M12_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M12_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_c")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A12"]
+script = ExtResource("an")
+AtFrame = 55
+Modifiers = [SubResource("M12_0"), SubResource("M12_1")]
+
+[sub_resource type="Resource" id="M13_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M13_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A13"]
+script = ExtResource("an")
+AtFrame = 58
+Modifiers = [SubResource("M13_0"), SubResource("M13_1")]
+
+[sub_resource type="Resource" id="M14_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M14_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_b")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A14"]
+script = ExtResource("an")
+AtFrame = 61
+Modifiers = [SubResource("M14_0"), SubResource("M14_1")]
+
+[sub_resource type="Resource" id="M15_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M15_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A15"]
+script = ExtResource("an")
+AtFrame = 64
+Modifiers = [SubResource("M15_0"), SubResource("M15_1")]
+
+[sub_resource type="Resource" id="M16_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M16_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_c")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A16"]
+script = ExtResource("an")
+AtFrame = 67
+Modifiers = [SubResource("M16_0"), SubResource("M16_1")]
+
+[sub_resource type="Resource" id="M17_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_2")
+Offset = Vector2(-204, -11)
+
+[sub_resource type="Resource" id="M17_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_beam_a")
+Offset = Vector2(93.578, 19)
+Scale = Vector2(2.5006, 1)
+
+[sub_resource type="Resource" id="A17"]
+script = ExtResource("an")
+AtFrame = 70
+Modifiers = [SubResource("M17_0"), SubResource("M17_1")]
+
+[sub_resource type="Resource" id="M18_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s1_3")
+Offset = Vector2(-165, -5)
+
+[sub_resource type="Resource" id="A18"]
+script = ExtResource("an")
+AtFrame = 74
+Modifiers = [SubResource("M18_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 100
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7"), SubResource("A8"), SubResource("A9"), SubResource("A10"), SubResource("A11"), SubResource("A12"), SubResource("A13"), SubResource("A14"), SubResource("A15"), SubResource("A16"), SubResource("A17"), SubResource("A18")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5")]

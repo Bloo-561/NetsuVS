@@ -1,0 +1,111 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://biasq3ct8n5j6"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="3"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/5a_act.png" id="4"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/k_absorb.png" id="5"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/5a_rec.png" id="6"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/5c_act.png" id="7"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/stand.png" id="8"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="9"]
+[ext_resource type="Resource" uid="uid://bd1vb2rypbd0o" path="res://actors/noah/Hitboxes/NOA_Hitbox_ThrowHit_hold.tres" id="10"]
+[ext_resource type="Resource" uid="uid://x60a7qtf7btp" path="res://actors/noah/Hitboxes/NOA_Hitbox_ThrowHit_0.tres" id="11"]
+[ext_resource type="Resource" uid="uid://bai0hgvum6u4v" path="res://actors/noah/Hitboxes/NOA_Hitbox_ThrowHit_1.tres" id="12"]
+[ext_resource type="Resource" uid="uid://5kfttang77ht" path="res://actors/noah/Hitboxes/NOA_Hitbox_ThrowHit_rec3.tres" id="13"]
+[ext_resource type="Resource" uid="uid://1j1i84pttquk" path="res://actors/noah/Hitboxes/NOA_Hitbox_ThrowHit_rec4.tres" id="14"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+Sprite = ExtResource("4")
+Offset = Vector2(-161, -6)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+Modifiers = [SubResource("s1")]
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Sprite = ExtResource("5")
+Offset = Vector2(-194, -5)
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 6
+Modifiers = [SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("3")
+Sprite = ExtResource("6")
+Offset = Vector2(-177, -3)
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("2")
+AtFrame = 14
+Modifiers = [SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Sprite = ExtResource("7")
+Offset = Vector2(-160, -5)
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("2")
+AtFrame = 21
+Modifiers = [SubResource("s7")]
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Sprite = ExtResource("8")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("2")
+AtFrame = 28
+Modifiers = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("9")
+HitboxData = ExtResource("10")
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("9")
+AtFrame = 6
+animationStage = 1
+HitboxData = ExtResource("11")
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("9")
+AtFrame = 9
+animationStage = 2
+HitboxData = ExtResource("10")
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("9")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("12")
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("9")
+AtFrame = 17
+animationStage = 2
+HitboxData = ExtResource("10")
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("9")
+AtFrame = 21
+animationStage = 2
+HitboxData = ExtResource("13")
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("9")
+AtFrame = 28
+animationStage = 2
+HitboxData = ExtResource("14")
+
+[resource]
+script = ExtResource("1")
+Duration = 34
+Animations = [SubResource("s2"), SubResource("s4"), SubResource("s6"), SubResource("s8"), SubResource("s10")]
+Hitboxes = [SubResource("s11"), SubResource("s12"), SubResource("s13"), SubResource("s14"), SubResource("s15"), SubResource("s16"), SubResource("s17")]

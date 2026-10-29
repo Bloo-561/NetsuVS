@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://88h0hsgznphq"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://57u8j4ny8ifq" path="res://actors/leticia/AnimationData/75_LET_R2_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="6"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+Velocity = 55000
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("3")
+Conditions = [SubResource("s4")]
+Actions = [SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("6")
+Frame = 6
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Conditions = [SubResource("s7")]
+Actions = [SubResource("s8")]
+
+[sub_resource type="Resource" id="sfx_5_0_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 62
+
+[sub_resource type="Resource" id="sfx_5_0_at"]
+script = ExtResource("6")
+Frame = 5
+
+[sub_resource type="Resource" id="sfx_5_0"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_5_0_at")]
+Actions = [SubResource("sfx_5_0_play")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Crossfire: Pivot"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("sfx_5_0"), SubResource("s6"), SubResource("s9")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

@@ -1,0 +1,860 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/AnimationData/LFR_9_B1_Arc_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="4"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnWallsCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="10"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Velocity = 55600
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Velocity = 100400
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("4")
+Actions = [SubResource("s1"), SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+Velocity = 97300
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("5")
+Frame = 1
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("4")
+Conditions = [SubResource("s5")]
+Actions = [SubResource("s4")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Velocity = 94200
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("5")
+Frame = 2
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("4")
+Conditions = [SubResource("s8")]
+Actions = [SubResource("s7")]
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+Velocity = 91100
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("5")
+Frame = 3
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("4")
+Conditions = [SubResource("s11")]
+Actions = [SubResource("s10")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Velocity = 88100
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("5")
+Frame = 4
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("4")
+Conditions = [SubResource("s14")]
+Actions = [SubResource("s13")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("3")
+Velocity = 85000
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("5")
+Frame = 5
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("4")
+Conditions = [SubResource("s17")]
+Actions = [SubResource("s16")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("3")
+Velocity = 81900
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("5")
+Frame = 6
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("4")
+Conditions = [SubResource("s20")]
+Actions = [SubResource("s19")]
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("3")
+Velocity = 78800
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("5")
+Frame = 7
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("4")
+Conditions = [SubResource("s23")]
+Actions = [SubResource("s22")]
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("3")
+Velocity = 75700
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("5")
+Frame = 8
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("4")
+Conditions = [SubResource("s26")]
+Actions = [SubResource("s25")]
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("3")
+Velocity = 72600
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("5")
+Frame = 9
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("4")
+Conditions = [SubResource("s29")]
+Actions = [SubResource("s28")]
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("3")
+Velocity = 69500
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("5")
+Frame = 10
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("4")
+Conditions = [SubResource("s32")]
+Actions = [SubResource("s31")]
+
+[sub_resource type="Resource" id="s34"]
+script = ExtResource("3")
+Velocity = 66400
+
+[sub_resource type="Resource" id="s35"]
+script = ExtResource("5")
+Frame = 11
+
+[sub_resource type="Resource" id="s36"]
+script = ExtResource("4")
+Conditions = [SubResource("s35")]
+Actions = [SubResource("s34")]
+
+[sub_resource type="Resource" id="s37"]
+script = ExtResource("3")
+Velocity = 63300
+
+[sub_resource type="Resource" id="s38"]
+script = ExtResource("5")
+Frame = 12
+
+[sub_resource type="Resource" id="s39"]
+script = ExtResource("4")
+Conditions = [SubResource("s38")]
+Actions = [SubResource("s37")]
+
+[sub_resource type="Resource" id="s40"]
+script = ExtResource("3")
+Velocity = 60300
+
+[sub_resource type="Resource" id="s41"]
+script = ExtResource("5")
+Frame = 13
+
+[sub_resource type="Resource" id="s42"]
+script = ExtResource("4")
+Conditions = [SubResource("s41")]
+Actions = [SubResource("s40")]
+
+[sub_resource type="Resource" id="s43"]
+script = ExtResource("3")
+Velocity = 57200
+
+[sub_resource type="Resource" id="s44"]
+script = ExtResource("5")
+Frame = 14
+
+[sub_resource type="Resource" id="s45"]
+script = ExtResource("4")
+Conditions = [SubResource("s44")]
+Actions = [SubResource("s43")]
+
+[sub_resource type="Resource" id="s46"]
+script = ExtResource("3")
+Velocity = 54100
+
+[sub_resource type="Resource" id="s47"]
+script = ExtResource("5")
+Frame = 15
+
+[sub_resource type="Resource" id="s48"]
+script = ExtResource("4")
+Conditions = [SubResource("s47")]
+Actions = [SubResource("s46")]
+
+[sub_resource type="Resource" id="s49"]
+script = ExtResource("3")
+Velocity = 51000
+
+[sub_resource type="Resource" id="s50"]
+script = ExtResource("5")
+Frame = 16
+
+[sub_resource type="Resource" id="s51"]
+script = ExtResource("4")
+Conditions = [SubResource("s50")]
+Actions = [SubResource("s49")]
+
+[sub_resource type="Resource" id="s52"]
+script = ExtResource("3")
+Velocity = 47900
+
+[sub_resource type="Resource" id="s53"]
+script = ExtResource("5")
+Frame = 17
+
+[sub_resource type="Resource" id="s54"]
+script = ExtResource("4")
+Conditions = [SubResource("s53")]
+Actions = [SubResource("s52")]
+
+[sub_resource type="Resource" id="s55"]
+script = ExtResource("3")
+Velocity = 44800
+
+[sub_resource type="Resource" id="s56"]
+script = ExtResource("5")
+Frame = 18
+
+[sub_resource type="Resource" id="s57"]
+script = ExtResource("4")
+Conditions = [SubResource("s56")]
+Actions = [SubResource("s55")]
+
+[sub_resource type="Resource" id="s58"]
+script = ExtResource("3")
+Velocity = 41700
+
+[sub_resource type="Resource" id="s59"]
+script = ExtResource("5")
+Frame = 19
+
+[sub_resource type="Resource" id="s60"]
+script = ExtResource("4")
+Conditions = [SubResource("s59")]
+Actions = [SubResource("s58")]
+
+[sub_resource type="Resource" id="s61"]
+script = ExtResource("3")
+Velocity = 38600
+
+[sub_resource type="Resource" id="s62"]
+script = ExtResource("5")
+Frame = 20
+
+[sub_resource type="Resource" id="s63"]
+script = ExtResource("4")
+Conditions = [SubResource("s62")]
+Actions = [SubResource("s61")]
+
+[sub_resource type="Resource" id="s64"]
+script = ExtResource("3")
+Velocity = 35500
+
+[sub_resource type="Resource" id="s65"]
+script = ExtResource("5")
+Frame = 21
+
+[sub_resource type="Resource" id="s66"]
+script = ExtResource("4")
+Conditions = [SubResource("s65")]
+Actions = [SubResource("s64")]
+
+[sub_resource type="Resource" id="s67"]
+script = ExtResource("3")
+Velocity = 32400
+
+[sub_resource type="Resource" id="s68"]
+script = ExtResource("5")
+Frame = 22
+
+[sub_resource type="Resource" id="s69"]
+script = ExtResource("4")
+Conditions = [SubResource("s68")]
+Actions = [SubResource("s67")]
+
+[sub_resource type="Resource" id="s70"]
+script = ExtResource("3")
+Velocity = 29400
+
+[sub_resource type="Resource" id="s71"]
+script = ExtResource("5")
+Frame = 23
+
+[sub_resource type="Resource" id="s72"]
+script = ExtResource("4")
+Conditions = [SubResource("s71")]
+Actions = [SubResource("s70")]
+
+[sub_resource type="Resource" id="s73"]
+script = ExtResource("3")
+Velocity = 26300
+
+[sub_resource type="Resource" id="s74"]
+script = ExtResource("5")
+Frame = 24
+
+[sub_resource type="Resource" id="s75"]
+script = ExtResource("4")
+Conditions = [SubResource("s74")]
+Actions = [SubResource("s73")]
+
+[sub_resource type="Resource" id="s76"]
+script = ExtResource("3")
+Velocity = 23200
+
+[sub_resource type="Resource" id="s77"]
+script = ExtResource("5")
+Frame = 25
+
+[sub_resource type="Resource" id="s78"]
+script = ExtResource("4")
+Conditions = [SubResource("s77")]
+Actions = [SubResource("s76")]
+
+[sub_resource type="Resource" id="s79"]
+script = ExtResource("3")
+Velocity = 20100
+
+[sub_resource type="Resource" id="s80"]
+script = ExtResource("5")
+Frame = 26
+
+[sub_resource type="Resource" id="s81"]
+script = ExtResource("4")
+Conditions = [SubResource("s80")]
+Actions = [SubResource("s79")]
+
+[sub_resource type="Resource" id="s82"]
+script = ExtResource("3")
+Velocity = 17000
+
+[sub_resource type="Resource" id="s83"]
+script = ExtResource("5")
+Frame = 27
+
+[sub_resource type="Resource" id="s84"]
+script = ExtResource("4")
+Conditions = [SubResource("s83")]
+Actions = [SubResource("s82")]
+
+[sub_resource type="Resource" id="s85"]
+script = ExtResource("3")
+Velocity = 13900
+
+[sub_resource type="Resource" id="s86"]
+script = ExtResource("5")
+Frame = 28
+
+[sub_resource type="Resource" id="s87"]
+script = ExtResource("4")
+Conditions = [SubResource("s86")]
+Actions = [SubResource("s85")]
+
+[sub_resource type="Resource" id="s88"]
+script = ExtResource("3")
+Velocity = 10800
+
+[sub_resource type="Resource" id="s89"]
+script = ExtResource("5")
+Frame = 29
+
+[sub_resource type="Resource" id="s90"]
+script = ExtResource("4")
+Conditions = [SubResource("s89")]
+Actions = [SubResource("s88")]
+
+[sub_resource type="Resource" id="s91"]
+script = ExtResource("3")
+Velocity = 7700
+
+[sub_resource type="Resource" id="s92"]
+script = ExtResource("5")
+Frame = 30
+
+[sub_resource type="Resource" id="s93"]
+script = ExtResource("4")
+Conditions = [SubResource("s92")]
+Actions = [SubResource("s91")]
+
+[sub_resource type="Resource" id="s94"]
+script = ExtResource("3")
+Velocity = 4600
+
+[sub_resource type="Resource" id="s95"]
+script = ExtResource("5")
+Frame = 31
+
+[sub_resource type="Resource" id="s96"]
+script = ExtResource("4")
+Conditions = [SubResource("s95")]
+Actions = [SubResource("s94")]
+
+[sub_resource type="Resource" id="s97"]
+script = ExtResource("3")
+Velocity = 1500
+
+[sub_resource type="Resource" id="s98"]
+script = ExtResource("5")
+Frame = 32
+
+[sub_resource type="Resource" id="s99"]
+script = ExtResource("4")
+Conditions = [SubResource("s98")]
+Actions = [SubResource("s97")]
+
+[sub_resource type="Resource" id="s100"]
+script = ExtResource("3")
+Velocity = -1500
+
+[sub_resource type="Resource" id="s101"]
+script = ExtResource("2")
+Velocity = 40400
+
+[sub_resource type="Resource" id="s102"]
+script = ExtResource("5")
+Frame = 33
+
+[sub_resource type="Resource" id="s103"]
+script = ExtResource("4")
+Conditions = [SubResource("s102")]
+Actions = [SubResource("s101"), SubResource("s100")]
+
+[sub_resource type="Resource" id="s104"]
+script = ExtResource("3")
+Velocity = -4600
+
+[sub_resource type="Resource" id="s105"]
+script = ExtResource("5")
+Frame = 34
+
+[sub_resource type="Resource" id="s106"]
+script = ExtResource("4")
+Conditions = [SubResource("s105")]
+Actions = [SubResource("s104")]
+
+[sub_resource type="Resource" id="s107"]
+script = ExtResource("3")
+Velocity = -7700
+
+[sub_resource type="Resource" id="s108"]
+script = ExtResource("5")
+Frame = 35
+
+[sub_resource type="Resource" id="s109"]
+script = ExtResource("4")
+Conditions = [SubResource("s108")]
+Actions = [SubResource("s107")]
+
+[sub_resource type="Resource" id="s110"]
+script = ExtResource("3")
+Velocity = -10800
+
+[sub_resource type="Resource" id="s111"]
+script = ExtResource("5")
+Frame = 36
+
+[sub_resource type="Resource" id="s112"]
+script = ExtResource("4")
+Conditions = [SubResource("s111")]
+Actions = [SubResource("s110")]
+
+[sub_resource type="Resource" id="s113"]
+script = ExtResource("3")
+Velocity = -13900
+
+[sub_resource type="Resource" id="s114"]
+script = ExtResource("5")
+Frame = 37
+
+[sub_resource type="Resource" id="s115"]
+script = ExtResource("4")
+Conditions = [SubResource("s114")]
+Actions = [SubResource("s113")]
+
+[sub_resource type="Resource" id="s116"]
+script = ExtResource("3")
+Velocity = -17000
+
+[sub_resource type="Resource" id="s117"]
+script = ExtResource("5")
+Frame = 38
+
+[sub_resource type="Resource" id="s118"]
+script = ExtResource("4")
+Conditions = [SubResource("s117")]
+Actions = [SubResource("s116")]
+
+[sub_resource type="Resource" id="s119"]
+script = ExtResource("3")
+Velocity = -20100
+
+[sub_resource type="Resource" id="s120"]
+script = ExtResource("5")
+Frame = 39
+
+[sub_resource type="Resource" id="s121"]
+script = ExtResource("4")
+Conditions = [SubResource("s120")]
+Actions = [SubResource("s119")]
+
+[sub_resource type="Resource" id="s122"]
+script = ExtResource("3")
+Velocity = -23200
+
+[sub_resource type="Resource" id="s123"]
+script = ExtResource("5")
+Frame = 40
+
+[sub_resource type="Resource" id="s124"]
+script = ExtResource("4")
+Conditions = [SubResource("s123")]
+Actions = [SubResource("s122")]
+
+[sub_resource type="Resource" id="s125"]
+script = ExtResource("3")
+Velocity = -26300
+
+[sub_resource type="Resource" id="s126"]
+script = ExtResource("5")
+Frame = 41
+
+[sub_resource type="Resource" id="s127"]
+script = ExtResource("4")
+Conditions = [SubResource("s126")]
+Actions = [SubResource("s125")]
+
+[sub_resource type="Resource" id="s128"]
+script = ExtResource("3")
+Velocity = -29400
+
+[sub_resource type="Resource" id="s129"]
+script = ExtResource("5")
+Frame = 42
+
+[sub_resource type="Resource" id="s130"]
+script = ExtResource("4")
+Conditions = [SubResource("s129")]
+Actions = [SubResource("s128")]
+
+[sub_resource type="Resource" id="s131"]
+script = ExtResource("3")
+Velocity = -32400
+
+[sub_resource type="Resource" id="s132"]
+script = ExtResource("5")
+Frame = 43
+
+[sub_resource type="Resource" id="s133"]
+script = ExtResource("4")
+Conditions = [SubResource("s132")]
+Actions = [SubResource("s131")]
+
+[sub_resource type="Resource" id="s134"]
+script = ExtResource("3")
+Velocity = -35500
+
+[sub_resource type="Resource" id="s135"]
+script = ExtResource("5")
+Frame = 44
+
+[sub_resource type="Resource" id="s136"]
+script = ExtResource("4")
+Conditions = [SubResource("s135")]
+Actions = [SubResource("s134")]
+
+[sub_resource type="Resource" id="s137"]
+script = ExtResource("3")
+Velocity = -38600
+
+[sub_resource type="Resource" id="s138"]
+script = ExtResource("5")
+Frame = 45
+
+[sub_resource type="Resource" id="s139"]
+script = ExtResource("4")
+Conditions = [SubResource("s138")]
+Actions = [SubResource("s137")]
+
+[sub_resource type="Resource" id="s140"]
+script = ExtResource("3")
+Velocity = -41700
+
+[sub_resource type="Resource" id="s141"]
+script = ExtResource("5")
+Frame = 46
+
+[sub_resource type="Resource" id="s142"]
+script = ExtResource("4")
+Conditions = [SubResource("s141")]
+Actions = [SubResource("s140")]
+
+[sub_resource type="Resource" id="s143"]
+script = ExtResource("3")
+Velocity = -44800
+
+[sub_resource type="Resource" id="s144"]
+script = ExtResource("5")
+Frame = 47
+
+[sub_resource type="Resource" id="s145"]
+script = ExtResource("4")
+Conditions = [SubResource("s144")]
+Actions = [SubResource("s143")]
+
+[sub_resource type="Resource" id="s146"]
+script = ExtResource("3")
+Velocity = -47900
+
+[sub_resource type="Resource" id="s147"]
+script = ExtResource("5")
+Frame = 48
+
+[sub_resource type="Resource" id="s148"]
+script = ExtResource("4")
+Conditions = [SubResource("s147")]
+Actions = [SubResource("s146")]
+
+[sub_resource type="Resource" id="s149"]
+script = ExtResource("3")
+Velocity = -51000
+
+[sub_resource type="Resource" id="s150"]
+script = ExtResource("5")
+Frame = 49
+
+[sub_resource type="Resource" id="s151"]
+script = ExtResource("4")
+Conditions = [SubResource("s150")]
+Actions = [SubResource("s149")]
+
+[sub_resource type="Resource" id="s152"]
+script = ExtResource("3")
+Velocity = -54100
+
+[sub_resource type="Resource" id="s153"]
+script = ExtResource("5")
+Frame = 50
+
+[sub_resource type="Resource" id="s154"]
+script = ExtResource("4")
+Conditions = [SubResource("s153")]
+Actions = [SubResource("s152")]
+
+[sub_resource type="Resource" id="s155"]
+script = ExtResource("3")
+Velocity = -57200
+
+[sub_resource type="Resource" id="s156"]
+script = ExtResource("5")
+Frame = 51
+
+[sub_resource type="Resource" id="s157"]
+script = ExtResource("4")
+Conditions = [SubResource("s156")]
+Actions = [SubResource("s155")]
+
+[sub_resource type="Resource" id="s158"]
+script = ExtResource("3")
+Velocity = -60300
+
+[sub_resource type="Resource" id="s159"]
+script = ExtResource("5")
+Frame = 52
+
+[sub_resource type="Resource" id="s160"]
+script = ExtResource("4")
+Conditions = [SubResource("s159")]
+Actions = [SubResource("s158")]
+
+[sub_resource type="Resource" id="s161"]
+script = ExtResource("3")
+Velocity = -63300
+
+[sub_resource type="Resource" id="s162"]
+script = ExtResource("5")
+Frame = 53
+
+[sub_resource type="Resource" id="s163"]
+script = ExtResource("4")
+Conditions = [SubResource("s162")]
+Actions = [SubResource("s161")]
+
+[sub_resource type="Resource" id="s164"]
+script = ExtResource("3")
+Velocity = -66400
+
+[sub_resource type="Resource" id="s165"]
+script = ExtResource("5")
+Frame = 54
+
+[sub_resource type="Resource" id="s166"]
+script = ExtResource("4")
+Conditions = [SubResource("s165")]
+Actions = [SubResource("s164")]
+
+[sub_resource type="Resource" id="s167"]
+script = ExtResource("3")
+Velocity = -69500
+
+[sub_resource type="Resource" id="s168"]
+script = ExtResource("5")
+Frame = 55
+
+[sub_resource type="Resource" id="s169"]
+script = ExtResource("4")
+Conditions = [SubResource("s168")]
+Actions = [SubResource("s167")]
+
+[sub_resource type="Resource" id="s170"]
+script = ExtResource("3")
+Velocity = -72600
+
+[sub_resource type="Resource" id="s171"]
+script = ExtResource("5")
+Frame = 56
+
+[sub_resource type="Resource" id="s172"]
+script = ExtResource("4")
+Conditions = [SubResource("s171")]
+Actions = [SubResource("s170")]
+
+[sub_resource type="Resource" id="s173"]
+script = ExtResource("3")
+Velocity = -75700
+
+[sub_resource type="Resource" id="s174"]
+script = ExtResource("5")
+Frame = 57
+
+[sub_resource type="Resource" id="s175"]
+script = ExtResource("4")
+Conditions = [SubResource("s174")]
+Actions = [SubResource("s173")]
+
+[sub_resource type="Resource" id="s176"]
+script = ExtResource("3")
+Velocity = -78800
+
+[sub_resource type="Resource" id="s177"]
+script = ExtResource("5")
+Frame = 58
+
+[sub_resource type="Resource" id="s178"]
+script = ExtResource("4")
+Conditions = [SubResource("s177")]
+Actions = [SubResource("s176")]
+
+[sub_resource type="Resource" id="s179"]
+script = ExtResource("3")
+Velocity = -81900
+
+[sub_resource type="Resource" id="s180"]
+script = ExtResource("5")
+Frame = 59
+
+[sub_resource type="Resource" id="s181"]
+script = ExtResource("4")
+Conditions = [SubResource("s180")]
+Actions = [SubResource("s179")]
+
+[sub_resource type="Resource" id="s182"]
+script = ExtResource("7")
+MinFrame = 1
+MaxFrame = 32
+
+[sub_resource type="Resource" id="s183"]
+script = ExtResource("8")
+
+[sub_resource type="Resource" id="s184"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="s185"]
+script = ExtResource("2")
+Velocity = 55600
+
+[sub_resource type="Resource" id="s186"]
+script = ExtResource("4")
+Conditions = [SubResource("s182"), SubResource("s183")]
+Actions = [SubResource("s184"), SubResource("s185")]
+
+[sub_resource type="Resource" id="s187"]
+script = ExtResource("7")
+MinFrame = 33
+MaxFrame = 60
+
+[sub_resource type="Resource" id="s188"]
+script = ExtResource("8")
+
+[sub_resource type="Resource" id="s189"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="s190"]
+script = ExtResource("2")
+Velocity = 40400
+
+[sub_resource type="Resource" id="s191"]
+script = ExtResource("4")
+Conditions = [SubResource("s187"), SubResource("s188")]
+Actions = [SubResource("s189"), SubResource("s190")]
+
+[sub_resource type="Resource" id="s192"]
+script = ExtResource("5")
+Frame = 60
+
+[sub_resource type="Resource" id="s193"]
+script = ExtResource("6")
+StateIndex = 13
+
+[sub_resource type="Resource" id="s194"]
+script = ExtResource("4")
+Conditions = [SubResource("s192")]
+Actions = [SubResource("s193")]
+
+[resource]
+script = ExtResource("10")
+StateName = "Fragment B1 bounce"
+Type = 2
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("s194")]
+OnEnterEvents = [SubResource("s3")]
+OnTickEvents = [SubResource("s6"), SubResource("s9"), SubResource("s12"), SubResource("s15"), SubResource("s18"), SubResource("s21"), SubResource("s24"), SubResource("s27"), SubResource("s30"), SubResource("s33"), SubResource("s36"), SubResource("s39"), SubResource("s42"), SubResource("s45"), SubResource("s48"), SubResource("s51"), SubResource("s54"), SubResource("s57"), SubResource("s60"), SubResource("s63"), SubResource("s66"), SubResource("s69"), SubResource("s72"), SubResource("s75"), SubResource("s78"), SubResource("s81"), SubResource("s84"), SubResource("s87"), SubResource("s90"), SubResource("s93"), SubResource("s96"), SubResource("s99"), SubResource("s103"), SubResource("s106"), SubResource("s109"), SubResource("s112"), SubResource("s115"), SubResource("s118"), SubResource("s121"), SubResource("s124"), SubResource("s127"), SubResource("s130"), SubResource("s133"), SubResource("s136"), SubResource("s139"), SubResource("s142"), SubResource("s145"), SubResource("s148"), SubResource("s151"), SubResource("s154"), SubResource("s157"), SubResource("s160"), SubResource("s163"), SubResource("s166"), SubResource("s169"), SubResource("s172"), SubResource("s175"), SubResource("s178"), SubResource("s181"), SubResource("s186"), SubResource("s191")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
