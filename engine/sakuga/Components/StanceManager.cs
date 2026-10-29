@@ -222,6 +222,49 @@ public partial class StanceManager : Node
 		return n != null && n.StartsWith("Recovery_Air");
 	}
 
+	/// <summary>Netsu (Oct 29): the untech time ran out in the air: tech now, whatever is pressed. Forward held = forward
+	/// tech, back held = back tech, nothing = straight down (the forward tech with no sideways motion).</summary>
+	public bool NetsuForceAirTech()
+	{
+		if (_owner == null || _owner.Inputs == null || _owner.Data == null || _owner.Data.States == null)
+		{
+			return false;
+		}
+		int h = _owner.Inputs.CurrentHistory;
+		bool forward = _owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.RIGHT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.UP_RIGHT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.DOWN_RIGHT, ButtonMode.HOLD, false);
+		bool back = !forward && (_owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.LEFT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.UP_LEFT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, _owner.InputSide(), DirectionalInputs.DOWN_LEFT, ButtonMode.HOLD, false));
+		FighterStance stance = GetCurrentStance();
+		int fwd = -1;
+		int bwd = -1;
+		for (int i = 0; stance != null && stance.Moves != null && i < stance.Moves.Length; i++)
+		{
+			if (!NetsuIsAirTechMove(i))
+			{
+				continue;
+			}
+			if (_owner.Data.States[GetMove(i).MoveState].StateName.Contains("Forward"))
+			{
+				fwd = i;
+			}
+			else
+			{
+				bwd = i;
+			}
+		}
+		int pick = back ? (bwd >= 0 ? bwd : fwd) : (fwd >= 0 ? fwd : bwd);
+		if (pick < 0)
+		{
+			return false;
+		}
+		_owner.NetsuNeutralTech = !forward && !back;
+		ExecuteMove(pick);
+		return true;
+	}
+
 	private bool NetsuAutoAirTech()
 	{
 		if (_owner == null || _owner.Body == null || _owner.Body.IsOnGround || _owner.StateManager == null || _owner.Inputs == null
@@ -239,6 +282,8 @@ public partial class StanceManager : Node
 			return false;
 		}
 		bool forward = _owner.Inputs.CheckDirectionalInputs(_owner.Inputs.CurrentHistory, _owner.InputSide(), DirectionalInputs.RIGHT, ButtonMode.HOLD, false);
+		bool back = !forward && _owner.Inputs.CheckDirectionalInputs(_owner.Inputs.CurrentHistory, _owner.InputSide(), DirectionalInputs.LEFT, ButtonMode.HOLD, false);
+		forward = !back;   // Oct 29: no direction = neutral tech (the forward one, no sideways motion: SakugaActor.NetsuNeutralTick)
 		FighterStance stance = GetCurrentStance();
 		int pick = -1;
 		int other = -1;
@@ -266,6 +311,7 @@ public partial class StanceManager : Node
 		{
 			return false;
 		}
+		_owner.NetsuNeutralTech = !back && !_owner.Inputs.CheckDirectionalInputs(_owner.Inputs.CurrentHistory, _owner.InputSide(), DirectionalInputs.RIGHT, ButtonMode.HOLD, false);
 		BufferMove(pick, false);
 		return true;
 	}

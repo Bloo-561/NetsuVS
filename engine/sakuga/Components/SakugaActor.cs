@@ -983,6 +983,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			Parameters.Tick();
 		}
+		NetsuFastReactionTick();
+		int netsuPrevState = StateManager.CurrentState;   // Oct 29 (later): see NetsuNoFreeFall
+		bool netsuWasHit = StateManager.CurrentStateType() == StateType.HIT_REACTION;
 		bool netsuHoldDown = StateManager != null && NetsuKeepLying()
 			&& StateManager.CurrentStateFrame >= StateManager.GetCurrentState().AnimationData.Duration - 2;   // c18/c20: stay down
 		if (StateManager != null && !IsStunLocked() && !netsuHoldDown)
@@ -994,6 +997,33 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			transitionEvents[i].RunEvent(ref actor);
 		}
+		NetsuNoFreeFall(netsuPrevState, netsuWasHit);
+	}
+
+	/// <summary>Netsu (Oct 29 2026, TamaDeez): no free fall out of a dropped air combo. Some air hit reactions (Hit_Air_Weak)
+	/// end into the plain Falling state, from which they could attack straight away (j.A) without ever teching. Now an
+	/// airborne fighter whose hit reaction ends stays in it (holding its last frame, still falling) until they air tech
+	/// (they may tech late, or not at all) or land; landing then plays out as usual.</summary>
+	private void NetsuNoFreeFall(int prevState, bool wasHit)
+	{
+		if (!wasHit || Body == null || Body.IsOnGround || IsKO() || GetMaster() != null || StateManager == null || Data == null
+			|| Data.States == null || prevState < 0 || prevState >= Data.States.Length || HitstunType == HitstunType.GRABBED)
+		{
+			return;
+		}
+		StateType t = StateManager.CurrentStateType();
+		if (t == StateType.HIT_REACTION || t == StateType.BLOCKING || StateManager.CurrentState == prevState)
+		{
+			return;
+		}
+		string n = StateManager.GetCurrentState()?.StateName;
+		if (n != null && n.StartsWith("Recovery_"))
+		{
+			return;
+		}
+		FighterState old = Data.States[prevState];
+		StateManager.CurrentState = prevState;
+		StateManager.CurrentStateFrame = Mathf.Max(0, (old.AnimationData != null ? old.AnimationData.Duration : 1) - 1);
 	}
 
 	public override void Tick()
@@ -1021,6 +1051,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 			}
 			NetsuFloatTick();   // after the hit state's own gravity, before the physics step
 			NetsuCarryTick();
+			NetsuNeutralTechTick();
 			NetsuExHoldTick();
 		}
 	}
@@ -1158,7 +1189,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	private void NetsuFloatStart(HitboxElement box)
 	{
-		if (box == null || box.NetsuFloatFrames <= 0 || Body == null || Body.IsOnGround)
+		if (box == null || box.NetsuFloatFrames <= 0 || Body == null || (Body.IsOnGround && !box.NetsuFloatFromGround))
 		{
 			NetsuFloatFrame = 0;
 			return;
@@ -1219,13 +1250,78 @@ public partial class SakugaActor : SakugaNode, IDamage
 		NetsuCarryFrames++;
 	}
 
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Oct 29 2026, TamaDeez): forced air tech. When the untech time of an air hit runs out they ALWAYS air tech
+	// (white flash, the usual lockout and invincibility): no more dropping out of a combo and mashing a button straight
+	// away. Holding forward techs forward, back techs back, nothing held techs straight down (the forward tech with no
+	// sideways motion). Hard knockdowns, throws, floats and other holds don't tech. Saved for rollback (keys 60-63).
+	public bool NetsuNeutralTech;
+
+	private void NetsuForcedAirTech()
+	{
+		if (StanceManager == null || StateManager == null || Body == null || Body.IsOnGround || IsKO() || GetMaster() != null
+			|| StateManager.CurrentStateType() != StateType.HIT_REACTION)
+		{
+			return;
+		}
+		if ((CanHitstun() && Hitstun.IsRunning()) || NetsuFloatFrame > 0 || NetsuCarryFrames > 0)
+		{
+			return;
+		}
+		if (HitstunType != HitstunType.BASIC && HitstunType != HitstunType.KNOCKDOWN)
+		{
+			return;
+		}
+		StanceManager.NetsuForceAirTech();
+	}
+
+	private void NetsuNeutralTechTick()
+	{
+		if (!NetsuNeutralTech)
+		{
+			return;
+		}
+		string n = StateManager?.GetCurrentState()?.StateName;
+		if (n == null || !n.StartsWith("Recovery_Air") || Body == null)
+		{
+			NetsuNeutralTech = false;
+			return;
+		}
+		Body.FixedVelocity.X = 0;
+	}
+
+	// Oct 29: a hit reaction played faster (HitboxElement.NetsuReactionSpeedPercent)
+	public int NetsuFastState = -1;
+	public int NetsuFastPct;
+	public int NetsuFastAcc;
+
+	private void NetsuFastReactionTick()
+	{
+		if (NetsuFastState < 0 || StateManager == null)
+		{
+			return;
+		}
+		if (StateManager.CurrentState != NetsuFastState || StateManager.CurrentStateType() != StateType.HIT_REACTION)
+		{
+			NetsuFastState = -1;
+			return;
+		}
+		int last = StateManager.GetCurrentState().AnimationData != null ? StateManager.GetCurrentState().AnimationData.Duration - 1 : 0;
+		NetsuFastAcc += NetsuFastPct - 100;
+		while (NetsuFastAcc >= 100 && StateManager.CurrentStateFrame < last - 1)
+		{
+			StateManager.CurrentStateFrame++;
+			NetsuFastAcc -= 100;
+		}
+	}
+
 	private void NetsuFloatTick()
 	{
 		if (NetsuFloatFrame <= 0)
 		{
 			return;
 		}
-		if (Body == null || Body.IsOnGround || IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuFloatFrame > NetsuFloatTotal)
+		if (Body == null || (Body.IsOnGround && NetsuFloatFrame > 1) || IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuFloatFrame > NetsuFloatTotal)
 		{
 			NetsuFloatFrame = 0;   // over: normal gravity from here
 			return;
@@ -2329,6 +2425,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 				if (StateManager != null)
 				{
 					StateManager.PlayState(StanceManager.GetCurrentStance().HitReactions[finalHitReaction], reset: true);
+					NetsuFastState = box.NetsuReactionSpeedPercent > 100 ? StateManager.CurrentState : -1;   // Oct 29
+					NetsuFastPct = box.NetsuReactionSpeedPercent;
+					NetsuFastAcc = 0;
 				}
 			}
 		}

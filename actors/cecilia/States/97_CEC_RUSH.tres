@@ -20,7 +20,7 @@
 
 [sub_resource type="Resource" id="c11_c"]
 script = ExtResource("c11rg")
-MinFrame = 78
+MinFrame = 0
 MaxFrame = 95
 
 [sub_resource type="Resource" id="c11_a"]

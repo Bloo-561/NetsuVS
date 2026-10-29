@@ -175,34 +175,34 @@ public partial class GameManager : Node, IGameState
 	public int NetsuMinUntech = 6;
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechLight = 24;
+	public int NetsuUntechLight = 28;   // Oct 29: 24 -> 28 (more combo freedom)
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechMedium = 32;
+	public int NetsuUntechMedium = 36;   // Oct 29: 32 -> 36
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechHeavy = 40;
+	public int NetsuUntechHeavy = 44;   // Oct 29: 40 -> 44
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechSpecial = 40;
+	public int NetsuUntechSpecial = 44;   // Oct 29: 40 -> 44
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechEx = 48;   // EX moves and supers (a dedicated launcher: set 48 on its hitbox)
+	public int NetsuUntechEx = 52;   // EX moves and supers (a dedicated launcher: set 48 on its hitbox)
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleLight = 940;
+	public int NetsuScaleLight = 955;   // Oct 29: the juggle meter drains a bit slower
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleMedium = 920;
+	public int NetsuScaleMedium = 935;
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleHeavy = 900;
+	public int NetsuScaleHeavy = 915;
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleSpecial = 900;
+	public int NetsuScaleSpecial = 915;
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleEx = 900;
+	public int NetsuScaleEx = 915;
 
 	/// <summary>Netsu (Oct 27 c27, TamaDeez): repeat proration. A move already used earlier in this combo gives less untech
 	/// time on air hits: this many frames per earlier use (counted up to 3). A normal costs less than a special; EX moves

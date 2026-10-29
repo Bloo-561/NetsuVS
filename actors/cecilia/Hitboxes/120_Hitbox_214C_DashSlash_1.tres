@@ -26,12 +26,12 @@ GroundHitstun = 60
 GroundBlockKnockback = Vector2i(-30000, 0)
 GroundBlockstun = 15
 AirHitstunType = 1
-AirHitReaction = 5
+AirHitReaction = 1
 AirHitKnockback = Vector2i(0, 0)
-AirHitKnockbackGravity = 1
 AirHitstun = 60
 AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 15
+NetsuAllowRestand = true
 
 [resource]
 script = ExtResource("1")

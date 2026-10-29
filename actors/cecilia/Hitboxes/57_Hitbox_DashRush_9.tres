@@ -33,6 +33,8 @@ AirHitstun = 60
 AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 30
 SelfPushbackForce = 0
+NetsuAllowRestand = true
+NetsuReactionSpeedPercent = 200
 
 [resource]
 script = ExtResource("1")

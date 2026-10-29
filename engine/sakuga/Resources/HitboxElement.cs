@@ -257,11 +257,20 @@ public partial class HitboxElement : Resource
 	[Export(PropertyHint.None, "")]
 	public bool NetsuCarryUp;
 
+	/// <summary>Netsu (Oct 29, TamaDeez): the hit reaction this box puts them in plays at this speed (percent; 0 or 100
+	/// = normal, 200 = twice as fast). Cecilia's 214EX ending: a quicker crumple so she can't combo after it.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuReactionSpeedPercent;
+
 	[Export(PropertyHint.None, "")]
 	public int NetsuFloatRise = 4000;
 
 	[Export(PropertyHint.None, "")]
 	public int NetsuFloatRiseFrames = 10;
+
+	/// <summary>Netsu (Oct 29): the float also starts on a grounded opponent (a launcher that floats them: Leticia's 2C).</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuFloatFromGround;
 
 	/// <summary>Netsu (Oct 29, TamaDeez): a hard knockdown hit stays a hard knockdown only while the combo's damage
 	/// scaling is at least this % (before this hit); lower than that it's a normal knockdown (0 = always hard).

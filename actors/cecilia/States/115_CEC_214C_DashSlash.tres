@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://6o7vtk08qcty" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs" id="12"]
 [ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
 
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRestandAction.cs" id="rs_a"]
+
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("4")
 
@@ -161,6 +163,13 @@ script = ExtResource("3")
 Conditions = [SubResource("sfx_13_1_at")]
 Actions = [SubResource("sfx_13_1_play")]
 
+[sub_resource type="Resource" id="rs_x"]
+script = ExtResource("rs_a")
+
+[sub_resource type="Resource" id="rs_e"]
+script = ExtResource("3")
+Actions = [SubResource("rs_x")]
+
 [resource]
 script = ExtResource("1")
 StateName = "EX Dash Slash"
@@ -170,6 +179,6 @@ TransitionEvents = [SubResource("s3")]
 OnEnterEvents = [SubResource("s7")]
 OnTickEvents = [SubResource("sfx_2_0"), SubResource("sfx_13_1"), SubResource("s10"), SubResource("s13"), SubResource("s16"), SubResource("s19"), SubResource("s22")]
 OnExitEvents = [SubResource("s24")]
-OnHitConfirmEvents = [SubResource("s28")]
+OnHitConfirmEvents = [SubResource("rs_e"), SubResource("s28")]
 OnHitReactionEvents = null
 AIFlags = 4114

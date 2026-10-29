@@ -186,6 +186,18 @@ public struct SakugaActorState
 	[Key(59)]
 	public int NetsuCarryFrames;     // Oct 29: carried up by Flan's Star Rush (0 = no)
 
+	[Key(60)]
+	public bool NetsuNeutralTech;    // Oct 29: this air tech goes straight down (no direction held)
+
+	[Key(61)]
+	public int NetsuFastState;       // Oct 29: the hit reaction state playing faster (-1 = none)
+
+	[Key(62)]
+	public int NetsuFastPct;
+
+	[Key(63)]
+	public int NetsuFastAcc;
+
 	public void GetStateData(ref SakugaActor reference)
 	{
 		IsActive = reference.IsActive;
@@ -248,6 +260,10 @@ public struct SakugaActorState
 		NetsuExHoldFrame = reference.NetsuExHoldFrame;
 		NetsuExHoldAge = reference.NetsuExHoldAge;
 		NetsuCarryFrames = reference.NetsuCarryFrames;
+		NetsuNeutralTech = reference.NetsuNeutralTech;
+		NetsuFastState = reference.NetsuFastState;
+		NetsuFastPct = reference.NetsuFastPct;
+		NetsuFastAcc = reference.NetsuFastAcc;
 	}
 
 	public void SetStateData(ref SakugaActor reference)
@@ -312,5 +328,9 @@ public struct SakugaActorState
 		reference.NetsuExHoldFrame = NetsuExHoldFrame;
 		reference.NetsuExHoldAge = NetsuExHoldAge;
 		reference.NetsuCarryFrames = NetsuCarryFrames;
+		reference.NetsuNeutralTech = NetsuNeutralTech;
+		reference.NetsuFastState = NetsuFastState;
+		reference.NetsuFastPct = NetsuFastPct;
+		reference.NetsuFastAcc = NetsuFastAcc;
 	}
 }

@@ -114,6 +114,8 @@ AirHitKnockback = Vector2i(0, 0)
 AirHitstun = 60
 AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 15
+AirHitKnockbackGravity = 200000
+NetsuAllowRestand = true
 
 [resource]
 script = ExtResource("1")
