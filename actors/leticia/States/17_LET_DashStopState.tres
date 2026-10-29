@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bj4wgxr7cg1wk"]
+
+[ext_resource type="Resource" uid="uid://ztj0cp4d0duy" path="res://actors/leticia/AnimationData/10_LET_RunStop_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://crxpnvf7li0aq" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckXVelocityCondition.cs" id="7"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="8"]
+
+[sub_resource type="Resource" id="Resource_211uq"]
+script = ExtResource("2")
+UseInertia = true
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_ctwvl"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_211uq")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_tearv"]
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://n7xih8pqfpwo"
+
+[sub_resource type="Resource" id="Resource_kv56i"]
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://50grsd2r3wl8"
+
+[sub_resource type="Resource" id="Resource_br8eb"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_kv56i")]
+Actions = [SubResource("Resource_tearv")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_ol54p"]
+script = ExtResource("6")
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_3ri8s"]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://crxpnvf7li0aq"
+
+[sub_resource type="Resource" id="Resource_0oaoh"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_3ri8s")]
+Actions = [SubResource("Resource_ol54p")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("8")
+StateName = "Dash_Stop"
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_0oaoh")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("Resource_ctwvl"), SubResource("Resource_br8eb")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 10

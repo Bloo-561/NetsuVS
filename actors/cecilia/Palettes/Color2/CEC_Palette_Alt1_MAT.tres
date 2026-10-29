@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://zgkdtrk7g13bc"]
+
+[ext_resource type="Shader" path="res://assets/shaders/sprite_hue_shift.gdshader" id="1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/hue_shift = 0.62
+shader_parameter/min_saturation = 0.45

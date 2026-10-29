@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://b5mu9o141stvf"]
+
+[ext_resource type="Resource" uid="uid://dlyeg4kt0cfao" path="res://actors/_shared/sakuga/Inputs/23_Input_AC.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Brave Burst"
+MoveState = 87
+Inputs = ExtResource("1")
+Priority = 10
+WillGaugeRequired = 10000
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+Unlockable = true
+AcceptHitReactionStates = true
+IgnoreHitstop = true
+IgnoreHitstun = true
+UseOnGround = true
+UseOnAir = true

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bj1eeju75dpwe"]
+
+[ext_resource type="Resource" uid="uid://biqgn48x4ggwh" path="res://actors/_shared/sakuga/Inputs/1_Input_4.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Move Backwards"
+MoveState = 2
+Inputs = ExtResource("1")
+MoveEnd = 1
+MoveEndState = 0
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+PriorityBuffer = true
+UseOnGround = true

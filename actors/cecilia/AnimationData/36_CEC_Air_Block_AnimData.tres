@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://8m66fqij5t2t"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://bq7sytac0315v" path="res://actors/cecilia/Hitboxes/1_Hitbox_Crouch.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="6"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/block_air.png" id="t_block_air"]
+
+[sub_resource type="Resource" id="Resource_dpo3q"]
+script = ExtResource("5")
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_block_air")
+Offset = Vector2(-158, 49)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[resource]
+script = ExtResource("6")
+Duration = 4
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("Resource_dpo3q")]
+AttackProfiles = []

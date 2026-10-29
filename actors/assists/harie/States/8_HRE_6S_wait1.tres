@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/assists/harie/AnimationData/8_HRE_6S_wait_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="x2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="x4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="x5"]
+
+[sub_resource type="Resource" id="z1"]
+script = ExtResource("x1")
+Velocity = 0
+
+[sub_resource type="Resource" id="z2"]
+script = ExtResource("x2")
+Velocity = 0
+
+[sub_resource type="Resource" id="zev1"]
+script = ExtResource("x3")
+Actions = [SubResource("z1"), SubResource("z2")]
+
+[sub_resource type="Resource" id="z3"]
+script = ExtResource("x4")
+
+[sub_resource type="Resource" id="z4"]
+script = ExtResource("x5")
+StateIndex = 6
+
+[sub_resource type="Resource" id="zev2"]
+script = ExtResource("x3")
+Conditions = [SubResource("z3")]
+Actions = [SubResource("z4")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Swimming Wave (away)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("zev2")]
+OnEnterEvents = [SubResource("zev1")]
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 0

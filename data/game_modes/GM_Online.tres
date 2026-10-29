@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GameModeSettings" format=3 uid="uid://cpbx0rea3ud0k"]
+
+[ext_resource type="Script" uid="uid://b0tk35wf5y1p8" path="res://engine/sakuga/Resources/GameModeSettings.cs" id="1"]
+
+[resource]
+script = ExtResource("1")
+ModeName = "Online"
+AutoStart = true
+NetcodeMode = 1
+PauseMode = 2
+CanKO = true
+ShowMatchIntro = true
+ShowMatchCards = true
+ShowOnlineInfo = true
+NoAI = true
+ReturnToScene = "res://scenes/online/online_lobby.tscn"
+metadata/_custom_type_script = "uid://b0tk35wf5y1p8"

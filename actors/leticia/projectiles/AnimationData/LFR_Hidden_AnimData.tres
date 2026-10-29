@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Texture2D" path="res://actors/leticia/projectiles/Sprites/frag_0.png" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Sprite = ExtResource("1")
+Offset = Vector2(-45, 45)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Modifiers = [SubResource("s1")]
+
+[resource]
+script = ExtResource("4")
+Duration = 1
+Animations = [SubResource("s2")]
+Hitboxes = []

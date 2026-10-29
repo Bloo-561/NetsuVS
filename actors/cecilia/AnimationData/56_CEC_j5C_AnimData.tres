@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://0n9orzgrop7xw"]
+
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/15_Hitbox_j_5C_0.tres" id="e1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="e2"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/15_Hitbox_j_5C_1.tres" id="e3"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/15_Hitbox_j_5C_2.tres" id="e4"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/15_Hitbox_j_5C_3.tres" id="e5"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/15_Hitbox_j_5C_4.tres" id="e6"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL3.tres" id="e7"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="e8"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rjc_1.png" id="e9"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="e10"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="e11"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rjc_2.png" id="e12"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rjc_3.png" id="e13"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rjc_4.png" id="e14"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rjc_5.png" id="e15"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="e16"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e2")
+HitboxData = ExtResource("e1")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e2")
+AtFrame = 8
+HitboxData = ExtResource("e3")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e2")
+AtFrame = 12
+animationStage = 1
+HitboxData = ExtResource("e4")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e2")
+AtFrame = 17
+animationStage = 2
+HitboxData = ExtResource("e5")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e2")
+AtFrame = 22
+animationStage = 2
+HitboxData = ExtResource("e6")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e8")
+BaseDamage = 550
+GuardCrushDamage = 300
+AttackLevel = ExtResource("e7")
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e10")
+Sprite = ExtResource("e9")
+Offset = Vector2(-180.0, 40.0)
+Scale = Vector2(1.06, 1.06)
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e11")
+Modifiers = [SubResource("s7")]
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("e10")
+Sprite = ExtResource("e12")
+Offset = Vector2(-266.0, 78.0)
+Scale = Vector2(0.917, 0.917)
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("e11")
+AtFrame = 8
+Modifiers = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("e10")
+Sprite = ExtResource("e13")
+Offset = Vector2(-387.0, -135.0)
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("e11")
+AtFrame = 12
+Modifiers = [SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("e10")
+Sprite = ExtResource("e14")
+Offset = Vector2(-387.0, -67.0)
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("e11")
+AtFrame = 17
+Modifiers = [SubResource("s13")]
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("e10")
+Sprite = ExtResource("e15")
+Offset = Vector2(-109.0, -7.0)
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("e11")
+AtFrame = 22
+Modifiers = [SubResource("s15")]
+
+[resource]
+script = ExtResource("e16")
+Duration = 29
+Animations = [SubResource("s8"), SubResource("s10"), SubResource("s12"), SubResource("s14"), SubResource("s16")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5")]
+AttackProfiles = [SubResource("s6")]

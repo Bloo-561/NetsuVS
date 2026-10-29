@@ -1,0 +1,27 @@
+<Project Sdk="Godot.NET.Sdk/4.7.2">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <RootNamespace>NetsuVS</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>12.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <!-- MessagePack: saves/loads the whole match every frame for rollback netcode. -->
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="3.1.4" />
+  </ItemGroup>
+  <!-- MessagePack 3 writes GeneratedMessagePackResolver automatically during the build,
+       so the old pre-generated copy from Mahou must not be compiled too. -->
+  <ItemGroup>
+    <Compile Remove="engine/messagepack/GeneratedMessagePackResolver.cs" />
+    <!-- Backups of old files are never part of the game. -->
+    <Compile Remove="_backup_stage_select/**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MessagePack.Annotations">
+      <HintPath>engine\assemblies\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

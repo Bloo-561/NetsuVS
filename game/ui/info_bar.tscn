@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cqjo4e6bwkd2p"]
+
+[ext_resource type="Script" uid="uid://brj3g83mpnu27" path="res://game/ui/info_bar.gd" id="1_info"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab"]
+bg_color = Color(0.2, 0.6, 1, 1)
+skew = Vector2(0.3, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+bg_color = Color(0.01, 0.02, 0.07, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 5
+border_color = Color(0.2, 0.6, 1, 1)
+
+[node name="InfoBar" type="Control" unique_id=914751518]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 100.0
+mouse_filter = 2
+script = ExtResource("1_info")
+
+[node name="InfoTab" type="Panel" parent="." unique_id=1535447014]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 330.0
+offset_bottom = 36.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tab")
+
+[node name="InfoTabLabel" type="Label" parent="InfoTab" unique_id=720426994]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"MenuItemLabel"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TickerBox" type="Panel" parent="." unique_id=1916288577]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 1880.0
+offset_bottom = 96.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")
+
+[node name="Ticker" type="Label" parent="TickerBox" unique_id=1988609115]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 8.0
+offset_right = 40.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32

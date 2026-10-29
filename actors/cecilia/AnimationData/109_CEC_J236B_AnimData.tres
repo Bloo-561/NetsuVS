@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bjytjjm2hjy4s"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://7hkl40qetpve" path="res://actors/cecilia/Hitboxes/62_Hitbox_J236B_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bgdyik5ne13yu" path="res://actors/cecilia/Hitboxes/62_Hitbox_J236B_1.tres" id="4"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/jc_1.png" id="t_jc_1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/jc_2.png" id="t_jc_2"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/j236_trail.png" id="t_j236_trail"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("2")
+AtFrame = 4
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_jc_1")
+Offset = Vector2(-181, 10)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_jc_2")
+Offset = Vector2(-186, -126)
+
+[sub_resource type="Resource" id="M1_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_j236_trail")
+Offset = Vector2(-304, 210)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 4
+Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("H0"), SubResource("H1")]
+Afterimages = true

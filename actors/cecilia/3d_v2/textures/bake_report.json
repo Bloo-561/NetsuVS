@@ -1,0 +1,575 @@
+{
+ "objects": {
+  "leg_R": {
+   "texels": 319137,
+   "seen": 0.585,
+   "labels": {
+    "skin": 0.398,
+    "legwear": 0.526,
+    "red": 0.076
+   },
+   "lines": 0.0,
+   "t": 1.0
+  },
+  "leg_L": {
+   "texels": 314631,
+   "seen": 0.457,
+   "labels": {
+    "skin": 0.692,
+    "legwear": 0.308
+   },
+   "lines": 0.0,
+   "t": 0.8
+  },
+  "shoe_R": {
+   "texels": 95201,
+   "seen": 0.406,
+   "labels": {
+    "loafer": 0.573,
+    "sole": 0.287,
+    "legwear": 0.14
+   },
+   "lines": 0.008,
+   "t": 0.2
+  },
+  "shoe_L": {
+   "texels": 96883,
+   "seen": 0.403,
+   "labels": {
+    "loafer": 0.579,
+    "sole": 0.285,
+    "legwear": 0.136
+   },
+   "lines": 0.008,
+   "t": 0.3
+  },
+  "bow_R": {
+   "texels": 17802,
+   "seen": 0.216,
+   "labels": {
+    "red": 1.0
+   },
+   "lines": 0.043,
+   "t": 0.0
+  },
+  "bow_L": {
+   "texels": 17808,
+   "seen": 0.221,
+   "labels": {
+    "red": 1.0
+   },
+   "lines": 0.041,
+   "t": 0.0
+  },
+  "arm_R": {
+   "texels": 77175,
+   "seen": 0.678,
+   "labels": {
+    "sleeve": 0.536,
+    "red": 0.046,
+    "white": 0.197,
+    "skin": 0.221
+   },
+   "lines": 0.068,
+   "t": 0.2
+  },
+  "arm_L": {
+   "texels": 76077,
+   "seen": 0.645,
+   "labels": {
+    "sleeve": 0.597,
+    "red": 0.035,
+    "white": 0.174,
+    "skin": 0.195
+   },
+   "lines": 0.062,
+   "t": 0.2
+  },
+  "hand_R": {
+   "texels": 40858,
+   "seen": 0.308,
+   "labels": {
+    "glove": 0.468,
+    "skin": 0.532
+   },
+   "lines": 0.054,
+   "t": 0.1
+  },
+  "hand_L": {
+   "texels": 43353,
+   "seen": 0.264,
+   "labels": {
+    "glove": 0.428,
+    "skin": 0.572
+   },
+   "lines": 0.039,
+   "t": 0.1
+  },
+  "body": {
+   "texels": 232187,
+   "seen": 0.096,
+   "labels": {
+    "red": 0.687,
+    "white": 0.313,
+    "jacket": 0.0
+   },
+   "lines": 0.002,
+   "t": 0.6
+  },
+  "jacket": {
+   "texels": 172656,
+   "seen": 0.694,
+   "labels": {
+    "jacket": 0.992,
+    "lining": 0.008
+   },
+   "lines": 0.0,
+   "t": 0.7
+  },
+  "collar": {
+   "texels": 13574,
+   "seen": 0.27,
+   "labels": {
+    "jacket": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "neckerchief": {
+   "texels": 11270,
+   "seen": 0.52,
+   "labels": {
+    "gold": 1.0
+   },
+   "lines": 0.007,
+   "t": 0.0
+  },
+  "brooch": {
+   "texels": 883,
+   "seen": 0.042,
+   "labels": {
+    "white": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "tie": {
+   "texels": 105,
+   "seen": 0.181,
+   "labels": {
+    "tie": 1.0
+   },
+   "lines": 0.01,
+   "t": 0.0
+  },
+  "shirt_collar": {
+   "texels": 2253,
+   "seen": 0.102,
+   "labels": {
+    "shirt": 0.598,
+    "white": 0.402
+   },
+   "lines": 0.014,
+   "t": 0.0
+  },
+  "skirt": {
+   "texels": 273923,
+   "seen": 0.795,
+   "labels": {
+    "red": 0.955,
+    "white": 0.045
+   },
+   "lines": 0.042,
+   "t": 0.8
+  },
+  "lace": {
+   "texels": 102814,
+   "seen": 0.134,
+   "labels": {
+    "white": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.1
+  },
+  "belt_A": {
+   "texels": 11346,
+   "seen": 0.324,
+   "labels": {
+    "maroon": 1.0
+   },
+   "lines": 0.092,
+   "t": 0.0
+  },
+  "belt_B": {
+   "texels": 11115,
+   "seen": 0.356,
+   "labels": {
+    "maroon": 1.0
+   },
+   "lines": 0.025,
+   "t": 0.0
+  },
+  "buckle_A": {
+   "texels": 205,
+   "seen": 0.0,
+   "labels": {
+    "silver": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "buckle_B": {
+   "texels": 217,
+   "seen": 0.046,
+   "labels": {
+    "silver": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "kashira": {
+   "texels": 2124,
+   "seen": 0.051,
+   "labels": {
+    "gold": 1.0
+   },
+   "lines": 0.01,
+   "t": 0.0
+  },
+  "tsuka": {
+   "texels": 6608,
+   "seen": 0.229,
+   "labels": {
+    "hilt": 0.369,
+    "gold": 0.631
+   },
+   "lines": 0.031,
+   "t": 0.0
+  },
+  "tsuba": {
+   "texels": 2956,
+   "seen": 0.047,
+   "labels": {
+    "gold": 1.0
+   },
+   "lines": 0.008,
+   "t": 0.0
+  },
+  "saya_mouth": {
+   "texels": 4360,
+   "seen": 0.195,
+   "labels": {
+    "hilt": 0.078,
+    "gold": 0.922
+   },
+   "lines": 0.006,
+   "t": 0.0
+  },
+  "saya": {
+   "texels": 29434,
+   "seen": 0.29,
+   "labels": {
+    "white": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "saya_tip": {
+   "texels": 5011,
+   "seen": 0.426,
+   "labels": {
+    "hilt": 0.273,
+    "gold": 0.727
+   },
+   "lines": 0.117,
+   "t": 0.0
+  },
+  "hanger_strap": {
+   "texels": 3630,
+   "seen": 0.168,
+   "labels": {
+    "gold": 0.625,
+    "hilt": 0.375
+   },
+   "lines": 0.067,
+   "t": 0.0
+  },
+  "blade": {
+   "texels": 19012,
+   "seen": 0.0,
+   "labels": {
+    "steel": 1.0
+   },
+   "lines": 0.0,
+   "t": 0.0
+  },
+  "headband": {
+   "texels": 27218,
+   "seen": 0.564,
+   "labels": {
+    "band": 0.797,
+    "gold": 0.203
+   },
+   "lines": 0.0,
+   "t": 0.1
+  },
+  "clip_R": {
+   "texels": 394,
+   "seen": 0.249,
+   "labels": {
+    "teal": 1.0
+   },
+   "lines": 0.015,
+   "t": 0.0
+  },
+  "clip_L": {
+   "texels": 502,
+   "seen": 0.207,
+   "labels": {
+    "teal": 1.0
+   },
+   "lines": 0.018,
+   "t": 0.0
+  },
+  "hair": {
+   "texels": 340574,
+   "seen": 0.785,
+   "purple": 0.306
+  },
+  "bangs": {
+   "texels": 11782,
+   "seen": 0.686,
+   "purple": 0.002
+  },
+  "skull": {
+   "texels": 286506,
+   "seen": 0.025,
+   "purple": 0.215
+  },
+  "ahoge": {
+   "texels": 5347,
+   "seen": 0.324,
+   "purple": 0.0
+  }
+ },
+ "line_colours": {
+  "skin": [
+   172,
+   129,
+   121
+  ],
+  "red": [
+   102,
+   30,
+   34
+  ],
+  "white": [
+   71,
+   61,
+   72
+  ],
+  "sleeve": [
+   67,
+   66,
+   72
+  ],
+  "jacket": [
+   40,
+   41,
+   46
+  ],
+  "lining": [
+   99,
+   41,
+   64
+  ],
+  "legwear": [
+   59,
+   40,
+   38
+  ],
+  "loafer": [
+   63,
+   40,
+   37
+  ],
+  "sole": [
+   36,
+   30,
+   27
+  ],
+  "gold": [
+   137,
+   78,
+   39
+  ],
+  "maroon": [
+   103,
+   32,
+   39
+  ],
+  "silver": [
+   81,
+   44,
+   71
+  ],
+  "glove": [
+   43,
+   43,
+   43
+  ],
+  "tie": [
+   42,
+   43,
+   43
+  ],
+  "shirt": [
+   116,
+   104,
+   112
+  ],
+  "hilt": [
+   91,
+   40,
+   32
+  ],
+  "teal": [
+   59,
+   84,
+   92
+  ],
+  "band": [
+   85,
+   30,
+   34
+  ],
+  "steel": [
+   122,
+   124,
+   128
+  ],
+  "hairblack": [
+   39,
+   37,
+   44
+  ],
+  "purple": [
+   59,
+   24,
+   63
+  ]
+ },
+ "outline_colours": {
+  "skin": [
+   184,
+   142,
+   133
+  ],
+  "red": [
+   80,
+   31,
+   33
+  ],
+  "white": [
+   115,
+   102,
+   102
+  ],
+  "sleeve": [
+   67,
+   63,
+   69
+  ],
+  "jacket": [
+   39,
+   40,
+   45
+  ],
+  "lining": [
+   99,
+   41,
+   64
+  ],
+  "legwear": [
+   60,
+   40,
+   37
+  ],
+  "loafer": [
+   58,
+   33,
+   31
+  ],
+  "sole": [
+   32,
+   26,
+   23
+  ],
+  "gold": [
+   135,
+   75,
+   42
+  ],
+  "maroon": [
+   85,
+   27,
+   32
+  ],
+  "silver": [
+   104,
+   51,
+   97
+  ],
+  "glove": [
+   36,
+   35,
+   35
+  ],
+  "tie": [
+   42,
+   43,
+   43
+  ],
+  "shirt": [
+   139,
+   138,
+   144
+  ],
+  "hilt": [
+   91,
+   40,
+   32
+  ],
+  "teal": [
+   59,
+   84,
+   92
+  ],
+  "band": [
+   76,
+   29,
+   34
+  ],
+  "steel": [
+   122,
+   124,
+   128
+  ],
+  "hairblack": [
+   39,
+   39,
+   46
+  ],
+  "purple": [
+   79,
+   33,
+   75
+  ]
+ },
+ "sheen": {
+  "jacket": 0.138
+ },
+ "body_fill": 0.485,
+ "hair_fill": 0.614,
+ "t": 21.0
+}

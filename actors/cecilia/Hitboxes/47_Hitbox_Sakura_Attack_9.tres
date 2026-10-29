@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3 uid="uid://bc58ovxgc7xrg"]
+
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cc6na07fk5pf2" path="res://actors/_shared/sakuga/HitboxTemplates/Box_Neutral_std.tres" id="2"]
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="3"]
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Center = Vector2i(10100, 8900)
+Size = Vector2i(12200, 3400)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 0
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 500
+SelfHitStopDuration = 8
+OpponentHitStopDuration = 8
+BlockStopDuration = 8
+DamageScalingSubtract = 2
+GroundHitstunType = 1
+GroundHitReaction = 1
+CrouchHitReaction = 2
+GroundHitKnockback = Vector2i(0, 0)
+GroundHitstun = 170
+GroundBlockKnockback = Vector2i(0, 0)
+GroundBlockstun = 30
+AirHitstunType = 1
+AirHitReaction = 5
+AirHitKnockback = Vector2i(0, 0)
+AirHitKnockbackGravity = 150000
+AirHitstun = 170
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 30
+
+[resource]
+script = ExtResource("1")
+Pushbox = ExtResource("2")
+Hitboxes = [SubResource("A0")]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3 uid="uid://q3otkmrs3y6dd"]
+
+[ext_resource type="Resource" uid="uid://cyoxpx8d05gda" path="res://actors/_shared/sakuga/HitboxTemplates/Box_Crouch_std.tres" id="1"]
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+Pushbox = ExtResource("1")
+Hitboxes = []

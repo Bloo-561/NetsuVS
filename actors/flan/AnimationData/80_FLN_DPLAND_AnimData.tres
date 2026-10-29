@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://70djwcxpjsij"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://4sqq5weck26v" path="res://actors/flan/Hitboxes/37_Hitbox_StarLanding_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://64rok1a8jjhg" path="res://actors/flan/Hitboxes/37_Hitbox_StarLanding_1.tres" id="4"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/jump_load.png" id="t_jump_load"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/crouch_1.png" id="t_crouch_1"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 8
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_jump_load")
+Offset = Vector2(-106, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_crouch_1")
+Offset = Vector2(-126, -4)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M1_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 16
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("s1"), SubResource("s2")]

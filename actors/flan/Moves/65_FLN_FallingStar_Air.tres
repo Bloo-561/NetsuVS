@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bjx2pwz2s6c4x"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://1lm8fpdwzred" path="res://actors/_shared/sakuga/Inputs/55_Input_236A_or_B.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+MoveName = "Falling Star"
+MoveState = 79
+Inputs = ExtResource("2")
+Priority = 8
+MoveEnd = 2
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnAir = false
+SkipCheck = true

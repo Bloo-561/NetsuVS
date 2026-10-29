@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bmppfw02ymd1y"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bmu1nkzyedvji" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://10530u8te8t0" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bfzfj4acoeacq" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://6w54kv5sfn4g" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_3.tres" id="6"]
+[ext_resource type="Resource" uid="uid://7d6cxplriwnn" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_4.tres" id="7"]
+[ext_resource type="Resource" uid="uid://5n8sh2trskvi" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_5.tres" id="8"]
+[ext_resource type="Resource" uid="uid://8trsiht8xwlm" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Dive_6.tres" id="9"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_load.png" id="t_s2_load"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_down.png" id="t_s2_down"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 8
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 12
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("2")
+AtFrame = 18
+animationStage = 2
+HitboxData = ExtResource("7")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("2")
+AtFrame = 20
+animationStage = 1
+HitboxData = ExtResource("8")
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("2")
+AtFrame = 24
+animationStage = 2
+HitboxData = ExtResource("9")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_load")
+Offset = Vector2(-112, 38)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_down")
+Offset = Vector2(-237, 8)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M1_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5"), SubResource("s6"), SubResource("s7")]
+Afterimages = true

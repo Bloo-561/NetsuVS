@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://ztj0cp4d0duy"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Resource" uid="uid://0ih5afbcliaj" path="res://actors/leticia/Hitboxes/1_Hitbox_Crouch.tres" id="cr"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/dash_4.png" id="t_dash_4"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("cr")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_dash_4")
+Offset = Vector2(-252, -6)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 16
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("H0")]
+AttackProfiles = []

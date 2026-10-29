@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://baite5dvr4a88"
+path="res://.godot/imported/ANNOUNCER_MATCH_NOTIF_COUNTER_2.wav-76c974a327e0d2312a4df8e4590119ae.sample"
+
+[deps]
+
+source_file="res://assets/audio/announcer/mahou/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_COUNTER_2.wav"
+dest_files=["res://.godot/imported/ANNOUNCER_MATCH_NOTIF_COUNTER_2.wav-76c974a327e0d2312a4df8e4590119ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=48000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

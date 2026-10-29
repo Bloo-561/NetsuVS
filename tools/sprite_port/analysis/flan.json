@@ -1,0 +1,2710 @@
+{
+ "reference": "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Idle_Reference.png",
+ "ref": {
+  "empty": false,
+  "top": 186,
+  "bot": 679,
+  "left": 356,
+  "right": 586,
+  "h": 494,
+  "rear_x": 356,
+  "front_x": 575,
+  "hip_x": 464.5,
+  "cx": 464.94068203650335,
+  "cy": 382.90235350624397,
+  "mask": "dark"
+ },
+ "frames": {
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/00_Base.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 684,
+   "left": 169,
+   "right": 478,
+   "h": 615,
+   "rear_x": 169,
+   "front_x": 478,
+   "hip_x": 301.5,
+   "cx": 300.7509775407982,
+   "cy": 319.20617224107286,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.2266919043430484,
+    "rot": -0.016878892224239436,
+    "inliers": 67,
+    "good": 69
+   },
+   "scale_how": "head",
+   "scale": 1.2266919043430484
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/01_Inhale.png": {
+   "empty": false,
+   "top": 74,
+   "bot": 674,
+   "left": 166,
+   "right": 460,
+   "h": 601,
+   "rear_x": 166,
+   "front_x": 460,
+   "hip_x": 307.5,
+   "cx": 303.55987524022555,
+   "cy": 316.17860180838665,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.257428404030504,
+    "rot": -3.066366988380328,
+    "inliers": 40,
+    "good": 42
+   },
+   "scale_how": "head",
+   "scale": 1.257428404030504
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/02_Exhale.png": {
+   "empty": false,
+   "top": 71,
+   "bot": 699,
+   "left": 159,
+   "right": 479,
+   "h": 629,
+   "rear_x": 159,
+   "front_x": 479,
+   "hip_x": 301.0,
+   "cx": 302.4498588213863,
+   "cy": 328.1214743297811,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.2284596935044783,
+    "rot": 0.11927796607631856,
+    "inliers": 40,
+    "good": 41
+   },
+   "scale_how": "head",
+   "scale": 1.2284596935044783
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/03_Blink.png": {
+   "empty": false,
+   "top": 71,
+   "bot": 699,
+   "left": 159,
+   "right": 461,
+   "h": 629,
+   "rear_x": 159,
+   "front_x": 461,
+   "hip_x": 301.0,
+   "cx": 297.8285084355828,
+   "cy": 325.3828604294479,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.233789212453394,
+    "rot": 0.015863081610853938,
+    "inliers": 34,
+    "good": 35
+   },
+   "scale_how": "head",
+   "scale": 1.233789212453394
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/04_Shift_Back.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 676,
+   "left": 170,
+   "right": 437,
+   "h": 607,
+   "rear_x": 170,
+   "front_x": 435,
+   "hip_x": 285.0,
+   "cx": 296.2522555034284,
+   "cy": 307.53561234867624,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.2372747590883708,
+    "rot": 1.3677142700067608,
+    "inliers": 51,
+    "good": 51
+   },
+   "scale_how": "head",
+   "scale": 1.2372747590883708
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/05_Shift_Forward.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 673,
+   "left": 175,
+   "right": 453,
+   "h": 604,
+   "rear_x": 175,
+   "front_x": 437,
+   "hip_x": 306.5,
+   "cx": 310.58625256605524,
+   "cy": 315.0857890205947,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.250365364148776,
+    "rot": -0.5833455144728497,
+    "inliers": 42,
+    "good": 44
+   },
+   "scale_how": "head",
+   "scale": 1.250365364148776
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/06_Turn_Half.png": {
+   "empty": false,
+   "top": 74,
+   "bot": 671,
+   "left": 184,
+   "right": 434,
+   "h": 598,
+   "rear_x": 184,
+   "front_x": 423,
+   "hip_x": 304.5,
+   "cx": 305.21897714191743,
+   "cy": 312.6125966123993,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.223359760721257,
+    "rot": -1.5011148325996944,
+    "inliers": 42,
+    "good": 43
+   },
+   "scale_how": "head",
+   "scale": 1.223359760721257
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Normal/07_Turn_Center.png": {
+   "empty": false,
+   "top": 74,
+   "bot": 696,
+   "left": 178,
+   "right": 458,
+   "h": 623,
+   "rear_x": 178,
+   "front_x": 458,
+   "hip_x": 317.5,
+   "cx": 319.06335387939254,
+   "cy": 324.6610217957679,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": {
+    "scale": 1.2044224861365758,
+    "rot": -0.46458527993177,
+    "inliers": 31,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 1.2044224861365758
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Stigmata/00_Base.png": {
+   "empty": false,
+   "top": 101,
+   "bot": 699,
+   "left": 188,
+   "right": 451,
+   "h": 599,
+   "rear_x": 200,
+   "front_x": 451,
+   "hip_x": 308.0,
+   "cx": 306.97835002858494,
+   "cy": 374.3660112848301,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Stigmata/01_Inhale.png": {
+   "empty": false,
+   "top": 100,
+   "bot": 699,
+   "left": 188,
+   "right": 450,
+   "h": 600,
+   "rear_x": 200,
+   "front_x": 450,
+   "hip_x": 309.5,
+   "cx": 308.1406253868436,
+   "cy": 378.050828154787,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Stigmata/02_Exhale.png": {
+   "empty": false,
+   "top": 100,
+   "bot": 699,
+   "left": 190,
+   "right": 450,
+   "h": 600,
+   "rear_x": 199,
+   "front_x": 450,
+   "hip_x": 307.5,
+   "cx": 306.2252325429058,
+   "cy": 383.99627931350716,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/01_Idles/Flan_Idle_Pivot_v2/Stigmata/03_Blink.png": {
+   "empty": false,
+   "top": 100,
+   "bot": 699,
+   "left": 186,
+   "right": 453,
+   "h": 600,
+   "rear_x": 198,
+   "front_x": 453,
+   "hip_x": 308.0,
+   "cx": 306.38582365037286,
+   "cy": 380.8904689938805,
+   "mask": "dark",
+   "size": [
+    640,
+    768
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_01_Start.png": {
+   "empty": false,
+   "top": 203,
+   "bot": 687,
+   "left": 340,
+   "right": 582,
+   "h": 485,
+   "rear_x": 340,
+   "front_x": 582,
+   "hip_x": 462.0,
+   "cx": 476.15976847811106,
+   "cy": 392.39978869033945,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0222988166739242,
+    "rot": 7.147380223008994,
+    "inliers": 29,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 1.0222988166739242
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_02_Hit.png": {
+   "empty": false,
+   "top": 211,
+   "bot": 678,
+   "left": 306,
+   "right": 661,
+   "h": 468,
+   "rear_x": 306,
+   "front_x": 563,
+   "hip_x": 433.0,
+   "cx": 439.7667133272192,
+   "cy": 395.6710913742337,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.003576883882124,
+    "rot": 1.3414638250235194,
+    "inliers": 26,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": 1.003576883882124
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_03_Recover.png": {
+   "empty": false,
+   "top": 196,
+   "bot": 680,
+   "left": 352,
+   "right": 574,
+   "h": 485,
+   "rear_x": 352,
+   "front_x": 574,
+   "hip_x": 461.0,
+   "cx": 463.15983865480877,
+   "cy": 385.61437527336346,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9928104422023588,
+    "rot": 0.8137503422220972,
+    "inliers": 35,
+    "good": 37
+   },
+   "scale_how": "head",
+   "scale": 0.9928104422023588
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_01_Start.png": {
+   "empty": false,
+   "top": 233,
+   "bot": 674,
+   "left": 336,
+   "right": 632,
+   "h": 442,
+   "rear_x": 336,
+   "front_x": 595,
+   "hip_x": 490.0,
+   "cx": 497.25718905690064,
+   "cy": 405.6362206100865,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9513771282955604,
+    "rot": 11.815590443409034,
+    "inliers": 65,
+    "good": 118
+   },
+   "scale_how": "body",
+   "scale": 0.9513771282955604
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_02_Hit.png": {
+   "empty": false,
+   "top": 225,
+   "bot": 675,
+   "left": 277,
+   "right": 708,
+   "h": 451,
+   "rear_x": 281,
+   "front_x": 550,
+   "hip_x": 438.5,
+   "cx": 456.6772461363835,
+   "cy": 408.45808958351523,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0754869966579388,
+    "rot": -23.65055074710949,
+    "inliers": 5,
+    "good": 12
+   },
+   "scale_how": "via 5B_01_Start.png",
+   "scale": 0.9414721251211496,
+   "sift_chain": {
+    "scale": 0.9895887730745051,
+    "rot": 3.9140594207644814,
+    "inliers": 28,
+    "good": 50
+   }
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5B_03_Recover.png": {
+   "empty": false,
+   "top": 215,
+   "bot": 682,
+   "left": 349,
+   "right": 593,
+   "h": 468,
+   "rear_x": 349,
+   "front_x": 593,
+   "hip_x": 457.5,
+   "cx": 466.00028534741045,
+   "cy": 399.2403100775194,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9510104268382401,
+    "rot": 2.386299867746058,
+    "inliers": 28,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 0.9510104268382401
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_01_Start.png": {
+   "empty": false,
+   "top": 195,
+   "bot": 689,
+   "left": 356,
+   "right": 588,
+   "h": 495,
+   "rear_x": 539,
+   "front_x": 588,
+   "hip_x": 451.5,
+   "cx": 477.7512759257248,
+   "cy": 376.82625692257574,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0105081967012297,
+    "rot": -3.1954636351286356,
+    "inliers": 25,
+    "good": 26
+   },
+   "scale_how": "head",
+   "scale": 1.0105081967012297
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_02_Hit.png": {
+   "empty": false,
+   "top": 371,
+   "bot": 684,
+   "left": 268,
+   "right": 731,
+   "h": 314,
+   "rear_x": 478,
+   "front_x": 504,
+   "hip_x": 492.5,
+   "cx": 516.0609452736319,
+   "cy": 476.6403399668325,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9166420765151341,
+    "rot": -6.83270494856173,
+    "inliers": 11,
+    "good": 17
+   },
+   "scale_how": "via 5C_03_Recover.png",
+   "scale": 0.9072319075788278,
+   "sift_chain": {
+    "scale": 0.9081057532133229,
+    "rot": -1.5989274120142112,
+    "inliers": 23,
+    "good": 72
+   }
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_03_Recover.png": {
+   "empty": false,
+   "top": 206,
+   "bot": 695,
+   "left": 365,
+   "right": 586,
+   "h": 490,
+   "rear_x": 520,
+   "front_x": 574,
+   "hip_x": 489.5,
+   "cx": 490.95610361408404,
+   "cy": 392.2528824776382,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9990377270142788,
+    "rot": -5.47216365669425,
+    "inliers": 30,
+    "good": 32
+   },
+   "scale_how": "head",
+   "scale": 0.9990377270142788
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5C_Radiant_Extension.png": {
+   "empty": false,
+   "top": 132,
+   "bot": 823,
+   "left": 305,
+   "right": 1558,
+   "h": 692,
+   "rear_x": 345,
+   "front_x": 375,
+   "hip_x": 944.5,
+   "cx": 725.1084632430121,
+   "cy": 445.2043501924348,
+   "fx_px": 106168,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Back_01.png": {
+   "empty": false,
+   "top": 253,
+   "bot": 668,
+   "left": 327,
+   "right": 652,
+   "h": 416,
+   "rear_x": 381,
+   "front_x": 444,
+   "hip_x": 545.5,
+   "cx": 504.8410822578137,
+   "cy": 420.2775618099829,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0166540627810274,
+    "rot": 3.1141390819694332,
+    "inliers": 27,
+    "good": 29
+   },
+   "scale_how": "head",
+   "scale": 1.0166540627810274
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Back_02.png": {
+   "empty": false,
+   "top": 249,
+   "bot": 660,
+   "left": 364,
+   "right": 612,
+   "h": 412,
+   "rear_x": 397,
+   "front_x": 464,
+   "hip_x": 492.5,
+   "cx": 494.13821956256953,
+   "cy": 401.58968384260976,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9964044878475339,
+    "rot": 5.798180527821902,
+    "inliers": 35,
+    "good": 39
+   },
+   "scale_how": "head",
+   "scale": 0.9964044878475339
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Forward_01.png": {
+   "empty": false,
+   "top": 312,
+   "bot": 657,
+   "left": 307,
+   "right": 668,
+   "h": 346,
+   "rear_x": 307,
+   "front_x": 367,
+   "hip_x": 490.0,
+   "cx": 512.3888247639035,
+   "cy": 450.81526757607554,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.8897503192699133,
+    "rot": 30.49053201605365,
+    "inliers": 39,
+    "good": 91
+   },
+   "scale_how": "body",
+   "scale": 0.8897503192699133
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Forward_02.png": {
+   "empty": false,
+   "top": 328,
+   "bot": 664,
+   "left": 319,
+   "right": 660,
+   "h": 337,
+   "rear_x": 319,
+   "front_x": 461,
+   "hip_x": 543.5,
+   "cx": 518.4990906729021,
+   "cy": 471.70205248116395,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0039118629651584,
+    "rot": 1.8676710270359382,
+    "inliers": 27,
+    "good": 31
+   },
+   "scale_how": "head",
+   "scale": 1.0039118629651584
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_01.png": {
+   "empty": false,
+   "top": 251,
+   "bot": 682,
+   "left": 356,
+   "right": 619,
+   "h": 432,
+   "rear_x": 356,
+   "front_x": 574,
+   "hip_x": 515.0,
+   "cx": 520.3197954567804,
+   "cy": 425.0971088602616,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0056653420452581,
+    "rot": 3.9863943258452457,
+    "inliers": 37,
+    "good": 41
+   },
+   "scale_how": "head",
+   "scale": 1.0056653420452581
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_02.png": {
+   "empty": false,
+   "top": 222,
+   "bot": 674,
+   "left": 341,
+   "right": 591,
+   "h": 453,
+   "rear_x": 552,
+   "front_x": 591,
+   "hip_x": 457.5,
+   "cx": 457.8981274170568,
+   "cy": 376.72409932831266,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0239185685521734,
+    "rot": 3.111613084587853,
+    "inliers": 33,
+    "good": 35
+   },
+   "scale_how": "head",
+   "scale": 1.0239185685521734
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Heavy.png": {
+   "empty": false,
+   "top": 208,
+   "bot": 677,
+   "left": 294,
+   "right": 664,
+   "h": 470,
+   "rear_x": 419,
+   "front_x": 635,
+   "hip_x": 440.5,
+   "cx": 459.65796941510325,
+   "cy": 399.8967759735141,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9422812591002042,
+    "rot": -16.27990508431055,
+    "inliers": 35,
+    "good": 111
+   },
+   "scale_how": "body",
+   "scale": 0.9422812591002042
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Damage_Light.png": {
+   "empty": false,
+   "top": 220,
+   "bot": 683,
+   "left": 361,
+   "right": 596,
+   "h": 464,
+   "rear_x": 363,
+   "front_x": 582,
+   "hip_x": 480.0,
+   "cx": 452.35161901063157,
+   "cy": 402.7102286518763,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0035926299013924,
+    "rot": -13.304867870303166,
+    "inliers": 26,
+    "good": 31
+   },
+   "scale_how": "head",
+   "scale": 1.0035926299013924
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Dash_Forward_01.png": {
+   "empty": false,
+   "top": 302,
+   "bot": 681,
+   "left": 325,
+   "right": 653,
+   "h": 380,
+   "rear_x": 325,
+   "front_x": 560,
+   "hip_x": 530.5,
+   "cx": 536.5790626591951,
+   "cy": 454.275802343352,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.927901984825376,
+    "rot": 30.428911191310558,
+    "inliers": 43,
+    "good": 117
+   },
+   "scale_how": "body",
+   "scale": 0.927901984825376
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Dash_Forward_02.png": {
+   "empty": false,
+   "top": 328,
+   "bot": 670,
+   "left": 287,
+   "right": 637,
+   "h": 343,
+   "rear_x": 287,
+   "front_x": 637,
+   "hip_x": 521.0,
+   "cx": 519.3648600779313,
+   "cy": 468.02545417742016,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.8008077587588004,
+    "rot": 28.446582458447928,
+    "inliers": 25,
+    "good": 100
+   },
+   "scale_how": "body",
+   "scale": 0.8008077587588004
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Downed_01.png": {
+   "empty": false,
+   "top": 500,
+   "bot": 688,
+   "left": 191,
+   "right": 726,
+   "h": 189,
+   "rear_x": 307,
+   "front_x": 695,
+   "hip_x": 441.0,
+   "cx": 382.2796613430825,
+   "cy": 594.4653069078314,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.2814947037342452,
+    "rot": -21.8287778195775,
+    "inliers": 4,
+    "good": 8
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Idle_Reference.png": {
+   "empty": false,
+   "top": 186,
+   "bot": 679,
+   "left": 356,
+   "right": 586,
+   "h": 494,
+   "rear_x": 356,
+   "front_x": 575,
+   "hip_x": 464.5,
+   "cx": 464.94068203650335,
+   "cy": 382.90235350624397,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 90,
+    "good": 90
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_01_Load.png": {
+   "empty": false,
+   "top": 314,
+   "bot": 683,
+   "left": 389,
+   "right": 584,
+   "h": 370,
+   "rear_x": 389,
+   "front_x": 549,
+   "hip_x": 476.0,
+   "cx": 493.41774709547065,
+   "cy": 461.68384127518664,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9982287127487749,
+    "rot": -1.0289147023343592,
+    "inliers": 33,
+    "good": 36
+   },
+   "scale_how": "head",
+   "scale": 0.9982287127487749
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_02_Rise.png": {
+   "empty": false,
+   "top": 133,
+   "bot": 635,
+   "left": 381,
+   "right": 568,
+   "h": 503,
+   "rear_x": 383,
+   "front_x": 442,
+   "hip_x": 482.5,
+   "cx": 461.12165769140717,
+   "cy": 314.32573167876376,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0557066470424112,
+    "rot": -1.5484557719458854,
+    "inliers": 26,
+    "good": 28
+   },
+   "scale_how": "head",
+   "scale": 1.0557066470424112
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Jump_03_Fall.png": {
+   "empty": false,
+   "top": 242,
+   "bot": 660,
+   "left": 398,
+   "right": 581,
+   "h": 419,
+   "rear_x": 407,
+   "front_x": 512,
+   "hip_x": 472.5,
+   "cx": 474.00353454465125,
+   "cy": 402.02639863036393,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.960763519194719,
+    "rot": 5.551339004216907,
+    "inliers": 31,
+    "good": 37
+   },
+   "scale_how": "head",
+   "scale": 0.960763519194719
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Back_01.png": {
+   "empty": false,
+   "top": 188,
+   "bot": 693,
+   "left": 359,
+   "right": 621,
+   "h": 506,
+   "rear_x": 525,
+   "front_x": 563,
+   "hip_x": 493.0,
+   "cx": 496.51290598675615,
+   "cy": 376.9162124420019,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0099771932916297,
+    "rot": -0.4021264074997988,
+    "inliers": 37,
+    "good": 42
+   },
+   "scale_how": "head",
+   "scale": 1.0099771932916297
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Back_02.png": {
+   "empty": false,
+   "top": 194,
+   "bot": 690,
+   "left": 378,
+   "right": 601,
+   "h": 497,
+   "rear_x": 502,
+   "front_x": 540,
+   "hip_x": 490.0,
+   "cx": 493.22477086004653,
+   "cy": 379.0089756375552,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0240219223981892,
+    "rot": 1.5684484677518655,
+    "inliers": 29,
+    "good": 31
+   },
+   "scale_how": "head",
+   "scale": 1.0240219223981892
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Forward_01.png": {
+   "empty": false,
+   "top": 203,
+   "bot": 699,
+   "left": 341,
+   "right": 618,
+   "h": 497,
+   "rear_x": 341,
+   "front_x": 618,
+   "hip_x": 472.5,
+   "cx": 479.393257322587,
+   "cy": 402.2189404364065,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0082955792917347,
+    "rot": -0.526837107392477,
+    "inliers": 37,
+    "good": 38
+   },
+   "scale_how": "head",
+   "scale": 1.0082955792917347
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Forward_02.png": {
+   "empty": false,
+   "top": 212,
+   "bot": 698,
+   "left": 346,
+   "right": 601,
+   "h": 487,
+   "rear_x": 346,
+   "front_x": 573,
+   "hip_x": 479.0,
+   "cx": 474.7526379258366,
+   "cy": 404.0924027735906,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0183485812319613,
+    "rot": 0.5740231856767479,
+    "inliers": 40,
+    "good": 44
+   },
+   "scale_how": "head",
+   "scale": 1.0183485812319613
+  },
+  "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Win_01.png": {
+   "empty": false,
+   "top": 226,
+   "bot": 675,
+   "left": 363,
+   "right": 567,
+   "h": 450,
+   "rear_x": 363,
+   "front_x": 567,
+   "hip_x": 466.5,
+   "cx": 462.4618668850158,
+   "cy": 399.1589074745584,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9078350132040934,
+    "rot": 0.1927696899466602,
+    "inliers": 110,
+    "good": 143
+   },
+   "scale_how": "body",
+   "scale": 0.9078350132040934
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_01_Start.png": {
+   "empty": false,
+   "top": 318,
+   "bot": 687,
+   "left": 355,
+   "right": 612,
+   "h": 370,
+   "rear_x": 355,
+   "front_x": 612,
+   "hip_x": 464.5,
+   "cx": 490.8151804670913,
+   "cy": 462.8355626326964,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0163772155777477,
+    "rot": 18.412803856905587,
+    "inliers": 38,
+    "good": 99
+   },
+   "scale_how": "body",
+   "scale": 1.0163772155777477
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_02_Hit.png": {
+   "empty": false,
+   "top": 411,
+   "bot": 691,
+   "left": 310,
+   "right": 655,
+   "h": 281,
+   "rear_x": 315,
+   "front_x": 603,
+   "hip_x": 444.5,
+   "cx": 469.910178924062,
+   "cy": 534.2858596134283,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0027996256487195,
+    "rot": 3.208916566549815,
+    "inliers": 32,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 1.0027996256487195
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_03_Recover.png": {
+   "empty": false,
+   "top": 308,
+   "bot": 681,
+   "left": 354,
+   "right": 576,
+   "h": 374,
+   "rear_x": 354,
+   "front_x": 574,
+   "hip_x": 459.5,
+   "cx": 477.0018924363592,
+   "cy": 457.0253342286796,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0077096633951126,
+    "rot": 3.3737576813832924,
+    "inliers": 30,
+    "good": 33
+   },
+   "scale_how": "head",
+   "scale": 1.0077096633951126
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_01_Start.png": {
+   "empty": false,
+   "top": 325,
+   "bot": 685,
+   "left": 337,
+   "right": 590,
+   "h": 361,
+   "rear_x": 337,
+   "front_x": 590,
+   "hip_x": 455.5,
+   "cx": 476.63592878022854,
+   "cy": 464.36975817167155,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.734429630228851,
+    "rot": 14.735295403028736,
+    "inliers": 33,
+    "good": 97
+   },
+   "scale_how": "body",
+   "scale": 0.734429630228851
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_02_Hit.png": {
+   "empty": false,
+   "top": 407,
+   "bot": 680,
+   "left": 313,
+   "right": 633,
+   "h": 274,
+   "rear_x": 313,
+   "front_x": 633,
+   "hip_x": 489.5,
+   "cx": 495.4134710908007,
+   "cy": 529.299754950659,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9825858066933424,
+    "rot": 5.672843528003426,
+    "inliers": 22,
+    "good": 57
+   },
+   "scale_how": "via 2A_02_Hit.png",
+   "scale": 1.0111821427417012,
+   "sift_chain": {
+    "scale": 1.008359114701064,
+    "rot": -0.5026071307227621,
+    "inliers": 32,
+    "good": 56
+   }
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_03_Recover.png": {
+   "empty": false,
+   "top": 285,
+   "bot": 691,
+   "left": 338,
+   "right": 596,
+   "h": 407,
+   "rear_x": 338,
+   "front_x": 585,
+   "hip_x": 460.0,
+   "cx": 476.47801488833744,
+   "cy": 446.98789081885855,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0281914024513674,
+    "rot": 3.7252658913561563,
+    "inliers": 27,
+    "good": 31
+   },
+   "scale_how": "head",
+   "scale": 1.0281914024513674
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_01_Push.png": {
+   "empty": false,
+   "top": 426,
+   "bot": 687,
+   "left": 300,
+   "right": 673,
+   "h": 262,
+   "rear_x": 300,
+   "front_x": 673,
+   "hip_x": 531.5,
+   "cx": 539.8392129832696,
+   "cy": 547.3418133968294,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9996010009848161,
+    "rot": -2.843761965904095,
+    "inliers": 27,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": 0.9996010009848161
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_02_Slide_Hit.png": {
+   "empty": false,
+   "top": 440,
+   "bot": 695,
+   "left": 263,
+   "right": 660,
+   "h": 256,
+   "rear_x": 263,
+   "front_x": 641,
+   "hip_x": 500.0,
+   "cx": 457.81759577603145,
+   "cy": 562.4017681728881,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9378881289480407,
+    "rot": 7.169499856710803,
+    "inliers": 24,
+    "good": 48
+   },
+   "scale_how": "via 2A_01_Start.png",
+   "scale": 0.9348912671078046,
+   "sift_chain": {
+    "scale": 0.9198270610349885,
+    "rot": -2.2819585270713287,
+    "inliers": 41,
+    "good": 63
+   }
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_03_Brake.png": {
+   "empty": false,
+   "top": 400,
+   "bot": 675,
+   "left": 359,
+   "right": 612,
+   "h": 276,
+   "rear_x": 359,
+   "front_x": 612,
+   "hip_x": 487.5,
+   "cx": 494.7207765943104,
+   "cy": 522.528178508831,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9814942475711594,
+    "rot": 2.6272459402422617,
+    "inliers": 25,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": 0.9814942475711594
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_01_Load.png": {
+   "empty": false,
+   "top": 215,
+   "bot": 689,
+   "left": 358,
+   "right": 586,
+   "h": 475,
+   "rear_x": 358,
+   "front_x": 586,
+   "hip_x": 467.5,
+   "cx": 470.75341988757896,
+   "cy": 399.3961597771477,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9374955722005358,
+    "rot": 2.5512260134291447,
+    "inliers": 124,
+    "good": 167
+   },
+   "scale_how": "body",
+   "scale": 0.9374955722005358
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_02_Pump.png": {
+   "empty": false,
+   "top": 103,
+   "bot": 659,
+   "left": 326,
+   "right": 643,
+   "h": 557,
+   "rear_x": 550,
+   "front_x": 588,
+   "hip_x": 560.0,
+   "cx": 540.4365042536737,
+   "cy": 333.7823665893271,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0104271155072848,
+    "rot": -16.04948235312139,
+    "inliers": 43,
+    "good": 115
+   },
+   "scale_how": "body",
+   "scale": 1.0104271155072848
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_03_Recover.png": {
+   "empty": false,
+   "top": 198,
+   "bot": 682,
+   "left": 366,
+   "right": 573,
+   "h": 485,
+   "rear_x": 366,
+   "front_x": 567,
+   "hip_x": 468.0,
+   "cx": 464.01640632675117,
+   "cy": 388.84006287454565,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0132067047965827,
+    "rot": -3.213375305857447,
+    "inliers": 37,
+    "good": 38
+   },
+   "scale_how": "head",
+   "scale": 1.0132067047965827
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_01_Lower.png": {
+   "empty": false,
+   "top": 308,
+   "bot": 683,
+   "left": 372,
+   "right": 579,
+   "h": 376,
+   "rear_x": 372,
+   "front_x": 572,
+   "hip_x": 486.0,
+   "cx": 486.18115979514766,
+   "cy": 466.084682634111,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.8382306719956651,
+    "rot": 8.655924229882213,
+    "inliers": 81,
+    "good": 135
+   },
+   "scale_how": "body",
+   "scale": 0.8382306719956651
+  },
+  "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_02_Hold.png": {
+   "empty": false,
+   "top": 343,
+   "bot": 685,
+   "left": 346,
+   "right": 587,
+   "h": 343,
+   "rear_x": 346,
+   "front_x": 587,
+   "hip_x": 473.5,
+   "cx": 474.88604180714765,
+   "cy": 482.1564396493594,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.8512609810813396,
+    "rot": 6.57414686968095,
+    "inliers": 47,
+    "good": 113
+   },
+   "scale_how": "body",
+   "scale": 0.8512609810813396
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_01_Start.png": {
+   "empty": false,
+   "top": 242,
+   "bot": 650,
+   "left": 396,
+   "right": 575,
+   "h": 409,
+   "rear_x": 462,
+   "front_x": 511,
+   "hip_x": 476.0,
+   "cx": 490.07763790588365,
+   "cy": 399.20411691609485,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9955495971864553,
+    "rot": 2.8588987254285754,
+    "inliers": 26,
+    "good": 29
+   },
+   "scale_how": "head",
+   "scale": 0.9955495971864553
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_02_Hit.png": {
+   "empty": false,
+   "top": 278,
+   "bot": 621,
+   "left": 378,
+   "right": 635,
+   "h": 344,
+   "rear_x": 393,
+   "front_x": 468,
+   "hip_x": 501.0,
+   "cx": 479.99680630223025,
+   "cy": 412.42039708308937,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.0084970247553218,
+    "rot": 12.698067062030445,
+    "inliers": 26,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": 1.0084970247553218
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jA_03_Recover.png": {
+   "empty": false,
+   "top": 243,
+   "bot": 666,
+   "left": 399,
+   "right": 573,
+   "h": 424,
+   "rear_x": 470,
+   "front_x": 524,
+   "hip_x": 480.0,
+   "cx": 489.5951897857178,
+   "cy": 409.0316721928045,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9878530928833339,
+    "rot": 13.570686576573667,
+    "inliers": 31,
+    "good": 36
+   },
+   "scale_how": "head",
+   "scale": 0.9878530928833339
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_01_Start.png": {
+   "empty": false,
+   "top": 268,
+   "bot": 667,
+   "left": 327,
+   "right": 575,
+   "h": 400,
+   "rear_x": 327,
+   "front_x": 382,
+   "hip_x": 492.5,
+   "cx": 474.98755161525384,
+   "cy": 418.2345154238523,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.8656344537252028,
+    "rot": -10.757072523950663,
+    "inliers": 11,
+    "good": 14
+   },
+   "scale_how": "via jA_03_Recover.png",
+   "scale": 0.8054571799891403,
+   "sift_chain": {
+    "scale": 0.8153612979417633,
+    "rot": -10.505021087129823,
+    "inliers": 21,
+    "good": 30
+   }
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_02_Hit.png": {
+   "empty": false,
+   "top": 246,
+   "bot": 683,
+   "left": 293,
+   "right": 591,
+   "h": 438,
+   "rear_x": 293,
+   "front_x": 346,
+   "hip_x": 496.0,
+   "cx": 478.85801483171707,
+   "cy": 409.3872219053052,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jB_03_Recover.png": {
+   "empty": false,
+   "top": 249,
+   "bot": 625,
+   "left": 359,
+   "right": 581,
+   "h": 377,
+   "rear_x": 369,
+   "front_x": 451,
+   "hip_x": 470.0,
+   "cx": 464.61733451405803,
+   "cy": 404.88200132831525,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 0.9813644626797787,
+    "rot": 5.459435165093825,
+    "inliers": 20,
+    "good": 32
+   },
+   "scale_how": "via jA_03_Recover.png",
+   "scale": 0.9114380049613047,
+   "sift_chain": {
+    "scale": 0.9226452916202451,
+    "rot": -10.454835190456423,
+    "inliers": 20,
+    "good": 30
+   }
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_01_Start.png": {
+   "empty": false,
+   "top": 196,
+   "bot": 684,
+   "left": 349,
+   "right": 600,
+   "h": 489,
+   "rear_x": 481,
+   "front_x": 554,
+   "hip_x": 474.5,
+   "cx": 485.2299211448598,
+   "cy": 390.34991968457945,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.049388350531695,
+    "rot": 24.854652948665887,
+    "inliers": 22,
+    "good": 49
+   },
+   "scale_how": "via jC_03_Recover.png",
+   "scale": 1.1112077461584589,
+   "sift_chain": {
+    "scale": 1.0381827296221842,
+    "rot": 9.792796457303709,
+    "inliers": 33,
+    "good": 68
+   }
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_02_Hit.png": {
+   "empty": false,
+   "top": 242,
+   "bot": 618,
+   "left": 346,
+   "right": 679,
+   "h": 377,
+   "rear_x": 379,
+   "front_x": 483,
+   "hip_x": 509.0,
+   "cx": 489.34620879681603,
+   "cy": 397.4553015613838,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.1215924557966173,
+    "rot": 25.470969326500477,
+    "inliers": 14,
+    "good": 17
+   },
+   "scale_how": "via jA_02_Hit.png",
+   "scale": 1.097675389464578,
+   "sift_chain": {
+    "scale": 1.0884269983155306,
+    "rot": 5.532383593038112,
+    "inliers": 30,
+    "good": 51
+   }
+  },
+  "Flan_All_Sprites/04_Air_Normals/Flan_Air_Normals/PNG/jC_03_Recover.png": {
+   "empty": false,
+   "top": 228,
+   "bot": 629,
+   "left": 308,
+   "right": 612,
+   "h": 402,
+   "rear_x": 359,
+   "front_x": 526,
+   "hip_x": 456.5,
+   "cx": 496.5015355245684,
+   "cy": 399.6408947543161,
+   "mask": "dark",
+   "size": [
+    960,
+    768
+   ],
+   "sift": {
+    "scale": 1.070339271163613,
+    "rot": 11.386521334996276,
+    "inliers": 30,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": 1.070339271163613
+  },
+  "Flan_All_Sprites/05_236/Flan_236_Standalone/Punch_01.png": {
+   "empty": false,
+   "top": 296,
+   "bot": 603,
+   "left": 160,
+   "right": 730,
+   "h": 308,
+   "rear_x": 160,
+   "front_x": 244,
+   "hip_x": 543.5,
+   "cx": 456.94747408721634,
+   "cy": 434.6946493603511,
+   "mask": "dark",
+   "size": [
+    900,
+    700
+   ],
+   "sift": {
+    "scale": 1.0651115112700336,
+    "rot": 3.9317577808272524,
+    "inliers": 25,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": 1.0651115112700336
+  },
+  "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_01.png": {
+   "empty": false,
+   "top": 145,
+   "bot": 671,
+   "left": 120,
+   "right": 516,
+   "h": 527,
+   "rear_x": 306,
+   "front_x": 404,
+   "hip_x": 309.0,
+   "cx": 279.60408176260825,
+   "cy": 357.4442498726439,
+   "mask": "dark",
+   "size": [
+    517,
+    700
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_02.png": {
+   "empty": false,
+   "top": 187,
+   "bot": 699,
+   "left": 122,
+   "right": 517,
+   "h": 513,
+   "rear_x": 316,
+   "front_x": 427,
+   "hip_x": 314.0,
+   "cx": 282.8945530951996,
+   "cy": 387.848359463391,
+   "mask": "dark",
+   "size": [
+    518,
+    700
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_03.png": {
+   "empty": false,
+   "top": 136,
+   "bot": 696,
+   "left": 122,
+   "right": 420,
+   "h": 561,
+   "rear_x": 327,
+   "front_x": 420,
+   "hip_x": 301.5,
+   "cx": 272.367511247928,
+   "cy": 355.26447007882007,
+   "mask": "dark",
+   "size": [
+    518,
+    700
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_04.png": {
+   "empty": false,
+   "top": 150,
+   "bot": 692,
+   "left": 128,
+   "right": 408,
+   "h": 543,
+   "rear_x": 301,
+   "front_x": 367,
+   "hip_x": 306.5,
+   "cx": 272.81856972179554,
+   "cy": 366.02922000341357,
+   "mask": "dark",
+   "size": [
+    518,
+    700
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Apex_01.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 489,
+   "left": 138,
+   "right": 340,
+   "h": 426,
+   "rear_x": 293,
+   "front_x": 340,
+   "hip_x": 231.0,
+   "cx": 243.80336435574577,
+   "cy": 235.342109192256,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Beam_Aim_01.png": {
+   "empty": false,
+   "top": 68,
+   "bot": 418,
+   "left": 143,
+   "right": 435,
+   "h": 351,
+   "rear_x": 170,
+   "front_x": 274,
+   "hip_x": 280.0,
+   "cx": 258.98357830229327,
+   "cy": 205.987121175851,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": {
+    "scale": 1.158551379064347,
+    "rot": 8.439307557191713,
+    "inliers": 7,
+    "good": 11
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Fall_Front_01.png": {
+   "empty": false,
+   "top": 33,
+   "bot": 480,
+   "left": 59,
+   "right": 384,
+   "h": 448,
+   "rear_x": 167,
+   "front_x": 335,
+   "hip_x": 222.0,
+   "cx": 231.53047002421786,
+   "cy": 208.91069045618545,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": {
+    "scale": 1.0211064328483725,
+    "rot": 5.991482315533508,
+    "inliers": 4,
+    "good": 8
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Hit_01.png": {
+   "empty": false,
+   "top": 40,
+   "bot": 416,
+   "left": 46,
+   "right": 403,
+   "h": 377,
+   "rear_x": 46,
+   "front_x": 403,
+   "hip_x": 231.0,
+   "cx": 226.13425744514106,
+   "cy": 228.03786246081503,
+   "mask": "dark",
+   "size": [
+    462,
+    441
+   ],
+   "sift": {
+    "scale": 0.955478278446736,
+    "rot": 5.459673391104284,
+    "inliers": 16,
+    "good": 21
+   },
+   "scale_how": "head",
+   "scale": 0.955478278446736
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_01.png": {
+   "empty": false,
+   "top": 64,
+   "bot": 460,
+   "left": 137,
+   "right": 421,
+   "h": 397,
+   "rear_x": 144,
+   "front_x": 304,
+   "hip_x": 275.0,
+   "cx": 278.70321853040684,
+   "cy": 243.08558167779995,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": {
+    "scale": 1.1999248243140723,
+    "rot": -10.81905082645851,
+    "inliers": 12,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_02.png": {
+   "empty": false,
+   "top": 7,
+   "bot": 511,
+   "left": 147,
+   "right": 365,
+   "h": 505,
+   "rear_x": 147,
+   "front_x": 218,
+   "hip_x": 276.0,
+   "cx": 259.2779538504309,
+   "cy": 250.82246316374756,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": {
+    "scale": 1.0452724309666068,
+    "rot": 0.690522106069627,
+    "inliers": 7,
+    "good": 11
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Spin_Back_01.png": {
+   "empty": false,
+   "top": 6,
+   "bot": 491,
+   "left": 137,
+   "right": 362,
+   "h": 486,
+   "rear_x": 207,
+   "front_x": 279,
+   "hip_x": 249.5,
+   "cx": 257.20567648314125,
+   "cy": 241.14980793854033,
+   "mask": "dark",
+   "size": [
+    512,
+    512
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Held_Uppercut.png": {
+   "empty": false,
+   "top": 76,
+   "bot": 557,
+   "left": 33,
+   "right": 268,
+   "h": 482,
+   "rear_x": 78,
+   "front_x": 131,
+   "hip_x": 150.5,
+   "cx": 164.74959285674174,
+   "cy": 274.3414387600382,
+   "mask": "dark",
+   "size": [
+    330,
+    617
+   ],
+   "sift": {
+    "scale": 0.9010892128258128,
+    "rot": 1.8977954166521396,
+    "inliers": 12,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png": {
+   "empty": false,
+   "top": 51,
+   "bot": 972,
+   "left": 166,
+   "right": 1227,
+   "h": 922,
+   "rear_x": 1150,
+   "front_x": 1184,
+   "hip_x": 749.0,
+   "cx": 725.0714746459482,
+   "cy": 504.6309774812504,
+   "fx_px": 142236,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Load.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 258,
+   "left": 145,
+   "right": 353,
+   "h": 244,
+   "rear_x": 229,
+   "front_x": 265,
+   "hip_x": 241.5,
+   "cx": 251.39410206857062,
+   "cy": 103.45351084389091,
+   "mask": "dark",
+   "size": [
+    425,
+    289
+   ],
+   "sift": {
+    "scale": 0.9650975411098707,
+    "rot": 19.184981940092534,
+    "inliers": 11,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Punch.png": {
+   "empty": false,
+   "top": 31,
+   "bot": 265,
+   "left": 31,
+   "right": 260,
+   "h": 235,
+   "rear_x": 138,
+   "front_x": 209,
+   "hip_x": 144.0,
+   "cx": 150.24587241299125,
+   "cy": 115.1930082939307,
+   "mask": "dark",
+   "size": [
+    272,
+    283
+   ],
+   "sift": {
+    "scale": 0.9435890334875681,
+    "rot": 23.196355622399633,
+    "inliers": 8,
+    "good": 8
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/EX_Energy_Overlay.png": {
+   "empty": false,
+   "top": 51,
+   "bot": 972,
+   "left": 166,
+   "right": 1227,
+   "h": 922,
+   "rear_x": 1150,
+   "front_x": 1184,
+   "hip_x": 749.0,
+   "cx": 725.0714746459482,
+   "cy": 504.6309774812504,
+   "fx_px": 142236,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Idle.png": {
+   "empty": false,
+   "top": 3,
+   "bot": 374,
+   "left": 7,
+   "right": 179,
+   "h": 372,
+   "rear_x": 7,
+   "front_x": 173,
+   "hip_x": 89.0,
+   "cx": 90.34830913956695,
+   "cy": 149.20493066255779,
+   "mask": "dark",
+   "size": [
+    386,
+    393
+   ],
+   "sift": {
+    "scale": 0.755436131933521,
+    "rot": 0.015160708367733226,
+    "inliers": 44,
+    "good": 46
+   },
+   "scale_how": "head",
+   "scale": 0.755436131933521
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Impact.png": {
+   "empty": false,
+   "top": 12,
+   "bot": 241,
+   "left": 116,
+   "right": 361,
+   "h": 230,
+   "rear_x": 129,
+   "front_x": 350,
+   "hip_x": 222.0,
+   "cx": 244.545005666181,
+   "cy": 106.79018941233609,
+   "mask": "dark",
+   "size": [
+    453,
+    294
+   ],
+   "sift": {
+    "scale": 0.8506319682885901,
+    "rot": 14.799416447893009,
+    "inliers": 12,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Knee.png": {
+   "empty": false,
+   "top": 3,
+   "bot": 332,
+   "left": 162,
+   "right": 352,
+   "h": 330,
+   "rear_x": 162,
+   "front_x": 203,
+   "hip_x": 279.0,
+   "cx": 243.76428707043857,
+   "cy": 118.34402885893297,
+   "mask": "dark",
+   "size": [
+    484,
+    375
+   ],
+   "sift": {
+    "scale": 0.7352565392787831,
+    "rot": 4.517168698561843,
+    "inliers": 25,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": 0.7352565392787831
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Dash_Punch.png": {
+   "empty": false,
+   "top": 453,
+   "bot": 666,
+   "left": 260,
+   "right": 680,
+   "h": 214,
+   "rear_x": 264,
+   "front_x": 488,
+   "hip_x": 541.0,
+   "cx": 485.8625627952313,
+   "cy": 549.5169828297219,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.8491801171403791,
+    "rot": 8.235251671549264,
+    "inliers": 17,
+    "good": 19
+   },
+   "scale_how": "head",
+   "scale": 0.8491801171403791
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Fire.png": {
+   "empty": false,
+   "top": 373,
+   "bot": 688,
+   "left": 311,
+   "right": 579,
+   "h": 316,
+   "rear_x": 338,
+   "front_x": 574,
+   "hip_x": 434.0,
+   "cx": 410.6652643276711,
+   "cy": 497.9357834576917,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.7640228305923196,
+    "rot": -28.878589160315297,
+    "inliers": 24,
+    "good": 71
+   },
+   "scale_how": "via Idle.png",
+   "scale": 0.6384580734928047,
+   "sift_chain": {
+    "scale": 0.909019011504626,
+    "rot": -8.761856163436821,
+    "inliers": 22,
+    "good": 51
+   }
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Idle.png": {
+   "empty": false,
+   "top": 359,
+   "bot": 691,
+   "left": 361,
+   "right": 526,
+   "h": 333,
+   "rear_x": 361,
+   "front_x": 522,
+   "hip_x": 441.0,
+   "cx": 442.49588990486745,
+   "cy": 488.64847141405744,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.7023594285844653,
+    "rot": 0.10259866868152007,
+    "inliers": 26,
+    "good": 28
+   },
+   "scale_how": "head",
+   "scale": 0.7023594285844653
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Radiant_Burst.png": {
+   "empty": false,
+   "top": 125,
+   "bot": 810,
+   "left": 40,
+   "right": 1499,
+   "h": 686,
+   "rear_x": 827,
+   "front_x": 1422,
+   "hip_x": 772.0,
+   "cx": 851.0458761897735,
+   "cy": 501.5647310558548,
+   "fx_px": 335645,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Recoil.png": {
+   "empty": false,
+   "top": 441,
+   "bot": 655,
+   "left": 294,
+   "right": 606,
+   "h": 215,
+   "rear_x": 364,
+   "front_x": 593,
+   "hip_x": 419.5,
+   "cx": 412.7211004010413,
+   "cy": 557.3343417997608,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.8858325001721832,
+    "rot": -20.97036510188037,
+    "inliers": 21,
+    "good": 23
+   },
+   "scale_how": "head",
+   "scale": 0.8858325001721832
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll.png": {
+   "empty": false,
+   "top": 441,
+   "bot": 658,
+   "left": 338,
+   "right": 562,
+   "h": 218,
+   "rear_x": 410,
+   "front_x": 511,
+   "hip_x": 478.0,
+   "cx": 461.32476847648445,
+   "cy": 559.154984565099,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll_Exit.png": {
+   "empty": false,
+   "top": 436,
+   "bot": 660,
+   "left": 298,
+   "right": 597,
+   "h": 225,
+   "rear_x": 322,
+   "front_x": 582,
+   "hip_x": 470.5,
+   "cx": 477.417708709794,
+   "cy": 539.1498373689917,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": {
+    "scale": 0.8752074941305611,
+    "rot": 7.659023640278947,
+    "inliers": 17,
+    "good": 21
+   },
+   "scale_how": "head",
+   "scale": 0.8752074941305611
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_01.png": {
+   "empty": false,
+   "top": 345,
+   "bot": 680,
+   "left": 362,
+   "right": 609,
+   "h": 336,
+   "rear_x": 480,
+   "front_x": 552,
+   "hip_x": 482.5,
+   "cx": 461.047838573156,
+   "cy": 481.5328748488513,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_02.png": {
+   "empty": false,
+   "top": 371,
+   "bot": 676,
+   "left": 363,
+   "right": 550,
+   "h": 306,
+   "rear_x": 471,
+   "front_x": 550,
+   "hip_x": 485.5,
+   "cx": 458.87024714828897,
+   "cy": 499.3219264892269,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_03.png": {
+   "empty": false,
+   "top": 339,
+   "bot": 675,
+   "left": 362,
+   "right": 558,
+   "h": 337,
+   "rear_x": 483,
+   "front_x": 553,
+   "hip_x": 478.5,
+   "cx": 458.5654585221059,
+   "cy": 476.5912357444149,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_04.png": {
+   "empty": false,
+   "top": 348,
+   "bot": 695,
+   "left": 367,
+   "right": 546,
+   "h": 348,
+   "rear_x": 486,
+   "front_x": 543,
+   "hip_x": 481.5,
+   "cx": 458.8732067003286,
+   "cy": 485.41460286927946,
+   "mask": "dark",
+   "size": [
+    1000,
+    800
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Diagonal_Punch.png": {
+   "empty": false,
+   "top": 432,
+   "bot": 728,
+   "left": 240,
+   "right": 544,
+   "h": 297,
+   "rear_x": 240,
+   "front_x": 284,
+   "hip_x": 374.0,
+   "cx": 379.842461643953,
+   "cy": 547.5230136281821,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.7695689933530074,
+    "rot": -14.80660402410353,
+    "inliers": 23,
+    "good": 59
+   },
+   "scale_how": "via Stand.png",
+   "scale": 0.8627370317455013,
+   "sift_chain": {
+    "scale": 1.1198885626155943,
+    "rot": -20.785853903281073,
+    "inliers": 24,
+    "good": 45
+   }
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Load.png": {
+   "empty": false,
+   "top": 451,
+   "bot": 698,
+   "left": 444,
+   "right": 597,
+   "h": 248,
+   "rear_x": 481,
+   "front_x": 542,
+   "hip_x": 514.0,
+   "cx": 522.9066677535051,
+   "cy": 556.5872187805674,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.7405165640978538,
+    "rot": 26.5955813769099,
+    "inliers": 24,
+    "good": 37
+   },
+   "scale_how": "via Stand.png",
+   "scale": 0.8072979651540089,
+   "sift_chain": {
+    "scale": 1.0479250623676863,
+    "rot": 18.728072161543874,
+    "inliers": 30,
+    "good": 42
+   }
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Punch.png": {
+   "empty": false,
+   "top": 476,
+   "bot": 701,
+   "left": 328,
+   "right": 485,
+   "h": 226,
+   "rear_x": 371,
+   "front_x": 402,
+   "hip_x": 388.0,
+   "cx": 413.03526421688025,
+   "cy": 550.3970136609129,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Ground_Impact.png": {
+   "empty": false,
+   "top": 534,
+   "bot": 726,
+   "left": 336,
+   "right": 554,
+   "h": 193,
+   "rear_x": 336,
+   "front_x": 554,
+   "hip_x": 438.5,
+   "cx": 457.0509148766905,
+   "cy": 618.8097763634756,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.5515090135143649,
+    "rot": 28.52537268982078,
+    "inliers": 28,
+    "good": 73
+   },
+   "scale_how": "body",
+   "scale": 0.5515090135143649
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Stand.png": {
+   "empty": false,
+   "top": 435,
+   "bot": 748,
+   "left": 375,
+   "right": 574,
+   "h": 314,
+   "rear_x": 375,
+   "front_x": 574,
+   "hip_x": 461.0,
+   "cx": 465.5875044373447,
+   "cy": 556.626908058218,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.7703775719706487,
+    "rot": 0.05015471762795414,
+    "inliers": 27,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": 0.7703775719706487
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Sweat_Wipe.png": {
+   "empty": false,
+   "top": 399,
+   "bot": 748,
+   "left": 372,
+   "right": 529,
+   "h": 350,
+   "rear_x": 372,
+   "front_x": 529,
+   "hip_x": 457.5,
+   "cx": 444.7075456323338,
+   "cy": 532.0711375488918,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.73155875786897,
+    "rot": -5.616671191244737,
+    "inliers": 73,
+    "good": 118
+   },
+   "scale_how": "body",
+   "scale": 0.73155875786897
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_01.png": {
+   "empty": false,
+   "top": 416,
+   "bot": 732,
+   "left": 336,
+   "right": 618,
+   "h": 317,
+   "rear_x": 367,
+   "front_x": 618,
+   "hip_x": 467.0,
+   "cx": 436.2574929868596,
+   "cy": 547.164033663074,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.785061468854392,
+    "rot": -30.369758685194075,
+    "inliers": 37,
+    "good": 71
+   },
+   "scale_how": "body",
+   "scale": 0.785061468854392
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_02.png": {
+   "empty": false,
+   "top": 397,
+   "bot": 734,
+   "left": 342,
+   "right": 634,
+   "h": 338,
+   "rear_x": 373,
+   "front_x": 634,
+   "hip_x": 467.0,
+   "cx": 440.12680730030814,
+   "cy": 538.581575412815,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.8090854148106698,
+    "rot": -27.66116191864243,
+    "inliers": 33,
+    "good": 77
+   },
+   "scale_how": "body",
+   "scale": 0.8090854148106698
+  },
+  "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_03.png": {
+   "empty": false,
+   "top": 403,
+   "bot": 732,
+   "left": 337,
+   "right": 635,
+   "h": 330,
+   "rear_x": 359,
+   "front_x": 635,
+   "hip_x": 464.5,
+   "cx": 438.05808850873933,
+   "cy": 537.7972480476013,
+   "mask": "dark",
+   "size": [
+    1000,
+    850
+   ],
+   "sift": {
+    "scale": 0.8037293839518691,
+    "rot": -31.40837148751531,
+    "inliers": 41,
+    "good": 76
+   },
+   "scale_how": "body",
+   "scale": 0.8037293839518691
+  }
+ }
+}

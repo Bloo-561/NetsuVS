@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://4pqe3ucytigx"]
+
+[ext_resource type="Resource" uid="uid://bee5nhkcto5wb" path="res://actors/_shared/sakuga/Inputs/0_Input_6.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Move Forward"
+MoveState = 12
+Inputs = ExtResource("1")
+FrameLimit = 3
+MoveEnd = 1
+MoveEndState = 0
+IsSequenceFromStates = PackedInt32Array(11, 15)
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+PriorityBuffer = true
+UseOnGround = true

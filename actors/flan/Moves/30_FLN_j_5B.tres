@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://8ugqi25b7p9y"]
+
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bdy2tcfv6ov1v" path="res://actors/_shared/sakuga/Inputs/12_Input_5B.tres" id="2"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="gat_50"]
+script = ExtResource("1")
+MoveIndex = 38
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_31"]
+script = ExtResource("1")
+MoveIndex = 31
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_13"]
+script = ExtResource("1")
+MoveIndex = 13
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_14"]
+script = ExtResource("1")
+MoveIndex = 14
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_15"]
+script = ExtResource("1")
+MoveIndex = 15
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_53"]
+script = ExtResource("1")
+MoveIndex = 53
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[resource]
+script = ExtResource("3")
+MoveName = "j.5B"
+MoveState = 70
+Inputs = ExtResource("2")
+Priority = 6
+MoveEnd = 2
+CanCancelTo = [SubResource("fdk_53"), SubResource("gat_50"), SubResource("gat_31"), SubResource("gat_15"), SubResource("gat_14"), SubResource("gat_13")]
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+IgnoreSelf = false
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnAir = true

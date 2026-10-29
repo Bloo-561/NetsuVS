@@ -1,0 +1,212 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="nf1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_1.png" id="nf2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="nf4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_1.png" id="nf5"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="nf8"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_2.png" id="nf10"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_3.png" id="nf14"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_4.png" id="nf18"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_5.png" id="nf22"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_6.png" id="nf26"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_7.png" id="nf30"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_charge_8.png" id="nf34"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_2.png" id="nf40"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/jc_3.png" id="nf43"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/15_Hitbox_j_5C_1.tres" id="nf46"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="nf48"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/15_Hitbox_j_5C_charged.tres" id="nf49"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/15_Hitbox_j_5C_4.tres" id="nf51"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/15_Hitbox_j_5C_6.tres" id="nf53"]
+
+[sub_resource type="Resource" id="nf_s3"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s6"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf5")
+Offset = Vector2(-47.1, 641.4)
+Scale = Vector2(0.7, 0.7)
+
+[sub_resource type="Resource" id="nf_s7"]
+script = ExtResource("nf8")
+Modifiers = [SubResource("nf_s3"), SubResource("nf_s6")]
+
+[sub_resource type="Resource" id="nf_s9"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s11"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf10")
+Offset = Vector2(-51.8, 586.2)
+Scale = Vector2(0.756, 0.756)
+
+[sub_resource type="Resource" id="nf_s12"]
+script = ExtResource("nf8")
+AtFrame = 2
+Modifiers = [SubResource("nf_s9"), SubResource("nf_s11")]
+
+[sub_resource type="Resource" id="nf_s13"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s15"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf14")
+Offset = Vector2(-55.8, 538.5)
+Scale = Vector2(0.811, 0.811)
+
+[sub_resource type="Resource" id="nf_s16"]
+script = ExtResource("nf8")
+AtFrame = 4
+Modifiers = [SubResource("nf_s13"), SubResource("nf_s15")]
+
+[sub_resource type="Resource" id="nf_s17"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s19"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf18")
+Offset = Vector2(-59.2, 496.9)
+Scale = Vector2(0.867, 0.867)
+
+[sub_resource type="Resource" id="nf_s20"]
+script = ExtResource("nf8")
+AtFrame = 6
+Modifiers = [SubResource("nf_s17"), SubResource("nf_s19")]
+
+[sub_resource type="Resource" id="nf_s21"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s23"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf22")
+Offset = Vector2(-62.3, 460.4)
+Scale = Vector2(0.922, 0.922)
+
+[sub_resource type="Resource" id="nf_s24"]
+script = ExtResource("nf8")
+AtFrame = 8
+Modifiers = [SubResource("nf_s21"), SubResource("nf_s23")]
+
+[sub_resource type="Resource" id="nf_s25"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s27"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf26")
+Offset = Vector2(-65.0, 428.0)
+Scale = Vector2(0.978, 0.978)
+
+[sub_resource type="Resource" id="nf_s28"]
+script = ExtResource("nf8")
+AtFrame = 10
+Modifiers = [SubResource("nf_s25"), SubResource("nf_s27")]
+
+[sub_resource type="Resource" id="nf_s29"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s31"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf30")
+Offset = Vector2(-67.4, 399.0)
+Scale = Vector2(1.033, 1.033)
+
+[sub_resource type="Resource" id="nf_s32"]
+script = ExtResource("nf8")
+AtFrame = 12
+Modifiers = [SubResource("nf_s29"), SubResource("nf_s31")]
+
+[sub_resource type="Resource" id="nf_s33"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s35"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf34")
+Offset = Vector2(-69.6, 373.1)
+Scale = Vector2(1.089, 1.089)
+
+[sub_resource type="Resource" id="nf_s36"]
+script = ExtResource("nf8")
+AtFrame = 14
+Modifiers = [SubResource("nf_s33"), SubResource("nf_s35")]
+
+[sub_resource type="Resource" id="nf_s37"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf2")
+Offset = Vector2(-306.0, 32.0)
+
+[sub_resource type="Resource" id="nf_s38"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf5")
+Offset = Vector2(-71.6, 349.6)
+Scale = Vector2(1.144, 1.144)
+
+[sub_resource type="Resource" id="nf_s39"]
+script = ExtResource("nf8")
+AtFrame = 16
+Modifiers = [SubResource("nf_s37"), SubResource("nf_s38")]
+
+[sub_resource type="Resource" id="nf_s41"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf40")
+Offset = Vector2(-213.0, -20.0)
+
+[sub_resource type="Resource" id="nf_s42"]
+script = ExtResource("nf8")
+AtFrame = 18
+Modifiers = [SubResource("nf_s41")]
+
+[sub_resource type="Resource" id="nf_s44"]
+script = ExtResource("nf4")
+Sprite = ExtResource("nf43")
+Offset = Vector2(-252.0, -24.0)
+
+[sub_resource type="Resource" id="nf_s45"]
+script = ExtResource("nf8")
+AtFrame = 26
+Modifiers = [SubResource("nf_s44")]
+
+[sub_resource type="Resource" id="nf_s47"]
+script = ExtResource("nf48")
+HitboxData = ExtResource("nf46")
+
+[sub_resource type="Resource" id="nf_s50"]
+script = ExtResource("nf48")
+AtFrame = 18
+animationStage = 1
+HitboxData = ExtResource("nf49")
+
+[sub_resource type="Resource" id="nf_s52"]
+script = ExtResource("nf48")
+AtFrame = 23
+animationStage = 2
+HitboxData = ExtResource("nf51")
+
+[sub_resource type="Resource" id="nf_s54"]
+script = ExtResource("nf48")
+AtFrame = 28
+animationStage = 2
+HitboxData = ExtResource("nf53")
+
+[resource]
+script = ExtResource("nf1")
+Duration = 35
+Animations = [SubResource("nf_s7"), SubResource("nf_s12"), SubResource("nf_s16"), SubResource("nf_s20"), SubResource("nf_s24"), SubResource("nf_s28"), SubResource("nf_s32"), SubResource("nf_s36"), SubResource("nf_s39"), SubResource("nf_s42"), SubResource("nf_s45")]
+Hitboxes = [SubResource("nf_s47"), SubResource("nf_s50"), SubResource("nf_s52"), SubResource("nf_s54")]

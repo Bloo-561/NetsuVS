@@ -1,0 +1,172 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://bhkt9a8dvoh13"]
+
+[ext_resource type="Script" uid="uid://bne635raru5sj" path="res://engine/sakuga/Resources/FighterOutro.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bv75v206c1m3c" path="res://actors/flan/0_FLN_Profile.tres" id="2"]
+[ext_resource type="Resource" uid="uid://347jjugdob2w" path="res://actors/flan/Stances/FLN_Stance_Main.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bbk3mfruuk4iv" path="res://actors/flan/States/0_FLN_IdleState.tres" id="4"]
+[ext_resource type="Resource" uid="uid://6dwheyw4u750" path="res://actors/flan/States/1_FLN_MoveForwardState.tres" id="5"]
+[ext_resource type="Resource" uid="uid://brybazuxr724a" path="res://actors/flan/States/2_FLN_MoveBackwardsState.tres" id="6"]
+[ext_resource type="Resource" uid="uid://n9riakhazzlo" path="res://actors/flan/States/3_FLN_JumpIdleState.tres" id="7"]
+[ext_resource type="Resource" uid="uid://b0io3ahxgsq6g" path="res://actors/flan/States/4_FLN_JumpForwardState.tres" id="8"]
+[ext_resource type="Resource" uid="uid://x0hp9l6m98ao" path="res://actors/flan/States/5_FLN_JumpBackwardsState.tres" id="9"]
+[ext_resource type="Resource" uid="uid://bq9me9oviavot" path="res://actors/flan/States/6_FLN_DashJumpState.tres" id="10"]
+[ext_resource type="Resource" uid="uid://b9eio46g0l96" path="res://actors/flan/States/7_FLN_SuperJumpIdleState.tres" id="11"]
+[ext_resource type="Resource" uid="uid://9n3san52acr3" path="res://actors/flan/States/8_FLN_SuperJumpForwardState.tres" id="12"]
+[ext_resource type="Resource" uid="uid://bsb2h25xuj1k0" path="res://actors/flan/States/9_FLN_SuperJumpBackwardsState.tres" id="13"]
+[ext_resource type="Resource" uid="uid://bbl8u9eiholb9" path="res://actors/flan/States/10_FLN_FallingState.tres" id="14"]
+[ext_resource type="Resource" uid="uid://b7w4uwve7z19l" path="res://actors/flan/States/11_FLN_LandingNeutralState.tres" id="15"]
+[ext_resource type="Resource" uid="uid://bkvfhtizpa62n" path="res://actors/flan/States/12_FLN_LandingForwardState.tres" id="16"]
+[ext_resource type="Resource" uid="uid://bebty8n56u6du" path="res://actors/flan/States/13_FLN_LandingBackwardsState.tres" id="17"]
+[ext_resource type="Resource" uid="uid://ukkp9dunzfe" path="res://actors/flan/States/14_FLN_CrouchEnter.tres" id="18"]
+[ext_resource type="Resource" uid="uid://b6svchhj0f8n7" path="res://actors/flan/States/15_FLN_Crouching.tres" id="19"]
+[ext_resource type="Resource" uid="uid://tn8qdeahm3k9" path="res://actors/flan/States/16_FLN_ForwardDashState.tres" id="20"]
+[ext_resource type="Resource" uid="uid://boouw182u2q4k" path="res://actors/flan/States/17_FLN_DashStopState.tres" id="21"]
+[ext_resource type="Resource" uid="uid://0i3s71xnov3u" path="res://actors/flan/States/18_FLN_BackwardsDashState.tres" id="22"]
+[ext_resource type="Resource" uid="uid://bdauvt5e2u9nl" path="res://actors/flan/States/19_FLN_ForwardAirDashState.tres" id="23"]
+[ext_resource type="Resource" uid="uid://bvbyo3okzq42o" path="res://actors/flan/States/20_FLN_ForwardAirDashUpState.tres" id="24"]
+[ext_resource type="Resource" uid="uid://u71lkf6jrq7q" path="res://actors/flan/States/21_FLN_ForwardAirDashDownState.tres" id="25"]
+[ext_resource type="Resource" uid="uid://u3vjxjj8ki4v" path="res://actors/flan/States/22_FLN_BackwardsAirDashState.tres" id="26"]
+[ext_resource type="Resource" uid="uid://t557druj0hu4" path="res://actors/flan/States/23_FLN_Hit_Ground_Weak.tres" id="27"]
+[ext_resource type="Resource" uid="uid://w23u571o60uz" path="res://actors/flan/States/24_FLN_Hit_Ground_Strong.tres" id="28"]
+[ext_resource type="Resource" uid="uid://byc7kj691iry8" path="res://actors/flan/States/25_FLN_Hit_Crouch_Weak.tres" id="29"]
+[ext_resource type="Resource" uid="uid://bvwvbij6oekl2" path="res://actors/flan/States/26_FLN_Hit_Sweep.tres" id="30"]
+[ext_resource type="Resource" uid="uid://wixsci2o9jyl" path="res://actors/flan/States/27_FLN_Hit_Air_Weak.tres" id="31"]
+[ext_resource type="Resource" uid="uid://blrya44gg99op" path="res://actors/flan/States/28_FLN_Hit_Air_Strong.tres" id="32"]
+[ext_resource type="Resource" uid="uid://bdj3v243btzyi" path="res://actors/flan/States/29_FLN_Hit_Crumple.tres" id="33"]
+[ext_resource type="Resource" uid="uid://b6waryzwngmon" path="res://actors/flan/States/30_FLN_Hit_LaunchAway.tres" id="34"]
+[ext_resource type="Resource" uid="uid://b2u7hp391tb41" path="res://actors/flan/States/31_FLN_Hit_LaunchUp.tres" id="35"]
+[ext_resource type="Resource" uid="uid://b5tiwn901khzd" path="res://actors/flan/States/32_FLN_Hit_LaunchDown.tres" id="36"]
+[ext_resource type="Resource" uid="uid://b1i62vi90nglf" path="res://actors/flan/States/33_FLN_Hit_Bounce_Ground.tres" id="37"]
+[ext_resource type="Resource" uid="uid://fxd67v1pb0wg" path="res://actors/flan/States/34_FLN_Hit_Bounce_Wall.tres" id="38"]
+[ext_resource type="Resource" uid="uid://p7i6yu2z55fj" path="res://actors/flan/States/35_FLN_Hit_UpToDown.tres" id="39"]
+[ext_resource type="Resource" uid="uid://j256rf6t2kd7" path="res://actors/flan/States/36_FLN_Hit_Falling.tres" id="40"]
+[ext_resource type="Resource" uid="uid://bpmfp5j471yh0" path="res://actors/flan/States/37_FLN_Hit_Knockdown.tres" id="41"]
+[ext_resource type="Resource" uid="uid://ycs6nk38n4bp" path="res://actors/flan/States/38_FLN_Hit_Knockdown_Slide.tres" id="42"]
+[ext_resource type="Resource" uid="uid://hmofew715uij" path="res://actors/flan/States/39_FLN_Hit_Knockdown_Spin.tres" id="43"]
+[ext_resource type="Resource" uid="uid://bp14wvfboi74d" path="res://actors/flan/States/40_FLN_Hit_Down.tres" id="44"]
+[ext_resource type="Resource" uid="uid://bfcxjqfyqy83z" path="res://actors/flan/States/41_FLN_Hit_GetUp.tres" id="45"]
+[ext_resource type="Resource" uid="uid://czsw69xeyvbo" path="res://actors/flan/States/42_FLN_KO.tres" id="46"]
+[ext_resource type="Resource" uid="uid://90lsj6hgxc6w" path="res://actors/flan/States/43_FLN_Recovery_GroundForward.tres" id="47"]
+[ext_resource type="Resource" uid="uid://b0d4lktlkzfis" path="res://actors/flan/States/44_FLN_Recovery_GroundBackwards.tres" id="48"]
+[ext_resource type="Resource" uid="uid://bwmzp6prsnhqv" path="res://actors/flan/States/45_FLN_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://b69ltkgvg7ro9" path="res://actors/flan/States/46_FLN_Recovery_AirForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://r3m7fsjmeyqa" path="res://actors/flan/States/47_FLN_Recovery_AirBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://z9ledv50xq41" path="res://actors/flan/States/48_FLN_Block_Neutral_Enter.tres" id="52"]
+[ext_resource type="Resource" uid="uid://nh5qjuc0e4v8" path="res://actors/flan/States/49_FLN_Blockstun_Neutral.tres" id="53"]
+[ext_resource type="Resource" uid="uid://bug62dhllx93i" path="res://actors/flan/States/50_FLN_Block_Neutral_Exit.tres" id="54"]
+[ext_resource type="Resource" uid="uid://igri0esubsyh" path="res://actors/flan/States/51_FLN_Guard_Break_Neutral.tres" id="55"]
+[ext_resource type="Resource" uid="uid://bu5mqqc6mojr1" path="res://actors/flan/States/52_FLN_Blocking_Neutral.tres" id="56"]
+[ext_resource type="Resource" uid="uid://b4nrnes73g7qu" path="res://actors/flan/States/53_FLN_Block_Crouch_Enter.tres" id="57"]
+[ext_resource type="Resource" uid="uid://bxvd30wkr3pa1" path="res://actors/flan/States/54_FLN_Blockstun_Crouch.tres" id="58"]
+[ext_resource type="Resource" uid="uid://kh0t4k2uxs5t" path="res://actors/flan/States/55_FLN_Block_Crouch_Exit.tres" id="59"]
+[ext_resource type="Resource" uid="uid://qyc9o8x7s1iz" path="res://actors/flan/States/56_FLN_Guard_Break_Crouch.tres" id="60"]
+[ext_resource type="Resource" uid="uid://ramtgxl47asc" path="res://actors/flan/States/57_FLN_Blocking_Crouch.tres" id="61"]
+[ext_resource type="Resource" uid="uid://eypvifablyhc" path="res://actors/flan/States/58_FLN_Block_Air_Enter.tres" id="62"]
+[ext_resource type="Resource" uid="uid://kklfrmoub8oz" path="res://actors/flan/States/59_FLN_Blockstun_Air.tres" id="63"]
+[ext_resource type="Resource" uid="uid://by8kkqovi3ab8" path="res://actors/flan/States/60_FLN_Block_Air_Exit.tres" id="64"]
+[ext_resource type="Resource" uid="uid://b2msyb20brior" path="res://actors/flan/States/61_FLN_Guard_Break_Air.tres" id="65"]
+[ext_resource type="Resource" uid="uid://b41zxa70yf8qy" path="res://actors/flan/States/62_FLN_Blocking_Air.tres" id="66"]
+[ext_resource type="Resource" uid="uid://b5q9zu8phx8jv" path="res://actors/flan/States/63_FLN_5A.tres" id="67"]
+[ext_resource type="Resource" uid="uid://2g68guzdxnjn" path="res://actors/flan/States/64_FLN_5B.tres" id="68"]
+[ext_resource type="Resource" uid="uid://be6i0bli19y27" path="res://actors/flan/States/65_FLN_5C.tres" id="69"]
+[ext_resource type="Resource" uid="uid://bccafraqaczyg" path="res://actors/flan/States/66_FLN_2A.tres" id="70"]
+[ext_resource type="Resource" uid="uid://blyh7lod0q5f" path="res://actors/flan/States/67_FLN_2B.tres" id="71"]
+[ext_resource type="Resource" uid="uid://bicrtahvcuo3k" path="res://actors/flan/States/68_FLN_2C.tres" id="72"]
+[ext_resource type="Resource" uid="uid://b001e4brs7aay" path="res://actors/flan/States/69_FLN_J5A.tres" id="73"]
+[ext_resource type="Resource" uid="uid://1agdd2gd9qil" path="res://actors/flan/States/70_FLN_J5B.tres" id="74"]
+[ext_resource type="Resource" uid="uid://ukkdnnmbsq5c" path="res://actors/flan/States/71_FLN_J5C.tres" id="75"]
+[ext_resource type="Resource" uid="uid://421hj33omdbg" path="res://actors/flan/States/72_FLN_6C.tres" id="76"]
+[ext_resource type="Resource" uid="uid://p17lvvbo30rq" path="res://actors/flan/States/86_FLN_XCancelState.tres" id="90"]
+[ext_resource type="Resource" uid="uid://bwgna3i41tv3h" path="res://actors/flan/States/87_FLN_BurstState.tres" id="91"]
+[ext_resource type="Resource" uid="uid://b16vcr5udng71" path="res://actors/flan/States/88_FLN_LastWishBurstState.tres" id="92"]
+[ext_resource type="Resource" uid="uid://ne10n7xvve1x" path="res://actors/flan/States/1000_FLN_Intro.tres" id="93"]
+[ext_resource type="Resource" uid="uid://bxe2ih7q2055o" path="res://actors/flan/States/1001_FLN_Victory.tres" id="94"]
+[ext_resource type="Resource" uid="uid://8eez4s9nuar5" path="res://actors/flan/States/1002_FLN_Defeat.tres" id="95"]
+[ext_resource type="Resource" uid="uid://y24s660upder" path="res://actors/flan/AI/FLN_AIData.tres" id="96"]
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="97"]
+[ext_resource type="Resource" uid="uid://o41ph4xklikf" path="res://actors/flan/States/FLN_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://5443dnssshqi" path="res://actors/flan/States/73_FLN_236A.tres" id="st_73_FLN_236A"]
+[ext_resource type="Resource" uid="uid://7gpz8y0v8jng" path="res://actors/flan/States/74_FLN_236B.tres" id="st_74_FLN_236B"]
+[ext_resource type="Resource" uid="uid://bg6dr6qy84op6" path="res://actors/flan/States/75_FLN_236C.tres" id="st_75_FLN_236C"]
+[ext_resource type="Resource" uid="uid://bgjkggj3h8hig" path="res://actors/flan/States/76_FLN_623A.tres" id="st_76_FLN_623A"]
+[ext_resource type="Resource" uid="uid://yewsov8o5zxh" path="res://actors/flan/States/77_FLN_623B.tres" id="st_77_FLN_623B"]
+[ext_resource type="Resource" uid="uid://3lrjia0fe8ei" path="res://actors/flan/States/78_FLN_623C.tres" id="st_78_FLN_623C"]
+[ext_resource type="Resource" uid="uid://1t13ay3qa7t7" path="res://actors/flan/States/79_FLN_BEAM.tres" id="st_79_FLN_BEAM"]
+[ext_resource type="Resource" uid="uid://87mau2jffnnk" path="res://actors/flan/States/80_FLN_DPLAND.tres" id="st_80_FLN_DPLAND"]
+[ext_resource type="Resource" uid="uid://bimbx2ejaleja" path="res://actors/flan/States/81_FLN_214A.tres" id="st_81_FLN_214A"]
+[ext_resource type="Resource" uid="uid://bb4632vl7x0mk" path="res://actors/flan/States/82_FLN_214B.tres" id="st_82_FLN_214B"]
+[ext_resource type="Resource" uid="uid://bem6epc11alge" path="res://actors/flan/States/83_FLN_214C.tres" id="st_83_FLN_214C"]
+[ext_resource type="Resource" uid="uid://4g2e23e08m0n" path="res://actors/flan/States/84_FLN_IMPACT.tres" id="st_84_FLN_IMPACT"]
+[ext_resource type="Resource" uid="uid://5x2orgbiqxk1" path="res://actors/flan/States/85_FLN_IMPACT_C.tres" id="st_85_FLN_IMPACT_C"]
+[ext_resource type="Resource" uid="uid://0o2n0q7fjhz1" path="res://actors/flan/States/92_FLN_S1.tres" id="st_92_FLN_S1"]
+[ext_resource type="Resource" uid="uid://bawtngnma3l40" path="res://actors/flan/States/93_FLN_S1_hit.tres" id="st_93_FLN_S1_hit"]
+[ext_resource type="Resource" uid="uid://yc6b2507ys01" path="res://actors/flan/States/94_FLN_S2.tres" id="st_94_FLN_S2"]
+[ext_resource type="Resource" uid="uid://bar8crjon1b1l" path="res://actors/flan/States/95_FLN_S2_hit.tres" id="st_95_FLN_S2_hit"]
+[ext_resource type="Resource" uid="uid://8s3rrsnwupj1" path="res://actors/flan/States/97_FLN_S2_boom.tres" id="st_97_FLN_S2_boom"]
+[ext_resource type="Resource" uid="uid://bjiia5p4hxgi3" path="res://actors/flan/States/FLN_AssistCall.tres" id="st_FLN_AssistCall"]
+[ext_resource type="Resource" uid="uid://6hgfhgw4utnk" path="res://actors/flan/States/FLN_Throw.tres" id="st_FLN_Throw"]
+[ext_resource type="Resource" uid="uid://bg3t2n1sptnrk" path="res://actors/flan/States/FLN_ThrowForward.tres" id="st_FLN_ThrowForward"]
+[ext_resource type="Resource" uid="uid://bleh6sg5ih26e" path="res://actors/flan/States/FLN_ThrowBack.tres" id="st_FLN_ThrowBack"]
+[ext_resource type="Resource" uid="uid://bklxs0ev0f4ib" path="res://actors/flan/States/FLN_Grabbed.tres" id="st_FLN_Grabbed"]
+[ext_resource type="Resource" uid="uid://zq325byg3w6j" path="res://actors/flan/States/FLN_ThrowBreak.tres" id="st_FLN_ThrowBreak"]
+[ext_resource type="Resource" uid="uid://2owd6kj6ylp2" path="res://actors/flan/States/FLN_CrouchExit.tres" id="st_FLN_CrouchExit"]
+[ext_resource type="Resource" uid="uid://bbu6nqrvwvnie" path="res://actors/flan/States/105_FLN_S2_charge.tres" id="st_105_FLN_S2_charge"]
+[ext_resource type="Resource" uid="uid://1e787xl2zmo6" path="res://actors/flan/States/106_FLN_S2_top.tres" id="st_106_FLN_S2_top"]
+[ext_resource type="Resource" path="res://actors/flan/States/107_FLN_623C_hit.tres" id="nf1"]
+[ext_resource type="Resource" path="res://actors/flan/States/108_FLN_S1_charge.tres" id="nf2"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_Pushblock_Crouch.tres" id="netsu_pb_crouch"]
+
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_AirThrow.tres" id="st_c12_at"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_AirThrowForward.tres" id="st_c12_af"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_AirThrowBack.tres" id="st_c12_ab"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_StarCharge_A.tres" id="x1"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_StarCharge_B.tres" id="x2"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_StarCharge_C.tres" id="x3"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_StarCross_Dash.tres" id="x4"]
+[ext_resource type="Resource" path="res://actors/flan/States/FLN_StarCross_Hit.tres" id="x5"]
+[sub_resource type="Resource" id="outro_0"]
+script = ExtResource("1")
+StateIndex = -1
+FinalMessage = "Yay! That one really sparkled!
+Wanna go again?"
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_1"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Cecilia"
+FinalMessage = "Your blade's quick, Cecilia...
+but my fists hit harder!"
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_2"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Leticia"
+FinalMessage = "Gotcha! You can't hover
+away from me forever!"
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_3"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Flan"
+FinalMessage = "Two of me? That's twice
+the starlight!"
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[resource]
+script = ExtResource("97")
+Profile = ExtResource("2")
+NetsuStarStackMax = 3
+States = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("37"), ExtResource("38"), ExtResource("39"), ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("43"), ExtResource("44"), ExtResource("45"), ExtResource("46"), ExtResource("47"), ExtResource("48"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("56"), ExtResource("57"), ExtResource("58"), ExtResource("59"), ExtResource("60"), ExtResource("61"), ExtResource("62"), ExtResource("63"), ExtResource("64"), ExtResource("65"), ExtResource("66"), ExtResource("67"), ExtResource("68"), ExtResource("69"), ExtResource("70"), ExtResource("71"), ExtResource("72"), ExtResource("73"), ExtResource("74"), ExtResource("75"), ExtResource("76"), ExtResource("st_73_FLN_236A"), ExtResource("st_74_FLN_236B"), ExtResource("st_75_FLN_236C"), ExtResource("st_76_FLN_623A"), ExtResource("st_77_FLN_623B"), ExtResource("st_78_FLN_623C"), ExtResource("st_79_FLN_BEAM"), ExtResource("st_80_FLN_DPLAND"), ExtResource("st_81_FLN_214A"), ExtResource("st_82_FLN_214B"), ExtResource("st_83_FLN_214C"), ExtResource("st_84_FLN_IMPACT"), ExtResource("st_85_FLN_IMPACT_C"), ExtResource("90"), ExtResource("91"), ExtResource("92"), ExtResource("93"), ExtResource("94"), ExtResource("95"), ExtResource("st_92_FLN_S1"), ExtResource("st_93_FLN_S1_hit"), ExtResource("st_94_FLN_S2"), ExtResource("st_95_FLN_S2_hit"), ExtResource("net_Breakthrough"), ExtResource("st_97_FLN_S2_boom"), ExtResource("st_FLN_AssistCall"), ExtResource("st_FLN_Throw"), ExtResource("st_FLN_ThrowForward"), ExtResource("st_FLN_ThrowBack"), ExtResource("st_FLN_Grabbed"), ExtResource("st_FLN_ThrowBreak"), ExtResource("st_FLN_CrouchExit"), ExtResource("st_105_FLN_S2_charge"), ExtResource("st_106_FLN_S2_top"), ExtResource("nf1"), ExtResource("nf2"), ExtResource("st_c12_at"), ExtResource("st_c12_af"), ExtResource("st_c12_ab"), ExtResource("netsu_pb_crouch"), ExtResource("x1"), ExtResource("x2"), ExtResource("x3"), ExtResource("x4"), ExtResource("x5")]
+Stances = [ExtResource("3")]
+MaxHealth = 13750
+MaxSuperGauge = 40000
+SuperGaugeChargeRate = 0
+MaxWill = 10000
+_aiData = ExtResource("96")
+Intros = null
+Outros = [SubResource("outro_0"), SubResource("outro_1"), SubResource("outro_2"), SubResource("outro_3")]
+VictoryPoses = null
+metadata/_custom_type_script = "uid://bsbjg1nuyall1"

@@ -1,0 +1,3286 @@
+{
+ "reference": "Leticia/01_Idle/Leticia_01_Idle_01.png",
+ "ref": {
+  "empty": false,
+  "top": 71,
+  "bot": 1212,
+  "left": 314,
+  "right": 967,
+  "h": 1142,
+  "rear_x": 405,
+  "front_x": 868,
+  "hip_x": 640.5,
+  "cx": 637.6766670294767,
+  "cy": 648.341128800847,
+  "mask": "dark"
+ },
+ "frames": {
+  "Leticia/01_Idle/Leticia_01_Idle_01.png": {
+   "empty": false,
+   "top": 71,
+   "bot": 1212,
+   "left": 314,
+   "right": 967,
+   "h": 1142,
+   "rear_x": 405,
+   "front_x": 868,
+   "hip_x": 640.5,
+   "cx": 637.6766670294767,
+   "cy": 648.341128800847,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 405,
+    "good": 405
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Leticia/01_Idle/Leticia_01_Idle_02.png": {
+   "empty": false,
+   "top": 59,
+   "bot": 1214,
+   "left": 300,
+   "right": 989,
+   "h": 1156,
+   "rear_x": 404,
+   "front_x": 870,
+   "hip_x": 644.5,
+   "cx": 640.1248116548461,
+   "cy": 640.8680336286073,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.005064209480322,
+    "rot": -0.02807489089983433,
+    "inliers": 178,
+    "good": 196
+   },
+   "scale_how": "head",
+   "scale": 1.005064209480322
+  },
+  "Leticia/01_Idle/Leticia_01_Idle_03.png": {
+   "empty": false,
+   "top": 65,
+   "bot": 1213,
+   "left": 329,
+   "right": 977,
+   "h": 1149,
+   "rear_x": 403,
+   "front_x": 870,
+   "hip_x": 653.0,
+   "cx": 642.7106717289424,
+   "cy": 644.3671481221215,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0017977767138273,
+    "rot": 0.4756257680339051,
+    "inliers": 145,
+    "good": 175
+   },
+   "scale_how": "head",
+   "scale": 1.0017977767138273
+  },
+  "Leticia/01_Idle/Leticia_01_Idle_04.png": {
+   "empty": false,
+   "top": 62,
+   "bot": 1216,
+   "left": 312,
+   "right": 969,
+   "h": 1155,
+   "rear_x": 403,
+   "front_x": 870,
+   "hip_x": 640.5,
+   "cx": 635.6928332739477,
+   "cy": 646.1495652006433,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0057131146507732,
+    "rot": -0.005974657793237426,
+    "inliers": 170,
+    "good": 176
+   },
+   "scale_how": "head",
+   "scale": 1.0057131146507732
+  },
+  "Leticia/01_Idle/Leticia_01_Idle_05.png": {
+   "empty": false,
+   "top": 63,
+   "bot": 1213,
+   "left": 313,
+   "right": 968,
+   "h": 1151,
+   "rear_x": 404,
+   "front_x": 870,
+   "hip_x": 640.5,
+   "cx": 636.0668336050935,
+   "cy": 645.3073996428294,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0007668078488252,
+    "rot": -0.004911829598672684,
+    "inliers": 179,
+    "good": 183
+   },
+   "scale_how": "head",
+   "scale": 1.0007668078488252
+  },
+  "Leticia/02_Damage/Leticia_02_Damage_01.png": {
+   "empty": false,
+   "top": 243,
+   "bot": 1211,
+   "left": 146,
+   "right": 1107,
+   "h": 969,
+   "rear_x": 316,
+   "front_x": 996,
+   "hip_x": 667.0,
+   "cx": 622.7835114771333,
+   "cy": 666.5389394204884,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.1858022682487832,
+    "rot": 28.376347057683514,
+    "inliers": 7,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/03_Crouch/Leticia_03_Crouch_01.png": {
+   "empty": false,
+   "top": 84,
+   "bot": 1191,
+   "left": 243,
+   "right": 1067,
+   "h": 1108,
+   "rear_x": 387,
+   "front_x": 1035,
+   "hip_x": 644.5,
+   "cx": 659.7097473584306,
+   "cy": 692.4244143269494,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.106730075552224,
+    "rot": 3.4520553866865664,
+    "inliers": 47,
+    "good": 124
+   },
+   "scale_how": "head",
+   "scale": 1.106730075552224
+  },
+  "Leticia/03_Crouch/Leticia_03_Crouch_02.png": {
+   "empty": false,
+   "top": 152,
+   "bot": 1164,
+   "left": 81,
+   "right": 1222,
+   "h": 1013,
+   "rear_x": 309,
+   "front_x": 1011,
+   "hip_x": 705.5,
+   "cx": 641.1409166459047,
+   "cy": 773.1966327989816,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2371556647373236,
+    "rot": 2.395362297759954,
+    "inliers": 43,
+    "good": 94
+   },
+   "scale_how": "head",
+   "scale": 1.2371556647373236
+  },
+  "Leticia/03_Crouch/Leticia_03_Crouch_03.png": {
+   "empty": false,
+   "top": 89,
+   "bot": 1188,
+   "left": 149,
+   "right": 1220,
+   "h": 1100,
+   "rear_x": 222,
+   "front_x": 960,
+   "hip_x": 644.0,
+   "cx": 626.1945922203656,
+   "cy": 764.0791877580106,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2815155918010819,
+    "rot": 5.216886518136159,
+    "inliers": 46,
+    "good": 110
+   },
+   "scale_how": "head",
+   "scale": 1.2815155918010819
+  },
+  "Leticia/04_Dash/Leticia_04_Dash_01.png": {
+   "empty": false,
+   "top": 329,
+   "bot": 1150,
+   "left": 56,
+   "right": 1203,
+   "h": 822,
+   "rear_x": 131,
+   "front_x": 857,
+   "hip_x": 533.0,
+   "cx": 598.3105358230661,
+   "cy": 666.0412510167504,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.1491296531046593,
+    "rot": 10.819318863017063,
+    "inliers": 23,
+    "good": 81
+   },
+   "scale_how": "via Leticia_04_Dash_04.png",
+   "scale": 1.1540147326277272,
+   "sift_chain": {
+    "scale": 1.0005198947063993,
+    "rot": 1.9897570382005383,
+    "inliers": 23,
+    "good": 88
+   }
+  },
+  "Leticia/04_Dash/Leticia_04_Dash_02.png": {
+   "empty": false,
+   "top": 265,
+   "bot": 1188,
+   "left": 56,
+   "right": 1190,
+   "h": 924,
+   "rear_x": 1023,
+   "front_x": 1190,
+   "hip_x": 652.0,
+   "cx": 605.1348732745968,
+   "cy": 600.3884781779587,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9651566177456603,
+    "rot": 11.56417793613084,
+    "inliers": 15,
+    "good": 26
+   },
+   "scale_how": "head",
+   "scale": 0.9651566177456603
+  },
+  "Leticia/04_Dash/Leticia_04_Dash_03.png": {
+   "empty": false,
+   "top": 227,
+   "bot": 965,
+   "left": 90,
+   "right": 1455,
+   "h": 739,
+   "rear_x": 94,
+   "front_x": 188,
+   "hip_x": 894.0,
+   "cx": 705.5976384897283,
+   "cy": 508.4775405623223,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0847091116258312,
+    "rot": 13.883791624369984,
+    "inliers": 9,
+    "good": 23
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/04_Dash/Leticia_04_Dash_04.png": {
+   "empty": false,
+   "top": 119,
+   "bot": 1208,
+   "left": 140,
+   "right": 1113,
+   "h": 1090,
+   "rear_x": 356,
+   "front_x": 1113,
+   "hip_x": 594.0,
+   "cx": 674.2139227867762,
+   "cy": 646.7563013090747,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.153415078234272,
+    "rot": 11.2122442369961,
+    "inliers": 32,
+    "good": 102
+   },
+   "scale_how": "body",
+   "scale": 1.153415078234272
+  },
+  "Leticia/05_Jump/Leticia_05_Jump_01.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 1212,
+   "left": 196,
+   "right": 1022,
+   "h": 1143,
+   "rear_x": 271,
+   "front_x": 578,
+   "hip_x": 609.0,
+   "cx": 587.474478390462,
+   "cy": 638.4594947033472,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9863365624988651,
+    "rot": 6.08323559078819,
+    "inliers": 12,
+    "good": 51
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/05_Jump/Leticia_05_Jump_02.png": {
+   "empty": false,
+   "top": 107,
+   "bot": 1175,
+   "left": 198,
+   "right": 1068,
+   "h": 1069,
+   "rear_x": 331,
+   "front_x": 497,
+   "hip_x": 575.5,
+   "cx": 636.7029774401958,
+   "cy": 643.1086729193181,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0354355016551344,
+    "rot": 10.53495673176691,
+    "inliers": 24,
+    "good": 87
+   },
+   "scale_how": "via Leticia_05_Jump_04.png",
+   "scale": 1.1308401766551737,
+   "sift_chain": {
+    "scale": 0.9492492004616191,
+    "rot": 7.188362160594368,
+    "inliers": 36,
+    "good": 110
+   }
+  },
+  "Leticia/05_Jump/Leticia_05_Jump_03.png": {
+   "empty": false,
+   "top": 185,
+   "bot": 1461,
+   "left": 34,
+   "right": 991,
+   "h": 1277,
+   "rear_x": 474,
+   "front_x": 580,
+   "hip_x": 563.0,
+   "cx": 566.5142412871297,
+   "cy": 761.2554875905723,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.0420001160378516,
+    "rot": 1.6586914760056881,
+    "inliers": 14,
+    "good": 37
+   },
+   "scale_how": "via Leticia_05_Jump_04.png",
+   "scale": 1.2172442045939118,
+   "sift_chain": {
+    "scale": 1.0217784191175288,
+    "rot": 9.37457227679246,
+    "inliers": 20,
+    "good": 96
+   }
+  },
+  "Leticia/05_Jump/Leticia_05_Jump_04.png": {
+   "empty": false,
+   "top": 81,
+   "bot": 1190,
+   "left": 54,
+   "right": 1155,
+   "h": 1110,
+   "rear_x": 266,
+   "front_x": 1073,
+   "hip_x": 580.5,
+   "cx": 606.4397508546808,
+   "cy": 661.4112230671965,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.1912995829812099,
+    "rot": 1.6864617902830064,
+    "inliers": 41,
+    "good": 94
+   },
+   "scale_how": "head",
+   "scale": 1.1912995829812099
+  },
+  "Leticia/06_Ground_Normals/2A/Leticia_2A_01_Startup.png": {
+   "empty": false,
+   "top": 266,
+   "bot": 1178,
+   "left": 58,
+   "right": 1173,
+   "h": 913,
+   "rear_x": 324,
+   "front_x": 1147,
+   "hip_x": 578.0,
+   "cx": 619.7661385336638,
+   "cy": 767.0664042365185,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2528042390664396,
+    "rot": 4.834690248587829,
+    "inliers": 33,
+    "good": 95
+   },
+   "scale_how": "body",
+   "scale": 1.2528042390664396
+  },
+  "Leticia/06_Ground_Normals/2A/Leticia_2A_02_Jab.png": {
+   "empty": false,
+   "top": 239,
+   "bot": 1118,
+   "left": 104,
+   "right": 1245,
+   "h": 880,
+   "rear_x": 283,
+   "front_x": 1142,
+   "hip_x": 549.5,
+   "cx": 655.2642474115063,
+   "cy": 724.8642787871873,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.1953495403417995,
+    "rot": 9.52518899880613,
+    "inliers": 31,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 1.1953495403417995
+  },
+  "Leticia/06_Ground_Normals/2A/Leticia_2A_03_Recovery.png": {
+   "empty": false,
+   "top": 191,
+   "bot": 1156,
+   "left": 78,
+   "right": 1127,
+   "h": 966,
+   "rear_x": 329,
+   "front_x": 1127,
+   "hip_x": 581.5,
+   "cx": 646.0546993839695,
+   "cy": 765.9530233678631,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2644608490154245,
+    "rot": -4.458426496821463,
+    "inliers": 27,
+    "good": 55
+   },
+   "scale_how": "head",
+   "scale": 1.2644608490154245
+  },
+  "Leticia/06_Ground_Normals/2B/Leticia_2B_01_Aim.png": {
+   "empty": false,
+   "top": 220,
+   "bot": 985,
+   "left": 123,
+   "right": 1430,
+   "h": 766,
+   "rear_x": 343,
+   "front_x": 1081,
+   "hip_x": 597.5,
+   "cx": 699.5341401932717,
+   "cy": 576.5633875086028,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.2188744424861628,
+    "rot": 5.896558491747079,
+    "inliers": 25,
+    "good": 108
+   },
+   "scale_how": "body",
+   "scale": 1.2188744424861628
+  },
+  "Leticia/06_Ground_Normals/2B/Leticia_2B_02_Burst_Start.png": {
+   "empty": false,
+   "top": 191,
+   "bot": 853,
+   "left": 177,
+   "right": 1360,
+   "h": 663,
+   "rear_x": 336,
+   "front_x": 1257,
+   "hip_x": 659.5,
+   "cx": 745.1926594294486,
+   "cy": 530.4329042678712,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 1.1184683147335435,
+    "rot": 12.088191593079372,
+    "inliers": 40,
+    "good": 73
+   },
+   "scale_how": "head",
+   "scale": 1.1184683147335435
+  },
+  "Leticia/06_Ground_Normals/2B/Leticia_2B_03_Burst_Peak.png": {
+   "empty": false,
+   "top": 267,
+   "bot": 891,
+   "left": 60,
+   "right": 1224,
+   "h": 625,
+   "rear_x": 171,
+   "front_x": 1019,
+   "hip_x": 529.5,
+   "cx": 604.9282364734566,
+   "cy": 584.7562886002396,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0428210540635985,
+    "rot": 3.1017664647238727,
+    "inliers": 35,
+    "good": 95
+   },
+   "scale_how": "body",
+   "scale": 1.0428210540635985
+  },
+  "Leticia/06_Ground_Normals/2B/Leticia_2B_04_Burst_Fade.png": {
+   "empty": false,
+   "top": 271,
+   "bot": 955,
+   "left": 163,
+   "right": 1298,
+   "h": 685,
+   "rear_x": 403,
+   "front_x": 1106,
+   "hip_x": 610.0,
+   "cx": 687.0538927489756,
+   "cy": 605.2977439590425,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.088197790376265,
+    "rot": 0.7741869440995626,
+    "inliers": 41,
+    "good": 85
+   },
+   "scale_how": "head",
+   "scale": 1.088197790376265
+  },
+  "Leticia/06_Ground_Normals/2C/Leticia_2C_01_Startup_Corrected.png": {
+   "empty": false,
+   "top": 267,
+   "bot": 1196,
+   "left": 40,
+   "right": 1141,
+   "h": 930,
+   "rear_x": 583,
+   "front_x": 1139,
+   "hip_x": 556.5,
+   "cx": 606.7421606520991,
+   "cy": 723.491515824117,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2910664846288014,
+    "rot": 15.347772200621415,
+    "inliers": 27,
+    "good": 49
+   },
+   "scale_how": "head",
+   "scale": 1.2910664846288014
+  },
+  "Leticia/06_Ground_Normals/2C/Leticia_2C_02_First_Shot.png": {
+   "empty": false,
+   "top": 275,
+   "bot": 911,
+   "left": 222,
+   "right": 1194,
+   "h": 637,
+   "rear_x": 426,
+   "front_x": 805,
+   "hip_x": 671.0,
+   "cx": 679.9623286405794,
+   "cy": 568.1270138196061,
+   "mask": "dark",
+   "size": [
+    1619,
+    971
+   ],
+   "sift": {
+    "scale": 1.088109929709829,
+    "rot": 0.1434821365598207,
+    "inliers": 38,
+    "good": 65
+   },
+   "scale_how": "head",
+   "scale": 1.088109929709829
+  },
+  "Leticia/06_Ground_Normals/2C/Leticia_2C_03_Second_Shot_Corrected.png": {
+   "empty": false,
+   "top": 378,
+   "bot": 1181,
+   "left": 136,
+   "right": 1158,
+   "h": 804,
+   "rear_x": 930,
+   "front_x": 1150,
+   "hip_x": 542.0,
+   "cx": 632.9953342182484,
+   "cy": 734.3430526021389,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.5499679976401226,
+    "rot": -178.32042756851317,
+    "inliers": 2,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/06_Ground_Normals/2C/Leticia_2C_04_Recovery.png": {
+   "empty": false,
+   "top": 205,
+   "bot": 1197,
+   "left": 74,
+   "right": 1167,
+   "h": 993,
+   "rear_x": 606,
+   "front_x": 1147,
+   "hip_x": 558.5,
+   "cx": 628.7423535338804,
+   "cy": 713.2636754742997,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.3156879282165512,
+    "rot": 20.723104433027437,
+    "inliers": 20,
+    "good": 78
+   },
+   "scale_how": "via Leticia_2C_01_Startup_Corrected.png",
+   "scale": 1.288200752653271,
+   "sift_chain": {
+    "scale": 0.9977803374112416,
+    "rot": -0.33659182938280824,
+    "inliers": 193,
+    "good": 305
+   }
+  },
+  "Leticia/06_Ground_Normals/5A/Leticia_5A_01_Startup.png": {
+   "empty": false,
+   "top": 147,
+   "bot": 1209,
+   "left": 232,
+   "right": 1092,
+   "h": 1063,
+   "rear_x": 286,
+   "front_x": 1092,
+   "hip_x": 624.0,
+   "cx": 637.4513806933323,
+   "cy": 674.3128599841078,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.023310214368724,
+    "rot": -14.451413587771734,
+    "inliers": 59,
+    "good": 188
+   },
+   "scale_how": "body",
+   "scale": 1.023310214368724
+  },
+  "Leticia/06_Ground_Normals/5A/Leticia_5A_02_Jab.png": {
+   "empty": false,
+   "top": 101,
+   "bot": 1205,
+   "left": 200,
+   "right": 1142,
+   "h": 1105,
+   "rear_x": 297,
+   "front_x": 1017,
+   "hip_x": 571.0,
+   "cx": 631.5940033254777,
+   "cy": 631.0542710760038,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0334819038277145,
+    "rot": 8.275297082094328,
+    "inliers": 28,
+    "good": 69
+   },
+   "scale_how": "head",
+   "scale": 1.0334819038277145
+  },
+  "Leticia/06_Ground_Normals/5A/Leticia_5A_03_Recovery.png": {
+   "empty": false,
+   "top": 162,
+   "bot": 1210,
+   "left": 264,
+   "right": 1105,
+   "h": 1049,
+   "rear_x": 270,
+   "front_x": 1105,
+   "hip_x": 640.5,
+   "cx": 651.40171493447,
+   "cy": 678.5593604350078,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0110449571776357,
+    "rot": -12.987633167519869,
+    "inliers": 54,
+    "good": 152
+   },
+   "scale_how": "body",
+   "scale": 1.0110449571776357
+  },
+  "Leticia/06_Ground_Normals/5B/Leticia_5B_01_Load.png": {
+   "empty": false,
+   "top": 249,
+   "bot": 1203,
+   "left": 144,
+   "right": 1236,
+   "h": 955,
+   "rear_x": 232,
+   "front_x": 1128,
+   "hip_x": 593.0,
+   "cx": 599.9523378290811,
+   "cy": 638.5692051340876,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.2025798276023685,
+    "rot": 120.10252913107459,
+    "inliers": 3,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/06_Ground_Normals/5B/Leticia_5B_02_Pivot_and_Swing.png": {
+   "empty": false,
+   "top": 246,
+   "bot": 1205,
+   "left": 113,
+   "right": 1239,
+   "h": 960,
+   "rear_x": 156,
+   "front_x": 1111,
+   "hip_x": 558.5,
+   "cx": 613.4826652653704,
+   "cy": 646.6380115606936,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 2.754550984186623,
+    "rot": -49.152883687272045,
+    "inliers": 2,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/06_Ground_Normals/5B/Leticia_5B_03_Brace_and_Recover.png": {
+   "empty": false,
+   "top": 100,
+   "bot": 1203,
+   "left": 219,
+   "right": 1090,
+   "h": 1104,
+   "rear_x": 304,
+   "front_x": 1047,
+   "hip_x": 593.0,
+   "cx": 639.9273002220638,
+   "cy": 627.9978838093249,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 2.0654284757932206,
+    "rot": 53.20903863682326,
+    "inliers": 4,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/06_Ground_Normals/5C/Leticia_5C_01_Startup_Corrected.png": {
+   "empty": false,
+   "top": 76,
+   "bot": 1249,
+   "left": 102,
+   "right": 1064,
+   "h": 1174,
+   "rear_x": 102,
+   "front_x": 1064,
+   "hip_x": 524.0,
+   "cx": 599.0920820688801,
+   "cy": 647.3177714893018,
+   "mask": "dark",
+   "size": [
+    1212,
+    1298
+   ],
+   "sift": {
+    "scale": 1.0988003789161152,
+    "rot": 3.6767730011502335,
+    "inliers": 14,
+    "good": 23
+   },
+   "scale_how": "via Leticia_5C_02_Large_Double_Burst.png",
+   "scale": 1.0323670696744283,
+   "sift_chain": {
+    "scale": 1.149796782669179,
+    "rot": -0.485255105813934,
+    "inliers": 117,
+    "good": 244
+   }
+  },
+  "Leticia/06_Ground_Normals/5C/Leticia_5C_02_Large_Double_Burst.png": {
+   "empty": false,
+   "top": 192,
+   "bot": 1210,
+   "left": 103,
+   "right": 866,
+   "h": 1019,
+   "rear_x": 111,
+   "front_x": 866,
+   "hip_x": 424.5,
+   "cx": 489.96942483388705,
+   "cy": 689.0686484865264,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.8978691584767308,
+    "rot": 5.644563948460976,
+    "inliers": 32,
+    "good": 42
+   },
+   "scale_how": "head",
+   "scale": 0.8978691584767308
+  },
+  "Leticia/06_Ground_Normals/5C/Leticia_5C_03_Burst_Fade.png": {
+   "empty": false,
+   "top": 96,
+   "bot": 1251,
+   "left": 96,
+   "right": 1018,
+   "h": 1156,
+   "rear_x": 96,
+   "front_x": 1018,
+   "hip_x": 497.0,
+   "cx": 569.4505170530895,
+   "cy": 664.4408096678367,
+   "mask": "dark",
+   "size": [
+    1212,
+    1298
+   ],
+   "sift": {
+    "scale": 0.9909477089348729,
+    "rot": 7.3695067775372145,
+    "inliers": 24,
+    "good": 86
+   },
+   "scale_how": "via Leticia_5C_02_Large_Double_Burst.png",
+   "scale": 1.0121796325610413,
+   "sift_chain": {
+    "scale": 1.1273130644984428,
+    "rot": 0.4731726172368456,
+    "inliers": 146,
+    "good": 325
+   }
+  },
+  "Leticia/07_Air_Normals/jA/Leticia_jA_01.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 937,
+   "left": 225,
+   "right": 1341,
+   "h": 923,
+   "rear_x": 504,
+   "front_x": 1341,
+   "hip_x": 695.0,
+   "cx": 709.9392286062031,
+   "cy": 580.5317420649607,
+   "mask": "dark",
+   "size": [
+    1380,
+    1140
+   ],
+   "sift": {
+    "scale": 1.0760340379014817,
+    "rot": 12.508354703477135,
+    "inliers": 26,
+    "good": 115
+   },
+   "scale_how": "body",
+   "scale": 1.0760340379014817
+  },
+  "Leticia/07_Air_Normals/jA/Leticia_jA_02.png": {
+   "empty": false,
+   "top": 79,
+   "bot": 1098,
+   "left": 148,
+   "right": 1176,
+   "h": 1020,
+   "rear_x": 1041,
+   "front_x": 1176,
+   "hip_x": 604.5,
+   "cx": 627.0999783596624,
+   "cy": 605.505873409574,
+   "mask": "dark",
+   "size": [
+    1319,
+    1193
+   ],
+   "sift": {
+    "scale": 0.8474879801074798,
+    "rot": 25.538824375520615,
+    "inliers": 24,
+    "good": 110
+   },
+   "scale_how": "via Leticia_jA_01.png",
+   "scale": 0.8613894825813723,
+   "sift_chain": {
+    "scale": 0.8005225227459193,
+    "rot": 8.110992878310194,
+    "inliers": 39,
+    "good": 123
+   }
+  },
+  "Leticia/07_Air_Normals/jA/Leticia_jA_03.png": {
+   "empty": false,
+   "top": 40,
+   "bot": 1143,
+   "left": 175,
+   "right": 1155,
+   "h": 1104,
+   "rear_x": 632,
+   "front_x": 735,
+   "hip_x": 617.0,
+   "cx": 654.7386317400654,
+   "cy": 603.857101892934,
+   "mask": "dark",
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 0.9871070124127099,
+    "rot": 16.423296250086295,
+    "inliers": 28,
+    "good": 54
+   },
+   "scale_how": "head",
+   "scale": 0.9871070124127099
+  },
+  "Leticia/07_Air_Normals/jB/Leticia_jB_01.png": {
+   "empty": false,
+   "top": 230,
+   "bot": 1108,
+   "left": 144,
+   "right": 1149,
+   "h": 879,
+   "rear_x": 413,
+   "front_x": 502,
+   "hip_x": 643.0,
+   "cx": 658.9566664797173,
+   "cy": 619.8666583874818,
+   "mask": "dark",
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": {
+    "scale": 1.1948113218499636,
+    "rot": 4.100170983765902,
+    "inliers": 27,
+    "good": 37
+   },
+   "scale_how": "head",
+   "scale": 1.1948113218499636
+  },
+  "Leticia/07_Air_Normals/jB/Leticia_jB_02.png": {
+   "empty": false,
+   "top": 277,
+   "bot": 964,
+   "left": 281,
+   "right": 1192,
+   "h": 688,
+   "rear_x": 684,
+   "front_x": 751,
+   "hip_x": 774.0,
+   "cx": 730.6250328701707,
+   "cy": 571.0302826308758,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8938184335982554,
+    "rot": 18.938499964330177,
+    "inliers": 8,
+    "good": 15
+   },
+   "scale_how": "via Leticia_jB_03.png",
+   "scale": 1.080486803982933,
+   "sift_chain": {
+    "scale": 1.0273587636826564,
+    "rot": -0.7876754763157292,
+    "inliers": 24,
+    "good": 73
+   }
+  },
+  "Leticia/07_Air_Normals/jB/Leticia_jB_03.png": {
+   "empty": false,
+   "top": 149,
+   "bot": 997,
+   "left": 286,
+   "right": 1228,
+   "h": 849,
+   "rear_x": 1118,
+   "front_x": 1208,
+   "hip_x": 762.0,
+   "cx": 763.6693647476659,
+   "cy": 520.1456291087812,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0517132302544774,
+    "rot": -3.5829481840382296,
+    "inliers": 28,
+    "good": 112
+   },
+   "scale_how": "body",
+   "scale": 1.0517132302544774
+  },
+  "Leticia/07_Air_Normals/jC/Leticia_jC_01.png": {
+   "empty": false,
+   "top": 6,
+   "bot": 1165,
+   "left": 318,
+   "right": 1144,
+   "h": 1160,
+   "rear_x": 490,
+   "front_x": 661,
+   "hip_x": 696.0,
+   "cx": 738.2664989952569,
+   "cy": 689.3966785636244,
+   "mask": "dark",
+   "size": [
+    1306,
+    1204
+   ],
+   "sift": {
+    "scale": 0.9843851929318553,
+    "rot": 2.18672746062299,
+    "inliers": 28,
+    "good": 98
+   },
+   "scale_how": "body",
+   "scale": 0.9843851929318553
+  },
+  "Leticia/07_Air_Normals/jC/Leticia_jC_02.png": {
+   "empty": false,
+   "top": 17,
+   "bot": 943,
+   "left": 200,
+   "right": 1074,
+   "h": 927,
+   "rear_x": 200,
+   "front_x": 336,
+   "hip_x": 574.5,
+   "cx": 616.5822161206307,
+   "cy": 532.80497505692,
+   "mask": "dark",
+   "size": [
+    1422,
+    1106
+   ],
+   "sift": {
+    "scale": 0.874721091609872,
+    "rot": 11.044852030203652,
+    "inliers": 12,
+    "good": 27
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/07_Air_Normals/jC/Leticia_jC_03.png": {
+   "empty": false,
+   "top": 315,
+   "bot": 1002,
+   "left": 164,
+   "right": 1094,
+   "h": 688,
+   "rear_x": 781,
+   "front_x": 1056,
+   "hip_x": 588.0,
+   "cx": 612.5878649312064,
+   "cy": 593.9996228101226,
+   "mask": "dark",
+   "size": [
+    1275,
+    1233
+   ],
+   "sift": {
+    "scale": 0.9931900380148958,
+    "rot": 28.33906462096731,
+    "inliers": 22,
+    "good": 89
+   },
+   "scale_how": "body",
+   "scale": 0.9931900380148958
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_01.png": {
+   "empty": false,
+   "top": 169,
+   "bot": 951,
+   "left": 180,
+   "right": 1148,
+   "h": 783,
+   "rear_x": 255,
+   "front_x": 912,
+   "hip_x": 507.0,
+   "cx": 578.3006374142499,
+   "cy": 494.622092014391,
+   "mask": "dark",
+   "size": [
+    1619,
+    971
+   ],
+   "sift": {
+    "scale": 0.873845236078439,
+    "rot": 12.382191212478615,
+    "inliers": 48,
+    "good": 76
+   },
+   "scale_how": "head",
+   "scale": 0.873845236078439
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_02.png": {
+   "empty": false,
+   "top": 207,
+   "bot": 975,
+   "left": 177,
+   "right": 967,
+   "h": 769,
+   "rear_x": 177,
+   "front_x": 837,
+   "hip_x": 477.5,
+   "cx": 520.2089333273146,
+   "cy": 506.18242826404247,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8111012520471101,
+    "rot": 3.5025355244651672,
+    "inliers": 37,
+    "good": 60
+   },
+   "scale_how": "head",
+   "scale": 0.8111012520471101
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_03.png": {
+   "empty": false,
+   "top": 167,
+   "bot": 1001,
+   "left": 51,
+   "right": 1135,
+   "h": 835,
+   "rear_x": 437,
+   "front_x": 1021,
+   "hip_x": 505.0,
+   "cx": 558.0556586270872,
+   "cy": 483.972523594418,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.3860372664315506,
+    "rot": -44.953360202575674,
+    "inliers": 2,
+    "good": 10
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_04.png": {
+   "empty": false,
+   "top": 190,
+   "bot": 982,
+   "left": 163,
+   "right": 1100,
+   "h": 793,
+   "rear_x": 339,
+   "front_x": 975,
+   "hip_x": 491.5,
+   "cx": 547.9933244734602,
+   "cy": 532.7252010313382,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 2.292006812428899,
+    "rot": -108.67190586159471,
+    "inliers": 2,
+    "good": 11
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_05.png": {
+   "empty": false,
+   "top": 163,
+   "bot": 981,
+   "left": 170,
+   "right": 1115,
+   "h": 819,
+   "rear_x": 279,
+   "front_x": 970,
+   "hip_x": 502.5,
+   "cx": 574.1381315654523,
+   "cy": 568.2991493658573,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8936009040178581,
+    "rot": 9.755722360386397,
+    "inliers": 29,
+    "good": 103
+   },
+   "scale_how": "body",
+   "scale": 0.8936009040178581
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_06.png": {
+   "empty": false,
+   "top": 276,
+   "bot": 839,
+   "left": 40,
+   "right": 1165,
+   "h": 564,
+   "rear_x": 40,
+   "front_x": 920,
+   "hip_x": 487.5,
+   "cx": 538.5206751106663,
+   "cy": 496.1391418063938,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.7827402761973554,
+    "rot": 19.610012107405932,
+    "inliers": 23,
+    "good": 77
+   },
+   "scale_how": "via Leticia_08_236_Rekka_01.png",
+   "scale": 0.8124141498906372,
+   "sift_chain": {
+    "scale": 0.929700267677276,
+    "rot": 1.7114721847074654,
+    "inliers": 34,
+    "good": 109
+   }
+  },
+  "Leticia/08_236_Rekka/Leticia_08_236_Rekka_07.png": {
+   "empty": false,
+   "top": 67,
+   "bot": 1004,
+   "left": 237,
+   "right": 829,
+   "h": 938,
+   "rear_x": 241,
+   "front_x": 779,
+   "hip_x": 533.0,
+   "cx": 532.2815399106846,
+   "cy": 536.6627701315334,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8179255945885567,
+    "rot": 0.5175218774492513,
+    "inliers": 67,
+    "good": 113
+   },
+   "scale_how": "head",
+   "scale": 0.8179255945885567
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_01.png": {
+   "empty": false,
+   "top": 329,
+   "bot": 1176,
+   "left": 47,
+   "right": 1140,
+   "h": 848,
+   "rear_x": 225,
+   "front_x": 1140,
+   "hip_x": 577.0,
+   "cx": 556.7142197408585,
+   "cy": 685.0986930288615,
+   "mask": "dark",
+   "size": [
+    1226,
+    1283
+   ],
+   "sift": {
+    "scale": 1.1347269834860108,
+    "rot": 15.574874599832043,
+    "inliers": 25,
+    "good": 38
+   },
+   "scale_how": "head",
+   "scale": 1.1347269834860108
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_02.png": {
+   "empty": false,
+   "top": 81,
+   "bot": 1151,
+   "left": 140,
+   "right": 1007,
+   "h": 1071,
+   "rear_x": 333,
+   "front_x": 439,
+   "hip_x": 511.5,
+   "cx": 586.8168764049028,
+   "cy": 588.5263894527013,
+   "mask": "dark",
+   "size": [
+    1246,
+    1262
+   ],
+   "sift": {
+    "scale": 0.7438028832447774,
+    "rot": -26.18775484836435,
+    "inliers": 24,
+    "good": 104
+   },
+   "scale_how": "via Leticia_09_623_DP_04.png",
+   "scale": 0.8576584302123909,
+   "sift_chain": {
+    "scale": 0.994002600298777,
+    "rot": -12.247546085518373,
+    "inliers": 28,
+    "good": 111
+   }
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_03.png": {
+   "empty": false,
+   "top": 98,
+   "bot": 1187,
+   "left": 254,
+   "right": 1137,
+   "h": 1090,
+   "rear_x": 401,
+   "front_x": 499,
+   "hip_x": 695.5,
+   "cx": 682.5580613634412,
+   "cy": 591.4978551829331,
+   "mask": "dark",
+   "size": [
+    1230,
+    1278
+   ],
+   "sift": {
+    "scale": 1.0110387503832863,
+    "rot": -20.82251092904713,
+    "inliers": 32,
+    "good": 136
+   },
+   "scale_how": "body",
+   "scale": 1.0110387503832863
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_04.png": {
+   "empty": false,
+   "top": 100,
+   "bot": 991,
+   "left": 234,
+   "right": 1076,
+   "h": 892,
+   "rear_x": 271,
+   "front_x": 790,
+   "hip_x": 611.0,
+   "cx": 609.7990037632142,
+   "cy": 614.0345820125649,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.8628331857025285,
+    "rot": 16.974803969781743,
+    "inliers": 30,
+    "good": 72
+   },
+   "scale_how": "head",
+   "scale": 0.8628331857025285
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_05.png": {
+   "empty": false,
+   "top": 93,
+   "bot": 1025,
+   "left": 52,
+   "right": 1225,
+   "h": 933,
+   "rear_x": 418,
+   "front_x": 822,
+   "hip_x": 554.5,
+   "cx": 616.1460845214415,
+   "cy": 637.6191052980549,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0904667607589698,
+    "rot": 21.716150007139127,
+    "inliers": 31,
+    "good": 59
+   },
+   "scale_how": "head",
+   "scale": 1.0904667607589698
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_06.png": {
+   "empty": false,
+   "top": 133,
+   "bot": 922,
+   "left": 52,
+   "right": 1006,
+   "h": 790,
+   "rear_x": 243,
+   "front_x": 828,
+   "hip_x": 527.0,
+   "cx": 510.33485081751013,
+   "cy": 568.3357999348862,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.8713385333049927,
+    "rot": 17.685162005705294,
+    "inliers": 26,
+    "good": 52
+   },
+   "scale_how": "head",
+   "scale": 0.8713385333049927
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_07.png": {
+   "empty": false,
+   "top": 95,
+   "bot": 1443,
+   "left": 85,
+   "right": 942,
+   "h": 1349,
+   "rear_x": 647,
+   "front_x": 764,
+   "hip_x": 513.5,
+   "cx": 521.4369224126032,
+   "cy": 733.3491875285365,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1081062321590307,
+    "rot": -4.654919690119689,
+    "inliers": 73,
+    "good": 197
+   },
+   "scale_how": "body",
+   "scale": 1.1081062321590307
+  },
+  "Leticia/09_623_DP/Leticia_09_623_DP_08.png": {
+   "empty": false,
+   "top": 68,
+   "bot": 1218,
+   "left": 242,
+   "right": 1054,
+   "h": 1151,
+   "rear_x": 386,
+   "front_x": 1009,
+   "hip_x": 648.0,
+   "cx": 633.493124240751,
+   "cy": 659.1237062396466,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0236560789579885,
+    "rot": 3.8375566549062023,
+    "inliers": 79,
+    "good": 109
+   },
+   "scale_how": "head",
+   "scale": 1.0236560789579885
+  },
+  "Leticia/10_214_Beams/Character_Only/Leticia_Character_Only_01.png": {
+   "empty": false,
+   "top": 168,
+   "bot": 1230,
+   "left": 209,
+   "right": 1238,
+   "h": 1063,
+   "rear_x": 273,
+   "front_x": 1040,
+   "hip_x": 601.0,
+   "cx": 673.1683876617047,
+   "cy": 599.4365613693062,
+   "mask": "dark",
+   "size": [
+    1244,
+    1264
+   ],
+   "sift": {
+    "scale": 1.0817912114573986,
+    "rot": 5.5985420980818885,
+    "inliers": 43,
+    "good": 81
+   },
+   "scale_how": "head",
+   "scale": 1.0817912114573986
+  },
+  "Leticia/10_214_Beams/Character_Only/Leticia_Character_Only_02.png": {
+   "empty": false,
+   "top": 27,
+   "bot": 1507,
+   "left": 112,
+   "right": 1013,
+   "h": 1481,
+   "rear_x": 297,
+   "front_x": 976,
+   "hip_x": 524.5,
+   "cx": 587.9850415381604,
+   "cy": 759.5573570797087,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1423142572438418,
+    "rot": -13.875869984544426,
+    "inliers": 79,
+    "good": 181
+   },
+   "scale_how": "body",
+   "scale": 1.1423142572438418
+  },
+  "Leticia/10_214_Beams/Character_Only/Leticia_Character_Only_03.png": {
+   "empty": false,
+   "top": 144,
+   "bot": 870,
+   "left": 221,
+   "right": 1346,
+   "h": 727,
+   "rear_x": 487,
+   "front_x": 1346,
+   "hip_x": 683.5,
+   "cx": 713.3816937553464,
+   "cy": 471.21211014264907,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.8450074915927857,
+    "rot": 4.774922112937348,
+    "inliers": 21,
+    "good": 69
+   },
+   "scale_how": "via Leticia_Character_Only_01.png",
+   "scale": 0.8556276314175831,
+   "sift_chain": {
+    "scale": 0.7909360164470869,
+    "rot": -1.6574744336313725,
+    "inliers": 21,
+    "good": 67
+   }
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_02.png": {
+   "empty": false,
+   "top": 152,
+   "bot": 864,
+   "left": 87,
+   "right": 887,
+   "h": 713,
+   "rear_x": 117,
+   "front_x": 742,
+   "hip_x": 421.5,
+   "cx": 455.4277685173313,
+   "cy": 472.0852815888077,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.8077227119402705,
+    "rot": 5.241879222488341,
+    "inliers": 35,
+    "good": 70
+   },
+   "scale_how": "head",
+   "scale": 0.8077227119402705
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_03.png": {
+   "empty": false,
+   "top": 29,
+   "bot": 876,
+   "left": 141,
+   "right": 872,
+   "h": 848,
+   "rear_x": 194,
+   "front_x": 801,
+   "hip_x": 466.5,
+   "cx": 506.71595695267786,
+   "cy": 487.0647914157279,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.7783193115240955,
+    "rot": -7.587304744054261,
+    "inliers": 26,
+    "good": 62
+   },
+   "scale_how": "head",
+   "scale": 0.7783193115240955
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_04.png": {
+   "empty": false,
+   "top": 165,
+   "bot": 971,
+   "left": 56,
+   "right": 756,
+   "h": 807,
+   "rear_x": 95,
+   "front_x": 711,
+   "hip_x": 355.0,
+   "cx": 402.33705946881327,
+   "cy": 551.0269301484789,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7204058242416461,
+    "rot": 1.470214938664589,
+    "inliers": 26,
+    "good": 47
+   },
+   "scale_how": "head",
+   "scale": 0.7204058242416461
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_05.png": {
+   "empty": false,
+   "top": 143,
+   "bot": 967,
+   "left": 65,
+   "right": 910,
+   "h": 825,
+   "rear_x": 65,
+   "front_x": 870,
+   "hip_x": 428.0,
+   "cx": 483.06472463300867,
+   "cy": 527.7584591304528,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8737291463047474,
+    "rot": 8.56167039214754,
+    "inliers": 27,
+    "good": 82
+   },
+   "scale_how": "body",
+   "scale": 0.8737291463047474
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_06.png": {
+   "empty": false,
+   "top": 197,
+   "bot": 853,
+   "left": 62,
+   "right": 1012,
+   "h": 657,
+   "rear_x": 296,
+   "front_x": 1012,
+   "hip_x": 463.0,
+   "cx": 482.76573234489865,
+   "cy": 491.59378915725864,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.736403057063567,
+    "rot": 4.696679396848309,
+    "inliers": 24,
+    "good": 65
+   },
+   "scale_how": "via Leticia_Combined_02.png",
+   "scale": 0.7511793803773283,
+   "sift_chain": {
+    "scale": 0.929996605608481,
+    "rot": 0.826954059677829,
+    "inliers": 33,
+    "good": 64
+   }
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_07.png": {
+   "empty": false,
+   "top": 131,
+   "bot": 861,
+   "left": 149,
+   "right": 1081,
+   "h": 731,
+   "rear_x": 318,
+   "front_x": 1081,
+   "hip_x": 543.0,
+   "cx": 573.8367852615761,
+   "cy": 496.5112792305001,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.8225283597115256,
+    "rot": -4.126286762057027,
+    "inliers": 23,
+    "good": 32
+   },
+   "scale_how": "via Leticia_Combined_02.png",
+   "scale": 0.9042069871444314,
+   "sift_chain": {
+    "scale": 1.1194522250988725,
+    "rot": -6.199727607173058,
+    "inliers": 31,
+    "good": 94
+   }
+  },
+  "Leticia/10_214_Beams/Combined/Leticia_Combined_08.png": {
+   "empty": false,
+   "top": 39,
+   "bot": 998,
+   "left": 171,
+   "right": 744,
+   "h": 960,
+   "rear_x": 226,
+   "front_x": 675,
+   "hip_x": 457.5,
+   "cx": 450.87016406447685,
+   "cy": 520.9017117690104,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.819638478629199,
+    "rot": 0.4550375962360532,
+    "inliers": 154,
+    "good": 169
+   },
+   "scale_how": "head",
+   "scale": 0.819638478629199
+  },
+  "Leticia/10_214_Beams/Separate_Effects/Leticia_Separate_Effects_01.png": {
+   "empty": false,
+   "top": 266,
+   "bot": 460,
+   "left": 95,
+   "right": 2039,
+   "h": 195,
+   "rear_x": 188,
+   "front_x": 189,
+   "hip_x": 1067.0,
+   "cx": 695.6968712652836,
+   "cy": 372.41372230564156,
+   "fx_px": 77609,
+   "size": [
+    2172,
+    724
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/10_214_Beams/Separate_Effects/Leticia_Separate_Effects_02.png": {
+   "empty": false,
+   "top": 126,
+   "bot": 784,
+   "left": 81,
+   "right": 1709,
+   "h": 659,
+   "rear_x": 81,
+   "front_x": 1293,
+   "hip_x": 928.5,
+   "cx": 980.3419747047725,
+   "cy": 481.10981063517573,
+   "fx_px": 43086,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/10_214_Beams/Separate_Effects/Leticia_Separate_Effects_03.png": {
+   "empty": false,
+   "top": 72,
+   "bot": 720,
+   "left": 51,
+   "right": 1933,
+   "h": 649,
+   "rear_x": 1516,
+   "front_x": 1557,
+   "hip_x": 998.5,
+   "cx": 1022.8961604562762,
+   "cy": 395.8743151584591,
+   "fx_px": 334201,
+   "size": [
+    1983,
+    793
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_01.png": {
+   "empty": false,
+   "top": 168,
+   "bot": 1117,
+   "left": 162,
+   "right": 1203,
+   "h": 950,
+   "rear_x": 162,
+   "front_x": 869,
+   "hip_x": 596.5,
+   "cx": 620.8734352867543,
+   "cy": 640.4376255888263,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9978363469568456,
+    "rot": 10.41535201906501,
+    "inliers": 48,
+    "good": 88
+   },
+   "scale_how": "head",
+   "scale": 0.9978363469568456
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_02.png": {
+   "empty": false,
+   "top": 317,
+   "bot": 1031,
+   "left": 146,
+   "right": 1160,
+   "h": 715,
+   "rear_x": 309,
+   "front_x": 1160,
+   "hip_x": 587.0,
+   "cx": 637.1117107420308,
+   "cy": 678.6738771869503,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9830110617448722,
+    "rot": 17.932423675795764,
+    "inliers": 28,
+    "good": 106
+   },
+   "scale_how": "body",
+   "scale": 0.9830110617448722
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_03.png": {
+   "empty": false,
+   "top": 23,
+   "bot": 794,
+   "left": 364,
+   "right": 1229,
+   "h": 772,
+   "rear_x": 626,
+   "front_x": 920,
+   "hip_x": 670.0,
+   "cx": 723.4280449641769,
+   "cy": 422.80102219385657,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 6.555448609156265,
+    "rot": -87.39560883891123,
+    "inliers": 2,
+    "good": 10
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_04.png": {
+   "empty": false,
+   "top": 233,
+   "bot": 1169,
+   "left": 116,
+   "right": 1203,
+   "h": 937,
+   "rear_x": 293,
+   "front_x": 675,
+   "hip_x": 708.5,
+   "cx": 591.9717159645454,
+   "cy": 640.6134764133718,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9937921707295755,
+    "rot": 12.620750010111228,
+    "inliers": 30,
+    "good": 76
+   },
+   "scale_how": "body",
+   "scale": 0.9937921707295755
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_05.png": {
+   "empty": false,
+   "top": 252,
+   "bot": 1172,
+   "left": 220,
+   "right": 1181,
+   "h": 921,
+   "rear_x": 710,
+   "front_x": 1096,
+   "hip_x": 735.0,
+   "cx": 702.9535871771816,
+   "cy": 637.4437254339913,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0054614881838488,
+    "rot": 12.408349775054013,
+    "inliers": 28,
+    "good": 44
+   },
+   "scale_how": "head",
+   "scale": 1.0054614881838488
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_06.png": {
+   "empty": false,
+   "top": 296,
+   "bot": 1123,
+   "left": 137,
+   "right": 1001,
+   "h": 828,
+   "rear_x": 604,
+   "front_x": 967,
+   "hip_x": 574.0,
+   "cx": 563.7981221259759,
+   "cy": 641.8547064485082,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 3.2524221495981935,
+    "rot": -178.31910604194704,
+    "inliers": 3,
+    "good": 8
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_07.png": {
+   "empty": false,
+   "top": 61,
+   "bot": 1141,
+   "left": 111,
+   "right": 1194,
+   "h": 1081,
+   "rear_x": 120,
+   "front_x": 1156,
+   "hip_x": 684.0,
+   "cx": 669.4179360346409,
+   "cy": 671.8093443974451,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.108736527115157,
+    "rot": 12.536470717058846,
+    "inliers": 26,
+    "good": 117
+   },
+   "scale_how": "body",
+   "scale": 1.108736527115157
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_08.png": {
+   "empty": false,
+   "top": 50,
+   "bot": 1140,
+   "left": 269,
+   "right": 1065,
+   "h": 1091,
+   "rear_x": 333,
+   "front_x": 1065,
+   "hip_x": 640.5,
+   "cx": 651.1783596256479,
+   "cy": 646.6004113983963,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.8986183631385822,
+    "rot": 9.775650093690272,
+    "inliers": 64,
+    "good": 113
+   },
+   "scale_how": "head",
+   "scale": 0.8986183631385822
+  },
+  "Leticia/11_j236_Flux_Board/Leticia_11_j236_Flux_Board_09.png": {
+   "empty": false,
+   "top": 80,
+   "bot": 1200,
+   "left": 127,
+   "right": 1142,
+   "h": 1121,
+   "rear_x": 923,
+   "front_x": 1092,
+   "hip_x": 737.0,
+   "cx": 686.0182646930178,
+   "cy": 661.1140403784617,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9847568428882498,
+    "rot": 7.86646522966734,
+    "inliers": 35,
+    "good": 77
+   },
+   "scale_how": "head",
+   "scale": 0.9847568428882498
+  },
+  "Leticia/12_Flux_Board_Effects/Leticia_12_Flux_Board_Effects_01.png": {
+   "empty": false,
+   "top": 74,
+   "bot": 912,
+   "left": 151,
+   "right": 1322,
+   "h": 839,
+   "rear_x": 321,
+   "front_x": 746,
+   "hip_x": 1206.5,
+   "cx": 959.1285323029235,
+   "cy": 669.9566675866754,
+   "fx_px": 72892,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.0,
+    "rot": 0.0,
+    "inliers": 35,
+    "good": 42
+   },
+   "scale_how": "body",
+   "scale": 0.0
+  },
+  "Leticia/12_Flux_Board_Effects/Leticia_12_Flux_Board_Effects_02.png": {
+   "empty": false,
+   "top": 65,
+   "bot": 934,
+   "left": 234,
+   "right": 1401,
+   "h": 870,
+   "rear_x": 623,
+   "front_x": 1190,
+   "hip_x": 1262.5,
+   "cx": 1032.0899680181024,
+   "cy": 518.4317645277102,
+   "fx_px": 151597,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/12_Flux_Board_Effects/Leticia_12_Flux_Board_Effects_03.png": {
+   "empty": false,
+   "top": 173,
+   "bot": 691,
+   "left": 50,
+   "right": 1728,
+   "h": 519,
+   "rear_x": 1123,
+   "front_x": 1255,
+   "hip_x": 895.0,
+   "cx": 648.7600057287191,
+   "cy": 496.7972424029373,
+   "fx_px": 112911,
+   "size": [
+    1774,
+    887
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/12_Flux_Board_Effects/Leticia_12_Flux_Board_Effects_04.png": {
+   "empty": false,
+   "top": 77,
+   "bot": 942,
+   "left": 133,
+   "right": 1448,
+   "h": 866,
+   "rear_x": 425,
+   "front_x": 1234,
+   "hip_x": 873.0,
+   "cx": 889.1748149257563,
+   "cy": 530.8608305875305,
+   "fx_px": 194029,
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_AirDash_01.png": {
+   "empty": false,
+   "top": 244,
+   "bot": 1172,
+   "left": 118,
+   "right": 1172,
+   "h": 929,
+   "rear_x": 679,
+   "front_x": 1166,
+   "hip_x": 694.0,
+   "cx": 662.594500812433,
+   "cy": 619.6408678853719,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0716368229152213,
+    "rot": 15.178009275735414,
+    "inliers": 16,
+    "good": 26
+   },
+   "scale_how": "via Leticia_BoardJump_01.png",
+   "scale": 1.4394635780168101,
+   "sift_chain": {
+    "scale": 1.1990004684547906,
+    "rot": 10.379346171854799,
+    "inliers": 26,
+    "good": 91
+   }
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_AirDash_02.png": {
+   "empty": false,
+   "top": 250,
+   "bot": 1119,
+   "left": 146,
+   "right": 1198,
+   "h": 870,
+   "rear_x": 339,
+   "front_x": 905,
+   "hip_x": 776.0,
+   "cx": 681.2961431414684,
+   "cy": 627.170378945866,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.0034536412825923,
+    "rot": 7.767914084036326,
+    "inliers": 25,
+    "good": 39
+   },
+   "scale_how": "head",
+   "scale": 1.0034536412825923
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BackAirDash_01.png": {
+   "empty": false,
+   "top": 256,
+   "bot": 1166,
+   "left": 120,
+   "right": 1226,
+   "h": 911,
+   "rear_x": 703,
+   "front_x": 1090,
+   "hip_x": 632.5,
+   "cx": 679.1813628372374,
+   "cy": 632.2515974655983,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9812217090899586,
+    "rot": 7.950666242999516,
+    "inliers": 32,
+    "good": 86
+   },
+   "scale_how": "body",
+   "scale": 0.9812217090899586
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BackAirDash_02.png": {
+   "empty": false,
+   "top": 264,
+   "bot": 1172,
+   "left": 96,
+   "right": 1217,
+   "h": 909,
+   "rear_x": 562,
+   "front_x": 803,
+   "hip_x": 627.5,
+   "cx": 639.3623298952654,
+   "cy": 663.4338880902587,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.04474724167553,
+    "rot": 11.773147843448319,
+    "inliers": 25,
+    "good": 55
+   },
+   "scale_how": "head",
+   "scale": 1.04474724167553
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BackStep_01.png": {
+   "empty": false,
+   "top": 257,
+   "bot": 1212,
+   "left": 106,
+   "right": 1129,
+   "h": 956,
+   "rear_x": 414,
+   "front_x": 1129,
+   "hip_x": 592.0,
+   "cx": 571.0825947420058,
+   "cy": 676.5383208340954,
+   "mask": "dark",
+   "size": [
+    1214,
+    1295
+   ],
+   "sift": {
+    "scale": 1.0948900411526639,
+    "rot": 10.839765721025003,
+    "inliers": 11,
+    "good": 19
+   },
+   "scale_how": "via Leticia_BackStep_02.png",
+   "scale": 1.117796349518888,
+   "sift_chain": {
+    "scale": 1.028024010559285,
+    "rot": -0.26747711638853094,
+    "inliers": 33,
+    "good": 110
+   }
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BackStep_02.png": {
+   "empty": false,
+   "top": 205,
+   "bot": 977,
+   "left": 93,
+   "right": 1309,
+   "h": 773,
+   "rear_x": 95,
+   "front_x": 765,
+   "hip_x": 771.0,
+   "cx": 732.6766973912619,
+   "cy": 539.8934011393364,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0873251383601084,
+    "rot": 12.117032064677343,
+    "inliers": 25,
+    "good": 91
+   },
+   "scale_how": "body",
+   "scale": 1.0873251383601084
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BoardJump_01.png": {
+   "empty": false,
+   "top": 326,
+   "bot": 1147,
+   "left": 64,
+   "right": 1154,
+   "h": 822,
+   "rear_x": 352,
+   "front_x": 1154,
+   "hip_x": 516.0,
+   "cx": 602.0899850677863,
+   "cy": 710.8098027765046,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.200552973821533,
+    "rot": 11.07213329813148,
+    "inliers": 26,
+    "good": 84
+   },
+   "scale_how": "body",
+   "scale": 1.200552973821533
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BoardJump_02.png": {
+   "empty": false,
+   "top": 214,
+   "bot": 1156,
+   "left": 128,
+   "right": 1153,
+   "h": 943,
+   "rear_x": 252,
+   "front_x": 687,
+   "hip_x": 641.5,
+   "cx": 576.9776194052963,
+   "cy": 638.4424964312794,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9931882315372,
+    "rot": 12.54398520382116,
+    "inliers": 31,
+    "good": 43
+   },
+   "scale_how": "head",
+   "scale": 0.9931882315372
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_BoardJump_03.png": {
+   "empty": false,
+   "top": 249,
+   "bot": 1208,
+   "left": 105,
+   "right": 1161,
+   "h": 960,
+   "rear_x": 801,
+   "front_x": 1161,
+   "hip_x": 633.0,
+   "cx": 618.6296296296297,
+   "cy": 632.7517790159875,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 1.101957132558809,
+    "rot": 10.882635787711793,
+    "inliers": 29,
+    "good": 45
+   },
+   "scale_how": "head",
+   "scale": 1.101957132558809
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_Downed_01.png": {
+   "empty": false,
+   "top": 283,
+   "bot": 729,
+   "left": 231,
+   "right": 1710,
+   "h": 447,
+   "rear_x": 928,
+   "front_x": 1710,
+   "hip_x": 910.0,
+   "cx": 974.6518520428111,
+   "cy": 523.8677124553692,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 1.1205078233217023,
+    "rot": -58.677217584130254,
+    "inliers": 3,
+    "good": 11
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/13_Movement_and_Victory/Leticia_Victory_01.png": {
+   "empty": false,
+   "top": 255,
+   "bot": 1492,
+   "left": 128,
+   "right": 909,
+   "h": 1238,
+   "rear_x": 165,
+   "front_x": 898,
+   "hip_x": 518.5,
+   "cx": 517.353045663123,
+   "cy": 840.160642646495,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1739218164649816,
+    "rot": -3.328778395436213,
+    "inliers": 25,
+    "good": 116
+   },
+   "scale_how": "body",
+   "scale": 1.1739218164649816
+  },
+  "Leticia/14_Supers/Super1_01_Charge.png": {
+   "empty": false,
+   "top": 174,
+   "bot": 991,
+   "left": 170,
+   "right": 1250,
+   "h": 818,
+   "rear_x": 207,
+   "front_x": 1158,
+   "hip_x": 591.0,
+   "cx": 672.9718409802107,
+   "cy": 525.5856318039579,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9129729357103894,
+    "rot": 22.84329584383364,
+    "inliers": 22,
+    "good": 89
+   },
+   "scale_how": "via Super2_06_Land.png",
+   "scale": 0.94993652513255,
+   "sift_chain": {
+    "scale": 0.9622587059959168,
+    "rot": 2.893619269239571,
+    "inliers": 28,
+    "good": 84
+   }
+  },
+  "Leticia/14_Supers/Super1_02_Beam.png": {
+   "empty": false,
+   "top": 275,
+   "bot": 855,
+   "left": 70,
+   "right": 838,
+   "h": 581,
+   "rear_x": 156,
+   "front_x": 824,
+   "hip_x": 400.5,
+   "cx": 394.4967346383442,
+   "cy": 543.529898467661,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.720522206576478,
+    "rot": 6.777492500366282,
+    "inliers": 16,
+    "good": 24
+   },
+   "scale_how": "head",
+   "scale": 0.720522206576478
+  },
+  "Leticia/14_Supers/Super1_03_Recovery.png": {
+   "empty": false,
+   "top": 149,
+   "bot": 991,
+   "left": 471,
+   "right": 1118,
+   "h": 843,
+   "rear_x": 533,
+   "front_x": 1011,
+   "hip_x": 794.5,
+   "cx": 801.5112355646966,
+   "cy": 532.3071054350394,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.7987142419061388,
+    "rot": -0.01664554907658048,
+    "inliers": 80,
+    "good": 101
+   },
+   "scale_how": "head",
+   "scale": 0.7987142419061388
+  },
+  "Leticia/14_Supers/Super2_01_BoardRush.png": {
+   "empty": false,
+   "top": 212,
+   "bot": 822,
+   "left": 417,
+   "right": 1733,
+   "h": 611,
+   "rear_x": 682,
+   "front_x": 1733,
+   "hip_x": 1081.0,
+   "cx": 1018.4842083856479,
+   "cy": 502.4919848273179,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.9915483941258694,
+    "rot": 23.973496768249156,
+    "inliers": 23,
+    "good": 71
+   },
+   "scale_how": "body",
+   "scale": 0.9915483941258694
+  },
+  "Leticia/14_Supers/Super2_02_OrbTrigger.png": {
+   "empty": false,
+   "top": 70,
+   "bot": 1003,
+   "left": 211,
+   "right": 1368,
+   "h": 934,
+   "rear_x": 474,
+   "front_x": 880,
+   "hip_x": 789.5,
+   "cx": 705.8970757478625,
+   "cy": 517.0630614278322,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8722304208555102,
+    "rot": 4.9483235300760375,
+    "inliers": 27,
+    "good": 52
+   },
+   "scale_how": "head",
+   "scale": 0.8722304208555102
+  },
+  "Leticia/14_Supers/Super2_03_OrbitHigh.png": {
+   "empty": false,
+   "top": 181,
+   "bot": 973,
+   "left": 59,
+   "right": 1100,
+   "h": 793,
+   "rear_x": 634,
+   "front_x": 934,
+   "hip_x": 497.5,
+   "cx": 553.5793879624711,
+   "cy": 481.8163681096778,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8501549967188068,
+    "rot": 12.702024898631379,
+    "inliers": 9,
+    "good": 16
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/14_Supers/Super2_04_OrbitBack.png": {
+   "empty": false,
+   "top": 204,
+   "bot": 866,
+   "left": 113,
+   "right": 1123,
+   "h": 663,
+   "rear_x": 652,
+   "front_x": 1025,
+   "hip_x": 548.0,
+   "cx": 607.258776822956,
+   "cy": 480.6373134328358,
+   "mask": "dark",
+   "size": [
+    1774,
+    887
+   ],
+   "sift": {
+    "scale": 0.889408059598428,
+    "rot": 51.92735401637576,
+    "inliers": 2,
+    "good": 13
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/14_Supers/Super2_05_OrbitLow.png": {
+   "empty": false,
+   "top": 189,
+   "bot": 979,
+   "left": 111,
+   "right": 1218,
+   "h": 791,
+   "rear_x": 444,
+   "front_x": 1218,
+   "hip_x": 596.0,
+   "cx": 662.7605194880491,
+   "cy": 617.7261478550342,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.942746300817533,
+    "rot": 3.666758137454591,
+    "inliers": 6,
+    "good": 16
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/14_Supers/Super2_06_Land.png": {
+   "empty": false,
+   "top": 205,
+   "bot": 997,
+   "left": 317,
+   "right": 1321,
+   "h": 793,
+   "rear_x": 1065,
+   "front_x": 1221,
+   "hip_x": 837.5,
+   "cx": 805.8968705836671,
+   "cy": 569.6802179890644,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.9871945238982134,
+    "rot": 0.34197178113160775,
+    "inliers": 36,
+    "good": 41
+   },
+   "scale_how": "head",
+   "scale": 0.9871945238982134
+  },
+  "Leticia/14_Supers/Super2_07_HairFlip.png": {
+   "empty": false,
+   "top": 180,
+   "bot": 1008,
+   "left": 478,
+   "right": 1066,
+   "h": 829,
+   "rear_x": 540,
+   "front_x": 1025,
+   "hip_x": 773.0,
+   "cx": 797.1199555458481,
+   "cy": 531.6429920470752,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8683684846120251,
+    "rot": -2.1116680353291,
+    "inliers": 43,
+    "good": 58
+   },
+   "scale_how": "head",
+   "scale": 0.8683684846120251
+  },
+  "Leticia/14_Supers/Super2_08_HairFlipEnd.png": {
+   "empty": false,
+   "top": 185,
+   "bot": 996,
+   "left": 423,
+   "right": 1116,
+   "h": 812,
+   "rear_x": 502,
+   "front_x": 1006,
+   "hip_x": 769.5,
+   "cx": 786.7730523658681,
+   "cy": 529.2263660661255,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 0.8556067368209068,
+    "rot": -1.5108738355821123,
+    "inliers": 34,
+    "good": 58
+   },
+   "scale_how": "head",
+   "scale": 0.8556067368209068
+  },
+  "Leticia/14_Supers/Super2_VFX_01_Orb.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1196,
+   "left": 8,
+   "right": 1291,
+   "h": 1181,
+   "rear_x": 460,
+   "front_x": 913,
+   "hip_x": 649.5,
+   "cx": 661.805781401304,
+   "cy": 628.0819945384759,
+   "fx_px": 2,
+   "size": [
+    1297,
+    1213
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/14_Supers/Super2_VFX_02_OrbHit.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1170,
+   "left": 79,
+   "right": 1258,
+   "h": 1155,
+   "rear_x": 547,
+   "front_x": 964,
+   "hip_x": 664.5,
+   "cx": 662.6184137521136,
+   "cy": 621.2816427196678,
+   "fx_px": 19776,
+   "size": [
+    1312,
+    1199
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/14_Supers/Super2_VFX_03_Explosion.png": {
+   "empty": false,
+   "top": 112,
+   "bot": 937,
+   "left": 120,
+   "right": 1415,
+   "h": 826,
+   "rear_x": 511,
+   "front_x": 1101,
+   "hip_x": 767.5,
+   "cx": 727.5398216637957,
+   "cy": 564.6564494882966,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Leticia/15_Selection_and_CutIns/Leticia_EX_CutIn.png": {
+   "empty": false,
+   "top": 257,
+   "bot": 940,
+   "left": 0,
+   "right": 1646,
+   "h": 684,
+   "rear_x": 6,
+   "front_x": 1119,
+   "hip_x": 822.5,
+   "cx": 700.0915569535872,
+   "cy": 620.4226606116157,
+   "mask": "dark",
+   "size": [
+    1672,
+    941
+   ],
+   "sift": {
+    "scale": 1.7311476292219259,
+    "rot": 26.26204594249707,
+    "inliers": 7,
+    "good": 23
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Leticia/15_Selection_and_CutIns/Leticia_Select_FullBody.png": {
+   "empty": false,
+   "top": 79,
+   "bot": 1503,
+   "left": 75,
+   "right": 916,
+   "h": 1425,
+   "rear_x": 157,
+   "front_x": 849,
+   "hip_x": 495.5,
+   "cx": 498.26354697795375,
+   "cy": 767.8531893289698,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1003057006789383,
+    "rot": 3.0165527787872297,
+    "inliers": 58,
+    "good": 115
+   },
+   "scale_how": "head",
+   "scale": 1.1003057006789383
+  },
+  "Leticia/15_Selection_and_CutIns/Leticia_Select_Icon.png": {
+   "empty": false,
+   "top": 16,
+   "bot": 1253,
+   "left": 68,
+   "right": 1245,
+   "h": 1238,
+   "rear_x": 106,
+   "front_x": 1245,
+   "hip_x": 563.5,
+   "cx": 667.4170297399893,
+   "cy": 1003.4330395858108,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 3.342260769434258,
+    "rot": -2.079857423876287,
+    "inliers": 10,
+    "good": 36
+   },
+   "scale_how": "via Leticia_Select_FullBody.png",
+   "scale": 3.3530488998861814,
+   "sift_chain": {
+    "scale": 3.0473793763107824,
+    "rot": -6.190171630772722,
+    "inliers": 20,
+    "good": 85
+   }
+  },
+  "Leticia/Backward/Leticia_Walk_Backward_01.png": {
+   "empty": false,
+   "top": 87,
+   "bot": 1198,
+   "left": 326,
+   "right": 986,
+   "h": 1112,
+   "rear_x": 440,
+   "front_x": 938,
+   "hip_x": 649.0,
+   "cx": 639.3851600645119,
+   "cy": 651.9395698473367,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.8724443143455958,
+    "rot": 0.14021273744664506,
+    "inliers": 25,
+    "good": 45
+   },
+   "scale_how": "head",
+   "scale": 0.8724443143455958
+  },
+  "Leticia/Backward/Leticia_Walk_Backward_02.png": {
+   "empty": false,
+   "top": 65,
+   "bot": 1193,
+   "left": 257,
+   "right": 945,
+   "h": 1129,
+   "rear_x": 449,
+   "front_x": 873,
+   "hip_x": 595.5,
+   "cx": 603.6271125003283,
+   "cy": 637.2825300097187,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.848960115367166,
+    "rot": 1.4925984914102912,
+    "inliers": 30,
+    "good": 120
+   },
+   "scale_how": "body",
+   "scale": 0.848960115367166
+  },
+  "Leticia/Backward/Leticia_Walk_Backward_03.png": {
+   "empty": false,
+   "top": 86,
+   "bot": 1205,
+   "left": 340,
+   "right": 972,
+   "h": 1120,
+   "rear_x": 399,
+   "front_x": 929,
+   "hip_x": 652.5,
+   "cx": 647.5358078901559,
+   "cy": 667.3874127173509,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9279739372597041,
+    "rot": -4.2160834261657385,
+    "inliers": 32,
+    "good": 66
+   },
+   "scale_how": "head",
+   "scale": 0.9279739372597041
+  },
+  "Leticia/Backward/Leticia_Walk_Backward_04.png": {
+   "empty": false,
+   "top": 97,
+   "bot": 1208,
+   "left": 294,
+   "right": 915,
+   "h": 1112,
+   "rear_x": 479,
+   "front_x": 880,
+   "hip_x": 602.5,
+   "cx": 620.7333432040273,
+   "cy": 662.8402428190702,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9307483620673492,
+    "rot": -1.5634942683730686,
+    "inliers": 44,
+    "good": 81
+   },
+   "scale_how": "head",
+   "scale": 0.9307483620673492
+  },
+  "Leticia/Forward/Leticia_Walk_Forward_01.png": {
+   "empty": false,
+   "top": 111,
+   "bot": 1218,
+   "left": 267,
+   "right": 971,
+   "h": 1108,
+   "rear_x": 401,
+   "front_x": 971,
+   "hip_x": 612.5,
+   "cx": 631.9852559901991,
+   "cy": 671.3298716962497,
+   "mask": "dark",
+   "size": [
+    1254,
+    1254
+   ],
+   "sift": {
+    "scale": 0.9053413481662215,
+    "rot": 2.293696629459058,
+    "inliers": 35,
+    "good": 63
+   },
+   "scale_how": "head",
+   "scale": 0.9053413481662215
+  },
+  "Leticia/Forward/Leticia_Walk_Forward_02.png": {
+   "empty": false,
+   "top": 166,
+   "bot": 1460,
+   "left": 108,
+   "right": 915,
+   "h": 1295,
+   "rear_x": 302,
+   "front_x": 863,
+   "hip_x": 511.5,
+   "cx": 520.3997265853639,
+   "cy": 811.0655473504438,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.9587753572991468,
+    "rot": 5.487858632915562,
+    "inliers": 22,
+    "good": 92
+   },
+   "scale_how": "via Leticia_Walk_Forward_03.png",
+   "scale": 1.2743643269762932,
+   "sift_chain": {
+    "scale": 1.0398919686598198,
+    "rot": -1.6800518615637998,
+    "inliers": 79,
+    "good": 162
+   }
+  },
+  "Leticia/Forward/Leticia_Walk_Forward_03.png": {
+   "empty": false,
+   "top": 128,
+   "bot": 1335,
+   "left": 142,
+   "right": 943,
+   "h": 1208,
+   "rear_x": 275,
+   "front_x": 943,
+   "hip_x": 484.0,
+   "cx": 527.4627368241587,
+   "cy": 737.1341602199348,
+   "mask": "dark",
+   "size": [
+    1122,
+    1402
+   ],
+   "sift": {
+    "scale": 1.22547761246647,
+    "rot": 1.437573556113451,
+    "inliers": 32,
+    "good": 114
+   },
+   "scale_how": "body",
+   "scale": 1.22547761246647
+  },
+  "Leticia/Forward/Leticia_Walk_Forward_04.png": {
+   "empty": false,
+   "top": 78,
+   "bot": 1450,
+   "left": 80,
+   "right": 931,
+   "h": 1373,
+   "rear_x": 306,
+   "front_x": 931,
+   "hip_x": 485.0,
+   "cx": 500.9401833483176,
+   "cy": 811.171332665183,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1898090865721083,
+    "rot": 3.581717157807043,
+    "inliers": 22,
+    "good": 109
+   },
+   "scale_how": "via Leticia_Walk_Forward_03.png",
+   "scale": 1.29596126198066,
+   "sift_chain": {
+    "scale": 1.0575152485832282,
+    "rot": 2.960317852594409,
+    "inliers": 64,
+    "good": 185
+   }
+  }
+ }
+}

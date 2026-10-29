@@ -1,0 +1,146 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3 uid="uid://bkys7l5xsc4sc"]
+
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cc6na07fk5pf2" path="res://actors/_shared/sakuga/HitboxTemplates/Box_Neutral_std.tres" id="2"]
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("1")
+Center = Vector2i(300, 10700)
+Size = Vector2i(3200, 2400)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("1")
+Center = Vector2i(-200, 7600)
+Size = Vector2i(6500, 4400)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("1")
+Center = Vector2i(-100, 3400)
+Size = Vector2i(5800, 4800)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="H3"]
+script = ExtResource("1")
+Center = Vector2i(3600, 8000)
+Size = Vector2i(1600, 800)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("1")
+Center = Vector2i(9900, 4600)
+Size = Vector2i(20600, 10600)
+HitboxType = 2
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("1")
+Center = Vector2i(5000, 3600)
+Size = Vector2i(10800, 8300)
+HitboxType = 1
+OpponentSuperGaugeGain = 60
+BaseDamage = 320
+SelfSuperGaugeGain = 200
+SelfHitStopDuration = 11
+OpponentHitStopDuration = 11
+BlockStopDuration = 11
+DamageScalingSubtract = 10
+HitEffectIndex = 5
+BlockEffectIndex = 1
+GroundHitstunType = 1
+CrouchHitReaction = 2
+GroundHitKnockback = Vector2i(-30000, 0)
+GroundHitstun = 16
+GroundBlockKnockback = Vector2i(-30000, 0)
+GroundBlockstun = 12
+AirHitstunType = 1
+AirHitReaction = 5
+AirHitKnockback = Vector2i(-12000, 50000)
+AirHitstun = 16
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 12
+
+[sub_resource type="Resource" id="c13_h0"]
+script = ExtResource("1")
+Center = Vector2i(3950, 3600)
+Size = Vector2i(12900, 8300)
+HitboxType = 1
+OpponentSuperGaugeGain = 60
+BaseDamage = 320
+SelfSuperGaugeGain = 200
+SelfHitStopDuration = 11
+OpponentHitStopDuration = 11
+BlockStopDuration = 11
+DamageScalingSubtract = 10
+HitEffectIndex = 5
+BlockEffectIndex = 1
+GroundHitstunType = 1
+CrouchHitReaction = 2
+GroundHitKnockback = Vector2i(-30000, 0)
+GroundHitstun = 16
+GroundBlockKnockback = Vector2i(-30000, 0)
+GroundBlockstun = 12
+AirHitstunType = 1
+AirHitReaction = 5
+AirHitKnockback = Vector2i(-12000, 50000)
+AirHitstun = 16
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 12
+NetsuKeepHeight = true
+
+[resource]
+script = ExtResource("3")
+Pushbox = ExtResource("2")
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2"), SubResource("H3"), SubResource("P0"), SubResource("c13_h0")]

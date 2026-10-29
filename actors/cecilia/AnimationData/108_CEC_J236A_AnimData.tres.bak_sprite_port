@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://0isx3my7lijt"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://8xrw7go5gtp4" path="res://actors/cecilia/Hitboxes/61_Hitbox_J236A_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://babkqg3ckdr7t" path="res://actors/cecilia/Hitboxes/61_Hitbox_J236A_1.tres" id="4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 5
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = []
+Hitboxes = [SubResource("s1"), SubResource("s2")]
+Afterimages = true

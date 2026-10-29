@@ -1,0 +1,90 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3]
+
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="1"]
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="2"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("1")
+Center = Vector2i(-1500, 3100)
+Size = Vector2i(11000, 5500)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("1")
+Center = Vector2i(2800, 3300)
+Size = Vector2i(5200, 6500)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("1")
+Center = Vector2i(-5500, 2900)
+Size = Vector2i(5000, 5000)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("1")
+Center = Vector2i(-1250, 6550)
+Size = Vector2i(17500, 14900)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 300
+HitEffectIndex = 6
+HitType = 0
+BaseDamage = 800
+SelfHitStopDuration = 10
+OpponentHitStopDuration = 10
+BlockStopDuration = 10
+DamageScalingSubtract = 10
+GroundHitstunType = 1
+GroundHitReaction = 1
+CrouchHitReaction = 2
+GroundHitKnockback = Vector2i(-4000, 3000)
+GroundHitstun = 70
+GroundBlockKnockback = Vector2i(-4000, 0)
+GroundBlockstun = 16
+AirHitstunType = 1
+AirHitReaction = 5
+AirHitKnockback = Vector2i(-4000, 2500)
+AirHitstun = 70
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 16
+NetsuRequireTargetHitstun = true
+NetsuFloatFrames = 30
+NetsuAirUntech = 50
+NetsuFloatRiseFrames = 18
+AirHitKnockbackGravity = 50000
+GroundHitKnockbackGravity = 50000
+
+[resource]
+script = ExtResource("2")
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

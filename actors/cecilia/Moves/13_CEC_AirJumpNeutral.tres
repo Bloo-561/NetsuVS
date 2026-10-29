@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://b4cigxd46jao3"]
+
+[ext_resource type="Resource" uid="uid://brssiq77ils1q" path="res://actors/_shared/sakuga/Inputs/5_Input_tap8.tres" id="1"]
+[ext_resource type="Script" uid="uid://dh03r2nvy3pmu" path="res://engine/sakuga/Resources/CustomVariableChange.cs" id="2"]
+[ext_resource type="Script" uid="uid://cuch5yr7c7dag" path="res://engine/sakuga/Resources/CustomVariableCondition.cs" id="3"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="4"]
+
+[sub_resource type="Resource" id="Resource_opnpq"]
+script = ExtResource("2")
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_jjsyd"]
+script = ExtResource("2")
+ByIndex = 1
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_op3mk"]
+script = ExtResource("2")
+ByIndex = 2
+Value = 1
+metadata/_custom_type_script = "uid://dh03r2nvy3pmu"
+
+[sub_resource type="Resource" id="Resource_tmkpr"]
+script = ExtResource("3")
+Value = 1
+CompareMode = 4
+metadata/_custom_type_script = "uid://cuch5yr7c7dag"
+
+[resource]
+script = ExtResource("4")
+MoveName = "Neutral Air Jump"
+MoveState = 3
+Inputs = ExtResource("1")
+Priority = 4
+CanCancelTo = null
+VariablesRequirement = [SubResource("Resource_tmkpr")]
+VariablesChange = [SubResource("Resource_opnpq"), SubResource("Resource_jjsyd"), SubResource("Resource_op3mk")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptCombatStates = true
+UseOnAir = true

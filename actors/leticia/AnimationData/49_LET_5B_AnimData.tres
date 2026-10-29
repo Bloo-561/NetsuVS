@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://68hci4fw2ytz"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL2.tres" id="lvl"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Resource" uid="uid://6i0wv2tb62sn" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_0.tres" id="nhb0"]
+[ext_resource type="Resource" uid="uid://bmlzmz2gxlrk3" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_1.tres" id="nhb1"]
+[ext_resource type="Resource" uid="uid://18ai6vihlfy3" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_2.tres" id="nhb2"]
+[ext_resource type="Resource" uid="uid://befvfsx3tw5qu" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_3.tres" id="nhb3"]
+[ext_resource type="Resource" uid="uid://bj5irf1kyjfe7" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_4.tres" id="nhb4"]
+[ext_resource type="Resource" uid="uid://y4fp3r1vms4k" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_5.tres" id="nhb5"]
+[ext_resource type="Resource" uid="uid://bibg78kh10jg3" path="res://actors/leticia/Hitboxes/6_Hitbox_5B_6.tres" id="nhb6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5b_1.png" id="t_n5b_1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5b_2.png" id="t_n5b_2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5b_3.png" id="t_n5b_3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5b_4.png" id="t_n5b_4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5b_5.png" id="t_n5b_5"]
+
+[sub_resource type="Resource" id="NH6"]
+script = ExtResource("hs")
+AtFrame = 15
+animationStage = 2
+HitboxData = ExtResource("nhb6")
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("ap")
+BaseDamage = 420
+GuardCrushDamage = 300
+AttackLevel = ExtResource("lvl")
+
+[sub_resource type="Resource" id="NH0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("nhb0")
+
+[sub_resource type="Resource" id="NH1"]
+script = ExtResource("hs")
+AtFrame = 3
+HitboxData = ExtResource("nhb1")
+
+[sub_resource type="Resource" id="NH2"]
+script = ExtResource("hs")
+AtFrame = 8
+animationStage = 1
+HitboxData = ExtResource("nhb2")
+
+[sub_resource type="Resource" id="NH3"]
+script = ExtResource("hs")
+AtFrame = 11
+animationStage = 1
+HitboxData = ExtResource("nhb3")
+
+[sub_resource type="Resource" id="NH4"]
+script = ExtResource("hs")
+AtFrame = 18
+animationStage = 2
+HitboxData = ExtResource("nhb4")
+
+[sub_resource type="Resource" id="NH5"]
+script = ExtResource("hs")
+AtFrame = 23
+animationStage = 2
+HitboxData = ExtResource("nhb5")
+
+[sub_resource type="Resource" id="NM0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5b_1")
+Offset = Vector2(-344, 6)
+
+[sub_resource type="Resource" id="NA0"]
+script = ExtResource("as")
+Modifiers = [SubResource("NM0")]
+
+[sub_resource type="Resource" id="NM1"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5b_2")
+Offset = Vector2(-348, 5)
+
+[sub_resource type="Resource" id="NA1"]
+script = ExtResource("as")
+AtFrame = 5
+Modifiers = [SubResource("NM1")]
+
+[sub_resource type="Resource" id="NM2"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5b_3")
+Offset = Vector2(-333, 4)
+
+[sub_resource type="Resource" id="NA2"]
+script = ExtResource("as")
+AtFrame = 8
+Modifiers = [SubResource("NM2")]
+
+[sub_resource type="Resource" id="NM3"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5b_4")
+Offset = Vector2(-378, 5)
+
+[sub_resource type="Resource" id="NA3"]
+script = ExtResource("as")
+AtFrame = 12
+Modifiers = [SubResource("NM3")]
+
+[sub_resource type="Resource" id="NM4"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5b_5")
+Offset = Vector2(-296, 4)
+
+[sub_resource type="Resource" id="NA4"]
+script = ExtResource("as")
+AtFrame = 16
+Modifiers = [SubResource("NM4")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 28
+Animations = [SubResource("NA0"), SubResource("NA1"), SubResource("NA2"), SubResource("NA3"), SubResource("NA4")]
+Hitboxes = [SubResource("NH0"), SubResource("NH1"), SubResource("NH2"), SubResource("NH3"), SubResource("NH6"), SubResource("NH4"), SubResource("NH5")]
+AttackProfiles = [SubResource("P0")]

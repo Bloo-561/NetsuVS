@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dr8cly8qy5pg2"]
+
+[ext_resource type="PackedScene" uid="uid://blnwu2aaw8s60" path="res://engine/ui/instances/Sakuga_UI.tscn" id="1"]
+[ext_resource type="Script" uid="uid://8r60yfod0dqc" path="res://engine/sakuga/Components/GameMonitor.cs" id="2"]
+[ext_resource type="AudioStream" uid="uid://bajeey2drywbk" path="res://assets/audio/music/mahou/07 Victory Screen [No Loop].wav" id="3"]
+[ext_resource type="Script" uid="uid://cmq3cp1n0copp" path="res://engine/sakuga/Components/FrameTimer.cs" id="4"]
+[ext_resource type="Script" uid="uid://xmbdtaq2pt7v" path="res://engine/sakuga/Game/GameManager.cs" id="5"]
+[ext_resource type="Resource" uid="uid://c320twmibeytx" path="res://data/match_settings.tres" id="6"]
+[ext_resource type="Resource" uid="uid://c8s3ip7gkhwq6" path="res://data/roster.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bl30fi0muatu1" path="res://data/stage_list.tres" id="8"]
+[ext_resource type="Resource" uid="uid://fxj4uvd0y37r" path="res://data/soundtrack.tres" id="9"]
+[ext_resource type="Resource" uid="uid://c0c1ggbvua31f" path="res://data/hit_notifications.tres" id="10"]
+[ext_resource type="Script" uid="uid://j5t0o28p2u6u" path="res://engine/sakuga/Game/SakugaRollbackManager.cs" id="11"]
+[ext_resource type="Script" uid="uid://vkei5fxedpo3" path="res://engine/sakuga/Components/FighterCamera.cs" id="12"]
+[ext_resource type="PackedScene" uid="uid://ddk88hnicwprh" path="res://game/ui/battle_hud/netsu_hud.tscn" id="netsu_hud"]
+[ext_resource type="PackedScene" path="res://game/ui/battle_hud/netsu_match_overlay.tscn" id="netsu_overlay"]
+[ext_resource type="PackedScene" path="res://game/ui/pause/netsu_pause_menu.tscn" id="netsu_pause"]
+[ext_resource type="Script" uid="uid://b2myky8mlq5y5" path="res://scenes/battle/battle_resolution.gd" id="netsu_resolution"]
+[ext_resource type="PackedScene" path="res://game/ui/training/netsu_training_hud.tscn" id="netsu_training"]
+[ext_resource type="PackedScene" uid="uid://bdeoi5asukhj2" path="res://game/ui/win_screen/netsu_win_screen.tscn" id="netsu_win"]
+
+[node name="Root" type="Node3D" unique_id=830545614]
+
+[node name="CanvasLayer" parent="." unique_id=496379931 instance=ExtResource("1")]
+
+[node name="NetsuHUD" parent="CanvasLayer" unique_id=1431119707 instance=ExtResource("netsu_hud")]
+
+[node name="NetsuWinScreen" parent="CanvasLayer" unique_id=474488160 instance=ExtResource("netsu_win")]
+
+[node name="NetsuMatchOverlay" parent="CanvasLayer" unique_id=1191566500 instance=ExtResource("netsu_overlay")]
+
+[node name="NetsuTrainingHUD" parent="CanvasLayer" unique_id=1278137940 instance=ExtResource("netsu_training")]
+
+[node name="NetsuPauseMenu" parent="CanvasLayer" unique_id=161035744 instance=ExtResource("netsu_pause")]
+
+[node name="GameMonitor" type="Node" parent="." unique_id=705812554 node_paths=PackedStringArray("DelayTimer")]
+process_mode = 4
+script = ExtResource("2")
+DelayTimer = NodePath("RoundDelay")
+VictoryJingle = ExtResource("3")
+
+[node name="RoundDelay" type="Node" parent="GameMonitor" unique_id=1307511705]
+script = ExtResource("4")
+metadata/_custom_type_script = "uid://cmq3cp1n0copp"
+
+[node name="GameManager" type="Node" parent="." unique_id=2009171254 node_paths=PackedStringArray("Monitor", "FighterUI", "Camera")]
+process_priority = 1
+script = ExtResource("5")
+Match = ExtResource("6")
+Monitor = NodePath("../GameMonitor")
+fightersList = ExtResource("7")
+stagesList = ExtResource("8")
+songsList = ExtResource("9")
+notifications = ExtResource("10")
+FighterUI = NodePath("../CanvasLayer")
+Camera = NodePath("../Camera3D")
+NetsuOtgWindowFrames = 45
+
+[node name="RollbackManager" type="Node" parent="." unique_id=1298643102 node_paths=PackedStringArray("GameManager")]
+script = ExtResource("11")
+GameManager = NodePath("../GameManager")
+SpectatorDelay = 10
+InputSize = 2
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1747435269 node_paths=PackedStringArray("Listener")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -7)
+cull_mask = 1048557
+fov = 30.0
+script = ExtResource("12")
+Listener = NodePath("Listener")
+
+[node name="Listener" type="AudioListener3D" parent="Camera3D" unique_id=1514151645]
+current = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1790037158]
+bus = &"BGM"
+
+[node name="ResolutionOverride" type="Node" parent="." unique_id=1856940397]
+script = ExtResource("netsu_resolution")

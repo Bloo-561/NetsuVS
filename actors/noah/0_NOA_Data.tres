@@ -1,0 +1,180 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://2hcpic2pztz6"]
+
+[ext_resource type="Script" uid="uid://bne635raru5sj" path="res://engine/sakuga/Resources/FighterOutro.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bk2rhjw27ji6z" path="res://actors/noah/0_NOA_Profile.tres" id="2"]
+[ext_resource type="Resource" uid="uid://bcw22yesv4aod" path="res://actors/noah/Stances/NOA_Stance_Main.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bmau4fzxyg0q8" path="res://actors/noah/States/0_NOA_IdleState.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bixnqcxp0y11w" path="res://actors/noah/States/1_NOA_MoveForwardState.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bjchwwf0s1ajy" path="res://actors/noah/States/2_NOA_MoveBackwardsState.tres" id="6"]
+[ext_resource type="Resource" uid="uid://5falqmlmbye2" path="res://actors/noah/States/3_NOA_JumpIdleState.tres" id="7"]
+[ext_resource type="Resource" uid="uid://bh5wq76rfz0te" path="res://actors/noah/States/4_NOA_JumpForwardState.tres" id="8"]
+[ext_resource type="Resource" uid="uid://4is560i8cckl" path="res://actors/noah/States/5_NOA_JumpBackwardsState.tres" id="9"]
+[ext_resource type="Resource" uid="uid://83n8r7nhlv02" path="res://actors/noah/States/6_NOA_DashJumpState.tres" id="10"]
+[ext_resource type="Resource" uid="uid://bcusgrj8mcz35" path="res://actors/noah/States/7_NOA_SuperJumpIdleState.tres" id="11"]
+[ext_resource type="Resource" uid="uid://bd3pdvnmmt8kv" path="res://actors/noah/States/8_NOA_SuperJumpForwardState.tres" id="12"]
+[ext_resource type="Resource" uid="uid://bmeip3wm41kei" path="res://actors/noah/States/9_NOA_SuperJumpBackwardsState.tres" id="13"]
+[ext_resource type="Resource" uid="uid://bb3lb0rpcmq02" path="res://actors/noah/States/10_NOA_FallingState.tres" id="14"]
+[ext_resource type="Resource" uid="uid://bbcpsafz8cqul" path="res://actors/noah/States/11_NOA_LandingNeutralState.tres" id="15"]
+[ext_resource type="Resource" uid="uid://x85l8ydza1fq" path="res://actors/noah/States/12_NOA_LandingForwardState.tres" id="16"]
+[ext_resource type="Resource" uid="uid://bftih5n1hkltz" path="res://actors/noah/States/13_NOA_LandingBackwardsState.tres" id="17"]
+[ext_resource type="Resource" uid="uid://bkn2ucdtq8zoi" path="res://actors/noah/States/14_NOA_CrouchEnter.tres" id="18"]
+[ext_resource type="Resource" uid="uid://37bk3doxw8wy" path="res://actors/noah/States/15_NOA_Crouching.tres" id="19"]
+[ext_resource type="Resource" uid="uid://56i48ie0czyt" path="res://actors/noah/States/16_NOA_ForwardDashState.tres" id="20"]
+[ext_resource type="Resource" uid="uid://bkhsdq3n852k4" path="res://actors/noah/States/17_NOA_DashStopState.tres" id="21"]
+[ext_resource type="Resource" uid="uid://bl3r6m1cbjd5s" path="res://actors/noah/States/18_NOA_BackwardsDashState.tres" id="22"]
+[ext_resource type="Resource" uid="uid://x7vcqmekz62u" path="res://actors/noah/States/19_NOA_ForwardAirDashState.tres" id="23"]
+[ext_resource type="Resource" uid="uid://beg1wn6juo774" path="res://actors/noah/States/20_NOA_ForwardAirDashUpState.tres" id="24"]
+[ext_resource type="Resource" uid="uid://bascai2zpre6w" path="res://actors/noah/States/21_NOA_ForwardAirDashDownState.tres" id="25"]
+[ext_resource type="Resource" uid="uid://20i5mmeuxdgl" path="res://actors/noah/States/22_NOA_BackwardsAirDashState.tres" id="26"]
+[ext_resource type="Resource" uid="uid://72fn1ficsrhf" path="res://actors/noah/States/23_NOA_Hit_Ground_Weak.tres" id="27"]
+[ext_resource type="Resource" uid="uid://bchub5s5eizai" path="res://actors/noah/States/24_NOA_Hit_Ground_Strong.tres" id="28"]
+[ext_resource type="Resource" uid="uid://zr7r0yxbqc3s" path="res://actors/noah/States/25_NOA_Hit_Crouch_Weak.tres" id="29"]
+[ext_resource type="Resource" uid="uid://bbtxrwqhg2kkw" path="res://actors/noah/States/26_NOA_Hit_Sweep.tres" id="30"]
+[ext_resource type="Resource" uid="uid://0id6r2ed6ia0" path="res://actors/noah/States/27_NOA_Hit_Air_Weak.tres" id="31"]
+[ext_resource type="Resource" uid="uid://35bjzynk072n" path="res://actors/noah/States/28_NOA_Hit_Air_Strong.tres" id="32"]
+[ext_resource type="Resource" uid="uid://baw2hjg06i3kq" path="res://actors/noah/States/29_NOA_Hit_Crumple.tres" id="33"]
+[ext_resource type="Resource" uid="uid://8n1zvey28tjq" path="res://actors/noah/States/30_NOA_Hit_LaunchAway.tres" id="34"]
+[ext_resource type="Resource" uid="uid://2z5veyrdwhzn" path="res://actors/noah/States/31_NOA_Hit_LaunchUp.tres" id="35"]
+[ext_resource type="Resource" uid="uid://4aohv1d451aw" path="res://actors/noah/States/32_NOA_Hit_LaunchDown.tres" id="36"]
+[ext_resource type="Resource" uid="uid://bklmq11rc2vwe" path="res://actors/noah/States/33_NOA_Hit_Bounce_Ground.tres" id="37"]
+[ext_resource type="Resource" uid="uid://bl67ar5ygbxeq" path="res://actors/noah/States/34_NOA_Hit_Bounce_Wall.tres" id="38"]
+[ext_resource type="Resource" uid="uid://6bxwkx7nftpo" path="res://actors/noah/States/35_NOA_Hit_UpToDown.tres" id="39"]
+[ext_resource type="Resource" uid="uid://7dwpipb0nrts" path="res://actors/noah/States/36_NOA_Hit_Falling.tres" id="40"]
+[ext_resource type="Resource" uid="uid://bamujdsc3jj8q" path="res://actors/noah/States/37_NOA_Hit_Knockdown.tres" id="41"]
+[ext_resource type="Resource" uid="uid://27cew7pahr1i" path="res://actors/noah/States/38_NOA_Hit_Knockdown_Slide.tres" id="42"]
+[ext_resource type="Resource" uid="uid://bbgwvug5yuisi" path="res://actors/noah/States/39_NOA_Hit_Knockdown_Spin.tres" id="43"]
+[ext_resource type="Resource" uid="uid://bibmvxybvzm7p" path="res://actors/noah/States/40_NOA_Hit_Down.tres" id="44"]
+[ext_resource type="Resource" uid="uid://31ss25nvhmeh" path="res://actors/noah/States/41_NOA_Hit_GetUp.tres" id="45"]
+[ext_resource type="Resource" uid="uid://563br2blyjgu" path="res://actors/noah/States/42_NOA_KO.tres" id="46"]
+[ext_resource type="Resource" uid="uid://bg6tklq4r1m32" path="res://actors/noah/States/43_NOA_Recovery_GroundForward.tres" id="47"]
+[ext_resource type="Resource" uid="uid://2qo2sucgddhm" path="res://actors/noah/States/44_NOA_Recovery_GroundBackwards.tres" id="48"]
+[ext_resource type="Resource" uid="uid://bjfeq4v0z0kmn" path="res://actors/noah/States/45_NOA_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://8603czk4muaq" path="res://actors/noah/States/46_NOA_Recovery_AirForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://zdkxgs1af6sx" path="res://actors/noah/States/47_NOA_Recovery_AirBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://bboqlaneipnfz" path="res://actors/noah/States/48_NOA_Block_Neutral_Enter.tres" id="52"]
+[ext_resource type="Resource" uid="uid://bb6p2lcu6z4dh" path="res://actors/noah/States/49_NOA_Blockstun_Neutral.tres" id="53"]
+[ext_resource type="Resource" uid="uid://bi4vqj2jmr7u4" path="res://actors/noah/States/50_NOA_Block_Neutral_Exit.tres" id="54"]
+[ext_resource type="Resource" uid="uid://be8l6x4t8elgl" path="res://actors/noah/States/51_NOA_Guard_Break_Neutral.tres" id="55"]
+[ext_resource type="Resource" uid="uid://2elpwwf3m3au" path="res://actors/noah/States/52_NOA_Blocking_Neutral.tres" id="56"]
+[ext_resource type="Resource" uid="uid://1p6dhpzrqkyn" path="res://actors/noah/States/53_NOA_Block_Crouch_Enter.tres" id="57"]
+[ext_resource type="Resource" uid="uid://bghibd7za615u" path="res://actors/noah/States/54_NOA_Blockstun_Crouch.tres" id="58"]
+[ext_resource type="Resource" uid="uid://8g07ie5rvm54" path="res://actors/noah/States/55_NOA_Block_Crouch_Exit.tres" id="59"]
+[ext_resource type="Resource" uid="uid://5rtc5x4ynica" path="res://actors/noah/States/56_NOA_Guard_Break_Crouch.tres" id="60"]
+[ext_resource type="Resource" uid="uid://bdia2wn70ogq4" path="res://actors/noah/States/57_NOA_Blocking_Crouch.tres" id="61"]
+[ext_resource type="Resource" uid="uid://bisvc20eeh003" path="res://actors/noah/States/58_NOA_Block_Air_Enter.tres" id="62"]
+[ext_resource type="Resource" uid="uid://bcfuadj6a0axt" path="res://actors/noah/States/59_NOA_Blockstun_Air.tres" id="63"]
+[ext_resource type="Resource" uid="uid://bc72xauz1v4vb" path="res://actors/noah/States/60_NOA_Block_Air_Exit.tres" id="64"]
+[ext_resource type="Resource" uid="uid://bdvdx2e7dnmmu" path="res://actors/noah/States/61_NOA_Guard_Break_Air.tres" id="65"]
+[ext_resource type="Resource" uid="uid://baf036i484w6w" path="res://actors/noah/States/62_NOA_Blocking_Air.tres" id="66"]
+[ext_resource type="Resource" uid="uid://bhkdsjejmmi28" path="res://actors/noah/States/63_NOA_5A.tres" id="67"]
+[ext_resource type="Resource" uid="uid://5v432ec6jd7g" path="res://actors/noah/States/64_NOA_5B.tres" id="68"]
+[ext_resource type="Resource" uid="uid://bbxhmwmquv8ja" path="res://actors/noah/States/65_NOA_5C.tres" id="69"]
+[ext_resource type="Resource" uid="uid://bbhrpsmphkkz7" path="res://actors/noah/States/66_NOA_2A.tres" id="70"]
+[ext_resource type="Resource" uid="uid://3yz0aiiy36xl" path="res://actors/noah/States/67_NOA_2B.tres" id="71"]
+[ext_resource type="Resource" uid="uid://bh4em8cu58h2c" path="res://actors/noah/States/68_NOA_2C.tres" id="72"]
+[ext_resource type="Resource" uid="uid://bjdk26vp5a0g7" path="res://actors/noah/States/69_NOA_J5A.tres" id="73"]
+[ext_resource type="Resource" uid="uid://8x6cwrbxu1nj" path="res://actors/noah/States/70_NOA_J5B.tres" id="74"]
+[ext_resource type="Resource" uid="uid://bdo3mri55cl7t" path="res://actors/noah/States/71_NOA_J5C.tres" id="75"]
+[ext_resource type="Resource" uid="uid://yi5vt7epe07a" path="res://actors/noah/States/72_NOA_6C.tres" id="76"]
+[ext_resource type="Resource" uid="uid://bj5nklutu6eoa" path="res://actors/noah/States/86_NOA_XCancelState.tres" id="90"]
+[ext_resource type="Resource" uid="uid://bjw3dyy35ptaq" path="res://actors/noah/States/87_NOA_BurstState.tres" id="91"]
+[ext_resource type="Resource" uid="uid://bbngpftfrf8ei" path="res://actors/noah/States/88_NOA_LastWishBurstState.tres" id="92"]
+[ext_resource type="Resource" uid="uid://ba451fk8xahkq" path="res://actors/noah/States/1000_NOA_Intro.tres" id="93"]
+[ext_resource type="Resource" uid="uid://bhj62zv1xh132" path="res://actors/noah/States/1001_NOA_Victory.tres" id="94"]
+[ext_resource type="Resource" uid="uid://4lzn5dyva522" path="res://actors/noah/States/1002_NOA_Defeat.tres" id="95"]
+[ext_resource type="Resource" uid="uid://bij7pt6yz5d4z" path="res://actors/noah/AI/NOA_AIData.tres" id="96"]
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="97"]
+[ext_resource type="Resource" uid="uid://bc7l678d24ly1" path="res://actors/noah/States/NOA_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://yfwxu0sym7jx" path="res://actors/noah/States/NOA_AssistCall.tres" id="st_FLN_AssistCall"]
+[ext_resource type="Resource" uid="uid://bdf5fxxsbl0d8" path="res://actors/noah/States/NOA_Throw.tres" id="st_FLN_Throw"]
+[ext_resource type="Resource" uid="uid://batf6aqm5rqwl" path="res://actors/noah/States/NOA_ThrowForward.tres" id="st_FLN_ThrowForward"]
+[ext_resource type="Resource" uid="uid://bjbwtumsv20f0" path="res://actors/noah/States/NOA_ThrowBack.tres" id="st_FLN_ThrowBack"]
+[ext_resource type="Resource" uid="uid://bk1it3yluqgb1" path="res://actors/noah/States/NOA_Grabbed.tres" id="st_FLN_Grabbed"]
+[ext_resource type="Resource" uid="uid://057dj3572pl4" path="res://actors/noah/States/NOA_ThrowBreak.tres" id="st_FLN_ThrowBreak"]
+[ext_resource type="Resource" uid="uid://bda1pyr3avdnj" path="res://actors/noah/States/NOA_CrouchExit.tres" id="st_FLN_CrouchExit"]
+[ext_resource type="Resource" uid="uid://7umgg0k34ymj" path="res://actors/noah/States/73_NOA_236A.tres" id="st_73_NOA_236A"]
+[ext_resource type="Resource" uid="uid://8k6cwxtvy4zj" path="res://actors/noah/States/74_NOA_236B.tres" id="st_74_NOA_236B"]
+[ext_resource type="Resource" uid="uid://bco6xu0ysf8s1" path="res://actors/noah/States/75_NOA_236C.tres" id="st_75_NOA_236C"]
+[ext_resource type="Resource" uid="uid://bg50crrb0jrbt" path="res://actors/noah/States/76_NOA_623A.tres" id="st_76_NOA_623A"]
+[ext_resource type="Resource" uid="uid://bem6ii4y4lmfd" path="res://actors/noah/States/77_NOA_623B.tres" id="st_77_NOA_623B"]
+[ext_resource type="Resource" uid="uid://3eqvcxltsjv3" path="res://actors/noah/States/78_NOA_623C.tres" id="st_78_NOA_623C"]
+[ext_resource type="Resource" uid="uid://bbc384ppnwfi3" path="res://actors/noah/States/79_NOA_SNAP.tres" id="st_79_NOA_SNAP"]
+[ext_resource type="Resource" uid="uid://1igbp682dged" path="res://actors/noah/States/80_NOA_214A.tres" id="st_80_NOA_214A"]
+[ext_resource type="Resource" uid="uid://8pcvmmxjkkkq" path="res://actors/noah/States/81_NOA_GRASP.tres" id="st_81_NOA_GRASP"]
+[ext_resource type="Resource" uid="uid://0hf7kkt6fii3" path="res://actors/noah/States/82_NOA_214B.tres" id="st_82_NOA_214B"]
+[ext_resource type="Resource" uid="uid://bkqumzlkkz2l3" path="res://actors/noah/States/83_NOA_214C.tres" id="st_83_NOA_214C"]
+[ext_resource type="Resource" uid="uid://y5dqtpbjvjb0" path="res://actors/noah/States/84_NOA_DEVOUR.tres" id="st_84_NOA_DEVOUR"]
+[ext_resource type="Resource" uid="uid://bkboisosfssp3" path="res://actors/noah/States/85_NOA_RAY.tres" id="st_85_NOA_RAY"]
+[ext_resource type="Resource" uid="uid://be4dpwise864x" path="res://actors/noah/States/92_NOA_jGRASP.tres" id="st_92_NOA_jGRASP"]
+[ext_resource type="Resource" uid="uid://bhp8dohbal8e4" path="res://actors/noah/States/93_NOA_jGRASP_hit.tres" id="st_93_NOA_jGRASP_hit"]
+[ext_resource type="Resource" uid="uid://05odqfqz671d" path="res://actors/noah/States/94_NOA_jGRASP_land.tres" id="st_94_NOA_jGRASP_land"]
+[ext_resource type="Resource" uid="uid://x77qxi0pulnh" path="res://actors/noah/States/95_NOA_jHAMMER.tres" id="st_95_NOA_jHAMMER"]
+[ext_resource type="Resource" uid="uid://bexasm0a4soz5" path="res://actors/noah/States/97_NOA_LAND.tres" id="st_97_NOA_LAND"]
+[ext_resource type="Resource" uid="uid://ynd8djaksbpo" path="res://actors/noah/States/105_NOA_S1.tres" id="st_105_NOA_S1"]
+[ext_resource type="Resource" uid="uid://bdhks365w1fdv" path="res://actors/noah/States/106_NOA_S1_charge.tres" id="st_106_NOA_S1_charge"]
+[ext_resource type="Resource" uid="uid://y3vxp8aaeh8x" path="res://actors/noah/States/107_NOA_S2.tres" id="st_107_NOA_S2"]
+[ext_resource type="Resource" uid="uid://z1at8ct6z1ah" path="res://actors/noah/States/108_NOA_S2_carry.tres" id="st_108_NOA_S2_carry"]
+[ext_resource type="Resource" uid="uid://barc5vvca080u" path="res://actors/noah/States/109_NOA_S2_slams.tres" id="st_109_NOA_S2_slams"]
+[ext_resource type="Resource" uid="uid://4lixpsrb7tbb" path="res://actors/noah/States/110_NOA_S2_finish.tres" id="st_110_NOA_S2_finish"]
+[ext_resource type="Resource" uid="uid://bj8gr622jybcu" path="res://actors/noah/States/111_NOA_S2_land.tres" id="st_111_NOA_S2_land"]
+[ext_resource type="Resource" path="res://actors/noah/States/NOA_Pushblock_Crouch.tres" id="netsu_pb_crouch"]
+
+[ext_resource type="Resource" path="res://actors/noah/States/NOA_AirThrow.tres" id="st_c12_at"]
+[ext_resource type="Resource" path="res://actors/noah/States/NOA_AirThrowForward.tres" id="st_c12_af"]
+[ext_resource type="Resource" path="res://actors/noah/States/NOA_AirThrowBack.tres" id="st_c12_ab"]
+[ext_resource type="Resource" path="res://actors/noah/States/115_NOA_jRAY.tres" id="c30_0"]
+[ext_resource type="Resource" path="res://actors/noah/States/116_NOA_RISER.tres" id="c30_1"]
+[sub_resource type="Resource" id="outro_0"]
+script = ExtResource("1")
+StateIndex = -1
+FinalMessage = "...Stay down. I can't hold it
+back much longer."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_1"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Noah"
+FinalMessage = "So that's what I look like
+when it takes over. Hm."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_2"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Cecilia"
+FinalMessage = "Your lightning's bright, Cecilia.
+The dark still swallowed it."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_3"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Flan"
+FinalMessage = "Starlight, huh. It tasted
+warm. Sorry."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[sub_resource type="Resource" id="outro_4"]
+script = ExtResource("1")
+StateIndex = -1
+ForOpponent = "Leticia"
+FinalMessage = "Light bends near a black hole.
+Your shots never had a chance."
+metadata/_custom_type_script = "uid://bne635raru5sj"
+
+[resource]
+script = ExtResource("97")
+Profile = ExtResource("2")
+States = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("37"), ExtResource("38"), ExtResource("39"), ExtResource("40"), ExtResource("41"), ExtResource("42"), ExtResource("43"), ExtResource("44"), ExtResource("45"), ExtResource("46"), ExtResource("47"), ExtResource("48"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("56"), ExtResource("57"), ExtResource("58"), ExtResource("59"), ExtResource("60"), ExtResource("61"), ExtResource("62"), ExtResource("63"), ExtResource("64"), ExtResource("65"), ExtResource("66"), ExtResource("67"), ExtResource("68"), ExtResource("69"), ExtResource("70"), ExtResource("71"), ExtResource("72"), ExtResource("73"), ExtResource("74"), ExtResource("75"), ExtResource("76"), ExtResource("st_73_NOA_236A"), ExtResource("st_74_NOA_236B"), ExtResource("st_75_NOA_236C"), ExtResource("st_76_NOA_623A"), ExtResource("st_77_NOA_623B"), ExtResource("st_78_NOA_623C"), ExtResource("st_79_NOA_SNAP"), ExtResource("st_80_NOA_214A"), ExtResource("st_81_NOA_GRASP"), ExtResource("st_82_NOA_214B"), ExtResource("st_83_NOA_214C"), ExtResource("st_84_NOA_DEVOUR"), ExtResource("st_85_NOA_RAY"), ExtResource("90"), ExtResource("91"), ExtResource("92"), ExtResource("93"), ExtResource("94"), ExtResource("95"), ExtResource("st_92_NOA_jGRASP"), ExtResource("st_93_NOA_jGRASP_hit"), ExtResource("st_94_NOA_jGRASP_land"), ExtResource("st_95_NOA_jHAMMER"), ExtResource("net_Breakthrough"), ExtResource("st_97_NOA_LAND"), ExtResource("st_FLN_AssistCall"), ExtResource("st_FLN_Throw"), ExtResource("st_FLN_ThrowForward"), ExtResource("st_FLN_ThrowBack"), ExtResource("st_FLN_Grabbed"), ExtResource("st_FLN_ThrowBreak"), ExtResource("st_FLN_CrouchExit"), ExtResource("st_105_NOA_S1"), ExtResource("st_106_NOA_S1_charge"), ExtResource("st_107_NOA_S2"), ExtResource("st_108_NOA_S2_carry"), ExtResource("st_109_NOA_S2_slams"), ExtResource("st_110_NOA_S2_finish"), ExtResource("st_111_NOA_S2_land"), ExtResource("st_c12_at"), ExtResource("st_c12_af"), ExtResource("st_c12_ab"), ExtResource("c30_0"), ExtResource("c30_1"), ExtResource("netsu_pb_crouch")]
+Stances = [ExtResource("3")]
+MaxHealth = 12500
+MaxSuperGauge = 40000
+SuperGaugeChargeRate = 0
+MaxWill = 10000
+_aiData = ExtResource("96")
+Intros = null
+Outros = [SubResource("outro_0"), SubResource("outro_1"), SubResource("outro_2"), SubResource("outro_3"), SubResource("outro_4")]
+VictoryPoses = null
+NetsuScale = 1100
+metadata/_custom_type_script = "uid://bsbjg1nuyall1"

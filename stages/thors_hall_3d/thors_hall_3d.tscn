@@ -1,0 +1,173 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://stages/thors_hall_3d/thors_hall_3d.glb" id="1_glb"]
+[ext_resource type="Shader" path="res://stages/thors_hall_3d/thors_hall_floor.gdshader" id="2_floor"]
+[ext_resource type="Texture2D" path="res://stages/thors_hall_3d/textures/floor_albedo.png" id="3_alb"]
+[ext_resource type="Texture2D" path="res://stages/thors_hall_3d/textures/floor_light.png" id="4_light"]
+[ext_resource type="Shader" path="res://stages/thors_hall_3d/thors_hall_shaft.gdshader" id="5_shaft"]
+[ext_resource type="Shader" path="res://stages/thors_hall_3d/thors_hall_sky.gdshader" id="6_sky"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+render_priority = 0
+shader = ExtResource("2_floor")
+shader_parameter/albedo_tex = ExtResource("3_alb")
+shader_parameter/light_tex = ExtResource("4_light")
+
+[sub_resource type="ShaderMaterial" id="Mat_sky"]
+render_priority = 0
+shader = ExtResource("6_sky")
+shader_parameter/mirrored = false
+shader_parameter/zenith_color = Color(0.27, 0.5, 0.84, 1)
+shader_parameter/sky_color = Color(0.47, 0.67, 0.9, 1)
+shader_parameter/horizon_color = Color(0.78, 0.86, 0.94, 1)
+shader_parameter/sun_glow_color = Color(1, 0.94, 0.82, 1)
+shader_parameter/sun_dir = Vector3(0.62, 0.17, 0.77)
+shader_parameter/sun_glow = 0.45
+shader_parameter/cloud_lit = Color(1, 1, 1, 1)
+shader_parameter/cloud_shade = Color(0.7, 0.76, 0.86, 1)
+shader_parameter/cloud_cover = 0.55
+shader_parameter/cloud_softness = 0.14
+shader_parameter/cloud_opacity = 1.0
+shader_parameter/far_hills = Color(0.66, 0.74, 0.82, 1)
+shader_parameter/near_hills = Color(0.52, 0.62, 0.68, 1)
+shader_parameter/ground_color = Color(0.5, 0.58, 0.6, 1)
+
+[sub_resource type="ShaderMaterial" id="Mat_sky_mirror"]
+render_priority = 0
+shader = ExtResource("6_sky")
+shader_parameter/mirrored = true
+shader_parameter/zenith_color = Color(0.27, 0.5, 0.84, 1)
+shader_parameter/sky_color = Color(0.47, 0.67, 0.9, 1)
+shader_parameter/horizon_color = Color(0.78, 0.86, 0.94, 1)
+shader_parameter/sun_glow_color = Color(1, 0.94, 0.82, 1)
+shader_parameter/sun_dir = Vector3(0.62, 0.17, 0.77)
+shader_parameter/sun_glow = 0.45
+shader_parameter/cloud_lit = Color(1, 1, 1, 1)
+shader_parameter/cloud_shade = Color(0.7, 0.76, 0.86, 1)
+shader_parameter/cloud_cover = 0.55
+shader_parameter/cloud_softness = 0.14
+shader_parameter/cloud_opacity = 1.0
+shader_parameter/far_hills = Color(0.66, 0.74, 0.82, 1)
+shader_parameter/near_hills = Color(0.52, 0.62, 0.68, 1)
+shader_parameter/ground_color = Color(0.5, 0.58, 0.6, 1)
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(31, 33.1)
+
+[sub_resource type="ShaderMaterial" id="Mat_shaft"]
+render_priority = 1
+shader = ExtResource("5_shaft")
+
+[sub_resource type="StandardMaterial3D" id="Mat_glass"]
+render_priority = -1
+transparency = 1
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(0.9, 0.94, 1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="Mat_dust"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.92, 0.78, 0.35)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_dust"]
+material = SubResource("Mat_dust")
+size = Vector2(0.03, 0.03)
+
+[sub_resource type="Gradient" id="Grad_dust"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.74, 0.82, 0.95, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.9, 0.88, 0.95, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 0
+glow_enabled = false
+glow_intensity = 0.25
+glow_strength = 0.9
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.95
+fog_enabled = true
+fog_light_color = Color(0.86, 0.84, 0.93, 1)
+fog_light_energy = 1.0
+fog_density = 0.0012
+fog_sky_affect = 0.0
+
+[node name="ThorsHall3D" type="Node3D"]
+
+[node name="Stage" parent="." instance=ExtResource("1_glb")]
+
+[node name="Shafts" parent="Stage"]
+material_override = SubResource("Mat_shaft")
+cast_shadow = 0
+
+[node name="Outside" parent="Stage"]
+material_override = SubResource("Mat_sky")
+cast_shadow = 0
+
+[node name="Glass" parent="Stage"]
+material_override = SubResource("Mat_glass")
+cast_shadow = 0
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10.55)
+cast_shadow = 0
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
+
+[node name="Reflection" parent="." instance=ExtResource("1_glb")]
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Shafts" parent="Reflection"]
+visible = false
+
+[node name="Outside" parent="Reflection"]
+material_override = SubResource("Mat_sky_mirror")
+
+[node name="Glass" parent="Reflection"]
+material_override = SubResource("Mat_glass")
+
+[node name="FX" type="Node3D" parent="."]
+
+[node name="Dust" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.4, -15)
+cast_shadow = 0
+amount = 180
+lifetime = 16.0
+preprocess = 16.0
+randomness = 0.5
+local_coords = true
+mesh = SubResource("Mesh_dust")
+emission_shape = 3
+emission_box_extents = Vector3(10, 3, 11)
+direction = Vector3(-0.5, 0.15, -0.3)
+spread = 180.0
+gravity = Vector3(0, -0.01, 0)
+initial_velocity_min = 0.02
+initial_velocity_max = 0.1
+scale_amount_min = 0.4
+scale_amount_max = 1.4
+color_ramp = SubResource("Grad_dust")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.545, -0.251, 0.8, 0, 0.954, 0.3, -0.838, -0.1635, 0.52, 0, 8, 0)
+light_color = Color(1, 0.81, 0.6, 1)
+light_energy = 0.8
+shadow_enabled = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[editable path="Stage"]
+[editable path="Reflection"]

@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="StageList" format=3 uid="uid://bl30fi0muatu1"]
+
+[ext_resource type="Script" uid="uid://dw7uv2j4bk58i" path="res://engine/sakuga/Resources/StageElement.cs" id="3"]
+[ext_resource type="Script" uid="uid://c2hiysdgxfpw6" path="res://engine/sakuga/Resources/StageList.cs" id="6"]
+[ext_resource type="Texture2D" uid="uid://d30kdl8r34o52" path="res://stages/thors_hall_3d/thors_hall_3d_thumb.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://ws1qcc5q343n" path="res://stages/crimson_abyss/crimson_abyss_thumb.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://u8ychmc5qmv0" path="res://stages/thors_hall_3d/thors_hall_3d_dusk_thumb.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://dwegfs0fcpq6e" path="res://stages/schoolhouse_depths/schoolhouse_depths_thumb.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://cmmpkxnrdmeu8" path="res://stages/celdic/celdic_thumb.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://chl55cvb7kwwf" path="res://stages/celdic/celdic_burning_thumb.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://bo7hdqbrxujhg" path="res://stages/geofront/geofront_vault_thumb.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://chreotmoucdjf" path="res://stages/north_ambria/north_ambria_thumb.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://ba3li6h8gy08v" path="res://stages/ordis_manor/ordis_manor_thumb.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://0vpyvamawt8v" path="res://stages/ordis_manor/ordis_manor_ruined_thumb.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://dykxth60olo4l" path="res://stages/schoolhouse_entrance/schoolhouse_entrance_thumb.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://ccbr35sud7y8j" path="res://stages/roer/roer_thumb.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://bk003gmb7bpio" path="res://stages/septian_chapel/septian_chapel_thumb.png" id="36"]
+
+[sub_resource type="Resource" id="Resource_th3d"]
+script = ExtResource("3")
+ScenePath = "res://stages/thors_hall_3d/thors_hall_3d.tscn"
+Name = "Thors Training Hall - Morning"
+Thumbnail = ExtResource("12")
+NetsuCameraTop = 8.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_th3d_dusk"]
+script = ExtResource("3")
+ScenePath = "res://stages/thors_hall_3d/thors_hall_3d_dusk.tscn"
+Name = "Thors Training Hall - Dusk"
+Thumbnail = ExtResource("16")
+NetsuCameraTop = 8.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_crimson"]
+script = ExtResource("3")
+ScenePath = "res://stages/crimson_abyss/crimson_abyss.tscn"
+Name = "Crimson Abyss"
+Thumbnail = ExtResource("14")
+NetsuCameraTop = 20.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_schoolhouse"]
+script = ExtResource("3")
+ScenePath = "res://stages/schoolhouse_depths/schoolhouse_depths.tscn"
+Name = "Depths of the Old Schoolhouse"
+Thumbnail = ExtResource("18")
+NetsuCameraTop = 20.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_celdic"]
+script = ExtResource("3")
+ScenePath = "res://stages/celdic/celdic.tscn"
+Name = "Celdic - Day"
+Thumbnail = ExtResource("20")
+NetsuCameraTop = 13.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_celdic_burning"]
+script = ExtResource("3")
+ScenePath = "res://stages/celdic/celdic_burning.tscn"
+Name = "Celdic - Burning"
+Thumbnail = ExtResource("22")
+NetsuCameraTop = 13.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_geofront"]
+script = ExtResource("3")
+ScenePath = "res://stages/geofront/geofront_vault.tscn"
+Name = "The GeoFront"
+Thumbnail = ExtResource("24")
+NetsuCameraTop = 11.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_north_ambria"]
+script = ExtResource("3")
+ScenePath = "res://stages/north_ambria/north_ambria.tscn"
+Name = "North Ambria"
+Thumbnail = ExtResource("26")
+NetsuCameraTop = 16.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_ordis"]
+script = ExtResource("3")
+ScenePath = "res://stages/ordis_manor/ordis_manor.tscn"
+Name = "Ordis Royal Manor - Day"
+Thumbnail = ExtResource("28")
+NetsuCameraTop = 11.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_ordis_ruined"]
+script = ExtResource("3")
+ScenePath = "res://stages/ordis_manor/ordis_manor_ruined.tscn"
+Name = "Ordis Royal Manor - Ruined"
+Thumbnail = ExtResource("30")
+NetsuCameraTop = 11.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_schoolhouse_entrance"]
+script = ExtResource("3")
+ScenePath = "res://stages/schoolhouse_entrance/schoolhouse_entrance.tscn"
+Name = "Old Schoolhouse -Entrance-"
+Thumbnail = ExtResource("32")
+NetsuCameraTop = 10.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_roer"]
+script = ExtResource("3")
+ScenePath = "res://stages/roer/roer.tscn"
+Name = "Roer"
+Thumbnail = ExtResource("34")
+NetsuCameraTop = 20.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[sub_resource type="Resource" id="Resource_septian_chapel"]
+script = ExtResource("3")
+ScenePath = "res://stages/septian_chapel/septian_chapel.tscn"
+Name = "Septian Chapel"
+Thumbnail = ExtResource("36")
+NetsuCameraTop = 20.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
+[resource]
+script = ExtResource("6")
+elements = [SubResource("Resource_th3d"), SubResource("Resource_th3d_dusk"), SubResource("Resource_crimson"), SubResource("Resource_schoolhouse"), SubResource("Resource_celdic"), SubResource("Resource_celdic_burning"), SubResource("Resource_geofront"), SubResource("Resource_north_ambria"), SubResource("Resource_ordis"), SubResource("Resource_ordis_ruined"), SubResource("Resource_schoolhouse_entrance"), SubResource("Resource_roer"), SubResource("Resource_septian_chapel")]

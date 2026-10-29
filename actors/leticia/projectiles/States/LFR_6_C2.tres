@@ -1,0 +1,105 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Resource" path="res://actors/leticia/projectiles/AnimationData/LFR_6_C2_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="3"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="4"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="7"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+Velocity = 360000
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Velocity = -175000
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("4")
+Actions = [SubResource("s1"), SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+Velocity = 300000
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("3")
+Velocity = 180000
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("5")
+Frame = 12
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("4")
+Conditions = [SubResource("s6")]
+Actions = [SubResource("s4"), SubResource("s5")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("2")
+Velocity = 300000
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Velocity = -170000
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("5")
+Frame = 18
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("4")
+Conditions = [SubResource("s10")]
+Actions = [SubResource("s8"), SubResource("s9")]
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("2")
+Velocity = 280000
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Velocity = 0
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("5")
+Frame = 24
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("4")
+Conditions = [SubResource("s14")]
+Actions = [SubResource("s12"), SubResource("s13")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("6")
+StateIndex = 8
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("5")
+Frame = 32
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("4")
+Conditions = [SubResource("s17")]
+Actions = [SubResource("s16")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("6")
+StateIndex = 8
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("4")
+Actions = [SubResource("s19")]
+
+[resource]
+script = ExtResource("7")
+StateName = "Fragment C2"
+Type = 2
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("s18")]
+OnEnterEvents = [SubResource("s3")]
+OnTickEvents = [SubResource("s7"), SubResource("s11"), SubResource("s15")]
+OnExitEvents = null
+OnHitConfirmEvents = [SubResource("s20")]
+OnHitReactionEvents = null

@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://r3m7fsjmeyqa"]
+
+[ext_resource type="Resource" uid="uid://3tp2p3713j9r" path="res://actors/flan/AnimationData/200_FLN_Recovery_Backwards_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://ssl4hfujwq4k" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CallNotificationAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="7"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="8"]
+
+[sub_resource type="Resource" id="Resource_a6u17"]
+script = ExtResource("2")
+Velocity = 50000
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_3y6qb"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_a6u17")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_8ujpy"]
+script = ExtResource("4")
+Index = 5
+metadata/_custom_type_script = "uid://ssl4hfujwq4k"
+
+[sub_resource type="Resource" id="Resource_ec648"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_8ujpy")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_skgkm"]
+script = ExtResource("5")
+SetValue = true
+UseDefault = true
+metadata/_custom_type_script = "uid://dcnb575mw2hwp"
+
+[sub_resource type="Resource" id="Resource_dtsb1"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_skgkm")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_4jtjm"]
+script = ExtResource("6")
+StateIndex = 10
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_7bqqd"]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_pfn6j"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_7bqqd")]
+Actions = [SubResource("Resource_4jtjm")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("8")
+StateName = "Recovery_Air_Back"
+Type = 5
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_pfn6j")]
+OnEnterEvents = [SubResource("Resource_3y6qb"), SubResource("Resource_ec648")]
+OnTickEvents = [SubResource("Resource_dtsb1")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 4

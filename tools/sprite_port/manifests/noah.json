@@ -1,0 +1,4430 @@
+{
+ "character": "noah",
+ "tag": "NOA",
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "reference": "Noah_Complete/Basics/PNG/Idle_Reference.png",
+ "source_dirs": [
+  "Noah_Complete/Basics/PNG",
+  "Noah_Complete/Idle/Character_Base",
+  "Noah_Complete/Movement/Jump_and_Run/PNG",
+  "Noah_Complete/Normals",
+  "Noah_Complete/Specials/214A",
+  "Noah_Complete/Specials/214B",
+  "Noah_Complete/Specials/214EX",
+  "Noah_Complete/Specials/214_Stocked_Beam",
+  "Noah_Complete/Specials/236",
+  "Noah_Complete/Specials/623",
+  "Noah_Complete/Specials/Air_214A",
+  "Noah_Complete/Supers/214214_God_Press/Character",
+  "Noah_Complete/Supers/Raging_Storm/Character"
+ ],
+ "fx": "purple",
+ "head_frac": 0.23,
+ "game": {
+  "height_px": 540,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5
+ },
+ "frames": {
+  "idle_0_1": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_00_Aura_01.png",
+   "scale": 3.57
+  },
+  "idle_0_2": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_00_Aura_02.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_0_3": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_00_Aura_03.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_0_4": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_00_Aura_04.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_1_1": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_01_Aura_01.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_1_2": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_01_Aura_02.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_1_3": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_01_Aura_03.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_1_4": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_01_Aura_04.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_2_1": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_02_Aura_01.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_2_2": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_02_Aura_02.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_2_3": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_02_Aura_03.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_2_4": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_02_Aura_04.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_3_1": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_03_Aura_01.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_3_2": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_03_Aura_02.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_3_3": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_03_Aura_03.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "idle_3_4": {
+   "src": "Noah_Complete/Idle/Composite_PNG/Idle_03_Aura_04.png",
+   "anchor": "like",
+   "like": "idle_0_1"
+  },
+  "stand": {
+   "src": "Noah_Complete/Basics/PNG/Idle_Reference.png",
+   "scale": 1.0
+  },
+  "backstep": {
+   "src": "Noah_Complete/Basics/PNG/Backstep.png",
+   "scale": 1.18,
+   "anchor": "body_ground"
+  },
+  "airdash_f": {
+   "src": "Noah_Complete/Basics/PNG/AirDash_Forward.png",
+   "scale": 1.16,
+   "anchor": "air"
+  },
+  "airdash_b": {
+   "src": "Noah_Complete/Basics/PNG/AirDash_Back.png",
+   "scale": 1.2,
+   "anchor": "air"
+  },
+  "airdash_rec": {
+   "src": "Noah_Complete/Basics/PNG/AirDash_Recover.png",
+   "scale": 1.1,
+   "anchor": "air"
+  },
+  "crouch_1": {
+   "src": "Noah_Complete/Basics/PNG/Crouch_Lower.png",
+   "scale": 1.18
+  },
+  "crouch_2": {
+   "src": "Noah_Complete/Basics/PNG/Crouch_Hold.png",
+   "scale": 1.14
+  },
+  "crouch_x": {
+   "src": "Noah_Complete/Basics/PNG/Crouch_Exit.png",
+   "scale": 1.12
+  },
+  "dmg_l": {
+   "src": "Noah_Complete/Basics/PNG/Damage_Light.png",
+   "scale": 1.36,
+   "anchor": "hips"
+  },
+  "dmg_h": {
+   "src": "Noah_Complete/Basics/PNG/Damage_Heavy.png",
+   "scale": 1.36,
+   "anchor": "hips"
+  },
+  "dmg_l_air": {
+   "src": "Noah_Complete/Basics/PNG/Damage_Light.png",
+   "scale": 1.36,
+   "anchor": "air"
+  },
+  "dmg_h_air": {
+   "src": "Noah_Complete/Basics/PNG/Damage_Heavy.png",
+   "scale": 1.36,
+   "anchor": "air"
+  },
+  "down": {
+   "src": "Noah_Complete/Basics/PNG/Downed.png",
+   "scale": 1.16,
+   "anchor": "lying"
+  },
+  "win_1": {
+   "src": "Noah_Complete/Basics/PNG/Win_01.png",
+   "scale": 1.0
+  },
+  "win_2": {
+   "src": "Noah_Complete/Basics/PNG/Win_02.png",
+   "scale": 1.0
+  },
+  "win_3": {
+   "src": "Noah_Complete/Basics/PNG/Win_03.png",
+   "scale": 1.06
+  },
+  "win_4": {
+   "src": "Noah_Complete/Basics/PNG/Win_04.png",
+   "scale": 1.17
+  },
+  "win_5": {
+   "src": "Noah_Complete/Basics/PNG/Win_05.png",
+   "scale": 1.15
+  },
+  "win_6": {
+   "src": "Noah_Complete/Basics/PNG/Win_06.png",
+   "scale": 1.12
+  },
+  "5a_rec": {
+   "src": "Noah_Complete/Basics/PNG/5A_Recover.png",
+   "scale": 1.2
+  },
+  "2a_rec": {
+   "src": "Noah_Complete/Basics/PNG/2A_Recover.png",
+   "scale": 1.2
+  },
+  "2b_rec": {
+   "src": "Noah_Complete/Basics/PNG/2B_Recover.png",
+   "scale": 1.24
+  },
+  "2c_follow": {
+   "src": "Noah_Complete/Basics/PNG/2C_Follow.png",
+   "scale": 1.17
+  },
+  "jump_1": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_01.png",
+   "scale": 0.93,
+   "anchor": "hips"
+  },
+  "jump_2": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_02.png",
+   "scale": 0.93,
+   "anchor": "air"
+  },
+  "jump_3": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_03.png",
+   "scale": 0.93,
+   "anchor": "air"
+  },
+  "jump_4": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_04.png",
+   "scale": 0.93,
+   "anchor": "air"
+  },
+  "jump_5": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_05.png",
+   "scale": 0.93,
+   "anchor": "air"
+  },
+  "jump_6": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Jump_06.png",
+   "scale": 0.93,
+   "anchor": "hips"
+  },
+  "run_1": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_01.png",
+   "scale": 0.92,
+   "anchor": "body_ground"
+  },
+  "run_2": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_02.png",
+   "scale": 0.92,
+   "anchor": "body_ground"
+  },
+  "run_3": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_03.png",
+   "scale": 0.92,
+   "anchor": "body_ground"
+  },
+  "run_4": {
+   "src": "Noah_Complete/Movement/Jump_and_Run/PNG/Run_Low_Arm_04.png",
+   "scale": 0.92,
+   "anchor": "body_ground"
+  },
+  "5a_act": {
+   "src": "derived/noah/5A_Active.png",
+   "scale": 1.8
+  },
+  "5b_act": {
+   "src": "derived/noah/5B_Active.png",
+   "scale": 1.8
+  },
+  "5c_act": {
+   "src": "derived/noah/5C_Active.png",
+   "scale": 1.8
+  },
+  "6c_act": {
+   "src": "derived/noah/6C_Active.png",
+   "scale": 1.8
+  },
+  "2a_act": {
+   "src": "derived/noah/2A_Active.png",
+   "scale": 1.85
+  },
+  "2b_act": {
+   "src": "derived/noah/2B_Active.png",
+   "scale": 1.85
+  },
+  "2c_act": {
+   "src": "derived/noah/2C_Active.png",
+   "scale": 1.85
+  },
+  "ja_1": {
+   "src": "Noah_Complete/Normals/Air/jA/Frame_01.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "ja_2": {
+   "src": "Noah_Complete/Normals/Air/jA/Frame_02.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "ja_3": {
+   "src": "Noah_Complete/Normals/Air/jA/Frame_03.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "ja_4": {
+   "src": "Noah_Complete/Normals/Air/jA/Frame_04.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jb_1": {
+   "src": "Noah_Complete/Normals/Air/jB/Frame_01.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jb_2": {
+   "src": "Noah_Complete/Normals/Air/jB/Frame_02.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jb_3": {
+   "src": "Noah_Complete/Normals/Air/jB/Frame_03.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jb_4": {
+   "src": "Noah_Complete/Normals/Air/jB/Frame_04.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jc_1": {
+   "src": "Noah_Complete/Normals/Air/jC/Frame_01.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jc_2": {
+   "src": "Noah_Complete/Normals/Air/jC/Frame_02.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jc_3": {
+   "src": "Noah_Complete/Normals/Air/jC/Frame_03.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "jc_4": {
+   "src": "Noah_Complete/Normals/Air/jC/Frame_04.png",
+   "scale": 1.7,
+   "anchor": "air"
+  },
+  "block_st": {
+   "src": "Noah_Complete/Basics/PNG/Backstep.png",
+   "scale": 1.18,
+   "anchor": "body_ground"
+  },
+  "block_cr": {
+   "src": "Noah_Complete/Basics/PNG/Crouch_Hold.png",
+   "scale": 1.14
+  },
+  "block_air": {
+   "src": "Noah_Complete/Basics/PNG/AirDash_Recover.png",
+   "scale": 1.1,
+   "anchor": "air"
+  },
+  "k_start": {
+   "src": "Noah_Complete/Specials/214A/01_Startup.png",
+   "scale": 3.15
+  },
+  "k_lunge": {
+   "src": "Noah_Complete/Specials/214A/02_Straight_Grab_Lunge.png",
+   "scale": 3.05
+  },
+  "k_recoil": {
+   "src": "Noah_Complete/Specials/214A/04_Compact_Recoil.png",
+   "scale": 2.95
+  },
+  "k_absorb": {
+   "src": "Noah_Complete/Specials/214A/05_Absorb.png",
+   "scale": 2.82
+  },
+  "k_rec": {
+   "src": "Noah_Complete/Specials/214A/06_Recovery.png",
+   "scale": 2.6
+  },
+  "h_prep": {
+   "src": "Noah_Complete/Specials/214B/01_Prepare.png",
+   "scale": 2.72
+  },
+  "h_turn": {
+   "src": "Noah_Complete/Specials/214B/02_Jump_Turn.png",
+   "scale": 2.72,
+   "anchor": "air"
+  },
+  "h_smash": {
+   "src": "Noah_Complete/Specials/214B/03_Overhead_Active.png",
+   "scale": 2.72,
+   "anchor": "air"
+  },
+  "h_follow": {
+   "src": "Noah_Complete/Specials/214B/04_Followthrough.png",
+   "scale": 2.8,
+   "anchor": "air"
+  },
+  "h_land": {
+   "src": "Noah_Complete/Specials/214B/05_Land.png",
+   "scale": 2.9
+  },
+  "h_rec": {
+   "src": "Noah_Complete/Specials/214B/06_Recover.png",
+   "scale": 2.58
+  },
+  "x_face": {
+   "src": "Noah_Complete/Specials/214EX/03_Face_Grab.png",
+   "scale": 3.0
+  },
+  "x_lift": {
+   "src": "Noah_Complete/Specials/214EX/04_Lift.png",
+   "scale": 2.66
+  },
+  "x_drain": {
+   "src": "Noah_Complete/Specials/214EX/05_Drain.png",
+   "scale": 2.58
+  },
+  "x_recoil": {
+   "src": "Noah_Complete/Specials/214EX/07_Recoil.png",
+   "scale": 2.72
+  },
+  "ray_pose": {
+   "src": "Noah_Complete/Specials/214_Stocked_Beam/Pained_Horizontal_Release.png",
+   "scale": 2.85
+  },
+  "w_gather": {
+   "src": "Noah_Complete/Specials/236/01_Gather.png",
+   "scale": 2.93
+  },
+  "w_windup": {
+   "src": "Noah_Complete/Specials/236/02_Low_Windup.png",
+   "scale": 3.27
+  },
+  "w_devil": {
+   "src": "Noah_Complete/Specials/236/03_Devil_Arm_Release.png",
+   "scale": 2.95
+  },
+  "w_human": {
+   "src": "Noah_Complete/Specials/236/04_Human_Arm_Release.png",
+   "scale": 2.67
+  },
+  "bh_summon": {
+   "src": "Noah_Complete/Specials/623/Summon_Hand_Out.png",
+   "scale": 2.55
+  },
+  "bh_snap": {
+   "src": "Noah_Complete/Specials/623/Activate_Finger_Snap.png",
+   "scale": 2.55
+  },
+  "ag_reach": {
+   "src": "Noah_Complete/Specials/Air_214A/01_Reach.png",
+   "scale": 3.5,
+   "anchor": "air"
+  },
+  "ag_grab": {
+   "src": "Noah_Complete/Specials/Air_214A/02_Grab.png",
+   "scale": 3.45,
+   "anchor": "air"
+  },
+  "ag_down": {
+   "src": "Noah_Complete/Specials/Air_214A/03_Diagonal_Descent.png",
+   "scale": 3.4,
+   "anchor": "air"
+  },
+  "ag_land": {
+   "src": "Noah_Complete/Specials/Air_214A/04_Land.png",
+   "scale": 3.4
+  },
+  "gp_01": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/01_Lean_Back.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_02": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/02_Sliding_Grab_Carry.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_05": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/05_Wall_Pullback.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_06": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/06_Wall_Slam.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_07": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/07_Lift.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_08": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/08_Energy_Discharge.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_09": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/09_Blast_Knockback.png",
+   "scale": 1.24,
+   "anchor": "air"
+  },
+  "gp_10": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/10_One_Knee_Landing.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_11": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/11_Push_Up.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "gp_12": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Character/12_Standing_Recovery.png",
+   "scale": 1.24,
+   "anchor": "pin",
+   "pin": [
+    400,
+    550
+   ]
+  },
+  "rs_00": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_00.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_10": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_10.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_11": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_11.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_12": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_12.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_13": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_13.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_14": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_14.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_15": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_15.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_51": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_51.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_52": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_52.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_53": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_53.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_54": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_54.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_55": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_55.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_60": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_60.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "rs_65": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Character/Pose_65.png",
+   "scale": 1.15,
+   "anchor": "pin",
+   "pin": [
+    520,
+    820
+   ]
+  },
+  "fx_ray": {
+   "src": "Noah_Complete/Specials/214_Stocked_Beam/Purple_Beam_Effect.png",
+   "anchor": "attach",
+   "attach": [
+    "ray_pose",
+    [
+     1148,
+     278
+    ],
+    [
+     30,
+     406
+    ]
+   ],
+   "scale": 1.92488
+  },
+  "fx_dex_1": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_01.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_dex_2": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_02.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_dex_3": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_03.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_dex_4": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_04.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_dex_5": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_05.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_dex_6": {
+   "src": "Noah_Complete/Specials/214EX/Explosion/Frame_06.png",
+   "anchor": "attach",
+   "attach": [
+    "x_drain",
+    [
+     1100,
+     70
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 2.20478
+  },
+  "fx_blast_1": {
+   "src": "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_01.png",
+   "anchor": "attach",
+   "attach": [
+    "ag_land",
+    [
+     1357,
+     732
+    ],
+    [
+     384,
+     490
+    ]
+   ],
+   "scale": 1.90799
+  },
+  "fx_wall_1": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/wallfx_01.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_06",
+    [
+     735,
+     190
+    ],
+    [
+     660,
+     230
+    ]
+   ],
+   "scale": 3.00652
+  },
+  "fx_blast_2": {
+   "src": "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_02.png",
+   "anchor": "attach",
+   "attach": [
+    "ag_land",
+    [
+     1357,
+     732
+    ],
+    [
+     384,
+     490
+    ]
+   ],
+   "scale": 1.90799
+  },
+  "fx_wall_2": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/wallfx_02.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_06",
+    [
+     735,
+     190
+    ],
+    [
+     660,
+     230
+    ]
+   ],
+   "scale": 3.00652
+  },
+  "fx_blast_3": {
+   "src": "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_03.png",
+   "anchor": "attach",
+   "attach": [
+    "ag_land",
+    [
+     1357,
+     732
+    ],
+    [
+     384,
+     490
+    ]
+   ],
+   "scale": 1.90799
+  },
+  "fx_wall_3": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/wallfx_03.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_06",
+    [
+     735,
+     190
+    ],
+    [
+     660,
+     230
+    ]
+   ],
+   "scale": 3.00652
+  },
+  "fx_blast_4": {
+   "src": "Noah_Complete/Specials/Air_214A/Ground_Blast/Frame_04.png",
+   "anchor": "attach",
+   "attach": [
+    "ag_land",
+    [
+     1357,
+     732
+    ],
+    [
+     384,
+     490
+    ]
+   ],
+   "scale": 1.90799
+  },
+  "fx_wall_4": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/wallfx_04.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_06",
+    [
+     735,
+     190
+    ],
+    [
+     660,
+     230
+    ]
+   ],
+   "scale": 3.00652
+  },
+  "fx_final_1": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_01.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_final_2": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_02.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_final_3": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_03.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_final_4": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_04.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_final_5": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_05.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_final_6": {
+   "src": "Noah_Complete/Supers/214214_God_Press/Effects/finalfx_06.png",
+   "anchor": "attach",
+   "attach": [
+    "gp_08",
+    [
+     585,
+     120
+    ],
+    [
+     256,
+     256
+    ]
+   ],
+   "scale": 1.83732
+  },
+  "fx_rs_charge_0": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/charge_00.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_charge_1": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/charge_01.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_charge_2": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/charge_02.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_charge_3": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/charge_03.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_charge_4": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/charge_04.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_slam_0": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/slam_00.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_slam_1": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/slam_01.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_slam_2": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/slam_02.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_slam_3": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/slam_03.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_0": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_00.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_1": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_01.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_2": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_02.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_3": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_03.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_4": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_04.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_loop_5": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/loop_05.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_fade_0": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/fade_00.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_fade_1": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/fade_01.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_fade_2": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/fade_02.png",
+   "anchor": "like",
+   "like": "rs_00"
+  },
+  "fx_rs_fade_3": {
+   "src": "Noah_Complete/Supers/Raging_Storm/Effects/fade_03.png",
+   "anchor": "like",
+   "like": "rs_00"
+  }
+ },
+ "animations": {
+  "0_NOA_Neutral": {
+   "keys": [
+    [
+     "idle_0_1",
+     0
+    ],
+    [
+     "idle_0_2",
+     5
+    ],
+    [
+     "idle_0_3",
+     11
+    ],
+    [
+     "idle_0_4",
+     16
+    ],
+    [
+     "idle_1_1",
+     22
+    ],
+    [
+     "idle_1_2",
+     27
+    ],
+    [
+     "idle_1_3",
+     33
+    ],
+    [
+     "idle_1_4",
+     38
+    ],
+    [
+     "idle_0_1",
+     44
+    ],
+    [
+     "idle_0_2",
+     49
+    ],
+    [
+     "idle_0_3",
+     55
+    ],
+    [
+     "idle_0_4",
+     60
+    ],
+    [
+     "idle_2_1",
+     66
+    ],
+    [
+     "idle_2_2",
+     71
+    ],
+    [
+     "idle_2_3",
+     77
+    ],
+    [
+     "idle_2_4",
+     82
+    ],
+    [
+     "idle_0_1",
+     88
+    ],
+    [
+     "idle_0_2",
+     93
+    ],
+    [
+     "idle_3_3",
+     99
+    ],
+    [
+     "idle_0_4",
+     104
+    ],
+    [
+     "idle_1_1",
+     110
+    ],
+    [
+     "idle_1_2",
+     115
+    ],
+    [
+     "idle_1_3",
+     121
+    ],
+    [
+     "idle_1_4",
+     126
+    ],
+    [
+     "idle_0_1",
+     132
+    ],
+    [
+     "idle_0_2",
+     137
+    ],
+    [
+     "idle_3_3",
+     143
+    ],
+    [
+     "idle_0_4",
+     148
+    ],
+    [
+     "idle_2_1",
+     154
+    ],
+    [
+     "idle_2_2",
+     159
+    ],
+    [
+     "idle_2_3",
+     165
+    ],
+    [
+     "idle_2_4",
+     170
+    ],
+    [
+     "idle_0_1",
+     176
+    ],
+    [
+     "idle_0_2",
+     181
+    ],
+    [
+     "idle_0_3",
+     187
+    ],
+    [
+     "idle_0_4",
+     192
+    ],
+    [
+     "idle_1_1",
+     198
+    ],
+    [
+     "idle_1_2",
+     203
+    ],
+    [
+     "idle_1_3",
+     209
+    ],
+    [
+     "idle_1_4",
+     214
+    ],
+    [
+     "idle_0_1",
+     220
+    ],
+    [
+     "idle_0_2",
+     225
+    ],
+    [
+     "idle_0_3",
+     231
+    ],
+    [
+     "idle_0_4",
+     236
+    ],
+    [
+     "idle_2_1",
+     242
+    ],
+    [
+     "idle_2_2",
+     247
+    ],
+    [
+     "idle_2_3",
+     253
+    ],
+    [
+     "idle_2_4",
+     258
+    ]
+   ],
+   "duration": 264
+  },
+  "1_NOA_MoveF": {
+   "keys": [
+    [
+     "run_1",
+     0
+    ],
+    [
+     "run_2",
+     9
+    ],
+    [
+     "run_3",
+     18
+    ],
+    [
+     "run_4",
+     27
+    ]
+   ],
+   "duration": 36
+  },
+  "2_NOA_MoveB": {
+   "keys": [
+    [
+     "run_4",
+     0
+    ],
+    [
+     "run_3",
+     10
+    ],
+    [
+     "run_2",
+     20
+    ],
+    [
+     "run_1",
+     30
+    ]
+   ],
+   "duration": 40
+  },
+  "3_NOA_Jump": {
+   "keys": [
+    [
+     "jump_1",
+     0
+    ],
+    [
+     "jump_2",
+     4
+    ],
+    [
+     "jump_3",
+     8
+    ],
+    [
+     "jump_4",
+     16
+    ],
+    [
+     "jump_5",
+     24
+    ]
+   ]
+  },
+  "3b_NOA_JumpForward": {
+   "keys": [
+    [
+     "jump_1",
+     0
+    ],
+    [
+     "jump_2",
+     4,
+     {
+      "rot": -4
+     }
+    ],
+    [
+     "jump_3",
+     8,
+     {
+      "rot": -6
+     }
+    ],
+    [
+     "jump_4",
+     16,
+     {
+      "rot": -4
+     }
+    ],
+    [
+     "jump_5",
+     24
+    ]
+   ]
+  },
+  "3c_NOA_JumpBackward": {
+   "keys": [
+    [
+     "jump_1",
+     0
+    ],
+    [
+     "jump_2",
+     4,
+     {
+      "rot": 5
+     }
+    ],
+    [
+     "jump_3",
+     8,
+     {
+      "rot": 7
+     }
+    ],
+    [
+     "jump_4",
+     16,
+     {
+      "rot": 4
+     }
+    ],
+    [
+     "jump_5",
+     24
+    ]
+   ]
+  },
+  "4_NOA_Falling": {
+   "keys": [
+    [
+     "jump_5",
+     0
+    ]
+   ]
+  },
+  "5_NOA_Landing": {
+   "keys": [
+    [
+     "jump_6",
+     0
+    ],
+    [
+     "crouch_x",
+     7
+    ]
+   ]
+  },
+  "6_NOA_CrouchEnter": {
+   "keys": [
+    [
+     "crouch_1",
+     0
+    ],
+    [
+     "crouch_2",
+     4
+    ]
+   ]
+  },
+  "7_NOA_Crouching": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ]
+   ]
+  },
+  "8_NOA_CrouchExit": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_x",
+     4
+    ]
+   ]
+  },
+  "9_NOA_DashFw": {
+   "keys": [
+    [
+     "run_1",
+     0
+    ],
+    [
+     "run_2",
+     5
+    ],
+    [
+     "run_3",
+     10
+    ],
+    [
+     "run_4",
+     15
+    ],
+    [
+     "run_1",
+     20
+    ],
+    [
+     "run_2",
+     25
+    ]
+   ]
+  },
+  "10_NOA_RunStop": {
+   "keys": [
+    [
+     "crouch_x",
+     0
+    ],
+    [
+     "stand",
+     9
+    ]
+   ]
+  },
+  "11_NOA_DashBw": {
+   "keys": [
+    [
+     "backstep",
+     0
+    ],
+    [
+     "backstep",
+     7,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "jump_6",
+     18
+    ]
+   ]
+  },
+  "12_NOA_AirDashFw": {
+   "keys": [
+    [
+     "airdash_f",
+     0
+    ],
+    [
+     "airdash_f",
+     4
+    ],
+    [
+     "airdash_rec",
+     18
+    ]
+   ]
+  },
+  "13_NOA_AirDashDir": {
+   "keys": [
+    [
+     "airdash_f",
+     0
+    ],
+    [
+     "airdash_f",
+     4
+    ],
+    [
+     "airdash_rec",
+     24
+    ]
+   ]
+  },
+  "14_NOA_AirDashBw": {
+   "keys": [
+    [
+     "airdash_b",
+     0
+    ],
+    [
+     "airdash_b",
+     4
+    ],
+    [
+     "airdash_rec",
+     18
+    ]
+   ]
+  },
+  "15_NOA_Hit_Weak": {
+   "keys": [
+    [
+     "dmg_l",
+     0,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "dmg_l",
+     2,
+     {
+      "dx": -6,
+      "rot": 1
+     }
+    ],
+    [
+     "dmg_l",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "dmg_l",
+     6,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "dmg_l",
+     7
+    ]
+   ]
+  },
+  "16_NOA_Hit_Strong": {
+   "keys": [
+    [
+     "dmg_h",
+     0,
+     {
+      "dx": -16,
+      "rot": 5
+     }
+    ],
+    [
+     "dmg_h",
+     2,
+     {
+      "dx": -12,
+      "rot": 3
+     }
+    ],
+    [
+     "dmg_h",
+     4,
+     {
+      "dx": -8,
+      "rot": 2
+     }
+    ],
+    [
+     "dmg_h",
+     6,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "dmg_h",
+     7
+    ]
+   ]
+  },
+  "17_NOA_Hit_Crouch": {
+   "keys": [
+    [
+     "crouch_2",
+     0,
+     {
+      "dx": -6,
+      "rot": 4
+     }
+    ],
+    [
+     "crouch_2",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "crouch_2",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "crouch_2",
+     7
+    ]
+   ]
+  },
+  "18_NOA_Hit_Sweep": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 24
+     }
+    ],
+    [
+     "dmg_h_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "dmg_h_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     6,
+     {
+      "rot": 12
+     }
+    ]
+   ]
+  },
+  "19_NOA_Hit_AirWeak": {
+   "keys": [
+    [
+     "dmg_l_air",
+     0,
+     {
+      "rot": 10
+     }
+    ],
+    [
+     "dmg_l_air",
+     2,
+     {
+      "rot": 12
+     }
+    ],
+    [
+     "dmg_l_air",
+     4,
+     {
+      "rot": 9
+     }
+    ],
+    [
+     "dmg_l_air",
+     6,
+     {
+      "rot": 5
+     }
+    ]
+   ]
+  },
+  "20_NOA_Hit_AirStrong": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     2,
+     {
+      "rot": 20
+     }
+    ],
+    [
+     "dmg_h_air",
+     4,
+     {
+      "rot": 16
+     }
+    ],
+    [
+     "dmg_h_air",
+     6,
+     {
+      "rot": 10
+     }
+    ]
+   ]
+  },
+  "21_NOA_Hit_Fall1": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 150
+     }
+    ]
+   ]
+  },
+  "21_NOA_Hit_Fall2": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 90
+     }
+    ]
+   ]
+  },
+  "21_NOA_Hit_FallTransition": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 45
+     }
+    ]
+   ]
+  },
+  "22_NOA_Hit_Knockdown1": {
+   "keys": [
+    [
+     "down",
+     0,
+     {
+      "dy": 14
+     }
+    ],
+    [
+     "down",
+     6,
+     {
+      "dy": 6
+     }
+    ]
+   ]
+  },
+  "22_NOA_Hit_Knockdown2": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "22_NOA_Hit_Knockdown3": {
+   "keys": [
+    [
+     "down",
+     0
+    ],
+    [
+     "down",
+     4,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "down",
+     8
+    ]
+   ]
+  },
+  "23_NOA_Hit_Down": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "24_NOA_Hit_GetUp": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "crouch_x",
+     6
+    ]
+   ]
+  },
+  "25_NOA_Hit_LaunchAway": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 35
+     }
+    ]
+   ]
+  },
+  "25_NOA_Hit_LaunchDown": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 120
+     }
+    ]
+   ]
+  },
+  "25_NOA_Hit_LaunchUp": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 15
+     }
+    ]
+   ]
+  },
+  "26_NOA_Hit_GroundBounce": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "dmg_h_air",
+     12,
+     {
+      "rot": 60
+     }
+    ]
+   ]
+  },
+  "26_NOA_Hit_WallBounce": {
+   "keys": [
+    [
+     "dmg_h_air",
+     0,
+     {
+      "rot": -20
+     }
+    ],
+    [
+     "dmg_h_air",
+     1,
+     {
+      "rot": 30
+     }
+    ]
+   ]
+  },
+  "27_NOA_Hit_Crumple": {
+   "keys": [
+    [
+     "dmg_h",
+     0
+    ],
+    [
+     "dmg_l",
+     10,
+     {
+      "rot": -6,
+      "dy": -6
+     }
+    ],
+    [
+     "crouch_1",
+     20
+    ],
+    [
+     "crouch_2",
+     32
+    ]
+   ]
+  },
+  "28_NOA_Hit_KO": {
+   "keys": [
+    [
+     "down",
+     0
+    ]
+   ]
+  },
+  "29_NOA_Stand_Block_Transition": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "30_NOA_Stand_Block": {
+   "keys": [
+    [
+     "block_st",
+     0
+    ]
+   ]
+  },
+  "31_NOA_Stand_Blockstun": {
+   "keys": [
+    [
+     "block_st",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_st",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_st",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_st",
+     7
+    ]
+   ]
+  },
+  "32_NOA_Crouch_Block_Transition": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "33_NOA_Crouch_Block": {
+   "keys": [
+    [
+     "block_cr",
+     0
+    ]
+   ]
+  },
+  "34_NOA_Crouch_Blockstun": {
+   "keys": [
+    [
+     "block_cr",
+     0,
+     {
+      "dx": -6,
+      "rot": 2
+     }
+    ],
+    [
+     "block_cr",
+     2,
+     {
+      "dx": -4,
+      "rot": 1
+     }
+    ],
+    [
+     "block_cr",
+     4,
+     {
+      "dx": -2
+     }
+    ],
+    [
+     "block_cr",
+     7
+    ]
+   ]
+  },
+  "35_NOA_Air_Block_Transition": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "36_NOA_Air_Block": {
+   "keys": [
+    [
+     "block_air",
+     0
+    ]
+   ]
+  },
+  "37_NOA_Air_Blockstun": {
+   "keys": [
+    [
+     "block_air",
+     0,
+     {
+      "dx": -6,
+      "rot": 3
+     }
+    ],
+    [
+     "block_air",
+     2,
+     {
+      "dx": -4,
+      "rot": 2
+     }
+    ],
+    [
+     "block_air",
+     4,
+     {
+      "dx": -2,
+      "rot": 1
+     }
+    ],
+    [
+     "block_air",
+     7
+    ]
+   ]
+  },
+  "48_NOA_5A": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "5a_act",
+     5
+    ],
+    [
+     "5a_rec",
+     9
+    ],
+    [
+     "stand",
+     17
+    ]
+   ]
+  },
+  "49_NOA_5B": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "crouch_x",
+     4
+    ],
+    [
+     "5b_act",
+     8
+    ],
+    [
+     "stand",
+     20
+    ]
+   ]
+  },
+  "50_NOA_5C": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "5a_rec",
+     6
+    ],
+    [
+     "5c_act",
+     13
+    ],
+    [
+     "5c_act",
+     20,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "stand",
+     26
+    ]
+   ]
+  },
+  "51_NOA_2A": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "2a_act",
+     5
+    ],
+    [
+     "2a_rec",
+     8
+    ],
+    [
+     "crouch_2",
+     13
+    ]
+   ]
+  },
+  "52_NOA_2B": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "2b_act",
+     7
+    ],
+    [
+     "2b_rec",
+     11
+    ],
+    [
+     "crouch_2",
+     18
+    ]
+   ]
+  },
+  "53_NOA_2C": {
+   "keys": [
+    [
+     "crouch_2",
+     0
+    ],
+    [
+     "2c_act",
+     9
+    ],
+    [
+     "2c_follow",
+     20
+    ],
+    [
+     "crouch_2",
+     32
+    ]
+   ],
+   "afterimages": false
+  },
+  "54_NOA_j5A": {
+   "keys": [
+    [
+     "ja_1",
+     0
+    ],
+    [
+     "ja_2",
+     4
+    ],
+    [
+     "ja_3",
+     8
+    ],
+    [
+     "ja_4",
+     11
+    ]
+   ]
+  },
+  "55_NOA_j5B": {
+   "keys": [
+    [
+     "jb_1",
+     0
+    ],
+    [
+     "jb_2",
+     6
+    ],
+    [
+     "jb_3",
+     8
+    ],
+    [
+     "jb_4",
+     12
+    ]
+   ]
+  },
+  "56_NOA_j5C": {
+   "keys": [
+    [
+     "jc_1",
+     0
+    ],
+    [
+     "jc_2",
+     6
+    ],
+    [
+     "jc_3",
+     9
+    ],
+    [
+     "jc_4",
+     16
+    ]
+   ]
+  },
+  "57_NOA_6C": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "crouch_x",
+     6
+    ],
+    [
+     "6c_act",
+     16
+    ],
+    [
+     "6c_act",
+     22,
+     {
+      "dy": -4
+     }
+    ],
+    [
+     "stand",
+     28
+    ]
+   ],
+   "duration": 38,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "8_Hitbox_6C_0"
+    ],
+    [
+     6,
+     0,
+     "8_Hitbox_6C_1"
+    ],
+    [
+     16,
+     1,
+     "8_Hitbox_6C_2"
+    ],
+    [
+     20,
+     2,
+     "8_Hitbox_6C_3"
+    ],
+    [
+     26,
+     2,
+     "8_Hitbox_6C_4"
+    ]
+   ]
+  },
+  "100_NOA_Intro": {
+   "keys": [
+    [
+     "idle_0_1",
+     0
+    ],
+    [
+     "win_4",
+     30
+    ],
+    [
+     "win_5",
+     44
+    ],
+    [
+     "win_6",
+     60
+    ],
+    [
+     "idle_0_1",
+     88
+    ]
+   ]
+  },
+  "101_NOA_Outro": {
+   "keys": [
+    [
+     "win_1",
+     0
+    ],
+    [
+     "win_2",
+     21
+    ],
+    [
+     "win_3",
+     35
+    ],
+    [
+     "win_4",
+     56
+    ],
+    [
+     "win_5",
+     66
+    ],
+    [
+     "win_6",
+     87
+    ]
+   ]
+  },
+  "200_NOA_Recovery_Backwards": {
+   "keys": [
+    [
+     "jump_4",
+     0
+    ],
+    [
+     "jump_4",
+     5,
+     {
+      "rot": 90
+     }
+    ],
+    [
+     "jump_4",
+     10,
+     {
+      "rot": 180
+     }
+    ],
+    [
+     "jump_4",
+     15,
+     {
+      "rot": 270
+     }
+    ]
+   ]
+  },
+  "200_NOA_Recovery_Forward": {
+   "keys": [
+    [
+     "jump_4",
+     0
+    ],
+    [
+     "jump_4",
+     5,
+     {
+      "rot": -90
+     }
+    ],
+    [
+     "jump_4",
+     10,
+     {
+      "rot": -180
+     }
+    ],
+    [
+     "jump_4",
+     15,
+     {
+      "rot": -270
+     }
+    ]
+   ]
+  },
+  "200_NOA_Recovery_Neutral": {
+   "keys": [
+    [
+     "jump_5",
+     0
+    ]
+   ]
+  },
+  "1000_NOA_Cancel": {
+   "keys": [
+    [
+     "crouch_x",
+     0
+    ],
+    [
+     "6c_act",
+     4
+    ],
+    [
+     "6c_act",
+     8
+    ]
+   ]
+  },
+  "1001_NOA_Burst": {
+   "keys": [
+    [
+     "crouch_x",
+     0
+    ],
+    [
+     "6c_act",
+     4
+    ],
+    [
+     "6c_act",
+     30
+    ],
+    [
+     "stand",
+     34
+    ]
+   ]
+  },
+  "NOA_Breakthrough": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "crouch_x",
+     4
+    ],
+    [
+     "5b_act",
+     8
+    ],
+    [
+     "stand",
+     20
+    ]
+   ]
+  },
+  "73_NOA_236A": {
+   "keys": [
+    [
+     "w_gather",
+     0
+    ],
+    [
+     "w_windup",
+     6
+    ],
+    [
+     "w_devil",
+     13
+    ],
+    [
+     "w_devil",
+     24,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "stand",
+     34
+    ]
+   ],
+   "duration": 44,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "30_Hitbox_ShadeWave_A_0"
+    ],
+    [
+     13,
+     2,
+     "30_Hitbox_ShadeWave_A_1"
+    ]
+   ]
+  },
+  "74_NOA_236B": {
+   "keys": [
+    [
+     "w_gather",
+     0
+    ],
+    [
+     "w_windup",
+     6
+    ],
+    [
+     "w_devil",
+     13
+    ],
+    [
+     "w_human",
+     25
+    ],
+    [
+     "w_human",
+     36,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "stand",
+     46
+    ]
+   ],
+   "duration": 58,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "31_Hitbox_ShadeWave_B_0"
+    ],
+    [
+     13,
+     2,
+     "31_Hitbox_ShadeWave_B_1"
+    ]
+   ]
+  },
+  "75_NOA_236C": {
+   "keys": [
+    [
+     "w_gather",
+     0
+    ],
+    [
+     "w_devil",
+     8
+    ],
+    [
+     "w_human",
+     18
+    ],
+    [
+     "w_human",
+     30,
+     {
+      "dx": -4
+     }
+    ],
+    [
+     "stand",
+     40
+    ]
+   ],
+   "duration": 50,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "32_Hitbox_UmbralWall_0"
+    ],
+    [
+     20,
+     2,
+     "32_Hitbox_UmbralWall_1"
+    ]
+   ]
+  },
+  "76_NOA_623A": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "bh_summon",
+     5
+    ],
+    [
+     "bh_summon",
+     22,
+     {
+      "dx": -3
+     }
+    ],
+    [
+     "stand",
+     28
+    ]
+   ],
+   "duration": 36,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "33_Hitbox_EventHorizon_A_0"
+    ],
+    [
+     5,
+     2,
+     "33_Hitbox_EventHorizon_A_1"
+    ]
+   ]
+  },
+  "77_NOA_623B": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "bh_summon",
+     6
+    ],
+    [
+     "bh_summon",
+     25,
+     {
+      "dx": -3
+     }
+    ],
+    [
+     "stand",
+     32
+    ]
+   ],
+   "duration": 40,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "34_Hitbox_EventHorizon_B_0"
+    ],
+    [
+     6,
+     2,
+     "34_Hitbox_EventHorizon_B_1"
+    ]
+   ]
+  },
+  "78_NOA_623C": {
+   "keys": [
+    [
+     "stand",
+     0
+    ],
+    [
+     "bh_summon",
+     4
+    ],
+    [
+     "bh_summon",
+     24,
+     {
+      "dx": -3
+     }
+    ],
+    [
+     "stand",
+     30
+    ]
+   ],
+   "duration": 38,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "35_Hitbox_TwinHorizon_0"
+    ],
+    [
+     12,
+     2,
+     "35_Hitbox_TwinHorizon_1"
+    ]
+   ]
+  },
+  "79_NOA_SNAP": {
+   "keys": [
+    [
+     "bh_snap",
+     0
+    ],
+    [
+     "bh_snap",
+     16,
+     {
+      "dx": -3
+     }
+    ],
+    [
+     "stand",
+     22
+    ]
+   ],
+   "duration": 28,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "36_Hitbox_Collapse_0"
+    ]
+   ]
+  },
+  "80_NOA_214A": {
+   "keys": [
+    [
+     "k_start",
+     0
+    ],
+    [
+     "k_lunge",
+     10
+    ],
+    [
+     "k_lunge",
+     24,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "k_rec",
+     30
+    ],
+    [
+     "stand",
+     40
+    ]
+   ],
+   "duration": 46,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "37_Hitbox_VoidGrasp_0"
+    ],
+    [
+     12,
+     1,
+     "37_Hitbox_VoidGrasp_1"
+    ],
+    [
+     18,
+     2,
+     "37_Hitbox_VoidGrasp_2"
+    ],
+    [
+     30,
+     2,
+     "37_Hitbox_VoidGrasp_3"
+    ]
+   ]
+  },
+  "81_NOA_GRASP": {
+   "keys": [
+    [
+     "k_recoil",
+     0
+    ],
+    [
+     "k_absorb",
+     14
+    ],
+    [
+     "k_absorb",
+     26,
+     {
+      "dx": -3
+     }
+    ],
+    [
+     "k_rec",
+     36
+    ],
+    [
+     "stand",
+     48
+    ]
+   ],
+   "duration": 56,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "38_Hitbox_VoidGrasp_Drain_0"
+    ],
+    [
+     14,
+     1,
+     "38_Hitbox_VoidGrasp_Drain_1"
+    ],
+    [
+     16,
+     2,
+     "38_Hitbox_VoidGrasp_Drain_2"
+    ],
+    [
+     28,
+     1,
+     "38_Hitbox_VoidGrasp_Drain_3"
+    ],
+    [
+     30,
+     2,
+     "38_Hitbox_VoidGrasp_Drain_4"
+    ]
+   ]
+  },
+  "82_NOA_214B": {
+   "keys": [
+    [
+     "h_prep",
+     0
+    ],
+    [
+     "h_turn",
+     6
+    ],
+    [
+     "h_smash",
+     18
+    ],
+    [
+     "h_follow",
+     24
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "39_Hitbox_AbyssHammer_0"
+    ],
+    [
+     18,
+     1,
+     "39_Hitbox_AbyssHammer_1"
+    ],
+    [
+     24,
+     2,
+     "39_Hitbox_AbyssHammer_2"
+    ]
+   ]
+  },
+  "83_NOA_214C": {
+   "keys": [
+    [
+     "k_start",
+     0
+    ],
+    [
+     "k_lunge",
+     8
+    ],
+    [
+     "k_lunge",
+     24,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "k_rec",
+     32
+    ],
+    [
+     "stand",
+     42
+    ]
+   ],
+   "duration": 48,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "40_Hitbox_VoidDevour_0"
+    ],
+    [
+     10,
+     1,
+     "40_Hitbox_VoidDevour_1"
+    ],
+    [
+     18,
+     2,
+     "40_Hitbox_VoidDevour_2"
+    ],
+    [
+     32,
+     2,
+     "40_Hitbox_VoidDevour_3"
+    ]
+   ]
+  },
+  "84_NOA_DEVOUR": {
+   "keys": [
+    [
+     "x_face",
+     0
+    ],
+    [
+     "x_lift",
+     10
+    ],
+    [
+     "x_drain",
+     22
+    ],
+    [
+     "x_drain",
+     30,
+     {
+      "fx": "fx_dex_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_drain",
+     33,
+     {
+      "fx": "fx_dex_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_drain",
+     36,
+     {
+      "fx": "fx_dex_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_drain",
+     40,
+     {
+      "fx": "fx_dex_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_drain",
+     45,
+     {
+      "fx": "fx_dex_5",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_drain",
+     50,
+     {
+      "fx": "fx_dex_6",
+      "fx_always": true
+     }
+    ],
+    [
+     "x_recoil",
+     56
+    ],
+    [
+     "stand",
+     72
+    ]
+   ],
+   "duration": 84,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "41_Hitbox_VoidDevour_Drain_0"
+    ],
+    [
+     22,
+     1,
+     "41_Hitbox_VoidDevour_Drain_1"
+    ],
+    [
+     24,
+     2,
+     "41_Hitbox_VoidDevour_Drain_2"
+    ],
+    [
+     30,
+     1,
+     "41_Hitbox_VoidDevour_Drain_3"
+    ],
+    [
+     32,
+     2,
+     "41_Hitbox_VoidDevour_Drain_4"
+    ],
+    [
+     36,
+     1,
+     "41_Hitbox_VoidDevour_Drain_5"
+    ],
+    [
+     40,
+     2,
+     "41_Hitbox_VoidDevour_Drain_6"
+    ]
+   ]
+  },
+  "85_NOA_RAY": {
+   "keys": [
+    [
+     "k_start",
+     0
+    ],
+    [
+     "ray_pose",
+     8
+    ],
+    [
+     "ray_pose",
+     14,
+     {
+      "fx": "fx_ray",
+      "fx_always": true,
+      "fx_sx": 1.65,
+      "fx_dx": -45
+     }
+    ],
+    [
+     "ray_pose",
+     36
+    ],
+    [
+     "k_rec",
+     40
+    ],
+    [
+     "stand",
+     50
+    ]
+   ],
+   "duration": 58,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "42_Hitbox_OverflowRay_0"
+    ],
+    [
+     14,
+     1,
+     "42_Hitbox_OverflowRay_1"
+    ],
+    [
+     18,
+     2,
+     "42_Hitbox_OverflowRay_2"
+    ],
+    [
+     22,
+     1,
+     "42_Hitbox_OverflowRay_3"
+    ],
+    [
+     26,
+     2,
+     "42_Hitbox_OverflowRay_4"
+    ],
+    [
+     30,
+     1,
+     "42_Hitbox_OverflowRay_5"
+    ],
+    [
+     34,
+     2,
+     "42_Hitbox_OverflowRay_6"
+    ]
+   ]
+  },
+  "92_NOA_jGRASP": {
+   "keys": [
+    [
+     "ag_reach",
+     0
+    ],
+    [
+     "ag_grab",
+     6
+    ],
+    [
+     "ag_down",
+     16
+    ]
+   ],
+   "duration": 90,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "43_Hitbox_FallenGrasp_0"
+    ],
+    [
+     8,
+     1,
+     "43_Hitbox_FallenGrasp_1"
+    ],
+    [
+     14,
+     2,
+     "43_Hitbox_FallenGrasp_2"
+    ]
+   ]
+  },
+  "93_NOA_jGRASP_hit": {
+   "keys": [
+    [
+     "ag_grab",
+     0
+    ],
+    [
+     "ag_down",
+     4
+    ]
+   ],
+   "duration": 120,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "44_Hitbox_FallenGrasp_Drag_0"
+    ]
+   ]
+  },
+  "94_NOA_jGRASP_land": {
+   "keys": [
+    [
+     "ag_land",
+     0,
+     {
+      "fx": "fx_blast_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "ag_land",
+     3,
+     {
+      "fx": "fx_blast_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "ag_land",
+     7,
+     {
+      "fx": "fx_blast_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "ag_land",
+     13,
+     {
+      "fx": "fx_blast_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "ag_land",
+     18
+    ],
+    [
+     "crouch_x",
+     28
+    ],
+    [
+     "stand",
+     34
+    ]
+   ],
+   "duration": 42,
+   "hitboxes": [
+    [
+     0,
+     1,
+     "45_Hitbox_FallenGrasp_Blast_0"
+    ],
+    [
+     6,
+     2,
+     "45_Hitbox_FallenGrasp_Blast_1"
+    ]
+   ]
+  },
+  "95_NOA_jHAMMER": {
+   "keys": [
+    [
+     "h_turn",
+     0
+    ],
+    [
+     "h_smash",
+     8
+    ],
+    [
+     "h_follow",
+     14
+    ]
+   ],
+   "duration": 90,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "46_Hitbox_AbyssHammer_Air_0"
+    ],
+    [
+     8,
+     1,
+     "46_Hitbox_AbyssHammer_Air_1"
+    ],
+    [
+     14,
+     2,
+     "46_Hitbox_AbyssHammer_Air_2"
+    ]
+   ]
+  },
+  "97_NOA_LAND": {
+   "keys": [
+    [
+     "h_land",
+     0
+    ],
+    [
+     "h_rec",
+     10
+    ],
+    [
+     "stand",
+     18
+    ]
+   ],
+   "duration": 24,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "47_Hitbox_HammerLanding_0"
+    ],
+    [
+     10,
+     0,
+     "47_Hitbox_HammerLanding_1"
+    ]
+   ]
+  },
+  "105_NOA_S1": {
+   "keys": [
+    [
+     "rs_10",
+     0
+    ],
+    [
+     "rs_11",
+     3
+    ],
+    [
+     "rs_12",
+     6
+    ],
+    [
+     "rs_13",
+     9
+    ],
+    [
+     "rs_14",
+     12
+    ],
+    [
+     "rs_15",
+     15,
+     {
+      "fx": "fx_rs_slam_0",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     18,
+     {
+      "fx": "fx_rs_slam_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     21,
+     {
+      "fx": "fx_rs_slam_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     24,
+     {
+      "fx": "fx_rs_slam_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     27,
+     {
+      "fx": "fx_rs_loop_0",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     32,
+     {
+      "fx": "fx_rs_loop_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     37,
+     {
+      "fx": "fx_rs_loop_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     42,
+     {
+      "fx": "fx_rs_loop_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     47,
+     {
+      "fx": "fx_rs_loop_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     52,
+     {
+      "fx": "fx_rs_loop_5",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     57,
+     {
+      "fx": "fx_rs_loop_0",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     62,
+     {
+      "fx": "fx_rs_loop_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     67,
+     {
+      "fx": "fx_rs_loop_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     72,
+     {
+      "fx": "fx_rs_loop_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     77,
+     {
+      "fx": "fx_rs_fade_0",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_15",
+     81,
+     {
+      "fx": "fx_rs_fade_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_51",
+     85,
+     {
+      "fx": "fx_rs_fade_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_52",
+     89,
+     {
+      "fx": "fx_rs_fade_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_53",
+     94
+    ],
+    [
+     "rs_54",
+     99
+    ],
+    [
+     "rs_55",
+     104
+    ],
+    [
+     "rs_60",
+     110
+    ],
+    [
+     "rs_65",
+     118
+    ]
+   ],
+   "duration": 126,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "48_Hitbox_RagingStorm_0"
+    ],
+    [
+     15,
+     1,
+     "48_Hitbox_RagingStorm_1"
+    ],
+    [
+     18,
+     2,
+     "48_Hitbox_RagingStorm_2"
+    ],
+    [
+     27,
+     1,
+     "48_Hitbox_RagingStorm_3"
+    ],
+    [
+     29,
+     2,
+     "48_Hitbox_RagingStorm_4"
+    ],
+    [
+     33,
+     1,
+     "48_Hitbox_RagingStorm_5"
+    ],
+    [
+     35,
+     2,
+     "48_Hitbox_RagingStorm_6"
+    ],
+    [
+     39,
+     1,
+     "48_Hitbox_RagingStorm_7"
+    ],
+    [
+     41,
+     2,
+     "48_Hitbox_RagingStorm_8"
+    ],
+    [
+     45,
+     1,
+     "48_Hitbox_RagingStorm_9"
+    ],
+    [
+     47,
+     2,
+     "48_Hitbox_RagingStorm_10"
+    ],
+    [
+     51,
+     1,
+     "48_Hitbox_RagingStorm_11"
+    ],
+    [
+     53,
+     2,
+     "48_Hitbox_RagingStorm_12"
+    ],
+    [
+     57,
+     1,
+     "48_Hitbox_RagingStorm_13"
+    ],
+    [
+     59,
+     2,
+     "48_Hitbox_RagingStorm_14"
+    ],
+    [
+     63,
+     1,
+     "48_Hitbox_RagingStorm_15"
+    ],
+    [
+     65,
+     2,
+     "48_Hitbox_RagingStorm_16"
+    ],
+    [
+     69,
+     1,
+     "48_Hitbox_RagingStorm_17"
+    ],
+    [
+     71,
+     2,
+     "48_Hitbox_RagingStorm_18"
+    ],
+    [
+     77,
+     1,
+     "48_Hitbox_RagingStorm_19"
+    ],
+    [
+     80,
+     2,
+     "48_Hitbox_RagingStorm_20"
+    ],
+    [
+     94,
+     2,
+     "48_Hitbox_RagingStorm_21"
+    ]
+   ]
+  },
+  "106_NOA_S1_charge": {
+   "keys": [
+    [
+     "rs_00",
+     0,
+     {
+      "fx": "fx_rs_charge_0",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_00",
+     5,
+     {
+      "fx": "fx_rs_charge_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_00",
+     10,
+     {
+      "fx": "fx_rs_charge_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_00",
+     15,
+     {
+      "fx": "fx_rs_charge_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "rs_00",
+     20,
+     {
+      "fx": "fx_rs_charge_4",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 25,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "49_Hitbox_RagingStorm_Charge_0"
+    ]
+   ]
+  },
+  "107_NOA_S2": {
+   "keys": [
+    [
+     "gp_01",
+     0
+    ],
+    [
+     "gp_02",
+     10
+    ],
+    [
+     "gp_02",
+     28,
+     {
+      "dx": -6
+     }
+    ],
+    [
+     "gp_12",
+     36
+    ],
+    [
+     "stand",
+     46
+    ]
+   ],
+   "duration": 54,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "50_Hitbox_GodPress_0"
+    ],
+    [
+     12,
+     1,
+     "50_Hitbox_GodPress_1"
+    ],
+    [
+     26,
+     2,
+     "50_Hitbox_GodPress_2"
+    ]
+   ]
+  },
+  "108_NOA_S2_carry": {
+   "keys": [
+    [
+     "gp_02",
+     0
+    ]
+   ],
+   "duration": 40,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "51_Hitbox_GodPress_Carry_0"
+    ]
+   ]
+  },
+  "109_NOA_S2_slams": {
+   "keys": [
+    [
+     "gp_05",
+     0
+    ],
+    [
+     "gp_06",
+     8,
+     {
+      "fx": "fx_wall_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     10,
+     {
+      "fx": "fx_wall_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     12,
+     {
+      "fx": "fx_wall_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     14,
+     {
+      "fx": "fx_wall_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_05",
+     18
+    ],
+    [
+     "gp_06",
+     26,
+     {
+      "fx": "fx_wall_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     28,
+     {
+      "fx": "fx_wall_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     30,
+     {
+      "fx": "fx_wall_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     32,
+     {
+      "fx": "fx_wall_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_05",
+     36
+    ],
+    [
+     "gp_06",
+     44,
+     {
+      "fx": "fx_wall_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     46,
+     {
+      "fx": "fx_wall_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     48,
+     {
+      "fx": "fx_wall_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_06",
+     50,
+     {
+      "fx": "fx_wall_4",
+      "fx_always": true
+     }
+    ]
+   ],
+   "duration": 54,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "52_Hitbox_GodPress_Slam_0"
+    ],
+    [
+     8,
+     1,
+     "52_Hitbox_GodPress_Slam_1"
+    ],
+    [
+     10,
+     2,
+     "52_Hitbox_GodPress_Slam_2"
+    ],
+    [
+     26,
+     1,
+     "52_Hitbox_GodPress_Slam_3"
+    ],
+    [
+     28,
+     2,
+     "52_Hitbox_GodPress_Slam_4"
+    ],
+    [
+     44,
+     1,
+     "52_Hitbox_GodPress_Slam_5"
+    ],
+    [
+     46,
+     2,
+     "52_Hitbox_GodPress_Slam_6"
+    ]
+   ]
+  },
+  "110_NOA_S2_finish": {
+   "keys": [
+    [
+     "gp_07",
+     0
+    ],
+    [
+     "gp_08",
+     12
+    ],
+    [
+     "gp_08",
+     14,
+     {
+      "fx": "fx_final_1",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_08",
+     18,
+     {
+      "fx": "fx_final_2",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_08",
+     22,
+     {
+      "fx": "fx_final_3",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_08",
+     26,
+     {
+      "fx": "fx_final_4",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_08",
+     30,
+     {
+      "fx": "fx_final_5",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_09",
+     36,
+     {
+      "fx": "fx_final_6",
+      "fx_always": true
+     }
+    ],
+    [
+     "gp_09",
+     42
+    ]
+   ],
+   "duration": 110,
+   "afterimages": true,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "53_Hitbox_GodPress_Discharge_0"
+    ],
+    [
+     18,
+     1,
+     "53_Hitbox_GodPress_Discharge_1"
+    ],
+    [
+     20,
+     2,
+     "53_Hitbox_GodPress_Discharge_2"
+    ],
+    [
+     24,
+     1,
+     "53_Hitbox_GodPress_Discharge_3"
+    ],
+    [
+     26,
+     2,
+     "53_Hitbox_GodPress_Discharge_4"
+    ],
+    [
+     30,
+     1,
+     "53_Hitbox_GodPress_Discharge_5"
+    ],
+    [
+     34,
+     2,
+     "53_Hitbox_GodPress_Discharge_6"
+    ]
+   ]
+  },
+  "111_NOA_S2_land": {
+   "keys": [
+    [
+     "gp_10",
+     0
+    ],
+    [
+     "gp_11",
+     16
+    ],
+    [
+     "gp_12",
+     28
+    ],
+    [
+     "stand",
+     38
+    ]
+   ],
+   "duration": 44,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "54_Hitbox_GodPress_Landing_0"
+    ],
+    [
+     16,
+     0,
+     "54_Hitbox_GodPress_Landing_1"
+    ]
+   ]
+  },
+  "NOA_AssistCall": {
+   "keys": [
+    [
+     "win_2",
+     0
+    ]
+   ],
+   "duration": 30,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "NOA_Hitbox_AssistCall_0"
+    ]
+   ]
+  }
+ },
+ "hitfit": {
+  "skip": [
+   "-1_Hitbox_CollisionOnly",
+   "-2_Hitbox_CollisionOnly_Low",
+   "100_Hitbox_Burst",
+   "100_Hitbox_Cancel",
+   "NOA_Hitbox_Invincible",
+   "NOA_Hitbox_Breakthrough_nhb2",
+   "18_Hitbox_Grab_stUp",
+   "19_Hitbox_Grab"
+  ],
+  "split": {
+   "3_Hitbox_FDash": {
+    "3_Hitbox_AirDash": [
+     "12_NOA_AirDashFw",
+     "13_NOA_AirDashDir"
+    ]
+   },
+   "4_Hitbox_BDash": {
+    "4_Hitbox_AirDashBw": [
+     "14_NOA_AirDashBw"
+    ]
+   },
+   "0_Hitbox_Horizontal": {
+    "0_Hitbox_Lying": [
+     "23_NOA_Hit_Down"
+    ]
+   },
+   "0_Hitbox_Basic": {
+    "0_Hitbox_Lying": [
+     "22_NOA_Hit_Knockdown1",
+     "22_NOA_Hit_Knockdown2",
+     "22_NOA_Hit_Knockdown3"
+    ]
+   }
+  },
+  "fit_from": {
+   "0_Hitbox_Basic": [
+    "0_NOA_Neutral",
+    0
+   ],
+   "1_Hitbox_Crouch": [
+    "7_NOA_Crouching",
+    0
+   ],
+   "3_Hitbox_FDash": [
+    "9_NOA_DashFw",
+    5
+   ],
+   "3_Hitbox_AirDash": [
+    "12_NOA_AirDashFw",
+    8
+   ],
+   "4_Hitbox_AirDashBw": [
+    "14_NOA_AirDashBw",
+    8
+   ],
+   "0_Hitbox_Lying": [
+    "23_NOA_Hit_Down",
+    0
+   ],
+   "2_Hitbox_Jump": [
+    "4_NOA_Falling",
+    0
+   ]
+  },
+  "attack_part": {
+   "53_NOA_2C": "edge",
+   "55_NOA_j5B": "edge",
+   "57_NOA_6C": "top",
+   "80_NOA_214A": "edge",
+   "83_NOA_214C": "edge",
+   "82_NOA_214B": "trail",
+   "95_NOA_jHAMMER": "trail",
+   "92_NOA_jGRASP": "edge",
+   "99_NOA_S2": "edge",
+   "94_NOA_jGRASP_land": "trail_all",
+   "107_NOA_S2": "edge"
+  },
+  "min_fx": 400,
+  "fresh_size": true,
+  "boxes": {
+   "42_Hitbox_OverflowRay_1": {
+    "attack": [
+     [
+      150,
+      250,
+      2200,
+      430
+     ]
+    ]
+   },
+   "42_Hitbox_OverflowRay_3": {
+    "attack": [
+     [
+      150,
+      250,
+      2200,
+      430
+     ]
+    ]
+   },
+   "42_Hitbox_OverflowRay_5": {
+    "attack": [
+     [
+      150,
+      250,
+      2200,
+      430
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_1": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_3": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_5": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_7": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_9": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_11": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_13": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_15": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_17": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "48_Hitbox_RagingStorm_19": {
+    "attack": [
+     [
+      -430,
+      0,
+      430,
+      720
+     ]
+    ]
+   },
+   "52_Hitbox_GodPress_Slam_1": {
+    "attack": [
+     [
+      300,
+      0,
+      900,
+      700
+     ]
+    ]
+   },
+   "52_Hitbox_GodPress_Slam_3": {
+    "attack": [
+     [
+      300,
+      0,
+      900,
+      700
+     ]
+    ]
+   },
+   "52_Hitbox_GodPress_Slam_5": {
+    "attack": [
+     [
+      300,
+      0,
+      900,
+      700
+     ]
+    ]
+   },
+   "53_Hitbox_GodPress_Discharge_1": {
+    "attack": [
+     [
+      200,
+      150,
+      800,
+      800
+     ]
+    ]
+   },
+   "53_Hitbox_GodPress_Discharge_3": {
+    "attack": [
+     [
+      200,
+      150,
+      800,
+      800
+     ]
+    ]
+   },
+   "53_Hitbox_GodPress_Discharge_5": {
+    "attack": [
+     [
+      150,
+      100,
+      850,
+      850
+     ]
+    ]
+   },
+   "37_Hitbox_VoidGrasp_1": {
+    "attack": [
+     [
+      30,
+      60,
+      470,
+      340
+     ]
+    ]
+   },
+   "40_Hitbox_VoidDevour_1": {
+    "attack": [
+     [
+      30,
+      60,
+      500,
+      380
+     ]
+    ]
+   },
+   "50_Hitbox_GodPress_1": {
+    "attack": [
+     [
+      30,
+      40,
+      520,
+      420
+     ]
+    ]
+   },
+   "8_Hitbox_6C_2": {
+    "attack": [
+     [
+      25,
+      110,
+      355,
+      510
+     ]
+    ]
+   }
+  }
+ },
+ "artwork": {
+  "name": "Noah",
+  "icon": "derived/noah/Select_Icon.png",
+  "fullbody": "derived/noah/Select_FullBody.png",
+  "cutin_ex": "Noah_Complete/Artwork/Noah_EX_Cut_In.png",
+  "victory": "derived/noah/Win_Render.png",
+  "hud_eyes": [
+   302,
+   212
+  ],
+  "hud_size": 320,
+  "victory_canvas": true
+ }
+}

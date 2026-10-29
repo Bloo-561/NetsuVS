@@ -1,0 +1,169 @@
+using Godot;
+using SakugaEngine.Global;
+using SakugaEngine.Resources;
+
+namespace SakugaEngine.Utils;
+
+[Tool]
+[GlobalClass]
+public partial class HitboxPreviewer : Node3D
+{
+	[Export(PropertyHint.None, "")]
+	private Sprite3D[] hitboxGraphics;
+
+	[Export(PropertyHint.None, "")]
+	public AnimationViewer Animator;
+
+	[Export(PropertyHint.None, "")]
+	public AnimationData Data;
+
+	[Export(PropertyHint.None, "")]
+	public bool AutoRun;
+
+	[Export(PropertyHint.Range, "0, 99999")]
+	public int Frame;
+
+	public override void _Process(double delta)
+	{
+		if (!Engine.IsEditorHint())
+		{
+			return;
+		}
+		if (Animator == null || Data == null)
+		{
+			for (int j = 0; j < hitboxGraphics.Length; j++)
+			{
+				hitboxGraphics[j].Visible = false;
+			}
+			return;
+		}
+		if (AutoRun)
+		{
+			Frame++;
+			if (Frame >= Data.Duration)
+			{
+				Frame = 0;
+			}
+		}
+		Animator.ViewAnimations(GetCurrentAnimationSettings());
+		HitboxState hitboxData = GetCurrentHitboxSettings();
+		PreviewHitboxes(hitboxData);
+		PreviewPushbox(hitboxData);
+	}
+
+	public void PreviewHitboxes(HitboxState previewData)
+	{
+		for (int j = 0; j < hitboxGraphics.Length; j++)
+		{
+			if (previewData == null || previewData.HitboxData == null || previewData.HitboxData.Hitboxes == null || previewData.HitboxData.Hitboxes.Length == 0 || j >= previewData.HitboxData.Hitboxes.Length || previewData.HitboxData.Hitboxes[j] == null)
+			{
+				hitboxGraphics[j].Hide();
+				continue;
+			}
+			hitboxGraphics[j].Visible = previewData.HitboxData.Hitboxes[j].Size != Vector2I.Zero;
+			switch (previewData.HitboxData.Hitboxes[j].HitboxType)
+			{
+			case HitboxType.HURTBOX:
+				hitboxGraphics[j].SortingOffset = 1f;
+				hitboxGraphics[j].Modulate = new Color(0f, 1f, 0f);
+				break;
+			case HitboxType.HITBOX:
+				hitboxGraphics[j].SortingOffset = 2f;
+				hitboxGraphics[j].Modulate = new Color(1f, 0f, 0f);
+				break;
+			case HitboxType.PROXIMITY_BLOCK:
+				hitboxGraphics[j].SortingOffset = 4f;
+				hitboxGraphics[j].Modulate = new Color(1f, 0f, 1f);
+				break;
+			case HitboxType.PROJECTILE:
+				hitboxGraphics[j].SortingOffset = 2f;
+				hitboxGraphics[j].Modulate = new Color(1f, 0.64f, 0f);
+				break;
+			case HitboxType.THROW:
+				hitboxGraphics[j].SortingOffset = 2f;
+				hitboxGraphics[j].Modulate = new Color(0f, 0f, 1f);
+				break;
+			case HitboxType.COUNTER:
+				hitboxGraphics[j].SortingOffset = 2f;
+				hitboxGraphics[j].Modulate = new Color(0.5f, 0.5f, 0.5f);
+				break;
+			case HitboxType.DEFLECT:
+				hitboxGraphics[j].SortingOffset = 2f;
+				hitboxGraphics[j].Modulate = new Color(1f, 0f, 0.5f);
+				break;
+			}
+			hitboxGraphics[j].GlobalPosition = GlobalFunctions.ToScaledVector3(previewData.HitboxData.Hitboxes[j].Center);
+			hitboxGraphics[j].Scale = GlobalFunctions.ToScaledVector3(previewData.HitboxData.Hitboxes[j].Size, 1f);
+		}
+	}
+
+	public void PreviewPushbox(HitboxState previewData)
+	{
+		int collisionViewer = hitboxGraphics.Length - 1;
+		if (previewData == null || previewData.HitboxData == null || previewData.HitboxData.Pushbox == null)
+		{
+			hitboxGraphics[collisionViewer].Visible = false;
+			return;
+		}
+		hitboxGraphics[collisionViewer].Visible = previewData.HitboxData.Pushbox.Size != Vector2I.Zero;
+		hitboxGraphics[collisionViewer].SortingOffset = 3f;
+		hitboxGraphics[collisionViewer].Modulate = new Color(1f, 1f, 0f);
+		hitboxGraphics[collisionViewer].GlobalPosition = GlobalFunctions.ToScaledVector3(previewData.HitboxData.Pushbox.Center);
+		hitboxGraphics[collisionViewer].Scale = GlobalFunctions.ToScaledVector3(previewData.HitboxData.Pushbox.Size, 1f);
+	}
+
+	public AnimationSettings GetCurrentAnimationSettings()
+	{
+		if (Data == null)
+		{
+			return null;
+		}
+		if (Data.Animations == null || Data.Animations.Length == 0)
+		{
+			return null;
+		}
+		if (Data.Animations.Length == 1)
+		{
+			return Data.Animations[0];
+		}
+		int anim = 0;
+		for (int i = 0; i < Data.Animations.Length; i++)
+		{
+			if (Data.Animations[i] != null)
+			{
+				int nextFrame = ((i >= Data.Animations.Length - 1 || Data.Animations[i + 1] == null) ? Frame : (Data.Animations[i + 1].AtFrame - 1));
+				if (Frame >= Data.Animations[i].AtFrame && Frame <= nextFrame)
+				{
+					anim = i;
+				}
+			}
+		}
+		return Data.Animations[anim];
+	}
+
+	public HitboxState GetCurrentHitboxSettings()
+	{
+		if (Data == null)
+		{
+			return null;
+		}
+		if (Data.Hitboxes == null || Data.Hitboxes.Length == 0)
+		{
+			return null;
+		}
+		if (Data.Hitboxes.Length == 1)
+		{
+			return Data.Hitboxes[0];
+		}
+		int anim = 0;
+		for (int i = 0; i < Data.Hitboxes.Length; i++)
+		{
+			int nextFrame = ((i >= Data.Hitboxes.Length - 1 || Data.Hitboxes[i + 1] == null) ? int.MaxValue : (Data.Hitboxes[i + 1].AtFrame - 1));
+			if (Frame >= Data.Hitboxes[i].AtFrame && Frame <= nextFrame)
+			{
+				anim = i;
+			}
+		}
+		return Data.Hitboxes[anim];
+	}
+}

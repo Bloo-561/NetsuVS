@@ -1,0 +1,156 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://stages/ordis_manor/ordis_manor.glb" id="1_glb"]
+[ext_resource type="Shader" path="res://stages/ordis_manor/om_floor.gdshader" id="s_floor"]
+[ext_resource type="Shader" path="res://stages/ordis_manor/om_window.gdshader" id="s_window"]
+[ext_resource type="Shader" path="res://stages/ordis_manor/om_glow.gdshader" id="s_glow"]
+[ext_resource type="Shader" path="res://stages/ordis_manor/om_flame.gdshader" id="s_flame"]
+[ext_resource type="Texture2D" path="res://stages/ordis_manor/textures/floor_light.png" id="t_light"]
+[ext_resource type="Texture2D" path="res://stages/ordis_manor/textures/dot.png" id="t_dot"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+shader = ExtResource("s_floor")
+shader_parameter/light_tex = ExtResource("t_light")
+shader_parameter/floor_gain = 1.0
+shader_parameter/damage = 0.0
+shader_parameter/exposure = -0.1
+shader_parameter/shoulder = 0.78
+shader_parameter/saturation = 1.05
+shader_parameter/shadow_tint = Vector3(0.92, 0.9, 1.06)
+shader_parameter/highlight_tint = Vector3(1.06, 1.0, 0.9)
+shader_parameter/tint_amount = 0.5
+
+[sub_resource type="ShaderMaterial" id="Mat_window"]
+shader = ExtResource("s_window")
+shader_parameter/mirror = false
+shader_parameter/broken = 0.0
+shader_parameter/smoke = 0.0
+
+[sub_resource type="ShaderMaterial" id="Mat_window_mirror"]
+shader = ExtResource("s_window")
+shader_parameter/mirror = true
+shader_parameter/broken = 0.0
+shader_parameter/smoke = 0.0
+
+[sub_resource type="ShaderMaterial" id="Mat_glow"]
+shader = ExtResource("s_glow")
+shader_parameter/flicker = 0.06
+shader_parameter/dead = 0.0
+
+[sub_resource type="ShaderMaterial" id="Mat_flame"]
+render_priority = 1
+shader = ExtResource("s_flame")
+
+[sub_resource type="ShaderMaterial" id="Mat_flame_mirror"]
+render_priority = -1
+shader = ExtResource("s_flame")
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(52, 46.5)
+
+[sub_resource type="StandardMaterial3D" id="Mat_mote"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.9, 0.7, 0.55)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_mote"]
+material = SubResource("Mat_mote")
+size = Vector2(0.035, 0.035)
+
+[sub_resource type="Gradient" id="Grad"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.1, 0.08, 0.06, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.9, 0.75, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 0
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.92
+fog_enabled = false
+
+[node name="OrdisManor" type="Node3D"]
+
+[node name="Stage" parent="." instance=ExtResource("1_glb")]
+
+[node name="Window" parent="Stage"]
+material_override = SubResource("Mat_window")
+cast_shadow = 0
+
+[node name="Glow" parent="Stage"]
+material_override = SubResource("Mat_glow")
+cast_shadow = 0
+
+[node name="Flame" parent="Stage"]
+material_override = SubResource("Mat_flame")
+cast_shadow = 0
+
+[node name="Reflection" parent="." instance=ExtResource("1_glb")]
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Window" parent="Reflection"]
+material_override = SubResource("Mat_window_mirror")
+cast_shadow = 0
+
+[node name="Glow" parent="Reflection"]
+material_override = SubResource("Mat_glow")
+cast_shadow = 0
+
+[node name="Flame" parent="Reflection"]
+material_override = SubResource("Mat_flame_mirror")
+cast_shadow = 0
+
+[node name="Ceiling" parent="Reflection"]
+visible = false
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.25)
+cast_shadow = 0
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
+
+[node name="FX" type="Node3D" parent="."]
+
+[node name="Motes" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0, -16)
+cast_shadow = 0
+amount = 260
+lifetime = 14.0
+preprocess = 14.0
+randomness = 0.6
+lifetime_randomness = 0.4
+local_coords = true
+mesh = SubResource("Mesh_mote")
+emission_shape = 3
+emission_box_extents = Vector3(18, 3.5, 9)
+direction = Vector3(0.3, 0.2, 0)
+spread = 180.0
+gravity = Vector3(0.0, 0.0, 0)
+initial_velocity_min = 0.02
+initial_velocity_max = 0.08
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+color_ramp = SubResource("Grad")
+
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[editable path="Stage"]
+[editable path="Reflection"]

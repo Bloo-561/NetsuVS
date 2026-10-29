@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bhdouamaez0wo"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_launch.png" id="t_ad_launch"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/adfx_up2.png" id="t_adfx_up2"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/adfx_fade2.png" id="t_adfx_fade2"]
+[ext_resource type="Texture2D" path="res://actors/assists/adin/Sprites/v2/ad_brake.png" id="t_ad_brake"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://22flm0f84wg6" path="res://actors/assists/adin/Hitboxes/5_Hitbox_ADN_6S_hit_0.tres" id="hb_5_Hitbox_ADN_6S_hit_0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_launch")
+Offset = Vector2(-287, -5)
+
+[sub_resource type="Resource" id="M0_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_adfx_up2")
+Offset = Vector2(100, 190)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0"), SubResource("M0_1")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_launch")
+Offset = Vector2(-287, -5)
+
+[sub_resource type="Resource" id="M1_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_adfx_fade2")
+Offset = Vector2(62, 276)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 6
+Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ad_brake")
+Offset = Vector2(-179, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+animationStage = 2
+HitboxData = ExtResource("hb_5_Hitbox_ADN_6S_hit_0")
+
+[resource]
+script = ExtResource("1")
+Duration = 30
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("H0")]

@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/assists/adin/AnimationData/3_ADN_6S_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="x2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="x4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="x5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="x6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetActiveAction.cs" id="x7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs" id="x8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="x9"]
+
+[sub_resource type="Resource" id="z1"]
+script = ExtResource("x1")
+Velocity = 0
+
+[sub_resource type="Resource" id="z2"]
+script = ExtResource("x2")
+Velocity = 0
+
+[sub_resource type="Resource" id="zev1"]
+script = ExtResource("x3")
+Actions = [SubResource("z1"), SubResource("z2")]
+
+[sub_resource type="Resource" id="z3"]
+script = ExtResource("x4")
+Frame = 10
+
+[sub_resource type="Resource" id="z4"]
+script = ExtResource("x5")
+Index = 83
+
+[sub_resource type="Resource" id="zev2"]
+script = ExtResource("x3")
+Conditions = [SubResource("z3")]
+Actions = [SubResource("z4")]
+
+[sub_resource type="Resource" id="z5"]
+script = ExtResource("x6")
+
+[sub_resource type="Resource" id="z6"]
+script = ExtResource("x7")
+Active = false
+
+[sub_resource type="Resource" id="z7"]
+script = ExtResource("x1")
+Velocity = 0
+
+[sub_resource type="Resource" id="z8"]
+script = ExtResource("x2")
+Velocity = 0
+
+[sub_resource type="Resource" id="zev3"]
+script = ExtResource("x3")
+Conditions = [SubResource("z5")]
+Actions = [SubResource("z6"), SubResource("z7"), SubResource("z8")]
+
+[sub_resource type="Resource" id="z9"]
+script = ExtResource("x8")
+HitCheck = 2
+
+[sub_resource type="Resource" id="z10"]
+script = ExtResource("x9")
+StateIndex = 6
+
+[sub_resource type="Resource" id="zev4"]
+script = ExtResource("x3")
+Conditions = [SubResource("z9")]
+Actions = [SubResource("z10")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Shield Throw"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("zev3")]
+OnEnterEvents = [SubResource("zev1")]
+OnTickEvents = [SubResource("zev2")]
+OnExitEvents = null
+OnHitConfirmEvents = [SubResource("zev4")]
+OnHitReactionEvents = null
+AIFlags = 0

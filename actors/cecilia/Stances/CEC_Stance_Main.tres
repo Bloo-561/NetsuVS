@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="FighterStance" format=3 uid="uid://beojhepwe6l3l"]
+
+[ext_resource type="Resource" uid="uid://biqgn48x4ggwh" path="res://actors/_shared/sakuga/Inputs/1_Input_4.tres" id="1"]
+[ext_resource type="Script" uid="uid://d0re6r8d145i6" path="res://engine/sakuga/Resources/BlockSettings.cs" id="2"]
+[ext_resource type="Resource" uid="uid://j1w64hweu08j" path="res://actors/_shared/sakuga/Inputs/8_Input_1.tres" id="3"]
+[ext_resource type="Resource" uid="uid://s555efjvakjog" path="res://actors/cecilia/Moves/0_CEC_MoveForward.tres" id="4"]
+[ext_resource type="Resource" uid="uid://twcfnshwgfybx" path="res://actors/cecilia/Moves/1_CEC_MoveBackwards.tres" id="5"]
+[ext_resource type="Resource" uid="uid://c3h0ybdfqxaz2" path="res://actors/cecilia/Moves/2_CEC_DashForward.tres" id="6"]
+[ext_resource type="Resource" uid="uid://22zis5exz04a8" path="res://actors/cecilia/Moves/3_CEC_DashBackwards.tres" id="7"]
+[ext_resource type="Resource" uid="uid://2qh35hf4q55w0" path="res://actors/cecilia/Moves/4_CEC_JumpNeutral.tres" id="8"]
+[ext_resource type="Resource" uid="uid://8h1c9wxk85vlh" path="res://actors/cecilia/Moves/5_CEC_JumpForward.tres" id="9"]
+[ext_resource type="Resource" uid="uid://i0ufb5005x0fe" path="res://actors/cecilia/Moves/6_CEC_JumpBackwards.tres" id="10"]
+[ext_resource type="Resource" uid="uid://bouepyxlkm7ms" path="res://actors/cecilia/Moves/7_CEC_AirDashForward.tres" id="11"]
+[ext_resource type="Resource" uid="uid://tlbjlih8l96zz" path="res://actors/cecilia/Moves/8_CEC_AirDashForwardUp.tres" id="12"]
+[ext_resource type="Resource" uid="uid://x9xicuax731g7" path="res://actors/cecilia/Moves/9_CEC_AirDashForwardDown.tres" id="13"]
+[ext_resource type="Resource" uid="uid://c8ae4itifihhj" path="res://actors/cecilia/Moves/10_CEC_AirDashBackwards.tres" id="14"]
+[ext_resource type="Resource" uid="uid://58ooikvvdwe2g" path="res://actors/cecilia/Moves/11_CEC_Crouch.tres" id="15"]
+[ext_resource type="Resource" uid="uid://ae0m6q043hxk2" path="res://actors/cecilia/Moves/12_CEC_Uncrouch.tres" id="16"]
+[ext_resource type="Resource" uid="uid://b4cigxd46jao3" path="res://actors/cecilia/Moves/13_CEC_AirJumpNeutral.tres" id="17"]
+[ext_resource type="Resource" uid="uid://dwgw3wbynuoc" path="res://actors/cecilia/Moves/14_CEC_AirJumpForward.tres" id="18"]
+[ext_resource type="Resource" uid="uid://cfs8vvnd2eolc" path="res://actors/cecilia/Moves/15_CEC_AirJumpBackwards.tres" id="19"]
+[ext_resource type="Resource" uid="uid://f3lkicjjxppe" path="res://actors/cecilia/Moves/16_CEC_SuperJumpNeutral.tres" id="20"]
+[ext_resource type="Resource" uid="uid://d3lpwqhwxl17y" path="res://actors/cecilia/Moves/17_CEC_SuperJumpForward.tres" id="21"]
+[ext_resource type="Resource" uid="uid://b48wwh1otfj0l" path="res://actors/cecilia/Moves/18_CEC_SuperJumpBackwards.tres" id="22"]
+[ext_resource type="Resource" uid="uid://c2qksjxierrij" path="res://actors/cecilia/Moves/19_CEC_DashJump.tres" id="23"]
+[ext_resource type="Resource" uid="uid://cqguvt3kav5cp" path="res://actors/cecilia/Moves/20_CEC_AirDashJump.tres" id="24"]
+[ext_resource type="Resource" uid="uid://4jq5tvd3zp8hd" path="res://actors/cecilia/Moves/21_CEC_GetUpForward.tres" id="25"]
+[ext_resource type="Resource" uid="uid://tjoar7p99baox" path="res://actors/cecilia/Moves/22_CEC_GetUpBackwards.tres" id="26"]
+[ext_resource type="Resource" uid="uid://ccg055n30x3yd" path="res://actors/cecilia/Moves/23_CEC_5A.tres" id="27"]
+[ext_resource type="Resource" uid="uid://cr6fcrk6muh18" path="res://actors/cecilia/Moves/24_CEC_5B.tres" id="28"]
+[ext_resource type="Resource" uid="uid://4sdkpokl80vo" path="res://actors/cecilia/Moves/25_CEC_5C.tres" id="29"]
+[ext_resource type="Resource" uid="uid://dhi7ug6fh7vv6" path="res://actors/cecilia/Moves/26_CEC_2A.tres" id="30"]
+[ext_resource type="Resource" uid="uid://b5k3f4dj3xujm" path="res://actors/cecilia/Moves/27_CEC_2B.tres" id="31"]
+[ext_resource type="Resource" uid="uid://da6v0qp13arn3" path="res://actors/cecilia/Moves/28_CEC_2C.tres" id="32"]
+[ext_resource type="Resource" uid="uid://bf6agco70snq0" path="res://actors/cecilia/Moves/29_CEC_j_5A.tres" id="33"]
+[ext_resource type="Resource" uid="uid://7h7i6h8soruu" path="res://actors/cecilia/Moves/30_CEC_j_5B.tres" id="34"]
+[ext_resource type="Resource" uid="uid://0olnsrtpo8r2" path="res://actors/cecilia/Moves/31_CEC_j_5C.tres" id="35"]
+[ext_resource type="Resource" uid="uid://b0aflbvjsyhep" path="res://actors/cecilia/Moves/32_CEC_4A.tres" id="36"]
+[ext_resource type="Resource" uid="uid://stxlf6li1rumm" path="res://actors/cecilia/Moves/45_CEC_Recovery_OTG.tres" id="49"]
+[ext_resource type="Resource" uid="uid://or5isisrqi31y" path="res://actors/cecilia/Moves/46_CEC_Recovery_GroundForward.tres" id="50"]
+[ext_resource type="Resource" uid="uid://6cgrwbo951weq" path="res://actors/cecilia/Moves/47_CEC_Recovery_GroundBackwards.tres" id="51"]
+[ext_resource type="Resource" uid="uid://oy7qijjz7fqih" path="res://actors/cecilia/Moves/48_CEC_Recovery_AirBackwards.tres" id="52"]
+[ext_resource type="Resource" uid="uid://6yzd8tvopbzda" path="res://actors/cecilia/Moves/49_CEC_Recovery_AirForward.tres" id="53"]
+[ext_resource type="Resource" uid="uid://qhdqb2odn7bhh" path="res://actors/cecilia/Moves/50_CEC_ExcelCancel.tres" id="54"]
+[ext_resource type="Resource" uid="uid://qbu0340tzpkuw" path="res://actors/cecilia/Moves/51_CEC_Burst.tres" id="55"]
+[ext_resource type="Script" uid="uid://00dse0vp38l7" path="res://engine/sakuga/Resources/FighterStance.cs" id="57"]
+[ext_resource type="Resource" uid="uid://zwf2qdj3606e" path="res://actors/cecilia/Moves/CEC_Breakthrough.tres" id="net_Breakthrough"]
+[ext_resource type="Resource" uid="uid://bha7y21vhkl63" path="res://actors/cecilia/Moves/57_CEC_236A.tres" id="mv_57_CEC_236A"]
+[ext_resource type="Resource" uid="uid://bbnnotl3idm8j" path="res://actors/cecilia/Moves/58_CEC_236B.tres" id="mv_58_CEC_236B"]
+[ext_resource type="Resource" uid="uid://bdbrjsm2f0c3s" path="res://actors/cecilia/Moves/59_CEC_236C.tres" id="mv_59_CEC_236C"]
+[ext_resource type="Resource" uid="uid://bdaxulvywlrxn" path="res://actors/cecilia/Moves/60_CEC_623A.tres" id="mv_60_CEC_623A"]
+[ext_resource type="Resource" uid="uid://bfciygsh4r0s8" path="res://actors/cecilia/Moves/61_CEC_623B.tres" id="mv_61_CEC_623B"]
+[ext_resource type="Resource" uid="uid://bb724j4qncewp" path="res://actors/cecilia/Moves/62_CEC_623C.tres" id="mv_62_CEC_623C"]
+[ext_resource type="Resource" uid="uid://bdo0lnte5mat8" path="res://actors/cecilia/Moves/65_CEC_Raijin_Air.tres" id="mv_65_CEC_Raijin_Air"]
+[ext_resource type="Resource" uid="uid://bdfvyqy1m5oc3" path="res://actors/cecilia/Moves/64_CEC_Raijin.tres" id="mv_64_CEC_Raijin"]
+[ext_resource type="Resource" uid="uid://bltcim1mtwp4g" path="res://actors/cecilia/Moves/63_CEC_SakuraMorningMoon.tres" id="mv_63_CEC_SakuraMorningMoon"]
+[ext_resource type="Resource" uid="uid://bgaempzzx1enn" path="res://actors/cecilia/Moves/66_CEC_214A.tres" id="mv_66_CEC_214A"]
+[ext_resource type="Resource" uid="uid://6yo7qyw8suds" path="res://actors/cecilia/Moves/67_CEC_214B.tres" id="mv_67_CEC_214B"]
+[ext_resource type="Resource" uid="uid://bblrvegzy8kfw" path="res://actors/cecilia/Moves/68_CEC_214C.tres" id="mv_68_CEC_214C"]
+[ext_resource type="Resource" uid="uid://42e431jfaij0" path="res://actors/cecilia/Moves/CEC_Throw.tres" id="mv_CEC_Throw"]
+[ext_resource type="Resource" uid="uid://bkabshkxjtbrk" path="res://actors/_shared/sakuga/Inputs/52_Input_ThrowBreak.tres" id="in_throwbreak"]
+[ext_resource type="Resource" uid="uid://bk0dllxmlyzil" path="res://actors/cecilia/Moves/71_CEC_J236A.tres" id="mv_71_CEC_J236A"]
+[ext_resource type="Resource" uid="uid://bhcwws5cbay23" path="res://actors/cecilia/Moves/72_CEC_J236B.tres" id="mv_72_CEC_J236B"]
+[ext_resource type="Resource" uid="uid://41hun6g7xosb" path="res://actors/cecilia/Moves/73_CEC_J236C.tres" id="mv_73_CEC_J236C"]
+[ext_resource type="Resource" uid="uid://34wrz4wqp1au" path="res://actors/cecilia/Moves/69_CEC_214R2.tres" id="mv_69_CEC_214R2"]
+[ext_resource type="Resource" uid="uid://4ot7hy38l3sc" path="res://actors/cecilia/Moves/70_CEC_214R3.tres" id="mv_70_CEC_214R3"]
+[ext_resource type="Resource" uid="uid://bfnkpgc2fzv8i" path="res://actors/cecilia/Moves/33_CEC_6C.tres" id="mv_33_CEC_6C"]
+[ext_resource type="Resource" path="res://actors/cecilia/Moves/CEC_Pushblock_Crouch.tres" id="netsu_pb_crouch_mv"]
+
+[ext_resource type="Resource" path="res://actors/cecilia/Moves/CEC_AirThrow.tres" id="mv_c12_airthrow"]
+[sub_resource type="Resource" id="Resource_3wthg"]
+script = ExtResource("2")
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 48
+StunState = 49
+ExitState = 50
+GuardCrushState = 51
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_rn7us"]
+script = ExtResource("2")
+ReferenceStance = 1
+BlockType = 6
+InputToCheck = ExtResource("3")
+EnterState = 53
+StunState = 54
+ExitState = 55
+GuardCrushState = 56
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[sub_resource type="Resource" id="Resource_r7wbv"]
+script = ExtResource("2")
+ReferenceStance = 2
+BlockType = 3
+InputToCheck = ExtResource("1")
+EnterState = 58
+StunState = 59
+ExitState = 60
+GuardCrushState = 61
+metadata/_custom_type_script = "uid://d0re6r8d145i6"
+
+[resource]
+script = ExtResource("57")
+IsDamagePersistent = true
+IsRoundPersistent = true
+Moves = [ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9"), ExtResource("10"), ExtResource("11"), ExtResource("12"), ExtResource("13"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19"), ExtResource("20"), ExtResource("21"), ExtResource("22"), ExtResource("23"), ExtResource("24"), ExtResource("25"), ExtResource("26"), ExtResource("27"), ExtResource("28"), ExtResource("29"), ExtResource("30"), ExtResource("31"), ExtResource("32"), ExtResource("33"), ExtResource("34"), ExtResource("35"), ExtResource("36"), ExtResource("49"), ExtResource("50"), ExtResource("51"), ExtResource("52"), ExtResource("53"), ExtResource("54"), ExtResource("55"), ExtResource("net_Breakthrough"), ExtResource("mv_57_CEC_236A"), ExtResource("mv_58_CEC_236B"), ExtResource("mv_59_CEC_236C"), ExtResource("mv_71_CEC_J236A"), ExtResource("mv_72_CEC_J236B"), ExtResource("mv_73_CEC_J236C"), ExtResource("mv_60_CEC_623A"), ExtResource("mv_61_CEC_623B"), ExtResource("mv_62_CEC_623C"), ExtResource("mv_66_CEC_214A"), ExtResource("mv_67_CEC_214B"), ExtResource("mv_68_CEC_214C"), ExtResource("mv_69_CEC_214R2"), ExtResource("mv_70_CEC_214R3"), ExtResource("mv_65_CEC_Raijin_Air"), ExtResource("mv_64_CEC_Raijin"), ExtResource("mv_63_CEC_SakuraMorningMoon"), ExtResource("mv_CEC_Throw"), ExtResource("mv_33_CEC_6C"), ExtResource("mv_c12_airthrow"), ExtResource("netsu_pb_crouch_mv")]
+HitReactions = PackedInt32Array(23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 103)
+BlockReactions = [SubResource("Resource_3wthg"), SubResource("Resource_rn7us"), SubResource("Resource_r7wbv")]
+ThrowEscapeInput = ExtResource("in_throwbreak")
+GroundThrowEscapeState = 104
+AirThrowEscapeState = 104

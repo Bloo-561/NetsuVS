@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://c72glkrh8i8u"]
+
+[ext_resource type="Resource" uid="uid://cgxcls1k88uk0" path="res://actors/cecilia/Spawnables/0/AnimationData/0_Spawnable_Spawn_AnimationData.tres" id="1"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://c7tjt5jdiuhhd" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetTimerAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="7"]
+[ext_resource type="Script" uid="uid://4e4fddx2de1k" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnWallsCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="9"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="10"]
+
+[sub_resource type="Resource" id="Resource_1e8dl"]
+script = ExtResource("2")
+StateIndex = 2
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_ib33m"]
+script = ExtResource("3")
+Conditions = null
+Actions = [SubResource("Resource_1e8dl")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_7idpl"]
+script = ExtResource("4")
+Velocity = 60000
+metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+
+[sub_resource type="Resource" id="Resource_t46o6"]
+script = ExtResource("5")
+metadata/_custom_type_script = "uid://bw1835rb2hj7y"
+
+[sub_resource type="Resource" id="Resource_batfk"]
+script = ExtResource("6")
+ByName = "Lifetime"
+Time = 40
+metadata/_custom_type_script = "uid://c7tjt5jdiuhhd"
+
+[sub_resource type="Resource" id="Resource_xq431"]
+script = ExtResource("7")
+metadata/_custom_type_script = "uid://50grsd2r3wl8"
+
+[sub_resource type="Resource" id="Resource_oa32e"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_xq431")]
+Actions = [SubResource("Resource_7idpl"), SubResource("Resource_t46o6"), SubResource("Resource_batfk")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_smuth"]
+script = ExtResource("2")
+StateIndex = 2
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_jhyxu"]
+script = ExtResource("8")
+metadata/_custom_type_script = "uid://4e4fddx2de1k"
+
+[sub_resource type="Resource" id="Resource_21ttb"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_jhyxu")]
+Actions = [SubResource("Resource_smuth")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[sub_resource type="Resource" id="Resource_cvq3s"]
+script = ExtResource("2")
+StateIndex = 1
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_qa6p5"]
+script = ExtResource("9")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_6asb8"]
+script = ExtResource("3")
+Conditions = [SubResource("Resource_qa6p5")]
+Actions = [SubResource("Resource_cvq3s")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("10")
+StateName = "Spawn"
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_6asb8")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("Resource_oa32e"), SubResource("Resource_21ttb")]
+OnExitEvents = null
+OnHitConfirmEvents = [SubResource("Resource_ib33m")]
+OnHitReactionEvents = null

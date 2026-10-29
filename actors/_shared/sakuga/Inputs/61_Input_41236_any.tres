@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="MotionInputs" format=3]
+
+[ext_resource type="Script" uid="uid://di4jwsd3y2x8w" path="res://engine/sakuga/Resources/MotionInputs.cs" id="1"]
+[ext_resource type="Script" uid="uid://ce6shsv0dij5v" path="res://engine/sakuga/Resources/InputOption.cs" id="2"]
+[ext_resource type="Script" uid="uid://87xpa7lbksa8" path="res://engine/sakuga/Resources/InputSequence.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Buttons = 1
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+Inputs = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("2")
+Inputs = [SubResource("s5"), SubResource("s6"), SubResource("s7")]
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 1
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("2")
+Inputs = [SubResource("s9"), SubResource("s10")]
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("3")
+Buttons = 2
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("2")
+Inputs = [SubResource("s12"), SubResource("s13"), SubResource("s14")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("2")
+Inputs = [SubResource("s16"), SubResource("s17"), SubResource("s18")]
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 2
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("2")
+Inputs = [SubResource("s20"), SubResource("s21")]
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("3")
+Buttons = 4
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("2")
+Inputs = [SubResource("s23"), SubResource("s24"), SubResource("s25")]
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("2")
+Inputs = [SubResource("s27"), SubResource("s28"), SubResource("s29")]
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 3
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("3")
+Directional = 1
+DirectionalMode = 1
+Buttons = 4
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("2")
+Inputs = [SubResource("s31"), SubResource("s32")]
+
+[resource]
+script = ExtResource("1")
+ValidInputs = [SubResource("s4"), SubResource("s8"), SubResource("s11"), SubResource("s15"), SubResource("s19"), SubResource("s22"), SubResource("s26"), SubResource("s30"), SubResource("s33")]
+AbsoluteDirection = false
+InputBuffer = 10

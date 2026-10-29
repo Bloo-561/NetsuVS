@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bae8qpiyvjyjs"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://3aq4xufngfv7" path="res://actors/leticia/Hitboxes/LET_Hitbox_6C_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://0bkdvmlsjaa6" path="res://actors/leticia/Hitboxes/LET_Hitbox_6C_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://4jnfno06ckz0" path="res://actors/leticia/Hitboxes/LET_Hitbox_6C_2.tres" id="5"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_1.png" id="t_n6c_1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_2.png" id="t_n6c_2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_3.png" id="t_n6c_3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_4.png" id="t_n6c_4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_5.png" id="t_n6c_5"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n6c_6.png" id="t_n6c_6"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 18
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="NM0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_1")
+Offset = Vector2(-244, 31)
+
+[sub_resource type="Resource" id="NA0"]
+script = ExtResource("an")
+Modifiers = [SubResource("NM0")]
+
+[sub_resource type="Resource" id="NM1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_2")
+Offset = Vector2(-406, 10)
+
+[sub_resource type="Resource" id="NA1"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("NM1")]
+
+[sub_resource type="Resource" id="NM2"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_3")
+Offset = Vector2(-293, 1)
+
+[sub_resource type="Resource" id="NA2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("NM2")]
+
+[sub_resource type="Resource" id="NM3"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_4")
+Offset = Vector2(-242, 15)
+
+[sub_resource type="Resource" id="NA3"]
+script = ExtResource("an")
+AtFrame = 18
+Modifiers = [SubResource("NM3")]
+
+[sub_resource type="Resource" id="NM4"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_5")
+Offset = Vector2(-282, 4)
+
+[sub_resource type="Resource" id="NA4"]
+script = ExtResource("an")
+AtFrame = 25
+Modifiers = [SubResource("NM4")]
+
+[sub_resource type="Resource" id="NM5"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_n6c_6")
+Offset = Vector2(-296, 4)
+
+[sub_resource type="Resource" id="NA5"]
+script = ExtResource("an")
+AtFrame = 33
+Modifiers = [SubResource("NM5")]
+
+[resource]
+script = ExtResource("1")
+Duration = 41
+Animations = [SubResource("NA0"), SubResource("NA1"), SubResource("NA2"), SubResource("NA3"), SubResource("NA4"), SubResource("NA5")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]

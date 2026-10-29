@@ -1,0 +1,299 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://stages/crimson_abyss/crimson_abyss.glb" id="1_glb"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_floor.gdshader" id="2_floor"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_sky.gdshader" id="3_sky"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_tendril.gdshader" id="4_tendril"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_streak.gdshader" id="5_streak"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_mist.gdshader" id="6_mist"]
+[ext_resource type="Shader" path="res://stages/crimson_abyss/crimson_floater.gdshader" id="7_float"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/floor_albedo.png" id="t_alb"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/floor_cracks.png" id="t_crk"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/floor_halo.png" id="t_halo"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/floor_region.png" id="t_reg"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/floor_light.png" id="t_light"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/sky.png" id="t_sky"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/tendril.png" id="t_tendril"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/streak.png" id="t_streak"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/mist.png" id="t_mist"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/ca_float.png" id="t_float"]
+[ext_resource type="Texture2D" path="res://stages/crimson_abyss/textures/dot.png" id="t_dot"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+render_priority = 0
+shader = ExtResource("2_floor")
+shader_parameter/albedo_tex = ExtResource("t_alb")
+shader_parameter/crack_tex = ExtResource("t_crk")
+shader_parameter/halo_tex = ExtResource("t_halo")
+shader_parameter/region_tex = ExtResource("t_reg")
+shader_parameter/light_tex = ExtResource("t_light")
+
+[sub_resource type="ShaderMaterial" id="Mat_sky"]
+render_priority = -2
+shader = ExtResource("3_sky")
+shader_parameter/sky_tex = ExtResource("t_sky")
+
+[sub_resource type="ShaderMaterial" id="Mat_tendril"]
+render_priority = 1
+shader = ExtResource("4_tendril")
+shader_parameter/tendril_tex = ExtResource("t_tendril")
+
+[sub_resource type="ShaderMaterial" id="Mat_streak"]
+render_priority = 2
+shader = ExtResource("5_streak")
+shader_parameter/streak_tex = ExtResource("t_streak")
+
+[sub_resource type="ShaderMaterial" id="Mat_mist"]
+render_priority = 0
+shader = ExtResource("6_mist")
+shader_parameter/mist_tex = ExtResource("t_mist")
+
+[sub_resource type="ShaderMaterial" id="Mat_float"]
+render_priority = 0
+shader = ExtResource("7_float")
+shader_parameter/albedo_tex = ExtResource("t_float")
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(112, 112)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ember"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.45, 0.8, 1)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="StandardMaterial3D" id="Mat_ash"]
+transparency = 1
+blend_mode = 0
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.16, 0.08, 0.2, 0.75)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="StandardMaterial3D" id="Mat_spark"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.35, 0.75, 1)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_ember"]
+material = SubResource("Mat_ember")
+size = Vector2(0.09, 0.09)
+
+[sub_resource type="QuadMesh" id="Mesh_ash"]
+material = SubResource("Mat_ash")
+size = Vector2(0.09, 0.09)
+
+[sub_resource type="QuadMesh" id="Mesh_spark"]
+material = SubResource("Mat_spark")
+size = Vector2(0.35, 0.35)
+
+[sub_resource type="Gradient" id="Grad_ember"]
+offsets = PackedFloat32Array(0, 0.15, 0.6, 1)
+colors = PackedColorArray(1, 0.9, 0.95, 0, 1, 0.55, 0.85, 1, 1, 0.25, 0.55, 0.8, 0.6, 0.1, 0.4, 0)
+
+[sub_resource type="Gradient" id="Grad_fade"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.09, 0.04, 0.13, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.55, 0.4, 0.7, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 0
+glow_enabled = true
+glow_intensity = 0.55
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.75
+fog_enabled = false
+
+[node name="CrimsonAbyss" type="Node3D"]
+
+[node name="Stage" parent="." instance=ExtResource("1_glb")]
+
+[node name="Sky" parent="Stage"]
+material_override = SubResource("Mat_sky")
+cast_shadow = 0
+
+[node name="Tendrils" parent="Stage"]
+material_override = SubResource("Mat_tendril")
+cast_shadow = 0
+
+[node name="Mist" parent="Stage"]
+material_override = SubResource("Mat_mist")
+cast_shadow = 0
+
+[node name="Streaks" parent="Stage"]
+material_override = SubResource("Mat_streak")
+cast_shadow = 0
+
+[node name="Float_0" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_1" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_2" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_3" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_4" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_5" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_6" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_7" parent="Stage/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+cast_shadow = 0
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
+
+[node name="Reflection" parent="." instance=ExtResource("1_glb")]
+transform = Transform3D(1, 0, 0, 0, -1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Sky" parent="Reflection"]
+material_override = SubResource("Mat_sky")
+cast_shadow = 0
+
+[node name="Tendrils" parent="Reflection"]
+visible = false
+
+[node name="Mist" parent="Reflection"]
+material_override = SubResource("Mat_mist")
+cast_shadow = 0
+
+[node name="Streaks" parent="Reflection"]
+visible = false
+
+[node name="Float_0" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_1" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_2" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_3" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_4" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_5" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_6" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="Float_7" parent="Reflection/Floaters"]
+material_override = SubResource("Mat_float")
+
+[node name="FX" type="Node3D" parent="."]
+
+[node name="Embers" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -5)
+cast_shadow = 0
+amount = 220
+lifetime = 7.0
+preprocess = 7.0
+randomness = 0.5
+local_coords = true
+mesh = SubResource("Mesh_ember")
+emission_shape = 3
+emission_box_extents = Vector3(26, 0.3, 10)
+direction = Vector3(0.1, 1, 0)
+spread = 25.0
+gravity = Vector3(0.05, 0.12, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 1.1
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+color_ramp = SubResource("Grad_ember")
+
+[node name="Ash" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -6)
+cast_shadow = 0
+amount = 90
+lifetime = 12.0
+preprocess = 12.0
+randomness = 0.5
+local_coords = true
+mesh = SubResource("Mesh_ash")
+emission_shape = 3
+emission_box_extents = Vector3(30, 6, 12)
+direction = Vector3(0.4, -1, 0)
+spread = 30.0
+gravity = Vector3(0.08, -0.12, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.3
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Grad_fade")
+
+[node name="FarSparks" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -64)
+cast_shadow = 0
+amount = 80
+lifetime = 9.0
+preprocess = 9.0
+randomness = 0.5
+local_coords = true
+mesh = SubResource("Mesh_spark")
+emission_shape = 3
+emission_box_extents = Vector3(70, 8, 14)
+direction = Vector3(0, 1, 0)
+spread = 20.0
+gravity = Vector3(0, 0.08, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.9
+scale_amount_min = 0.6
+scale_amount_max = 1.6
+color_ramp = SubResource("Grad_ember")
+
+[node name="Moonlight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866, 0, -0.866, 0.5, 0, 20, 0)
+light_color = Color(0.75, 0.55, 1, 1)
+light_energy = 0.5
+shadow_enabled = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[editable path="Stage"]
+[editable path="Reflection"]

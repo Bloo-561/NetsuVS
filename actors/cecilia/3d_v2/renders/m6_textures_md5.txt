@@ -1,0 +1,11 @@
+a0c91f1c80cb8e3673851e4510ce3a7f  textures/body_ao.png
+b8ab1b8c5fa97a8eb852c47c0b357b2b  textures/body_base.png
+49d31da4ba30cbc87793632b0f918897  textures/body_ctrl.png
+82fc94473436aa80eca288b333ad9fe9  textures/body_label.png
+9e3a3bd6680e17edb5abd0d698b9c6ec  textures/body_line.png
+042c2ea391b1191059c935da525469f5  textures/body_lineclr.png
+cf944ee15a1c9dff06ab4cc3c7283083  textures/body_shade.png
+5f08f71eeee715c1aaad0f4e53592991  textures/body_sheen.png
+3803f71fa22a0764cbb845c30f51aa2c  textures/hair_ao.png
+6e5c15b1b700a3579e65bc47bbca651b  textures/hair_ctrl.png
+f8bd21bd1eaefca1facf8342b3d8f213  textures/hair_mask.png

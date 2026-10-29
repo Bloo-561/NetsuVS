@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bg8uyq7qqx8h6"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://d2vhk55lqtwt2" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetActiveAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="9"]
+[ext_resource type="Resource" path="res://actors/noah/projectiles/AnimationData/1b_NOX_Travel_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuRelativeXCondition.cs" id="10"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="11"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="12"]
+
+[sub_resource type="Resource" id="far"]
+script = ExtResource("10")
+Target = 3
+MinDistance = 160000
+
+[sub_resource type="Resource" id="off"]
+script = ExtResource("5")
+Active = false
+
+[sub_resource type="Resource" id="stopx"]
+script = ExtResource("6")
+Velocity = 0
+
+[sub_resource type="Resource" id="stopy"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="gone"]
+script = ExtResource("3")
+Conditions = [SubResource("far")]
+Actions = [SubResource("off"), SubResource("stopx"), SubResource("stopy")]
+
+[sub_resource type="Resource" id="at20"]
+script = ExtResource("8")
+Frame = 20
+
+[sub_resource type="Resource" id="to0"]
+script = ExtResource("12")
+Frame = 0
+
+[sub_resource type="Resource" id="loop"]
+script = ExtResource("3")
+Conditions = [SubResource("at20")]
+Actions = [SubResource("to0")]
+
+[sub_resource type="Resource" id="go"]
+script = ExtResource("6")
+Velocity = 70000
+
+[sub_resource type="Resource" id="goy"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="enter"]
+script = ExtResource("3")
+Actions = [SubResource("go"), SubResource("goy")]
+
+[sub_resource type="Resource" id="toburst"]
+script = ExtResource("11")
+StateIndex = 2
+
+[sub_resource type="Resource" id="touch"]
+script = ExtResource("3")
+Actions = [SubResource("toburst")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Umbral Wall"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("gone"), SubResource("loop")]
+OnEnterEvents = [SubResource("enter")]
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = [SubResource("touch")]
+OnHitReactionEvents = null

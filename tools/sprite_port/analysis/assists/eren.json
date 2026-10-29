@@ -1,0 +1,332 @@
+{
+ "reference": "Eren/5S/06_Recovery.png",
+ "ref": {
+  "empty": false,
+  "top": 218,
+  "bot": 1501,
+  "left": 240,
+  "right": 930,
+  "h": 1284,
+  "rear_x": 245,
+  "front_x": 930,
+  "hip_x": 542.5,
+  "cx": 529.9516482970496,
+  "cy": 678.1555055026043,
+  "mask": "dark"
+ },
+ "frames": {
+  "Eren/5S/01_Load.png": {
+   "empty": false,
+   "top": 364,
+   "bot": 1358,
+   "left": 35,
+   "right": 920,
+   "h": 995,
+   "rear_x": 35,
+   "front_x": 153,
+   "hip_x": 547.0,
+   "cx": 549.3122139549216,
+   "cy": 717.951713325056,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.9313892949257828,
+    "rot": 26.23491426967562,
+    "inliers": 20,
+    "good": 100
+   },
+   "scale_how": "via 06_Recovery.png",
+   "scale": 0.9313892949257828,
+   "sift_chain": {
+    "scale": 0.9313892949257828,
+    "rot": 26.23491426967562,
+    "inliers": 20,
+    "good": 100
+   }
+  },
+  "Eren/5S/02_Dash.png": {
+   "empty": false,
+   "top": 247,
+   "bot": 1358,
+   "left": 8,
+   "right": 865,
+   "h": 1112,
+   "rear_x": 43,
+   "front_x": 158,
+   "hip_x": 535.0,
+   "cx": 506.85765535116,
+   "cy": 630.6416966938492,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.3875508208182132,
+    "rot": 36.000261538258535,
+    "inliers": 7,
+    "good": 30
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/5S/03_Low_Horizontal_Hit1.png": {
+   "empty": false,
+   "top": 230,
+   "bot": 886,
+   "left": 34,
+   "right": 1524,
+   "h": 657,
+   "rear_x": 42,
+   "front_x": 1486,
+   "hip_x": 882.0,
+   "cx": 832.4147493988302,
+   "cy": 527.5980825571505,
+   "mask": "dark",
+   "size": [
+    1536,
+    1024
+   ],
+   "sift": {
+    "scale": 1.0269845937928275,
+    "rot": 67.11560428525728,
+    "inliers": 2,
+    "good": 10
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/5S/04_Low_Link.png": {
+   "empty": false,
+   "top": 522,
+   "bot": 1096,
+   "left": 20,
+   "right": 985,
+   "h": 575,
+   "rear_x": 20,
+   "front_x": 785,
+   "hip_x": 692.0,
+   "cx": 573.774953794216,
+   "cy": 765.5240216659722,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.7742664871159749,
+    "rot": 124.11012141663893,
+    "inliers": 3,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/5S/05_Low_Horizontal_Hit2.png": {
+   "empty": false,
+   "top": 553,
+   "bot": 1113,
+   "left": 10,
+   "right": 1015,
+   "h": 561,
+   "rear_x": 13,
+   "front_x": 1015,
+   "hip_x": 527.5,
+   "cx": 548.2293284161491,
+   "cy": 792.3949598861284,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.8312705372557714,
+    "rot": -42.22200786001163,
+    "inliers": 5,
+    "good": 10
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/5S/06_Recovery.png": {
+   "empty": false,
+   "top": 218,
+   "bot": 1501,
+   "left": 240,
+   "right": 930,
+   "h": 1284,
+   "rear_x": 245,
+   "front_x": 930,
+   "hip_x": 542.5,
+   "cx": 529.9516482970496,
+   "cy": 678.1555055026043,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 175,
+    "good": 175
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Eren/6S/01_Jump_Load.png": {
+   "empty": false,
+   "top": 351,
+   "bot": 1410,
+   "left": 83,
+   "right": 862,
+   "h": 1060,
+   "rear_x": 83,
+   "front_x": 269,
+   "hip_x": 520.5,
+   "cx": 455.7252106109763,
+   "cy": 753.0069862864309,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.0420521938816079,
+    "rot": 3.3325248108404812,
+    "inliers": 21,
+    "good": 77
+   },
+   "scale_how": "body",
+   "scale": 1.0420521938816079
+  },
+  "Eren/6S/02_Rise.png": {
+   "empty": false,
+   "top": 217,
+   "bot": 1378,
+   "left": 297,
+   "right": 1008,
+   "h": 1162,
+   "rear_x": 561,
+   "front_x": 650,
+   "hip_x": 692.5,
+   "cx": 633.3546179941708,
+   "cy": 598.3217831716756,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.7838604838650931,
+    "rot": 10.667935598235522,
+    "inliers": 8,
+    "good": 24
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/6S/03_Spin_Front.png": {
+   "empty": false,
+   "top": 164,
+   "bot": 1334,
+   "left": 176,
+   "right": 864,
+   "h": 1171,
+   "rear_x": 328,
+   "front_x": 424,
+   "hip_x": 645.5,
+   "cx": 470.53183257480885,
+   "cy": 563.9813168799699,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.6046923406986016,
+    "rot": -35.85043391536321,
+    "inliers": 4,
+    "good": 9
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/6S/04_Spin_Back.png": {
+   "empty": false,
+   "top": 174,
+   "bot": 1333,
+   "left": 48,
+   "right": 792,
+   "h": 1160,
+   "rear_x": 315,
+   "front_x": 426,
+   "hip_x": 521.0,
+   "cx": 356.51111473007086,
+   "cy": 559.0815894471134,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": null,
+   "scale_how": null,
+   "scale": null
+  },
+  "Eren/6S/05_Spin_Exit.png": {
+   "empty": false,
+   "top": 178,
+   "bot": 1452,
+   "left": 299,
+   "right": 1004,
+   "h": 1275,
+   "rear_x": 897,
+   "front_x": 1004,
+   "hip_x": 697.5,
+   "cx": 630.9311987367867,
+   "cy": 575.1334795385762,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 0.97926290340657,
+    "rot": -18.43010341403509,
+    "inliers": 13,
+    "good": 36
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Eren/6S/06_Landing_Left.png": {
+   "empty": false,
+   "top": 240,
+   "bot": 1457,
+   "left": 27,
+   "right": 1014,
+   "h": 1218,
+   "rear_x": 849,
+   "front_x": 1014,
+   "hip_x": 434.0,
+   "cx": 507.7867663816909,
+   "cy": 676.0584668550016,
+   "mask": "dark",
+   "size": [
+    1024,
+    1536
+   ],
+   "sift": {
+    "scale": 1.1710052665427528,
+    "rot": -89.36348329280402,
+    "inliers": 6,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  }
+ }
+}

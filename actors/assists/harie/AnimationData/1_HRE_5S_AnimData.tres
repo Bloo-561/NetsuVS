@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bihmm6hnm8bnv"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_load.png" id="t_hr_load"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_dive.png" id="t_hr_dive"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_sub.png" id="t_hr_sub"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://bkbo27yqthrve" path="res://actors/assists/harie/Hitboxes/1_Hitbox_HRE_5S_0.tres" id="hb_1_Hitbox_HRE_5S_0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_load")
+Offset = Vector2(-319, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_dive")
+Offset = Vector2(-462, 17)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 7
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_sub")
+Offset = Vector2(-150, -10)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb_1_Hitbox_HRE_5S_0")
+
+[resource]
+script = ExtResource("1")
+Duration = 26
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("H0")]

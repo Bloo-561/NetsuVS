@@ -1,0 +1,151 @@
+{
+ "fighter": "Leticia R. Khemia",
+ "note": "Numpad notation, facing right: 6 = forward, 4 = back, 2 = down, 8 = up, 236 = quarter circle forward. Craft Gauge: 4 bars (400%), kept between rounds. You build it by landing hits (more) and by being hit or blocking (less); whiffs give nothing, and a move that spends meter gives its user none. After spending meter, gains are cut to a quarter for 3 seconds. Below 35% health it slowly fills by itself. Burst gauge: starts full, kept between rounds, refills over time (faster at low health) and when you're hit.",
+ "sections": [
+  {
+   "title": "Normals",
+   "moves": [
+    [
+     "5A / 5B / 5C",
+     "A / B / C",
+     "chains A > B > C; 5C fires both guns"
+    ],
+    [
+     "2A / 2B / 2C",
+     "2 + A / B / C",
+     "2B is a quick shot, 2C fires twice"
+    ],
+    [
+     "4A",
+     "4 + A",
+     ""
+    ],
+    [
+     "6C",
+     "6 + C",
+     "Crescent Launcher: launches; any normal cancels into it; jump (8) on hit to chase (no jump cancel on block)"
+    ],
+    [
+     "Air A / B / C",
+     "in air: A / B / C",
+     "air B shoots both ways"
+    ]
+   ]
+  },
+  {
+   "title": "Specials",
+   "moves": [
+    [
+     "Crossfire",
+     "236 + A",
+     "the only rekka: shot; follow up with 6 + A/B/C (turned shot), then 6 + A/B/C again (low finisher, knockdown). Shots cancel into a dash (66) on hit or block"
+    ],
+    [
+     "Ricochet Prism",
+     "236 + B",
+     "straight beam across the whole screen, no follow-ups"
+    ],
+    [
+     "Rising Comet",
+     "623 + A / B",
+     "rising crescent kick (B: two kicks, invincible start: her anti-air)"
+    ],
+    [
+     "Comet Burst (EX)",
+     "623 + C (1 bar)",
+     "1 bar. Invincible: two kicks send them very high; if both hit, she rides her board up and slams them into the floor (otherwise a downward shot). If the first kick is blocked, she stops there"
+    ],
+    [
+     "Prism Overdrive (EX)",
+     "236 + C (1 bar)",
+     "1 bar. Straight shots, then the big beam: it blasts them into a wall bounce"
+    ],
+    [
+     "Fragment Kick",
+     "214 + A / B (ground or air)",
+     "she hops into the air (A: back, B: forward; in the air she hops off her flux board and goes high), kicks a red fragment that drifts slowly to the floor, splits in two (one lobs, one skids) and explodes only at the end of its path; touching them on the way applies hitstun. Cancels into j.236 after the kick. Built for oki. Starts up in 22 / 24 frames on the ground, 18 / 21 in the air"
+    ],
+    [
+     "Fragment Kick (EX)",
+     "214 + C (1 bar, ground or air)",
+     "1 bar. 15 frames on the ground, 11 in the air. Faster, harder-hitting fragments and a bigger blast"
+    ],
+    [
+     "Flux Dash",
+     "in air: 236 + A / B / C",
+     "powered dash on her board straight through the opponent: A travels a short distance (10f startup, 2 active), B medium (12f / 3), C long (16f / 4). The strike only comes out if the opponent is in hitstun; on block or anything else she just passes through. Once per jump. After the actives it cancels into air normals, air 214, and the double jump. 12f landing recovery; whiff an air normal (j.A) before landing to cut it"
+    ]
+   ]
+  },
+  {
+   "title": "Supers",
+   "moves": [
+    [
+     "Stardrive Cannon",
+     "236 + B + C (3 bars)",
+     "huge sustained beam across the screen, invincible"
+    ],
+    [
+     "Crimson Waltz",
+     "214 + B + C (3 bars)",
+     "board rush (passes through projectiles); on hit a flame prison floats them up and she circles it on her board, firing into it, then lands, flips her hair, and it explodes"
+    ]
+   ]
+  },
+  {
+   "title": "System",
+   "moves": [
+    [
+     "Dash / Back dash",
+     "66 / 44",
+     ""
+    ],
+    [
+     "Super jump",
+     "2 then 8",
+     ""
+    ],
+    [
+     "Air dash",
+     "in air: 66 / 44",
+     "on her board"
+    ],
+    [
+     "Throw",
+     "B + C (close)",
+     "4 + B+C throws behind you"
+    ],
+    [
+     "Throw break",
+     "B + C as you're grabbed",
+     "12-frame window"
+    ],
+    [
+     "Burst",
+     "A + C",
+     "needs a FULL Burst gauge and uses all of it; works in hitstun (not out of every special / EX / super hit). Does no damage, knocks them away"
+    ],
+    [
+     "Overdrive",
+     "A + B + C",
+     "full Burst gauge"
+    ],
+    [
+     "Dash macro",
+     "A + B (the AB button)",
+     "On the ground: dash forward, or back dash with back held. In the air: air dash forward, or back with back held"
+    ],
+    [
+     "Pushblock",
+     "A + B",
+     "while blocking, 1 bar"
+    ],
+    [
+     "Recover",
+     "hold A / B / C (air) or any button (ground)",
+     "knocked into the air: holding a button techs as soon as you can (hold forward to tech forward). Knocked down: any button"
+    ]
+   ]
+  }
+ ]
+}

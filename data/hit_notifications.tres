@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="HitNotificationList" format=3 uid="uid://c0c1ggbvua31f"]
+
+[ext_resource type="Script" uid="uid://bqear64xdcxwm" path="res://engine/sakuga/Resources/HitNotificationElement.cs" id="1"]
+[ext_resource type="Script" uid="uid://b6fu34fkx6cj7" path="res://engine/sakuga/Resources/HitNotificationList.cs" id="2"]
+
+[sub_resource type="Resource" id="Resource_jobs6"]
+script = ExtResource("1")
+NotificationName = "First Strike"
+Description = "When someone hits someone else for the firs time on the match"
+AnnouncerVoiceLine = 24
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_xxvg2"]
+script = ExtResource("1")
+NotificationName = "Counter"
+Description = "Basic counterattack"
+AnnouncerVoiceLine = 25
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_l1fn6"]
+script = ExtResource("1")
+NotificationName = "Punish"
+Description = "Counterattach when the opponent is recovering"
+AnnouncerVoiceLine = 25
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_qokn8"]
+script = ExtResource("1")
+NotificationName = "Just Guard"
+Description = "Instant blocked a hit"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_ccn70"]
+script = ExtResource("1")
+NotificationName = "Escaped"
+Description = "Teched a throw"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_xlgnu"]
+script = ExtResource("1")
+NotificationName = "Recovered"
+Description = "Recovered from hitstun"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_apjgi"]
+script = ExtResource("1")
+NotificationName = "Knockdown"
+Description = "Can still recover on the ground"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_oiim8"]
+script = ExtResource("1")
+NotificationName = "Hard Knockdown"
+Description = "Can't recover"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_7mfca"]
+script = ExtResource("1")
+NotificationName = "Invalid"
+Description = "For invalid combos"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_8bxs7"]
+script = ExtResource("1")
+NotificationName = "Overdrive"
+Description = "Activated Overdrive"
+AnnouncerVoiceLine = 27
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_0fy18"]
+script = ExtResource("1")
+NotificationName = "Brave Burst"
+Description = "Used a Brave Burst"
+AnnouncerVoiceLine = 28
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_jwpjw"]
+script = ExtResource("1")
+NotificationName = "STR UP!"
+Description = "Attack buff"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_qyri7"]
+script = ExtResource("1")
+NotificationName = "STR DOWN!"
+Description = "Attack debuff"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_h35gi"]
+script = ExtResource("1")
+NotificationName = "DEF UP!"
+Description = "Defense buff"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[sub_resource type="Resource" id="Resource_57lxm"]
+script = ExtResource("1")
+NotificationName = "DEF DOWN!"
+Description = "Defense debuff"
+metadata/_custom_type_script = "uid://bqear64xdcxwm"
+
+[resource]
+script = ExtResource("2")
+Elements = [SubResource("Resource_jobs6"), SubResource("Resource_xxvg2"), SubResource("Resource_l1fn6"), SubResource("Resource_qokn8"), SubResource("Resource_ccn70"), SubResource("Resource_xlgnu"), SubResource("Resource_apjgi"), SubResource("Resource_oiim8"), SubResource("Resource_7mfca"), SubResource("Resource_8bxs7"), SubResource("Resource_0fy18"), SubResource("Resource_jwpjw"), SubResource("Resource_qyri7"), SubResource("Resource_h35gi"), SubResource("Resource_57lxm")]
+metadata/_custom_type_script = "uid://b6fu34fkx6cj7"

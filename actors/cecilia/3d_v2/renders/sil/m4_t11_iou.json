@@ -1,0 +1,227 @@
+{
+ "front": {
+  "iou": 0.9495,
+  "ref_px": 77309,
+  "model_px": 76598,
+  "ref_only_px": 2348,
+  "model_only_px": 1637,
+  "alpha_area_px": 75995.9,
+  "centroid_offset_px": [
+   -0.295,
+   1.256
+  ],
+  "target": 0.95,
+  "bands": [
+   {
+    "band": "head/hair",
+    "rows": [
+     0,
+     150
+    ],
+    "iou": 0.9488,
+    "ref_only_px": 316,
+    "model_only_px": 275
+   },
+   {
+    "band": "arms",
+    "rows": [
+     150,
+     192
+    ],
+    "iou": 0.9515,
+    "ref_only_px": 481,
+    "model_only_px": 251
+   },
+   {
+    "band": "jacket",
+    "rows": [
+     192,
+     252
+    ],
+    "iou": 0.9299,
+    "ref_only_px": 447,
+    "model_only_px": 3
+   },
+   {
+    "band": "skirt+sword",
+    "rows": [
+     252,
+     390
+    ],
+    "iou": 0.9761,
+    "ref_only_px": 296,
+    "model_only_px": 186
+   },
+   {
+    "band": "legs",
+    "rows": [
+     390,
+     630
+    ],
+    "iou": 0.94,
+    "ref_only_px": 544,
+    "model_only_px": 710
+   },
+   {
+    "band": "feet",
+    "rows": [
+     630,
+     706
+    ],
+    "iou": 0.9017,
+    "ref_only_px": 264,
+    "model_only_px": 212
+   }
+  ]
+ },
+ "back": {
+  "iou": 0.9494,
+  "ref_px": 75123,
+  "model_px": 76584,
+  "ref_only_px": 1240,
+  "model_only_px": 2701,
+  "alpha_area_px": 75991.4,
+  "centroid_offset_px": [
+   -1.046,
+   -2.418
+  ],
+  "target": 0.95,
+  "bands": [
+   {
+    "band": "head/hair",
+    "rows": [
+     0,
+     150
+    ],
+    "iou": 0.9454,
+    "ref_only_px": 158,
+    "model_only_px": 469
+   },
+   {
+    "band": "arms",
+    "rows": [
+     150,
+     192
+    ],
+    "iou": 0.9483,
+    "ref_only_px": 231,
+    "model_only_px": 537
+   },
+   {
+    "band": "jacket",
+    "rows": [
+     192,
+     252
+    ],
+    "iou": 0.9381,
+    "ref_only_px": 1,
+    "model_only_px": 366
+   },
+   {
+    "band": "skirt+sword",
+    "rows": [
+     252,
+     390
+    ],
+    "iou": 0.9654,
+    "ref_only_px": 82,
+    "model_only_px": 611
+   },
+   {
+    "band": "legs",
+    "rows": [
+     390,
+     630
+    ],
+    "iou": 0.9463,
+    "ref_only_px": 607,
+    "model_only_px": 514
+   },
+   {
+    "band": "feet",
+    "rows": [
+     630,
+     706
+    ],
+    "iou": 0.9221,
+    "ref_only_px": 161,
+    "model_only_px": 204
+   }
+  ]
+ },
+ "side": {
+  "iou": 0.966,
+  "ref_px": 47364,
+  "model_px": 47708,
+  "ref_only_px": 651,
+  "model_only_px": 995,
+  "alpha_area_px": 47331.3,
+  "centroid_offset_px": [
+   -0.493,
+   -0.125
+  ],
+  "target": 0.92,
+  "bands": [
+   {
+    "band": "head/hair",
+    "rows": [
+     0,
+     150
+    ],
+    "iou": 0.9419,
+    "ref_only_px": 269,
+    "model_only_px": 415
+   },
+   {
+    "band": "arms",
+    "rows": [
+     150,
+     192
+    ],
+    "iou": 0.9695,
+    "ref_only_px": 11,
+    "model_only_px": 72
+   },
+   {
+    "band": "jacket",
+    "rows": [
+     192,
+     252
+    ],
+    "iou": 0.9612,
+    "ref_only_px": 131,
+    "model_only_px": 53
+   },
+   {
+    "band": "skirt+sword",
+    "rows": [
+     252,
+     390
+    ],
+    "iou": 0.9635,
+    "ref_only_px": 182,
+    "model_only_px": 305
+   },
+   {
+    "band": "legs",
+    "rows": [
+     390,
+     630
+    ],
+    "iou": 0.9996,
+    "ref_only_px": 4,
+    "model_only_px": 0
+   },
+   {
+    "band": "feet",
+    "rows": [
+     630,
+     706
+    ],
+    "iou": 0.9592,
+    "ref_only_px": 54,
+    "model_only_px": 150
+   }
+  ]
+ }
+}

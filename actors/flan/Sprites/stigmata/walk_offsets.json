@@ -1,0 +1,41 @@
+{
+ "note": "Flan Stigmata walk, scaled like her Normal walk. Offsets for SpriteModifier.Offset (bottom-left, y up). Play 1,2,3,4 in order; forward 160 ms/key, backward 180 ms/key in the source.",
+ "offsets": {
+  "Walk_Forward": [
+   [
+    -111,
+    -4
+   ],
+   [
+    -109,
+    -4
+   ],
+   [
+    -129,
+    -4
+   ],
+   [
+    -109,
+    -3
+   ]
+  ],
+  "Walk_Backward": [
+   [
+    -111,
+    -4
+   ],
+   [
+    -109,
+    -3
+   ],
+   [
+    -129,
+    -4
+   ],
+   [
+    -109,
+    -4
+   ]
+  ]
+ }
+}

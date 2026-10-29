@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_StarCross_Dash_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="x2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="x4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="x5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="x6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="x7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="x8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuRelativeXCondition.cs" id="x9"]
+
+[sub_resource type="Resource" id="z1"]
+script = ExtResource("x1")
+
+[sub_resource type="Resource" id="z2"]
+script = ExtResource("x2")
+
+[sub_resource type="Resource" id="zev1"]
+script = ExtResource("x3")
+Conditions = [SubResource("z1")]
+Actions = [SubResource("z2")]
+
+[sub_resource type="Resource" id="z3"]
+script = ExtResource("x4")
+
+[sub_resource type="Resource" id="z4"]
+script = ExtResource("x5")
+Velocity = 0
+
+[sub_resource type="Resource" id="zev2"]
+script = ExtResource("x3")
+Actions = [SubResource("z3"), SubResource("z4")]
+
+[sub_resource type="Resource" id="z5"]
+script = ExtResource("x5")
+Velocity = 150000
+
+[sub_resource type="Resource" id="z6"]
+script = ExtResource("x6")
+Source = 3
+Index = 49
+
+[sub_resource type="Resource" id="z7"]
+script = ExtResource("x7")
+Frame = 2
+
+[sub_resource type="Resource" id="zev3"]
+script = ExtResource("x3")
+Conditions = [SubResource("z7")]
+Actions = [SubResource("z5"), SubResource("z6")]
+
+[sub_resource type="Resource" id="z8"]
+script = ExtResource("x8")
+MinFrame = 3
+MaxFrame = 20
+
+[sub_resource type="Resource" id="z9"]
+script = ExtResource("x9")
+MinDistance = -25000
+MaxDistance = 4000
+
+[sub_resource type="Resource" id="z10"]
+script = ExtResource("x2")
+StateIndex = 117
+
+[sub_resource type="Resource" id="zev4"]
+script = ExtResource("x3")
+Conditions = [SubResource("z8"), SubResource("z9")]
+Actions = [SubResource("z10")]
+
+[sub_resource type="Resource" id="z11"]
+script = ExtResource("x5")
+Velocity = 0
+
+[sub_resource type="Resource" id="z12"]
+script = ExtResource("x7")
+Frame = 20
+
+[sub_resource type="Resource" id="zev5"]
+script = ExtResource("x3")
+Conditions = [SubResource("z12")]
+Actions = [SubResource("z11")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Star Cross (dash)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("zev4"), SubResource("zev1")]
+OnEnterEvents = [SubResource("zev2")]
+OnTickEvents = [SubResource("zev3"), SubResource("zev5")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

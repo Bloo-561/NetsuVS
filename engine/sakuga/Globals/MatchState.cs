@@ -1,0 +1,15 @@
+namespace SakugaEngine.Global;
+
+public enum MatchState
+{
+	INTRO,
+	CATCHPHRASE,
+	ROUND_START,
+	ROUND_RUNNING,
+	ROUND_END,
+	ROUND_WINNER,
+	ROUND_INTERLUDE,
+	NEXT_ROUND_TRANSITION,
+	MATCH_OUTRO,
+	RESULTS
+}

@@ -1,0 +1,560 @@
+{
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/5A_01_Start.png": {
+  "face_scale": 1.03,
+  "face_rot": -8,
+  "score": 0.79,
+  "face_at": [
+   422,
+   196
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Back_02.png": {
+  "face_scale": 1.01,
+  "face_rot": -12,
+  "score": 0.861,
+  "face_at": [
+   450,
+   236
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/AirDash_Forward_02.png": {
+  "face_scale": 1.01,
+  "face_rot": -5,
+  "score": 0.784,
+  "face_at": [
+   502,
+   320
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Backstep_02.png": {
+  "face_scale": 1.01,
+  "face_rot": -6,
+  "score": 0.786,
+  "face_at": [
+   382,
+   214
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Dash_Forward_02.png": {
+  "face_scale": 1.04,
+  "face_rot": -17,
+  "score": 0.723,
+  "face_at": [
+   490,
+   314
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Idle_Reference.png": {
+  "face_scale": 1.0,
+  "face_rot": 0,
+  "score": 1.0,
+  "face_at": [
+   400,
+   180
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Back_02.png": {
+  "face_scale": 1.02,
+  "face_rot": -3,
+  "score": 0.9,
+  "face_at": [
+   440,
+   188
+  ]
+ },
+ "Flan_All_Sprites/02_Basics/Flan_Basics_v2/PNG/Walk_Forward_02.png": {
+  "face_scale": 0.98,
+  "face_rot": 2,
+  "score": 0.861,
+  "face_at": [
+   418,
+   210
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_01_Start.png": {
+  "face_scale": 1.08,
+  "face_rot": -13,
+  "score": 0.735,
+  "face_at": [
+   442,
+   304
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_02_Hit.png": {
+  "face_scale": 1.02,
+  "face_rot": -18,
+  "score": 0.7,
+  "face_at": [
+   420,
+   398
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2A_03_Recover.png": {
+  "face_scale": 0.98,
+  "face_rot": -6,
+  "score": 0.858,
+  "face_at": [
+   422,
+   300
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_01_Start.png": {
+  "face_scale": 1.01,
+  "face_rot": -15,
+  "score": 0.756,
+  "face_at": [
+   432,
+   312
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_02_Hit.png": {
+  "face_scale": 0.93,
+  "face_rot": 5,
+  "score": 0.614,
+  "face_at": [
+   448,
+   408
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2B_03_Recover.png": {
+  "face_scale": 1.03,
+  "face_rot": -12,
+  "score": 0.817,
+  "face_at": [
+   424,
+   274
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_01_Push.png": {
+  "face_scale": 1.01,
+  "face_rot": 4,
+  "score": 0.615,
+  "face_at": [
+   520,
+   420
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_02_Slide_Hit.png": {
+  "face_scale": 1.01,
+  "face_rot": -9,
+  "score": 0.717,
+  "face_at": [
+   390,
+   428
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/2C_03_Brake.png": {
+  "face_scale": 0.99,
+  "face_rot": -8,
+  "score": 0.799,
+  "face_at": [
+   454,
+   390
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_01_Load.png": {
+  "face_scale": 0.97,
+  "face_rot": 8,
+  "score": 0.826,
+  "face_at": [
+   408,
+   210
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_02_Pump.png": {
+  "face_scale": 1.01,
+  "face_rot": 17,
+  "score": 0.83,
+  "face_at": [
+   478,
+   166
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/6C_03_Recover.png": {
+  "face_scale": 1.0,
+  "face_rot": 3,
+  "score": 0.895,
+  "face_at": [
+   390,
+   194
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_01_Lower.png": {
+  "face_scale": 1.01,
+  "face_rot": -5,
+  "score": 0.796,
+  "face_at": [
+   436,
+   300
+  ]
+ },
+ "Flan_All_Sprites/03_Low_Normals/Flan_Crouch_and_Command_Normals/PNG/Crouch_02_Hold.png": {
+  "face_scale": 1.01,
+  "face_rot": -5,
+  "score": 0.822,
+  "face_at": [
+   418,
+   336
+  ]
+ },
+ "Flan_All_Sprites/05_236/Flan_236_Standalone/Punch_01.png": {
+  "face_scale": 1.1,
+  "face_rot": -19,
+  "score": 0.705,
+  "face_at": [
+   490,
+   342
+  ]
+ },
+ "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_01.png": {
+  "face_scale": 1.01,
+  "face_rot": -38,
+  "score": 0.629,
+  "face_at": [
+   392,
+   230
+  ]
+ },
+ "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_02.png": {
+  "face_scale": 0.98,
+  "face_rot": -41,
+  "score": 0.615,
+  "face_at": [
+   396,
+   264
+  ]
+ },
+ "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_03.png": {
+  "face_scale": 0.98,
+  "face_rot": -41,
+  "score": 0.622,
+  "face_at": [
+   394,
+   220
+  ]
+ },
+ "Flan_All_Sprites/05_236/Flan_236_Standalone/Windup_04.png": {
+  "face_scale": 0.52,
+  "face_rot": 49,
+  "score": 0.575,
+  "face_at": [
+   458,
+   210
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Apex_01.png": {
+  "face_scale": 0.76,
+  "face_rot": 6,
+  "score": 0.663,
+  "face_at": [
+   142,
+   78
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Beam_Aim_01.png": {
+  "face_scale": 0.53,
+  "face_rot": 36,
+  "score": 0.637,
+  "face_at": [
+   140,
+   138
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Fall_Front_01.png": {
+  "face_scale": 0.89,
+  "face_rot": 46,
+  "score": 0.68,
+  "face_at": [
+   146,
+   396
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Hit_01.png": {
+  "face_scale": 0.57,
+  "face_rot": 9,
+  "score": 0.668,
+  "face_at": [
+   298,
+   186
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_01.png": {
+  "face_scale": 0.59,
+  "face_rot": 30,
+  "score": 0.628,
+  "face_at": [
+   374,
+   168
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Rise_02.png": {
+  "face_scale": 0.59,
+  "face_rot": 42,
+  "score": 0.656,
+  "face_at": [
+   322,
+   224
+  ]
+ },
+ "Flan_All_Sprites/06_623_Base_and_C/Flan_623/PNG/Spin_Back_01.png": {
+  "face_scale": 0.67,
+  "face_rot": 15,
+  "score": 0.668,
+  "face_at": [
+   146,
+   226
+  ]
+ },
+ "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Held_Uppercut.png": {
+  "face_scale": 0.53,
+  "face_rot": 36,
+  "score": 0.638,
+  "face_at": [
+   220,
+   102
+  ]
+ },
+ "Flan_All_Sprites/07_623_AB_Latest/Flan_623_AB_v3/Peak_Burst.png": {
+  "face_scale": 0.52,
+  "face_rot": 51,
+  "score": 0.745,
+  "face_at": [
+   788,
+   872
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Load.png": {
+  "face_scale": 0.95,
+  "face_rot": -41,
+  "score": 0.608,
+  "face_at": [
+   228,
+   0
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Descent_Punch.png": {
+  "face_scale": 0.86,
+  "face_rot": -27,
+  "score": 0.605,
+  "face_at": [
+   136,
+   26
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/EX_Energy_Overlay.png": {
+  "face_scale": 0.51,
+  "face_rot": -3,
+  "score": 0.695,
+  "face_at": [
+   1074,
+   420
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Idle.png": {
+  "face_scale": 0.73,
+  "face_rot": 0,
+  "score": 0.935,
+  "face_at": [
+   42,
+   0
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Impact.png": {
+  "face_scale": 0.87,
+  "face_rot": -37,
+  "score": 0.638,
+  "face_at": [
+   214,
+   0
+  ]
+ },
+ "Flan_All_Sprites/08_214/Flan_214_Animations/PNG/Knee.png": {
+  "face_scale": 0.7,
+  "face_rot": -3,
+  "score": 0.774,
+  "face_at": [
+   198,
+   0
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Dash_Punch.png": {
+  "face_scale": 0.89,
+  "face_rot": -32,
+  "score": 0.691,
+  "face_at": [
+   490,
+   440
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Fire.png": {
+  "face_scale": 0.69,
+  "face_rot": 33,
+  "score": 0.639,
+  "face_at": [
+   318,
+   384
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Idle.png": {
+  "face_scale": 0.69,
+  "face_rot": -2,
+  "score": 0.955,
+  "face_at": [
+   398,
+   354
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Radiant_Burst.png": {
+  "face_scale": 0.51,
+  "face_rot": 12,
+  "score": 0.696,
+  "face_at": [
+   884,
+   104
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Recoil.png": {
+  "face_scale": 0.79,
+  "face_rot": 41,
+  "score": 0.645,
+  "face_at": [
+   298,
+   454
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll.png": {
+  "face_scale": 0.52,
+  "face_rot": -46,
+  "score": 0.557,
+  "face_at": [
+   474,
+   450
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Roll_Exit.png": {
+  "face_scale": 0.91,
+  "face_rot": -40,
+  "score": 0.639,
+  "face_at": [
+   484,
+   422
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_01.png": {
+  "face_scale": 0.68,
+  "face_rot": 27,
+  "score": 0.681,
+  "face_at": [
+   358,
+   352
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_02.png": {
+  "face_scale": 0.69,
+  "face_rot": 28,
+  "score": 0.684,
+  "face_at": [
+   362,
+   378
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_03.png": {
+  "face_scale": 0.67,
+  "face_rot": 27,
+  "score": 0.69,
+  "face_at": [
+   358,
+   346
+  ]
+ },
+ "Flan_All_Sprites/09_236236_Super/Flan_236236_Locked/PNG/Windup_04.png": {
+  "face_scale": 0.68,
+  "face_rot": 24,
+  "score": 0.686,
+  "face_at": [
+   362,
+   354
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Diagonal_Punch.png": {
+  "face_scale": 0.57,
+  "face_rot": 31,
+  "score": 0.663,
+  "face_at": [
+   224,
+   708
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Load.png": {
+  "face_scale": 0.79,
+  "face_rot": -27,
+  "score": 0.807,
+  "face_at": [
+   510,
+   488
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Downward_Punch.png": {
+  "face_scale": 0.65,
+  "face_rot": -34,
+  "score": 0.623,
+  "face_at": [
+   400,
+   524
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Ground_Impact.png": {
+  "face_scale": 0.57,
+  "face_rot": 51,
+  "score": 0.671,
+  "face_at": [
+   308,
+   698
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Stand.png": {
+  "face_scale": 0.72,
+  "face_rot": -10,
+  "score": 0.822,
+  "face_at": [
+   452,
+   472
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Sweat_Wipe.png": {
+  "face_scale": 0.73,
+  "face_rot": 8,
+  "score": 0.803,
+  "face_at": [
+   420,
+   436
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_01.png": {
+  "face_scale": 0.77,
+  "face_rot": 35,
+  "score": 0.824,
+  "face_at": [
+   380,
+   448
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_02.png": {
+  "face_scale": 0.75,
+  "face_rot": 33,
+  "score": 0.812,
+  "face_at": [
+   384,
+   428
+  ]
+ },
+ "Flan_All_Sprites/10_214214_Super/Flan_214214_Final/PNG/Windup_03.png": {
+  "face_scale": 0.78,
+  "face_rot": 37,
+  "score": 0.835,
+  "face_at": [
+   376,
+   434
+  ]
+ }
+}

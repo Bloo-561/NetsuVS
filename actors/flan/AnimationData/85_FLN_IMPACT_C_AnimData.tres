@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://8gtv72ivhs64"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://3dqlqqsrrcgn" path="res://actors/flan/Hitboxes/42_Hitbox_MeteorImpact_Impact_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://1egym3o7glj0" path="res://actors/flan/Hitboxes/42_Hitbox_MeteorImpact_Impact_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://54oksiw4b1rh" path="res://actors/flan/Hitboxes/42_Hitbox_MeteorImpact_Impact_2.tres" id="5"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_impact.png" id="t_k214_impact"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_exfx.png" id="t_k214_exfx"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_idle.png" id="t_k214_idle"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+animationStage = 1
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 6
+animationStage = 2
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 20
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_impact")
+Offset = Vector2(-295, -21)
+
+[sub_resource type="Resource" id="M0_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_exfx")
+Offset = Vector2(-241, -187)
+
+[sub_resource type="Resource" id="nf_s1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_exfx")
+Offset = Vector2(-240.2, -193.6)
+Scale = Vector2(1.7, 1.7)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0"), SubResource("nf_s1")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_impact")
+Offset = Vector2(-295, -21)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 10
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_idle")
+Offset = Vector2(-127, -4)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 20
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="nf_s2"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_impact")
+Offset = Vector2(-295.0, -21.0)
+
+[sub_resource type="Resource" id="nf_s3"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_exfx")
+Offset = Vector2(-240.0, -195.4)
+Scale = Vector2(2.1, 2.1)
+
+[sub_resource type="Resource" id="nf_s4"]
+script = ExtResource("an")
+AtFrame = 5
+Modifiers = [SubResource("nf_s2"), SubResource("nf_s3")]
+
+[resource]
+script = ExtResource("1")
+Duration = 34
+Animations = [SubResource("A0"), SubResource("nf_s4"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]

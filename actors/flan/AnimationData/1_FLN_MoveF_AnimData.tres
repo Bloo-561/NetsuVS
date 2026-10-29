@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bp5hlull1fm25"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://t8p4x3o0hf2v" path="res://actors/flan/Hitboxes/0_Hitbox_Basic.tres" id="11"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="12"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="13"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/wk2_f1.png" id="t_wk2_f1"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/wk2_f2.png" id="t_wk2_f2"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/wk2_f3.png" id="t_wk2_f3"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/wk2_f4.png" id="t_wk2_f4"]
+
+[sub_resource type="Resource" id="Resource_dpo3q"]
+script = ExtResource("12")
+HitboxData = ExtResource("11")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_wk2_f1")
+Offset = Vector2(-140, -3)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_wk2_f2")
+Offset = Vector2(-102, -4)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 10
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_wk2_f3")
+Offset = Vector2(-156, -3)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+AtFrame = 20
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_wk2_f4")
+Offset = Vector2(-103, -3)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("3")
+AtFrame = 30
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("13")
+Duration = 40
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("Resource_dpo3q")]
+AttackProfiles = []

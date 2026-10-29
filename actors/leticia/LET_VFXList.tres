@@ -1,0 +1,163 @@
+[gd_resource type="Resource" script_class="SpawnsList" format=3 uid="uid://24kopgqah6ck"]
+
+[ext_resource type="PackedScene" uid="uid://7ayhrljwz5o0" path="res://actors/leticia/VFX/LET_VFX_00.tscn" id="1"]
+[ext_resource type="Script" uid="uid://fshoagbsdqd4" path="res://engine/sakuga/Resources/SpawnObject.cs" id="2"]
+[ext_resource type="PackedScene" uid="uid://b6q10l0c6oxdp" path="res://actors/_shared/sakuga/VFX/VFX_01.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://ci8tj0xdjw1dl" path="res://actors/_shared/sakuga/VFX/VFX_02.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bkam4nekv1yw2" path="res://actors/_shared/sakuga/VFX/VFX_03.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bi4cpxp7oistu" path="res://actors/leticia/VFX/LET_VFX_04.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bhntb3jewph5y" path="res://actors/leticia/VFX/LET_VFX_05.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://6she2x72u8rm" path="res://actors/leticia/VFX/LET_VFX_06.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://8i0w13mj5hvd" path="res://actors/_shared/sakuga/VFX/VFX_100.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://cbqwbgbg1ypey" path="res://actors/_shared/sakuga/VFX/VFX_101.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://b4i671h306q3i" path="res://actors/_shared/sakuga/VFX/VFX_102.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://6n42tfc02504" path="res://actors/_shared/sakuga/VFX/VFX_103.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://ddvhln3ykt5qx" path="res://actors/_shared/sakuga/VFX/VFX_104.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://bkk4062wgitki" path="res://actors/_shared/sakuga/VFX/VFX_10.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://chox1hmxbapog" path="res://actors/_shared/sakuga/VFX/VFX_11.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://cqxl7k4wbv6ps" path="res://actors/_shared/sakuga/VFX/VFX_12.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://bbe7757ueu8pn" path="res://actors/_shared/sakuga/VFX/VFX_21.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://bgb5y3cxfcpju" path="res://actors/_shared/sakuga/VFX/VFX_20.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://rc48nysxcxks" path="res://actors/_shared/sakuga/VFX/VFX_22.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://dyraso6pdd3ea" path="res://actors/_shared/sakuga/VFX/VFX_1000.tscn" id="20"]
+[ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="21"]
+
+[sub_resource type="Resource" id="Resource_2floy"]
+script = ExtResource("2")
+Key = "Hit_Effect"
+Instance = ExtResource("1")
+PoolSize = 2
+
+[sub_resource type="Resource" id="Resource_6t0f1"]
+script = ExtResource("2")
+Key = "Block_Effect"
+Instance = ExtResource("3")
+PoolSize = 1
+
+[sub_resource type="Resource" id="Resource_widxw"]
+script = ExtResource("2")
+Key = "Clash_Effect"
+Instance = ExtResource("4")
+PoolSize = 1
+
+[sub_resource type="Resource" id="Resource_55vjd"]
+script = ExtResource("2")
+Key = "Armor_Effect"
+Instance = ExtResource("5")
+PoolSize = 1
+
+[sub_resource type="Resource" id="Resource_j030x"]
+script = ExtResource("2")
+Key = "Strong_Hit"
+Instance = ExtResource("6")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_hvpm4"]
+script = ExtResource("2")
+Key = "Weak Slash"
+Instance = ExtResource("7")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_mpb6w"]
+script = ExtResource("2")
+Key = "Heavy Slash"
+Instance = ExtResource("8")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_sf1f6"]
+script = ExtResource("2")
+Key = "Air Dash Forward"
+Instance = ExtResource("9")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_nvlaq"]
+script = ExtResource("2")
+Key = "Air Dash Back"
+Instance = ExtResource("10")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_5iot4"]
+script = ExtResource("2")
+Key = "Super Jump Neutral"
+Instance = ExtResource("11")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_eo317"]
+script = ExtResource("2")
+Key = "Super Jump Forward"
+Instance = ExtResource("12")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_mifet"]
+script = ExtResource("2")
+Key = "Super Jump Back"
+Instance = ExtResource("13")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_bacd6"]
+script = ExtResource("2")
+Key = "Jump Dust"
+Instance = ExtResource("14")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_vqe4n"]
+script = ExtResource("2")
+Key = "Dash Dust"
+Instance = ExtResource("15")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_innfp"]
+script = ExtResource("2")
+Key = "Land Dust"
+Instance = ExtResource("16")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_1c6eg"]
+script = ExtResource("2")
+Key = "Down Dust"
+Instance = ExtResource("16")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_hu11k"]
+script = ExtResource("2")
+Key = "XCancel"
+Instance = ExtResource("17")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_n8hhw"]
+script = ExtResource("2")
+Key = "Burst"
+Instance = ExtResource("18")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_75g1q"]
+script = ExtResource("2")
+Key = "Last Burst"
+Instance = ExtResource("19")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[sub_resource type="Resource" id="Resource_oqoy4"]
+script = ExtResource("2")
+Key = "Caramello's 2MM"
+Instance = ExtResource("20")
+PoolSize = 1
+metadata/_custom_type_script = "uid://fshoagbsdqd4"
+
+[resource]
+script = ExtResource("21")
+SpawnObjects = [SubResource("Resource_2floy"), SubResource("Resource_6t0f1"), SubResource("Resource_widxw"), SubResource("Resource_55vjd"), SubResource("Resource_j030x"), SubResource("Resource_hvpm4"), SubResource("Resource_mpb6w"), SubResource("Resource_sf1f6"), SubResource("Resource_nvlaq"), SubResource("Resource_5iot4"), SubResource("Resource_eo317"), SubResource("Resource_mifet"), SubResource("Resource_bacd6"), SubResource("Resource_vqe4n"), SubResource("Resource_innfp"), SubResource("Resource_1c6eg"), SubResource("Resource_hu11k"), SubResource("Resource_n8hhw"), SubResource("Resource_75g1q"), SubResource("Resource_oqoy4")]

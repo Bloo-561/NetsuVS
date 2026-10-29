@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://8w7sn35m8k0t"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="1"]
+[ext_resource type="Resource" uid="uid://blkb7dgzd4g5w" path="res://actors/noah/projectiles/States/0_NOH_Hidden.tres" id="2"]
+[ext_resource type="Resource" uid="uid://1vre5hojm146" path="res://actors/noah/projectiles/States/1_NOH_NearIdle.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bcqgzl4qx3f85" path="res://actors/noah/projectiles/States/2_NOH_NearSuck.tres" id="4"]
+[ext_resource type="Resource" uid="uid://y3srplqskb1i" path="res://actors/noah/projectiles/States/3_NOH_FarIdle.tres" id="5"]
+[ext_resource type="Resource" uid="uid://ben8q6yrjz6y3" path="res://actors/noah/projectiles/States/4_NOH_FarSuck.tres" id="6"]
+[ext_resource type="Resource" uid="uid://50ddkufkom0r" path="res://actors/noah/projectiles/States/5_NOH_NearPop.tres" id="7"]
+[ext_resource type="Resource" uid="uid://2kyuarm44qd2" path="res://actors/noah/projectiles/States/6_NOH_FarPop.tres" id="8"]
+
+[resource]
+script = ExtResource("1")
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8")]
+BaseAttack = 100
+BaseDefense = 100

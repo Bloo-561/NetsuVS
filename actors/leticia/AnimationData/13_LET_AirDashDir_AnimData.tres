@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://beunqs6j33stu"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Resource" uid="uid://4lcfxhnvhuri" path="res://actors/leticia/Hitboxes/3_Hitbox_AirDash.tres" id="fd"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://bjdi5g6i5sbqz" path="res://actors/leticia/Hitboxes/2_Hitbox_Jump.tres" id="jp"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/ad_1.png" id="t_ad_1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/ad_2.png" id="t_ad_2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/bj_3.png" id="t_bj_3"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("fd")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 26
+HitboxData = ExtResource("jp")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ad_1")
+Offset = Vector2(-243, 12)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("as")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_ad_2")
+Offset = Vector2(-307, 0)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("as")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_bj_3")
+Offset = Vector2(-221, 7)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("as")
+AtFrame = 24
+Modifiers = [SubResource("M2_0")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 30
+Afterimages = true
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("H0"), SubResource("H1")]
+AttackProfiles = []

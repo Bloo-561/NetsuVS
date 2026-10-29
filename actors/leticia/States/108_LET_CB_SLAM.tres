@@ -1,0 +1,183 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://3cj1lmhj05zp"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://55ctb2w5z6rg" path="res://actors/leticia/AnimationData/108_LET_CB_SLAM_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="7"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="8"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="9"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="10"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="11"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="12"]
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="13"]
+[ext_resource type="Script" uid="uid://bai1jwcnpy2jc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="14"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+MinFrame = 2
+MaxFrame = 999
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("6")
+StateIndex = 109
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+Conditions = [SubResource("s1"), SubResource("s2")]
+Actions = [SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("6")
+StateIndex = 10
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("3")
+Conditions = [SubResource("s5")]
+Actions = [SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("8")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Actions = [SubResource("s8")]
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("10")
+Velocity = 0
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("3")
+Conditions = [SubResource("s10")]
+Actions = [SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("9")
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("11")
+Velocity = 36000
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("3")
+Conditions = [SubResource("s13")]
+Actions = [SubResource("s14")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("9")
+Frame = 10
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("11")
+Velocity = -210000
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("3")
+Conditions = [SubResource("s16")]
+Actions = [SubResource("s17")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("9")
+Frame = 10
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("10")
+Velocity = 16000
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("3")
+Conditions = [SubResource("s19")]
+Actions = [SubResource("s20")]
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("9")
+Frame = 10
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("12")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="s24"]
+script = ExtResource("3")
+Conditions = [SubResource("s22")]
+Actions = [SubResource("s23")]
+
+[sub_resource type="Resource" id="s25"]
+script = ExtResource("4")
+MinFrame = 1
+MaxFrame = 9
+
+[sub_resource type="Resource" id="s26"]
+script = ExtResource("13")
+SetValue = true
+Force = 70000
+
+[sub_resource type="Resource" id="s27"]
+script = ExtResource("3")
+Conditions = [SubResource("s25")]
+Actions = [SubResource("s26")]
+
+[sub_resource type="Resource" id="s28"]
+script = ExtResource("4")
+MinFrame = 0
+MaxFrame = 9
+
+[sub_resource type="Resource" id="s29"]
+script = ExtResource("14")
+Offset = Vector2i(6500, -3000)
+
+[sub_resource type="Resource" id="s30"]
+script = ExtResource("3")
+Conditions = [SubResource("s28")]
+Actions = [SubResource("s29")]
+
+[sub_resource type="Resource" id="s31"]
+script = ExtResource("4")
+MinFrame = 10
+MaxFrame = 999
+
+[sub_resource type="Resource" id="s32"]
+script = ExtResource("14")
+Offset = Vector2i(6500, -6000)
+
+[sub_resource type="Resource" id="s33"]
+script = ExtResource("3")
+Conditions = [SubResource("s31")]
+Actions = [SubResource("s32")]
+
+[sub_resource type="Resource" id="s34"]
+script = ExtResource("8")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s35"]
+script = ExtResource("3")
+Actions = [SubResource("s34")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Comet Burst (board slam)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("s4"), SubResource("s7")]
+OnEnterEvents = [SubResource("s9")]
+OnTickEvents = [SubResource("s12"), SubResource("s15"), SubResource("s18"), SubResource("s21"), SubResource("s24"), SubResource("s27"), SubResource("s30"), SubResource("s33")]
+OnExitEvents = [SubResource("s35")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 4114

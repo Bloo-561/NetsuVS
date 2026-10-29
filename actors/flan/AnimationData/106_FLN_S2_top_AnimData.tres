@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bbvkonq7ifmcq"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://6bcccjceh5kr" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://ba3rlugcdrqxe" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://blh1suzlfcpjw" path="res://actors/flan/Hitboxes/48_Hitbox_BigBangCrash_Slam_2.tres" id="5"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_load.png" id="t_s2_load"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_down.png" id="t_s2_down"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 10
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 12
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_load")
+Offset = Vector2(-112, 38)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_down")
+Offset = Vector2(-237, 8)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 10
+Modifiers = [SubResource("M1_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+Afterimages = true

@@ -1,0 +1,97 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://zba713kt0oks"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://1p654dkru7su" path="res://actors/noah/Hitboxes/49_Hitbox_RagingStorm_Charge_0.tres" id="3"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/rs_00.png" id="t_rs_00"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/fx_rs_charge_0.png" id="t_fx_rs_charge_0"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/fx_rs_charge_1.png" id="t_fx_rs_charge_1"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/fx_rs_charge_2.png" id="t_fx_rs_charge_2"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/fx_rs_charge_3.png" id="t_fx_rs_charge_3"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/fx_rs_charge_4.png" id="t_fx_rs_charge_4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_rs_00")
+Offset = Vector2(-265, -6)
+
+[sub_resource type="Resource" id="M0_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_fx_rs_charge_0")
+Offset = Vector2(-173, 312)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0"), SubResource("M0_1")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_rs_00")
+Offset = Vector2(-265, -6)
+
+[sub_resource type="Resource" id="M1_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_fx_rs_charge_1")
+Offset = Vector2(-176, 312)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 5
+Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_rs_00")
+Offset = Vector2(-265, -6)
+
+[sub_resource type="Resource" id="M2_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_fx_rs_charge_2")
+Offset = Vector2(-203, 311)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 10
+Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_rs_00")
+Offset = Vector2(-265, -6)
+
+[sub_resource type="Resource" id="M3_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_fx_rs_charge_3")
+Offset = Vector2(-218, 318)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 15
+Modifiers = [SubResource("M3_0"), SubResource("M3_1")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_rs_00")
+Offset = Vector2(-265, -6)
+
+[sub_resource type="Resource" id="M4_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_fx_rs_charge_4")
+Offset = Vector2(-141, 318)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 20
+Modifiers = [SubResource("M4_0"), SubResource("M4_1")]
+
+[resource]
+script = ExtResource("1")
+Duration = 25
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = [SubResource("s1")]

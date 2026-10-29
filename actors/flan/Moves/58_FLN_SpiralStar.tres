@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://4bltohiuhamb"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ceak3kopd0qqb" path="res://actors/_shared/sakuga/Inputs/24_Input_623C.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="nf2"]
+
+[sub_resource type="Resource" id="nf_s1"]
+script = ExtResource("nf2")
+MoveIndex = 13
+Conditions = 6
+FrameThreshold = Vector2i(8, 999)
+NetsuOverdriveOnly = true
+
+[sub_resource type="Resource" id="nf_s3"]
+script = ExtResource("nf2")
+MoveIndex = 14
+Conditions = 6
+FrameThreshold = Vector2i(8, 999)
+NetsuOverdriveOnly = true
+
+[sub_resource type="Resource" id="nf_s4"]
+script = ExtResource("nf2")
+MoveIndex = 15
+Conditions = 6
+FrameThreshold = Vector2i(8, 999)
+NetsuOverdriveOnly = true
+
+[resource]
+script = ExtResource("1")
+MoveName = "Spiral Star"
+MoveState = 78
+Inputs = ExtResource("2")
+SuperFlash = 15
+Priority = 9
+MoveEnd = 2
+SuperGaugeRequired = 10000
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true
+UseOnAir = true
+NetsuOncePerJump = true
+CanCancelTo = [SubResource("nf_s1"), SubResource("nf_s3"), SubResource("nf_s4")]

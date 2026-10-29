@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://biv3mzy8epi8j"]
+
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="1"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s2_6.png" id="t_s2_6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s2_7.png" id="t_s2_7"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/s2_8.png" id="t_s2_8"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/idle_O0.png" id="t_idle_O0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_6")
+Offset = Vector2(-291, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("1")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_7")
+Offset = Vector2(-247, -7)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("1")
+AtFrame = 30
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_8")
+Offset = Vector2(-251, -8)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("1")
+AtFrame = 52
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-158, -5)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("1")
+AtFrame = 90
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("2")
+Duration = 120
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = []
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

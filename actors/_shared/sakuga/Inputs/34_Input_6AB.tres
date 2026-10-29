@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="MotionInputs" format=3 uid="uid://trvzy9535okm"]
+
+[ext_resource type="Script" uid="uid://87xpa7lbksa8" path="res://engine/sakuga/Resources/InputSequence.cs" id="1"]
+[ext_resource type="Script" uid="uid://ce6shsv0dij5v" path="res://engine/sakuga/Resources/InputOption.cs" id="2"]
+[ext_resource type="Script" uid="uid://di4jwsd3y2x8w" path="res://engine/sakuga/Resources/MotionInputs.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("1")
+Directional = 4
+DirectionalMode = 1
+Buttons = 3
+
+[sub_resource type="Resource" id="o2"]
+script = ExtResource("2")
+Inputs = [SubResource("s1")]
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("1")
+Directional = 4
+DirectionalMode = 1
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("1")
+Directional = 4
+DirectionalMode = 1
+Buttons = 3
+
+[sub_resource type="Resource" id="o5"]
+script = ExtResource("2")
+Inputs = [SubResource("s3"), SubResource("s4")]
+
+[resource]
+script = ExtResource("3")
+ValidInputs = [SubResource("o2"), SubResource("o5")]
+AbsoluteDirection = true
+InputBuffer = 12

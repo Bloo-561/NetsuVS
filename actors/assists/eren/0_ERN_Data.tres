@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://biq4oq0gckzvi"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://engine/sakuga/Resources/DataContainer.cs" id="1"]
+[ext_resource type="Resource" uid="uid://7durljlpbm18" path="res://actors/assists/eren/States/0_ERN_Hidden.tres" id="2"]
+[ext_resource type="Resource" uid="uid://6em1n730filn" path="res://actors/assists/eren/States/1_ERN_5S.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bbg4gqhn58g6i" path="res://actors/assists/eren/States/2_ERN_hits.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bbg42n5x3wwz3" path="res://actors/assists/eren/States/3_ERN_6S.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bilwcaspxd5uw" path="res://actors/assists/eren/States/4_ERN_6S_land.tres" id="6"]
+[ext_resource type="Resource" uid="uid://zast1oehdde2" path="res://actors/assists/eren/States/5_ERN_dash.tres" id="7"]
+[ext_resource type="Resource" uid="uid://yhl8tvnqmh3m" path="res://actors/assists/eren/States/6_ERN_rdash.tres" id="8"]
+[ext_resource type="Resource" uid="uid://bmq6dgmqpo3u1" path="res://actors/assists/eren/States/7_ERN_rhits.tres" id="9"]
+
+[resource]
+script = ExtResource("1")
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("8"), ExtResource("9")]
+BaseAttack = 100
+BaseDefense = 100

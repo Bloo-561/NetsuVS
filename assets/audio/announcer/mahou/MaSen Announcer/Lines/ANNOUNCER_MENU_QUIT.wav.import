@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bc0i31wawek0f"
+path="res://.godot/imported/ANNOUNCER_MENU_QUIT.wav-1e2b1b659ec0eaa0125a6592c3bf6feb.sample"
+
+[deps]
+
+source_file="res://assets/audio/announcer/mahou/MaSen Announcer/Lines/ANNOUNCER_MENU_QUIT.wav"
+dest_files=["res://.godot/imported/ANNOUNCER_MENU_QUIT.wav-1e2b1b659ec0eaa0125a6592c3bf6feb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=48000
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=0
+compress/mode=0

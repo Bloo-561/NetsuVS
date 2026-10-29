@@ -1,0 +1,215 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://stages/roer/roer.glb" id="1_glb"]
+[ext_resource type="Shader" path="res://stages/roer/rr_sky.gdshader" id="s_sky"]
+[ext_resource type="Shader" path="res://stages/roer/rr_window.gdshader" id="s_window"]
+[ext_resource type="Shader" path="res://stages/roer/rr_glow.gdshader" id="s_glow"]
+[ext_resource type="Shader" path="res://stages/roer/rr_steps.gdshader" id="s_steps"]
+[ext_resource type="Shader" path="res://stages/roer/rr_smoke.gdshader" id="s_smoke"]
+[ext_resource type="Shader" path="res://stages/roer/rr_rotor.gdshader" id="s_rotor"]
+[ext_resource type="Shader" path="res://stages/roer/rr_train.gdshader" id="s_train"]
+[ext_resource type="Shader" path="res://stages/roer/rr_ship.gdshader" id="s_ship"]
+[ext_resource type="Shader" path="res://stages/roer/rr_flag.gdshader" id="s_flag"]
+[ext_resource type="Shader" path="res://stages/roer/rr_haze.gdshader" id="s_haze"]
+[ext_resource type="Shader" path="res://stages/roer/rr_floor.gdshader" id="s_floor"]
+[ext_resource type="Texture2D" path="res://stages/roer/textures/floor_light.png" id="t_light"]
+[ext_resource type="Texture2D" path="res://stages/roer/textures/dot.png" id="t_dot"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+shader = ExtResource("s_floor")
+shader_parameter/light_tex = ExtResource("t_light")
+shader_parameter/floor_gain = 1.0
+shader_parameter/exposure = 0.2
+shader_parameter/shoulder = 0.8
+shader_parameter/saturation = 1.1
+shader_parameter/shadow_tint = Vector3(0.84, 0.86, 1.16)
+shader_parameter/highlight_tint = Vector3(1.14, 0.98, 0.84)
+shader_parameter/tint_amount = 0.55
+
+[sub_resource type="ShaderMaterial" id="Mat_sky"]
+shader = ExtResource("s_sky")
+
+[sub_resource type="ShaderMaterial" id="Mat_window"]
+shader = ExtResource("s_window")
+
+[sub_resource type="ShaderMaterial" id="Mat_glow"]
+shader = ExtResource("s_glow")
+
+[sub_resource type="ShaderMaterial" id="Mat_steps"]
+shader = ExtResource("s_steps")
+
+[sub_resource type="ShaderMaterial" id="Mat_smoke"]
+shader = ExtResource("s_smoke")
+
+[sub_resource type="ShaderMaterial" id="Mat_rotor"]
+shader = ExtResource("s_rotor")
+
+[sub_resource type="ShaderMaterial" id="Mat_train"]
+shader = ExtResource("s_train")
+
+[sub_resource type="ShaderMaterial" id="Mat_ship"]
+shader = ExtResource("s_ship")
+
+[sub_resource type="ShaderMaterial" id="Mat_flag"]
+shader = ExtResource("s_flag")
+
+[sub_resource type="ShaderMaterial" id="Mat_haze"]
+shader = ExtResource("s_haze")
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(80, 34.5)
+
+[sub_resource type="StandardMaterial3D" id="Mat_soot"]
+transparency = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.16, 0.13, 0.13, 0.7)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_soot"]
+material = SubResource("Mat_soot")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="Mat_mote"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.75, 0.45, 0.55)
+albedo_texture = ExtResource("t_dot")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="Mesh_mote"]
+material = SubResource("Mat_mote")
+size = Vector2(0.035, 0.035)
+
+[sub_resource type="Gradient" id="Grad"]
+offsets = PackedFloat32Array(0, 0.2, 0.8, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0.36, 0.26, 0.32, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 0.8, 0.7, 1)
+ambient_light_energy = 0.4
+tonemap_mode = 0
+glow_enabled = true
+glow_intensity = 0.55
+glow_strength = 1.0
+glow_bloom = 0.0
+glow_blend_mode = 1
+glow_hdr_threshold = 0.95
+fog_enabled = false
+
+[node name="Roer" type="Node3D"]
+
+[node name="Stage" parent="." instance=ExtResource("1_glb")]
+
+[node name="Sky" parent="Stage"]
+material_override = SubResource("Mat_sky")
+cast_shadow = 0
+
+[node name="Win" parent="Stage"]
+material_override = SubResource("Mat_window")
+cast_shadow = 0
+
+[node name="Glow" parent="Stage"]
+material_override = SubResource("Mat_glow")
+cast_shadow = 0
+
+[node name="Steps" parent="Stage"]
+material_override = SubResource("Mat_steps")
+cast_shadow = 0
+
+[node name="Smoke" parent="Stage"]
+material_override = SubResource("Mat_smoke")
+cast_shadow = 0
+
+[node name="Rotor" parent="Stage"]
+material_override = SubResource("Mat_rotor")
+cast_shadow = 0
+
+[node name="Train" parent="Stage"]
+material_override = SubResource("Mat_train")
+cast_shadow = 0
+
+[node name="Ship" parent="Stage"]
+material_override = SubResource("Mat_ship")
+cast_shadow = 0
+
+[node name="Flag" parent="Stage"]
+material_override = SubResource("Mat_flag")
+cast_shadow = 0
+
+[node name="Haze" parent="Stage"]
+material_override = SubResource("Mat_haze")
+cast_shadow = 0
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.75)
+cast_shadow = 0
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
+
+[node name="FX" type="Node3D" parent="."]
+
+[node name="Soot" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 4.5, -6)
+cast_shadow = 0
+amount = 160
+lifetime = 18.0
+preprocess = 18.0
+randomness = 0.6
+lifetime_randomness = 0.4
+local_coords = true
+mesh = SubResource("Mesh_soot")
+emission_shape = 3
+emission_box_extents = Vector3(18, 4.5, 9)
+direction = Vector3(1, -0.15, 0.2)
+spread = 25.0
+gravity = Vector3(0, -0.02, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 0.6
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Grad")
+
+[node name="SunDust" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, -8)
+cast_shadow = 0
+amount = 120
+lifetime = 14.0
+preprocess = 14.0
+randomness = 0.6
+lifetime_randomness = 0.4
+local_coords = true
+mesh = SubResource("Mesh_mote")
+emission_shape = 3
+emission_box_extents = Vector3(12, 3, 5)
+direction = Vector3(0.3, 0.1, 0.1)
+spread = 180.0
+gravity = Vector3(0, -0.01, 0)
+initial_velocity_min = 0.03
+initial_velocity_max = 0.1
+scale_amount_min = 0.5
+scale_amount_max = 1.4
+color_ramp = SubResource("Grad")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")
+
+[editable path="Stage"]

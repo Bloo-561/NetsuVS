@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://bgb5y3cxfcpju"]
+
+[ext_resource type="Script" uid="uid://d4e1sv1gy8i8a" path="res://engine/sakuga/Components/SakugaVFX.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://csadw5obvy1yl" path="res://actors/_shared/sakuga/Sprites/VFX/sprite_rim.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dy8t34bg73laq" path="res://assets/sakuga_ui/VFX/6005-0.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cou6i2qkwwg8w" path="res://actors/_shared/sakuga/Sprites/VFX/sprite_star_single.png" id="4"]
+[ext_resource type="Script" uid="uid://3uu6r0mhj3p3" path="res://engine/sakuga/Components/SoundQueue.cs" id="5"]
+[ext_resource type="AudioStream" uid="uid://buerq456h4qqm" path="res://actors/_shared/sakuga/SFX/Burst.wav" id="6"]
+
+[sub_resource type="Animation" id="Animation_b6bqa"]
+resource_name = "GFX"
+length = 0.26666886
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Sprite3D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Visuals/Sprite3D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Visuals/Sprite3D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(4.000002, 0.24148414),
+"update": 0,
+"values": [Color(0.6205461, 0.8941989, 0.88890105, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Visuals/Sprite3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.2, 0.2, 0.2), Vector3(3, 3, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Visuals/Sprite3D2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 2.0943952)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/Visuals/Sprite3D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.266669),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.61960787, 0.89411765, 0.8901961, 0.7019608), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nv8md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Visuals/Sprite3D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Visuals/Sprite3D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Visuals/Sprite3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Visuals/Sprite3D2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/Visuals/Sprite3D2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmuae"]
+_data = {
+&"GFX": SubResource("Animation_b6bqa"),
+&"RESET": SubResource("Animation_nv8md")
+}
+
+[node name="VFX" type="Node" unique_id=615107896 node_paths=PackedStringArray("Player", "Graphics", "Sound")]
+script = ExtResource("1")
+Duration = 16
+Player = NodePath("Graphics/Visuals/AnimationPlayer")
+Graphics = NodePath("Graphics")
+AnimationName = "GFX"
+Sound = NodePath("SFX")
+metadata/_custom_type_script = "uid://d4e1sv1gy8i8a"
+
+[node name="Graphics" type="Node3D" parent="." unique_id=1626399739]
+
+[node name="Visuals" type="Node3D" parent="Graphics" unique_id=67086069]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Visuals" unique_id=510895255]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_bmuae")
+
+[node name="Sprite3D" type="Sprite3D" parent="Graphics/Visuals" unique_id=1278370623]
+layers = 2
+sorting_offset = 10.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.04
+texture = ExtResource("3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Graphics/Visuals" unique_id=1038695858]
+layers = 2
+sorting_offset = 10.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.08
+texture = ExtResource("4")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="." unique_id=988711969]
+script = ExtResource("5")
+DefaultSound = ExtResource("6")
+metadata/_custom_type_script = "uid://3uu6r0mhj3p3"

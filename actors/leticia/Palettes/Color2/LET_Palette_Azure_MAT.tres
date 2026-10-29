@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bagicwhompvx8"]
+
+[ext_resource type="Shader" path="res://assets/shaders/sprite_color_swap.gdshader" id="1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/hue_offset = 0.1
+shader_parameter/trim_hue_min = 0.015
+shader_parameter/trim_hue_max = 0.095
+shader_parameter/trim_min_sat = 0.33
+shader_parameter/target_hue = 0.6
+shader_parameter/target_sat = 0.9
+shader_parameter/target_val = 1.0
+shader_parameter/dark_max_sat = 0.3
+shader_parameter/dark_max_val = 0.45
+shader_parameter/dark_hue = 0.62
+shader_parameter/dark_sat = 0.0
+shader_parameter/dark_lift = 1.0
+shader_parameter/strength = 1.0

@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bd528mtk5jgqx"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://btuurbbxj3aqr" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL1.tres" id="lvl"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Resource" uid="uid://41jwwdjdgmu6" path="res://actors/leticia/Hitboxes/5_Hitbox_5A_0.tres" id="nhb0"]
+[ext_resource type="Resource" uid="uid://bjgl5ejhl3hwf" path="res://actors/leticia/Hitboxes/5_Hitbox_5A_1.tres" id="nhb1"]
+[ext_resource type="Resource" uid="uid://18qcqhykv3mw" path="res://actors/leticia/Hitboxes/5_Hitbox_5A_2.tres" id="nhb2"]
+[ext_resource type="Resource" uid="uid://bkr7kyyju5uik" path="res://actors/leticia/Hitboxes/5_Hitbox_5A_3.tres" id="nhb3"]
+[ext_resource type="Resource" uid="uid://bdbmjsopi22m6" path="res://actors/leticia/Hitboxes/5_Hitbox_5A_4.tres" id="nhb4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5a_1.png" id="t_n5a_1"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5a_2.png" id="t_n5a_2"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5a_3.png" id="t_n5a_3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5a_4.png" id="t_n5a_4"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/n5a_5.png" id="t_n5a_5"]
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("ap")
+BaseDamage = 250
+GuardCrushDamage = 190
+AttackLevel = ExtResource("lvl")
+
+[sub_resource type="Resource" id="NH0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("nhb0")
+
+[sub_resource type="Resource" id="NH1"]
+script = ExtResource("hs")
+AtFrame = 3
+HitboxData = ExtResource("nhb1")
+
+[sub_resource type="Resource" id="NH2"]
+script = ExtResource("hs")
+AtFrame = 5
+animationStage = 1
+HitboxData = ExtResource("nhb2")
+
+[sub_resource type="Resource" id="NH3"]
+script = ExtResource("hs")
+AtFrame = 7
+animationStage = 2
+HitboxData = ExtResource("nhb3")
+
+[sub_resource type="Resource" id="NH4"]
+script = ExtResource("hs")
+AtFrame = 12
+animationStage = 2
+HitboxData = ExtResource("nhb4")
+
+[sub_resource type="Resource" id="NM0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5a_1")
+Offset = Vector2(-283, 3)
+
+[sub_resource type="Resource" id="NA0"]
+script = ExtResource("as")
+Modifiers = [SubResource("NM0")]
+
+[sub_resource type="Resource" id="NM1"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5a_2")
+Offset = Vector2(-237, 4)
+
+[sub_resource type="Resource" id="NA1"]
+script = ExtResource("as")
+AtFrame = 3
+Modifiers = [SubResource("NM1")]
+
+[sub_resource type="Resource" id="NM2"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5a_3")
+Offset = Vector2(-330, 6)
+
+[sub_resource type="Resource" id="NA2"]
+script = ExtResource("as")
+AtFrame = 5
+Modifiers = [SubResource("NM2")]
+
+[sub_resource type="Resource" id="NM3"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5a_4")
+Offset = Vector2(-240, 6)
+
+[sub_resource type="Resource" id="NA3"]
+script = ExtResource("as")
+AtFrame = 9
+Modifiers = [SubResource("NM3")]
+
+[sub_resource type="Resource" id="NM4"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_n5a_5")
+Offset = Vector2(-245, 7)
+
+[sub_resource type="Resource" id="NA4"]
+script = ExtResource("as")
+AtFrame = 14
+Modifiers = [SubResource("NM4")]
+
+[resource]
+script = ExtResource("ad")
+Duration = 23
+Animations = [SubResource("NA0"), SubResource("NA1"), SubResource("NA2"), SubResource("NA3"), SubResource("NA4")]
+Hitboxes = [SubResource("NH0"), SubResource("NH1"), SubResource("NH2"), SubResource("NH3"), SubResource("NH4")]
+AttackProfiles = [SubResource("P0")]

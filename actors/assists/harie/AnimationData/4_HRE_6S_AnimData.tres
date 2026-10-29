@@ -1,0 +1,519 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bbv3ref6gzt0j"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_wave1.png" id="t_hr_wave1"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_wave2.png" id="t_hr_wave2"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://04t2qr2p4w6i" path="res://actors/assists/harie/Hitboxes/4_Hitbox_HRE_6S_0.tres" id="hb_4_Hitbox_HRE_6S_0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 6
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 12
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 18
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 24
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 30
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("an")
+AtFrame = 36
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("an")
+AtFrame = 42
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="M8_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A8"]
+script = ExtResource("an")
+AtFrame = 48
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="M9_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A9"]
+script = ExtResource("an")
+AtFrame = 54
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="M10_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A10"]
+script = ExtResource("an")
+AtFrame = 60
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="M11_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A11"]
+script = ExtResource("an")
+AtFrame = 66
+Modifiers = [SubResource("M11_0")]
+
+[sub_resource type="Resource" id="M12_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A12"]
+script = ExtResource("an")
+AtFrame = 72
+Modifiers = [SubResource("M12_0")]
+
+[sub_resource type="Resource" id="M13_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A13"]
+script = ExtResource("an")
+AtFrame = 78
+Modifiers = [SubResource("M13_0")]
+
+[sub_resource type="Resource" id="M14_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A14"]
+script = ExtResource("an")
+AtFrame = 84
+Modifiers = [SubResource("M14_0")]
+
+[sub_resource type="Resource" id="M15_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A15"]
+script = ExtResource("an")
+AtFrame = 90
+Modifiers = [SubResource("M15_0")]
+
+[sub_resource type="Resource" id="M16_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A16"]
+script = ExtResource("an")
+AtFrame = 96
+Modifiers = [SubResource("M16_0")]
+
+[sub_resource type="Resource" id="M17_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A17"]
+script = ExtResource("an")
+AtFrame = 102
+Modifiers = [SubResource("M17_0")]
+
+[sub_resource type="Resource" id="M18_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A18"]
+script = ExtResource("an")
+AtFrame = 108
+Modifiers = [SubResource("M18_0")]
+
+[sub_resource type="Resource" id="M19_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A19"]
+script = ExtResource("an")
+AtFrame = 114
+Modifiers = [SubResource("M19_0")]
+
+[sub_resource type="Resource" id="M20_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A20"]
+script = ExtResource("an")
+AtFrame = 120
+Modifiers = [SubResource("M20_0")]
+
+[sub_resource type="Resource" id="M21_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A21"]
+script = ExtResource("an")
+AtFrame = 126
+Modifiers = [SubResource("M21_0")]
+
+[sub_resource type="Resource" id="M22_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A22"]
+script = ExtResource("an")
+AtFrame = 132
+Modifiers = [SubResource("M22_0")]
+
+[sub_resource type="Resource" id="M23_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave2")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A23"]
+script = ExtResource("an")
+AtFrame = 138
+Modifiers = [SubResource("M23_0")]
+
+[sub_resource type="Resource" id="M24_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_wave1")
+Offset = Vector2(-414, -15)
+
+[sub_resource type="Resource" id="A24"]
+script = ExtResource("an")
+AtFrame = 144
+Modifiers = [SubResource("M24_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+animationStage = 1
+HitboxData = ExtResource("hb_4_Hitbox_HRE_6S_0")
+
+[sub_resource type="Resource" id="rep1"]
+script = ExtResource("an")
+AtFrame = 150
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="rep2"]
+script = ExtResource("an")
+AtFrame = 156
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="rep3"]
+script = ExtResource("an")
+AtFrame = 162
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="rep4"]
+script = ExtResource("an")
+AtFrame = 168
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="rep5"]
+script = ExtResource("an")
+AtFrame = 174
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="rep6"]
+script = ExtResource("an")
+AtFrame = 180
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="rep7"]
+script = ExtResource("an")
+AtFrame = 186
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="rep8"]
+script = ExtResource("an")
+AtFrame = 192
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="rep9"]
+script = ExtResource("an")
+AtFrame = 198
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="rep10"]
+script = ExtResource("an")
+AtFrame = 204
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="rep11"]
+script = ExtResource("an")
+AtFrame = 210
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="rep12"]
+script = ExtResource("an")
+AtFrame = 216
+Modifiers = [SubResource("M11_0")]
+
+[sub_resource type="Resource" id="rep13"]
+script = ExtResource("an")
+AtFrame = 222
+Modifiers = [SubResource("M12_0")]
+
+[sub_resource type="Resource" id="rep14"]
+script = ExtResource("an")
+AtFrame = 228
+Modifiers = [SubResource("M13_0")]
+
+[sub_resource type="Resource" id="rep15"]
+script = ExtResource("an")
+AtFrame = 234
+Modifiers = [SubResource("M14_0")]
+
+[sub_resource type="Resource" id="rep16"]
+script = ExtResource("an")
+AtFrame = 240
+Modifiers = [SubResource("M15_0")]
+
+[sub_resource type="Resource" id="rep17"]
+script = ExtResource("an")
+AtFrame = 246
+Modifiers = [SubResource("M16_0")]
+
+[sub_resource type="Resource" id="rep18"]
+script = ExtResource("an")
+AtFrame = 252
+Modifiers = [SubResource("M17_0")]
+
+[sub_resource type="Resource" id="rep19"]
+script = ExtResource("an")
+AtFrame = 258
+Modifiers = [SubResource("M18_0")]
+
+[sub_resource type="Resource" id="rep20"]
+script = ExtResource("an")
+AtFrame = 264
+Modifiers = [SubResource("M19_0")]
+
+[sub_resource type="Resource" id="rep21"]
+script = ExtResource("an")
+AtFrame = 270
+Modifiers = [SubResource("M20_0")]
+
+[sub_resource type="Resource" id="rep22"]
+script = ExtResource("an")
+AtFrame = 276
+Modifiers = [SubResource("M21_0")]
+
+[sub_resource type="Resource" id="rep23"]
+script = ExtResource("an")
+AtFrame = 282
+Modifiers = [SubResource("M22_0")]
+
+[sub_resource type="Resource" id="rep24"]
+script = ExtResource("an")
+AtFrame = 288
+Modifiers = [SubResource("M23_0")]
+
+[sub_resource type="Resource" id="rep25"]
+script = ExtResource("an")
+AtFrame = 294
+Modifiers = [SubResource("M24_0")]
+
+[sub_resource type="Resource" id="rep26"]
+script = ExtResource("an")
+AtFrame = 300
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="rep27"]
+script = ExtResource("an")
+AtFrame = 306
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="rep28"]
+script = ExtResource("an")
+AtFrame = 312
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="rep29"]
+script = ExtResource("an")
+AtFrame = 318
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="rep30"]
+script = ExtResource("an")
+AtFrame = 324
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="rep31"]
+script = ExtResource("an")
+AtFrame = 330
+Modifiers = [SubResource("M5_0")]
+
+[sub_resource type="Resource" id="rep32"]
+script = ExtResource("an")
+AtFrame = 336
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="rep33"]
+script = ExtResource("an")
+AtFrame = 342
+Modifiers = [SubResource("M7_0")]
+
+[sub_resource type="Resource" id="rep34"]
+script = ExtResource("an")
+AtFrame = 348
+Modifiers = [SubResource("M8_0")]
+
+[sub_resource type="Resource" id="rep35"]
+script = ExtResource("an")
+AtFrame = 354
+Modifiers = [SubResource("M9_0")]
+
+[sub_resource type="Resource" id="rep36"]
+script = ExtResource("an")
+AtFrame = 360
+Modifiers = [SubResource("M10_0")]
+
+[sub_resource type="Resource" id="rep37"]
+script = ExtResource("an")
+AtFrame = 366
+Modifiers = [SubResource("M11_0")]
+
+[sub_resource type="Resource" id="rep38"]
+script = ExtResource("an")
+AtFrame = 372
+Modifiers = [SubResource("M12_0")]
+
+[sub_resource type="Resource" id="rep39"]
+script = ExtResource("an")
+AtFrame = 378
+Modifiers = [SubResource("M13_0")]
+
+[sub_resource type="Resource" id="rep40"]
+script = ExtResource("an")
+AtFrame = 384
+Modifiers = [SubResource("M14_0")]
+
+[sub_resource type="Resource" id="rep41"]
+script = ExtResource("an")
+AtFrame = 390
+Modifiers = [SubResource("M15_0")]
+
+[sub_resource type="Resource" id="rep42"]
+script = ExtResource("an")
+AtFrame = 396
+Modifiers = [SubResource("M16_0")]
+
+[sub_resource type="Resource" id="rep43"]
+script = ExtResource("an")
+AtFrame = 402
+Modifiers = [SubResource("M17_0")]
+
+[sub_resource type="Resource" id="rep44"]
+script = ExtResource("an")
+AtFrame = 408
+Modifiers = [SubResource("M18_0")]
+
+[sub_resource type="Resource" id="rep45"]
+script = ExtResource("an")
+AtFrame = 414
+Modifiers = [SubResource("M19_0")]
+
+[sub_resource type="Resource" id="rep46"]
+script = ExtResource("an")
+AtFrame = 420
+Modifiers = [SubResource("M20_0")]
+
+[sub_resource type="Resource" id="rep47"]
+script = ExtResource("an")
+AtFrame = 426
+Modifiers = [SubResource("M21_0")]
+
+[sub_resource type="Resource" id="rep48"]
+script = ExtResource("an")
+AtFrame = 432
+Modifiers = [SubResource("M22_0")]
+
+[sub_resource type="Resource" id="rep49"]
+script = ExtResource("an")
+AtFrame = 438
+Modifiers = [SubResource("M23_0")]
+
+[sub_resource type="Resource" id="rep50"]
+script = ExtResource("an")
+AtFrame = 444
+Modifiers = [SubResource("M24_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 450
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7"), SubResource("A8"), SubResource("A9"), SubResource("A10"), SubResource("A11"), SubResource("A12"), SubResource("A13"), SubResource("A14"), SubResource("A15"), SubResource("A16"), SubResource("A17"), SubResource("A18"), SubResource("A19"), SubResource("A20"), SubResource("A21"), SubResource("A22"), SubResource("A23"), SubResource("A24"), SubResource("rep1"), SubResource("rep2"), SubResource("rep3"), SubResource("rep4"), SubResource("rep5"), SubResource("rep6"), SubResource("rep7"), SubResource("rep8"), SubResource("rep9"), SubResource("rep10"), SubResource("rep11"), SubResource("rep12"), SubResource("rep13"), SubResource("rep14"), SubResource("rep15"), SubResource("rep16"), SubResource("rep17"), SubResource("rep18"), SubResource("rep19"), SubResource("rep20"), SubResource("rep21"), SubResource("rep22"), SubResource("rep23"), SubResource("rep24"), SubResource("rep25"), SubResource("rep26"), SubResource("rep27"), SubResource("rep28"), SubResource("rep29"), SubResource("rep30"), SubResource("rep31"), SubResource("rep32"), SubResource("rep33"), SubResource("rep34"), SubResource("rep35"), SubResource("rep36"), SubResource("rep37"), SubResource("rep38"), SubResource("rep39"), SubResource("rep40"), SubResource("rep41"), SubResource("rep42"), SubResource("rep43"), SubResource("rep44"), SubResource("rep45"), SubResource("rep46"), SubResource("rep47"), SubResource("rep48"), SubResource("rep49"), SubResource("rep50")]
+Hitboxes = [SubResource("H0")]

@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bktysc1x8aysk"]
+
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="e1"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="e2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="e3"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="e4"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="e5"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="e6"]
+[ext_resource type="Script" uid="uid://bjpttaax4o3kc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuPlaceAction.cs" id="e7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="e8"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="e9"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="e10"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRestandAction.cs" id="e11"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/77_CEC_214B_SL_AnimData.tres" id="e12"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="e13"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e1")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e2")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e4")
+Velocity = 0
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e5")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e6")
+Source = 3
+Index = 39
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e3")
+Actions = [SubResource("s4"), SubResource("s5"), SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e7")
+Target = 1
+Offset = Vector2i(-7000, 0)
+KeepHeight = true
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("e8")
+Frame = 5
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("e3")
+Conditions = [SubResource("s9")]
+Actions = [SubResource("s8")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("e5")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("e6")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("e9")
+Amplitude = 0.03
+Duration = 8
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("e8")
+Frame = 6
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("e3")
+Conditions = [SubResource("s14")]
+Actions = [SubResource("s11"), SubResource("s12"), SubResource("s13")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("e10")
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("e8")
+Frame = 10
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("e3")
+Conditions = [SubResource("s17")]
+Actions = [SubResource("s16")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("e11")
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("e3")
+Actions = [SubResource("s19")]
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("e5")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("e3")
+Actions = [SubResource("s21")]
+
+[sub_resource type="Resource" id="z1"]
+script = ExtResource("e8")
+Frame = 9
+
+[sub_resource type="Resource" id="z2"]
+script = ExtResource("e7")
+Target = 1
+Offset = Vector2i(9000, 0)
+KeepHeight = true
+
+[sub_resource type="Resource" id="zev1"]
+script = ExtResource("e3")
+Conditions = [SubResource("z1")]
+Actions = [SubResource("z2")]
+
+[resource]
+script = ExtResource("e13")
+StateName = "Command Dash: Lightning Slash-Through"
+Type = 2
+AnimationData = ExtResource("e12")
+TransitionEvents = [SubResource("s3")]
+OnEnterEvents = [SubResource("s7")]
+OnTickEvents = [SubResource("s10"), SubResource("s15"), SubResource("s18"), SubResource("zev1")]
+OnExitEvents = [SubResource("s22")]
+OnHitConfirmEvents = null
+NetsuKeepBlockSide = true
+AIFlags = 18

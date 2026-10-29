@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bikszb2f8h2tf"]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://ntak4j3asyj7e" path="res://actors/_shared/sakuga/Inputs/41_Input_214B_or_C.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+MoveIndex = 51
+Conditions = 2
+FrameThreshold = Vector2i(0, 60)
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+MoveIndex = 52
+Conditions = 2
+FrameThreshold = Vector2i(0, 60)
+
+[resource]
+script = ExtResource("1")
+MoveName = "Meteor Drop"
+MoveState = 82
+Inputs = ExtResource("2")
+Priority = 7
+MoveEnd = 2
+CanCancelTo = [SubResource("s1"), SubResource("s2")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true

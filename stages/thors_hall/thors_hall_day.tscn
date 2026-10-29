@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://63pmsajhjha9e"]
+
+[ext_resource type="Shader" uid="uid://v179cujioehoe" path="res://assets/shaders/projected_stage.gdshader" id="1_shader"]
+[ext_resource type="Texture2D" path="res://stages/thors_hall/thors_hall_day.png" id="2_paint"]
+
+[sub_resource type="ShaderMaterial" id="Mat_floor"]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/painting = ExtResource("2_paint")
+shader_parameter/surface = 0
+
+[sub_resource type="ShaderMaterial" id="Mat_ceiling"]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/painting = ExtResource("2_paint")
+shader_parameter/surface = 1
+
+[sub_resource type="ShaderMaterial" id="Mat_side"]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/painting = ExtResource("2_paint")
+shader_parameter/surface = 2
+
+[sub_resource type="ShaderMaterial" id="Mat_back"]
+render_priority = 0
+shader = ExtResource("1_shader")
+shader_parameter/painting = ExtResource("2_paint")
+shader_parameter/surface = 3
+
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+material = SubResource("Mat_floor")
+size = Vector2(31.0, 57.1)
+
+[sub_resource type="PlaneMesh" id="Mesh_ceiling"]
+material = SubResource("Mat_ceiling")
+size = Vector2(31.0, 57.1)
+flip_faces = true
+
+[sub_resource type="QuadMesh" id="Mesh_side"]
+material = SubResource("Mat_side")
+size = Vector2(57.1, 8.4)
+
+[sub_resource type="QuadMesh" id="Mesh_back"]
+material = SubResource("Mat_back")
+size = Vector2(31.0, 8.4)
+
+[sub_resource type="Environment" id="Env"]
+background_mode = 1
+background_color = Color(0, 0, 0, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.85, 0.82, 0.9, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 0
+
+[node name="ThorsHallDay" type="Node3D"]
+
+[node name="Room" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4499999999999993)
+mesh = SubResource("Mesh_floor")
+
+[node name="Ceiling" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.4, 1.4499999999999993)
+mesh = SubResource("Mesh_ceiling")
+
+[node name="BackWall" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2, -27.1)
+mesh = SubResource("Mesh_back")
+
+[node name="LeftWall" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -15.5, 4.2, 1.4499999999999993)
+mesh = SubResource("Mesh_side")
+
+[node name="RightWall" type="MeshInstance3D" parent="Room"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 15.5, 4.2, 1.4499999999999993)
+mesh = SubResource("Mesh_side")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, 0.354, -0.354, 0, 0.707, 0.707, 0.5, -0.612, 0.612, 0, 6, 0)
+layers = 3
+light_color = Color(1.0, 0.9, 0.78, 1)
+light_energy = 0.8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env")

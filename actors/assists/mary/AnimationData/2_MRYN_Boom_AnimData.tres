@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bgxaf43lfbig0"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Sprites/v2/boom_1.png" id="t_boom_1"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Sprites/v2/boom_2.png" id="t_boom_2"]
+[ext_resource type="Texture2D" path="res://actors/assists/mary/Sprites/v2/boom_3.png" id="t_boom_3"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://bmz4vcq3enh4p" path="res://actors/assists/mary/Hitboxes/2_Hitbox_MRYN_Boom_0.tres" id="hb_2_Hitbox_MRYN_Boom_0"]
+[ext_resource type="Resource" uid="uid://bjjw8rp2xx47y" path="res://actors/assists/mary/Hitboxes/2_Hitbox_MRYN_Boom_1.tres" id="hb_2_Hitbox_MRYN_Boom_1"]
+[ext_resource type="Resource" uid="uid://78uttycbosg8" path="res://actors/assists/mary/Hitboxes/2_Hitbox_MRYN_Boom_2.tres" id="hb_2_Hitbox_MRYN_Boom_2"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_boom_1")
+Offset = Vector2(-154, -146)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_boom_2")
+Offset = Vector2(-218, -210)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_boom_3")
+Offset = Vector2(-213, -222)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb_2_Hitbox_MRYN_Boom_0")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 2
+animationStage = 1
+HitboxData = ExtResource("hb_2_Hitbox_MRYN_Boom_1")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("hs")
+AtFrame = 10
+animationStage = 2
+HitboxData = ExtResource("hb_2_Hitbox_MRYN_Boom_2")
+
+[resource]
+script = ExtResource("1")
+Duration = 28
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2")]

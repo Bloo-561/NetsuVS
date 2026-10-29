@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://26wtiz7zl5ig"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bf0h605w052vy" path="res://actors/flan/Hitboxes/39_Hitbox_MeteorDrop_B_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://0qeqtouho886" path="res://actors/flan/Hitboxes/39_Hitbox_MeteorDrop_B_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bc4ta42usz625" path="res://actors/flan/Hitboxes/39_Hitbox_MeteorDrop_B_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://386c583f68r2" path="res://actors/flan/Hitboxes/39_Hitbox_MeteorDrop_B_3.tres" id="6"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_idle.png" id="t_k214_idle"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_knee.png" id="t_k214_knee"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_load.png" id="t_k214_load"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_punch.png" id="t_k214_punch"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 5
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 28
+animationStage = 1
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_idle")
+Offset = Vector2(-127, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_knee")
+Offset = Vector2(-154, -32)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_load")
+Offset = Vector2(-199, 71)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 23
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_k214_punch")
+Offset = Vector2(-186, 64)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 28
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 120
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

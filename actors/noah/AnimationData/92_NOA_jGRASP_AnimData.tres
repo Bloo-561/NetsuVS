@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bg3trlqzds3fb"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://6ptllbw6i2rm" path="res://actors/noah/Hitboxes/43_Hitbox_FallenGrasp_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bgwxgnbimyl5w" path="res://actors/noah/Hitboxes/43_Hitbox_FallenGrasp_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bb61kiia5nezk" path="res://actors/noah/Hitboxes/43_Hitbox_FallenGrasp_2.tres" id="5"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ag_reach.png" id="t_ag_reach"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ag_grab.png" id="t_ag_grab"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/ag_down.png" id="t_ag_down"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 8
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ag_reach")
+Offset = Vector2(-269, 88)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ag_grab")
+Offset = Vector2(-281, 107)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 6
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_ag_down")
+Offset = Vector2(-276, 23)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 16
+Modifiers = [SubResource("M2_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 90
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]

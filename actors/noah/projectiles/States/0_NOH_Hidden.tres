@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://blkb7dgzd4g5w"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bciu2x5skwp50" path="res://actors/noah/projectiles/AnimationData/0_NOH_Hidden_AnimData.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+StateName = "Hidden"
+Type = 0
+AnimationData = ExtResource("2")
+TransitionEvents = null
+OnEnterEvents = null
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null

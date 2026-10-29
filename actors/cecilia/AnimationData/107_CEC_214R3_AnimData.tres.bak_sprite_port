@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://birfszt71xn4r"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bgp538k6o5yn4" path="res://actors/cecilia/Hitboxes/60_Hitbox_214R3_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://0zambw38grzl" path="res://actors/cecilia/Hitboxes/60_Hitbox_214R3_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bhrc2qydxf1zr" path="res://actors/cecilia/Hitboxes/60_Hitbox_214R3_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://bilqvkruvzrdv" path="res://actors/cecilia/Hitboxes/60_Hitbox_214R3_3.tres" id="6"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 8
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 11
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 14
+animationStage = 2
+HitboxData = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+Duration = 34
+Animations = []
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

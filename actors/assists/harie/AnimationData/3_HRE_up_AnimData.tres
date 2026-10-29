@@ -1,0 +1,85 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://ba6gcq2bnsghp"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hrfx_splash.png" id="t_hrfx_splash"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_start.png" id="t_hr_start"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_rise.png" id="t_hr_rise"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hr_apex.png" id="t_hr_apex"]
+[ext_resource type="Texture2D" path="res://actors/assists/harie/Sprites/v2/hrfx_vanish.png" id="t_hrfx_vanish"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://bi7m04qpsxg8w" path="res://actors/assists/harie/Hitboxes/3_Hitbox_HRE_up_0.tres" id="hb_3_Hitbox_HRE_up_0"]
+[ext_resource type="Resource" uid="uid://badsj5cabbqip" path="res://actors/assists/harie/Hitboxes/3_Hitbox_HRE_up_1.tres" id="hb_3_Hitbox_HRE_up_1"]
+[ext_resource type="Resource" uid="uid://bjuo3jeixbfb2" path="res://actors/assists/harie/Hitboxes/3_Hitbox_HRE_up_2.tres" id="hb_3_Hitbox_HRE_up_2"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hrfx_splash")
+Offset = Vector2(-195, -12)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_start")
+Offset = Vector2(-152, -11)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 3
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_rise")
+Offset = Vector2(-168, 6)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hr_apex")
+Offset = Vector2(-169, 119)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 18
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_hrfx_vanish")
+Offset = Vector2(-158, -18)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 28
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb_3_Hitbox_HRE_up_0")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("hs")
+AtFrame = 3
+animationStage = 1
+HitboxData = ExtResource("hb_3_Hitbox_HRE_up_1")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("hs")
+AtFrame = 16
+animationStage = 2
+HitboxData = ExtResource("hb_3_Hitbox_HRE_up_2")
+
+[resource]
+script = ExtResource("1")
+Duration = 44
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2")]

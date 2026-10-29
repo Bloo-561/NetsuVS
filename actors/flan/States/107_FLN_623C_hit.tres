@@ -1,0 +1,342 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="nf1"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="nf3"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="nf5"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="nf7"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="nf9"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="nf11"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="nf15"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="nf17"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="nf19"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="nf22"]
+[ext_resource type="Script" uid="uid://bmjvrwba348ah" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuSkyRiseAction.cs" id="nf24"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="nf27"]
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="nf34"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="nf41"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="nf48"]
+[ext_resource type="Script" uid="uid://bai1jwcnpy2jc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="nf79"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/107_FLN_623C_hit_AnimData.tres" id="nf87"]
+
+[sub_resource type="Resource" id="nf_s2"]
+script = ExtResource("nf3")
+MinFrame = 50
+MaxFrame = 999
+
+[sub_resource type="Resource" id="nf_s4"]
+script = ExtResource("nf5")
+
+[sub_resource type="Resource" id="nf_s6"]
+script = ExtResource("nf7")
+StateIndex = 80
+
+[sub_resource type="Resource" id="nf_s8"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s2"), SubResource("nf_s4")]
+Actions = [SubResource("nf_s6")]
+
+[sub_resource type="Resource" id="nf_s10"]
+script = ExtResource("nf11")
+
+[sub_resource type="Resource" id="nf_s12"]
+script = ExtResource("nf7")
+StateIndex = 10
+
+[sub_resource type="Resource" id="nf_s13"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s10")]
+Actions = [SubResource("nf_s12")]
+
+[sub_resource type="Resource" id="nf_s14"]
+script = ExtResource("nf15")
+Properties = 3
+ChangeMode = 0
+
+[sub_resource type="Resource" id="nf_s16"]
+script = ExtResource("nf17")
+Velocity = 0
+
+[sub_resource type="Resource" id="nf_s18"]
+script = ExtResource("nf19")
+Velocity = 0
+
+[sub_resource type="Resource" id="nf_s20"]
+script = ExtResource("nf9")
+Actions = [SubResource("nf_s14"), SubResource("nf_s16"), SubResource("nf_s18")]
+
+[sub_resource type="Resource" id="nf_s21"]
+script = ExtResource("nf22")
+Frame = 4
+
+[sub_resource type="Resource" id="nf_s23"]
+script = ExtResource("nf24")
+Velocity = 283000
+Height = 85000
+
+[sub_resource type="Resource" id="nf_s25"]
+script = ExtResource("nf17")
+Velocity = 4000
+
+[sub_resource type="Resource" id="nf_s26"]
+script = ExtResource("nf27")
+Source = 3
+Index = 50
+
+[sub_resource type="Resource" id="nf_s28"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s21")]
+Actions = [SubResource("nf_s23"), SubResource("nf_s25"), SubResource("nf_s26")]
+
+[sub_resource type="Resource" id="nf_s29"]
+script = ExtResource("nf3")
+MinFrame = 5
+MaxFrame = 40
+
+[sub_resource type="Resource" id="nf_s30"]
+script = ExtResource("nf24")
+Gravity = 472000
+Height = 85000
+
+[sub_resource type="Resource" id="nf_s31"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s29")]
+Actions = [SubResource("nf_s30")]
+
+[sub_resource type="Resource" id="nf_s32"]
+script = ExtResource("nf3")
+MinFrame = 41
+MaxFrame = 400
+
+[sub_resource type="Resource" id="nf_s33"]
+script = ExtResource("nf34")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="nf_s35"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s32")]
+Actions = [SubResource("nf_s33")]
+
+[sub_resource type="Resource" id="nf_s36"]
+script = ExtResource("nf22")
+Frame = 41
+
+[sub_resource type="Resource" id="nf_s37"]
+script = ExtResource("nf27")
+Source = 4
+Index = 51
+
+[sub_resource type="Resource" id="nf_s38"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s36")]
+Actions = [SubResource("nf_s37")]
+
+[sub_resource type="Resource" id="nf_s39"]
+script = ExtResource("nf22")
+Frame = 42
+
+[sub_resource type="Resource" id="nf_s40"]
+script = ExtResource("nf41")
+Amplitude = 0.04
+Duration = 12
+
+[sub_resource type="Resource" id="nf_s42"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s39")]
+Actions = [SubResource("nf_s40")]
+
+[sub_resource type="Resource" id="nf_s43"]
+script = ExtResource("nf22")
+Frame = 50
+
+[sub_resource type="Resource" id="nf_s44"]
+script = ExtResource("nf15")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="nf_s45"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s43")]
+Actions = [SubResource("nf_s44")]
+
+[sub_resource type="Resource" id="nf_s46"]
+script = ExtResource("nf22")
+Frame = 4
+
+[sub_resource type="Resource" id="nf_s47"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s49"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s46")]
+Actions = [SubResource("nf_s47")]
+
+[sub_resource type="Resource" id="nf_s50"]
+script = ExtResource("nf22")
+Frame = 8
+
+[sub_resource type="Resource" id="nf_s51"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s52"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s50")]
+Actions = [SubResource("nf_s51")]
+
+[sub_resource type="Resource" id="nf_s53"]
+script = ExtResource("nf22")
+Frame = 12
+
+[sub_resource type="Resource" id="nf_s54"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s55"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s53")]
+Actions = [SubResource("nf_s54")]
+
+[sub_resource type="Resource" id="nf_s56"]
+script = ExtResource("nf22")
+Frame = 16
+
+[sub_resource type="Resource" id="nf_s57"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s58"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s56")]
+Actions = [SubResource("nf_s57")]
+
+[sub_resource type="Resource" id="nf_s59"]
+script = ExtResource("nf22")
+Frame = 20
+
+[sub_resource type="Resource" id="nf_s60"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s61"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s59")]
+Actions = [SubResource("nf_s60")]
+
+[sub_resource type="Resource" id="nf_s62"]
+script = ExtResource("nf22")
+Frame = 24
+
+[sub_resource type="Resource" id="nf_s63"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s64"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s62")]
+Actions = [SubResource("nf_s63")]
+
+[sub_resource type="Resource" id="nf_s65"]
+script = ExtResource("nf22")
+Frame = 28
+
+[sub_resource type="Resource" id="nf_s66"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s67"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s65")]
+Actions = [SubResource("nf_s66")]
+
+[sub_resource type="Resource" id="nf_s68"]
+script = ExtResource("nf22")
+Frame = 32
+
+[sub_resource type="Resource" id="nf_s69"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s70"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s68")]
+Actions = [SubResource("nf_s69")]
+
+[sub_resource type="Resource" id="nf_s71"]
+script = ExtResource("nf22")
+Frame = 36
+
+[sub_resource type="Resource" id="nf_s72"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s73"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s71")]
+Actions = [SubResource("nf_s72")]
+
+[sub_resource type="Resource" id="nf_s74"]
+script = ExtResource("nf22")
+Frame = 42
+
+[sub_resource type="Resource" id="nf_s75"]
+script = ExtResource("nf48")
+
+[sub_resource type="Resource" id="nf_s76"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s74")]
+Actions = [SubResource("nf_s75")]
+
+[sub_resource type="Resource" id="nf_s77"]
+script = ExtResource("nf3")
+MinFrame = 4
+MaxFrame = 14
+
+[sub_resource type="Resource" id="nf_s78"]
+script = ExtResource("nf79")
+Offset = Vector2i(4000, 5000)
+
+[sub_resource type="Resource" id="nf_s80"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s77")]
+Actions = [SubResource("nf_s78")]
+
+[sub_resource type="Resource" id="nf_s81"]
+script = ExtResource("nf3")
+MinFrame = 15
+MaxFrame = 26
+
+[sub_resource type="Resource" id="nf_s82"]
+script = ExtResource("nf79")
+Offset = Vector2i(4000, 8000)
+
+[sub_resource type="Resource" id="nf_s83"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s81")]
+Actions = [SubResource("nf_s82")]
+
+[sub_resource type="Resource" id="nf_s84"]
+script = ExtResource("nf3")
+MinFrame = 27
+MaxFrame = 41
+
+[sub_resource type="Resource" id="nf_s85"]
+script = ExtResource("nf79")
+Offset = Vector2i(4000, 11000)
+
+[sub_resource type="Resource" id="nf_s86"]
+script = ExtResource("nf9")
+Conditions = [SubResource("nf_s84")]
+Actions = [SubResource("nf_s85")]
+
+[sub_resource type="Resource" id="nf_s88"]
+script = ExtResource("nf15")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="nf_s89"]
+script = ExtResource("nf9")
+Actions = [SubResource("nf_s88")]
+
+[resource]
+script = ExtResource("nf1")
+StateName = "Spiral Star (rising)"
+Type = 2
+AnimationData = ExtResource("nf87")
+TransitionEvents = [SubResource("nf_s8"), SubResource("nf_s13")]
+OnEnterEvents = [SubResource("nf_s20")]
+OnTickEvents = [SubResource("nf_s28"), SubResource("nf_s31"), SubResource("nf_s35"), SubResource("nf_s38"), SubResource("nf_s42"), SubResource("nf_s45"), SubResource("nf_s49"), SubResource("nf_s52"), SubResource("nf_s55"), SubResource("nf_s58"), SubResource("nf_s61"), SubResource("nf_s64"), SubResource("nf_s67"), SubResource("nf_s70"), SubResource("nf_s73"), SubResource("nf_s76"), SubResource("nf_s80"), SubResource("nf_s83"), SubResource("nf_s86")]
+OnExitEvents = [SubResource("nf_s89")]
+AIFlags = 4114

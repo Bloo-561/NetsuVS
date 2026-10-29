@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bleq14dnwy2za"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://3olfdydqtm5i" path="res://actors/noah/projectiles/Hitboxes/2_Hitbox_NOW_Fade_0.tres" id="3"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/noah/projectiles/Sprites/v2/wave_4.png" id="t_wave_4"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_wave_4")
+Offset = Vector2(-205, 14)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 8
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("s1")]

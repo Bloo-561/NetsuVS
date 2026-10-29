@@ -1,0 +1,219 @@
+{
+ "reference": "Mary/Shared_Character/Mary_01_Appear.png",
+ "ref": {
+  "empty": false,
+  "top": 15,
+  "bot": 1495,
+  "left": 40,
+  "right": 936,
+  "h": 1481,
+  "rear_x": 433,
+  "front_x": 936,
+  "hip_x": 486.5,
+  "cx": 584.2367062975682,
+  "cy": 873.5867256580993,
+  "mask": "dark"
+ },
+ "frames": {
+  "Mary/Shared_Character/Mary_01_Appear.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1495,
+   "left": 40,
+   "right": 936,
+   "h": 1481,
+   "rear_x": 433,
+   "front_x": 936,
+   "hip_x": 486.5,
+   "cx": 584.2367062975682,
+   "cy": 873.5867256580993,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 1.0,
+    "rot": 0.0,
+    "inliers": 359,
+    "good": 359
+   },
+   "scale_how": "head",
+   "scale": 1.0
+  },
+  "Mary/Shared_Character/Mary_02_Raise_Violin.png": {
+   "empty": false,
+   "top": 10,
+   "bot": 1501,
+   "left": 13,
+   "right": 1031,
+   "h": 1492,
+   "rear_x": 264,
+   "front_x": 909,
+   "hip_x": 412.5,
+   "cx": 545.1161431992855,
+   "cy": 730.3027710301907,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 1.013737474281101,
+    "rot": -2.0442052474171755,
+    "inliers": 22,
+    "good": 94
+   },
+   "scale_how": "via Mary_01_Appear.png",
+   "scale": 1.013737474281101,
+   "sift_chain": {
+    "scale": 1.013737474281101,
+    "rot": -2.0442052474171755,
+    "inliers": 22,
+    "good": 94
+   }
+  },
+  "Mary/Shared_Character/Mary_03_Play_Stroke_Corrected.png": {
+   "empty": false,
+   "top": 10,
+   "bot": 1500,
+   "left": 13,
+   "right": 908,
+   "h": 1491,
+   "rear_x": 262,
+   "front_x": 908,
+   "hip_x": 413.5,
+   "cx": 530.0057579821382,
+   "cy": 737.5573372899249,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 1.0046591208917068,
+    "rot": -2.2039666839446084,
+    "inliers": 22,
+    "good": 98
+   },
+   "scale_how": "via Mary_01_Appear.png",
+   "scale": 1.0046591208917068,
+   "sift_chain": {
+    "scale": 1.0046591208917068,
+    "rot": -2.2039666839446084,
+    "inliers": 22,
+    "good": 98
+   }
+  },
+  "Mary/Shared_Character/Mary_04_Stroke_End.png": {
+   "empty": false,
+   "top": 15,
+   "bot": 1489,
+   "left": 20,
+   "right": 1020,
+   "h": 1475,
+   "rear_x": 192,
+   "front_x": 685,
+   "hip_x": 419.5,
+   "cx": 520.2021119705295,
+   "cy": 736.2958127726303,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 1.0319280398158315,
+    "rot": 1.2867659695336509,
+    "inliers": 9,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Mary/Shared_Character/Mary_05_Lower_Violin.png": {
+   "empty": false,
+   "top": 9,
+   "bot": 1494,
+   "left": 42,
+   "right": 1009,
+   "h": 1486,
+   "rear_x": 334,
+   "front_x": 773,
+   "hip_x": 575.0,
+   "cx": 535.0438636130843,
+   "cy": 850.3986407100122,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 0.8292345466261674,
+    "rot": 23.233965271590822,
+    "inliers": 6,
+    "good": 17
+   },
+   "scale_how": "head",
+   "scale": null
+  },
+  "Mary/Shared_Character/Mary_06_Courtesy_Bow.png": {
+   "empty": false,
+   "top": 10,
+   "bot": 1483,
+   "left": 55,
+   "right": 925,
+   "h": 1474,
+   "rear_x": 493,
+   "front_x": 686,
+   "hip_x": 491.0,
+   "cx": 556.2514049645642,
+   "cy": 795.041019979344,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 1.0171217987508834,
+    "rot": 15.741690632770721,
+    "inliers": 23,
+    "good": 115
+   },
+   "scale_how": "via Mary_01_Appear.png",
+   "scale": 1.0171217987508834,
+   "sift_chain": {
+    "scale": 1.0171217987508834,
+    "rot": 15.741690632770721,
+    "inliers": 23,
+    "good": 115
+   }
+  },
+  "Mary/Shared_Character/Mary_07_Leave.png": {
+   "empty": false,
+   "top": 8,
+   "bot": 1494,
+   "left": 15,
+   "right": 1025,
+   "h": 1487,
+   "rear_x": 176,
+   "front_x": 854,
+   "hip_x": 520.5,
+   "cx": 532.2740441310559,
+   "cy": 852.0071971308735,
+   "mask": "dark",
+   "size": [
+    1037,
+    1516
+   ],
+   "sift": {
+    "scale": 0.8959211493928958,
+    "rot": -50.43369533253426,
+    "inliers": 6,
+    "good": 15
+   },
+   "scale_how": "head",
+   "scale": null
+  }
+ }
+}

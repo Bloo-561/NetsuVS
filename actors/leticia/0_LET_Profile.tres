@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="FighterProfile" format=3 uid="uid://7fmd4kvd7d6j"]
+
+[ext_resource type="Script" uid="uid://c5w04j5my3h8p" path="res://engine/sakuga/Resources/FighterProfile.cs" id="5"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Artwork/Leticia_Select_FullBody.png" id="sel_render"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Artwork/Leticia_Select_Portrait.png" id="sel_portrait"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Artwork/Leticia_WinRender.png" id="win"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Artwork/Leticia_Icon_Small.png" id="icon"]
+
+[resource]
+script = ExtResource("5")
+FighterName = "Leticia R. Khemia"
+ShortName = "Leticia"
+Render = ExtResource("sel_render")
+Portrait = ExtResource("sel_portrait")
+Bio = "Gunslinger of the Flux Board: twin guns, light beams and aerial board tricks."
+VictoryRender = ExtResource("win")
+OnlineIcon = ExtResource("icon")
+NetsuAuraColor = Color(0.3, 0.86, 1, 1)
+metadata/_custom_type_script = "uid://c5w04j5my3h8p"

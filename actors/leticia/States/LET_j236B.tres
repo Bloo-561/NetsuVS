@@ -1,0 +1,124 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Resource" path="res://actors/leticia/AnimationData/LET_j236B_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="2"]
+[ext_resource type="Script" uid="uid://baguhnol5ww4w" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="3"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="5"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="6"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="8"]
+[ext_resource type="Script" uid="uid://dcnb575mw2hwp" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="10"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="11"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="12"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+MinFrame = 3
+MaxFrame = 999
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("4")
+StateIndex = 11
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("5")
+Conditions = [SubResource("s1"), SubResource("s2")]
+Actions = [SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("4")
+StateIndex = 10
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("5")
+Conditions = [SubResource("s5")]
+Actions = [SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("8")
+Velocity = 0
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("5")
+Actions = [SubResource("s8"), SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("2")
+MinFrame = 9
+MaxFrame = 999
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("9")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("5")
+Conditions = [SubResource("s11")]
+Actions = [SubResource("s12")]
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("7")
+Velocity = 440000
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("8")
+Velocity = 0
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("10")
+Frame = 5
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("5")
+Conditions = [SubResource("s16")]
+Actions = [SubResource("s14"), SubResource("s15")]
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("7")
+Velocity = 55000
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("8")
+Velocity = 0
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("10")
+Frame = 8
+
+[sub_resource type="Resource" id="s21"]
+script = ExtResource("5")
+Conditions = [SubResource("s20")]
+Actions = [SubResource("s18"), SubResource("s19")]
+
+[sub_resource type="Resource" id="s22"]
+script = ExtResource("11")
+
+[sub_resource type="Resource" id="s23"]
+script = ExtResource("5")
+Actions = [SubResource("s22")]
+
+[resource]
+script = ExtResource("12")
+StateName = "Flux Dash B"
+Type = 2
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("s4"), SubResource("s7")]
+OnEnterEvents = [SubResource("s10")]
+OnTickEvents = [SubResource("s17"), SubResource("s21"), SubResource("s13")]
+OnExitEvents = [SubResource("s23")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 20

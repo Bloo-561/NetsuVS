@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://cdgv3p8fgvlib"]
+
+[ext_resource type="Script" uid="uid://efvj6fksgxoy" path="res://engine/ui/loading_screens/LoadingScreenSimple.cs" id="1"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-SemiBold.ttf" id="thin"]
+[ext_resource type="FontFile" path="res://assets/fonts/Exo2-BoldItalic.ttf" id="serif"]
+[ext_resource type="Shader" uid="uid://120mdoxkb8og" path="res://assets/shaders/orbment_background.gdshader" id="bgshader"]
+
+[sub_resource type="ShaderMaterial" id="bg"]
+shader = ExtResource("bgshader")
+shader_parameter/top_color = Color(0.96, 0.95, 1, 1)
+shader_parameter/bottom_color = Color(0.84, 0.79, 0.97, 1)
+shader_parameter/ring_color = Color(0.52, 0.42, 0.86, 1)
+shader_parameter/ring_strength = 0.18
+shader_parameter/ring_center = Vector2(0.5, 0.45)
+shader_parameter/spin_speed = 0.03
+shader_parameter/aspect = 1.7778
+
+[sub_resource type="StyleBoxFlat" id="ring"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.52, 0.42, 0.86, 0.8)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="StyleBoxFlat" id="band"]
+bg_color = Color(1, 1, 1, 0.85)
+border_width_top = 2
+border_color = Color(0.52, 0.42, 0.86, 0.8)
+
+[node name="LoadingScreenSimple" type="Control" node_paths=PackedStringArray("star", "loadingText")]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1")
+star = NodePath("Band/Spinner")
+loadingText = NodePath("Band/Label")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("bg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95, 0.94, 0.99, 1)
+
+[node name="Band" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("band")
+
+[node name="Label" type="Label" parent="Band"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -32.0
+offset_right = -40.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("thin")
+theme_override_colors/font_color = Color(0.16, 0.15, 0.38, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
+text = "Loading."
+vertical_alignment = 1
+
+[node name="Spinner" type="Control" parent="Band"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -36.0
+offset_right = -348.0
+offset_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(36, 36)
+
+[node name="Ring" type="Panel" parent="Band/Spinner"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("ring")
+
+[node name="Quartz0" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.12, 0.16, 1)
+polygon = PackedVector2Array(64.0, 29.0, 68.9, 36.0, 64.0, 43.0, 59.1, 36.0)
+
+[node name="Quartz1" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.74, 0.96, 1)
+polygon = PackedVector2Array(50.0, 53.2, 54.9, 60.2, 50.0, 67.2, 45.1, 60.2)
+
+[node name="Quartz2" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.74, 0.96, 1)
+polygon = PackedVector2Array(22.0, 53.2, 26.9, 60.2, 22.0, 67.2, 17.1, 60.2)
+
+[node name="Quartz3" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.74, 0.96, 1)
+polygon = PackedVector2Array(8.0, 29.0, 12.9, 36.0, 8.0, 43.0, 3.1, 36.0)
+
+[node name="Quartz4" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.74, 0.96, 1)
+polygon = PackedVector2Array(22.0, 4.8, 26.9, 11.8, 22.0, 18.8, 17.1, 11.8)
+
+[node name="Quartz5" type="Polygon2D" parent="Band/Spinner"]
+color = Color(0.8, 0.74, 0.96, 1)
+polygon = PackedVector2Array(50.0, 4.8, 54.9, 11.8, 50.0, 18.8, 45.1, 11.8)
+
+[node name="Hint" type="Label" parent="Band"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -24.0
+offset_right = 900.0
+offset_bottom = 24.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16, 0.15, 0.38, 0.75)
+theme_override_font_sizes/font_size = 26
+text = "NETSU VS"
+vertical_alignment = 1

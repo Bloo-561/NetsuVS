@@ -1,0 +1,2576 @@
+Announcers/MaSen Announcer/Announcer_MaSen.tres
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHARSELECT.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHARSELECT.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHAR_CRM.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHAR_CRM.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHAR_SVW.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_CHAR_SVW.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_CATCHPHRASE.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_CATCHPHRASE.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_DOUBLEKO.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_DOUBLEKO.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_DRAW.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_DRAW.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_KO.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_KO.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_COUNTER_1.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_COUNTER_1.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_COUNTER_2.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_COUNTER_2.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_EXCEL.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_EXCEL.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_FIRSTSTRK.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_FIRSTSTRK.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_LASTWISH.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_NOTIF_LASTWISH.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_PERFECTKO.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_PERFECTKO.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_1.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_1.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_2.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_2.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_3.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_3.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_4.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_4.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_5.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_5.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_FINAL.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_FINAL.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_START.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_ROUND_START.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_TIMEUP.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_TIMEUP.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_WIN_CRM.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_WIN_CRM.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_WIN_SVW.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MATCH_WIN_SVW.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_ONLINE.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_ONLINE.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_OPTIONS.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_OPTIONS.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_QUIT.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_QUIT.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_TRAINING.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_TRAINING.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_VERSUS.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_MENU_VERSUS.wav.import
+Announcers/MaSen Announcer/Lines/ANNOUNCER_TITLE.wav
+Announcers/MaSen Announcer/Lines/ANNOUNCER_TITLE.wav.import
+Bus_Master.tres
+Fighters/0-Goku/0_SVW_Data.tres
+Fighters/0-Goku/0_SVW_Profile.tres
+Fighters/0-Goku/AI/Kaede_AIData.tres
+Fighters/0-Goku/AI/Kaede_AI_Medium.tres
+Fighters/0-Goku/AnimationData/0_SVW_Neutral_AnimData.tres
+Fighters/0-Goku/AnimationData/1000_SVW_Cancel_AnimData.tres
+Fighters/0-Goku/AnimationData/1001_SVW_Burst_AnimData.tres
+Fighters/0-Goku/AnimationData/100_SVW_Intro_AnimData.tres
+Fighters/0-Goku/AnimationData/101_SVW_Outro_AnimData.tres
+Fighters/0-Goku/AnimationData/10_SVW_RunStop_AnimData.tres
+Fighters/0-Goku/AnimationData/11_SVW_DashBw_AnimData.tres
+Fighters/0-Goku/AnimationData/12_SVW_AirDashFw_AnimData.tres
+Fighters/0-Goku/AnimationData/13_SVW_AirDashDir_AnimData.tres
+Fighters/0-Goku/AnimationData/14_SVW_AirDashBw_AnimData.tres
+Fighters/0-Goku/AnimationData/15_SVW_Hit_Weak_AnimData.tres
+Fighters/0-Goku/AnimationData/16_SVW_Hit_Strong_AnimData.tres
+Fighters/0-Goku/AnimationData/17_SVW_Hit_Crouch_AnimData.tres
+Fighters/0-Goku/AnimationData/18_SVW_Hit_Sweep_AnimData.tres
+Fighters/0-Goku/AnimationData/19_SVW_Hit_AirWeak_AnimData.tres
+Fighters/0-Goku/AnimationData/1_SVW_MoveF_AnimData.tres
+Fighters/0-Goku/AnimationData/200_SVW_Recovery_Backwards_AnimData.tres
+Fighters/0-Goku/AnimationData/200_SVW_Recovery_Forward_AnimData.tres
+Fighters/0-Goku/AnimationData/200_SVW_Recovery_Neutral_AnimData.tres
+Fighters/0-Goku/AnimationData/20_SVW_Hit_AirStrong_AnimData.tres
+Fighters/0-Goku/AnimationData/21_SVW_Hit_Fall1_AnimData.tres
+Fighters/0-Goku/AnimationData/21_SVW_Hit_Fall2_AnimData.tres
+Fighters/0-Goku/AnimationData/21_SVW_Hit_FallTransition_AnimData.tres
+Fighters/0-Goku/AnimationData/22_SVW_Hit_Knockdown1_AnimData.tres
+Fighters/0-Goku/AnimationData/22_SVW_Hit_Knockdown2_AnimData.tres
+Fighters/0-Goku/AnimationData/22_SVW_Hit_Knockdown3_AnimData.tres
+Fighters/0-Goku/AnimationData/23_SVW_Hit_Down_AnimData.tres
+Fighters/0-Goku/AnimationData/24_SVW_Hit_GetUp_AnimData.tres
+Fighters/0-Goku/AnimationData/25_SVW_Hit_LaunchAway_AnimData.tres
+Fighters/0-Goku/AnimationData/25_SVW_Hit_LaunchDown_AnimData.tres
+Fighters/0-Goku/AnimationData/25_SVW_Hit_LaunchUp_AnimData.tres
+Fighters/0-Goku/AnimationData/26_SVW_Hit_GroundBounce_AnimData.tres
+Fighters/0-Goku/AnimationData/26_SVW_Hit_WallBounce_AnimData.tres
+Fighters/0-Goku/AnimationData/27_SVW_Hit_Crumple_AnimData.tres
+Fighters/0-Goku/AnimationData/28_SVW_Hit_KO_AnimData.tres
+Fighters/0-Goku/AnimationData/29_SVW_Stand_Block_Transition_AnimData.tres
+Fighters/0-Goku/AnimationData/2_SVW_MoveB_AnimData.tres
+Fighters/0-Goku/AnimationData/30_SVW_Stand_Block_AnimData.tres
+Fighters/0-Goku/AnimationData/31_SVW_Stand_Blockstun_AnimData.tres
+Fighters/0-Goku/AnimationData/32_SVW_Crouch_Block_Transition_AnimData.tres
+Fighters/0-Goku/AnimationData/33_SVW_Crouch_Block_AnimData.tres
+Fighters/0-Goku/AnimationData/34_SVW_Crouch_Blockstun_AnimData.tres
+Fighters/0-Goku/AnimationData/35_SVW_Air_Block_Transition_AnimData.tres
+Fighters/0-Goku/AnimationData/36_SVW_Air_Block_AnimData.tres
+Fighters/0-Goku/AnimationData/37_SVW_Air_Blockstun_AnimData.tres
+Fighters/0-Goku/AnimationData/3_SVW_Jump_AnimData.tres
+Fighters/0-Goku/AnimationData/48_SVW_5A_AnimData.tres
+Fighters/0-Goku/AnimationData/49_SVW_5B_AnimData.tres
+Fighters/0-Goku/AnimationData/4_SVW_Falling_AnimData.tres
+Fighters/0-Goku/AnimationData/50_SVW_5C_AnimData.tres
+Fighters/0-Goku/AnimationData/51_SVW_2A_AnimData.tres
+Fighters/0-Goku/AnimationData/52_SVW_2B_AnimData.tres
+Fighters/0-Goku/AnimationData/53_SVW_2C_AnimData.tres
+Fighters/0-Goku/AnimationData/54_SVW_j5A_AnimData.tres
+Fighters/0-Goku/AnimationData/55_SVW_j5B_AnimData.tres
+Fighters/0-Goku/AnimationData/56_SVW_j5C_AnimData.tres
+Fighters/0-Goku/AnimationData/57_SVW_4A_AnimData.tres
+Fighters/0-Goku/AnimationData/58_SVW_4B_AnimData.tres
+Fighters/0-Goku/AnimationData/59_SVW_6C_AnimData.tres
+Fighters/0-Goku/AnimationData/5_SVW_Landing_AnimData.tres
+Fighters/0-Goku/AnimationData/60_SVW_9C_AnimData.tres
+Fighters/0-Goku/AnimationData/61_SVW_j3C_AnimData.tres
+Fighters/0-Goku/AnimationData/62_SVW_j2C_AnimData.tres
+Fighters/0-Goku/AnimationData/63_SVW_j2C_Landing_AnimData.tres
+Fighters/0-Goku/AnimationData/64_SVW_4C_AnimData.tres
+Fighters/0-Goku/AnimationData/6_SVW_CrouchEnter_AnimData.tres
+Fighters/0-Goku/AnimationData/7_SVW_Crouching_AnimData.tres
+Fighters/0-Goku/AnimationData/8_SVW_CrouchExit_AnimData.tres
+Fighters/0-Goku/AnimationData/9_SVW_DashFw_AnimData.tres
+Fighters/0-Goku/Artwork/Portrait-Silverwing.png
+Fighters/0-Goku/Artwork/Portrait-Silverwing.png.import
+Fighters/0-Goku/Artwork/Silverwing_MainRender.png
+Fighters/0-Goku/Artwork/Silverwing_MainRender.png.import
+Fighters/0-Goku/Artwork/Silverwing_Portrait.png
+Fighters/0-Goku/Artwork/Silverwing_Portrait.png.import
+Fighters/0-Goku/Artwork/silverwing-winrender.png
+Fighters/0-Goku/Artwork/silverwing-winrender.png.import
+Fighters/0-Goku/Artwork/silverwingchibi.png
+Fighters/0-Goku/Artwork/silverwingchibi.png.import
+Fighters/0-Goku/Hitboxes/-1_Hitbox_CollisionOnly.tres
+Fighters/0-Goku/Hitboxes/-2_Hitbox_CollisionOnly_Low.tres
+Fighters/0-Goku/Hitboxes/0_Hitbox_Basic.tres
+Fighters/0-Goku/Hitboxes/0_Hitbox_Horizontal.tres
+Fighters/0-Goku/Hitboxes/0_Hitbox_Inverted.tres
+Fighters/0-Goku/Hitboxes/100_Hitbox_Burst.tres
+Fighters/0-Goku/Hitboxes/100_Hitbox_Cancel.tres
+Fighters/0-Goku/Hitboxes/10_Hitbox_2A_0.tres
+Fighters/0-Goku/Hitboxes/10_Hitbox_2A_1.tres
+Fighters/0-Goku/Hitboxes/10_Hitbox_2A_2.tres
+Fighters/0-Goku/Hitboxes/11_Hitbox_2B_1.tres
+Fighters/0-Goku/Hitboxes/11_Hitbox_2B_2.tres
+Fighters/0-Goku/Hitboxes/11_Hitbox_2B_3.tres
+Fighters/0-Goku/Hitboxes/12_Hitbox_2C_0.tres
+Fighters/0-Goku/Hitboxes/12_Hitbox_2C_1.tres
+Fighters/0-Goku/Hitboxes/13_Hitbox_j_5A_0.tres
+Fighters/0-Goku/Hitboxes/13_Hitbox_j_5A_1.tres
+Fighters/0-Goku/Hitboxes/13_Hitbox_j_5A_2.tres
+Fighters/0-Goku/Hitboxes/14_Hitbox_j_5B_1.tres
+Fighters/0-Goku/Hitboxes/14_Hitbox_j_5B_2.tres
+Fighters/0-Goku/Hitboxes/15_Hitbox_6C_0.tres
+Fighters/0-Goku/Hitboxes/15_Hitbox_6C_1.tres
+Fighters/0-Goku/Hitboxes/15_Hitbox_6C_2.tres
+Fighters/0-Goku/Hitboxes/16_Hitbox_j_3C_1.tres
+Fighters/0-Goku/Hitboxes/17_Hitbox_j_2C_0.tres
+Fighters/0-Goku/Hitboxes/17_Hitbox_j_2C_1.tres
+Fighters/0-Goku/Hitboxes/18_Hitbox_Grab_stUp.tres
+Fighters/0-Goku/Hitboxes/19_Hitbox_Grab.tres
+Fighters/0-Goku/Hitboxes/1_Hitbox_Crouch.tres
+Fighters/0-Goku/Hitboxes/20_Hitbox_Rekka1_StUp.tres
+Fighters/0-Goku/Hitboxes/21_Hitbox_Rekka1_Active.tres
+Fighters/0-Goku/Hitboxes/22_Hitbox_Rekka2_Active.tres
+Fighters/0-Goku/Hitboxes/23_Hitbox_Rekka3_Active.tres
+Fighters/0-Goku/Hitboxes/24_Hitbox_623C_StUp.tres
+Fighters/0-Goku/Hitboxes/25_Hitbox_623C_Active.tres
+Fighters/0-Goku/Hitboxes/26_Hitbox_623C_Sequence.tres
+Fighters/0-Goku/Hitboxes/27_Hitbox_236BC_Active.tres
+Fighters/0-Goku/Hitboxes/2_Hitbox_Jump.tres
+Fighters/0-Goku/Hitboxes/3_Hitbox_FDash.tres
+Fighters/0-Goku/Hitboxes/4_Hitbox_BDash.tres
+Fighters/0-Goku/Hitboxes/5_Hitbox_5A_0.tres
+Fighters/0-Goku/Hitboxes/5_Hitbox_5A_1.tres
+Fighters/0-Goku/Hitboxes/5_Hitbox_5A_2.tres
+Fighters/0-Goku/Hitboxes/6_Hitbox_5B_0.tres
+Fighters/0-Goku/Hitboxes/6_Hitbox_5B_1.tres
+Fighters/0-Goku/Hitboxes/6_Hitbox_5B_2.tres
+Fighters/0-Goku/Hitboxes/7_Hitbox_5C_0.tres
+Fighters/0-Goku/Hitboxes/7_Hitbox_5C_1.tres
+Fighters/0-Goku/Hitboxes/7_Hitbox_5C_2.tres
+Fighters/0-Goku/Hitboxes/7_Hitbox_5C_3.tres
+Fighters/0-Goku/Hitboxes/8_Hitbox_4A_1.tres
+Fighters/0-Goku/Hitboxes/8_Hitbox_4A_2.tres
+Fighters/0-Goku/Hitboxes/9_Hitbox_4B_0.tres
+Fighters/0-Goku/Hitboxes/9_Hitbox_4B_1.tres
+Fighters/0-Goku/Hitboxes/9_Hitbox_4B_2.tres
+Fighters/0-Goku/Hitboxes/9_Hitbox_4B_3.tres
+Fighters/0-Goku/Instances/SVW_Fighter_Skin00.tscn
+Fighters/0-Goku/Instances/SVW_Fighter_Skin01.tscn
+Fighters/0-Goku/Moves/0_SVW_MoveForward.tres
+Fighters/0-Goku/Moves/10_SVW_AirDashBackwards.tres
+Fighters/0-Goku/Moves/11_SVW_Crouch.tres
+Fighters/0-Goku/Moves/12_SVW_Uncrouch.tres
+Fighters/0-Goku/Moves/13_SVW_AirJumpNeutral.tres
+Fighters/0-Goku/Moves/14_SVW_AirJumpForward.tres
+Fighters/0-Goku/Moves/15_SVW_AirJumpBackwards.tres
+Fighters/0-Goku/Moves/16_SVW_SuperJumpNeutral.tres
+Fighters/0-Goku/Moves/17_SVW_SuperJumpForward.tres
+Fighters/0-Goku/Moves/18_SVW_SuperJumpBackwards.tres
+Fighters/0-Goku/Moves/19_SVW_DashJump.tres
+Fighters/0-Goku/Moves/1_SVW_MoveBackwards.tres
+Fighters/0-Goku/Moves/20_SVW_AirDashJump.tres
+Fighters/0-Goku/Moves/21_SVW_GetUpForward.tres
+Fighters/0-Goku/Moves/22_SVW_GetUpBackwards.tres
+Fighters/0-Goku/Moves/23_SVW_5A.tres
+Fighters/0-Goku/Moves/24_SVW_5B.tres
+Fighters/0-Goku/Moves/25_SVW_5C.tres
+Fighters/0-Goku/Moves/26_SVW_2A.tres
+Fighters/0-Goku/Moves/27_SVW_2B.tres
+Fighters/0-Goku/Moves/28_SVW_2C.tres
+Fighters/0-Goku/Moves/29_SVW_j_5A.tres
+Fighters/0-Goku/Moves/2_SVW_DashForward.tres
+Fighters/0-Goku/Moves/30_SVW_j_5B.tres
+Fighters/0-Goku/Moves/31_SVW_j_5C.tres
+Fighters/0-Goku/Moves/32_SVW_4A.tres
+Fighters/0-Goku/Moves/33_SVW_4B.tres
+Fighters/0-Goku/Moves/34_SVW_6C.tres
+Fighters/0-Goku/Moves/35_SVW_9C.tres
+Fighters/0-Goku/Moves/36_SVW_j_2C.tres
+Fighters/0-Goku/Moves/37_SVW_j_3C.tres
+Fighters/0-Goku/Moves/38_SVW_236C.tres
+Fighters/0-Goku/Moves/38_SVW_4C.tres
+Fighters/0-Goku/Moves/39_SVW_236B_1.tres
+Fighters/0-Goku/Moves/3_SVW_DashBackwards.tres
+Fighters/0-Goku/Moves/40_SVW_236B_2.tres
+Fighters/0-Goku/Moves/41_SVW_236B_3.tres
+Fighters/0-Goku/Moves/42_SVW_623C.tres
+Fighters/0-Goku/Moves/43_SVW_214C.tres
+Fighters/0-Goku/Moves/44_SVW_236BC.tres
+Fighters/0-Goku/Moves/45_SVW_Recovery_OTG.tres
+Fighters/0-Goku/Moves/46_SVW_Recovery_GroundForward.tres
+Fighters/0-Goku/Moves/47_SVW_Recovery_GroundBackwards.tres
+Fighters/0-Goku/Moves/48_SVW_Recovery_AirBackwards.tres
+Fighters/0-Goku/Moves/49_SVW_Recovery_AirForward.tres
+Fighters/0-Goku/Moves/4_SVW_JumpNeutral.tres
+Fighters/0-Goku/Moves/50_SVW_ExcelCancel.tres
+Fighters/0-Goku/Moves/51_SVW_Burst.tres
+Fighters/0-Goku/Moves/52_SVW_LastWishBurst.tres
+Fighters/0-Goku/Moves/5_SVW_JumpForward.tres
+Fighters/0-Goku/Moves/6_SVW_JumpBackwards.tres
+Fighters/0-Goku/Moves/7_SVW_AirDashForward.tres
+Fighters/0-Goku/Moves/8_SVW_AirDashForwardUp.tres
+Fighters/0-Goku/Moves/9_SVW_AirDashForwardDown.tres
+Fighters/0-Goku/Music/Silverwing Theme Pitch 1.1 [Loop at 910452].wav
+Fighters/0-Goku/Music/Silverwing Theme Pitch 1.1 [Loop at 910452].wav.import
+Fighters/0-Goku/Palettes/Color2/SVW_Palette_Alt1.png
+Fighters/0-Goku/Palettes/Color2/SVW_Palette_Alt1.png.import
+Fighters/0-Goku/Palettes/Color2/SVW_Palette_Alt1_MAT.tres
+Fighters/0-Goku/Palettes/SVW_Palette_Main.png
+Fighters/0-Goku/Palettes/SVW_Palette_Main.png.import
+Fighters/0-Goku/Spawnables/0/AnimationData/0_Spawnable_Spawn_AnimationData.tres
+Fighters/0-Goku/Spawnables/0/AnimationData/1_Spawnable_Travel_AnimationData.tres
+Fighters/0-Goku/Spawnables/0/AnimationData/2_Spawnable_Death_AnimationData.tres
+Fighters/0-Goku/Spawnables/0/Hitboxes/0_Hitbox_Spawnable_Basic.tres
+Fighters/0-Goku/Spawnables/0/Instances/Kaede_Spawnable_0.tscn
+Fighters/0-Goku/Spawnables/0/Kaede_Spawnable1_Data.tres
+Fighters/0-Goku/Spawnables/0/Sprites/1210-0.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-0.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-1.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-1.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-2.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-2.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-3.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-3.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-4.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-4.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-5.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-5.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-6.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-6.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-7.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-7.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1210-8.png
+Fighters/0-Goku/Spawnables/0/Sprites/1210-8.png.import
+Fighters/0-Goku/Spawnables/0/Sprites/1211-0.png
+Fighters/0-Goku/Spawnables/0/Sprites/1211-0.png.import
+Fighters/0-Goku/Spawnables/0/States/0_Spawn.tres
+Fighters/0-Goku/Spawnables/0/States/1_Travel.tres
+Fighters/0-Goku/Spawnables/0/States/2_Death.tres
+Fighters/0-Goku/Sprites/2m1.png
+Fighters/0-Goku/Sprites/2m1.png.import
+Fighters/0-Goku/Sprites/2m2.png
+Fighters/0-Goku/Sprites/2m2.png.import
+Fighters/0-Goku/Sprites/2m3.png
+Fighters/0-Goku/Sprites/2m3.png.import
+Fighters/0-Goku/Sprites/2m4.png
+Fighters/0-Goku/Sprites/2m4.png.import
+Fighters/0-Goku/Sprites/2m5.png
+Fighters/0-Goku/Sprites/2m5.png.import
+Fighters/0-Goku/Sprites/2m6.png
+Fighters/0-Goku/Sprites/2m6.png.import
+Fighters/0-Goku/Sprites/2m7.png
+Fighters/0-Goku/Sprites/2m7.png.import
+Fighters/0-Goku/Sprites/2s1.png
+Fighters/0-Goku/Sprites/2s1.png.import
+Fighters/0-Goku/Sprites/2s2.png
+Fighters/0-Goku/Sprites/2s2.png.import
+Fighters/0-Goku/Sprites/2s3.png
+Fighters/0-Goku/Sprites/2s3.png.import
+Fighters/0-Goku/Sprites/2s4.png
+Fighters/0-Goku/Sprites/2s4.png.import
+Fighters/0-Goku/Sprites/2s5.png
+Fighters/0-Goku/Sprites/2s5.png.import
+Fighters/0-Goku/Sprites/2s6.png
+Fighters/0-Goku/Sprites/2s6.png.import
+Fighters/0-Goku/Sprites/2w1.png
+Fighters/0-Goku/Sprites/2w1.png.import
+Fighters/0-Goku/Sprites/2w2.png
+Fighters/0-Goku/Sprites/2w2.png.import
+Fighters/0-Goku/Sprites/2w3.png
+Fighters/0-Goku/Sprites/2w3.png.import
+Fighters/0-Goku/Sprites/2w4.png
+Fighters/0-Goku/Sprites/2w4.png.import
+Fighters/0-Goku/Sprites/4s1.png
+Fighters/0-Goku/Sprites/4s1.png.import
+Fighters/0-Goku/Sprites/4s2.png
+Fighters/0-Goku/Sprites/4s2.png.import
+Fighters/0-Goku/Sprites/4s3.png
+Fighters/0-Goku/Sprites/4s3.png.import
+Fighters/0-Goku/Sprites/4s4.png
+Fighters/0-Goku/Sprites/4s4.png.import
+Fighters/0-Goku/Sprites/4s5.png
+Fighters/0-Goku/Sprites/4s5.png.import
+Fighters/0-Goku/Sprites/4s6.png
+Fighters/0-Goku/Sprites/4s6.png.import
+Fighters/0-Goku/Sprites/4w1.png
+Fighters/0-Goku/Sprites/4w1.png.import
+Fighters/0-Goku/Sprites/4w2.png
+Fighters/0-Goku/Sprites/4w2.png.import
+Fighters/0-Goku/Sprites/4w3.png
+Fighters/0-Goku/Sprites/4w3.png.import
+Fighters/0-Goku/Sprites/4w4.png
+Fighters/0-Goku/Sprites/4w4.png.import
+Fighters/0-Goku/Sprites/4w5.png
+Fighters/0-Goku/Sprites/4w5.png.import
+Fighters/0-Goku/Sprites/5m1.png
+Fighters/0-Goku/Sprites/5m1.png.import
+Fighters/0-Goku/Sprites/5m2.png
+Fighters/0-Goku/Sprites/5m2.png.import
+Fighters/0-Goku/Sprites/5m3.png
+Fighters/0-Goku/Sprites/5m3.png.import
+Fighters/0-Goku/Sprites/5m4.png
+Fighters/0-Goku/Sprites/5m4.png.import
+Fighters/0-Goku/Sprites/5m5.png
+Fighters/0-Goku/Sprites/5m5.png.import
+Fighters/0-Goku/Sprites/5m6.png
+Fighters/0-Goku/Sprites/5m6.png.import
+Fighters/0-Goku/Sprites/5s1.png
+Fighters/0-Goku/Sprites/5s1.png.import
+Fighters/0-Goku/Sprites/5s2.png
+Fighters/0-Goku/Sprites/5s2.png.import
+Fighters/0-Goku/Sprites/5s3.png
+Fighters/0-Goku/Sprites/5s3.png.import
+Fighters/0-Goku/Sprites/5s4.png
+Fighters/0-Goku/Sprites/5s4.png.import
+Fighters/0-Goku/Sprites/5s5.png
+Fighters/0-Goku/Sprites/5s5.png.import
+Fighters/0-Goku/Sprites/5s6.png
+Fighters/0-Goku/Sprites/5s6.png.import
+Fighters/0-Goku/Sprites/5w1.png
+Fighters/0-Goku/Sprites/5w1.png.import
+Fighters/0-Goku/Sprites/5w2.png
+Fighters/0-Goku/Sprites/5w2.png.import
+Fighters/0-Goku/Sprites/5w3.png
+Fighters/0-Goku/Sprites/5w3.png.import
+Fighters/0-Goku/Sprites/5w4.png
+Fighters/0-Goku/Sprites/5w4.png.import
+Fighters/0-Goku/Sprites/5w5.png
+Fighters/0-Goku/Sprites/5w5.png.import
+Fighters/0-Goku/Sprites/6M1.png
+Fighters/0-Goku/Sprites/6M1.png.import
+Fighters/0-Goku/Sprites/6M10.png
+Fighters/0-Goku/Sprites/6M10.png.import
+Fighters/0-Goku/Sprites/6M11.png
+Fighters/0-Goku/Sprites/6M11.png.import
+Fighters/0-Goku/Sprites/6M12.png
+Fighters/0-Goku/Sprites/6M12.png.import
+Fighters/0-Goku/Sprites/6M2.png
+Fighters/0-Goku/Sprites/6M2.png.import
+Fighters/0-Goku/Sprites/6M3.png
+Fighters/0-Goku/Sprites/6M3.png.import
+Fighters/0-Goku/Sprites/6M4.png
+Fighters/0-Goku/Sprites/6M4.png.import
+Fighters/0-Goku/Sprites/6M5.png
+Fighters/0-Goku/Sprites/6M5.png.import
+Fighters/0-Goku/Sprites/6M6.png
+Fighters/0-Goku/Sprites/6M6.png.import
+Fighters/0-Goku/Sprites/6M7.png
+Fighters/0-Goku/Sprites/6M7.png.import
+Fighters/0-Goku/Sprites/6M8.png
+Fighters/0-Goku/Sprites/6M8.png.import
+Fighters/0-Goku/Sprites/6M9.png
+Fighters/0-Goku/Sprites/6M9.png.import
+Fighters/0-Goku/Sprites/9m1.png
+Fighters/0-Goku/Sprites/9m1.png.import
+Fighters/0-Goku/Sprites/9m2.png
+Fighters/0-Goku/Sprites/9m2.png.import
+Fighters/0-Goku/Sprites/9m3.png
+Fighters/0-Goku/Sprites/9m3.png.import
+Fighters/0-Goku/Sprites/9m4.png
+Fighters/0-Goku/Sprites/9m4.png.import
+Fighters/0-Goku/Sprites/9m5.png
+Fighters/0-Goku/Sprites/9m5.png.import
+Fighters/0-Goku/Sprites/9m6.png
+Fighters/0-Goku/Sprites/9m6.png.import
+Fighters/0-Goku/Sprites/J2M1.png
+Fighters/0-Goku/Sprites/J2M1.png.import
+Fighters/0-Goku/Sprites/J2M10.png
+Fighters/0-Goku/Sprites/J2M10.png.import
+Fighters/0-Goku/Sprites/J2M11.png
+Fighters/0-Goku/Sprites/J2M11.png.import
+Fighters/0-Goku/Sprites/J2M2.png
+Fighters/0-Goku/Sprites/J2M2.png.import
+Fighters/0-Goku/Sprites/J2M3.png
+Fighters/0-Goku/Sprites/J2M3.png.import
+Fighters/0-Goku/Sprites/J2M4.png
+Fighters/0-Goku/Sprites/J2M4.png.import
+Fighters/0-Goku/Sprites/J2M5.png
+Fighters/0-Goku/Sprites/J2M5.png.import
+Fighters/0-Goku/Sprites/J2M6.png
+Fighters/0-Goku/Sprites/J2M6.png.import
+Fighters/0-Goku/Sprites/J2M7.png
+Fighters/0-Goku/Sprites/J2M7.png.import
+Fighters/0-Goku/Sprites/J2M8.png
+Fighters/0-Goku/Sprites/J2M8.png.import
+Fighters/0-Goku/Sprites/J2M9.png
+Fighters/0-Goku/Sprites/J2M9.png.import
+Fighters/0-Goku/Sprites/J3M1.png
+Fighters/0-Goku/Sprites/J3M1.png.import
+Fighters/0-Goku/Sprites/J3M2.png
+Fighters/0-Goku/Sprites/J3M2.png.import
+Fighters/0-Goku/Sprites/J3M3.png
+Fighters/0-Goku/Sprites/J3M3.png.import
+Fighters/0-Goku/Sprites/J3M4.png
+Fighters/0-Goku/Sprites/J3M4.png.import
+Fighters/0-Goku/Sprites/J3M5.png
+Fighters/0-Goku/Sprites/J3M5.png.import
+Fighters/0-Goku/Sprites/J3M6.png
+Fighters/0-Goku/Sprites/J3M6.png.import
+Fighters/0-Goku/Sprites/J3M7.png
+Fighters/0-Goku/Sprites/J3M7.png.import
+Fighters/0-Goku/Sprites/blocking1.png
+Fighters/0-Goku/Sprites/blocking1.png.import
+Fighters/0-Goku/Sprites/blocking2.png
+Fighters/0-Goku/Sprites/blocking2.png.import
+Fighters/0-Goku/Sprites/blocking3.png
+Fighters/0-Goku/Sprites/blocking3.png.import
+Fighters/0-Goku/Sprites/dash b end.png
+Fighters/0-Goku/Sprites/dash b end.png.import
+Fighters/0-Goku/Sprites/dash b start.png
+Fighters/0-Goku/Sprites/dash b start.png.import
+Fighters/0-Goku/Sprites/dash b1.png
+Fighters/0-Goku/Sprites/dash b1.png.import
+Fighters/0-Goku/Sprites/dash b2.png
+Fighters/0-Goku/Sprites/dash b2.png.import
+Fighters/0-Goku/Sprites/dash b3.png
+Fighters/0-Goku/Sprites/dash b3.png.import
+Fighters/0-Goku/Sprites/dash b4.png
+Fighters/0-Goku/Sprites/dash b4.png.import
+Fighters/0-Goku/Sprites/dash f start.png
+Fighters/0-Goku/Sprites/dash f start.png.import
+Fighters/0-Goku/Sprites/dash f1.png
+Fighters/0-Goku/Sprites/dash f1.png.import
+Fighters/0-Goku/Sprites/dash f2.png
+Fighters/0-Goku/Sprites/dash f2.png.import
+Fighters/0-Goku/Sprites/dash f3.png
+Fighters/0-Goku/Sprites/dash f3.png.import
+Fighters/0-Goku/Sprites/dash f4.png
+Fighters/0-Goku/Sprites/dash f4.png.import
+Fighters/0-Goku/Sprites/duck2stand.png
+Fighters/0-Goku/Sprites/duck2stand.png.import
+Fighters/0-Goku/Sprites/hurt16.png
+Fighters/0-Goku/Sprites/hurt16.png.import
+Fighters/0-Goku/Sprites/hurt_airtofall.png
+Fighters/0-Goku/Sprites/hurt_airtofall.png.import
+Fighters/0-Goku/Sprites/hurt_astrong.png
+Fighters/0-Goku/Sprites/hurt_astrong.png.import
+Fighters/0-Goku/Sprites/hurt_aweak.png
+Fighters/0-Goku/Sprites/hurt_aweak.png.import
+Fighters/0-Goku/Sprites/hurt_cr.png
+Fighters/0-Goku/Sprites/hurt_cr.png.import
+Fighters/0-Goku/Sprites/hurt_down.png
+Fighters/0-Goku/Sprites/hurt_down.png.import
+Fighters/0-Goku/Sprites/hurt_fall1.png
+Fighters/0-Goku/Sprites/hurt_fall1.png.import
+Fighters/0-Goku/Sprites/hurt_fall2.png
+Fighters/0-Goku/Sprites/hurt_fall2.png.import
+Fighters/0-Goku/Sprites/hurt_gbounce1.png
+Fighters/0-Goku/Sprites/hurt_gbounce1.png.import
+Fighters/0-Goku/Sprites/hurt_gbounce2.png
+Fighters/0-Goku/Sprites/hurt_gbounce2.png.import
+Fighters/0-Goku/Sprites/hurt_gstrong.png
+Fighters/0-Goku/Sprites/hurt_gstrong.png.import
+Fighters/0-Goku/Sprites/hurt_gweak.png
+Fighters/0-Goku/Sprites/hurt_gweak.png.import
+Fighters/0-Goku/Sprites/hurt_kd1.png
+Fighters/0-Goku/Sprites/hurt_kd1.png.import
+Fighters/0-Goku/Sprites/hurt_kdspin1.png
+Fighters/0-Goku/Sprites/hurt_kdspin1.png.import
+Fighters/0-Goku/Sprites/hurt_kdspin2.png
+Fighters/0-Goku/Sprites/hurt_kdspin2.png.import
+Fighters/0-Goku/Sprites/hurt_kdspin3.png
+Fighters/0-Goku/Sprites/hurt_kdspin3.png.import
+Fighters/0-Goku/Sprites/hurt_kdspin4.png
+Fighters/0-Goku/Sprites/hurt_kdspin4.png.import
+Fighters/0-Goku/Sprites/hurt_lup_1.png
+Fighters/0-Goku/Sprites/hurt_lup_1.png.import
+Fighters/0-Goku/Sprites/hurt_lup_2.png
+Fighters/0-Goku/Sprites/hurt_lup_2.png.import
+Fighters/0-Goku/Sprites/hurt_recovery1.png
+Fighters/0-Goku/Sprites/hurt_recovery1.png.import
+Fighters/0-Goku/Sprites/hurt_recovery2.png
+Fighters/0-Goku/Sprites/hurt_recovery2.png.import
+Fighters/0-Goku/Sprites/hurt_wboubnce1.png
+Fighters/0-Goku/Sprites/hurt_wboubnce1.png.import
+Fighters/0-Goku/Sprites/hurt_wbounce2.png
+Fighters/0-Goku/Sprites/hurt_wbounce2.png.import
+Fighters/0-Goku/Sprites/j5s1.png
+Fighters/0-Goku/Sprites/j5s1.png.import
+Fighters/0-Goku/Sprites/j5s2.png
+Fighters/0-Goku/Sprites/j5s2.png.import
+Fighters/0-Goku/Sprites/j5s3.png
+Fighters/0-Goku/Sprites/j5s3.png.import
+Fighters/0-Goku/Sprites/j5s4.png
+Fighters/0-Goku/Sprites/j5s4.png.import
+Fighters/0-Goku/Sprites/j5s5.png
+Fighters/0-Goku/Sprites/j5s5.png.import
+Fighters/0-Goku/Sprites/j5s6.png
+Fighters/0-Goku/Sprites/j5s6.png.import
+Fighters/0-Goku/Sprites/j5s7.png
+Fighters/0-Goku/Sprites/j5s7.png.import
+Fighters/0-Goku/Sprites/j5w1.png
+Fighters/0-Goku/Sprites/j5w1.png.import
+Fighters/0-Goku/Sprites/j5w2.png
+Fighters/0-Goku/Sprites/j5w2.png.import
+Fighters/0-Goku/Sprites/j5w3.png
+Fighters/0-Goku/Sprites/j5w3.png.import
+Fighters/0-Goku/Sprites/j5w4.png
+Fighters/0-Goku/Sprites/j5w4.png.import
+Fighters/0-Goku/Sprites/jump1.png
+Fighters/0-Goku/Sprites/jump1.png.import
+Fighters/0-Goku/Sprites/jump10.png
+Fighters/0-Goku/Sprites/jump10.png.import
+Fighters/0-Goku/Sprites/jump2.png
+Fighters/0-Goku/Sprites/jump2.png.import
+Fighters/0-Goku/Sprites/jump3.png
+Fighters/0-Goku/Sprites/jump3.png.import
+Fighters/0-Goku/Sprites/jump4.png
+Fighters/0-Goku/Sprites/jump4.png.import
+Fighters/0-Goku/Sprites/jump5.png
+Fighters/0-Goku/Sprites/jump5.png.import
+Fighters/0-Goku/Sprites/jump6.png
+Fighters/0-Goku/Sprites/jump6.png.import
+Fighters/0-Goku/Sprites/jump7.png
+Fighters/0-Goku/Sprites/jump7.png.import
+Fighters/0-Goku/Sprites/jump8.png
+Fighters/0-Goku/Sprites/jump8.png.import
+Fighters/0-Goku/Sprites/jump9.png
+Fighters/0-Goku/Sprites/jump9.png.import
+Fighters/0-Goku/Sprites/stand.png
+Fighters/0-Goku/Sprites/stand.png.import
+Fighters/0-Goku/Sprites/stand2duck.png
+Fighters/0-Goku/Sprites/stand2duck.png.import
+Fighters/0-Goku/Sprites/walk f1.png
+Fighters/0-Goku/Sprites/walk f1.png.import
+Fighters/0-Goku/Sprites/walk f2.png
+Fighters/0-Goku/Sprites/walk f2.png.import
+Fighters/0-Goku/Sprites/walk f3.png
+Fighters/0-Goku/Sprites/walk f3.png.import
+Fighters/0-Goku/Sprites/walk f4.png
+Fighters/0-Goku/Sprites/walk f4.png.import
+Fighters/0-Goku/Sprites/walk f5.png
+Fighters/0-Goku/Sprites/walk f5.png.import
+Fighters/0-Goku/Sprites/walk f6.png
+Fighters/0-Goku/Sprites/walk f6.png.import
+Fighters/0-Goku/Sprites/walk f7.png
+Fighters/0-Goku/Sprites/walk f7.png.import
+Fighters/0-Goku/Sprites/walk f8.png
+Fighters/0-Goku/Sprites/walk f8.png.import
+Fighters/0-Goku/Sprites/walking b1.png
+Fighters/0-Goku/Sprites/walking b1.png.import
+Fighters/0-Goku/Sprites/walking b2.png
+Fighters/0-Goku/Sprites/walking b2.png.import
+Fighters/0-Goku/Sprites/walking b3.png
+Fighters/0-Goku/Sprites/walking b3.png.import
+Fighters/0-Goku/Sprites/walking b4.png
+Fighters/0-Goku/Sprites/walking b4.png.import
+Fighters/0-Goku/Sprites/walking b5.png
+Fighters/0-Goku/Sprites/walking b5.png.import
+Fighters/0-Goku/Sprites/walking b6.png
+Fighters/0-Goku/Sprites/walking b6.png.import
+Fighters/0-Goku/Sprites/walking b7.png
+Fighters/0-Goku/Sprites/walking b7.png.import
+Fighters/0-Goku/Stances/SVW_Stance_Main.tres
+Fighters/0-Goku/States/0_SVW_IdleState.tres
+Fighters/0-Goku/States/1000_SVW_Intro.tres
+Fighters/0-Goku/States/1001_SVW_Victory.tres
+Fighters/0-Goku/States/1002_SVW_Defeat.tres
+Fighters/0-Goku/States/10_SVW_FallingState.tres
+Fighters/0-Goku/States/11_SVW_LandingNeutralState.tres
+Fighters/0-Goku/States/12_SVW_LandingForwardState.tres
+Fighters/0-Goku/States/13_SVW_LandingBackwardsState.tres
+Fighters/0-Goku/States/14_SVW_CrouchEnter.tres
+Fighters/0-Goku/States/15_SVW_Crouching.tres
+Fighters/0-Goku/States/16_SVW_ForwardDashState.tres
+Fighters/0-Goku/States/17_SVW_DashStopState.tres
+Fighters/0-Goku/States/18_SVW_BackwardsDashState.tres
+Fighters/0-Goku/States/19_SVW_ForwardAirDashState.tres
+Fighters/0-Goku/States/1_SVW_MoveForwardState.tres
+Fighters/0-Goku/States/20_SVW_ForwardAirDashUpState.tres
+Fighters/0-Goku/States/21_SVW_ForwardAirDashDownState.tres
+Fighters/0-Goku/States/22_SVW_BackwardsAirDashState.tres
+Fighters/0-Goku/States/23_SVW_Hit_Ground_Weak.tres
+Fighters/0-Goku/States/24_SVW_Hit_Ground_Strong.tres
+Fighters/0-Goku/States/25_SVW_Hit_Crouch_Weak.tres
+Fighters/0-Goku/States/26_SVW_Hit_Sweep.tres
+Fighters/0-Goku/States/27_SVW_Hit_Air_Weak.tres
+Fighters/0-Goku/States/28_SVW_Hit_Air_Strong.tres
+Fighters/0-Goku/States/29_SVW_Hit_Crumple.tres
+Fighters/0-Goku/States/2_SVW_MoveBackwardsState.tres
+Fighters/0-Goku/States/30_SVW_Hit_LaunchAway.tres
+Fighters/0-Goku/States/31_SVW_Hit_LaunchUp.tres
+Fighters/0-Goku/States/32_SVW_Hit_LaunchDown.tres
+Fighters/0-Goku/States/33_SVW_Hit_Bounce_Ground.tres
+Fighters/0-Goku/States/34_SVW_Hit_Bounce_Wall.tres
+Fighters/0-Goku/States/35_SVW_Hit_UpToDown.tres
+Fighters/0-Goku/States/36_SVW_Hit_Falling.tres
+Fighters/0-Goku/States/37_SVW_Hit_Knockdown.tres
+Fighters/0-Goku/States/38_SVW_Hit_Knockdown_Slide.tres
+Fighters/0-Goku/States/39_SVW_Hit_Knockdown_Spin.tres
+Fighters/0-Goku/States/3_SVW_JumpIdleState.tres
+Fighters/0-Goku/States/40_SVW_Hit_Down.tres
+Fighters/0-Goku/States/41_SVW_Hit_GetUp.tres
+Fighters/0-Goku/States/42_SVW_KO.tres
+Fighters/0-Goku/States/43_SVW_Recovery_GroundForward.tres
+Fighters/0-Goku/States/44_SVW_Recovery_GroundBackwards.tres
+Fighters/0-Goku/States/45_SVW_Recovery_OTG.tres
+Fighters/0-Goku/States/46_SVW_Recovery_AirForward.tres
+Fighters/0-Goku/States/47_SVW_Recovery_AirBackwards.tres
+Fighters/0-Goku/States/48_SVW_Block_Neutral_Enter.tres
+Fighters/0-Goku/States/49_SVW_Blockstun_Neutral.tres
+Fighters/0-Goku/States/4_SVW_JumpForwardState.tres
+Fighters/0-Goku/States/50_SVW_Block_Neutral_Exit.tres
+Fighters/0-Goku/States/51_SVW_Guard_Break_Neutral.tres
+Fighters/0-Goku/States/52_SVW_Blocking_Neutral.tres
+Fighters/0-Goku/States/53_SVW_Block_Crouch_Enter.tres
+Fighters/0-Goku/States/54_SVW_Blockstun_Crouch.tres
+Fighters/0-Goku/States/55_SVW_Block_Crouch_Exit.tres
+Fighters/0-Goku/States/56_SVW_Guard_Break_Crouch.tres
+Fighters/0-Goku/States/57_SVW_Blocking_Crouch.tres
+Fighters/0-Goku/States/58_SVW_Block_Air_Enter.tres
+Fighters/0-Goku/States/59_SVW_Blockstun_Air.tres
+Fighters/0-Goku/States/5_SVW_JumpBackwardsState.tres
+Fighters/0-Goku/States/60_SVW_Block_Air_Exit.tres
+Fighters/0-Goku/States/61_SVW_Guard_Break_Air.tres
+Fighters/0-Goku/States/62_SVW_Blocking_Air.tres
+Fighters/0-Goku/States/63_SVW_5A.tres
+Fighters/0-Goku/States/64_SVW_5B.tres
+Fighters/0-Goku/States/65_SVW_5C.tres
+Fighters/0-Goku/States/66_SVW_2A.tres
+Fighters/0-Goku/States/67_SVW_2B.tres
+Fighters/0-Goku/States/68_SVW_2C.tres
+Fighters/0-Goku/States/69_SVW_J5A.tres
+Fighters/0-Goku/States/6_SVW_DashJumpState.tres
+Fighters/0-Goku/States/70_SVW_J5B.tres
+Fighters/0-Goku/States/71_SVW_J5C.tres
+Fighters/0-Goku/States/72_SVW_4A.tres
+Fighters/0-Goku/States/73_SVW_4B.tres
+Fighters/0-Goku/States/74_SVW_6C.tres
+Fighters/0-Goku/States/75_SVW_9C.tres
+Fighters/0-Goku/States/76_SVW_J2C.tres
+Fighters/0-Goku/States/77_SVW_J2C_Landing.tres
+Fighters/0-Goku/States/78_SVW_J3C.tres
+Fighters/0-Goku/States/79_SVW_236C.tres
+Fighters/0-Goku/States/7_SVW_SuperJumpIdleState.tres
+Fighters/0-Goku/States/80_SVW_236B_1.tres
+Fighters/0-Goku/States/81_SVW_236B_2.tres
+Fighters/0-Goku/States/82_SVW_236B_3.tres
+Fighters/0-Goku/States/83_SVW_214C.tres
+Fighters/0-Goku/States/84_SVW_623C.tres
+Fighters/0-Goku/States/85_SVW_236BC.tres
+Fighters/0-Goku/States/86_SVW_XCancelState.tres
+Fighters/0-Goku/States/87_SVW_BurstState.tres
+Fighters/0-Goku/States/88_SVW_LastWishBurstState.tres
+Fighters/0-Goku/States/8_SVW_SuperJumpForwardState.tres
+Fighters/0-Goku/States/9_SVW_SuperJumpBackwardsState.tres
+Fighters/1-Yamcha/1_CRM_Data.tres
+Fighters/1-Yamcha/1_CRM_Profile.tres
+Fighters/1-Yamcha/AnimationData/0_CRM_Neutral_AnimData.tres
+Fighters/1-Yamcha/AnimationData/1000_CRM_Cancel_AnimData.tres
+Fighters/1-Yamcha/AnimationData/1001_CRM_Burst_AnimData.tres
+Fighters/1-Yamcha/AnimationData/100_CRM_Intro_AnimData.tres
+Fighters/1-Yamcha/AnimationData/101_CRM_Outro_AnimData.tres
+Fighters/1-Yamcha/AnimationData/10_CRM_RunStop_AnimData.tres
+Fighters/1-Yamcha/AnimationData/11_CRM_DashBw_AnimData.tres
+Fighters/1-Yamcha/AnimationData/12_CRM_AirDashFw_AnimData.tres
+Fighters/1-Yamcha/AnimationData/13_CRM_AirDashDir_AnimData.tres
+Fighters/1-Yamcha/AnimationData/14_CRM_AirDashBw_AnimData.tres
+Fighters/1-Yamcha/AnimationData/15_CRM_Hit_Weak_AnimData.tres
+Fighters/1-Yamcha/AnimationData/16_CRM_Hit_Strong_AnimData.tres
+Fighters/1-Yamcha/AnimationData/17_CRM_Hit_Crouch_AnimData.tres
+Fighters/1-Yamcha/AnimationData/18_CRM_Hit_Sweep_AnimData.tres
+Fighters/1-Yamcha/AnimationData/19_CRM_Hit_AirWeak_AnimData.tres
+Fighters/1-Yamcha/AnimationData/1_CRM_MoveF_AnimData.tres
+Fighters/1-Yamcha/AnimationData/200_CRM_Recovery_Backwards_AnimData.tres
+Fighters/1-Yamcha/AnimationData/200_CRM_Recovery_Forward_AnimData.tres
+Fighters/1-Yamcha/AnimationData/200_CRM_Recovery_Neutral_AnimData.tres
+Fighters/1-Yamcha/AnimationData/20_CRM_Hit_AirStrong_AnimData.tres
+Fighters/1-Yamcha/AnimationData/21_CRM_Hit_Fall1_AnimData.tres
+Fighters/1-Yamcha/AnimationData/21_CRM_Hit_Fall2_AnimData.tres
+Fighters/1-Yamcha/AnimationData/21_CRM_Hit_FallTransition_AnimData.tres
+Fighters/1-Yamcha/AnimationData/22_CRM_Hit_Knockdown1_AnimData.tres
+Fighters/1-Yamcha/AnimationData/22_CRM_Hit_Knockdown2_AnimData.tres
+Fighters/1-Yamcha/AnimationData/22_CRM_Hit_Knockdown3_AnimData.tres
+Fighters/1-Yamcha/AnimationData/23_CRM_Hit_Down_AnimData.tres
+Fighters/1-Yamcha/AnimationData/24_CRM_Hit_GetUp_AnimData.tres
+Fighters/1-Yamcha/AnimationData/25_CRM_Hit_LaunchAway_AnimData.tres
+Fighters/1-Yamcha/AnimationData/25_CRM_Hit_LaunchDown_AnimData.tres
+Fighters/1-Yamcha/AnimationData/25_CRM_Hit_LaunchUp_AnimData.tres
+Fighters/1-Yamcha/AnimationData/26_CRM_Hit_GroundBounce_AnimData.tres
+Fighters/1-Yamcha/AnimationData/26_CRM_Hit_WallBounce_AnimData.tres
+Fighters/1-Yamcha/AnimationData/27_CRM_Hit_Crumple_AnimData.tres
+Fighters/1-Yamcha/AnimationData/28_CRM_Hit_KO_AnimData.tres
+Fighters/1-Yamcha/AnimationData/29_CRM_Stand_Block_Transition_AnimData.tres
+Fighters/1-Yamcha/AnimationData/2_CRM_MoveB_AnimData.tres
+Fighters/1-Yamcha/AnimationData/30_CRM_Stand_Block_AnimData.tres
+Fighters/1-Yamcha/AnimationData/31_CRM_Stand_Blockstun_AnimData.tres
+Fighters/1-Yamcha/AnimationData/32_CRM_Crouch_Block_Transition_AnimData.tres
+Fighters/1-Yamcha/AnimationData/33_CRM_Crouch_Block_AnimData.tres
+Fighters/1-Yamcha/AnimationData/34_CRM_Crouch_Blockstun_AnimData.tres
+Fighters/1-Yamcha/AnimationData/35_CRM_Air_Block_Transition_AnimData.tres
+Fighters/1-Yamcha/AnimationData/36_CRM_Air_Block_AnimData.tres
+Fighters/1-Yamcha/AnimationData/37_CRM_Air_Blockstun_AnimData.tres
+Fighters/1-Yamcha/AnimationData/3_CRM_Jump_AnimData.tres
+Fighters/1-Yamcha/AnimationData/48_CRM_5A_AnimData.tres
+Fighters/1-Yamcha/AnimationData/49_CRM_5B_AnimData.tres
+Fighters/1-Yamcha/AnimationData/4_CRM_Falling_AnimData.tres
+Fighters/1-Yamcha/AnimationData/50_CRM_5C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/51_CRM_2A_AnimData.tres
+Fighters/1-Yamcha/AnimationData/52_CRM_2B_AnimData.tres
+Fighters/1-Yamcha/AnimationData/53_CRM_2C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/54_CRM_j5A_AnimData.tres
+Fighters/1-Yamcha/AnimationData/55_CRM_j5B_AnimData.tres
+Fighters/1-Yamcha/AnimationData/56_CRM_j5C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/57_CRM_4A_AnimData.tres
+Fighters/1-Yamcha/AnimationData/58_CRM_4B_AnimData.tres
+Fighters/1-Yamcha/AnimationData/59_CRM_6C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/5_CRM_Landing_AnimData.tres
+Fighters/1-Yamcha/AnimationData/60_CRM_9C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/61_CRM_j3C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/62_CRM_j2C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/63_CRM_j2C_Landing_AnimData.tres
+Fighters/1-Yamcha/AnimationData/64_CRM_4C_AnimData.tres
+Fighters/1-Yamcha/AnimationData/6_CRM_CrouchEnter_AnimData.tres
+Fighters/1-Yamcha/AnimationData/7_CRM_Crouching_AnimData.tres
+Fighters/1-Yamcha/AnimationData/8_CRM_CrouchExit_AnimData.tres
+Fighters/1-Yamcha/AnimationData/9_CRM_DashFw_AnimData.tres
+Fighters/1-Yamcha/Artwork/Caramello_MainRender.png
+Fighters/1-Yamcha/Artwork/Caramello_MainRender.png.import
+Fighters/1-Yamcha/Artwork/Caramello_Portrait.png
+Fighters/1-Yamcha/Artwork/Caramello_Portrait.png.import
+Fighters/1-Yamcha/Artwork/Portrait-Caramello.png
+Fighters/1-Yamcha/Artwork/Portrait-Caramello.png.import
+Fighters/1-Yamcha/Artwork/caramello-winrender.png
+Fighters/1-Yamcha/Artwork/caramello-winrender.png.import
+Fighters/1-Yamcha/Artwork/caramellochibi.png
+Fighters/1-Yamcha/Artwork/caramellochibi.png.import
+Fighters/1-Yamcha/Hitboxes/-1_Hitbox_CollisionOnly.tres
+Fighters/1-Yamcha/Hitboxes/-2_Hitbox_CollisionOnly_Low.tres
+Fighters/1-Yamcha/Hitboxes/0_Hitbox_Basic.tres
+Fighters/1-Yamcha/Hitboxes/0_Hitbox_Horizontal.tres
+Fighters/1-Yamcha/Hitboxes/0_Hitbox_Inverted.tres
+Fighters/1-Yamcha/Hitboxes/10_Hitbox_2A_0.tres
+Fighters/1-Yamcha/Hitboxes/10_Hitbox_2A_1.tres
+Fighters/1-Yamcha/Hitboxes/10_Hitbox_2A_2.tres
+Fighters/1-Yamcha/Hitboxes/11_Hitbox_2B_1.tres
+Fighters/1-Yamcha/Hitboxes/11_Hitbox_2B_2.tres
+Fighters/1-Yamcha/Hitboxes/11_Hitbox_2B_3.tres
+Fighters/1-Yamcha/Hitboxes/12_Hitbox_2C_0.tres
+Fighters/1-Yamcha/Hitboxes/12_Hitbox_2C_1.tres
+Fighters/1-Yamcha/Hitboxes/13_Hitbox_j_5A_0.tres
+Fighters/1-Yamcha/Hitboxes/13_Hitbox_j_5A_1.tres
+Fighters/1-Yamcha/Hitboxes/13_Hitbox_j_5A_2.tres
+Fighters/1-Yamcha/Hitboxes/14_Hitbox_j_5B_1.tres
+Fighters/1-Yamcha/Hitboxes/14_Hitbox_j_5B_2.tres
+Fighters/1-Yamcha/Hitboxes/15_Hitbox_6C_0.tres
+Fighters/1-Yamcha/Hitboxes/15_Hitbox_6C_1.tres
+Fighters/1-Yamcha/Hitboxes/15_Hitbox_6C_2.tres
+Fighters/1-Yamcha/Hitboxes/16_Hitbox_j_3C_1.tres
+Fighters/1-Yamcha/Hitboxes/16_Hitbox_j_3C_2.tres
+Fighters/1-Yamcha/Hitboxes/17_Hitbox_j_2C_0.tres
+Fighters/1-Yamcha/Hitboxes/17_Hitbox_j_2C_1.tres
+Fighters/1-Yamcha/Hitboxes/18_Hitbox_9C_1.tres
+Fighters/1-Yamcha/Hitboxes/18_Hitbox_Grab_stUp.tres
+Fighters/1-Yamcha/Hitboxes/19_Hitbox_Grab.tres
+Fighters/1-Yamcha/Hitboxes/1_Hitbox_Crouch.tres
+Fighters/1-Yamcha/Hitboxes/20_Hitbox_Rekka1_StUp.tres
+Fighters/1-Yamcha/Hitboxes/21_Hitbox_Rekka1_Active.tres
+Fighters/1-Yamcha/Hitboxes/22_Hitbox_Rekka2_Active.tres
+Fighters/1-Yamcha/Hitboxes/23_Hitbox_Rekka3_Active.tres
+Fighters/1-Yamcha/Hitboxes/24_Hitbox_623C_StUp.tres
+Fighters/1-Yamcha/Hitboxes/25_Hitbox_623C_Active.tres
+Fighters/1-Yamcha/Hitboxes/26_Hitbox_623C_Sequence.tres
+Fighters/1-Yamcha/Hitboxes/27_Hitbox_236BC_Active.tres
+Fighters/1-Yamcha/Hitboxes/2_Hitbox_Jump.tres
+Fighters/1-Yamcha/Hitboxes/3_Hitbox_FDash.tres
+Fighters/1-Yamcha/Hitboxes/4_Hitbox_BDash.tres
+Fighters/1-Yamcha/Hitboxes/5_Hitbox_5A_0.tres
+Fighters/1-Yamcha/Hitboxes/5_Hitbox_5A_1.tres
+Fighters/1-Yamcha/Hitboxes/5_Hitbox_5A_2.tres
+Fighters/1-Yamcha/Hitboxes/6_Hitbox_5B_0.tres
+Fighters/1-Yamcha/Hitboxes/6_Hitbox_5B_1.tres
+Fighters/1-Yamcha/Hitboxes/6_Hitbox_5B_2.tres
+Fighters/1-Yamcha/Hitboxes/7_Hitbox_5C_0.tres
+Fighters/1-Yamcha/Hitboxes/7_Hitbox_5C_1.tres
+Fighters/1-Yamcha/Hitboxes/7_Hitbox_5C_2.tres
+Fighters/1-Yamcha/Hitboxes/7_Hitbox_5C_3.tres
+Fighters/1-Yamcha/Hitboxes/8_Hitbox_4A_1.tres
+Fighters/1-Yamcha/Hitboxes/8_Hitbox_4A_2.tres
+Fighters/1-Yamcha/Hitboxes/9_Hitbox_4B_0.tres
+Fighters/1-Yamcha/Hitboxes/9_Hitbox_4B_1.tres
+Fighters/1-Yamcha/Hitboxes/9_Hitbox_4B_2.tres
+Fighters/1-Yamcha/Hitboxes/9_Hitbox_4B_3.tres
+Fighters/1-Yamcha/Instances/CRM_Fighter_Skin00.tscn
+Fighters/1-Yamcha/Instances/CRM_Fighter_Skin01.tscn
+Fighters/1-Yamcha/Moves/0_CRM_MoveForward.tres
+Fighters/1-Yamcha/Moves/10_CRM_AirDashBackwards.tres
+Fighters/1-Yamcha/Moves/11_CRM_Crouch.tres
+Fighters/1-Yamcha/Moves/12_CRM_Uncrouch.tres
+Fighters/1-Yamcha/Moves/13_CRM_AirJumpNeutral.tres
+Fighters/1-Yamcha/Moves/14_CRM_AirJumpForward.tres
+Fighters/1-Yamcha/Moves/15_CRM_AirJumpBackwards.tres
+Fighters/1-Yamcha/Moves/16_CRM_SuperJumpNeutral.tres
+Fighters/1-Yamcha/Moves/17_CRM_SuperJumpForward.tres
+Fighters/1-Yamcha/Moves/18_CRM_SuperJumpBackwards.tres
+Fighters/1-Yamcha/Moves/19_CRM_DashJump.tres
+Fighters/1-Yamcha/Moves/1_CRM_MoveBackwards.tres
+Fighters/1-Yamcha/Moves/20_CRM_AirDashJump.tres
+Fighters/1-Yamcha/Moves/21_CRM_GetUpForward.tres
+Fighters/1-Yamcha/Moves/22_CRM_GetUpBackwards.tres
+Fighters/1-Yamcha/Moves/23_CRM_5A.tres
+Fighters/1-Yamcha/Moves/24_CRM_5B.tres
+Fighters/1-Yamcha/Moves/25_CRM_5C.tres
+Fighters/1-Yamcha/Moves/26_CRM_2A.tres
+Fighters/1-Yamcha/Moves/27_CRM_2B.tres
+Fighters/1-Yamcha/Moves/28_CRM_2C.tres
+Fighters/1-Yamcha/Moves/29_CRM_j_5A.tres
+Fighters/1-Yamcha/Moves/2_CRM_DashForward.tres
+Fighters/1-Yamcha/Moves/30_CRM_j_5B.tres
+Fighters/1-Yamcha/Moves/31_CRM_j_5C.tres
+Fighters/1-Yamcha/Moves/32_CRM_4A.tres
+Fighters/1-Yamcha/Moves/33_CRM_4B.tres
+Fighters/1-Yamcha/Moves/34_CRM_6C.tres
+Fighters/1-Yamcha/Moves/35_CRM_9C.tres
+Fighters/1-Yamcha/Moves/36_CRM_j_2C.tres
+Fighters/1-Yamcha/Moves/37_CRM_j_3C.tres
+Fighters/1-Yamcha/Moves/38_CRM_236C.tres
+Fighters/1-Yamcha/Moves/38_CRM_4C.tres
+Fighters/1-Yamcha/Moves/39_CRM_236B_1.tres
+Fighters/1-Yamcha/Moves/3_CRM_DashBackwards.tres
+Fighters/1-Yamcha/Moves/40_CRM_236B_2.tres
+Fighters/1-Yamcha/Moves/41_CRM_236B_3.tres
+Fighters/1-Yamcha/Moves/42_CRM_623C.tres
+Fighters/1-Yamcha/Moves/43_CRM_214C.tres
+Fighters/1-Yamcha/Moves/44_CRM_236BC.tres
+Fighters/1-Yamcha/Moves/45_CRM_Recovery_OTG.tres
+Fighters/1-Yamcha/Moves/46_CRM_Recovery_GroundForward.tres
+Fighters/1-Yamcha/Moves/47_CRM_Recovery_GroundBackwards.tres
+Fighters/1-Yamcha/Moves/48_CRM_Recovery_AirBackwards.tres
+Fighters/1-Yamcha/Moves/49_CRM_Recovery_AirForward.tres
+Fighters/1-Yamcha/Moves/4_CRM_JumpNeutral.tres
+Fighters/1-Yamcha/Moves/50_CRM_ExcelCancel.tres
+Fighters/1-Yamcha/Moves/51_CRM_Burst.tres
+Fighters/1-Yamcha/Moves/52_CRM_LastWishBurst.tres
+Fighters/1-Yamcha/Moves/5_CRM_JumpForward.tres
+Fighters/1-Yamcha/Moves/6_CRM_JumpBackwards.tres
+Fighters/1-Yamcha/Moves/7_CRM_AirDashForward.tres
+Fighters/1-Yamcha/Moves/8_CRM_AirDashForwardUp.tres
+Fighters/1-Yamcha/Moves/9_CRM_AirDashForwardDown.tres
+Fighters/1-Yamcha/Music/Caramello Theme v 2.12 [Loop at 627200].wav
+Fighters/1-Yamcha/Music/Caramello Theme v 2.12 [Loop at 627200].wav.import
+Fighters/1-Yamcha/Palettes/CRM_Palette_Main.png
+Fighters/1-Yamcha/Palettes/CRM_Palette_Main.png.import
+Fighters/1-Yamcha/Palettes/Color2/CRM_Palette_Alt1.png
+Fighters/1-Yamcha/Palettes/Color2/CRM_Palette_Alt1.png.import
+Fighters/1-Yamcha/Palettes/Color2/CRM_Palette_Alt1_MAT.tres
+Fighters/1-Yamcha/Sprites/2M2.png
+Fighters/1-Yamcha/Sprites/2M2.png.import
+Fighters/1-Yamcha/Sprites/2M3.png
+Fighters/1-Yamcha/Sprites/2M3.png.import
+Fighters/1-Yamcha/Sprites/2M4.png
+Fighters/1-Yamcha/Sprites/2M4.png.import
+Fighters/1-Yamcha/Sprites/2M5.png
+Fighters/1-Yamcha/Sprites/2M5.png.import
+Fighters/1-Yamcha/Sprites/2M6.png
+Fighters/1-Yamcha/Sprites/2M6.png.import
+Fighters/1-Yamcha/Sprites/2S2.png
+Fighters/1-Yamcha/Sprites/2S2.png.import
+Fighters/1-Yamcha/Sprites/2S3.png
+Fighters/1-Yamcha/Sprites/2S3.png.import
+Fighters/1-Yamcha/Sprites/2S4.png
+Fighters/1-Yamcha/Sprites/2S4.png.import
+Fighters/1-Yamcha/Sprites/2S5.png
+Fighters/1-Yamcha/Sprites/2S5.png.import
+Fighters/1-Yamcha/Sprites/2S6.png
+Fighters/1-Yamcha/Sprites/2S6.png.import
+Fighters/1-Yamcha/Sprites/2W2.png
+Fighters/1-Yamcha/Sprites/2W2.png.import
+Fighters/1-Yamcha/Sprites/2W3.png
+Fighters/1-Yamcha/Sprites/2W3.png.import
+Fighters/1-Yamcha/Sprites/2W4.png
+Fighters/1-Yamcha/Sprites/2W4.png.import
+Fighters/1-Yamcha/Sprites/2W5.png
+Fighters/1-Yamcha/Sprites/2W5.png.import
+Fighters/1-Yamcha/Sprites/3Malt10.png
+Fighters/1-Yamcha/Sprites/3Malt10.png.import
+Fighters/1-Yamcha/Sprites/3Malt2.png
+Fighters/1-Yamcha/Sprites/3Malt2.png.import
+Fighters/1-Yamcha/Sprites/3Malt3.png
+Fighters/1-Yamcha/Sprites/3Malt3.png.import
+Fighters/1-Yamcha/Sprites/3Malt4.png
+Fighters/1-Yamcha/Sprites/3Malt4.png.import
+Fighters/1-Yamcha/Sprites/3Malt5.png
+Fighters/1-Yamcha/Sprites/3Malt5.png.import
+Fighters/1-Yamcha/Sprites/3Malt6.png
+Fighters/1-Yamcha/Sprites/3Malt6.png.import
+Fighters/1-Yamcha/Sprites/3Malt7.png
+Fighters/1-Yamcha/Sprites/3Malt7.png.import
+Fighters/1-Yamcha/Sprites/3Malt8.png
+Fighters/1-Yamcha/Sprites/3Malt8.png.import
+Fighters/1-Yamcha/Sprites/3Malt9.png
+Fighters/1-Yamcha/Sprites/3Malt9.png.import
+Fighters/1-Yamcha/Sprites/4S2.png
+Fighters/1-Yamcha/Sprites/4S2.png.import
+Fighters/1-Yamcha/Sprites/4S3.png
+Fighters/1-Yamcha/Sprites/4S3.png.import
+Fighters/1-Yamcha/Sprites/4S4.png
+Fighters/1-Yamcha/Sprites/4S4.png.import
+Fighters/1-Yamcha/Sprites/4S5.png
+Fighters/1-Yamcha/Sprites/4S5.png.import
+Fighters/1-Yamcha/Sprites/4S6.png
+Fighters/1-Yamcha/Sprites/4S6.png.import
+Fighters/1-Yamcha/Sprites/4W2.png
+Fighters/1-Yamcha/Sprites/4W2.png.import
+Fighters/1-Yamcha/Sprites/4W3.png
+Fighters/1-Yamcha/Sprites/4W3.png.import
+Fighters/1-Yamcha/Sprites/4W4.png
+Fighters/1-Yamcha/Sprites/4W4.png.import
+Fighters/1-Yamcha/Sprites/4W5.png
+Fighters/1-Yamcha/Sprites/4W5.png.import
+Fighters/1-Yamcha/Sprites/5M2.png
+Fighters/1-Yamcha/Sprites/5M2.png.import
+Fighters/1-Yamcha/Sprites/5M3.png
+Fighters/1-Yamcha/Sprites/5M3.png.import
+Fighters/1-Yamcha/Sprites/5M4.png
+Fighters/1-Yamcha/Sprites/5M4.png.import
+Fighters/1-Yamcha/Sprites/5M5.png
+Fighters/1-Yamcha/Sprites/5M5.png.import
+Fighters/1-Yamcha/Sprites/5M6.png
+Fighters/1-Yamcha/Sprites/5M6.png.import
+Fighters/1-Yamcha/Sprites/5M7.png
+Fighters/1-Yamcha/Sprites/5M7.png.import
+Fighters/1-Yamcha/Sprites/5S2.png
+Fighters/1-Yamcha/Sprites/5S2.png.import
+Fighters/1-Yamcha/Sprites/5S3.png
+Fighters/1-Yamcha/Sprites/5S3.png.import
+Fighters/1-Yamcha/Sprites/5S4.png
+Fighters/1-Yamcha/Sprites/5S4.png.import
+Fighters/1-Yamcha/Sprites/5S5.png
+Fighters/1-Yamcha/Sprites/5S5.png.import
+Fighters/1-Yamcha/Sprites/5S6.png
+Fighters/1-Yamcha/Sprites/5S6.png.import
+Fighters/1-Yamcha/Sprites/5w2.png
+Fighters/1-Yamcha/Sprites/5w2.png.import
+Fighters/1-Yamcha/Sprites/5w3.png
+Fighters/1-Yamcha/Sprites/5w3.png.import
+Fighters/1-Yamcha/Sprites/5w4.png
+Fighters/1-Yamcha/Sprites/5w4.png.import
+Fighters/1-Yamcha/Sprites/5w5.png
+Fighters/1-Yamcha/Sprites/5w5.png.import
+Fighters/1-Yamcha/Sprites/6M2.png
+Fighters/1-Yamcha/Sprites/6M2.png.import
+Fighters/1-Yamcha/Sprites/6M3.png
+Fighters/1-Yamcha/Sprites/6M3.png.import
+Fighters/1-Yamcha/Sprites/6M4.png
+Fighters/1-Yamcha/Sprites/6M4.png.import
+Fighters/1-Yamcha/Sprites/6M5.png
+Fighters/1-Yamcha/Sprites/6M5.png.import
+Fighters/1-Yamcha/Sprites/6M6.png
+Fighters/1-Yamcha/Sprites/6M6.png.import
+Fighters/1-Yamcha/Sprites/6M7.png
+Fighters/1-Yamcha/Sprites/6M7.png.import
+Fighters/1-Yamcha/Sprites/9M2.png
+Fighters/1-Yamcha/Sprites/9M2.png.import
+Fighters/1-Yamcha/Sprites/9M3.png
+Fighters/1-Yamcha/Sprites/9M3.png.import
+Fighters/1-Yamcha/Sprites/9M4.png
+Fighters/1-Yamcha/Sprites/9M4.png.import
+Fighters/1-Yamcha/Sprites/9M5.png
+Fighters/1-Yamcha/Sprites/9M5.png.import
+Fighters/1-Yamcha/Sprites/9M6.png
+Fighters/1-Yamcha/Sprites/9M6.png.import
+Fighters/1-Yamcha/Sprites/air-recovery.png
+Fighters/1-Yamcha/Sprites/air-recovery.png.import
+Fighters/1-Yamcha/Sprites/air-recovery2.png
+Fighters/1-Yamcha/Sprites/air-recovery2.png.import
+Fighters/1-Yamcha/Sprites/airblock-enter-exit.png
+Fighters/1-Yamcha/Sprites/airblock-enter-exit.png.import
+Fighters/1-Yamcha/Sprites/airblock.png
+Fighters/1-Yamcha/Sprites/airblock.png.import
+Fighters/1-Yamcha/Sprites/airblockstun.png
+Fighters/1-Yamcha/Sprites/airblockstun.png.import
+Fighters/1-Yamcha/Sprites/airhit1.png
+Fighters/1-Yamcha/Sprites/airhit1.png.import
+Fighters/1-Yamcha/Sprites/airhit2.png
+Fighters/1-Yamcha/Sprites/airhit2.png.import
+Fighters/1-Yamcha/Sprites/airhitfall1.png
+Fighters/1-Yamcha/Sprites/airhitfall1.png.import
+Fighters/1-Yamcha/Sprites/airhitfall2.png
+Fighters/1-Yamcha/Sprites/airhitfall2.png.import
+Fighters/1-Yamcha/Sprites/caraidle1.png
+Fighters/1-Yamcha/Sprites/caraidle1.png.import
+Fighters/1-Yamcha/Sprites/caramellobackdash.png
+Fighters/1-Yamcha/Sprites/caramellobackdash.png.import
+Fighters/1-Yamcha/Sprites/caramellobackwalk1.png
+Fighters/1-Yamcha/Sprites/caramellobackwalk1.png.import
+Fighters/1-Yamcha/Sprites/caramellocrouch3.png
+Fighters/1-Yamcha/Sprites/caramellocrouch3.png.import
+Fighters/1-Yamcha/Sprites/caramellofall.png
+Fighters/1-Yamcha/Sprites/caramellofall.png.import
+Fighters/1-Yamcha/Sprites/caramellofwddash.png
+Fighters/1-Yamcha/Sprites/caramellofwddash.png.import
+Fighters/1-Yamcha/Sprites/caramellofwdwalk1.png
+Fighters/1-Yamcha/Sprites/caramellofwdwalk1.png.import
+Fighters/1-Yamcha/Sprites/caramellofwdwalk2.png
+Fighters/1-Yamcha/Sprites/caramellofwdwalk2.png.import
+Fighters/1-Yamcha/Sprites/caramelloidle.png
+Fighters/1-Yamcha/Sprites/caramelloidle.png.import
+Fighters/1-Yamcha/Sprites/caramellojump.png
+Fighters/1-Yamcha/Sprites/caramellojump.png.import
+Fighters/1-Yamcha/Sprites/caramellojumppeak.png
+Fighters/1-Yamcha/Sprites/caramellojumppeak.png.import
+Fighters/1-Yamcha/Sprites/caramelloprecrouch.png
+Fighters/1-Yamcha/Sprites/caramelloprecrouch.png.import
+Fighters/1-Yamcha/Sprites/caramellopredashback.png
+Fighters/1-Yamcha/Sprites/caramellopredashback.png.import
+Fighters/1-Yamcha/Sprites/caramellopredashfwd.png
+Fighters/1-Yamcha/Sprites/caramellopredashfwd.png.import
+Fighters/1-Yamcha/Sprites/caramelloprejump.png
+Fighters/1-Yamcha/Sprites/caramelloprejump.png.import
+Fighters/1-Yamcha/Sprites/caramellowalkback1.png
+Fighters/1-Yamcha/Sprites/caramellowalkback1.png.import
+Fighters/1-Yamcha/Sprites/caramellowalkback2.png
+Fighters/1-Yamcha/Sprites/caramellowalkback2.png.import
+Fighters/1-Yamcha/Sprites/carawalkback (1).png
+Fighters/1-Yamcha/Sprites/carawalkback (1).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (10).png
+Fighters/1-Yamcha/Sprites/carawalkback (10).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (2).png
+Fighters/1-Yamcha/Sprites/carawalkback (2).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (3).png
+Fighters/1-Yamcha/Sprites/carawalkback (3).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (4).png
+Fighters/1-Yamcha/Sprites/carawalkback (4).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (5).png
+Fighters/1-Yamcha/Sprites/carawalkback (5).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (6).png
+Fighters/1-Yamcha/Sprites/carawalkback (6).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (7).png
+Fighters/1-Yamcha/Sprites/carawalkback (7).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (8).png
+Fighters/1-Yamcha/Sprites/carawalkback (8).png.import
+Fighters/1-Yamcha/Sprites/carawalkback (9).png
+Fighters/1-Yamcha/Sprites/carawalkback (9).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (1).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (1).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (10).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (10).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (2).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (2).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (3).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (3).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (4).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (4).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (5).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (5).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (6).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (6).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (7).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (7).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (8).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (8).png.import
+Fighters/1-Yamcha/Sprites/carawalkfwd (9).png
+Fighters/1-Yamcha/Sprites/carawalkfwd (9).png.import
+Fighters/1-Yamcha/Sprites/crouchblock-enter-exit.png
+Fighters/1-Yamcha/Sprites/crouchblock-enter-exit.png.import
+Fighters/1-Yamcha/Sprites/crouchblock.png
+Fighters/1-Yamcha/Sprites/crouchblock.png.import
+Fighters/1-Yamcha/Sprites/crouchblockstun.png
+Fighters/1-Yamcha/Sprites/crouchblockstun.png.import
+Fighters/1-Yamcha/Sprites/crouchhit.png
+Fighters/1-Yamcha/Sprites/crouchhit.png.import
+Fighters/1-Yamcha/Sprites/crumple.png
+Fighters/1-Yamcha/Sprites/crumple.png.import
+Fighters/1-Yamcha/Sprites/getup.png
+Fighters/1-Yamcha/Sprites/getup.png.import
+Fighters/1-Yamcha/Sprites/groudbounce.png
+Fighters/1-Yamcha/Sprites/groudbounce.png.import
+Fighters/1-Yamcha/Sprites/groundbounce-enter-exit.png
+Fighters/1-Yamcha/Sprites/groundbounce-enter-exit.png.import
+Fighters/1-Yamcha/Sprites/j.2M10.png
+Fighters/1-Yamcha/Sprites/j.2M10.png.import
+Fighters/1-Yamcha/Sprites/j.2M3.png
+Fighters/1-Yamcha/Sprites/j.2M3.png.import
+Fighters/1-Yamcha/Sprites/j.2M4.png
+Fighters/1-Yamcha/Sprites/j.2M4.png.import
+Fighters/1-Yamcha/Sprites/j.2M5.png
+Fighters/1-Yamcha/Sprites/j.2M5.png.import
+Fighters/1-Yamcha/Sprites/j.2M6.png
+Fighters/1-Yamcha/Sprites/j.2M6.png.import
+Fighters/1-Yamcha/Sprites/j.2M7.png
+Fighters/1-Yamcha/Sprites/j.2M7.png.import
+Fighters/1-Yamcha/Sprites/j.2M8.png
+Fighters/1-Yamcha/Sprites/j.2M8.png.import
+Fighters/1-Yamcha/Sprites/j.2M9.png
+Fighters/1-Yamcha/Sprites/j.2M9.png.import
+Fighters/1-Yamcha/Sprites/j_5S2.png
+Fighters/1-Yamcha/Sprites/j_5S2.png.import
+Fighters/1-Yamcha/Sprites/j_5S3.png
+Fighters/1-Yamcha/Sprites/j_5S3.png.import
+Fighters/1-Yamcha/Sprites/j_5S4.png
+Fighters/1-Yamcha/Sprites/j_5S4.png.import
+Fighters/1-Yamcha/Sprites/j_5S5.png
+Fighters/1-Yamcha/Sprites/j_5S5.png.import
+Fighters/1-Yamcha/Sprites/j_5w2.png
+Fighters/1-Yamcha/Sprites/j_5w2.png.import
+Fighters/1-Yamcha/Sprites/j_5w3.png
+Fighters/1-Yamcha/Sprites/j_5w3.png.import
+Fighters/1-Yamcha/Sprites/j_5w4.png
+Fighters/1-Yamcha/Sprites/j_5w4.png.import
+Fighters/1-Yamcha/Sprites/j_5w5.png
+Fighters/1-Yamcha/Sprites/j_5w5.png.import
+Fighters/1-Yamcha/Sprites/knockdown.png
+Fighters/1-Yamcha/Sprites/knockdown.png.import
+Fighters/1-Yamcha/Sprites/launchaway.png
+Fighters/1-Yamcha/Sprites/launchaway.png.import
+Fighters/1-Yamcha/Sprites/launchdiagonaldown.png
+Fighters/1-Yamcha/Sprites/launchdiagonaldown.png.import
+Fighters/1-Yamcha/Sprites/launchup.png
+Fighters/1-Yamcha/Sprites/launchup.png.import
+Fighters/1-Yamcha/Sprites/lowhit.png
+Fighters/1-Yamcha/Sprites/lowhit.png.import
+Fighters/1-Yamcha/Sprites/otgroll.png
+Fighters/1-Yamcha/Sprites/otgroll.png.import
+Fighters/1-Yamcha/Sprites/otgroll2.png
+Fighters/1-Yamcha/Sprites/otgroll2.png.import
+Fighters/1-Yamcha/Sprites/otgroll3.png
+Fighters/1-Yamcha/Sprites/otgroll3.png.import
+Fighters/1-Yamcha/Sprites/otgroll4.png
+Fighters/1-Yamcha/Sprites/otgroll4.png.import
+Fighters/1-Yamcha/Sprites/otgroll5.png
+Fighters/1-Yamcha/Sprites/otgroll5.png.import
+Fighters/1-Yamcha/Sprites/otgslide.png
+Fighters/1-Yamcha/Sprites/otgslide.png.import
+Fighters/1-Yamcha/Sprites/roll-recovery.png
+Fighters/1-Yamcha/Sprites/roll-recovery.png.import
+Fighters/1-Yamcha/Sprites/standblockstun.png
+Fighters/1-Yamcha/Sprites/standblockstun.png.import
+Fighters/1-Yamcha/Sprites/standingblock-enter-exit.png
+Fighters/1-Yamcha/Sprites/standingblock-enter-exit.png.import
+Fighters/1-Yamcha/Sprites/standingblock.png
+Fighters/1-Yamcha/Sprites/standingblock.png.import
+Fighters/1-Yamcha/Sprites/stronghit.png
+Fighters/1-Yamcha/Sprites/stronghit.png.import
+Fighters/1-Yamcha/Sprites/wallbounce.png
+Fighters/1-Yamcha/Sprites/wallbounce.png.import
+Fighters/1-Yamcha/Sprites/weakhit.png
+Fighters/1-Yamcha/Sprites/weakhit.png.import
+Fighters/1-Yamcha/Stances/CRM_Stance_Main.tres
+Fighters/1-Yamcha/States/0_CRM_IdleState.tres
+Fighters/1-Yamcha/States/1000_CRM_Intro.tres
+Fighters/1-Yamcha/States/1001_CRM_Victory.tres
+Fighters/1-Yamcha/States/1002_CRM_Defeat.tres
+Fighters/1-Yamcha/States/10_CRM_FallingState.tres
+Fighters/1-Yamcha/States/11_CRM_LandingNeutralState.tres
+Fighters/1-Yamcha/States/12_CRM_LandingForwardState.tres
+Fighters/1-Yamcha/States/13_CRM_LandingBackwardsState.tres
+Fighters/1-Yamcha/States/14_CRM_CrouchEnter.tres
+Fighters/1-Yamcha/States/15_CRM_Crouching.tres
+Fighters/1-Yamcha/States/16_CRM_ForwardDashState.tres
+Fighters/1-Yamcha/States/17_CRM_DashStopState.tres
+Fighters/1-Yamcha/States/18_CRM_BackwardsDashState.tres
+Fighters/1-Yamcha/States/19_CRM_ForwardAirDashState.tres
+Fighters/1-Yamcha/States/1_CRM_MoveForwardState.tres
+Fighters/1-Yamcha/States/20_CRM_ForwardAirDashUpState.tres
+Fighters/1-Yamcha/States/21_CRM_ForwardAirDashDownState.tres
+Fighters/1-Yamcha/States/22_CRM_BackwardsAirDashState.tres
+Fighters/1-Yamcha/States/23_CRM_Hit_Ground_Weak.tres
+Fighters/1-Yamcha/States/24_CRM_Hit_Ground_Strong.tres
+Fighters/1-Yamcha/States/25_CRM_Hit_Crouch_Weak.tres
+Fighters/1-Yamcha/States/26_CRM_Hit_Sweep.tres
+Fighters/1-Yamcha/States/27_CRM_Hit_Air_Weak.tres
+Fighters/1-Yamcha/States/28_CRM_Hit_Air_Strong.tres
+Fighters/1-Yamcha/States/29_CRM_Hit_Crumple.tres
+Fighters/1-Yamcha/States/2_CRM_MoveBackwardsState.tres
+Fighters/1-Yamcha/States/30_CRM_Hit_LaunchAway.tres
+Fighters/1-Yamcha/States/31_CRM_Hit_LaunchUp.tres
+Fighters/1-Yamcha/States/32_CRM_Hit_LaunchDown.tres
+Fighters/1-Yamcha/States/33_CRM_Hit_Bounce_Ground.tres
+Fighters/1-Yamcha/States/34_CRM_Hit_Bounce_Wall.tres
+Fighters/1-Yamcha/States/35_CRM_Hit_UpToDown.tres
+Fighters/1-Yamcha/States/36_CRM_Hit_Falling.tres
+Fighters/1-Yamcha/States/37_CRM_Hit_Knockdown.tres
+Fighters/1-Yamcha/States/38_CRM_Hit_Knockdown_Slide.tres
+Fighters/1-Yamcha/States/39_CRM_Hit_Knockdown_Spin.tres
+Fighters/1-Yamcha/States/3_CRM_JumpIdleState.tres
+Fighters/1-Yamcha/States/40_CRM_Hit_Down.tres
+Fighters/1-Yamcha/States/41_CRM_Hit_GetUp.tres
+Fighters/1-Yamcha/States/42_CRM_KO.tres
+Fighters/1-Yamcha/States/43_CRM_Recovery_GroundForward.tres
+Fighters/1-Yamcha/States/44_CRM_Recovery_GroundBackwards.tres
+Fighters/1-Yamcha/States/45_CRM_Recovery_OTG.tres
+Fighters/1-Yamcha/States/46_CRM_Recovery_AirForward.tres
+Fighters/1-Yamcha/States/47_CRM_Recovery_AirBackwards.tres
+Fighters/1-Yamcha/States/48_CRM_Block_Neutral_Enter.tres
+Fighters/1-Yamcha/States/49_CRM_Blockstun_Neutral.tres
+Fighters/1-Yamcha/States/4_CRM_JumpForwardState.tres
+Fighters/1-Yamcha/States/50_CRM_Block_Neutral_Exit.tres
+Fighters/1-Yamcha/States/51_CRM_Guard_Break_Neutral.tres
+Fighters/1-Yamcha/States/52_CRM_Blocking_Neutral.tres
+Fighters/1-Yamcha/States/53_CRM_Block_Crouch_Enter.tres
+Fighters/1-Yamcha/States/54_CRM_Blockstun_Crouch.tres
+Fighters/1-Yamcha/States/55_CRM_Block_Crouch_Exit.tres
+Fighters/1-Yamcha/States/56_CRM_Guard_Break_Crouch.tres
+Fighters/1-Yamcha/States/57_CRM_Blocking_Crouch.tres
+Fighters/1-Yamcha/States/58_CRM_Block_Air_Enter.tres
+Fighters/1-Yamcha/States/59_CRM_Blockstun_Air.tres
+Fighters/1-Yamcha/States/5_CRM_JumpBackwardsState.tres
+Fighters/1-Yamcha/States/60_CRM_Block_Air_Exit.tres
+Fighters/1-Yamcha/States/61_CRM_Guard_Break_Air.tres
+Fighters/1-Yamcha/States/62_CRM_Blocking_Air.tres
+Fighters/1-Yamcha/States/63_CRM_5A.tres
+Fighters/1-Yamcha/States/64_CRM_5B.tres
+Fighters/1-Yamcha/States/65_CRM_5C.tres
+Fighters/1-Yamcha/States/66_CRM_2A.tres
+Fighters/1-Yamcha/States/67_CRM_2B.tres
+Fighters/1-Yamcha/States/68_CRM_2C.tres
+Fighters/1-Yamcha/States/69_CRM_J5A.tres
+Fighters/1-Yamcha/States/6_CRM_DashJumpState.tres
+Fighters/1-Yamcha/States/70_CRM_J5B.tres
+Fighters/1-Yamcha/States/71_CRM_J5C.tres
+Fighters/1-Yamcha/States/72_CRM_4A.tres
+Fighters/1-Yamcha/States/73_CRM_4B.tres
+Fighters/1-Yamcha/States/74_CRM_6C.tres
+Fighters/1-Yamcha/States/75_CRM_9C.tres
+Fighters/1-Yamcha/States/76_CRM_J2C.tres
+Fighters/1-Yamcha/States/77_CRM_J2C_Landing.tres
+Fighters/1-Yamcha/States/78_CRM_J3C.tres
+Fighters/1-Yamcha/States/79_CRM_236C.tres
+Fighters/1-Yamcha/States/7_CRM_SuperJumpIdleState.tres
+Fighters/1-Yamcha/States/80_CRM_236B_1.tres
+Fighters/1-Yamcha/States/81_CRM_236B_2.tres
+Fighters/1-Yamcha/States/82_CRM_236B_3.tres
+Fighters/1-Yamcha/States/83_CRM_214C.tres
+Fighters/1-Yamcha/States/84_CRM_623C.tres
+Fighters/1-Yamcha/States/85_CRM_236BC.tres
+Fighters/1-Yamcha/States/86_CRM_XCancelState.tres
+Fighters/1-Yamcha/States/87_CRM_BurstState.tres
+Fighters/1-Yamcha/States/88_CRM_LastWishBurstState.tres
+Fighters/1-Yamcha/States/8_CRM_SuperJumpForwardState.tres
+Fighters/1-Yamcha/States/9_CRM_SuperJumpBackwardsState.tres
+Fighters/Shared/AnimationData/0_UNIV_GroundHitstun-HIGH_AnimData.tres
+Fighters/Shared/AnimationData/1_UNIV_GroundHitstun-MID_AnimData.tres
+Fighters/Shared/AnimationData/2_UNIV_GroundHitstun-LOW_AnimData.tres
+Fighters/Shared/AttackLevels/AKT_LVL1.tres
+Fighters/Shared/AttackLevels/AKT_LVL2.tres
+Fighters/Shared/AttackLevels/AKT_LVL3.tres
+Fighters/Shared/AttackLevels/AKT_LVL4.tres
+Fighters/Shared/AttackLevels/AKT_LVL5.tres
+Fighters/Shared/AttackLevels/AKT_LVL_Dummy.tres
+Fighters/Shared/FrameDataEvents/Event_Template_WillGain_DashF.tres
+Fighters/Shared/FrameDataEvents/Event_Template_WillGain_WalkF.tres
+Fighters/Shared/HitboxTemplates/Box_Crouch_std.tres
+Fighters/Shared/HitboxTemplates/Box_Neutral_std.tres
+Fighters/Shared/Inputs/0_Input_6.tres
+Fighters/Shared/Inputs/10_Input_44.tres
+Fighters/Shared/Inputs/11_Input_4A.tres
+Fighters/Shared/Inputs/11_Input_5A.tres
+Fighters/Shared/Inputs/12_Input_4B.tres
+Fighters/Shared/Inputs/12_Input_5B.tres
+Fighters/Shared/Inputs/13_Input_5C.tres
+Fighters/Shared/Inputs/14_Input_6C.tres
+Fighters/Shared/Inputs/15_Input_2A.tres
+Fighters/Shared/Inputs/15_Input_4C.tres
+Fighters/Shared/Inputs/16_Input_2B.tres
+Fighters/Shared/Inputs/17_Input_2C.tres
+Fighters/Shared/Inputs/18_Input_3C.tres
+Fighters/Shared/Inputs/18_Input_9C.tres
+Fighters/Shared/Inputs/19_Input_236B.tres
+Fighters/Shared/Inputs/1_Input_4.tres
+Fighters/Shared/Inputs/20_Input_236C.tres
+Fighters/Shared/Inputs/21_Input_214C.tres
+Fighters/Shared/Inputs/22_Input_BC.tres
+Fighters/Shared/Inputs/23_Input_AB.tres
+Fighters/Shared/Inputs/23_Input_AC.tres
+Fighters/Shared/Inputs/24_Input_623C.tres
+Fighters/Shared/Inputs/25_Input_236BC.tres
+Fighters/Shared/Inputs/26_Input_5X.tres
+Fighters/Shared/Inputs/27_Input_6X.tres
+Fighters/Shared/Inputs/28_Input_4X.tres
+Fighters/Shared/Inputs/2_Input_8.tres
+Fighters/Shared/Inputs/30_Input_2AC.tres
+Fighters/Shared/Inputs/3_Input_7.tres
+Fighters/Shared/Inputs/4_Input_9.tres
+Fighters/Shared/Inputs/5_Input_28.tres
+Fighters/Shared/Inputs/5_Input_tap8.tres
+Fighters/Shared/Inputs/6_Input_27.tres
+Fighters/Shared/Inputs/6_Input_tap7.tres
+Fighters/Shared/Inputs/7_Input_29.tres
+Fighters/Shared/Inputs/7_Input_tap9.tres
+Fighters/Shared/Inputs/8_Input_1.tres
+Fighters/Shared/Inputs/8_Input_2.tres
+Fighters/Shared/Inputs/8_Input_3.tres
+Fighters/Shared/Inputs/8_Input_]2[.tres
+Fighters/Shared/Inputs/9_Input_66.tres
+Fighters/Shared/SFX/AirDashFINAL.wav
+Fighters/Shared/SFX/AirDashFINAL.wav.import
+Fighters/Shared/SFX/BarrierHitFINAL.wav
+Fighters/Shared/SFX/BarrierHitFINAL.wav.import
+Fighters/Shared/SFX/Burst.wav
+Fighters/Shared/SFX/Burst.wav.import
+Fighters/Shared/SFX/ClashVers1.wav
+Fighters/Shared/SFX/ClashVers1.wav.import
+Fighters/Shared/SFX/DoNotUse/Crouch1.wav
+Fighters/Shared/SFX/DoNotUse/Crouch1.wav.import
+Fighters/Shared/SFX/DoNotUse/Crouch2.wav
+Fighters/Shared/SFX/DoNotUse/Crouch2.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Dash1.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Dash1.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_DashStop.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_DashStop.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Landing1.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Landing1.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Landing2.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Landing2.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Run1.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Run1.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Run2.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Run2.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk1.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk1.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk2.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk2.wav.import
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk3.wav
+Fighters/Shared/SFX/DoNotUse/Footstep_Walk3.wav.import
+Fighters/Shared/SFX/DoNotUse/Jump1.wav
+Fighters/Shared/SFX/DoNotUse/Jump1.wav.import
+Fighters/Shared/SFX/DoNotUse/Jump2.wav
+Fighters/Shared/SFX/DoNotUse/Jump2.wav.import
+Fighters/Shared/SFX/DoNotUse/Jump3.wav
+Fighters/Shared/SFX/DoNotUse/Jump3.wav.import
+Fighters/Shared/SFX/DoNotUse/Slash1.wav
+Fighters/Shared/SFX/DoNotUse/Slash1.wav.import
+Fighters/Shared/SFX/ElectricityVFXSound1.wav
+Fighters/Shared/SFX/ElectricityVFXSound1.wav.import
+Fighters/Shared/SFX/ExcelCancel.wav
+Fighters/Shared/SFX/ExcelCancel.wav.import
+Fighters/Shared/SFX/FighterTumbleVers1.wav
+Fighters/Shared/SFX/FighterTumbleVers1.wav.import
+Fighters/Shared/SFX/FullMagicaVers2.wav
+Fighters/Shared/SFX/FullMagicaVers2.wav.import
+Fighters/Shared/SFX/FullWill.wav
+Fighters/Shared/SFX/FullWill.wav.import
+Fighters/Shared/SFX/GeneralStrike1.wav
+Fighters/Shared/SFX/GeneralStrike1.wav.import
+Fighters/Shared/SFX/GeneralStrike2.wav
+Fighters/Shared/SFX/GeneralStrike2.wav.import
+Fighters/Shared/SFX/GeneralStrike3.wav
+Fighters/Shared/SFX/GeneralStrike3.wav.import
+Fighters/Shared/SFX/GroundDashLoopFINAL.wav
+Fighters/Shared/SFX/GroundDashLoopFINAL.wav.import
+Fighters/Shared/SFX/GroundDashStartFINAL.wav
+Fighters/Shared/SFX/GroundDashStartFINAL.wav.import
+Fighters/Shared/SFX/HalfWillVers3.wav
+Fighters/Shared/SFX/HalfWillVers3.wav.import
+Fighters/Shared/SFX/HeavyStrikeFINAL.wav
+Fighters/Shared/SFX/HeavyStrikeFINAL.wav.import
+Fighters/Shared/SFX/LastWishBurst.wav
+Fighters/Shared/SFX/LastWishBurst.wav.import
+Fighters/Shared/SFX/MagicaCounterIncreaseVers2.wav
+Fighters/Shared/SFX/MagicaCounterIncreaseVers2.wav.import
+Fighters/Shared/SFX/NormalJumpVers2.wav
+Fighters/Shared/SFX/NormalJumpVers2.wav.import
+Fighters/Shared/SFX/StrongSlashHitFINAL.wav
+Fighters/Shared/SFX/StrongSlashHitFINAL.wav.import
+Fighters/Shared/SFX/SuperJumpVers2.wav
+Fighters/Shared/SFX/SuperJumpVers2.wav.import
+Fighters/Shared/SFX/SwordAttack1.wav
+Fighters/Shared/SFX/SwordAttack1.wav.import
+Fighters/Shared/SFX/SwordAttack2.wav
+Fighters/Shared/SFX/SwordAttack2.wav.import
+Fighters/Shared/SFX/ThunderAttack1.wav
+Fighters/Shared/SFX/ThunderAttack1.wav.import
+Fighters/Shared/SFX/ThunderAttack2.wav
+Fighters/Shared/SFX/ThunderAttack2.wav.import
+Fighters/Shared/SFX/WeakSlashHitFINAL.wav
+Fighters/Shared/SFX/WeakSlashHitFINAL.wav.import
+Fighters/Shared/SFX/WeakStrikeHitFINAL.wav
+Fighters/Shared/SFX/WeakStrikeHitFINAL.wav.import
+Fighters/Shared/SFX/WillBreaking.wav
+Fighters/Shared/SFX/WillBreaking.wav.import
+Fighters/Shared/SFX/WindAttack1.wav
+Fighters/Shared/SFX/WindAttack1.wav.import
+Fighters/Shared/SFX/WindAttack2.wav
+Fighters/Shared/SFX/WindAttack2.wav.import
+Fighters/Shared/Shared_SFXList.tres
+Fighters/Shared/Shared_SpawnablesList.tres
+Fighters/Shared/Shared_VFXList.tres
+Fighters/Shared/Shared_VoiceLines.tres
+Fighters/Shared/Sounds/SFX/SFX_Armor.wav
+Fighters/Shared/Sounds/SFX/SFX_Armor.wav.import
+Fighters/Shared/Sounds/SFX/SFX_Block.wav
+Fighters/Shared/Sounds/SFX/SFX_Block.wav.import
+Fighters/Shared/Sounds/SFX/SFX_Clash.wav
+Fighters/Shared/Sounds/SFX/SFX_Clash.wav.import
+Fighters/Shared/Sounds/SFX/SFX_Hit.wav
+Fighters/Shared/Sounds/SFX/SFX_Hit.wav.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M10.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M10.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M11.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M11.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M2.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M2.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M3.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M3.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M4.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M4.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M5.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M5.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M6.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M6.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M7.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M7.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M8.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M8.png.import
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M9.png
+Fighters/Shared/Sprites/VFX/CaraVFX/VFX2M9.png.import
+Fighters/Shared/Sprites/VFX/Dash/dash1.png
+Fighters/Shared/Sprites/VFX/Dash/dash1.png.import
+Fighters/Shared/Sprites/VFX/Dash/dash2.png
+Fighters/Shared/Sprites/VFX/Dash/dash2.png.import
+Fighters/Shared/Sprites/VFX/Dash/dash3.png
+Fighters/Shared/Sprites/VFX/Dash/dash3.png.import
+Fighters/Shared/Sprites/VFX/Dash/dash4.png
+Fighters/Shared/Sprites/VFX/Dash/dash4.png.import
+Fighters/Shared/Sprites/VFX/Dash/sparkle1.png
+Fighters/Shared/Sprites/VFX/Dash/sparkle1.png.import
+Fighters/Shared/Sprites/VFX/Dash/sparkle2.png
+Fighters/Shared/Sprites/VFX/Dash/sparkle2.png.import
+Fighters/Shared/Sprites/VFX/Dash/sparkle3.png
+Fighters/Shared/Sprites/VFX/Dash/sparkle3.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects1.png
+Fighters/Shared/Sprites/VFX/Hits/some effects1.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects10.png
+Fighters/Shared/Sprites/VFX/Hits/some effects10.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects11.png
+Fighters/Shared/Sprites/VFX/Hits/some effects11.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects12.png
+Fighters/Shared/Sprites/VFX/Hits/some effects12.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects13.png
+Fighters/Shared/Sprites/VFX/Hits/some effects13.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects14.png
+Fighters/Shared/Sprites/VFX/Hits/some effects14.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects15.png
+Fighters/Shared/Sprites/VFX/Hits/some effects15.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects16.png
+Fighters/Shared/Sprites/VFX/Hits/some effects16.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects17.png
+Fighters/Shared/Sprites/VFX/Hits/some effects17.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects18.png
+Fighters/Shared/Sprites/VFX/Hits/some effects18.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects19.png
+Fighters/Shared/Sprites/VFX/Hits/some effects19.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects2.png
+Fighters/Shared/Sprites/VFX/Hits/some effects2.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects20.png
+Fighters/Shared/Sprites/VFX/Hits/some effects20.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects21.png
+Fighters/Shared/Sprites/VFX/Hits/some effects21.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects22.png
+Fighters/Shared/Sprites/VFX/Hits/some effects22.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects23.png
+Fighters/Shared/Sprites/VFX/Hits/some effects23.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects24.png
+Fighters/Shared/Sprites/VFX/Hits/some effects24.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects25.png
+Fighters/Shared/Sprites/VFX/Hits/some effects25.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects26.png
+Fighters/Shared/Sprites/VFX/Hits/some effects26.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects27.png
+Fighters/Shared/Sprites/VFX/Hits/some effects27.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects28.png
+Fighters/Shared/Sprites/VFX/Hits/some effects28.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects29.png
+Fighters/Shared/Sprites/VFX/Hits/some effects29.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects3.png
+Fighters/Shared/Sprites/VFX/Hits/some effects3.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects30.png
+Fighters/Shared/Sprites/VFX/Hits/some effects30.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects31.png
+Fighters/Shared/Sprites/VFX/Hits/some effects31.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects32.png
+Fighters/Shared/Sprites/VFX/Hits/some effects32.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects33.png
+Fighters/Shared/Sprites/VFX/Hits/some effects33.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects34.png
+Fighters/Shared/Sprites/VFX/Hits/some effects34.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects35.png
+Fighters/Shared/Sprites/VFX/Hits/some effects35.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects36.png
+Fighters/Shared/Sprites/VFX/Hits/some effects36.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects37.png
+Fighters/Shared/Sprites/VFX/Hits/some effects37.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects38.png
+Fighters/Shared/Sprites/VFX/Hits/some effects38.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects39.png
+Fighters/Shared/Sprites/VFX/Hits/some effects39.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects4.png
+Fighters/Shared/Sprites/VFX/Hits/some effects4.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects40.png
+Fighters/Shared/Sprites/VFX/Hits/some effects40.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects41.png
+Fighters/Shared/Sprites/VFX/Hits/some effects41.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects42.png
+Fighters/Shared/Sprites/VFX/Hits/some effects42.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects43.png
+Fighters/Shared/Sprites/VFX/Hits/some effects43.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects44.png
+Fighters/Shared/Sprites/VFX/Hits/some effects44.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects45.png
+Fighters/Shared/Sprites/VFX/Hits/some effects45.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects46.png
+Fighters/Shared/Sprites/VFX/Hits/some effects46.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects47.png
+Fighters/Shared/Sprites/VFX/Hits/some effects47.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects48.png
+Fighters/Shared/Sprites/VFX/Hits/some effects48.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects49.png
+Fighters/Shared/Sprites/VFX/Hits/some effects49.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects5.png
+Fighters/Shared/Sprites/VFX/Hits/some effects5.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects50.png
+Fighters/Shared/Sprites/VFX/Hits/some effects50.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects51.png
+Fighters/Shared/Sprites/VFX/Hits/some effects51.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects6.png
+Fighters/Shared/Sprites/VFX/Hits/some effects6.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects7.png
+Fighters/Shared/Sprites/VFX/Hits/some effects7.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects8.png
+Fighters/Shared/Sprites/VFX/Hits/some effects8.png.import
+Fighters/Shared/Sprites/VFX/Hits/some effects9.png
+Fighters/Shared/Sprites/VFX/Hits/some effects9.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx1.png
+Fighters/Shared/Sprites/VFX/Other/dashfx1.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx2.png
+Fighters/Shared/Sprites/VFX/Other/dashfx2.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx3.png
+Fighters/Shared/Sprites/VFX/Other/dashfx3.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx4.png
+Fighters/Shared/Sprites/VFX/Other/dashfx4.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx5.png
+Fighters/Shared/Sprites/VFX/Other/dashfx5.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx6.png
+Fighters/Shared/Sprites/VFX/Other/dashfx6.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx7.png
+Fighters/Shared/Sprites/VFX/Other/dashfx7.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx8.png
+Fighters/Shared/Sprites/VFX/Other/dashfx8.png.import
+Fighters/Shared/Sprites/VFX/Other/dashfx9.png
+Fighters/Shared/Sprites/VFX/Other/dashfx9.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust1.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust1.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust2.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust2.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust3.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust3.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust4.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust4.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust5.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust5.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust6.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust6.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust7.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust7.png.import
+Fighters/Shared/Sprites/VFX/Other/jumpdust8.png
+Fighters/Shared/Sprites/VFX/Other/jumpdust8.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback1.png
+Fighters/Shared/Sprites/VFX/Other/landdustback1.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback2.png
+Fighters/Shared/Sprites/VFX/Other/landdustback2.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback3.png
+Fighters/Shared/Sprites/VFX/Other/landdustback3.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback4.png
+Fighters/Shared/Sprites/VFX/Other/landdustback4.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback5.png
+Fighters/Shared/Sprites/VFX/Other/landdustback5.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustback6.png
+Fighters/Shared/Sprites/VFX/Other/landdustback6.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront1.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront1.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront2.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront2.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront3.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront3.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront4.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront4.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront5.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront5.png.import
+Fighters/Shared/Sprites/VFX/Other/landdustfront6.png
+Fighters/Shared/Sprites/VFX/Other/landdustfront6.png.import
+Fighters/Shared/Sprites/VFX/sprite_rim.png
+Fighters/Shared/Sprites/VFX/sprite_rim.png.import
+Fighters/Shared/Sprites/VFX/sprite_star_single.png
+Fighters/Shared/Sprites/VFX/sprite_star_single.png.import
+Fighters/Shared/Sprites/shadow_blob.png
+Fighters/Shared/Sprites/shadow_blob.png.import
+Fighters/Shared/VFX/VFX_00.tscn
+Fighters/Shared/VFX/VFX_01.tscn
+Fighters/Shared/VFX/VFX_02.tscn
+Fighters/Shared/VFX/VFX_03.tscn
+Fighters/Shared/VFX/VFX_04.tscn
+Fighters/Shared/VFX/VFX_05.tscn
+Fighters/Shared/VFX/VFX_06.tscn
+Fighters/Shared/VFX/VFX_10.tscn
+Fighters/Shared/VFX/VFX_100.tscn
+Fighters/Shared/VFX/VFX_1000.tscn
+Fighters/Shared/VFX/VFX_101.tscn
+Fighters/Shared/VFX/VFX_102.tscn
+Fighters/Shared/VFX/VFX_103.tscn
+Fighters/Shared/VFX/VFX_104.tscn
+Fighters/Shared/VFX/VFX_11.tscn
+Fighters/Shared/VFX/VFX_12.tscn
+Fighters/Shared/VFX/VFX_20.tscn
+Fighters/Shared/VFX/VFX_21.tscn
+Fighters/Shared/VFX/VFX_22.tscn
+Fonts/Sparky Stones_Niskala Huruf(nhfonts).ttf
+Fonts/Sparky Stones_Niskala Huruf(nhfonts).ttf.import
+Fonts/maagkramp_Salvo Nicolosi.ttf
+Fonts/maagkramp_Salvo Nicolosi.ttf.import
+GameModes/GM_Arcade.tres
+GameModes/GM_Debug.tres
+GameModes/GM_Online.tres
+GameModes/GM_Replay.tres
+GameModes/GM_Training.tres
+GameModes/GM_Versus.tres
+HitNotifs.tres
+MatchSettings.tres
+MenuSounds.tres
+MenuSounds/CancelSound.wav
+MenuSounds/CancelSound.wav.import
+MenuSounds/ConfirmSound.wav
+MenuSounds/ConfirmSound.wav.import
+MenuSounds/NavigationSound.wav
+MenuSounds/NavigationSound.wav.import
+MenuSounds/StrongConfirmSoundVers4.wav
+MenuSounds/StrongConfirmSoundVers4.wav.import
+MessagePack/GeneratedMessagePackResolver.cs
+MessagePack/GeneratedMessagePackResolver.cs.uid
+Prototyping/Materials/MAT_Prototype_Blue.tres
+Prototyping/Materials/MAT_Prototype_Cyan.tres
+Prototyping/Materials/MAT_Prototype_Green.tres
+Prototyping/Materials/MAT_Prototype_Orange.tres
+Prototyping/Meshes/Fountain.gltf
+Prototyping/Meshes/Fountain.gltf.import
+Prototyping/Meshes/Fountain0.bin
+Prototyping/Meshes/prototype_cube_2x2x2.gltf
+Prototyping/Meshes/prototype_cube_2x2x2.gltf.import
+Prototyping/Meshes/prototype_cube_2x2x20.bin
+Prototyping/Meshes/prototype_cylinder_2x2x2.gltf
+Prototyping/Meshes/prototype_cylinder_2x2x2.gltf.import
+Prototyping/Meshes/prototype_cylinder_2x2x20.bin
+Prototyping/Meshes/prototype_floor_2x2.gltf
+Prototyping/Meshes/prototype_floor_2x2.gltf.import
+Prototyping/Meshes/prototype_floor_2x20.bin
+Prototyping/Meshes/prototype_floor_4x4.gltf
+Prototyping/Meshes/prototype_floor_4x4.gltf.import
+Prototyping/Meshes/prototype_floor_4x40.bin
+Prototyping/Meshes/prototype_wall_2x2.gltf
+Prototyping/Meshes/prototype_wall_2x2.gltf.import
+Prototyping/Meshes/prototype_wall_2x20.bin
+Prototyping/Scenes/Prototype_Cube_1x1x1.tscn
+Prototyping/Scenes/Prototype_Cube_2x2x2.tscn
+Prototyping/Scenes/Prototype_Cylinder_2x2x2.tscn
+Prototyping/Scenes/Prototype_Floor_16x16.tscn
+Prototyping/Scenes/Prototype_Floor_2x2.tscn
+Prototyping/Scenes/Prototype_Floor_4x4.tscn
+Prototyping/Scenes/Prototype_Fountain.tscn
+Prototyping/Scenes/Prototype_MovingPlatform.tscn
+Prototyping/Scenes/Prototype_Rail_Straight.tscn
+Prototyping/Scenes/Prototype_Ramp_2x1x1.tscn
+Prototyping/Scenes/Prototype_Wall_2x2.tscn
+Prototyping/Textures/Grid.png
+Prototyping/Textures/Grid.png.import
+Roster.tres
+Scenes/Instances/HitNotifWidgetP1.tscn
+Scenes/Instances/HitNotifWidgetP2.tscn
+Scenes/Instances/HitboxViewer.tscn
+Scenes/Instances/InputHistory_Pref_P1.tscn
+Scenes/Instances/InputHistory_Pref_P2.tscn
+Scenes/Instances/Sakuga_UI.tscn
+Scenes/Instances/TouchInputs.tscn
+Scenes/Loading Screens/LoadingScreenSimple.cs
+Scenes/Loading Screens/LoadingScreenSimple.cs.uid
+Scenes/Loading Screens/LoadingScreen_Match.tscn
+Scenes/Loading Screens/LoadingScreen_Simple.tscn
+Scenes/PleaseResync_UI.tscn
+Scenes/TestScene.tscn
+Scripts/LiteNetLib/BaseChannel.cs
+Scripts/LiteNetLib/BaseChannel.cs.uid
+Scripts/LiteNetLib/ConnectRequestResult.cs
+Scripts/LiteNetLib/ConnectRequestResult.cs.uid
+Scripts/LiteNetLib/ConnectionRequest.cs
+Scripts/LiteNetLib/ConnectionRequest.cs.uid
+Scripts/LiteNetLib/ConnectionRequestResult.cs
+Scripts/LiteNetLib/ConnectionRequestResult.cs.uid
+Scripts/LiteNetLib/ConnectionState.cs
+Scripts/LiteNetLib/ConnectionState.cs.uid
+Scripts/LiteNetLib/DeliveryMethod.cs
+Scripts/LiteNetLib/DeliveryMethod.cs.uid
+Scripts/LiteNetLib/DisconnectInfo.cs
+Scripts/LiteNetLib/DisconnectInfo.cs.uid
+Scripts/LiteNetLib/DisconnectReason.cs
+Scripts/LiteNetLib/DisconnectReason.cs.uid
+Scripts/LiteNetLib/DisconnectResult.cs
+Scripts/LiteNetLib/DisconnectResult.cs.uid
+Scripts/LiteNetLib/EventBasedNatPunchListener.cs
+Scripts/LiteNetLib/EventBasedNatPunchListener.cs.uid
+Scripts/LiteNetLib/EventBasedNetListener.cs
+Scripts/LiteNetLib/EventBasedNetListener.cs.uid
+Scripts/LiteNetLib/IDeliveryEventListener.cs
+Scripts/LiteNetLib/IDeliveryEventListener.cs.uid
+Scripts/LiteNetLib/INatPunchListener.cs
+Scripts/LiteNetLib/INatPunchListener.cs.uid
+Scripts/LiteNetLib/INetEventListener.cs
+Scripts/LiteNetLib/INetEventListener.cs.uid
+Scripts/LiteNetLib/INetLogger.cs
+Scripts/LiteNetLib/INetLogger.cs.uid
+Scripts/LiteNetLib/INtpEventListener.cs
+Scripts/LiteNetLib/INtpEventListener.cs.uid
+Scripts/LiteNetLib/IPeerAddressChangedListener.cs
+Scripts/LiteNetLib/IPeerAddressChangedListener.cs.uid
+Scripts/LiteNetLib/InternalPackets.cs
+Scripts/LiteNetLib/InternalPackets.cs.uid
+Scripts/LiteNetLib/InvalidPacketException.cs
+Scripts/LiteNetLib/InvalidPacketException.cs.uid
+Scripts/LiteNetLib/Layers/Crc32cLayer.cs
+Scripts/LiteNetLib/Layers/Crc32cLayer.cs.uid
+Scripts/LiteNetLib/Layers/PacketLayerBase.cs
+Scripts/LiteNetLib/Layers/PacketLayerBase.cs.uid
+Scripts/LiteNetLib/Layers/XorEncryptLayer.cs
+Scripts/LiteNetLib/Layers/XorEncryptLayer.cs.uid
+Scripts/LiteNetLib/LocalAddrType.cs
+Scripts/LiteNetLib/LocalAddrType.cs.uid
+Scripts/LiteNetLib/NatAddressType.cs
+Scripts/LiteNetLib/NatAddressType.cs.uid
+Scripts/LiteNetLib/NatPunchModule.cs
+Scripts/LiteNetLib/NatPunchModule.cs.uid
+Scripts/LiteNetLib/NativeSocket.cs
+Scripts/LiteNetLib/NativeSocket.cs.uid
+Scripts/LiteNetLib/NetConnectAcceptPacket.cs
+Scripts/LiteNetLib/NetConnectAcceptPacket.cs.uid
+Scripts/LiteNetLib/NetConnectRequestPacket.cs
+Scripts/LiteNetLib/NetConnectRequestPacket.cs.uid
+Scripts/LiteNetLib/NetConstants.cs
+Scripts/LiteNetLib/NetConstants.cs.uid
+Scripts/LiteNetLib/NetDebug.cs
+Scripts/LiteNetLib/NetDebug.cs.uid
+Scripts/LiteNetLib/NetEvent.cs
+Scripts/LiteNetLib/NetEvent.cs.uid
+Scripts/LiteNetLib/NetLogLevel.cs
+Scripts/LiteNetLib/NetLogLevel.cs.uid
+Scripts/LiteNetLib/NetManager.HashSet.cs
+Scripts/LiteNetLib/NetManager.HashSet.cs.uid
+Scripts/LiteNetLib/NetManager.PacketPool.cs
+Scripts/LiteNetLib/NetManager.PacketPool.cs.uid
+Scripts/LiteNetLib/NetManager.Socket.cs
+Scripts/LiteNetLib/NetManager.Socket.cs.uid
+Scripts/LiteNetLib/NetManager.cs
+Scripts/LiteNetLib/NetManager.cs.uid
+Scripts/LiteNetLib/NetPacket.cs
+Scripts/LiteNetLib/NetPacket.cs.uid
+Scripts/LiteNetLib/NetPacketReader.cs
+Scripts/LiteNetLib/NetPacketReader.cs.uid
+Scripts/LiteNetLib/NetPeer.cs
+Scripts/LiteNetLib/NetPeer.cs.uid
+Scripts/LiteNetLib/NetStatistics.cs
+Scripts/LiteNetLib/NetStatistics.cs.uid
+Scripts/LiteNetLib/NetUtils.cs
+Scripts/LiteNetLib/NetUtils.cs.uid
+Scripts/LiteNetLib/NetworkSorter.cs
+Scripts/LiteNetLib/NetworkSorter.cs.uid
+Scripts/LiteNetLib/PacketProperty.cs
+Scripts/LiteNetLib/PacketProperty.cs.uid
+Scripts/LiteNetLib/PausedSocketFix.cs
+Scripts/LiteNetLib/PausedSocketFix.cs.uid
+Scripts/LiteNetLib/PooledPacket.cs
+Scripts/LiteNetLib/PooledPacket.cs.uid
+Scripts/LiteNetLib/ReliableChannel.cs
+Scripts/LiteNetLib/ReliableChannel.cs.uid
+Scripts/LiteNetLib/SequencedChannel.cs
+Scripts/LiteNetLib/SequencedChannel.cs.uid
+Scripts/LiteNetLib/ShutdownResult.cs
+Scripts/LiteNetLib/ShutdownResult.cs.uid
+Scripts/LiteNetLib/TooBigPacketException.cs
+Scripts/LiteNetLib/TooBigPacketException.cs.uid
+Scripts/LiteNetLib/Trimming.cs
+Scripts/LiteNetLib/Trimming.cs.uid
+Scripts/LiteNetLib/UnconnectedMessageType.cs
+Scripts/LiteNetLib/UnconnectedMessageType.cs.uid
+Scripts/LiteNetLib/Utils/CRC32C.cs
+Scripts/LiteNetLib/Utils/CRC32C.cs.uid
+Scripts/LiteNetLib/Utils/FastBitConverter.cs
+Scripts/LiteNetLib/Utils/FastBitConverter.cs.uid
+Scripts/LiteNetLib/Utils/INetSerializable.cs
+Scripts/LiteNetLib/Utils/INetSerializable.cs.uid
+Scripts/LiteNetLib/Utils/InvalidTypeException.cs
+Scripts/LiteNetLib/Utils/InvalidTypeException.cs.uid
+Scripts/LiteNetLib/Utils/NetDataReader.cs
+Scripts/LiteNetLib/Utils/NetDataReader.cs.uid
+Scripts/LiteNetLib/Utils/NetDataWriter.cs
+Scripts/LiteNetLib/Utils/NetDataWriter.cs.uid
+Scripts/LiteNetLib/Utils/NetPacketProcessor.cs
+Scripts/LiteNetLib/Utils/NetPacketProcessor.cs.uid
+Scripts/LiteNetLib/Utils/NetSerializer.cs
+Scripts/LiteNetLib/Utils/NetSerializer.cs.uid
+Scripts/LiteNetLib/Utils/NtpLeapIndicator.cs
+Scripts/LiteNetLib/Utils/NtpLeapIndicator.cs.uid
+Scripts/LiteNetLib/Utils/NtpMode.cs
+Scripts/LiteNetLib/Utils/NtpMode.cs.uid
+Scripts/LiteNetLib/Utils/NtpPacket.cs
+Scripts/LiteNetLib/Utils/NtpPacket.cs.uid
+Scripts/LiteNetLib/Utils/NtpRequest.cs
+Scripts/LiteNetLib/Utils/NtpRequest.cs.uid
+Scripts/LiteNetLib/Utils/ParseException.cs
+Scripts/LiteNetLib/Utils/ParseException.cs.uid
+Scripts/LiteNetLib/Utils/Preserve.cs
+Scripts/LiteNetLib/Utils/Preserve.cs.uid
+Scripts/LiteNetLib/Utils/PreserveAttribute.cs
+Scripts/LiteNetLib/Utils/PreserveAttribute.cs.uid
+Scripts/PleaseResync/ConnectionAddress.cs
+Scripts/PleaseResync/ConnectionAddress.cs.uid
+Scripts/PleaseResync/DeviceInputAckMessage.cs
+Scripts/PleaseResync/DeviceInputAckMessage.cs.uid
+Scripts/PleaseResync/DeviceInputMessage.cs
+Scripts/PleaseResync/DeviceInputMessage.cs.uid
+Scripts/PleaseResync/DeviceMessageQueueEntry.cs
+Scripts/PleaseResync/DeviceMessageQueueEntry.cs.uid
+Scripts/PleaseResync/DeviceSyncConfirmMessage.cs
+Scripts/PleaseResync/DeviceSyncConfirmMessage.cs.uid
+Scripts/PleaseResync/DeviceSyncMessage.cs
+Scripts/PleaseResync/DeviceSyncMessage.cs.uid
+Scripts/PleaseResync/DeviceSyncedEvent.cs
+Scripts/PleaseResync/DeviceSyncedEvent.cs.uid
+Scripts/PleaseResync/Godot/ConnectionUI.cs
+Scripts/PleaseResync/Godot/ConnectionUI.cs.uid
+Scripts/PleaseResync/Godot/IGameState.cs
+Scripts/PleaseResync/Godot/IGameState.cs.uid
+Scripts/PleaseResync/Godot/PleaseResyncManager.cs
+Scripts/PleaseResync/Godot/PleaseResyncManager.cs.uid
+Scripts/PleaseResync/HealthCheckMessage.cs
+Scripts/PleaseResync/HealthCheckMessage.cs.uid
+Scripts/PleaseResync/LobbyChatMessage.cs
+Scripts/PleaseResync/LobbyChatMessage.cs.uid
+Scripts/PleaseResync/LobbyGotKicked.cs
+Scripts/PleaseResync/LobbyGotKicked.cs.uid
+Scripts/PleaseResync/LobbyMatchAccepted.cs
+Scripts/PleaseResync/LobbyMatchAccepted.cs.uid
+Scripts/PleaseResync/LobbyMatchQuit.cs
+Scripts/PleaseResync/LobbyMatchQuit.cs.uid
+Scripts/PleaseResync/LobbyMatchRejected.cs
+Scripts/PleaseResync/LobbyMatchRejected.cs.uid
+Scripts/PleaseResync/LobbyMatchRequest.cs
+Scripts/PleaseResync/LobbyMatchRequest.cs.uid
+Scripts/PleaseResync/PingMessage.cs
+Scripts/PleaseResync/PingMessage.cs.uid
+Scripts/PleaseResync/Platform.cs
+Scripts/PleaseResync/Platform.cs.uid
+Scripts/PleaseResync/ReplayInputs.cs
+Scripts/PleaseResync/ReplayInputs.cs.uid
+Scripts/PleaseResync/SessionAdvanceFrameAction.cs
+Scripts/PleaseResync/SessionAdvanceFrameAction.cs.uid
+Scripts/PleaseResync/SessionLoadGameAction.cs
+Scripts/PleaseResync/SessionLoadGameAction.cs.uid
+Scripts/PleaseResync/SessionSaveGameAction.cs
+Scripts/PleaseResync/SessionSaveGameAction.cs.uid
+Scripts/PleaseResync/StateStorageEntry.cs
+Scripts/PleaseResync/StateStorageEntry.cs.uid
+Scripts/PleaseResync/WaitSuggestionEvent.cs
+Scripts/PleaseResync/WaitSuggestionEvent.cs.uid
+Scripts/PleaseResync/input/GameInput.cs
+Scripts/PleaseResync/input/GameInput.cs.uid
+Scripts/PleaseResync/input/InputQueue.cs
+Scripts/PleaseResync/input/InputQueue.cs.uid
+Scripts/PleaseResync/session/Device.cs
+Scripts/PleaseResync/session/Device.cs.uid
+Scripts/PleaseResync/session/DeviceMessage.cs
+Scripts/PleaseResync/session/DeviceMessage.cs.uid
+Scripts/PleaseResync/session/Session.cs
+Scripts/PleaseResync/session/Session.cs.uid
+Scripts/PleaseResync/session/SessionAction.cs
+Scripts/PleaseResync/session/SessionAction.cs.uid
+Scripts/PleaseResync/session/SessionAdapter.cs
+Scripts/PleaseResync/session/SessionAdapter.cs.uid
+Scripts/PleaseResync/session/SessionEvent.cs
+Scripts/PleaseResync/session/SessionEvent.cs.uid
+Scripts/PleaseResync/session/adapters/LiteNetLibSessionAdapter.cs
+Scripts/PleaseResync/session/adapters/LiteNetLibSessionAdapter.cs.uid
+Scripts/PleaseResync/session/adapters/UdpSessionAdapter.cs
+Scripts/PleaseResync/session/adapters/UdpSessionAdapter.cs.uid
+Scripts/PleaseResync/session/backends/Peer2PeerSession.cs
+Scripts/PleaseResync/session/backends/Peer2PeerSession.cs.uid
+Scripts/PleaseResync/session/backends/SpectatorSession.cs
+Scripts/PleaseResync/session/backends/SpectatorSession.cs.uid
+Scripts/PleaseResync/session/backends/SyncTestSession.cs
+Scripts/PleaseResync/session/backends/SyncTestSession.cs.uid
+Scripts/PleaseResync/synchronization/StateStorage.cs
+Scripts/PleaseResync/synchronization/StateStorage.cs.uid
+Scripts/PleaseResync/synchronization/Sync.cs
+Scripts/PleaseResync/synchronization/Sync.cs.uid
+Scripts/PleaseResync/synchronization/TimeSync.cs
+Scripts/PleaseResync/synchronization/TimeSync.cs.uid
+Scripts/SakugaEngine/Collision/Collider.cs
+Scripts/SakugaEngine/Collision/Collider.cs.uid
+Scripts/SakugaEngine/Collision/HitQuery.cs
+Scripts/SakugaEngine/Collision/HitQuery.cs.uid
+Scripts/SakugaEngine/Collision/PhysicsBody.cs
+Scripts/SakugaEngine/Collision/PhysicsBody.cs.uid
+Scripts/SakugaEngine/Collision/PhysicsWorld.cs
+Scripts/SakugaEngine/Collision/PhysicsWorld.cs.uid
+Scripts/SakugaEngine/Components/AIBrain.cs
+Scripts/SakugaEngine/Components/AIBrain.cs.uid
+Scripts/SakugaEngine/Components/AnimationViewer.cs
+Scripts/SakugaEngine/Components/AnimationViewer.cs.uid
+Scripts/SakugaEngine/Components/AudioManager.cs
+Scripts/SakugaEngine/Components/AudioManager.cs.uid
+Scripts/SakugaEngine/Components/CombatTracker.cs
+Scripts/SakugaEngine/Components/CombatTracker.cs.uid
+Scripts/SakugaEngine/Components/CustomVariable.cs
+Scripts/SakugaEngine/Components/CustomVariable.cs.uid
+Scripts/SakugaEngine/Components/FighterCamera.cs
+Scripts/SakugaEngine/Components/FighterCamera.cs.uid
+Scripts/SakugaEngine/Components/FrameTimer.cs
+Scripts/SakugaEngine/Components/FrameTimer.cs.uid
+Scripts/SakugaEngine/Components/GameMonitor.cs
+Scripts/SakugaEngine/Components/GameMonitor.cs.uid
+Scripts/SakugaEngine/Components/HitNotifications.cs
+Scripts/SakugaEngine/Components/HitNotifications.cs.uid
+Scripts/SakugaEngine/Components/InputManager.cs
+Scripts/SakugaEngine/Components/InputManager.cs.uid
+Scripts/SakugaEngine/Components/ObjectPool.cs
+Scripts/SakugaEngine/Components/ObjectPool.cs.uid
+Scripts/SakugaEngine/Components/SakugaActor.cs
+Scripts/SakugaEngine/Components/SakugaActor.cs.uid
+Scripts/SakugaEngine/Components/SakugaHealth.cs
+Scripts/SakugaEngine/Components/SakugaHealth.cs.uid
+Scripts/SakugaEngine/Components/SakugaNode.cs
+Scripts/SakugaEngine/Components/SakugaNode.cs.uid
+Scripts/SakugaEngine/Components/SakugaParameters.cs
+Scripts/SakugaEngine/Components/SakugaParameters.cs.uid
+Scripts/SakugaEngine/Components/SakugaProrations.cs
+Scripts/SakugaEngine/Components/SakugaProrations.cs.uid
+Scripts/SakugaEngine/Components/SakugaSuperArmor.cs
+Scripts/SakugaEngine/Components/SakugaSuperArmor.cs.uid
+Scripts/SakugaEngine/Components/SakugaSuperGauge.cs
+Scripts/SakugaEngine/Components/SakugaSuperGauge.cs.uid
+Scripts/SakugaEngine/Components/SakugaVFX.cs
+Scripts/SakugaEngine/Components/SakugaVFX.cs.uid
+Scripts/SakugaEngine/Components/SoundQueue.cs
+Scripts/SakugaEngine/Components/SoundQueue.cs.uid
+Scripts/SakugaEngine/Components/StanceManager.cs
+Scripts/SakugaEngine/Components/StanceManager.cs.uid
+Scripts/SakugaEngine/Components/StateManager.cs
+Scripts/SakugaEngine/Components/StateManager.cs.uid
+Scripts/SakugaEngine/Components/WillGauge.cs
+Scripts/SakugaEngine/Components/WillGauge.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/AnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/AnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/ApplyDamageAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/ApplyDamageAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/ChangeSideAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/ChangeSideAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/PlaySoundAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/PlaySoundAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/SpawnObjectAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/SpawnObjectAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/SuperArmorAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/SuperArmorAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/Animation Events/TeleportAnimationEvent.cs
+Scripts/SakugaEngine/Deprecated/Animation Events/TeleportAnimationEvent.cs.uid
+Scripts/SakugaEngine/Deprecated/AnimationEventsList.cs
+Scripts/SakugaEngine/Deprecated/AnimationEventsList.cs.uid
+Scripts/SakugaEngine/Deprecated/ButtonChargeSequence.cs
+Scripts/SakugaEngine/Deprecated/ButtonChargeSequence.cs.uid
+Scripts/SakugaEngine/Deprecated/FighterVariables.cs
+Scripts/SakugaEngine/Deprecated/FighterVariables.cs.uid
+Scripts/SakugaEngine/Deprecated/FramePropertiesState.cs
+Scripts/SakugaEngine/Deprecated/FramePropertiesState.cs.uid
+Scripts/SakugaEngine/Deprecated/SakugaFighter.cs
+Scripts/SakugaEngine/Deprecated/SakugaFighter.cs.uid
+Scripts/SakugaEngine/Deprecated/SakugaSpawnable.cs
+Scripts/SakugaEngine/Deprecated/SakugaSpawnable.cs.uid
+Scripts/SakugaEngine/Deprecated/StatePhysics.cs
+Scripts/SakugaEngine/Deprecated/StatePhysics.cs.uid
+Scripts/SakugaEngine/Deprecated/StateTransitionSettings.cs
+Scripts/SakugaEngine/Deprecated/StateTransitionSettings.cs.uid
+Scripts/SakugaEngine/Deprecated/ThrowDetachmentSettings.cs
+Scripts/SakugaEngine/Deprecated/ThrowDetachmentSettings.cs.uid
+Scripts/SakugaEngine/Deprecated/ThrowPivot.cs
+Scripts/SakugaEngine/Deprecated/ThrowPivot.cs.uid
+Scripts/SakugaEngine/Game/GameManager.cs
+Scripts/SakugaEngine/Game/GameManager.cs.uid
+Scripts/SakugaEngine/Game/SakugaRollbackManager.cs
+Scripts/SakugaEngine/Game/SakugaRollbackManager.cs.uid
+Scripts/SakugaEngine/GameState/CombatTrackerState.cs
+Scripts/SakugaEngine/GameState/CombatTrackerState.cs.uid
+Scripts/SakugaEngine/GameState/CustomVariableState.cs
+Scripts/SakugaEngine/GameState/CustomVariableState.cs.uid
+Scripts/SakugaEngine/GameState/FrameTimerState.cs
+Scripts/SakugaEngine/GameState/FrameTimerState.cs.uid
+Scripts/SakugaEngine/GameState/GameManagerState.cs
+Scripts/SakugaEngine/GameState/GameManagerState.cs.uid
+Scripts/SakugaEngine/GameState/GameMonitorState.cs
+Scripts/SakugaEngine/GameState/GameMonitorState.cs.uid
+Scripts/SakugaEngine/GameState/InputManagerState.cs
+Scripts/SakugaEngine/GameState/InputManagerState.cs.uid
+Scripts/SakugaEngine/GameState/ParametersState.cs
+Scripts/SakugaEngine/GameState/ParametersState.cs.uid
+Scripts/SakugaEngine/GameState/PhysicsBodyState.cs
+Scripts/SakugaEngine/GameState/PhysicsBodyState.cs.uid
+Scripts/SakugaEngine/GameState/ProrationsState.cs
+Scripts/SakugaEngine/GameState/ProrationsState.cs.uid
+Scripts/SakugaEngine/GameState/SakugaActorState.cs
+Scripts/SakugaEngine/GameState/SakugaActorState.cs.uid
+Scripts/SakugaEngine/GameState/SakugaVFXState.cs
+Scripts/SakugaEngine/GameState/SakugaVFXState.cs.uid
+Scripts/SakugaEngine/GameState/StanceManagerState.cs
+Scripts/SakugaEngine/GameState/StanceManagerState.cs.uid
+Scripts/SakugaEngine/GameState/StateManagerState.cs
+Scripts/SakugaEngine/GameState/StateManagerState.cs.uid
+Scripts/SakugaEngine/GameState/Vector2IState.cs
+Scripts/SakugaEngine/GameState/Vector2IState.cs.uid
+Scripts/SakugaEngine/GameState/Vector3IState.cs
+Scripts/SakugaEngine/GameState/Vector3IState.cs.uid
+Scripts/SakugaEngine/Globals/AIFlags.cs
+Scripts/SakugaEngine/Globals/AIFlags.cs.uid
+Scripts/SakugaEngine/Globals/AnimationStage.cs
+Scripts/SakugaEngine/Globals/AnimationStage.cs.uid
+Scripts/SakugaEngine/Globals/BlockType.cs
+Scripts/SakugaEngine/Globals/BlockType.cs.uid
+Scripts/SakugaEngine/Globals/BotDifficulty.cs
+Scripts/SakugaEngine/Globals/BotDifficulty.cs.uid
+Scripts/SakugaEngine/Globals/BotMode.cs
+Scripts/SakugaEngine/Globals/BotMode.cs.uid
+Scripts/SakugaEngine/Globals/ButtonInputs.cs
+Scripts/SakugaEngine/Globals/ButtonInputs.cs.uid
+Scripts/SakugaEngine/Globals/ButtonMode.cs
+Scripts/SakugaEngine/Globals/ButtonMode.cs.uid
+Scripts/SakugaEngine/Globals/CameraFocus.cs
+Scripts/SakugaEngine/Globals/CameraFocus.cs.uid
+Scripts/SakugaEngine/Globals/CameraSelectFocus.cs
+Scripts/SakugaEngine/Globals/CameraSelectFocus.cs.uid
+Scripts/SakugaEngine/Globals/CancelCondition.cs
+Scripts/SakugaEngine/Globals/CancelCondition.cs.uid
+Scripts/SakugaEngine/Globals/CharacterSelectMode.cs
+Scripts/SakugaEngine/Globals/CharacterSelectMode.cs.uid
+Scripts/SakugaEngine/Globals/CharacterSelectState.cs
+Scripts/SakugaEngine/Globals/CharacterSelectState.cs.uid
+Scripts/SakugaEngine/Globals/CharacterSelectStyle.cs
+Scripts/SakugaEngine/Globals/CharacterSelectStyle.cs.uid
+Scripts/SakugaEngine/Globals/CompareMode.cs
+Scripts/SakugaEngine/Globals/CompareMode.cs.uid
+Scripts/SakugaEngine/Globals/CustomVariableBehaviorTarget.cs
+Scripts/SakugaEngine/Globals/CustomVariableBehaviorTarget.cs.uid
+Scripts/SakugaEngine/Globals/CustomVariableMode.cs
+Scripts/SakugaEngine/Globals/CustomVariableMode.cs.uid
+Scripts/SakugaEngine/Globals/DirectionalInputs.cs
+Scripts/SakugaEngine/Globals/DirectionalInputs.cs.uid
+Scripts/SakugaEngine/Globals/FadeScreenMode.cs
+Scripts/SakugaEngine/Globals/FadeScreenMode.cs.uid
+Scripts/SakugaEngine/Globals/FrameProperties.cs
+Scripts/SakugaEngine/Globals/FrameProperties.cs.uid
+Scripts/SakugaEngine/Globals/GameState.cs
+Scripts/SakugaEngine/Globals/GameState.cs.uid
+Scripts/SakugaEngine/Globals/GlobalEnums.cs
+Scripts/SakugaEngine/Globals/GlobalEnums.cs.uid
+Scripts/SakugaEngine/Globals/GlobalFlags.cs
+Scripts/SakugaEngine/Globals/GlobalFlags.cs.uid
+Scripts/SakugaEngine/Globals/GlobalFunctions.cs
+Scripts/SakugaEngine/Globals/GlobalFunctions.cs.uid
+Scripts/SakugaEngine/Globals/GlobalStructs.cs
+Scripts/SakugaEngine/Globals/GlobalStructs.cs.uid
+Scripts/SakugaEngine/Globals/GlobalVariables.cs
+Scripts/SakugaEngine/Globals/GlobalVariables.cs.uid
+Scripts/SakugaEngine/Globals/HitChecker.cs
+Scripts/SakugaEngine/Globals/HitChecker.cs.uid
+Scripts/SakugaEngine/Globals/HitType.cs
+Scripts/SakugaEngine/Globals/HitType.cs.uid
+Scripts/SakugaEngine/Globals/HitboxType.cs
+Scripts/SakugaEngine/Globals/HitboxType.cs.uid
+Scripts/SakugaEngine/Globals/HitstunType.cs
+Scripts/SakugaEngine/Globals/HitstunType.cs.uid
+Scripts/SakugaEngine/Globals/InputSideCheck.cs
+Scripts/SakugaEngine/Globals/InputSideCheck.cs.uid
+Scripts/SakugaEngine/Globals/MasterStance.cs
+Scripts/SakugaEngine/Globals/MasterStance.cs.uid
+Scripts/SakugaEngine/Globals/MatchState.cs
+Scripts/SakugaEngine/Globals/MatchState.cs.uid
+Scripts/SakugaEngine/Globals/MoveEndCondition.cs
+Scripts/SakugaEngine/Globals/MoveEndCondition.cs.uid
+Scripts/SakugaEngine/Globals/NetcodeMode.cs
+Scripts/SakugaEngine/Globals/NetcodeMode.cs.uid
+Scripts/SakugaEngine/Globals/ObjectType.cs
+Scripts/SakugaEngine/Globals/ObjectType.cs.uid
+Scripts/SakugaEngine/Globals/ParameterChange.cs
+Scripts/SakugaEngine/Globals/ParameterChange.cs.uid
+Scripts/SakugaEngine/Globals/PauseMode.cs
+Scripts/SakugaEngine/Globals/PauseMode.cs.uid
+Scripts/SakugaEngine/Globals/PlayerInputs.cs
+Scripts/SakugaEngine/Globals/PlayerInputs.cs.uid
+Scripts/SakugaEngine/Globals/RNG.cs
+Scripts/SakugaEngine/Globals/RNG.cs.uid
+Scripts/SakugaEngine/Globals/RelativeTo.cs
+Scripts/SakugaEngine/Globals/RelativeTo.cs.uid
+Scripts/SakugaEngine/Globals/RoundNamingOrder.cs
+Scripts/SakugaEngine/Globals/RoundNamingOrder.cs.uid
+Scripts/SakugaEngine/Globals/SideChangeMode.cs
+Scripts/SakugaEngine/Globals/SideChangeMode.cs.uid
+Scripts/SakugaEngine/Globals/SoundType.cs
+Scripts/SakugaEngine/Globals/SoundType.cs.uid
+Scripts/SakugaEngine/Globals/StanceSelect.cs
+Scripts/SakugaEngine/Globals/StanceSelect.cs.uid
+Scripts/SakugaEngine/Globals/StateType.cs
+Scripts/SakugaEngine/Globals/StateType.cs.uid
+Scripts/SakugaEngine/Globals/TransitionCondition.cs
+Scripts/SakugaEngine/Globals/TransitionCondition.cs.uid
+Scripts/SakugaEngine/Globals/WillState.cs
+Scripts/SakugaEngine/Globals/WillState.cs.uid
+Scripts/SakugaEngine/HitNotificationPiece.cs
+Scripts/SakugaEngine/HitNotificationPiece.cs.uid
+Scripts/SakugaEngine/InputRegistry.cs
+Scripts/SakugaEngine/InputRegistry.cs.uid
+Scripts/SakugaEngine/Interfaces/IDamage.cs
+Scripts/SakugaEngine/Interfaces/IDamage.cs.uid
+Scripts/SakugaEngine/PoolReference.cs
+Scripts/SakugaEngine/PoolReference.cs.uid
+Scripts/SakugaEngine/Resources/AI/AIAction.cs
+Scripts/SakugaEngine/Resources/AI/AIAction.cs.uid
+Scripts/SakugaEngine/Resources/AI/AIActionPack.cs
+Scripts/SakugaEngine/Resources/AI/AIActionPack.cs.uid
+Scripts/SakugaEngine/Resources/AI/AIBehavior.cs
+Scripts/SakugaEngine/Resources/AI/AIBehavior.cs.uid
+Scripts/SakugaEngine/Resources/AI/AICondition.cs
+Scripts/SakugaEngine/Resources/AI/AICondition.cs.uid
+Scripts/SakugaEngine/Resources/AI/AIData.cs
+Scripts/SakugaEngine/Resources/AI/AIData.cs.uid
+Scripts/SakugaEngine/Resources/AI/AIInput.cs
+Scripts/SakugaEngine/Resources/AI/AIInput.cs.uid
+Scripts/SakugaEngine/Resources/AnimationData.cs
+Scripts/SakugaEngine/Resources/AnimationData.cs.uid
+Scripts/SakugaEngine/Resources/AnimationSettings.cs
+Scripts/SakugaEngine/Resources/AnimationSettings.cs.uid
+Scripts/SakugaEngine/Resources/AttackLevel.cs
+Scripts/SakugaEngine/Resources/AttackLevel.cs.uid
+Scripts/SakugaEngine/Resources/AttackProfile.cs
+Scripts/SakugaEngine/Resources/AttackProfile.cs.uid
+Scripts/SakugaEngine/Resources/BGMElement.cs
+Scripts/SakugaEngine/Resources/BGMElement.cs.uid
+Scripts/SakugaEngine/Resources/BGMList.cs
+Scripts/SakugaEngine/Resources/BGMList.cs.uid
+Scripts/SakugaEngine/Resources/BlockSettings.cs
+Scripts/SakugaEngine/Resources/BlockSettings.cs.uid
+Scripts/SakugaEngine/Resources/BoxShape.cs
+Scripts/SakugaEngine/Resources/BoxShape.cs.uid
+Scripts/SakugaEngine/Resources/ColorPaletteElement.cs
+Scripts/SakugaEngine/Resources/ColorPaletteElement.cs.uid
+Scripts/SakugaEngine/Resources/CustomVariableBehavior.cs
+Scripts/SakugaEngine/Resources/CustomVariableBehavior.cs.uid
+Scripts/SakugaEngine/Resources/CustomVariableChange.cs
+Scripts/SakugaEngine/Resources/CustomVariableChange.cs.uid
+Scripts/SakugaEngine/Resources/CustomVariableCondition.cs
+Scripts/SakugaEngine/Resources/CustomVariableCondition.cs.uid
+Scripts/SakugaEngine/Resources/DataContainer.cs
+Scripts/SakugaEngine/Resources/DataContainer.cs.uid
+Scripts/SakugaEngine/Resources/FighterElement.cs
+Scripts/SakugaEngine/Resources/FighterElement.cs.uid
+Scripts/SakugaEngine/Resources/FighterIntro.cs
+Scripts/SakugaEngine/Resources/FighterIntro.cs.uid
+Scripts/SakugaEngine/Resources/FighterList.cs
+Scripts/SakugaEngine/Resources/FighterList.cs.uid
+Scripts/SakugaEngine/Resources/FighterOutro.cs
+Scripts/SakugaEngine/Resources/FighterOutro.cs.uid
+Scripts/SakugaEngine/Resources/FighterProfile.cs
+Scripts/SakugaEngine/Resources/FighterProfile.cs.uid
+Scripts/SakugaEngine/Resources/FighterStance.cs
+Scripts/SakugaEngine/Resources/FighterStance.cs.uid
+Scripts/SakugaEngine/Resources/FighterState.cs
+Scripts/SakugaEngine/Resources/FighterState.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/AddGravityAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/AddGravityAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/AnimationDamageAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/AnimationDamageAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/BounceXAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/BounceXAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/BounceYAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/BounceYAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CallNotificationAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CallNotificationAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CallStanceAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CallStanceAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CameraShakeAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CameraShakeAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ChangeSideAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ChangeSideAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CharacterShakeAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/CharacterShakeAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ForcedKnockbackAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ForcedKnockbackAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/GoToFrameActions.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/GoToFrameActions.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/InterruptMoveAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/InterruptMoveAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/MoveXAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/MoveXAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/MoveYAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/MoveYAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlayAnnouncerLineAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlayAnnouncerLineAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlaySoundAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlaySoundAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlayStateAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/PlayStateAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ResetHitAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ResetHitAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ResetProrationsAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/ResetProrationsAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetActiveAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetActiveAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetArmorAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetArmorAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetAttackAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetAttackAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetCameraFocus.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetCameraFocus.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetCustomVariableAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetCustomVariableAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetDefenseAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetDefenseAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetHealthAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetHealthAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetKnockoutStateAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetKnockoutStateAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetSuperGaugeAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetSuperGaugeAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetTimerAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetTimerAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetWillGaugeAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SetWillGaugeAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SpawnActorAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SpawnActorAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/StopKnockbackAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/StopKnockbackAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/TeleportAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Actions/TeleportAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtRandomFrameCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/AtRandomFrameCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceGroundCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceGroundCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceWallCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CanBounceWallCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckCustomVariableCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckCustomVariableCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckDistanceCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckDistanceCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckHealthCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckHealthCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckMoveCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckMoveCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckSideChangeCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckSideChangeCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckStanceCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckStanceCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckTimerCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckTimerCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckXVelocityCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckXVelocityCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckYVelocityCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/CheckYVelocityCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/IsFallingCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/IsFallingCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnHitstopCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnHitstopCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnHitstunCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnHitstunCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnKnockbackCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnKnockbackCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnWallsCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/OnWallsCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/RandomNumberCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/RandomNumberCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/RoundRunningCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/RoundRunningCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataAction.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataAction.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataCondition.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataCondition.cs.uid
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataEvent.cs
+Scripts/SakugaEngine/Resources/FrameDataEvents/FrameDataEvent.cs.uid
+Scripts/SakugaEngine/Resources/GameModeSettings.cs
+Scripts/SakugaEngine/Resources/GameModeSettings.cs.uid
+Scripts/SakugaEngine/Resources/HitNotificationElement.cs
+Scripts/SakugaEngine/Resources/HitNotificationElement.cs.uid
+Scripts/SakugaEngine/Resources/HitNotificationList.cs
+Scripts/SakugaEngine/Resources/HitNotificationList.cs.uid
+Scripts/SakugaEngine/Resources/HitboxElement.cs
+Scripts/SakugaEngine/Resources/HitboxElement.cs.uid
+Scripts/SakugaEngine/Resources/HitboxSettings.cs
+Scripts/SakugaEngine/Resources/HitboxSettings.cs.uid
+Scripts/SakugaEngine/Resources/HitboxState.cs
+Scripts/SakugaEngine/Resources/HitboxState.cs.uid
+Scripts/SakugaEngine/Resources/InputOption.cs
+Scripts/SakugaEngine/Resources/InputOption.cs.uid
+Scripts/SakugaEngine/Resources/InputSequence.cs
+Scripts/SakugaEngine/Resources/InputSequence.cs.uid
+Scripts/SakugaEngine/Resources/MatchAnimation.cs
+Scripts/SakugaEngine/Resources/MatchAnimation.cs.uid
+Scripts/SakugaEngine/Resources/MatchSettings.cs
+Scripts/SakugaEngine/Resources/MatchSettings.cs.uid
+Scripts/SakugaEngine/Resources/MotionInputs.cs
+Scripts/SakugaEngine/Resources/MotionInputs.cs.uid
+Scripts/SakugaEngine/Resources/MoveCancelSettings.cs
+Scripts/SakugaEngine/Resources/MoveCancelSettings.cs.uid
+Scripts/SakugaEngine/Resources/MoveSettings.cs
+Scripts/SakugaEngine/Resources/MoveSettings.cs.uid
+Scripts/SakugaEngine/Resources/SoundsList.cs
+Scripts/SakugaEngine/Resources/SoundsList.cs.uid
+Scripts/SakugaEngine/Resources/SpawnObject.cs
+Scripts/SakugaEngine/Resources/SpawnObject.cs.uid
+Scripts/SakugaEngine/Resources/SpawnsList.cs
+Scripts/SakugaEngine/Resources/SpawnsList.cs.uid
+Scripts/SakugaEngine/Resources/SpriteModifier.cs
+Scripts/SakugaEngine/Resources/SpriteModifier.cs.uid
+Scripts/SakugaEngine/Resources/StageElement.cs
+Scripts/SakugaEngine/Resources/StageElement.cs.uid
+Scripts/SakugaEngine/Resources/StageList.cs
+Scripts/SakugaEngine/Resources/StageList.cs.uid
+Scripts/SakugaEngine/UI/ColorSelectMenu.cs
+Scripts/SakugaEngine/UI/ColorSelectMenu.cs.uid
+Scripts/SakugaEngine/UI/ColorSelectionElement.cs
+Scripts/SakugaEngine/UI/ColorSelectionElement.cs.uid
+Scripts/SakugaEngine/UI/ComboCounter.cs
+Scripts/SakugaEngine/UI/ComboCounter.cs.uid
+Scripts/SakugaEngine/UI/FadeScreen.cs
+Scripts/SakugaEngine/UI/FadeScreen.cs.uid
+Scripts/SakugaEngine/UI/HealthHUD.cs
+Scripts/SakugaEngine/UI/HealthHUD.cs.uid
+Scripts/SakugaEngine/UI/HitNotificationController.cs
+Scripts/SakugaEngine/UI/HitNotificationController.cs.uid
+Scripts/SakugaEngine/UI/HitNotificationWidget.cs
+Scripts/SakugaEngine/UI/HitNotificationWidget.cs.uid
+Scripts/SakugaEngine/UI/InputHistory.cs
+Scripts/SakugaEngine/UI/InputHistory.cs.uid
+Scripts/SakugaEngine/UI/InputHistoryElement.cs
+Scripts/SakugaEngine/UI/InputHistoryElement.cs.uid
+Scripts/SakugaEngine/UI/InputSelectMenu.cs
+Scripts/SakugaEngine/UI/InputSelectMenu.cs.uid
+Scripts/SakugaEngine/UI/MainMenu.cs
+Scripts/SakugaEngine/UI/MainMenu.cs.uid
+Scripts/SakugaEngine/UI/MainMenuManager.cs
+Scripts/SakugaEngine/UI/MainMenuManager.cs.uid
+Scripts/SakugaEngine/UI/MatchCardsController.cs
+Scripts/SakugaEngine/UI/MatchCardsController.cs.uid
+Scripts/SakugaEngine/UI/MatchSettingsMenu.cs
+Scripts/SakugaEngine/UI/MatchSettingsMenu.cs.uid
+Scripts/SakugaEngine/UI/MetersHUD.cs
+Scripts/SakugaEngine/UI/MetersHUD.cs.uid
+Scripts/SakugaEngine/UI/OnlineInfo.cs
+Scripts/SakugaEngine/UI/OnlineInfo.cs.uid
+Scripts/SakugaEngine/UI/PauseMenu.cs
+Scripts/SakugaEngine/UI/PauseMenu.cs.uid
+Scripts/SakugaEngine/UI/RoundsCounter.cs
+Scripts/SakugaEngine/UI/RoundsCounter.cs.uid
+Scripts/SakugaEngine/UI/SelectScreen.cs
+Scripts/SakugaEngine/UI/SelectScreen.cs.uid
+Scripts/SakugaEngine/Utils/ChecksumCalculator.cs
+Scripts/SakugaEngine/Utils/ChecksumCalculator.cs.uid
+Scripts/SakugaEngine/Utils/FOV_Correction.cs
+Scripts/SakugaEngine/Utils/FOV_Correction.cs.uid
+Scripts/SakugaEngine/Utils/HitboxPreviewer.cs
+Scripts/SakugaEngine/Utils/HitboxPreviewer.cs.uid
+Scripts/SakugaEngine/Utils/HitboxViewer.cs
+Scripts/SakugaEngine/Utils/HitboxViewer.cs.uid
+Scripts/SakugaEngine/Utils/InputRemapper.cs
+Scripts/SakugaEngine/Utils/InputRemapper.cs.uid
+Scripts/SakugaEngine/Utils/InputRemapperButton.cs
+Scripts/SakugaEngine/Utils/InputRemapperButton.cs.uid
+Scripts/SakugaEngine/Utils/InputRemapperWidget.cs
+Scripts/SakugaEngine/Utils/InputRemapperWidget.cs.uid
+Scripts/SakugaEngine/Utils/ShowFPS.cs
+Scripts/SakugaEngine/Utils/ShowFPS.cs.uid
+Scripts/SakugaEngine/VFXPoolReference.cs
+Scripts/SakugaEngine/VFXPoolReference.cs.uid
+Shaders/background_scroll.gdshader
+Shaders/background_scroll.gdshader.uid
+Shaders/color_palette.gdshader
+Shaders/color_palette.gdshader.uid
+Songs/01 Main Menu [Loop at 846720].wav
+Songs/01 Main Menu [Loop at 846720].wav.import
+Songs/02 Online Lobby [Loop at 736278].wav
+Songs/02 Online Lobby [Loop at 736278].wav.import
+Songs/03 Character Select [Loop at 153511].wav
+Songs/03 Character Select [Loop at 153511].wav.import
+Songs/04 Versus Screen [No Loop].wav
+Songs/04 Versus Screen [No Loop].wav.import
+Songs/05 Silverwing Theme [Loop at 910452].wav
+Songs/05 Silverwing Theme [Loop at 910452].wav.import
+Songs/06 Caramello Theme [Loop at 627200].wav
+Songs/06 Caramello Theme [Loop at 627200].wav.import
+Songs/07 Victory Screen [No Loop].wav
+Songs/07 Victory Screen [No Loop].wav.import
+Soundtrack.tres
+Sprites/Icons/Icon_Fighter.png
+Sprites/Icons/Icon_Fighter.png.import
+Sprites/Icons/Icon_Hitbox.png
+Sprites/Icons/Icon_Hitbox.png.import
+Sprites/Icons/Icon_Motion.png
+Sprites/Icons/Icon_Motion.png.import
+Sprites/Icons/Icon_Spawnable.png
+Sprites/Icons/Icon_Spawnable.png.import
+Sprites/Just Clouds.png
+Sprites/Just Clouds.png.import
+Sprites/LobbyIcons/lobbyicons_platform_pc.png
+Sprites/LobbyIcons/lobbyicons_platform_pc.png.import
+Sprites/Locked.png
+Sprites/Locked.png.import
+Sprites/Pads.png
+Sprites/Pads.png.import
+Sprites/Pivot.png
+Sprites/Pivot.png.import
+Sprites/SPR_Hitbox.png
+Sprites/SPR_Hitbox.png.import
+Sprites/UI/Bar set [depleted].png
+Sprites/UI/Bar set [depleted].png.import
+Sprites/UI/Blank Gems.png
+Sprites/UI/Blank Gems.png.import
+Sprites/UI/Comet Trail [Combo gauge].png
+Sprites/UI/Comet Trail [Combo gauge].png.import
+Sprites/UI/Decorative Moon [Clock].png
+Sprites/UI/Decorative Moon [Clock].png.import
+Sprites/UI/Gem Sparkles.png
+Sprites/UI/Gem Sparkles.png.import
+Sprites/UI/HP bar[Full].png
+Sprites/UI/HP bar[Full].png.import
+Sprites/UI/Magic meter gems.png
+Sprites/UI/Magic meter gems.png.import
+Sprites/UI/Moon Shine [Clock].png
+Sprites/UI/Moon Shine [Clock].png.import
+Sprites/UI/Motiv bar [Full].png
+Sprites/UI/Motiv bar [Full].png.import
+Sprites/UI/Portrait Frame [Simple].png
+Sprites/UI/Portrait Frame [Simple].png.import
+Sprites/UI/Portrait Frame.png
+Sprites/UI/Portrait Frame.png.import
+Sprites/UI/Star [Combo gauge].png
+Sprites/UI/Star [Combo gauge].png.import
+Sprites/VFX/6005-0.png
+Sprites/VFX/6005-0.png.import
+Sprites/VFX/6675-0.png
+Sprites/VFX/6675-0.png.import
+Sprites/VFX/block_1.png
+Sprites/VFX/block_1.png.import
+Sprites/VFX/block_2.png
+Sprites/VFX/block_2.png.import
+Sprites/VFX/block_3.png
+Sprites/VFX/block_3.png.import
+Sprites/VFX/block_4.png
+Sprites/VFX/block_4.png.import
+Sprites/menu_bg1.png
+Sprites/menu_bg1.png.import
+Sprites/wppatterns.png
+Sprites/wppatterns.png.import
+StageSelect.tres
+Stages/0_Avenue/Avenue_Thumbnail.png
+Stages/0_Avenue/Avenue_Thumbnail.png.import
+Stages/0_Avenue/Materials/Car_black_Material.tres
+Stages/0_Avenue/Materials/Car_blue_Material.tres
+Stages/0_Avenue/Materials/Car_green_Material.tres
+Stages/0_Avenue/Materials/Car_pink_Material.tres
+Stages/0_Avenue/Materials/Car_red_Material.tres
+Stages/0_Avenue/Materials/Car_white_Material.tres
+Stages/0_Avenue/Materials/Stage_Material.tres
+Stages/0_Avenue/Models/stage.gltf
+Stages/0_Avenue/Models/stage.gltf.import
+Stages/0_Avenue/Models/stage.tscn
+Stages/0_Avenue/Models/stage0.bin
+Stages/0_Avenue/Textures/Bush.png
+Stages/0_Avenue/Textures/Bush.png.import
+Stages/0_Avenue/Textures/Car1.png
+Stages/0_Avenue/Textures/Car1.png.import
+Stages/0_Avenue/Textures/Car2.png
+Stages/0_Avenue/Textures/Car2.png.import
+Stages/0_Avenue/Textures/Car3.png
+Stages/0_Avenue/Textures/Car3.png.import
+Stages/0_Avenue/Textures/Car4.png
+Stages/0_Avenue/Textures/Car4.png.import
+Stages/0_Avenue/Textures/Car5.png
+Stages/0_Avenue/Textures/Car5.png.import
+Stages/0_Avenue/Textures/Car6.png
+Stages/0_Avenue/Textures/Car6.png.import
+Stages/0_Avenue/Textures/StageTexture.png
+Stages/0_Avenue/Textures/StageTexture.png.import
+Stages/1_Training Stage/GridSmol.png
+Stages/1_Training Stage/GridSmol.png.import
+Stages/1_Training Stage/Stage2.gltf
+Stages/1_Training Stage/Stage2.gltf.import
+Stages/1_Training Stage/Stage20.bin
+Stages/1_Training Stage/Stage_Grid.tres
+Stages/1_Training Stage/Training_Thumbnail.png
+Stages/1_Training Stage/Training_Thumbnail.png.import
+Stages/1_Training Stage/stage_2.tscn
+Stages/TestStage_1/test_stage_1.tscn
+Stages/TestStage_2/test_stage_2.tscn
+addons/virtual_joystick/textures/joystick_base_outline.png
+addons/virtual_joystick/textures/joystick_base_outline.png.import
+addons/virtual_joystick/textures/joystick_tip_arrows.png
+addons/virtual_joystick/textures/joystick_tip_arrows.png.import
+addons/virtual_joystick/virtual_joystick.gd
+addons/virtual_joystick/virtual_joystick.gd.uid
+addons/virtual_joystick/virtual_joystick_scene.tscn
+autoloads/AudioManager.tscn
+autoloads/LoadingScreenManager.cs
+autoloads/LoadingScreenManager.cs.uid
+icon.svg
+icon.svg.import
+icon_circle.png
+icon_circle.png.import

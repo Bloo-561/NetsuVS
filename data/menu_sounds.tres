@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SoundsList" format=3 uid="uid://2g4xuaptj3sw"]
+
+[ext_resource type="AudioStream" uid="uid://6v3co12canl4" path="res://assets/audio/menu/mahou/NavigationSound.wav" id="1"]
+[ext_resource type="AudioStream" uid="uid://c1cl0vm6cyaaf" path="res://assets/audio/menu/mahou/ConfirmSound.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://dempf0mnpgr3k" path="res://assets/audio/menu/mahou/CancelSound.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://ubwovcw3j4fy" path="res://assets/audio/menu/mahou/StrongConfirmSoundVers4.wav" id="4"]
+[ext_resource type="Script" uid="uid://dxsqcefr6c62n" path="res://engine/sakuga/Resources/SoundsList.cs" id="5"]
+
+[resource]
+script = ExtResource("5")
+Sounds = [ExtResource("1"), ExtResource("2"), ExtResource("3"), ExtResource("4")]
+metadata/_custom_type_script = "uid://dxsqcefr6c62n"

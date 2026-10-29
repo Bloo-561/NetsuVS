@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bmlnknrg2xhxn"]
+
+[ext_resource type="Resource" uid="uid://ba5sck1l5dupy" path="res://actors/leticia/AnimationData/28_LET_Hit_KO_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="4"]
+
+[resource]
+script = ExtResource("4")
+StateName = "Hit_Down"
+Type = 4
+AnimationData = ExtResource("1")
+TransitionEvents = null
+OnEnterEvents = null
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 161

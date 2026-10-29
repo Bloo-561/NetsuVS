@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://d3j2wj8p0ms8o"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://byrimtg46bolt" path="res://assets/ui/mahou/icon_circle.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://6ctweo6uvot8" path="res://assets/ui/mahou/icon.svg" id="3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qvuu"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6coeq"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjri1"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_invts"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5dk36"]
+radius = 70.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4h4f"]
+radius = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65qw4"]
+size = Vector2(90, 90)
+
+[node name="TouchInputs" type="Control" unique_id=2082938867]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Virtual Joystick" parent="." unique_id=1792282226 instance=ExtResource("1")]
+layout_mode = 1
+v_deadzone_size = 40.0
+action_left = "k2_left"
+action_right = "k2_right"
+action_up = "k2_up"
+action_down = "k2_down"
+
+[node name="Virtual Buttons" type="Control" parent="." unique_id=1868248931]
+layout_mode = 1
+anchor_left = 0.615
+anchor_top = 0.583
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.2000122
+offset_top = 0.23999023
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Buttons" type="GridContainer" parent="Virtual Buttons" unique_id=187121397]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -230.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 150
+columns = 3
+
+[node name="Button_A" type="Control" parent="Virtual Buttons/Buttons" unique_id=527266003]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_A" unique_id=1038550719]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_A" unique_id=210511833]
+shape = SubResource("CircleShape2D_7qvuu")
+action = "k2_face_a"
+
+[node name="Button_B" type="Control" parent="Virtual Buttons/Buttons" unique_id=82956262]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_B" unique_id=1646012410]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_B" unique_id=1709666398]
+shape = SubResource("CircleShape2D_6coeq")
+action = "k2_face_b"
+
+[node name="Button_C" type="Control" parent="Virtual Buttons/Buttons" unique_id=1507379847]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_C" unique_id=117820423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_C" unique_id=1081632468]
+shape = SubResource("CircleShape2D_xjri1")
+action = "k2_face_c"
+
+[node name="Button_Dash" type="Control" parent="Virtual Buttons/Buttons" unique_id=1479929932]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_Dash" unique_id=1119797778]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_Dash" unique_id=860079687]
+shape = SubResource("CircleShape2D_invts")
+action = "k2_dash"
+
+[node name="Button_XC" type="Control" parent="Virtual Buttons/Buttons" unique_id=507905197]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_XC" unique_id=2084892276]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_XC" unique_id=1102376744]
+shape = SubResource("CircleShape2D_5dk36")
+action = "j2_xcancel"
+
+[node name="Button_Burst" type="Control" parent="Virtual Buttons/Buttons" unique_id=834902354]
+layout_mode = 2
+
+[node name="Texture" type="TextureRect" parent="Virtual Buttons/Buttons/Button_Burst" unique_id=778958275]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.75, 1.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Button" type="TouchScreenButton" parent="Virtual Buttons/Buttons/Button_Burst" unique_id=185575206]
+shape = SubResource("CircleShape2D_u4h4f")
+action = "k2_burst"
+
+[node name="Pause" type="Control" parent="." unique_id=1738054608]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -101.0
+offset_bottom = 105.0
+grow_horizontal = 0
+
+[node name="Button_Pause" type="Control" parent="Pause" unique_id=1433150531]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_top = 53.0
+offset_right = -50.0
+offset_bottom = 53.0
+grow_horizontal = 0
+metadata/_edit_group_ = true
+
+[node name="Texture" type="TextureRect" parent="Pause/Button_Pause" unique_id=586629196]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[node name="Button" type="TouchScreenButton" parent="Pause/Button_Pause" unique_id=1969796434]
+shape = SubResource("RectangleShape2D_65qw4")
+action = "pause"

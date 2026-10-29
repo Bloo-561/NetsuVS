@@ -1,0 +1,270 @@
+[gd_resource type="Resource" script_class="AIBehavior" format=3 uid="uid://cl8gn7h2vye5x"]
+
+[ext_resource type="Script" uid="uid://bogcblgipf4f7" path="res://engine/sakuga/Resources/AI/AICondition.cs" id="1"]
+[ext_resource type="Script" uid="uid://c6pe4r5xpq803" path="res://engine/sakuga/Resources/AI/AIActionPack.cs" id="2"]
+[ext_resource type="Script" uid="uid://bdbcupbr6mour" path="res://engine/sakuga/Resources/AI/AIBehavior.cs" id="3"]
+
+[sub_resource type="Resource" id="near_0"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 10
+ActionMode = -1
+ActionsList = PackedInt32Array(9)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_1"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 4
+ActionMode = -1
+ActionsList = PackedInt32Array(12)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_2"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = -1
+ActionsList = PackedInt32Array(10)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_3"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = 1
+ActionsList = PackedInt32Array(1)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_4"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 2
+ActionMode = -1
+ActionsList = PackedInt32Array(4)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_5"]
+script = ExtResource("1")
+Distance = Vector2i(16000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = -1
+ActionsList = PackedInt32Array(23)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="near_6"]
+script = ExtResource("1")
+Distance = Vector2i(26000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 0
+ActionMode = -1
+ActionsList = PackedInt32Array(4, 9)
+ReactChance = 10
+NetsuStartup = 10
+CounterFlags = 4
+
+[sub_resource type="Resource" id="pack_near"]
+script = ExtResource("2")
+HorizontalDistance = 16000
+Conditions = [SubResource("near_0"), SubResource("near_1"), SubResource("near_2"), SubResource("near_3"), SubResource("near_4"), SubResource("near_5"), SubResource("near_6")]
+
+[sub_resource type="Resource" id="mid_0"]
+script = ExtResource("1")
+Distance = Vector2i(45000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 10
+ActionMode = -1
+ActionsList = PackedInt32Array(0)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="mid_1"]
+script = ExtResource("1")
+Distance = Vector2i(45000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 2
+ActionMode = -1
+ActionsList = PackedInt32Array(18)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="mid_2"]
+script = ExtResource("1")
+Distance = Vector2i(45000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = -1
+ActionsList = PackedInt32Array(23)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="mid_3"]
+script = ExtResource("1")
+Distance = Vector2i(45000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = 1
+ActionsList = PackedInt32Array(1)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="mid_4"]
+script = ExtResource("1")
+Distance = Vector2i(45000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 2
+ActionMode = -1
+ActionsList = PackedInt32Array(5)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="pack_mid"]
+script = ExtResource("2")
+HorizontalDistance = 45000
+Conditions = [SubResource("mid_0"), SubResource("mid_1"), SubResource("mid_2"), SubResource("mid_3"), SubResource("mid_4")]
+
+[sub_resource type="Resource" id="far_0"]
+script = ExtResource("1")
+Distance = Vector2i(85000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 10
+ActionMode = -1
+ActionsList = PackedInt32Array(0)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="far_1"]
+script = ExtResource("1")
+Distance = Vector2i(85000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 4
+ActionMode = -1
+ActionsList = PackedInt32Array(23)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="far_2"]
+script = ExtResource("1")
+Distance = Vector2i(85000, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 1
+ActionMode = -1
+ActionsList = PackedInt32Array(5)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="pack_far"]
+script = ExtResource("2")
+HorizontalDistance = 85000
+Conditions = [SubResource("far_0"), SubResource("far_1"), SubResource("far_2")]
+
+[sub_resource type="Resource" id="distant_0"]
+script = ExtResource("1")
+Distance = Vector2i(999999, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 10
+ActionMode = -1
+ActionsList = PackedInt32Array(0)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="distant_1"]
+script = ExtResource("1")
+Distance = Vector2i(999999, 0)
+UseOnGround = true
+UseOnAir = false
+SuperGaugeRequired = 0
+Probability = 3
+ActionMode = -1
+ActionsList = PackedInt32Array(23)
+ReactChance = 10
+NetsuStartup = -1
+CounterFlags = 0
+
+[sub_resource type="Resource" id="pack_distant"]
+script = ExtResource("2")
+HorizontalDistance = 999999
+Conditions = [SubResource("distant_0"), SubResource("distant_1")]
+
+[resource]
+script = ExtResource("3")
+DecisionRateFree = Vector2i(45, 80)
+DecisionRateBusy = Vector2i(70, 100)
+InputRandomness = Vector2i(6, 10)
+BlockingRate = 2
+TechingRate = 0
+PredictionQuality = 1
+LowHealth = 4000
+ComboSkill = 2
+BlockConfirm = 0
+BlockAccuracy = 4
+ReactionTime = 24
+GuardHold = 4
+GuardHabit = 1
+AssistRate = 1
+WakeupRate = 0
+WakeupReversal = PackedInt32Array()
+WakeupGauge = 0
+NearActions = SubResource("pack_near")
+MidActions = SubResource("pack_mid")
+FarActions = SubResource("pack_far")
+DistantActions = SubResource("pack_distant")

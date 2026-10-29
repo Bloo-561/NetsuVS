@@ -1,0 +1,443 @@
+{
+ "source_root": "C:/Users/elvis/Downloads/Fighting_Game_All_Sprites",
+ "source_root_device": "~/mnt/Fighting_Game_All_Sprites",
+ "fx": "none",
+ "head_frac": 0.23,
+ "character": "assists/mary",
+ "tag": "MRY",
+ "reference": "Mary/Shared_Character/Mary_01_Appear.png",
+ "source_dirs": [
+  "Mary/Shared_Character"
+ ],
+ "game": {
+  "height_px": 505,
+  "pixel_size": 0.00275,
+  "sprites_subdir": "v2",
+  "origin_from_rear": 0.5
+ },
+ "frames": {
+  "my_appear": {
+   "src": "Mary/Shared_Character/Mary_01_Appear.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_raise": {
+   "src": "Mary/Shared_Character/Mary_02_Raise_Violin.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_play": {
+   "src": "Mary/Shared_Character/Mary_03_Play_Stroke_Corrected.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_stroke": {
+   "src": "Mary/Shared_Character/Mary_04_Stroke_End.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_lower": {
+   "src": "Mary/Shared_Character/Mary_05_Lower_Violin.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_bow": {
+   "src": "Mary/Shared_Character/Mary_06_Courtesy_Bow.png",
+   "anchor": "ground",
+   "scale": 1.0
+  },
+  "my_leave": {
+   "src": "Mary/Shared_Character/Mary_07_Leave.png",
+   "anchor": "body_ground",
+   "scale": 1.0
+  },
+  "my_aura1": {
+   "src": "Mary/5S_Buff_Effects/Mary_01_Aura_Loop.png",
+   "anchor": "center",
+   "at": [
+    -10,
+    262
+   ],
+   "scale": 0.76832
+  },
+  "my_aura2": {
+   "src": "Mary/5S_Buff_Effects/Mary_02_Aura_Loop.png",
+   "anchor": "center",
+   "at": [
+    -10,
+    262
+   ],
+   "scale": 0.83927
+  },
+  "my_aura3": {
+   "src": "Mary/5S_Buff_Effects/Mary_03_Aura_Loop.png",
+   "anchor": "center",
+   "at": [
+    -10,
+    262
+   ],
+   "scale": 0.78427
+  },
+  "my_pulse": {
+   "src": "Mary/5S_Buff_Effects/Mary_04_Apply_Pulse.png",
+   "anchor": "center",
+   "at": [
+    -10,
+    262
+   ],
+   "scale": 0.80132
+  },
+  "note_1": {
+   "src": "Mary/6S_Note_Float/Mary_01_Float.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 1.63219
+  },
+  "note_2": {
+   "src": "Mary/6S_Note_Float/Mary_02_Float.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 1.54661
+  },
+  "note_3": {
+   "src": "Mary/6S_Note_Float/Mary_03_Float.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 1.62262
+  },
+  "boom_1": {
+   "src": "Mary/6S_Note_Explosion/Mary_01_Flash.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 0.90816
+  },
+  "boom_2": {
+   "src": "Mary/6S_Note_Explosion/Mary_02_Burst.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 0.91579
+  },
+  "boom_3": {
+   "src": "Mary/6S_Note_Explosion/Mary_03_Fade.png",
+   "anchor": "center",
+   "at": [
+    0,
+    0
+   ],
+   "scale": 0.87705
+  }
+ },
+ "animations": {
+  "1_MRY_5S": {
+   "keys": [
+    [
+     "my_appear",
+     0
+    ],
+    [
+     "my_raise",
+     6
+    ],
+    [
+     "my_play",
+     14,
+     {
+      "fx": "my_aura1",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_play",
+     18,
+     {
+      "fx": "my_aura2",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_play",
+     22,
+     {
+      "fx": "my_aura3",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_stroke",
+     26,
+     {
+      "fx": "my_aura1",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_stroke",
+     30,
+     {
+      "fx": "my_aura2",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_stroke",
+     34,
+     {
+      "fx": "my_aura3",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_play",
+     38,
+     {
+      "fx": "my_aura1",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_play",
+     42,
+     {
+      "fx": "my_aura2",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_play",
+     46,
+     {
+      "fx": "my_aura3",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_stroke",
+     50,
+     {
+      "fx": "my_pulse",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_stroke",
+     54,
+     {
+      "fx": "my_pulse",
+      "fx_always": true
+     }
+    ],
+    [
+     "my_lower",
+     60
+    ],
+    [
+     "my_bow",
+     68
+    ],
+    [
+     "my_leave",
+     86
+    ]
+   ],
+   "duration": 104,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "1_Hitbox_MRY_5S_0"
+    ]
+   ]
+  },
+  "2_MRY_6S": {
+   "keys": [
+    [
+     "my_appear",
+     0
+    ],
+    [
+     "my_raise",
+     6
+    ],
+    [
+     "my_play",
+     14
+    ],
+    [
+     "my_play",
+     18
+    ],
+    [
+     "my_play",
+     22
+    ],
+    [
+     "my_stroke",
+     26
+    ],
+    [
+     "my_stroke",
+     30
+    ],
+    [
+     "my_stroke",
+     34
+    ],
+    [
+     "my_lower",
+     46
+    ],
+    [
+     "my_bow",
+     54
+    ],
+    [
+     "my_leave",
+     72
+    ]
+   ],
+   "duration": 90,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "2_Hitbox_MRY_6S_0"
+    ]
+   ]
+  },
+  "1_MRYN_Float": {
+   "keys": [
+    [
+     "note_1",
+     0
+    ],
+    [
+     "note_2",
+     6
+    ],
+    [
+     "note_3",
+     12
+    ],
+    [
+     "note_1",
+     18
+    ],
+    [
+     "note_2",
+     24
+    ],
+    [
+     "note_3",
+     30
+    ],
+    [
+     "note_1",
+     36
+    ],
+    [
+     "note_2",
+     42
+    ],
+    [
+     "note_3",
+     48
+    ],
+    [
+     "note_1",
+     54
+    ],
+    [
+     "note_2",
+     60
+    ],
+    [
+     "note_3",
+     66
+    ],
+    [
+     "note_1",
+     72
+    ],
+    [
+     "note_2",
+     78
+    ],
+    [
+     "note_3",
+     84
+    ],
+    [
+     "note_1",
+     90
+    ]
+   ],
+   "duration": 96,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "1_Hitbox_MRYN_Float_0"
+    ]
+   ]
+  },
+  "2_MRYN_Boom": {
+   "keys": [
+    [
+     "boom_1",
+     0
+    ],
+    [
+     "boom_2",
+     4
+    ],
+    [
+     "boom_3",
+     14
+    ]
+   ],
+   "duration": 28,
+   "hitboxes": [
+    [
+     0,
+     0,
+     "2_Hitbox_MRYN_Boom_0"
+    ],
+    [
+     2,
+     1,
+     "2_Hitbox_MRYN_Boom_1"
+    ],
+    [
+     10,
+     2,
+     "2_Hitbox_MRYN_Boom_2"
+    ]
+   ]
+  },
+  "0_MRY_Hidden": {
+   "keys": [
+    [
+     "my_appear",
+     0
+    ]
+   ],
+   "duration": 1,
+   "hitboxes": []
+  }
+ }
+}

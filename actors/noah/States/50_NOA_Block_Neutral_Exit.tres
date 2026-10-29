@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://bi4vqj2jmr7u4"]
+
+[ext_resource type="Resource" uid="uid://bh6tgazm42n0v" path="res://actors/noah/AnimationData/29_NOA_Stand_Block_Transition_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="3"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="4"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="5"]
+
+[sub_resource type="Resource" id="Resource_jyeky"]
+script = ExtResource("2")
+metadata/_custom_type_script = "uid://da4kqpf635oin"
+
+[sub_resource type="Resource" id="Resource_2fh85"]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://bho4h38y7suxk"
+
+[sub_resource type="Resource" id="Resource_yl270"]
+script = ExtResource("4")
+Conditions = [SubResource("Resource_2fh85")]
+Actions = [SubResource("Resource_jyeky")]
+metadata/_custom_type_script = "uid://c076jc3huncn2"
+
+[resource]
+script = ExtResource("5")
+StateName = "Block_Neutral_Exit"
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("Resource_yl270")]
+OnEnterEvents = null
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 1

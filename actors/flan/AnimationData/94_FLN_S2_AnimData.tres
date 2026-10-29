@@ -1,0 +1,96 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://1yx03urbkb11"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://7ilvt00vxt20" path="res://actors/flan/Hitboxes/45_Hitbox_BigBangCrash_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://bb0pajsuj6r7f" path="res://actors/flan/Hitboxes/45_Hitbox_BigBangCrash_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://bezktso1o7hd2" path="res://actors/flan/Hitboxes/45_Hitbox_BigBangCrash_2.tres" id="5"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_w1.png" id="t_s2_w1"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_w2.png" id="t_s2_w2"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_w3.png" id="t_s2_w3"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_diag.png" id="t_s2_diag"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_load.png" id="t_s2_load"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/jump_fall.png" id="t_jump_fall"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("2")
+AtFrame = 12
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("2")
+AtFrame = 28
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_w1")
+Offset = Vector2(-203, 15)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_w2")
+Offset = Vector2(-207, 16)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_w3")
+Offset = Vector2(-218, 17)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_diag")
+Offset = Vector2(-290, 3)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 12
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_load")
+Offset = Vector2(-112, 38)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 30
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_jump_fall")
+Offset = Vector2(-107, 20)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 38
+Modifiers = [SubResource("M5_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 110
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2")]

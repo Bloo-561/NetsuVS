@@ -1,0 +1,117 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://eb18jxoqiawv"]
+
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="1"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_8.png" id="t_cs_8"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_9.png" id="t_cs_9"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_10.png" id="t_cs_10"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_boom1.png" id="t_cs_boom1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_boom2.png" id="t_cs_boom2"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/cs_boom3.png" id="t_cs_boom3"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/idle_O0.png" id="t_idle_O0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_8")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("1")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_9")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("1")
+AtFrame = 20
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_10")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("1")
+AtFrame = 40
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_10")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="M3_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_boom1")
+Offset = Vector2(-225, -96)
+OnlyOnContact = true
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("1")
+AtFrame = 44
+Modifiers = [SubResource("M3_0"), SubResource("M3_1")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_10")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="M4_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_boom2")
+Offset = Vector2(-238, -97)
+OnlyOnContact = true
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("1")
+AtFrame = 50
+Modifiers = [SubResource("M4_0"), SubResource("M4_1")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_10")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="M5_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_boom3")
+Offset = Vector2(-237, -83)
+OnlyOnContact = true
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("1")
+AtFrame = 58
+Modifiers = [SubResource("M5_0"), SubResource("M5_1")]
+
+[sub_resource type="Resource" id="M6_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cs_10")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="A6"]
+script = ExtResource("1")
+AtFrame = 66
+Modifiers = [SubResource("M6_0")]
+
+[sub_resource type="Resource" id="M7_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_idle_O0")
+Offset = Vector2(-168, -5)
+
+[sub_resource type="Resource" id="A7"]
+script = ExtResource("1")
+AtFrame = 90
+Modifiers = [SubResource("M7_0")]
+
+[resource]
+script = ExtResource("2")
+Duration = 120
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6"), SubResource("A7")]
+Hitboxes = []
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

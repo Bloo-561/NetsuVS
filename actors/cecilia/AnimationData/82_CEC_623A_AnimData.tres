@@ -1,0 +1,93 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://6qo600i0y17n"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" uid="uid://bkd20yok5ld8p" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_0.tres" id="3"]
+[ext_resource type="Resource" uid="uid://32cwn1cavdoq" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_1.tres" id="4"]
+[ext_resource type="Resource" uid="uid://3yns2grwrsng" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_2.tres" id="5"]
+[ext_resource type="Resource" uid="uid://yvnccvnm6j10" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_3.tres" id="6"]
+[ext_resource type="Resource" uid="uid://blrr54qrxsfse" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_4.tres" id="7"]
+[ext_resource type="Resource" uid="uid://65camrt31sww" path="res://actors/cecilia/Hitboxes/43_Hitbox_623A_5.tres" id="8"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp_1.png" id="t_dp_1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp_fx_flat.png" id="t_dp_fx_flat"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp_4.png" id="t_dp_4"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp_5.png" id="t_dp_5"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("2")
+AtFrame = 4
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("2")
+AtFrame = 6
+animationStage = 1
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="H3"]
+script = ExtResource("2")
+AtFrame = 8
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="H4"]
+script = ExtResource("2")
+AtFrame = 13
+animationStage = 2
+HitboxData = ExtResource("7")
+
+[sub_resource type="Resource" id="H5"]
+script = ExtResource("2")
+AtFrame = 16
+animationStage = 2
+HitboxData = ExtResource("8")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_dp_1")
+Offset = Vector2(-169, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_dp_fx_flat")
+Offset = Vector2(-56, 130)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 4
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_dp_4")
+Offset = Vector2(-171, -53)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 13
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_dp_5")
+Offset = Vector2(-168, -19)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 16
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 200
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2"), SubResource("H3"), SubResource("H4"), SubResource("H5")]

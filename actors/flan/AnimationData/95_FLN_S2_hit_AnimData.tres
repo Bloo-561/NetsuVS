@@ -1,0 +1,70 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bmppfw02ymd1y"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Resource" uid="uid://bajkbooqq7im6" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_0.tres" id="hb_46_Hitbox_BigBangCrash_Rise_0"]
+[ext_resource type="Resource" uid="uid://bkbcfxs8u1n8m" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_1.tres" id="hb_46_Hitbox_BigBangCrash_Rise_1"]
+[ext_resource type="Resource" uid="uid://7qhaakfy0lrk" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_2.tres" id="hb_46_Hitbox_BigBangCrash_Rise_2"]
+[ext_resource type="Resource" uid="uid://8axievrc26gk" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_3.tres" id="hb_46_Hitbox_BigBangCrash_Rise_3"]
+[ext_resource type="Resource" uid="uid://y4n142tx8b5n" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_4.tres" id="hb_46_Hitbox_BigBangCrash_Rise_4"]
+[ext_resource type="Resource" uid="uid://bcclo0k18t202" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_5.tres" id="hb_46_Hitbox_BigBangCrash_Rise_5"]
+[ext_resource type="Resource" uid="uid://banpbt46uxugl" path="res://actors/flan/Hitboxes/46_Hitbox_BigBangCrash_Rise_6.tres" id="hb_46_Hitbox_BigBangCrash_Rise_6"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/s2_diag.png" id="t_s2_diag"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_0")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("2")
+AtFrame = 8
+animationStage = 1
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_1")
+
+[sub_resource type="Resource" id="H2"]
+script = ExtResource("2")
+AtFrame = 10
+animationStage = 2
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_2")
+
+[sub_resource type="Resource" id="H3"]
+script = ExtResource("2")
+AtFrame = 16
+animationStage = 1
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_3")
+
+[sub_resource type="Resource" id="H4"]
+script = ExtResource("2")
+AtFrame = 18
+animationStage = 2
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_4")
+
+[sub_resource type="Resource" id="H5"]
+script = ExtResource("2")
+AtFrame = 24
+animationStage = 1
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_5")
+
+[sub_resource type="Resource" id="H6"]
+script = ExtResource("2")
+AtFrame = 26
+animationStage = 2
+HitboxData = ExtResource("hb_46_Hitbox_BigBangCrash_Rise_6")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_s2_diag")
+Offset = Vector2(-290, 3)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 60
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2"), SubResource("H3"), SubResource("H4"), SubResource("H5"), SubResource("H6")]
+Afterimages = true

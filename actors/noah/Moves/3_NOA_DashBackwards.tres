@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3 uid="uid://bav2yha3i7swy"]
+
+[ext_resource type="Resource" uid="uid://bcyy6q5j33eyu" path="res://actors/_shared/sakuga/Inputs/10_Input_44.tres" id="1"]
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="2"]
+
+[resource]
+script = ExtResource("2")
+MoveName = "Dash Backwards"
+MoveState = 18
+Inputs = ExtResource("1")
+Priority = 2
+CanCancelTo = null
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+UseOnGround = true

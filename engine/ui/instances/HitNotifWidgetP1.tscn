@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dmgys15jxs1pe"]
+
+[ext_resource type="Script" uid="uid://6dt4u2wdr2xx" path="res://engine/sakuga/UI/HitNotificationWidget.cs" id="1"]
+[ext_resource type="FontFile" uid="uid://eean5m2bnybu" path="res://assets/fonts/mahou/maagkramp_Salvo Nicolosi.ttf" id="2"]
+[ext_resource type="Script" uid="uid://cmq3cp1n0copp" path="res://engine/sakuga/Components/FrameTimer.cs" id="3"]
+
+[node name="HitNotifWidgetP1" type="Control" unique_id=196358421 node_paths=PackedStringArray("NotifLabel")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1")
+NotifLabel = NodePath("Label")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=810976322]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 217.0
+offset_bottom = 31.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=4662880]
+layout_mode = 0
+offset_right = 424.0
+offset_bottom = 35.0
+theme_override_colors/font_outline_color = Color(0.46006697, 0.16270831, 0.32231882, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 40
+text = "Notification"
+
+[node name="FrameTimer" type="Node" parent="." unique_id=1417862980]
+script = ExtResource("3")
+metadata/_custom_type_script = "uid://cmq3cp1n0copp"

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://4wd0b57osyec"]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/assists/eren/Sprites/v2/er_land.png" id="t_er_land"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Resource" uid="uid://2o0tlj5j41u8" path="res://actors/assists/eren/Hitboxes/4_Hitbox_ERN_6S_land_0.tres" id="hb_4_Hitbox_ERN_6S_land_0"]
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_er_land")
+Offset = Vector2(-137, -5)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("hb_4_Hitbox_ERN_6S_land_0")
+
+[resource]
+script = ExtResource("1")
+Duration = 10
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("H0")]

@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://b1pcm06y24etn"]
+
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-SemiBold.ttf" id="thin"]
+[ext_resource type="FontFile" path="res://assets/fonts/Exo2-BoldItalic.ttf" id="serif"]
+[ext_resource type="Shader" uid="uid://120mdoxkb8og" path="res://assets/shaders/orbment_background.gdshader" id="bgshader"]
+[ext_resource type="AudioStream" uid="uid://685txpxvpqlb" path="res://assets/audio/music/mahou/04 Versus Screen [No Loop].wav" id="8"]
+
+[sub_resource type="ShaderMaterial" id="bg"]
+shader = ExtResource("bgshader")
+shader_parameter/top_color = Color(0.96, 0.95, 1, 1)
+shader_parameter/bottom_color = Color(0.84, 0.79, 0.97, 1)
+shader_parameter/ring_color = Color(0.52, 0.42, 0.86, 1)
+shader_parameter/ring_strength = 0.18
+shader_parameter/ring_center = Vector2(0.5, 0.45)
+shader_parameter/spin_speed = 0.03
+shader_parameter/aspect = 1.7778
+
+[sub_resource type="StyleBoxFlat" id="plate_p1"]
+bg_color = Color(1, 1, 1, 0.88)
+skew = Vector2(0.25, 0)
+border_width_left = 8
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.12, 0.16, 1)
+
+[sub_resource type="StyleBoxFlat" id="plate_p2"]
+bg_color = Color(1, 1, 1, 0.88)
+skew = Vector2(-0.25, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 8
+border_width_bottom = 2
+border_color = Color(0.25, 0.52, 0.96, 1)
+
+[node name="LoadingScreenMatch" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("bg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95, 0.94, 0.99, 1)
+
+[node name="P1SelectedRender" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02
+anchor_top = 0.04
+anchor_right = 0.5
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="P2SelectedRender" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.04
+anchor_right = 1.02
+anchor_bottom = 1.0
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="VS" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("serif")
+theme_override_colors/font_color = Color(0.16, 0.15, 0.38, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 180
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1Plate" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -140.0
+offset_right = 640.0
+offset_bottom = -60.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("plate_p1")
+
+[node name="P2Plate" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -140.0
+offset_right = 30.0
+offset_bottom = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("plate_p2")
+
+[node name="P1SelectedName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -140.0
+offset_right = 620.0
+offset_bottom = -60.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("thin")
+theme_override_colors/font_color = Color(0.16, 0.15, 0.38, 1)
+theme_override_colors/font_outline_color = Color(0.82, 0.18, 0.3, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 44
+text = "PLAYER 1"
+vertical_alignment = 1
+
+[node name="P2SelectedName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -620.0
+offset_top = -140.0
+offset_right = -40.0
+offset_bottom = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("thin")
+theme_override_colors/font_color = Color(0.16, 0.15, 0.38, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.52, 0.96, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 44
+text = "PLAYER 2"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Jingle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8")
+bus = &"BGM"

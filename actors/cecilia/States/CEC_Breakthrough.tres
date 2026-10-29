@@ -1,0 +1,174 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://q1sj10xtnxzm"]
+
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/CEC_Pushblock_Stand_AnimData.tres" id="1"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="4"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="5"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuPushOpponentAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+
+[sub_resource type="Resource" id="inertia"]
+script = ExtResource("2")
+UseInertia = true
+
+[sub_resource type="Resource" id="ev_inertia"]
+script = ExtResource("3")
+Actions = [SubResource("inertia")]
+
+[sub_resource type="Resource" id="at1"]
+script = ExtResource("8")
+Frame = 1
+
+[sub_resource type="Resource" id="push1"]
+script = ExtResource("7")
+Distance = 3000
+
+[sub_resource type="Resource" id="ev1"]
+script = ExtResource("3")
+Conditions = [SubResource("at1")]
+Actions = [SubResource("push1")]
+
+[sub_resource type="Resource" id="at2"]
+script = ExtResource("8")
+Frame = 2
+
+[sub_resource type="Resource" id="push2"]
+script = ExtResource("7")
+Distance = 2600
+
+[sub_resource type="Resource" id="ev2"]
+script = ExtResource("3")
+Conditions = [SubResource("at2")]
+Actions = [SubResource("push2")]
+
+[sub_resource type="Resource" id="at3"]
+script = ExtResource("8")
+Frame = 3
+
+[sub_resource type="Resource" id="push3"]
+script = ExtResource("7")
+Distance = 2200
+
+[sub_resource type="Resource" id="ev3"]
+script = ExtResource("3")
+Conditions = [SubResource("at3")]
+Actions = [SubResource("push3")]
+
+[sub_resource type="Resource" id="at4"]
+script = ExtResource("8")
+Frame = 4
+
+[sub_resource type="Resource" id="push4"]
+script = ExtResource("7")
+Distance = 1900
+
+[sub_resource type="Resource" id="ev4"]
+script = ExtResource("3")
+Conditions = [SubResource("at4")]
+Actions = [SubResource("push4")]
+
+[sub_resource type="Resource" id="at5"]
+script = ExtResource("8")
+Frame = 5
+
+[sub_resource type="Resource" id="push5"]
+script = ExtResource("7")
+Distance = 1600
+
+[sub_resource type="Resource" id="ev5"]
+script = ExtResource("3")
+Conditions = [SubResource("at5")]
+Actions = [SubResource("push5")]
+
+[sub_resource type="Resource" id="at6"]
+script = ExtResource("8")
+Frame = 6
+
+[sub_resource type="Resource" id="push6"]
+script = ExtResource("7")
+Distance = 1400
+
+[sub_resource type="Resource" id="ev6"]
+script = ExtResource("3")
+Conditions = [SubResource("at6")]
+Actions = [SubResource("push6")]
+
+[sub_resource type="Resource" id="at7"]
+script = ExtResource("8")
+Frame = 7
+
+[sub_resource type="Resource" id="push7"]
+script = ExtResource("7")
+Distance = 1200
+
+[sub_resource type="Resource" id="ev7"]
+script = ExtResource("3")
+Conditions = [SubResource("at7")]
+Actions = [SubResource("push7")]
+
+[sub_resource type="Resource" id="at8"]
+script = ExtResource("8")
+Frame = 8
+
+[sub_resource type="Resource" id="push8"]
+script = ExtResource("7")
+Distance = 1000
+
+[sub_resource type="Resource" id="ev8"]
+script = ExtResource("3")
+Conditions = [SubResource("at8")]
+Actions = [SubResource("push8")]
+
+[sub_resource type="Resource" id="at9"]
+script = ExtResource("8")
+Frame = 9
+
+[sub_resource type="Resource" id="push9"]
+script = ExtResource("7")
+Distance = 800
+
+[sub_resource type="Resource" id="ev9"]
+script = ExtResource("3")
+Conditions = [SubResource("at9")]
+Actions = [SubResource("push9")]
+
+[sub_resource type="Resource" id="at10"]
+script = ExtResource("8")
+Frame = 10
+
+[sub_resource type="Resource" id="push10"]
+script = ExtResource("7")
+Distance = 600
+
+[sub_resource type="Resource" id="ev10"]
+script = ExtResource("3")
+Conditions = [SubResource("at10")]
+Actions = [SubResource("push10")]
+
+[sub_resource type="Resource" id="end_c"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="end_a"]
+script = ExtResource("4")
+StateIndex = 50
+
+[sub_resource type="Resource" id="end"]
+script = ExtResource("3")
+Conditions = [SubResource("end_c")]
+Actions = [SubResource("end_a")]
+
+[resource]
+script = ExtResource("6")
+StateName = "Pushblock_Stand"
+BaseStance = 0
+Type = 3
+AnimationData = ExtResource("1")
+TransitionEvents = [SubResource("end")]
+OnEnterEvents = null
+OnTickEvents = [SubResource("ev_inertia"), SubResource("ev1"), SubResource("ev2"), SubResource("ev3"), SubResource("ev4"), SubResource("ev5"), SubResource("ev6"), SubResource("ev7"), SubResource("ev8"), SubResource("ev9"), SubResource("ev10")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 578
