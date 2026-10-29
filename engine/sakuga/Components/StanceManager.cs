@@ -1274,6 +1274,10 @@ public partial class StanceManager : Node
 		{
 			return false;   // Netsu (Oct 26 late): an Overdrive-only cancel (Flan's 623 jump cancel)
 		}
+		if (cancelSettings.NetsuOnlyInState >= 0 && _owner.StateManager.CurrentState != cancelSettings.NetsuOnlyInState)
+		{
+			return false;   // Netsu (Oct 29): a cancel for one state only (Flan's 236 pass-through)
+		}
 		bool isKaraCancel = (int)(_owner.CancelConditions & cancelSettings.Conditions & CancelCondition.KARA_CANCEL) > 0;
 		if ((int)(_owner.CancelConditions & cancelSettings.Conditions) > 0 && ((isKaraCancel && _owner.StateManager.CurrentStateFrame < 3) || (!isKaraCancel && _owner.StateManager.CurrentStateFrame >= cancelSettings.FrameThreshold.X && _owner.StateManager.CurrentStateFrame <= cancelSettings.FrameThreshold.Y)))
 		{

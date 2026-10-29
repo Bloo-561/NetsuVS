@@ -153,4 +153,5 @@ TransitionEvents = [SubResource("ch_ev"), SubResource("nf_s9"), SubResource("nf_
 OnEnterEvents = null
 OnTickEvents = [SubResource("nf_s22"), SubResource("nf_s27"), SubResource("nf_s32")]
 OnHitConfirmEvents = [SubResource("nf_s35")]
+NetsuChargeFlash = 30
 AIFlags = 20

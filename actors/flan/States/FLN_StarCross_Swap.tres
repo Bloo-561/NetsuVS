@@ -1,0 +1,78 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_StarCross_Swap_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="ev"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="mx"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="my"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuSlideToAction.cs" id="slide"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="play"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="at"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuRelativeXCondition.cs" id="rel"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("mx")
+Velocity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("my")
+Velocity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("sfx")
+Source = 3
+Index = 49
+
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("ev")
+Actions = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("slide")
+Offset = 9000
+Step = 5000
+
+[sub_resource type="Resource" id="e2"]
+script = ExtResource("ev")
+Actions = [SubResource("s4")]
+
+[sub_resource type="Resource" id="c1"]
+script = ExtResource("rel")
+MinDistance = 8500
+MaxDistance = 1000000
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("play")
+StateIndex = 117
+
+[sub_resource type="Resource" id="e3"]
+script = ExtResource("ev")
+Conditions = [SubResource("c1")]
+Actions = [SubResource("s5")]
+
+[sub_resource type="Resource" id="c2"]
+script = ExtResource("at")
+Frame = 12
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("play")
+StateIndex = 117
+
+[sub_resource type="Resource" id="e4"]
+script = ExtResource("ev")
+Conditions = [SubResource("c2")]
+Actions = [SubResource("s6")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Star Cross (slide)"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("e3"), SubResource("e4")]
+OnEnterEvents = [SubResource("e1")]
+OnTickEvents = [SubResource("e2")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

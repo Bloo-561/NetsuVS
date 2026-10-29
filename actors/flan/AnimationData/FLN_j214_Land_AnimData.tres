@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/j214_impact.png" id="e0"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/k214_idle.png" id="e1"]
+[ext_resource type="Resource" path="res://actors/flan/Hitboxes/FLN_j214_pound.tres" id="e2"]
+[ext_resource type="Resource" path="res://actors/flan/Hitboxes/FLN_j214_land_rec.tres" id="e3"]
+[ext_resource type="Resource" path="res://actors/flan/Hitboxes/41_Hitbox_MeteorDrop_Impact_2.tres" id="e4"]
+
+[sub_resource type="Resource" id="M0"]
+script = ExtResource("sp")
+Sprite = ExtResource("e0")
+Offset = Vector2(-236, -17)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0")]
+
+[sub_resource type="Resource" id="M1"]
+script = ExtResource("sp")
+Sprite = ExtResource("e1")
+Offset = Vector2(-127, -4)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 18
+Modifiers = [SubResource("M1")]
+
+[sub_resource type="Resource" id="S0"]
+script = ExtResource("2")
+animationStage = 1
+HitboxData = ExtResource("e2")
+
+[sub_resource type="Resource" id="S1"]
+script = ExtResource("2")
+AtFrame = 4
+animationStage = 2
+HitboxData = ExtResource("e3")
+
+[sub_resource type="Resource" id="S2"]
+script = ExtResource("2")
+AtFrame = 18
+animationStage = 2
+HitboxData = ExtResource("e4")
+
+[resource]
+script = ExtResource("1")
+Duration = 32
+Animations = [SubResource("A0"), SubResource("A1")]
+Hitboxes = [SubResource("S0"), SubResource("S1"), SubResource("S2")]

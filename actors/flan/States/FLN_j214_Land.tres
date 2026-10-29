@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="x0"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="x2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="x4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="x5"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_j214_Land_AnimData.tres" id="x6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="x7"]
+
+[sub_resource type="Resource" id="r1"]
+script = ExtResource("x0")
+
+[sub_resource type="Resource" id="r2"]
+script = ExtResource("x1")
+
+[sub_resource type="Resource" id="r3"]
+script = ExtResource("x2")
+Conditions = [SubResource("r1")]
+Actions = [SubResource("r2")]
+
+[sub_resource type="Resource" id="r4"]
+script = ExtResource("x3")
+Velocity = 0
+
+[sub_resource type="Resource" id="r5"]
+script = ExtResource("x4")
+Velocity = 0
+
+[sub_resource type="Resource" id="r6"]
+script = ExtResource("x5")
+Amplitude = 0.02
+Duration = 6
+
+[sub_resource type="Resource" id="r7"]
+script = ExtResource("x2")
+Actions = [SubResource("r4"), SubResource("r5"), SubResource("r6")]
+
+[resource]
+script = ExtResource("x7")
+StateName = "Air Meteor Drop (landing)"
+Type = 2
+AnimationData = ExtResource("x6")
+TransitionEvents = [SubResource("r3")]
+OnEnterEvents = [SubResource("r7")]
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

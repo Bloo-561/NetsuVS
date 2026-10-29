@@ -1,0 +1,112 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="e0"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="e1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="e2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="e3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="e4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="e5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="e6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuDamageOpponentAction.cs" id="e7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="e8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuOpponentOnGroundCondition.cs" id="e9"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="e10"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="e11"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="e12"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="e13"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/CEC_DP2_Sheath_AnimData.tres" id="e14"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e0")
+Velocity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e1")
+Velocity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e2")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e3")
+Actions = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e4")
+MinFrame = 0
+MaxFrame = 15
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e5")
+Offset = Vector2i(0, 16000)
+LiftRate = 150
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e3")
+Conditions = [SubResource("s5")]
+Actions = [SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e6")
+Frame = 16
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("e7")
+Damage = 450
+ScalingLoss = 4
+HitEffect = 6
+Hitstop = 12
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("e8")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("e3")
+Conditions = [SubResource("s8")]
+Actions = [SubResource("s9"), SubResource("s10")]
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("e6")
+Frame = 30
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("e9")
+Not = true
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("e10")
+Frame = 29
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("e3")
+Conditions = [SubResource("s12"), SubResource("s13")]
+Actions = [SubResource("s14")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("e11")
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("e12")
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("e3")
+Conditions = [SubResource("s16")]
+Actions = [SubResource("s17")]
+
+[resource]
+script = ExtResource("e13")
+StateName = "EX Crescent Slash (sheath)"
+Type = 2
+AnimationData = ExtResource("e14")
+TransitionEvents = [SubResource("s18")]
+OnEnterEvents = [SubResource("s4")]
+OnTickEvents = [SubResource("s7"), SubResource("s11"), SubResource("s15")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+NetsuHoldDown = true
+AIFlags = 18

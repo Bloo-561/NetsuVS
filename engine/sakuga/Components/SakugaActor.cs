@@ -638,6 +638,13 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return false;
 		}
+		// Oct 29: a state marked NetsuHoldDown (Noah's j.214A landing) keeps them down until it's over
+		FighterState holdState = attacker.StateManager.GetCurrentState();
+		if (holdState != null && holdState.NetsuHoldDown && (holdState.AnimationData == null || attacker.StateManager.CurrentStateFrame < holdState.AnimationData.Duration - 1))
+		{
+			GameManager gmHold = GameManager.Instance;
+			return NetsuDownFrames < (gmHold != null ? gmHold.NetsuDownTotalFrames : 50) + NetsuSuperHoldMax;
+		}
 		if (!attacker.NetsuSuperActive || !attacker.NetsuSuperConnected)
 		{
 			return false;
@@ -656,6 +663,20 @@ public partial class SakugaActor : SakugaNode, IDamage
 	}
 
 	public const int NetsuSuperHoldMax = 150;
+
+	/// <summary>Oct 29: knocked out by a hit while lying (NetsuDamageOpponentAction): Hit_Down plays its KO from its start.</summary>
+	public void NetsuKoWhileLying()
+	{
+		if (!IsKO() || StateManager == null || StanceManager == null || !NetsuLying())
+		{
+			return;
+		}
+		int[] reactions = StanceManager.GetCurrentStance()?.HitReactions;
+		if (reactions != null && reactions.Length > NetsuDownReaction && (StateManager.CurrentState != reactions[NetsuDownReaction] || StateManager.CurrentStateFrame > 4))
+		{
+			StateManager.PlayState(reactions[NetsuDownReaction], reset: true);
+		}
+	}
 
 	private static bool NetsuWaitsForOpponent(FighterState st)
 	{
@@ -999,6 +1020,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 				onTickEvents[i].RunEvent(ref actor);
 			}
 			NetsuFloatTick();   // after the hit state's own gravity, before the physics step
+			NetsuCarryTick();
 			NetsuExHoldTick();
 		}
 	}
@@ -1008,6 +1030,13 @@ public partial class SakugaActor : SakugaNode, IDamage
 	// they can't fall (only rise) and can't tech while the attacker is still in that EX move and its current state still
 	// has attack frames to come; then everything is normal again. Saved for rollback (SakugaActorState key 53).
 	public int NetsuExHoldKey;   // the EX use holding them (0 = none)
+	// Oct 29 (late): the attacker's state and state frame at the EX's last hit. The hold only lasts until the EX's NEXT
+	// attack has had its chance: if that one misses (they fell out), they fall and can tech as usual. Keys 56-57.
+	public int NetsuExHoldState = -1;
+	public int NetsuExHoldFrame;
+	// Oct 29 (evening): frames since the EX last hit them (hitstop not counted). Past GameManager.NetsuExHoldGraceFrames
+	// the hold lets go even if the EX still has attack frames (Cecilia's 623C dive on an airborne opponent). Key 58.
+	public int NetsuExHoldAge;
 
 	private void NetsuExHoldStart(SakugaActor attacker)
 	{
@@ -1022,6 +1051,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 			return;   // EX moves only (supers and pushblock aren't)
 		}
 		NetsuExHoldKey = (1 << 30) | (move << 22) | (use & 0x3FFFFF);
+		NetsuExHoldState = root.StateManager != null ? root.StateManager.CurrentState : -1;
+		NetsuExHoldFrame = root.StateManager != null ? root.StateManager.CurrentStateFrame : 0;
+		NetsuExHoldAge = 0;
 	}
 
 	/// <summary>The attacker is still in the EX use NetsuExHoldKey and its state has attack frames left.</summary>
@@ -1041,6 +1073,13 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return false;
 		}
+		// Oct 29 (late): hold until the end of the first attack window that starts after the last hit (in the state that
+		// hit; in a follow-up state, its first attack window). No such window: until the end of the one that hit.
+		bool sameState = a.StateManager.CurrentState == NetsuExHoldState;
+		int hitFrame = sameState ? NetsuExHoldFrame : -1;
+		int nextEnd = -1;
+		int nextStart = int.MaxValue;
+		int curEnd = -1;
 		int lastEnd = -1;
 		for (int w = 0; w < anim.Hitboxes.Length; w++)
 		{
@@ -1071,8 +1110,18 @@ public partial class SakugaActor : SakugaNode, IDamage
 				}
 			}
 			lastEnd = Mathf.Max(lastEnd, end);
+			if (win.AtFrame > hitFrame && win.AtFrame < nextStart)
+			{
+				nextStart = win.AtFrame;
+				nextEnd = end;
+			}
+			if (win.AtFrame <= hitFrame && end >= hitFrame)
+			{
+				curEnd = Mathf.Max(curEnd, end);
+			}
 		}
-		return a.StateManager.CurrentStateFrame <= lastEnd;
+		int deadline = nextEnd >= 0 ? nextEnd : curEnd;
+		return deadline >= 0 && a.StateManager.CurrentStateFrame <= Mathf.Min(deadline, lastEnd);
 	}
 
 	private void NetsuExHoldTick()
@@ -1081,7 +1130,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return;
 		}
-		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || !NetsuExStillGoing(GetOpponent(0)))
+		NetsuExHoldAge++;
+		int grace = GameManager.Instance != null ? GameManager.Instance.NetsuExHoldGraceFrames : 20;
+		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuExHoldAge > grace || !NetsuExStillGoing(GetOpponent(0)))
 		{
 			NetsuExHoldKey = 0;
 			return;
@@ -1115,6 +1166,57 @@ public partial class SakugaActor : SakugaNode, IDamage
 		NetsuFloatFrame = 1;
 		NetsuFloatTotal = box.NetsuFloatFrames;
 		NetsuFloatRise = Mathf.Max(0, box.NetsuFloatRise) * 64 + Mathf.Clamp(box.NetsuFloatRiseFrames, 1, 63);
+	}
+
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Oct 29 2026, TamaDeez): carry. A hit box with NetsuCarryUp (Flan's 7/8/9 Star Rush) makes the opponent move
+	// with the attacker, at her speed, while she is still rising: they stay where the hit put them (just above / in
+	// front of her). At her peak (or if she is hit, blocks or lands) they are let go: no more rising, normal gravity,
+	// and at least NetsuCarryReleaseHitstun frames of hitstun left so she can combo. Saved for rollback (key 59).
+	public int NetsuCarryFrames;   // 0 = not carried; else 1 + frames carried
+	public const int NetsuCarryReleaseHitstun = 22;
+	public const int NetsuCarryMaxFrames = 45;
+
+	private void NetsuCarryStart(SakugaActor attacker, HitboxElement box)
+	{
+		NetsuCarryFrames = (box != null && box.NetsuCarryUp && attacker != null && attacker.GetMaster() == null && GetMaster() == null && Body != null && attacker.Body != null) ? 1 : 0;
+	}
+
+	private void NetsuCarryTick()
+	{
+		if (NetsuCarryFrames <= 0)
+		{
+			return;
+		}
+		SakugaActor a = GetOpponent(0);
+		bool going = a != null && a.Body != null && a.StateManager != null && Body != null && !IsKO()
+			&& StateManager.CurrentStateType() == StateType.HIT_REACTION
+			&& a.StateManager.CurrentStateType() != StateType.HIT_REACTION && a.StateManager.CurrentStateType() != StateType.BLOCKING
+			&& a.Body.FixedVelocity.Y > 0 && NetsuCarryFrames <= NetsuCarryMaxFrames;
+		if (!going)
+		{
+			bool stillHit = Body != null && !IsKO() && StateManager.CurrentStateType() == StateType.HIT_REACTION;
+			NetsuCarryFrames = 0;
+			if (stillHit)
+			{
+				Body.FixedVelocity.Y = Mathf.Min(Body.FixedVelocity.Y, 0);   // the peak: from here they fall
+				if (a != null && a.Body != null)
+				{
+					Body.FixedVelocity.X = a.Body.FixedVelocity.X / 2;
+				}
+				if (CanHitstun() && Hitstun.TimeLeft < NetsuCarryReleaseHitstun)
+				{
+					Hitstun.Start((uint)NetsuCarryReleaseHitstun);
+				}
+			}
+			return;
+		}
+		Body.FixedVelocity = new Vector2I(a.Body.FixedVelocity.X, a.Body.FixedVelocity.Y);
+		if (CanHitstun() && Hitstun.TimeLeft <= 1)
+		{
+			Hitstun.Start(2u);   // no tech while carried
+		}
+		NetsuCarryFrames++;
 	}
 
 	private void NetsuFloatTick()
@@ -1170,8 +1272,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			Animator.SetDepth(LayerSorting);
 			Animator.ViewAnimations(NetsuPauseAnimation() ?? StateManager.GetCurrentAnimationSettings(), Body != null && Body.HitBodies.Count > 0);
-			Animator.SetAfterimages(StateManager.GetCurrentState().AnimationData != null && StateManager.GetCurrentState().AnimationData.Afterimages);
+			AnimationData netsuAnim = StateManager.GetCurrentState().AnimationData;
+			Animator.SetAfterimages(netsuAnim != null && netsuAnim.Afterimages, netsuAnim != null && netsuAnim.NetsuSolidAfterimages);
 			NetsuSuperFlashLook();
+			NetsuChargeFlareLook();
 		}
 		NetsuStockHud();
 		NetsuStarHud();
@@ -1405,6 +1509,47 @@ public partial class SakugaActor : SakugaNode, IDamage
 			return 1f;
 		}
 		return ((f - 4) / 2) % 2 == 0 ? 0f : 0.9f;
+	}
+
+	/// <summary>Netsu (Oct 29): a charged move came out: a white flare bursts in front of her for the first
+	/// FighterState.NetsuChargeFlash frames of its state. Presentation only, from the state frame.</summary>
+	private void NetsuChargeFlareLook()
+	{
+		FighterState st = StateManager?.GetCurrentState();
+		int f = StateManager != null ? StateManager.CurrentStateFrame : -1;
+		float scale = 0f;
+		float alpha = 0f;
+		float phase = 0f;
+		if (GetMaster() == null && Body != null && st != null && f >= 0)
+		{
+			int holdFrom = Mathf.Min(4, st.NetsuChargeAt - 1);   // a quick tap still holds the button a few frames
+			if (st.NetsuChargeAt > 0 && st.NetsuChargeHold != null && f >= holdFrom && f < st.NetsuChargeAt && Inputs != null
+				&& Inputs.CheckMotionInputs(st.NetsuChargeHold, InputSide()))
+			{
+				// Oct 29 (3): the charge is being held: a spark that swells on her until the charged move comes out
+				float p = (float)(f - holdFrom + 1) / (st.NetsuChargeAt - holdFrom + 1);
+				scale = Mathf.Lerp(0.15f, 2.2f, p);
+				alpha = 0.6f + 0.4f * p;
+				phase = f;
+			}
+			else if (st.NetsuChargeFlash > 0 && f < st.NetsuChargeFlash)
+			{
+				// the charged move came out: it keeps swelling until it covers her, holds, then fades
+				float t = (float)f / st.NetsuChargeFlash;
+				float grow = 1f - (1f - t) * (1f - t) * (1f - t);
+				scale = Mathf.Lerp(2.2f, 3.9f, grow);
+				alpha = t < 0.65f ? 1f : 1f - (t - 0.65f) / 0.35f;
+				phase = 20f + f;
+			}
+		}
+		if (scale <= 0f)
+		{
+			Animator.SetChargeFlare(0f, 0f, 0f, Vector3.Zero);
+			return;
+		}
+		Vector2I off = st.NetsuChargeFlareOffset;
+		Vector2I at = Body.FixedPosition + new Vector2I(off.X * Body.PlayerSide, off.Y);
+		Animator.SetChargeFlare(scale, alpha, phase, GlobalFunctions.ToScaledVector3(at));
 	}
 
 	/// <summary>Netsu (Oct 26 c15): counter hit = the sprite flashes red for NetsuCounterFlashFrames; an air counter hit
@@ -2116,6 +2261,11 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			HitstunType = HitstunType.BASIC;   // Oct 28: never a hard knockdown (techable in the air / on landing)
 		}
+		if (box.NetsuHardKnockdownMinScaling > 0 && HitstunType == HitstunType.HARD_KNOCKDOWN && Parameters != null
+			&& Parameters.Prorations != null && Parameters.Prorations.CurrentBaseDamageScaling < box.NetsuHardKnockdownMinScaling)
+		{
+			HitstunType = HitstunType.KNOCKDOWN;   // Oct 29: too far into the combo for a hard knockdown
+		}
 		bool canTech = !netsuWasGrabbed && StateManager != null && StateManager.CurrentStateType() == StateType.HIT_REACTION && !OnHitstun() && ValidTechState();
 		if (Body != null)
 		{
@@ -2190,6 +2340,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		NetsuLastPushTime = finalKnockbackTime;
 		PushActor(finalKnockbackTime, finalDamageKnockback.X * -target.Body.PlayerSide, finalDamageKnockback.Y - decayingKnockback, finalKnockbackGravity);
 		NetsuFloatStart(box);   // Netsu (Oct 28): a float hit (Leticia's j.236) holds them up; any other hit ends a float
+		NetsuCarryStart(target, box);   // Netsu (Oct 29): Flan's upward Star Rush carries them up with her
 		NetsuExHoldStart(target);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over
 		if (Parameters != null)
 		{

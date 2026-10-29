@@ -24,4 +24,9 @@ public partial class AnimationData : Resource
 	// Netsu: draw fading afterimages behind the fighter while this animation plays (dashes, slides).
 	[Export(PropertyHint.None, "")]
 	public bool Afterimages;
+
+	// Netsu (Oct 29): draw those afterimages as solid tinted silhouettes (bright, easy to see) instead of the usual
+	// faint copies. Only Flan's charged 236B (Star Cross) uses it.
+	[Export(PropertyHint.None, "")]
+	public bool NetsuSolidAfterimages;
 }

@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="resethit"]
 [ext_resource type="Script" uid="uid://bnjqge5r5or28" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetCustomVariableAction.cs" id="setvar"]
 [ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuDamageOpponentAction.cs" id="dmgopp"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("4")
@@ -100,10 +101,17 @@ NewValue = 1
 [sub_resource type="Resource" id="stk_reset"]
 script = ExtResource("resethit")
 
+[sub_resource type="Resource" id="drain_dmg"]
+script = ExtResource("dmgopp")
+Damage = 400
+ScalingLoss = 10
+HitEffect = 6
+Hitstop = 16
+
 [sub_resource type="Resource" id="stk"]
 script = ExtResource("3")
 Conditions = [SubResource("stk_at")]
-Actions = [SubResource("stk_reset"), SubResource("stk_set")]
+Actions = [SubResource("stk_reset"), SubResource("stk_set"), SubResource("drain_dmg")]
 
 [resource]
 script = ExtResource("1")
@@ -116,4 +124,5 @@ OnTickEvents = [SubResource("s10"), SubResource("s13"), SubResource("stk")]
 OnExitEvents = [SubResource("s15")]
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
+NetsuHoldDown = true
 AIFlags = 18

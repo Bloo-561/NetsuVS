@@ -1,0 +1,119 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="x0"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="x2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="x4"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/67_Input_HoldA.tres" id="x5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="x6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="x7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="x8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/OnGroundCondition.cs" id="x9"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="x10"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_j214A_AnimData.tres" id="x11"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="x12"]
+
+[sub_resource type="Resource" id="r1"]
+script = ExtResource("x0")
+Velocity = 0
+
+[sub_resource type="Resource" id="r2"]
+script = ExtResource("x1")
+Velocity = 0
+
+[sub_resource type="Resource" id="r3"]
+script = ExtResource("x2")
+Actions = [SubResource("r1"), SubResource("r2")]
+
+[sub_resource type="Resource" id="r4"]
+script = ExtResource("x3")
+Frame = 13
+
+[sub_resource type="Resource" id="r5"]
+script = ExtResource("x1")
+Velocity = -120000
+
+[sub_resource type="Resource" id="r6"]
+script = ExtResource("x0")
+Velocity = 30000
+
+[sub_resource type="Resource" id="r7"]
+script = ExtResource("x4")
+Source = 3
+Index = 53
+
+[sub_resource type="Resource" id="r8"]
+script = ExtResource("x2")
+Conditions = [SubResource("r4")]
+Actions = [SubResource("r5"), SubResource("r6"), SubResource("r7")]
+
+[sub_resource type="Resource" id="r9"]
+script = ExtResource("x6")
+MinFrame = 8
+MaxFrame = 8
+
+[sub_resource type="Resource" id="r10"]
+script = ExtResource("x7")
+Input = ExtResource("x5")
+
+[sub_resource type="Resource" id="r11"]
+script = ExtResource("x8")
+StateIndex = 134
+
+[sub_resource type="Resource" id="r12"]
+script = ExtResource("x2")
+Conditions = [SubResource("r9"), SubResource("r10")]
+Actions = [SubResource("r11")]
+
+[sub_resource type="Resource" id="r13"]
+script = ExtResource("x6")
+MinFrame = 13
+MaxFrame = 999
+
+[sub_resource type="Resource" id="r14"]
+script = ExtResource("x9")
+
+[sub_resource type="Resource" id="r15"]
+script = ExtResource("x0")
+Velocity = 0
+
+[sub_resource type="Resource" id="r16"]
+script = ExtResource("x1")
+Velocity = 0
+
+[sub_resource type="Resource" id="r17"]
+script = ExtResource("x8")
+StateIndex = 135
+
+[sub_resource type="Resource" id="r18"]
+script = ExtResource("x2")
+Conditions = [SubResource("r13"), SubResource("r14")]
+Actions = [SubResource("r15"), SubResource("r16"), SubResource("r17")]
+
+[sub_resource type="Resource" id="r19"]
+script = ExtResource("x10")
+
+[sub_resource type="Resource" id="r20"]
+script = ExtResource("x8")
+StateIndex = 10
+
+[sub_resource type="Resource" id="r21"]
+script = ExtResource("x2")
+Conditions = [SubResource("r19")]
+Actions = [SubResource("r20")]
+
+[resource]
+script = ExtResource("x12")
+StateName = "Air Meteor Drop"
+NetsuChargeAt = 8
+NetsuChargeHold = ExtResource("x5")
+Type = 2
+AnimationData = ExtResource("x11")
+TransitionEvents = [SubResource("r12"), SubResource("r18"), SubResource("r21")]
+OnEnterEvents = [SubResource("r3")]
+OnTickEvents = [SubResource("r8")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

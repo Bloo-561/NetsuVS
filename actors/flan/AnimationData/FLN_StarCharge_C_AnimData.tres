@@ -35,7 +35,7 @@ Scale = Vector2(0.6, 0.6)
 
 [sub_resource type="Resource" id="A1"]
 script = ExtResource("an")
-AtFrame = 5
+AtFrame = 8
 Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
 
 [sub_resource type="Resource" id="M2_0"]
@@ -51,7 +51,7 @@ Scale = Vector2(0.75, 0.75)
 
 [sub_resource type="Resource" id="A2"]
 script = ExtResource("an")
-AtFrame = 10
+AtFrame = 16
 Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
 
 [sub_resource type="Resource" id="M3_0"]
@@ -66,7 +66,7 @@ Offset = Vector2(-265, 29)
 
 [sub_resource type="Resource" id="A3"]
 script = ExtResource("an")
-AtFrame = 14
+AtFrame = 22
 Modifiers = [SubResource("M3_0"), SubResource("M3_1")]
 
 [sub_resource type="Resource" id="M4_0"]
@@ -82,7 +82,7 @@ Scale = Vector2(0.8, 0.8)
 
 [sub_resource type="Resource" id="A4"]
 script = ExtResource("an")
-AtFrame = 18
+AtFrame = 28
 Modifiers = [SubResource("M4_0"), SubResource("M4_1")]
 
 [sub_resource type="Resource" id="M5_0"]
@@ -92,7 +92,7 @@ Offset = Vector2(-130, -4)
 
 [sub_resource type="Resource" id="A5"]
 script = ExtResource("an")
-AtFrame = 24
+AtFrame = 37
 Modifiers = [SubResource("M5_0")]
 
 [sub_resource type="Resource" id="M6_0"]
@@ -102,7 +102,7 @@ Offset = Vector2(-122, 0)
 
 [sub_resource type="Resource" id="A6"]
 script = ExtResource("an")
-AtFrame = 30
+AtFrame = 46
 Modifiers = [SubResource("M6_0")]
 
 [sub_resource type="Resource" id="S0"]
@@ -111,18 +111,18 @@ HitboxData = ExtResource("h0")
 
 [sub_resource type="Resource" id="S1"]
 script = ExtResource("2")
-AtFrame = 14
+AtFrame = 22
 animationStage = 1
 HitboxData = ExtResource("h1")
 
 [sub_resource type="Resource" id="S2"]
 script = ExtResource("2")
-AtFrame = 18
+AtFrame = 28
 animationStage = 2
 HitboxData = ExtResource("h2")
 
 [resource]
 script = ExtResource("1")
-Duration = 44
+Duration = 68
 Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5"), SubResource("A6")]
 Hitboxes = [SubResource("S0"), SubResource("S1"), SubResource("S2")]

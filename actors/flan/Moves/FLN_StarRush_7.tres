@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/66_Input_7AorB.tres" id="2"]
+
+[resource]
+script = ExtResource("1")
+MoveName = "Star Rush"
+MoveState = 125
+Inputs = ExtResource("2")
+Priority = 7
+MoveEnd = 2
+CanBeOverrided = false
+AcceptNullStates = false
+AcceptCombatStates = true
+UseOnGround = true
+UseOnAir = true
+IsSequenceFromStates = PackedInt32Array(73, 74, 121, 130, 131, 132)

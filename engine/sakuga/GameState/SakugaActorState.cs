@@ -174,6 +174,18 @@ public struct SakugaActorState
 	[Key(55)]
 	public bool NetsuMeterSpendTag;  // Oct 29: belongs to a meter-spending move (no meter for its hits)
 
+	[Key(56)]
+	public int NetsuExHoldState;     // Oct 29: the attacker's state at the EX's last hit
+
+	[Key(57)]
+	public int NetsuExHoldFrame;
+
+	[Key(58)]
+	public int NetsuExHoldAge;       // Oct 29: frames since the EX last hit them
+
+	[Key(59)]
+	public int NetsuCarryFrames;     // Oct 29: carried up by Flan's Star Rush (0 = no)
+
 	public void GetStateData(ref SakugaActor reference)
 	{
 		IsActive = reference.IsActive;
@@ -232,6 +244,10 @@ public struct SakugaActorState
 		NetsuExHoldKey = reference.NetsuExHoldKey;
 		NetsuStarStacks = reference.NetsuStarStacks;
 		NetsuMeterSpendTag = reference.NetsuMeterSpendTag;
+		NetsuExHoldState = reference.NetsuExHoldState;
+		NetsuExHoldFrame = reference.NetsuExHoldFrame;
+		NetsuExHoldAge = reference.NetsuExHoldAge;
+		NetsuCarryFrames = reference.NetsuCarryFrames;
 	}
 
 	public void SetStateData(ref SakugaActor reference)
@@ -292,5 +308,9 @@ public struct SakugaActorState
 		reference.NetsuExHoldKey = NetsuExHoldKey;
 		reference.NetsuStarStacks = NetsuStarStacks;
 		reference.NetsuMeterSpendTag = NetsuMeterSpendTag;
+		reference.NetsuExHoldState = NetsuExHoldState;
+		reference.NetsuExHoldFrame = NetsuExHoldFrame;
+		reference.NetsuExHoldAge = NetsuExHoldAge;
+		reference.NetsuCarryFrames = NetsuCarryFrames;
 	}
 }

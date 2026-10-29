@@ -16,6 +16,110 @@ MoveIndex = 52
 Conditions = 2
 FrameThreshold = Vector2i(8, 30)
 
+[sub_resource type="Resource" id="rush0"]
+script = ExtResource("3")
+MoveIndex = 61
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush1"]
+script = ExtResource("3")
+MoveIndex = 62
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush2"]
+script = ExtResource("3")
+MoveIndex = 63
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush3"]
+script = ExtResource("3")
+MoveIndex = 64
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush4"]
+script = ExtResource("3")
+MoveIndex = 65
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush5"]
+script = ExtResource("3")
+MoveIndex = 66
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush6"]
+script = ExtResource("3")
+MoveIndex = 67
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rush7"]
+script = ExtResource("3")
+MoveIndex = 68
+Conditions = 7
+FrameThreshold = Vector2i(5, 22)
+
+[sub_resource type="Resource" id="rushhb61"]
+script = ExtResource("3")
+MoveIndex = 61
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb62"]
+script = ExtResource("3")
+MoveIndex = 62
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb63"]
+script = ExtResource("3")
+MoveIndex = 63
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb64"]
+script = ExtResource("3")
+MoveIndex = 64
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb65"]
+script = ExtResource("3")
+MoveIndex = 65
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb66"]
+script = ExtResource("3")
+MoveIndex = 66
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb67"]
+script = ExtResource("3")
+MoveIndex = 67
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
+[sub_resource type="Resource" id="rushhb68"]
+script = ExtResource("3")
+MoveIndex = 68
+Conditions = 7
+FrameThreshold = Vector2i(0, 15)
+NetsuOnlyInState = 121
+
 [resource]
 script = ExtResource("1")
 MoveName = "Star Fist"
@@ -23,7 +127,7 @@ MoveState = 73
 Inputs = ExtResource("2")
 Priority = 7
 MoveEnd = 2
-CanCancelTo = [SubResource("s1"), SubResource("s2")]
+CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("rush0"), SubResource("rush1"), SubResource("rush2"), SubResource("rush3"), SubResource("rush4"), SubResource("rush5"), SubResource("rush6"), SubResource("rush7"), SubResource("rushhb61"), SubResource("rushhb62"), SubResource("rushhb63"), SubResource("rushhb64"), SubResource("rushhb65"), SubResource("rushhb66"), SubResource("rushhb67"), SubResource("rushhb68")]
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true

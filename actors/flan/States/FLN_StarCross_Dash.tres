@@ -59,12 +59,12 @@ MaxFrame = 20
 
 [sub_resource type="Resource" id="z9"]
 script = ExtResource("x9")
-MinDistance = -25000
+MinDistance = -11000
 MaxDistance = 4000
 
 [sub_resource type="Resource" id="z10"]
 script = ExtResource("x2")
-StateIndex = 117
+StateIndex = 118
 
 [sub_resource type="Resource" id="zev4"]
 script = ExtResource("x3")
@@ -84,15 +84,29 @@ script = ExtResource("x3")
 Conditions = [SubResource("z12")]
 Actions = [SubResource("z11")]
 
+[sub_resource type="Resource" id="zp1"]
+script = ExtResource("x7")
+Frame = 20
+
+[sub_resource type="Resource" id="zp2"]
+script = ExtResource("x2")
+StateIndex = 119
+
+[sub_resource type="Resource" id="zevp"]
+script = ExtResource("x3")
+Conditions = [SubResource("zp1")]
+Actions = [SubResource("zp2")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Star Cross (dash)"
 Type = 2
 AnimationData = ExtResource("2")
-TransitionEvents = [SubResource("zev4"), SubResource("zev1")]
+TransitionEvents = [SubResource("zev4"), SubResource("zevp"), SubResource("zev1")]
 OnEnterEvents = [SubResource("zev2")]
 OnTickEvents = [SubResource("zev3"), SubResource("zev5")]
 OnExitEvents = null
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
+NetsuChargeFlash = 30
 AIFlags = 18

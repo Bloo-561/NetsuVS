@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_6B_AnimData.tres" id="2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="ev"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="mx"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="play"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="end"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="at"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("mx")
+Velocity = 0
+
+[sub_resource type="Resource" id="e1"]
+script = ExtResource("ev")
+Actions = [SubResource("s1")]
+
+[sub_resource type="Resource" id="c2"]
+script = ExtResource("at")
+Frame = 18
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("sfx")
+Source = 2
+Index = 47
+
+[sub_resource type="Resource" id="e2"]
+script = ExtResource("ev")
+Conditions = [SubResource("c2")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="c3"]
+script = ExtResource("end")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("play")
+
+[sub_resource type="Resource" id="e3"]
+script = ExtResource("ev")
+Conditions = [SubResource("c3")]
+Actions = [SubResource("s3")]
+
+[resource]
+script = ExtResource("1")
+StateName = "6B"
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("e3")]
+OnEnterEvents = [SubResource("e1")]
+OnTickEvents = [SubResource("e2")]
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

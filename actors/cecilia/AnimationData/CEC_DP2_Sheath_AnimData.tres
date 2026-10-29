@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_ex_land.png" id="e0"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_sheath_half.png" id="e1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_sheath_closed.png" id="e2"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_sheath_slash.png" id="e3"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/CEC_DP2_Hurt_Kneel.tres" id="e4"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+animationStage = 2
+HitboxData = ExtResource("e4")
+
+[sub_resource type="Resource" id="M0"]
+script = ExtResource("sp")
+Sprite = ExtResource("e0")
+Offset = Vector2(-198, -4)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0")]
+
+[sub_resource type="Resource" id="M1"]
+script = ExtResource("sp")
+Sprite = ExtResource("e1")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 8
+Modifiers = [SubResource("M1")]
+
+[sub_resource type="Resource" id="M2"]
+script = ExtResource("sp")
+Sprite = ExtResource("e2")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 14
+Modifiers = [SubResource("M2")]
+
+[sub_resource type="Resource" id="M3"]
+script = ExtResource("sp")
+Sprite = ExtResource("e3")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 16
+Modifiers = [SubResource("M3")]
+
+[sub_resource type="Resource" id="M4"]
+script = ExtResource("sp")
+Sprite = ExtResource("e2")
+Offset = Vector2(-199, -5)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 22
+Modifiers = [SubResource("M4")]
+
+[resource]
+script = ExtResource("1")
+Duration = 42
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4")]
+Hitboxes = [SubResource("H0")]

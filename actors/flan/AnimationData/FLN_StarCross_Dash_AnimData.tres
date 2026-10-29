@@ -25,3 +25,5 @@ script = ExtResource("1")
 Duration = 22
 Animations = [SubResource("A0")]
 Hitboxes = [SubResource("S0")]
+Afterimages = true
+NetsuSolidAfterimages = true

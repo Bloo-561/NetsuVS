@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://6o7vtk08qcty" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs" id="nf2"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuOverdriveCondition.cs" id="nf4"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuBounceOpponentAction.cs" id="nf6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="pt_play"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("4")
@@ -99,6 +100,19 @@ script = ExtResource("3")
 Conditions = [SubResource("nf_s1"), SubResource("nf_s3")]
 Actions = [SubResource("nf_s5")]
 
+[sub_resource type="Resource" id="pt_c"]
+script = ExtResource("nf2")
+HitCheck = 6
+
+[sub_resource type="Resource" id="pt_a"]
+script = ExtResource("pt_play")
+StateIndex = 121
+
+[sub_resource type="Resource" id="pt_e"]
+script = ExtResource("3")
+Conditions = [SubResource("pt_c")]
+Actions = [SubResource("pt_a")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Star Fist"
@@ -108,6 +122,6 @@ TransitionEvents = [SubResource("s3")]
 OnEnterEvents = [SubResource("s6")]
 OnTickEvents = [SubResource("sfx_6_0"), SubResource("s9"), SubResource("s12")]
 OnExitEvents = null
-OnHitConfirmEvents = [SubResource("nf_s7")]
+OnHitConfirmEvents = [SubResource("nf_s7"), SubResource("pt_e")]
 OnHitReactionEvents = null
 AIFlags = 18

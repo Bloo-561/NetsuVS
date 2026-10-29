@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/flan/Sprites/v2/dp236_6.png" id="e0"]
+[ext_resource type="Resource" path="res://actors/flan/Hitboxes/FLN_StarRush_6_rec.tres" id="e1"]
+[ext_resource type="Resource" path="res://actors/flan/Hitboxes/FLN_StarRush_6_atk.tres" id="e2"]
+
+[sub_resource type="Resource" id="M0"]
+script = ExtResource("sp")
+Sprite = ExtResource("e0")
+Offset = Vector2(-362, -69)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0")]
+
+[sub_resource type="Resource" id="S0"]
+script = ExtResource("2")
+HitboxData = ExtResource("e1")
+
+[sub_resource type="Resource" id="S1"]
+script = ExtResource("2")
+AtFrame = 2
+animationStage = 1
+HitboxData = ExtResource("e2")
+
+[sub_resource type="Resource" id="S2"]
+script = ExtResource("2")
+AtFrame = 10
+animationStage = 2
+HitboxData = ExtResource("e1")
+
+[resource]
+script = ExtResource("1")
+Duration = 26
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("S0"), SubResource("S1"), SubResource("S2")]

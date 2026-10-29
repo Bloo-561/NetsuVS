@@ -1,0 +1,125 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://xwwqa2rafknfk" path="res://actors/_shared/sakuga/Inputs/40_Input_214A.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("3")
+MoveIndex = 51
+Conditions = 2
+FrameThreshold = Vector2i(0, 60)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("3")
+MoveIndex = 52
+Conditions = 2
+FrameThreshold = Vector2i(0, 60)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp41"]
+script = ExtResource("3")
+MoveIndex = 41
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp42"]
+script = ExtResource("3")
+MoveIndex = 42
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp43"]
+script = ExtResource("3")
+MoveIndex = 43
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp44"]
+script = ExtResource("3")
+MoveIndex = 44
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp45"]
+script = ExtResource("3")
+MoveIndex = 45
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp46"]
+script = ExtResource("3")
+MoveIndex = 46
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp47"]
+script = ExtResource("3")
+MoveIndex = 47
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp48"]
+script = ExtResource("3")
+MoveIndex = 48
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp49"]
+script = ExtResource("3")
+MoveIndex = 49
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp50"]
+script = ExtResource("3")
+MoveIndex = 50
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp57"]
+script = ExtResource("3")
+MoveIndex = 57
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp58"]
+script = ExtResource("3")
+MoveIndex = 58
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[sub_resource type="Resource" id="sp59"]
+script = ExtResource("3")
+MoveIndex = 59
+Conditions = 2
+FrameThreshold = Vector2i(0, 31)
+NetsuOnlyInState = 135
+
+[resource]
+script = ExtResource("1")
+MoveName = "Air Meteor Drop"
+MoveState = 133
+Inputs = ExtResource("2")
+Priority = 7
+MoveEnd = 2
+CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("sp41"), SubResource("sp42"), SubResource("sp43"), SubResource("sp44"), SubResource("sp45"), SubResource("sp46"), SubResource("sp47"), SubResource("sp48"), SubResource("sp49"), SubResource("sp50"), SubResource("sp57"), SubResource("sp58"), SubResource("sp59")]
+CanBeOverrided = true
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnAir = true
+NetsuOncePerJump = true

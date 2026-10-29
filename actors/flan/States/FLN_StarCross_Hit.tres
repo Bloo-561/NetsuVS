@@ -24,7 +24,7 @@ Actions = [SubResource("z2")]
 [sub_resource type="Resource" id="z3"]
 script = ExtResource("x4")
 Target = 1
-Offset = Vector2i(9000, 0)
+Offset = Vector2i(0, 0)
 KeepHeight = true
 FaceBack = true
 

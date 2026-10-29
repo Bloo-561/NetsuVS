@@ -1,0 +1,98 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="e0"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="e1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="e2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="e3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="e4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="e5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="e6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/TeleportAction.cs" id="e7"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="e8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="e9"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/CEC_DP2_Vanish_AnimData.tres" id="e10"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e0")
+Velocity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e1")
+Velocity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e2")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e3")
+Actions = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e1")
+Velocity = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e4")
+Offset = Vector2i(0, 16000)
+LiftRate = 150
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e3")
+Actions = [SubResource("s5"), SubResource("s6")]
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e5")
+Frame = 2
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("e6")
+Source = 2
+Index = 36
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("e3")
+Conditions = [SubResource("s8")]
+Actions = [SubResource("s9")]
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("e5")
+Frame = 36
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("e7")
+TargetPosition = Vector2i(0, 0)
+xRelativeTo = 2
+yRelativeTo = 0
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("e8")
+StateIndex = 122
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("e3")
+Conditions = [SubResource("s11")]
+Actions = [SubResource("s12"), SubResource("s13")]
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("e2")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("e3")
+Actions = [SubResource("s15")]
+
+[resource]
+script = ExtResource("e9")
+StateName = "EX Crescent Slash (lightning)"
+Type = 2
+AnimationData = ExtResource("e10")
+TransitionEvents = [SubResource("s14")]
+OnEnterEvents = [SubResource("s4")]
+OnTickEvents = [SubResource("s7"), SubResource("s10")]
+OnExitEvents = [SubResource("s16")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 4114

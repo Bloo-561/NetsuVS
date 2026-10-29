@@ -16,6 +16,24 @@ MoveIndex = 53
 Conditions = 6
 FrameThreshold = Vector2i(0, 999)
 
+[sub_resource type="Resource" id="jsp71"]
+script = ExtResource("1")
+MoveIndex = 71
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="jsp69"]
+script = ExtResource("1")
+MoveIndex = 69
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="jsp70"]
+script = ExtResource("1")
+MoveIndex = 70
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
 [resource]
 script = ExtResource("3")
 MoveName = "j.5C"
@@ -23,7 +41,7 @@ MoveState = 71
 Inputs = ExtResource("2")
 Priority = 6
 MoveEnd = 2
-CanCancelTo = [SubResource("fdk_53"), SubResource("gat_50")]
+CanCancelTo = [SubResource("jsp71"), SubResource("jsp69"), SubResource("jsp70"), SubResource("fdk_53"), SubResource("gat_50")]
 VariablesRequirement = null
 VariablesChange = null
 CanBeOverrided = true

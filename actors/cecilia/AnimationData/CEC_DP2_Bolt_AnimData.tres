@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_downward_lightning.png" id="e0"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/CEC_DP2_C_Bolt.tres" id="e1"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/CEC_DP2_None.tres" id="e2"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("2")
+animationStage = 1
+HitboxData = ExtResource("e1")
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("2")
+AtFrame = 4
+animationStage = 2
+HitboxData = ExtResource("e2")
+
+[sub_resource type="Resource" id="M0"]
+script = ExtResource("sp")
+Sprite = ExtResource("e0")
+Offset = Vector2(-162, 0)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 5
+Animations = [SubResource("A0")]
+Hitboxes = [SubResource("H0"), SubResource("H1")]

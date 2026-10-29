@@ -39,7 +39,7 @@ HitboxData = ExtResource("4")
 script = ExtResource("2")
 AtFrame = 30
 animationStage = 3
-HitboxData = ExtResource("hb_recoil")
+HitboxData = ExtResource("4")
 
 [sub_resource type="Resource" id="s_rc2"]
 script = ExtResource("2")

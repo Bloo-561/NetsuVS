@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="e0"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="e1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/AddGravityAction.cs" id="e2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="e3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="e4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="e5"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="e6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="e7"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/CEC_DP2_Land_AnimData.tres" id="e8"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("e0")
+Velocity = 0
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("e1")
+Velocity = 0
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("e2")
+SetValue = true
+UseDefault = true
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("e3")
+Source = 1
+Index = 6
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("e4")
+Actions = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("e5")
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("e6")
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("e4")
+Conditions = [SubResource("s6")]
+Actions = [SubResource("s7")]
+
+[resource]
+script = ExtResource("e7")
+StateName = "Crescent Slash (landing)"
+Type = 2
+AnimationData = ExtResource("e8")
+TransitionEvents = [SubResource("s8")]
+OnEnterEvents = [SubResource("s5")]
+OnTickEvents = null
+OnExitEvents = null
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+AIFlags = 18

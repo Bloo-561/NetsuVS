@@ -41,7 +41,7 @@ Value = 1
 
 [sub_resource type="Resource" id="z6"]
 script = ExtResource("x7")
-Frame = 3
+Frame = 5
 
 [sub_resource type="Resource" id="zev3"]
 script = ExtResource("x3")
@@ -60,7 +60,7 @@ Duration = 8
 
 [sub_resource type="Resource" id="z9"]
 script = ExtResource("x7")
-Frame = 14
+Frame = 22
 
 [sub_resource type="Resource" id="zev4"]
 script = ExtResource("x3")
@@ -74,7 +74,7 @@ Set = true
 
 [sub_resource type="Resource" id="z11"]
 script = ExtResource("x7")
-Frame = 18
+Frame = 28
 
 [sub_resource type="Resource" id="zev5"]
 script = ExtResource("x3")
@@ -87,7 +87,7 @@ Value = -1
 
 [sub_resource type="Resource" id="z13"]
 script = ExtResource("x7")
-Frame = 20
+Frame = 31
 
 [sub_resource type="Resource" id="zev6"]
 script = ExtResource("x3")

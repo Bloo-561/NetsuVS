@@ -275,6 +275,11 @@ public partial class GameManager : Node, IGameState
 	[Export(PropertyHint.Range, "0,100,5")]
 	public int NetsuSuperScalingMinimum = 45;
 
+	/// <summary>Netsu (Oct 29): after an EX move hits an airborne opponent they're held up (can't fall or tech) only
+	/// while the EX keeps hitting: if no new EX hit lands within this many frames, they fall and can tech as usual.</summary>
+	[Export(PropertyHint.Range, "0,120,1")]
+	public int NetsuExHoldGraceFrames = 20;
+
 	/// <summary>Netsu: is an EX / super flash freezing someone right now (inputs are locked: GameLoop)?</summary>
 	public bool NetsuFlashFreeze()
 	{

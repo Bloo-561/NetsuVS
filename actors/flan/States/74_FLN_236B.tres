@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="x1"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="x2"]
 [ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/43_Input_HoldB_or_C.tres" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="pt_play"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("4")
@@ -54,7 +55,7 @@ Actions = [SubResource("s8")]
 
 [sub_resource type="Resource" id="s10"]
 script = ExtResource("8")
-Frame = 21
+Frame = 25
 
 [sub_resource type="Resource" id="s11"]
 script = ExtResource("7")
@@ -67,7 +68,7 @@ Actions = [SubResource("s11")]
 
 [sub_resource type="Resource" id="s13"]
 script = ExtResource("8")
-Frame = 24
+Frame = 28
 
 [sub_resource type="Resource" id="s14"]
 script = ExtResource("9")
@@ -80,7 +81,7 @@ Actions = [SubResource("s14")]
 
 [sub_resource type="Resource" id="s16"]
 script = ExtResource("8")
-Frame = 30
+Frame = 34
 
 [sub_resource type="Resource" id="s17"]
 script = ExtResource("7")
@@ -120,7 +121,7 @@ Index = 47
 
 [sub_resource type="Resource" id="sfx_22_1_at"]
 script = ExtResource("8")
-Frame = 22
+Frame = 26
 
 [sub_resource type="Resource" id="sfx_22_1"]
 script = ExtResource("3")
@@ -173,15 +174,30 @@ script = ExtResource("3")
 Conditions = [SubResource("z1"), SubResource("z2")]
 Actions = [SubResource("z3"), SubResource("z4")]
 
+[sub_resource type="Resource" id="pt_c"]
+script = ExtResource("nf2")
+HitCheck = 6
+
+[sub_resource type="Resource" id="pt_a"]
+script = ExtResource("pt_play")
+StateIndex = 121
+
+[sub_resource type="Resource" id="pt_e"]
+script = ExtResource("3")
+Conditions = [SubResource("pt_c")]
+Actions = [SubResource("pt_a")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Twirling Star Fist"
+NetsuChargeAt = 14
+NetsuChargeHold = ExtResource("x3")
 Type = 2
 AnimationData = ExtResource("2")
 TransitionEvents = [SubResource("zev1"), SubResource("s3")]
 OnEnterEvents = [SubResource("s6")]
 OnTickEvents = [SubResource("sfx_4_0"), SubResource("sfx_22_1"), SubResource("s9"), SubResource("s12"), SubResource("s15"), SubResource("s18")]
 OnExitEvents = [SubResource("s20")]
-OnHitConfirmEvents = [SubResource("nf_s7")]
+OnHitConfirmEvents = [SubResource("nf_s7"), SubResource("pt_e")]
 OnHitReactionEvents = null
 AIFlags = 18

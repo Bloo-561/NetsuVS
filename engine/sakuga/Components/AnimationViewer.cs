@@ -35,6 +35,73 @@ public partial class AnimationViewer : Node
 	}
 
 	private Sprite3D[] _ghosts;
+
+	// --- Netsu (Oct 29): charge flare -----------------------------------------------------------------
+	// A white star flare that bursts in front of a fighter when a charged move comes out (Dengeki Bunko: Fighting
+	// Climax style). One additive sprite (assets/sprites/netsu_charge_flare.png): it pops in big in 2-3 frames, keeps
+	// growing a little and fades out. SakugaActor.NetsuChargeFlareLook drives it every render.
+	private Sprite3D _flare;
+	private float _flareT = -1f;
+
+	private void NetsuCreateFlare()
+	{
+		if (Engine.IsEditorHint() || Sprites == null || Sprites.Length == 0 || Sprites[0] == null)
+		{
+			return;
+		}
+		Texture2D tex = ResourceLoader.Exists("res://assets/sprites/netsu_charge_flare.png") ? GD.Load<Texture2D>("res://assets/sprites/netsu_charge_flare.png") : null;
+		if (tex == null)
+		{
+			return;
+		}
+		StandardMaterial3D mat = new StandardMaterial3D();
+		mat.ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded;
+		mat.Transparency = BaseMaterial3D.TransparencyEnum.Alpha;
+		mat.BlendMode = BaseMaterial3D.BlendModeEnum.Add;
+		mat.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
+		mat.NoDepthTest = true;
+		mat.VertexColorUseAsAlbedo = true;
+		mat.AlbedoTexture = tex;
+		_flare = new Sprite3D();
+		_flare.TopLevel = true;
+		_flare.Visible = false;
+		_flare.Texture = tex;
+		_flare.PixelSize = Sprites[0].PixelSize;
+		_flare.Layers = Sprites[0].Layers;
+		_flare.Shaded = false;
+		_flare.MaterialOverride = mat;
+		Sprites[0].GetParent().CallDeferred(Node.MethodName.AddChild, _flare);
+	}
+
+	/// <summary>Netsu (Oct 29): the charge flare, `scale` times its picture (0 = off), `alpha` strong, `phase` = frames
+	/// into it (for the turning and the flickering rays), centred on `at` (world).</summary>
+	public void SetChargeFlare(float scale, float alpha, float phase, Vector3 at)
+	{
+		float t = scale > 0f ? 0f : -1f;
+		if (_flare == null || !_flare.IsInsideTree())
+		{
+			return;
+		}
+		if (t < 0f || t >= 1f)
+		{
+			if (_flareT >= 0f)
+			{
+				_flare.Visible = false;
+			}
+			_flareT = -1f;
+			return;
+		}
+		_flareT = t;
+		// Oct 29 (3): size and strength come from SakugaActor.NetsuChargeFlareLook (it grows while the charge is held,
+		// then swells over the whole fighter and fades); the rays flicker and it turns slowly
+		float flicker = 1f + 0.12f * Mathf.Sin(phase * 1.9f);
+		Basis basis = new Basis(Vector3.Back, phase * 0.04f).Scaled(new Vector3(scale * 1.2f * flicker, scale * (2f - flicker), 1f));
+		_flare.GlobalTransform = new Transform3D(basis, at);
+		_flare.Modulate = new Color(1f, 1f, 1f, alpha);
+		_flare.SortingOffset = Sprites[0].SortingOffset + 2f;
+		_flare.Visible = true;
+	}
+	private ShaderMaterial[] _ghostMats;   // Oct 29: flat tint copies (the aura shader), so they show up on dark sprites
 	private GhostFrame[] _history;
 	private int _historyHead;
 	private int _historyCount;
@@ -46,6 +113,7 @@ public partial class AnimationViewer : Node
 		baseScale = ((Shadow == null) ? Vector3.Zero : Shadow.Scale);
 		NetsuCreateGhosts();
 		NetsuCreateAura();
+		NetsuCreateFlare();
 		// Netsu: extra layers (slash trails) get their own copy of the palette material,
 		// because ViewAnimations writes each layer's texture into its material.
 		if (Sprites != null)
@@ -69,6 +137,8 @@ public partial class AnimationViewer : Node
 		Node parent = Sprites[0].GetParent();
 		_ghosts = new Sprite3D[AfterimageCount];
 		_history = new GhostFrame[AfterimageCount * AfterimageSpacing + 1];
+		Shader flat = ResourceLoader.Exists("res://assets/shaders/netsu_aura.gdshader") ? GD.Load<Shader>("res://assets/shaders/netsu_aura.gdshader") : null;
+		_ghostMats = flat != null ? new ShaderMaterial[AfterimageCount] : null;
 		for (int i = 0; i < AfterimageCount; i++)
 		{
 			Sprite3D g = new Sprite3D();
@@ -79,13 +149,19 @@ public partial class AnimationViewer : Node
 			g.TextureFilter = Sprites[0].TextureFilter;
 			g.Layers = Sprites[0].Layers;
 			g.Shaded = false;
+			if (_ghostMats != null)
+			{
+				_ghostMats[i] = new ShaderMaterial();
+				_ghostMats[i].Shader = flat;
+				g.MaterialOverride = _ghostMats[i];
+			}
 			parent.CallDeferred(Node.MethodName.AddChild, g);
 			_ghosts[i] = g;
 		}
 	}
 
 	/// <summary>Netsu: show or hide afterimages; call after ViewAnimations each render.</summary>
-	public void SetAfterimages(bool on)
+	public void SetAfterimages(bool on, bool solid = false)
 	{
 		if (_ghosts == null)
 		{
@@ -118,6 +194,14 @@ public partial class AnimationViewer : Node
 			g.FlipH = f.FlipH;
 			g.GlobalTransform = f.Xform;
 			float a = 0.5f * (1f - (float)i / _ghosts.Length);
+			g.MaterialOverride = solid && _ghostMats != null ? _ghostMats[i] : null;
+			if (solid && _ghostMats != null)
+			{
+				// Oct 29: solid tinted silhouettes (Flan's Star Cross only: AnimationData.NetsuSolidAfterimages)
+				a = 0.75f * (1f - (float)i / _ghosts.Length);
+				_ghostMats[i].SetShaderParameter(NetsuAuraParam, new Color(AfterimageTint.R, AfterimageTint.G, AfterimageTint.B, a));
+				_ghostMats[i].SetShaderParameter(NetsuTexParam, f.Texture);
+			}
 			g.Modulate = new Color(AfterimageTint.R, AfterimageTint.G, AfterimageTint.B, a);
 			g.SortingOffset = Sprites[0].SortingOffset - 1f - i;
 			g.Visible = true;

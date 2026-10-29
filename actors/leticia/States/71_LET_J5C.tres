@@ -120,6 +120,8 @@ Actions = [SubResource("nf_s5")]
 
 [resource]
 script = ExtResource("11")
+NetsuChargeAt = 8
+NetsuChargeHold = ExtResource("nf2")
 StateName = "j_5C"
 Type = 2
 AnimationData = ExtResource("1")

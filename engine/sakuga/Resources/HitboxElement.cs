@@ -251,9 +251,21 @@ public partial class HitboxElement : Resource
 	[Export(PropertyHint.None, "")]
 	public int NetsuFloatFrames;
 
+	/// <summary>Netsu (Oct 29, TamaDeez): carry. An opponent hit by this box moves with the attacker (same speed, so no
+	/// pull toward her) while she is still rising; at her peak they stop rising and fall as usual, with at least
+	/// SakugaActor.NetsuCarryReleaseHitstun frames of hitstun left. Flan's upward Star Rush (7/8/9).</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuCarryUp;
+
 	[Export(PropertyHint.None, "")]
 	public int NetsuFloatRise = 4000;
 
 	[Export(PropertyHint.None, "")]
 	public int NetsuFloatRiseFrames = 10;
+
+	/// <summary>Netsu (Oct 29, TamaDeez): a hard knockdown hit stays a hard knockdown only while the combo's damage
+	/// scaling is at least this % (before this hit); lower than that it's a normal knockdown (0 = always hard).
+	/// Cecilia's 623A: hard knockdown early in a combo, not at the end of a long one.</summary>
+	[Export(PropertyHint.Range, "0,100,1")]
+	public int NetsuHardKnockdownMinScaling;
 }

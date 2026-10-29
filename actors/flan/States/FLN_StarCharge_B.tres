@@ -44,7 +44,7 @@ Index = 49
 
 [sub_resource type="Resource" id="z7"]
 script = ExtResource("x8")
-Frame = 18
+Frame = 26
 
 [sub_resource type="Resource" id="zev3"]
 script = ExtResource("x3")
