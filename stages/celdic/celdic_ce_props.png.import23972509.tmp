@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crd27hml0eusb"
-path.s3tc="res://.godot/imported/north_ambria_na_trees.png-9a2558bd560051e05938db7577ff5d87.s3tc.ctex"
+uid="uid://rtkp2qss1avy"
+path.s3tc="res://.godot/imported/celdic_ce_props.png-2dbe96512ab7019923a5960153395133.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5f64dbe158cef271de77335943bb4378"
+"md5": "da8ea08c3e83517ece653b0fcc4311e7"
 }
 
 [deps]
 
-source_file="res://stages/north_ambria/north_ambria_na_trees.png"
-dest_files=["res://.godot/imported/north_ambria_na_trees.png-9a2558bd560051e05938db7577ff5d87.s3tc.ctex"]
+source_file="res://stages/celdic/celdic_ce_props.png"
+dest_files=["res://.godot/imported/celdic_ce_props.png-2dbe96512ab7019923a5960153395133.s3tc.ctex"]
 
 [params]
 

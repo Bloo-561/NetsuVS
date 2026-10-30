@@ -1,15 +1,14 @@
-// North Ambria - banks of blowing snow and mist between the field and the mountains (card group "Mist").
-// Wide camera-facing quads: UV.x in 20 m units across, UV.y = layer id + height (glTF flips v).
-// The near layers blow fast and thin (snow streaming across the ground behind the fighters);
-// the far ones roll slowly and thick, burying the mountains' feet. Gusts swell them. Visual only.
+// North Ambria - storm haze and snow-fog (visual only). Card group "Mist": UV.x along (metres / 40),
+// UV.y = id + height.  0 rising out of the gulf past the plateau edge, 1-4 veils in front of each cliff layer
+// (each farther one denser), 5 a thin veil of driven snow across the back of the plateau.
 shader_type spatial;
 render_mode unshaded, blend_mix, depth_draw_never, cull_disabled, shadows_disabled, fog_disabled;
 
-uniform vec3 mist_color : source_color = vec3(0.86, 0.9, 0.96);
-uniform vec3 shade_color : source_color = vec3(0.6, 0.66, 0.78);
-uniform float opacity = 0.75;
-uniform float wind = 0.35;            // 20 m units per second (near layer)
-uniform float gust_period = 7.0;
+uniform vec3 mist_color : source_color = vec3(0.7, 0.74, 0.81);
+uniform vec3 bright_color : source_color = vec3(0.84, 0.87, 0.92);
+uniform vec3 gap_dir = vec3(0.05, 0.07, -1.0);
+uniform float wind_speed = 0.06;
+uniform bool sea = false;        // the horizontal mist sea filling the gulf (node "Fog")
 
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
 float vnoise(vec2 p) {
@@ -19,24 +18,33 @@ float vnoise(vec2 p) {
 }
 float fbm(vec2 p) {
 	float s = 0.0, a = 0.5;
-	for (int i = 0; i < 5; i++) { s += vnoise(p) * a; p = p * 2.03 + 1.3; a *= 0.5; }
+	for (int i = 0; i < 5; i++) { s += vnoise(p) * a; p = p * 2.03 + 1.7; a *= 0.5; }
 	return s / 0.97;
 }
+varying vec3 wpos;
+void vertex() { wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz; }
 
 void fragment() {
 	float id = -floor(UV.y);
+	if (sea) {
+		float hs = 1.0 - fract(UV.y);
+		float ns = fbm(vec2(UV.x * 0.8 - TIME * wind_speed * 2.0, hs * 30.0) + vec2(fbm(vec2(UV.x * 0.3, hs * 12.0 + TIME * 0.01)), 0.0));
+		vec3 ds = normalize(wpos - CAMERA_POSITION_WORLD);
+		float tw = pow(max(dot(ds, normalize(gap_dir)), 0.0), 5.0);
+		ALBEDO = mix(mist_color * (0.9 + 0.14 * ns), bright_color, tw * 0.25);
+		ALPHA = clamp((0.72 + 0.3 * ns) * smoothstep(0.0, 0.07, hs), 0.0, 0.97);
+	} else {
 	float h = 1.0 - fract(UV.y);
-	float gust = 0.7 + 0.3 * sin(TIME * 6.2832 / gust_period + id) * sin(TIME * 6.2832 / (gust_period * 0.41));
-	float speed = wind / (1.0 + id * 0.9);
-	float t = TIME * speed;
-	vec2 q = vec2(UV.x * (2.4 - id * 0.25) - t * 2.0, h * (1.6 + id * 0.2) - TIME * 0.03);
-	float n = fbm(q + vec2(fbm(q * 0.7 + vec2(t, 0.0)) * 1.2, 0.0));
-	// near layers: streaky (stretched along the wind); far layers: billowy
-	float streak = vnoise(vec2(UV.x * 6.0 - t * 6.0, h * 18.0 + id * 3.0));
-	n = mix(n * 0.7 + streak * 0.45, n, smoothstep(0.0, 2.5, id));
-	float top = 0.55 + 0.4 * fbm(vec2(UV.x * 0.9 - t * 0.7, id * 1.7));
-	float a = smoothstep(0.3, 0.68, n) * (1.0 - smoothstep(top - 0.35, top, h)) * smoothstep(0.0, 0.1, h);
-	a *= gust * mix(0.55, 1.0, smoothstep(0.0, 3.0, id));
-	ALBEDO = mix(shade_color, mist_color, 0.55 + 0.45 * n + 0.2 * h);
-	ALPHA = clamp(a * opacity, 0.0, 1.0);
+	float u = UV.x;
+	float dens = id < 0.5 ? 0.6 : (id < 1.5 ? 0.3 : (id < 2.5 ? 0.36 : (id < 3.5 ? 0.46 : (id < 4.5 ? 0.62 : 0.08))));
+	float spd = id > 4.5 ? 6.0 : 1.0 + id * 0.2;
+	float n = fbm(vec2(u * 1.2 - TIME * wind_speed * spd, h * 2.2 + id * 3.7) + vec2(fbm(vec2(u * 0.5, h + TIME * 0.02)) * 1.2, 0.0));
+	float n2 = fbm(vec2(u * 3.0 - TIME * wind_speed * spd * 1.8, h * 5.0 + id));
+	float prof = id > 4.5 ? (1.0 - smoothstep(0.1, 1.0, h)) : pow(1.0 - h, 1.3);
+	float a = prof * smoothstep(0.0, 0.08, h) * (0.45 + 0.75 * n + 0.2 * n2) * dens;
+	vec3 d = normalize(wpos - CAMERA_POSITION_WORLD);
+	float toward = pow(max(dot(d, normalize(gap_dir)), 0.0), 6.0);
+	ALBEDO = mix(mist_color, bright_color, toward * 0.7 + n2 * 0.15);
+	ALPHA = clamp(a, 0.0, 0.94);
+	}
 }
