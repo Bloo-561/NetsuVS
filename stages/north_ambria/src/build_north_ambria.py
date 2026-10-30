@@ -1,41 +1,33 @@
-# North Ambria (v3) - 3D stage build script (Blender 5.x, runs in --background).
-# An exposed North Ambria plateau in a raging snowstorm. A broad, wind-packed snowfield for the fight; two small
-# weathered stone markers together on a low rise far back; snowbanks and half-buried rocks only at the side edges,
-# a few dull ice outcrops at the far edges. Past the plateau edge the ground falls into a misty gulf, and layer upon
-# layer of irregular cliffs and ridges march away into the storm, with a brighter break low on the horizon.
+# North Ambria - 3D stage build script (Blender 5.x, runs in --background).
+# A frozen snowfield in a blizzard: a raised rocky mound with two snow-capped gravestones at the back,
+# ice crystal clusters and snowy boulders around the field, broken cliffs and jagged mountains in the mist.
 #
-#   blender --background --factory-startup --python run_na.py -- STEPS=build,bake,preview,export,beauty
-#   blender --background --factory-startup --python run_na.py -- STEPS=blockout       (grey blockout render only)
+#   blender --background --factory-startup --python run_na.py -- STEPS=build,bake,preview,export CAMS=CAM_mid
 #
 # Layout is written in GODOT coordinates (x right, y up, +z toward the camera) and converted
 # to Blender (Z-up) by G():  Godot (x, y, z) -> Blender (x, -z, y).  1 unit = 1 m.
-# Baked groups (atlases): NA_Rocks (rocks, markers, ice), NA_Cliffs (near cliff layers), NA_Far (far ridges)
-# NA_Floor: the sculpted snowfield (light map only; Godot's floor shader draws the snow, exported as "Floor")
-# Card groups (Godot shaders): NA_Sky (in the bake), NA_Mist, NA_Drift (blowing powder; Godot only)
-# Materials: matte Principled (Roughness 0.94, Metallic 0, Coat 0, Transmission 0, Specular IOR Level 0.1).
+# Baked groups (atlases): NA_Ground, NA_Ice, NA_Far, NA_Floor (light map only)
+# Card groups (Godot shaders): NA_Sky (emits in the bake), NA_Mist (not baked)
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
 ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\north_ambria"
-TEXD = ROOT + r"\src\tex"
-VARIANT = globals().get("VARIANT") or "storm"
-BLOCKOUT = bool(globals().get("BLOCKOUT", False))
+TEXD = ROOT + r"\textures"
 
 # ---------------- layout (Godot space, metres) ----------------
-FLOOR_X = 90.0                     # the snowfield heightfield: x +-90, z -66..+24 (light map covers exactly this)
-FLOOR_BACK, FLOOR_FRONT = -66.0, 24.0
-FLOOR_STEP = 0.8
-LANE_X, LANE_Z = 12.5, -9.0        # keep |x| < 12.5 and z > -9 clear and level (fight lane)
-CENTER_Z = -6.0
-RISE = (0.5, -42.0)                # the modest, distant rise with the two markers
-RISE_H = 1.1
-EDGE_Z = -55.0                     # the plateau edge (the ground falls away behind it)
-WIND = (0.94, 0.34)                # wind direction over the ground (x, z): blowing to the right, a little toward us
-SKY_R = 1300.0
-SUN_DIR = (0.5, -0.38, 0.78)       # where the storm light travels TO: from behind-left, across the snow for relief
+FLOOR_X = 40.0
+FLOOR_BACK, FLOOR_FRONT = -58.0, 22.0
+MOUND = (0.0, -34.0)               # the raised mound with the two gravestones
+MOUND_H = 2.6
+SKY_R = 300.0
+LANE_X, LANE_Z = 12.5, -9.0
+MIST = [  # (z, top, half-width): blowing snow / mist banks (Godot shader)
+    (-14.0, 2.5, 34.0), (-27.0, 5.5, 40.0), (-46.0, 12.0, 60.0), (-60.0, 20.0, 90.0), (-90.0, 32.0, 140.0), (-135.0, 48.0, 220.0)]
 
-V = dict(world=("#9aa8be", 1.0), sun=(2.6, "#e6edf8", 9.0), fill=(1500, "#c4d0e4"), top=(2600, "#b8c4d8"),
-         sky=[(0.0, "#c4ccd8"), (0.08, "#9aa6b8"), (0.25, "#6a7488"), (1.0, "#3a4252")], sky_strength=1.1)
+V = dict(world=("#8496b8", 1.2), haze="#b8c6da",
+         **{"break": (60000, "#e8f0ff"), "top": (9000, "#c4d2ec"), "fill": (5000, "#d0dcf0")},
+         sky=[(0.0, "#c8d4e4"), (0.15, "#a8b6cc"), (0.4, "#6a7690"), (1.0, "#2c3448")], sky_strength=1.0)
+
 def srgb(h):
     h = h.lstrip('#'); c = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
     return tuple(((v + 0.055) / 1.055) ** 2.4 if v > 0.04045 else v / 12.92 for v in c)
@@ -233,597 +225,569 @@ class NB:
         self.link(vec, im.inputs[0])
         return im
 
-def beam(g, p0, p1, w, h, m="Metal"):
-    """Square bar from Godot point p0 to p1 (w across, h tall)."""
+
+# ======================================================================
+#  North Ambria: shapes
+# ======================================================================
+def spire(g, x, z, h, r, seed, m="Rock", lean=(0.0, 0.0), sink=1.0, segs=None, rings=5, base_y=0.0):
+    """Jagged faceted spike (ice crystal / rock spire). Base sunk below base_y by `sink`."""
     g = grp(g) if isinstance(g, str) else g
-    a, b = G(*p0), G(*p1); d = b - a; L = d.length
-    q = d.normalized().to_track_quat('Z', 'Y')
-    M = Matrix.Translation((a + b) / 2) @ q.to_matrix().to_4x4() @ Matrix.Diagonal((w, h, L, 1.0))
-    r = bmesh.ops.create_cube(g.bm, size=1.0, matrix=M)
-    _tag(g, list({f for v in r["verts"] for f in v.link_faces}), m)
+    rnd = random.Random(seed)
+    segs = segs or rnd.choice([5, 6, 7])
+    bm = g.bm; ring_v = []
+    y0 = base_y - sink
+    for k in range(rings):
+        t = k / rings
+        y = y0 + (h + sink) * t
+        rad = r * (1 - t) ** 0.75 * rnd.uniform(0.85, 1.12)
+        ox, oz = lean[0] * t * t * h, lean[1] * t * t * h
+        a0 = rnd.random() * 6.283; ring = []
+        for i in range(segs):
+            a = a0 + 6.283 * i / segs + rnd.uniform(-0.2, 0.2)
+            rr = rad * rnd.uniform(0.75, 1.12)
+            ring.append(bm.verts.new(G(x + ox + rr * math.cos(a), y, z + oz + rr * math.sin(a))))
+        ring_v.append(ring)
+    tip = bm.verts.new(G(x + lean[0] * h, base_y + h, z + lean[1] * h))
+    new = []
+    for k in range(rings - 1):
+        A, B = ring_v[k], ring_v[k + 1]
+        for i in range(segs):
+            j = (i + 1) % segs
+            new.append(bm.faces.new((A[i], A[j], B[j]))); new.append(bm.faces.new((A[i], B[j], B[i])))
+    T = ring_v[-1]
+    for i in range(segs):
+        new.append(bm.faces.new((T[i], T[(i + 1) % segs], tip)))
+    bmesh.ops.recalc_face_normals(bm, faces=new)
+    _tag(g, new, m)
 
-def tube(g, pts, r, m="Pipe", seg=10):
-    """Round pipe along a polyline of Godot points (smooth joints from overlapping segments + ball joints)."""
+def crystal_cluster(x, z, s, seed, base_y=0.0):
+    """A cluster of leaning ice crystals (big one in the middle) with snowy rocks at its foot."""
+    rnd = random.Random(seed)
+    spire("NA_Ice", x, z, 3.2 * s, 1.1 * s, seed, "Ice", (rnd.uniform(-0.08, 0.08), rnd.uniform(-0.05, 0.05)), 0.5, rnd.choice([4, 5]), 3, base_y)
+    for k in range(rnd.randint(2, 4)):
+        a = rnd.uniform(0, 6.28); d = s * rnd.uniform(0.9, 1.6)
+        spire("NA_Ice", x + d * math.cos(a), z + d * math.sin(a), rnd.uniform(1.0, 2.0) * s, rnd.uniform(0.4, 0.7) * s, seed + k + 1,
+              "Ice", (math.cos(a) * 0.25, math.sin(a) * 0.25), 0.4, rnd.choice([4, 5]), 3, base_y)
+    for k in range(rnd.randint(2, 4)):
+        a = rnd.uniform(0, 6.28); d = s * rnd.uniform(1.2, 2.2)
+        rock("NA_Ground", x + d * math.cos(a), base_y, z + d * math.sin(a), s * rnd.uniform(0.5, 1.0), s * rnd.uniform(0.35, 0.7),
+             s * rnd.uniform(0.5, 0.9), seed * 7 + k, "SnowRock")
+
+def rock(g, x, y, z, sx, sy, sz, seed, m="SnowRock", sub=1, jag=0.28):
+    gg = grp(g) if isinstance(g, str) else g
+    rnd = random.Random(seed)
+    M = Matrix.Translation(G(x, y, z)) @ Matrix.Rotation(rnd.uniform(0, 6.28), 4, 'Z') @ Matrix.Diagonal((sx, sz, sy, 1.0))
+    r = bmesh.ops.create_icosphere(gg.bm, subdivisions=sub, radius=1.0, matrix=M)
+    c = G(x, y, z)
+    for v in r["verts"]:
+        v.co = c + (v.co - c) * rnd.uniform(1 - jag, 1 + jag * 0.5)
+        if v.co.z < y - 0.25 * sy:
+            v.co.z = y - 0.25 * sy
+    _tag(gg, list({f for v in r["verts"] for f in v.link_faces}), m)
+
+def drift(g, x, z, rx, rz, h, seed, m="Snow", n=14, y0=0.0):
+    """A smooth snow drift / mound: a squashed dome with a noisy ring."""
+    gg = grp(g) if isinstance(g, str) else g
+    rnd = random.Random(seed); bm = gg.bm
+    rings = 5; ring_v = []
+    for k in range(rings):
+        t = k / rings
+        ring = []
+        for i in range(n):
+            a = 2 * math.pi * i / n
+            rr = (1 - t ** 2) ** 0.5 * rnd.uniform(0.92, 1.08) if k else rnd.uniform(0.95, 1.1)
+            y = y0 + h * math.sin(t * math.pi / 2) - (0.2 if k == 0 else 0)
+            ring.append(bm.verts.new(G(x + rx * rr * math.cos(a), y, z + rz * rr * math.sin(a))))
+        ring_v.append(ring)
+    top = bm.verts.new(G(x, y0 + h, z))
+    new = []
+    for k in range(rings - 1):
+        A, B = ring_v[k], ring_v[k + 1]
+        for i in range(n):
+            j = (i + 1) % n
+            new.append(bm.faces.new((A[i], A[j], B[j], B[i])))
+    for i in range(n):
+        new.append(bm.faces.new((ring_v[-1][i], ring_v[-1][(i + 1) % n], top)))
+    bmesh.ops.recalc_face_normals(bm, faces=new)
+    _tag(gg, new, m)
+
+def ridge(g, z, x0, x1, base, peaks, seed, m="Mountain", n=90, jag=4.0):
+    """A jagged mountain range sheet facing the camera. peaks = [(x, height, half_width), ...]."""
     g = grp(g) if isinstance(g, str) else g
-    for a, b in zip(pts[:-1], pts[1:]):
-        A, B = G(*a), G(*b); d = B - A
-        q = d.normalized().to_track_quat('Z', 'Y')
-        M = Matrix.Translation((A + B) / 2) @ q.to_matrix().to_4x4()
-        rr = bmesh.ops.create_cone(g.bm, cap_ends=False, cap_tris=False, segments=seg, radius1=r, radius2=r, depth=d.length, matrix=M)
-        _tag(g, list({f for v in rr["verts"] for f in v.link_faces}), m)
-    for p in pts[1:-1]:
-        rr = bmesh.ops.create_uvsphere(g.bm, u_segments=seg, v_segments=6, radius=r * 1.0, matrix=Matrix.Translation(G(*p)))
-        _tag(g, list({f for v in rr["verts"] for f in v.link_faces}), m)
-
-def arc_pts(c, r, a0, a1, n, plane="xy"):
-    """Points on a circular arc around Godot point c (plane xy: bends up/over in x-y)."""
-    out = []
-    for k in range(n + 1):
-        a = a0 + (a1 - a0) * k / n
-        if plane == "xy":
-            out.append((c[0] + r * math.cos(a), c[1] + r * math.sin(a), c[2]))
-        else:
-            out.append((c[0], c[1] + r * math.sin(a), c[2] + r * math.cos(a)))
-    return out
-
-
-# ======================================================================
-#  shared shape helpers (lathe, prisms, cards, windows)
-# ======================================================================
-def lathe(g, x, y0, z, prof, seg=12, m="Steel", rot=0.0):
-    """Surface of revolution around the vertical through (x, z). prof = [(radius, height), ...] bottom -> top,
-    starting and ending at radius 0 so it is closed."""
-    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
-    rings = []
-    for (r, y) in prof:
-        if r < 1e-4:
-            rings.append([bm.verts.new(G(x, y0 + y, z))])
-        else:
-            rings.append([bm.verts.new(G(x + r * math.cos(2 * math.pi * i / seg + rot), y0 + y, z + r * math.sin(2 * math.pi * i / seg + rot)))
-                          for i in range(seg)])
-    faces = []
-    for A, B in zip(rings[:-1], rings[1:]):
-        if len(A) == 1 and len(B) == 1:
-            continue
-        if len(A) == 1:
-            faces += [bm.faces.new((A[0], B[(i + 1) % seg], B[i])) for i in range(seg)]
-        elif len(B) == 1:
-            faces += [bm.faces.new((A[i], A[(i + 1) % seg], B[0])) for i in range(seg)]
-        else:
-            faces += [bm.faces.new((A[i], A[(i + 1) % seg], B[(i + 1) % seg], B[i])) for i in range(seg)]
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    _tag(gg, faces, m)
-    return faces
-
-def hexa(g, pts, m):
-    """A closed six-sided solid from 8 Godot points: bottom ring (4) then the matching top ring (4)."""
-    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
-    v = [bm.verts.new(G(*p)) for p in pts]
-    b, t = v[:4], v[4:]
-    faces = [bm.faces.new((b[3], b[2], b[1], b[0])), bm.faces.new((t[0], t[1], t[2], t[3]))]
-    for i in range(4):
-        j = (i + 1) % 4
-        faces.append(bm.faces.new((b[i], b[j], t[j], t[i])))
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    _tag(gg, faces, m)
-    return faces
-
-def prism(g, pts, axis, a0, a1, m):
-    """A convex outline pushed along a world axis. axis 'z': pts are (x, y), from z = a0 to a1;
-    axis 'x': pts are (z, y), from x = a0 to a1; axis 'y': pts are (x, z), from y = a0 to a1."""
-    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
-    def P(p, a):
-        if axis == 'z':
-            return G(p[0], p[1], a)
-        if axis == 'x':
-            return G(a, p[1], p[0])
-        return G(p[0], a, p[1])
-    F = [bm.verts.new(P(p, a1)) for p in pts]
-    B = [bm.verts.new(P(p, a0)) for p in pts]
-    faces = [bm.faces.new(F), bm.faces.new(B[::-1])]
-    n = len(pts)
+    rnd = random.Random(seed); bm = g.bm
+    def prof(x):
+        h = 4.0
+        for (px, ph, pw) in peaks:
+            d = abs(x - px) / pw
+            if d < 1:
+                h = max(h, ph * (1 - d) ** 1.1)
+        return h
+    cols = []
+    for i in range(n + 1):
+        x = x0 + (x1 - x0) * i / n + rnd.uniform(-0.3, 0.3) * (x1 - x0) / n
+        top = base + prof(x) + rnd.uniform(-1, 1) * jag * (1.0 if i % 2 else 0.4)
+        mid = base + (top - base) * rnd.uniform(0.45, 0.65)
+        cols.append((bm.verts.new(G(x, base - 4, z + 4)), bm.verts.new(G(x + rnd.uniform(-1, 1), mid, z + rnd.uniform(-2, 2))),
+                     bm.verts.new(G(x, top, z - rnd.uniform(0, 3)))))
+    new = []
     for i in range(n):
-        j = (i + 1) % n
-        faces.append(bm.faces.new((F[i], B[i], B[j], F[j])))
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    _tag(gg, faces, m)
-    return faces
-
-def gable(g, x0, x1, z0, z1, y0, y_eave, y_ridge, m_wall, m_roof, ridge_axis='z', over=0.4, thick=0.25):
-    """A building with a pitched roof: walls to y_eave, gable ends, two roof slabs (ridge along z or x)."""
-    box(g, (x0 + x1) / 2, y0, y_eave, (z0 + z1) / 2, x1 - x0, z1 - z0, m_wall)
-    if ridge_axis == 'z':
-        xm = (x0 + x1) / 2
-        prism(g, [(x0, y_eave), (x1, y_eave), (xm, y_ridge)][::-1], 'z', z0, z1, m_wall)
-        for s in (-1, 1):
-            xe = x0 - over if s < 0 else x1 + over
-            ye = y_eave - over * (y_ridge - y_eave) / ((x1 - x0) / 2)
-            p = [(xe, ye), (xm, y_ridge), (xm, y_ridge + thick), (xe, ye + thick)]
-            prism(g, p if s > 0 else p[::-1], 'z', z0 - over, z1 + over, m_roof)
-    else:
-        zm = (z0 + z1) / 2
-        prism(g, [(z0, y_eave), (z1, y_eave), (zm, y_ridge)][::-1], 'x', x0, x1, m_wall)
-        for s in (-1, 1):
-            ze = z0 - over if s < 0 else z1 + over
-            ye = y_eave - over * (y_ridge - y_eave) / ((z1 - z0) / 2)
-            p = [(ze, ye), (zm, y_ridge), (zm, y_ridge + thick), (ze, ye + thick)]
-            prism(g, p if s > 0 else p[::-1], 'x', x0 - over, x1 + over, m_roof)
-
-def card(gname, pts, fid, mat, u0=0.0, u1=1.0):
-    """A shader card: Blender UV.x = u0..u1 across, UV.y = id + h (h 0 at pts[0..1], 1 at pts[2..3])."""
-    return quad(grp(gname, "Cards"), pts, [(u0, fid + 0.001), (u1, fid + 0.001), (u1, fid + 0.999), (u0, fid + 0.999)], mat)
-
-def card_uv(gg, faces, fid, h=0.5, u=0.5):
-    for f in faces:
-        f[gg.custom] = 1
-        for l in f.loops:
-            l[gg.uv].uv = (u, fid + h)
-
-def glow_lathe(gname, x, y0, z, prof, fid, seg=10, mat="GlowWarm"):
-    gg = grp(gname, "Cards")
-    card_uv(gg, lathe(gg, x, y0, z, prof, seg, mat), fid)
-
-def glow_box(gname, center, size, fid, mat="GlowWarm", rot_y=0.0):
-    gg = grp(gname, "Cards")
-    before = len(gg.bm.faces)
-    obox(gg, center, size, rot_y, mat)
-    card_uv(gg, list(gg.bm.faces)[before:], fid)
-
-def letters(gname, text, x0, y0, z, h, fid, mat="GlowSign", face=1, depth=0.12):
-    """Block capitals made of glowing boxes (a lit sign). Supported: A..Z subset used here."""
-    S = {   # 5x7 grid strokes: (col0, row0, col1, row1) rectangles in grid units
-        "R": [(0, 0, 1, 7), (1, 6, 4, 7), (3, 4, 4, 7), (1, 3, 4, 4), (2, 0, 3, 3), (3, 0, 4, 2)],
-        "O": [(0, 1, 1, 6), (3, 1, 4, 6), (1, 0, 3, 1), (1, 6, 3, 7)],
-        "E": [(0, 0, 1, 7), (0, 0, 4, 1), (0, 3, 3, 4), (0, 6, 4, 7)],
-        "F": [(0, 0, 1, 7), (0, 3, 3, 4), (0, 6, 4, 7)],
-        "C": [(0, 1, 1, 6), (1, 0, 4, 1), (1, 6, 4, 7)],
-        "K": [(0, 0, 1, 7), (1, 3, 2, 4), (2, 4, 3, 5), (3, 5, 4, 7), (2, 2, 3, 3), (3, 0, 4, 2)],
-    }
-    u = h / 7.0; x = x0
-    for ch in text:
-        for (c0, r0, c1, r1) in S.get(ch, []):
-            glow_box(gname, (x + (c0 + c1) / 2 * u, y0 + (r0 + r1) / 2 * u, z + face * depth / 2),
-                     ((c1 - c0) * u, (r1 - r0) * u, depth), fid, mat)
-        x += 5 * u
-
-WIN = [0]          # running window id (each window card gets its own, the shader picks lit / dark from it)
-
-def window_grid(gname, face, a0, a1, y0, y1, plane, col_w=2.6, row_h=3.4, ww=1.4, wh=1.8, shop=False, skip=None):
-    """Window cards on a facade. face: '+z', '-z', '+x', '-x'; a0..a1 the span along the facade (x for z-faces,
-    z for x-faces); plane = the facade's coordinate (+0.06 outward is added). shop=True: one big lit shop window
-    per bay (UV.x 2..3 tells the shader)."""
-    n = max(1, int((a1 - a0) / col_w)); cw = (a1 - a0) / n
-    rows = 1 if shop else max(1, int((y1 - y0) / row_h))
-    rh = (y1 - y0) / rows
-    sgn = 1 if face[0] == '+' else -1
-    for i in range(n):
-        for j in range(rows):
-            if skip and skip(i, j):
-                continue
-            ac = a0 + (i + 0.5) * cw; yc = y0 + (j + 0.5) * rh
-            hw, hh = (cw * 0.42, rh * 0.38) if shop else (ww / 2, wh / 2)
-            wid = WIN[0]; WIN[0] += 1
-            if face[1] == 'z':
-                zc = plane + sgn * 0.06
-                pts = [(ac - hw * sgn, yc - hh, zc), (ac + hw * sgn, yc - hh, zc), (ac + hw * sgn, yc + hh, zc), (ac - hw * sgn, yc + hh, zc)]
-            else:
-                xc = plane + sgn * 0.06
-                pts = [(xc, yc - hh, ac + hw * sgn), (xc, yc - hh, ac - hw * sgn), (xc, yc + hh, ac - hw * sgn), (xc, yc + hh, ac + hw * sgn)]
-            card(gname, pts, wid, "WindowCard", 2.0 if shop else 0.0, 3.0 if shop else 1.0)
-
+        a, b = cols[i], cols[i + 1]
+        for r in range(2):
+            new.append(bm.faces.new((a[r], b[r], b[r + 1]))); new.append(bm.faces.new((a[r], b[r + 1], a[r + 1])))
+    for f in new:
+        f.normal_update()
+        if f.normal.y > 0:
+            f.normal_flip()
+    _tag(g, new, m)
 
 # ======================================================================
-#  noise (pure python, deterministic)
+#  materials
 # ======================================================================
-def _hash(ix, iy, iz, seed):
-    n = (ix * 374761393 + iy * 668265263 + iz * 2147483647 + seed * 1442695041) & 0xffffffff
-    n = ((n ^ (n >> 13)) * 1274126177) & 0xffffffff
-    return ((n ^ (n >> 16)) & 0xffffff) / 16777216.0
-
-def _sm(t):
-    return t * t * (3.0 - 2.0 * t)
-
-def vnoise(x, y, seed=0):
-    ix, iy = math.floor(x), math.floor(y); fx, fy = _sm(x - ix), _sm(y - iy)
-    a = _hash(ix, iy, 0, seed); b = _hash(ix + 1, iy, 0, seed)
-    c = _hash(ix, iy + 1, 0, seed); d = _hash(ix + 1, iy + 1, 0, seed)
-    return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy
-
-def vnoise3(x, y, z, seed=0):
-    ix, iy, iz = math.floor(x), math.floor(y), math.floor(z)
-    fx, fy, fz = _sm(x - ix), _sm(y - iy), _sm(z - iz)
-    def L(a, b, t):
-        return a + (b - a) * t
-    c = [[[_hash(ix + i, iy + j, iz + k, seed) for i in (0, 1)] for j in (0, 1)] for k in (0, 1)]
-    return L(L(L(c[0][0][0], c[0][0][1], fx), L(c[0][1][0], c[0][1][1], fx), fy),
-             L(L(c[1][0][0], c[1][0][1], fx), L(c[1][1][0], c[1][1][1], fx), fy), fz)
-
-def fbm(x, y, seed=0, oct=5, gain=0.5):
-    """About -1..1."""
-    s, a, f, norm = 0.0, 1.0, 1.0, 0.0
-    for i in range(oct):
-        s += (vnoise(x * f, y * f, seed + i * 17) * 2.0 - 1.0) * a
-        norm += a; a *= gain; f *= 2.03
-    return s / norm
-
-def fbm3(x, y, z, seed=0, oct=4, gain=0.5):
-    s, a, f, norm = 0.0, 1.0, 1.0, 0.0
-    for i in range(oct):
-        s += (vnoise3(x * f, y * f, z * f, seed + i * 17) * 2.0 - 1.0) * a
-        norm += a; a *= gain; f *= 2.03
-    return s / norm
-
-def ridged(x, y, seed=0, oct=4):
-    """0..1, sharp crests."""
-    s, a, f, norm = 0.0, 1.0, 1.0, 0.0
-    for i in range(oct):
-        s += (1.0 - abs(vnoise(x * f, y * f, seed + i * 31) * 2.0 - 1.0)) ** 2 * a
-        norm += a; a *= 0.5; f *= 2.1
-    return s / norm
-
-def smoothstep(e0, e1, x):
-    t = min(max((x - e0) / (e1 - e0), 0.0), 1.0)
-    return t * t * (3 - 2 * t)
-
-# ======================================================================
-#  materials (matte everywhere)
-# ======================================================================
-def matte(b, rough=0.94):
-    """The brief's matte snow/rock setup: no metal, coat, transmission, and almost no specular."""
-    p = b.bsdf.inputs
-    p["Roughness"].default_value = rough
-    p["Metallic"].default_value = 0.0
-    for k, v in (("Coat Weight", 0.0), ("Transmission Weight", 0.0), ("Specular IOR Level", 0.1), ("Sheen Weight", 0.0)):
-        if k in p:
-            p[k].default_value = v
-
-def add_haze(b, colour, near, far, hmax):
-    """Fade into the storm with distance from the arena (baked in as emission)."""
-    dist = b.n("ShaderNodeVectorMath", operation='LENGTH'); b.link(b.pos, dist.inputs[0])
-    mr = b.n("ShaderNodeMapRange"); mr.inputs["From Min"].default_value = near; mr.inputs["From Max"].default_value = far
-    mr.inputs["To Min"].default_value = 0.0; mr.inputs["To Max"].default_value = hmax
-    b.link(dist.outputs["Value"], mr.inputs[0])
-    em = b.n("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb(colour), 1); em.inputs["Strength"].default_value = 1.0
-    mix = b.n("ShaderNodeMixShader"); b.link(mr.outputs[0], mix.inputs[0])
-    b.link(b.bsdf.outputs[0], mix.inputs[1]); b.link(em.outputs[0], mix.inputs[2]); b.link(mix.outputs[0], b.out.inputs[0])
-
-def snowy(name, rock_dark, rock_light, snow, thresh=0.42, soft=0.22, scale=0.35, haze=None, rough=0.94, ao_dist=0.0):
-    """Rock or ice with snow settled on every upward-facing surface (by the geometry normal, broken up by noise),
-    and - with ao_dist - packed into the crevices and under the ledges where the rock is sheltered."""
+def snow_rock_material(name, dark, light, snow_amount=0.55, haze=None, near=40.0, far=160.0, hmin=0.0, hmax=0.6):
+    """Dark granite with snow piled on every upward-facing surface (+ haze into the distance)."""
     b = NB(name)
-    n = b.noise(b.pos, scale, 5, 0.6)
-    n2 = b.noise(b.pos, scale * 6.0, 3, 0.5)
-    rock = b.ramp(n.outputs["Fac"], [(0.3, rock_dark), (0.7, rock_light)])
-    rock = b.mixc(rock, b.ramp(n2.outputs["Fac"], [(0.35, "#b8b8b8"), (0.65, "#ffffff")]), 1.0, 'MULTIPLY')
+    n = b.noise(b.pos, 0.9, 5, 0.6)
+    c = b.ramp(n.outputs["Fac"], [(0.3, dark), (0.7, light)])
     sep = b.n("ShaderNodeSeparateXYZ"); b.link(b.normal, sep.inputs[0])
-    up = b.math('ADD', sep.outputs[2], b.math('MULTIPLY', b.math('SUBTRACT', n.outputs["Fac"], 0.5), 0.5))
-    if ao_dist > 0:
-        ao = b.n("ShaderNodeAmbientOcclusion"); ao.inputs["Distance"].default_value = ao_dist; ao.samples = 8
-        crev = b.math('MULTIPLY', b.math('SUBTRACT', 1.0, ao.outputs["AO"]), b.math('ADD', sep.outputs[2], 0.6))
-        up = b.math('ADD', up, b.math('MULTIPLY', crev, 0.45))
-    mr = b.n("ShaderNodeMapRange"); mr.inputs["From Min"].default_value = thresh; mr.inputs["From Max"].default_value = thresh + soft
-    b.link(up, mr.inputs[0])
-    c = b.mixc(rock, snow, mr.outputs[0])
-    b.link(c, b.bsdf.inputs["Base Color"]); matte(b, rough)
+    sn = b.noise(b.pos, 2.5, 3, 0.5)
+    up = b.math('ADD', sep.outputs[2], b.math('MULTIPLY', b.math('SUBTRACT', sn.outputs["Fac"], 0.5), 0.6))
+    snow = b.n("ShaderNodeMapRange"); snow.inputs["From Min"].default_value = 1.0 - snow_amount - 0.05
+    snow.inputs["From Max"].default_value = 1.0 - snow_amount + 0.08
+    b.link(up, snow.inputs[0])
+    c = b.mixc(c, "#e8eef8", snow.outputs[0])
+    b.link(c, b.bsdf.inputs["Base Color"]); b.bsdf.inputs["Roughness"].default_value = 0.75
     if haze:
-        add_haze(b, *haze)
+        sp = b.n("ShaderNodeSeparateXYZ"); b.link(b.pos, sp.inputs[0])
+        dist = b.math('ABSOLUTE', sp.outputs[1])
+        mr = b.n("ShaderNodeMapRange"); mr.inputs["From Min"].default_value = near; mr.inputs["From Max"].default_value = far
+        mr.inputs["To Min"].default_value = hmin; mr.inputs["To Max"].default_value = hmax
+        b.link(dist, mr.inputs[0])
+        em = b.n("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb(haze), 1); em.inputs["Strength"].default_value = 1.0
+        mix = b.n("ShaderNodeMixShader"); b.link(mr.outputs[0], mix.inputs[0])
+        b.link(b.bsdf.outputs[0], mix.inputs[1]); b.link(em.outputs[0], mix.inputs[2]); b.link(mix.outputs[0], b.out.inputs[0])
     return b
 
-def snow_field(name):
-    """Matte, wind-packed powder snow (Principled: Roughness 0.96, no metal, coat or transmission, Specular IOR
-    Level 0.1). Irregular wind-shaped ripples and scoops as a soft bump, soft patches of smoother packed snow,
-    restrained blue-grey in the hollows. Godot draws the same look with its own floor shader."""
+def ice_material(name):
+    """Pale blue ice: bright faceted surfaces, deep blue inside the cracks, a faint glow (baked as emission)."""
     b = NB(name)
-    # rotate world xy into the wind's frame so the ripples lie across it (Blender y = -Godot z)
-    a = math.atan2(-WIND[1], WIND[0])
-    mp = b.n("ShaderNodeMapping"); mp.inputs["Rotation"].default_value = (0.0, 0.0, -a)
-    b.link(b.pos, mp.inputs[0])
-    warp = b.noise(mp.outputs[0], 0.35, 3, 0.5)
-    mix = b.n("ShaderNodeMix"); mix.data_type = 'VECTOR'; mix.inputs[0].default_value = 0.35
-    b.link(mp.outputs[0], mix.inputs[4]); b.link(warp.outputs["Color"], mix.inputs[5])
-    w = b.n("ShaderNodeTexNoise"); w.inputs["Scale"].default_value = 0.28; w.inputs["Detail"].default_value = 3.0
-    w.inputs["Roughness"].default_value = 0.4; w.inputs["Distortion"].default_value = 0.25
-    b.link(mix.outputs[1], w.inputs["Vector"])                 # soft pillows of powder, a metre or two across
-    patches = b.noise(b.pos, 0.07, 4, 0.55)                      # where the snow is packed smooth
-    packed = b.n("ShaderNodeMapRange"); packed.inputs["From Min"].default_value = 0.4; packed.inputs["From Max"].default_value = 0.72
-    b.link(patches.outputs["Fac"], packed.inputs[0])
-    grain = b.noise(b.pos, 6.0, 2, 0.45)
-    hgt = b.math('ADD', b.math('MULTIPLY', w.outputs["Fac"], b.math('SUBTRACT', 1.0, b.math('MULTIPLY', packed.outputs[0], 0.8))),
-                 b.math('MULTIPLY', grain.outputs["Fac"], 0.25))
-    bump = b.n("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.5; bump.inputs["Distance"].default_value = 0.3
-    b.link(hgt, bump.inputs["Height"]); b.link(bump.outputs[0], b.bsdf.inputs["Normal"])
-    col = b.mixc("#d4dbe5", "#e9eef4", b.math('ADD', b.math('MULTIPLY', w.outputs["Fac"], 0.5), b.math('MULTIPLY', packed.outputs[0], 0.4)))
-    b.link(col, b.bsdf.inputs["Base Color"]); matte(b, 0.96)
+    n = b.noise(b.pos, 1.8, 4, 0.5)
+    c = b.ramp(n.outputs["Fac"], [(0.25, "#4a86c0"), (0.6, "#a8d4f4"), (0.85, "#e4f4ff")])
+    v = b.n("ShaderNodeTexVoronoi"); v.feature = 'DISTANCE_TO_EDGE'; v.inputs["Scale"].default_value = 1.4
+    b.link(b.pos, v.inputs["Vector"])
+    crack = b.math('LESS_THAN', v.outputs["Distance"], 0.03)
+    c = b.mixc(c, "#2a5a96", b.math('MULTIPLY', crack, 0.8))
+    b.link(c, b.bsdf.inputs["Base Color"]); b.bsdf.inputs["Roughness"].default_value = 0.15
+    b.bsdf.inputs["Emission Color"].default_value = (*srgb("#7ab8f0"), 1)
+    b.bsdf.inputs["Emission Strength"].default_value = 0.25
     return b
 
-def emit_solid(name, color, strength):
+def stone_material(name, dark, light):
+    """Weathered gravestone: grey stone, carved border, lichen, snow on the top."""
     b = NB(name)
-    em = b.n("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb(color), 1); em.inputs["Strength"].default_value = strength
-    b.link(em.outputs[0], b.out.inputs[0])
+    n = b.noise(b.pos, 3.0, 5, 0.6)
+    c = b.ramp(n.outputs["Fac"], [(0.3, dark), (0.7, light)])
+    l = b.noise(b.pos, 1.2, 3, 0.5)
+    c = b.mixc(c, "#5a6450", b.math('MULTIPLY', b.math('GREATER_THAN', l.outputs["Fac"], 0.62), 0.4))
+    sep = b.n("ShaderNodeSeparateXYZ"); b.link(b.normal, sep.inputs[0])
+    c = b.mixc(c, "#eef2f8", b.math('GREATER_THAN', sep.outputs[2], 0.55))
+    b.link(c, b.bsdf.inputs["Base Color"]); b.bsdf.inputs["Roughness"].default_value = 0.8
+    bump = b.n("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.35
+    b.link(n.outputs["Fac"], bump.inputs["Height"]); b.link(bump.outputs[0], b.bsdf.inputs["Normal"])
     return b
 
-def flat(name, color, rough=0.94):
-    b = NB(name); b.bsdf.inputs["Base Color"].default_value = (*srgb(color), 1); matte(b, rough)
-    return b
-
-HZ = "#aeb8c8"
-SNOW = "#e8edf3"
 def build_materials():
-    if BLOCKOUT:     # the grey blockout: same material names, flat colours, no textures
-        for nm, c in (("Rock", "#55595f"), ("RockNear", "#55595f"), ("Marker", "#6a6c70"), ("Ice", "#9fb4c8"), ("Cliff", "#6a6e76"),
-                      ("CliffFar", "#868a92"), ("Ridge", "#9ea2aa"), ("SnowField", "#dcdfe4"), ("SkyCard", "#7a8090"),
-                      ("MistCard", "#808080"), ("DriftCard", "#808080"), ("Stand_P1", "#2d6cdf"), ("Stand_P2", "#e0463a")):
-            flat(nm, c)
-        return
-    snowy("RockNear", "#3c4048", "#5a5e66", SNOW, 0.45, 0.2, 0.6)
-    snowy("Rock", "#40444c", "#5e626a", SNOW, 0.4, 0.22, 0.45, haze=(HZ, 40, 160, 0.5))
-    snowy("Marker", "#5a5c60", "#77797c", SNOW, 0.62, 0.12, 2.4)
-    snowy("Ice", "#8aa2b8", "#b4c6d4", SNOW, 0.55, 0.18, 1.2, haze=(HZ, 40, 160, 0.5), rough=0.85)
-    snowy("Cliff", "#1f232b", "#383c45", SNOW, 0.74, 0.1, 0.08, haze=(HZ, 130, 900, 0.48), ao_dist=5.0)
-    snowy("CliffFar", "#272b34", "#40444d", SNOW, 0.7, 0.12, 0.04, haze=(HZ, 220, 1100, 0.6), ao_dist=8.0)
-    snowy("Ridge", "#343842", "#4c505a", SNOW, 0.62, 0.14, 0.015, haze=(HZ, 320, 1400, 0.72), ao_dist=16.0)
-    snow_field("SnowField")
+    snow_rock_material("SnowRock", "#2e323a", "#4e5460", 0.62)
+    snow_rock_material("Cliff", "#2e323a", "#4e5460", 0.55)
+    snow_rock_material("Mountain", "#30343e", "#545a68", 0.45, haze=V["haze"], near=60, far=200, hmin=0.25, hmax=0.75)
+    snow_rock_material("MountainFar", "#383c48", "#5a6070", 0.5, haze=V["haze"], near=100, far=260, hmin=0.5, hmax=0.88)
+    ice_material("Ice")
+    stone_material("Grave", "#7a7f86", "#a4a9b0")
+    stone_material("GraveDark", "#3c4048", "#50555e")
+    stone_material("Ruin", "#5c6068", "#80858e")
+    snow_rock_material("Pine", "#16221f", "#2c3c36", 0.5)
+    snow_rock_material("Bark", "#2a2622", "#48423a", 0.35)
+    snow_rock_material("Wood", "#3a3028", "#5a4c3e", 0.5)
+    b = NB("Metal"); b.bsdf.inputs["Base Color"].default_value = (*srgb("#8a9098"), 1)
+    b.bsdf.inputs["Metallic"].default_value = 0.8; b.bsdf.inputs["Roughness"].default_value = 0.35
+    b = NB("Cloth"); n = b.noise(b.pos, 6.0, 3, 0.5)
+    b.link(b.ramp(n.outputs["Fac"], [(0.3, "#4a1214"), (0.7, "#7a2024")]), b.bsdf.inputs["Base Color"])
+    b.bsdf.inputs["Roughness"].default_value = 0.9
+    b = NB("Snow")
+    n = b.noise(b.pos, 4.0, 3, 0.5)
+    b.link(b.ramp(n.outputs["Fac"], [(0.3, "#dfe6f2"), (0.7, "#f4f7fc")]), b.bsdf.inputs["Base Color"])
+    b.bsdf.inputs["Roughness"].default_value = 0.85
+    b = NB("FloorSnow"); b.bsdf.inputs["Base Color"].default_value = (*srgb("#eaf0f8"), 1); b.bsdf.inputs["Roughness"].default_value = 0.9
     b = NB("SkyCard")
     sep = b.n("ShaderNodeSeparateXYZ"); b.link(b.uv, sep.inputs[0])
+    r = b.ramp(sep.outputs[1], V["sky"])
     em = b.n("ShaderNodeEmission"); em.inputs["Strength"].default_value = V["sky_strength"]
-    b.link(b.ramp(sep.outputs[1], V["sky"]), em.inputs["Color"]); b.link(em.outputs[0], b.out.inputs[0])
-    emit_solid("MistCard", "#808080", 0.0)
-    emit_solid("DriftCard", "#808080", 0.0)
-    flat("Stand_P1", "#2d6cdf"); flat("Stand_P2", "#e0463a")
+    b.link(r, em.inputs["Color"]); b.link(em.outputs[0], b.out.inputs[0])
+    b = NB("MistCard")
+    em = b.n("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb("#c8d4e4"), 1); em.inputs["Strength"].default_value = 0.0
+    b.link(em.outputs[0], b.out.inputs[0])
+    b = NB("Stand_P1"); b.bsdf.inputs["Base Color"].default_value = (*srgb("#2d6cdf"), 1)
+    b = NB("Stand_P2"); b.bsdf.inputs["Base Color"].default_value = (*srgb("#e0463a"), 1)
 
 # ======================================================================
 #  the snowfield
 # ======================================================================
-def ground_h(x, z):
-    """Height of the snowfield. Exactly level in the fight lane; wind-sculpted drifts and banks outside it,
-    the low rise far back, and the drop at the plateau edge."""
-    ax = abs(x)
-    side = smoothstep(13.0, 22.0, ax)
-    back = smoothstep(-13.0, -26.0, z)
-    open_ = max(side, back * 0.75)
-    u = x * WIND[0] + z * WIND[1]; v = -x * WIND[1] + z * WIND[0]
-    drifts = 0.5 * (fbm(u * 0.03, v * 0.1, 3, 4) * 0.5 + 0.5) + 0.45 * ridged(u * 0.05, v * 0.16, 7, 3)
-    h = open_ * drifts * (0.8 + 1.8 * side)
-    h += smoothstep(30.0, 80.0, ax) * (1.0 + 1.6 * (fbm(x * 0.02, z * 0.03, 11, 4) * 0.5 + 0.5))
-    rx, rz = (x - RISE[0]) / 17.0, (z - RISE[1]) / 9.0
-    r = math.sqrt(rx * rx + rz * rz)
-    h += RISE_H * (1.0 - smoothstep(0.2, 1.0, r)) * (1.0 + 0.1 * fbm(x * 0.2, z * 0.2, 13, 3))
-    h += back * 0.7 * (fbm(x * 0.03, z * 0.05, 17, 4) * 0.5 + 0.5)
-    ze = EDGE_Z + 4.0 * fbm(x * 0.025, 1.7, 19, 4) + smoothstep(20.0, 80.0, ax) * 6.0
-    drop = smoothstep(ze, ze - 9.0, z)
-    return h * (1.0 - drop) - drop * (34.0 + 6.0 * fbm(x * 0.05, z * 0.05, 23, 3))
+def in_lane(x, z, pad=0.0):
+    return abs(x) < LANE_X + pad and z > LANE_Z - pad
 
 def build_floor():
-    g = grp("NA_Floor"); bm = g.bm
-    nx = int(2 * FLOOR_X / FLOOR_STEP); nz = int((FLOOR_FRONT - FLOOR_BACK) / FLOOR_STEP)
-    xs = [-FLOOR_X + i * 2 * FLOOR_X / nx for i in range(nx + 1)]
-    zs = [FLOOR_BACK + j * (FLOOR_FRONT - FLOOR_BACK) / nz for j in range(nz + 1)]
-    VV = [[bm.verts.new(G(x, ground_h(x, z), z)) for x in xs] for z in zs]
-    faces = []
-    for j in range(nz):
-        for i in range(nx):
-            faces.append(bm.faces.new((VV[j][i], VV[j][i + 1], VV[j + 1][i + 1], VV[j + 1][i])))
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    bm.normal_update()
-    if sum(f.normal.z for f in faces[:50]) < 0:
-        for f in faces:
-            f.normal_flip()
-    _tag(g, faces, "SnowField")
+    g = grp("NA_Floor")
+    quad(g, [(-FLOOR_X, 0, FLOOR_FRONT), (FLOOR_X, 0, FLOOR_FRONT), (FLOOR_X, 0, FLOOR_BACK), (-FLOOR_X, 0, FLOOR_BACK)],
+         [(-FLOOR_X, -FLOOR_FRONT), (FLOOR_X, -FLOOR_FRONT), (FLOOR_X, -FLOOR_BACK), (-FLOOR_X, -FLOOR_BACK)], "FloorSnow")
 
-# ======================================================================
-#  rocks, markers, ice
-# ======================================================================
-def rock(g, x, z, size, seed, m="Rock", sub=3, bury=0.32):
-    """A weathered boulder half buried in snow: a noise-displaced ellipsoid (soft, not faceted)."""
-    gg = grp(g) if isinstance(g, str) else g
-    sx, sy, sz = size
-    y0 = ground_h(x, z) - bury * sy
-    c = G(x, y0 + sy * 0.5, z)
-    res = bmesh.ops.create_icosphere(gg.bm, subdivisions=sub, radius=1.0, matrix=Matrix.Translation(c))
-    rnd = random.Random(seed); ox, oy, oz = rnd.uniform(0, 50), rnd.uniform(0, 50), rnd.uniform(0, 50)
-    ang = rnd.uniform(0, math.pi)
-    ca, sa = math.cos(ang), math.sin(ang)
-    for v in res["verts"]:
-        d = v.co - c
-        n = d.normalized()
-        k = 1.0 + 0.24 * fbm3(n.x * 1.1 + ox, n.y * 1.1 + oy, n.z * 1.1 + oz, seed, 4) + 0.1 * (vnoise3(n.x * 4 + ox, n.y * 4, n.z * 4, seed + 5) - 0.5)
-        k += 0.12 * max(0.0, n.z)            # a fuller, rounder top where the snow sits
-        p = n * k
-        px, py = p.x * ca - p.y * sa, p.x * sa + p.y * ca      # turn it about the vertical (Blender z)
-        v.co = c + Vector((px * sx * 0.5, py * sz * 0.5, p.z * sy * 0.6))
-    _tag(gg, list({f for v in res["verts"] for f in v.link_faces}), m)
+def _xf(x, y0, z, yaw=0.0, tilt=0.0):
+    return Matrix.Translation(G(x, y0, z)) @ Matrix.Rotation(math.radians(yaw), 4, 'Z') @ Matrix.Rotation(math.radians(tilt), 4, 'X')
 
-def stone_marker(g, x, z, w, h, t, tilt, seed):
-    """A small weathered stone marker: a slab with a rounded top built from stacked rounded-rect rings,
-    roughened by noise, on a low base slab, leaning a few degrees."""
-    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
-    y0 = ground_h(x, z) - 0.15
-    rnd = random.Random(seed)
-    # base slab
-    base_w, base_t, base_h = w * 1.45, t * 2.6, 0.24
-    rock(gg, x, z + 0.02, (base_w * 1.2, base_h * 1.5, base_t * 1.2), seed + 3, "Marker", 2, 0.55)
-    N, M = 22, 28
-    rings = []
-    rw = w / 2
-    for j in range(N + 1):
-        yy = j / N * h
-        if yy < h - rw:
-            hw = rw
-        else:
-            q = (yy - (h - rw)) / rw
-            hw = rw * math.sqrt(max(0.0, 1.0 - q * q)) if j < N else 0.0
-        ht = t / 2 * (1.0 - 0.06 * yy / h)
-        ring = []
-        for i in range(M):
-            a = 2 * math.pi * i / M
-            ca, sa = math.cos(a), math.sin(a)
-            ex = math.copysign(abs(ca) ** (2 / 6.0), ca) * max(hw, 0.02)
-            ez = math.copysign(abs(sa) ** (2 / 6.0), sa) * ht
-            lx, ly, lz = ex, yy, ez
-            # weathering: a rough skin, chipped edges, a worn top
-            nn = fbm3(lx * 3.0 + seed, ly * 3.0, lz * 3.0, seed, 4)
-            sc = 1.0 + 0.07 * nn - 0.05 * smoothstep(0.75, 1.0, yy / h) * (vnoise3(lx * 9, ly * 9, lz * 9, seed + 2) - 0.3)
-            lx *= sc; lz *= sc
-            # lean
-            ly2 = ly * math.cos(tilt[0]) - lz * math.sin(tilt[0]); lz2 = ly * math.sin(tilt[0]) + lz * math.cos(tilt[0])
-            lx3 = lx * math.cos(tilt[1]) - ly2 * math.sin(tilt[1]); ly3 = lx * math.sin(tilt[1]) + ly2 * math.cos(tilt[1])
-            ring.append(bm.verts.new(G(x + lx3, y0 + base_h + ly3, z + lz2)))
-        rings.append(ring)
-    faces = []
-    for A, B in zip(rings[:-1], rings[1:]):
-        for i in range(M):
-            faces.append(bm.faces.new((A[i], A[(i + 1) % M], B[(i + 1) % M], B[i])))
-    faces.append(bm.faces.new(rings[0][::-1]))
-    top = bm.verts.new(sum((v.co for v in rings[-1]), Vector()) / M)
-    for i in range(M):
-        faces.append(bm.faces.new((rings[-1][i], rings[-1][(i + 1) % M], top)))
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    _tag(gg, faces, "Marker")
-    # snow drifted against the foot of the stone, on the windward side
-    for k in range(3):
-        rock(gg, x - 0.25 + k * 0.25, z + rnd.uniform(-0.1, 0.25), (0.6, 0.22, 0.5), seed + 10 + k, "Marker", 2, 0.6)
+def _L(M, px, py, pz):
+    """Local Godot point -> world Blender point through matrix M."""
+    return M @ Vector((px, -pz, py))
 
-def crystal(g, base, d, r, L, m="Ice"):
-    """A six-sided ice crystal with a pointed tip, from a Godot base point along direction d."""
-    gg = grp(g) if isinstance(g, str) else g
-    dv = Vector((d[0], -d[2], d[1])).normalized()
-    q = dv.to_track_quat('Z', 'Y')
-    A = G(*base)
-    body = L * 0.72
-    M1 = Matrix.Translation(A + dv * body / 2) @ q.to_matrix().to_4x4()
-    r1 = bmesh.ops.create_cone(gg.bm, cap_ends=True, cap_tris=False, segments=6, radius1=r, radius2=r * 0.9, depth=body, matrix=M1)
-    M2 = Matrix.Translation(A + dv * (body + (L - body) / 2)) @ q.to_matrix().to_4x4()
-    r2 = bmesh.ops.create_cone(gg.bm, cap_ends=True, cap_tris=False, segments=6, radius1=r * 0.9, radius2=0.0, depth=L - body, matrix=M2)
-    _tag(gg, list({f for v in r1["verts"] + r2["verts"] for f in v.link_faces}), m)
-
-def ice_cluster(x, z, s, seed):
-    rnd = random.Random(seed); y = ground_h(x, z) - 0.3 * s
-    for k in range(rnd.randint(3, 5)):
-        a = rnd.uniform(0, 2 * math.pi); lean = rnd.uniform(0.15, 0.55)
-        d = (math.cos(a) * lean, 1.0, math.sin(a) * lean)
-        bx, bz = x + rnd.uniform(-0.6, 0.6) * s, z + rnd.uniform(-0.6, 0.6) * s
-        crystal("NA_Rocks", (bx, y, bz), d, rnd.uniform(0.18, 0.34) * s, rnd.uniform(0.9, 2.2) * s)
-    rock("NA_Rocks", x, z, (1.6 * s, 0.6 * s, 1.4 * s), seed + 7, "Rock", 2, 0.5)
-
-ROCKS_NEAR = [(-16.5, 4.5, (3.4, 2.0, 2.6)), (-19.6, 0.6, (2.6, 1.7, 2.2)), (-14.6, 9.4, (1.7, 0.9, 1.4)),
-              (-22.5, 7.5, (2.6, 1.4, 2.4)), (16.2, 3.0, (3.0, 1.8, 2.4)), (19.0, 6.8, (2.3, 1.4, 1.9)),
-              (21.0, -0.4, (3.6, 2.4, 3.0)), (15.2, 10.5, (1.4, 0.7, 1.2)), (-25.0, -2.0, (3.4, 2.2, 2.8)),
-              (24.5, -6.0, (3.0, 2.0, 2.6))]
-ROCKS_MID = [(-15.8, -16.0, (2.6, 1.6, 2.2)), (-19.0, -23.0, (3.4, 2.2, 2.8)), (-14.5, -27.5, (1.8, 1.0, 1.5)),
-             (16.5, -18.0, (2.8, 1.8, 2.4)), (20.0, -25.0, (3.6, 2.4, 3.0)), (15.2, -29.5, (1.6, 0.9, 1.3)),
-             (-28.0, -12.0, (5.0, 3.4, 4.0)), (-33.0, -21.0, (6.5, 4.2, 5.2)), (28.0, -14.0, (4.6, 3.0, 4.0)),
-             (34.0, -24.0, (7.0, 4.8, 6.0)), (-40.0, -31.0, (8.0, 5.6, 7.0)), (42.0, -34.0, (8.5, 5.2, 6.4)),
-             (-11.0, -44.0, (1.6, 0.9, 1.4)), (12.5, -46.0, (2.0, 1.1, 1.6)), (-18.0, -48.5, (1.2, 0.7, 1.0)),
-             (19.0, -50.0, (1.4, 0.8, 1.2)), (16.5, -40.0, (1.8, 1.1, 1.5)), (-17.5, -41.0, (2.4, 1.3, 2.0)),
-             (-23.0, -52.0, (6.0, 3.6, 5.0)), (25.0, -53.5, (7.0, 4.4, 5.0)), (-46.0, -50.0, (9.0, 6.0, 7.0)),
-             (49.0, -48.0, (10.0, 7.0, 8.0)), (-62.0, -43.0, (10.0, 8.0, 9.0)), (63.0, -40.0, (11.0, 8.5, 9.0)),
-             (-55.0, -20.0, (9.0, 6.0, 8.0)), (57.0, -16.0, (9.5, 6.5, 8.0))]
-ICE = [(-17.5, -20.5, 0.7), (18.5, -22.0, 0.75), (-27.0, -7.0, 1.0), (29.5, -10.0, 1.1), (-35.0, -27.0, 1.3), (37.0, -30.0, 1.3), (-21.0, -50.0, 1.0),
-       (23.0, -51.0, 1.1), (-23.5, 9.0, 0.75), (24.0, 4.5, 0.8)]
-
-def build_rocks():
-    for k, (x, z, s) in enumerate(ROCKS_NEAR):
-        rock("NA_Rocks", x, z, s, 100 + k, "RockNear", 4)
-    for k, (x, z, s) in enumerate(ROCKS_MID):
-        rock("NA_Rocks", x, z, s, 200 + k, "Rock", 3 if max(s) < 6 else 2)
-    for k, (x, z, s) in enumerate(ICE):
-        ice_cluster(x, z, s, 300 + k)
-    # the two markers, together on the rise
-    stone_marker("NA_Rocks", RISE[0] - 1.6, RISE[1] - 0.3, 1.05, 1.95, 0.38, (math.radians(-3), math.radians(2.5)), 11)
-    stone_marker("NA_Rocks", RISE[0] + 1.7, RISE[1] + 0.1, 0.98, 1.82, 0.36, (math.radians(2), math.radians(-4)), 23)
-
-# ======================================================================
-#  cliffs and ridges
-# ======================================================================
-def cliff(g, x0, x1, step, zf, crest, base_y, depth, seed, m, rows=34, top_rows=6, amp=1.0):
-    """A layered cliff face: a grid from its misty base up to the crest, leaning back, carved by noise into
-    buttresses, strata and ledges (the material lays snow on the ledges), then a strip of the snowy top behind."""
-    gg = grp(g); bm = gg.bm
-    n = int((x1 - x0) / step)
-    grid = []
+def arch_pts(w, h, n=16, y0=0.0):
+    """Round-topped slab outline in the x-y plane: up the left side, over the arch, down the right."""
+    r = w / 2; pts = [(-r, y0)]
     for i in range(n + 1):
-        x = x0 + (x1 - x0) * i / n
-        cy, fz = crest(x), zf(x)
-        col = []
-        for j in range(rows + top_rows + 1):
-            if j <= rows:
-                v = j / rows
-                y = base_y + (cy - base_y) * v
-                z = fz - (v ** 1.7) * depth
-            else:
-                k = j - rows
-                y = cy - (1.5 + 1.2 * k) * k * amp * 0.7                 # the back falls away: a sharp ridge, not a flat berm
-                z = fz - depth - k * step * 1.4
-            s = (cy - base_y) / 50.0 + 0.5
-            bz = (fbm(x * 0.06, y * 0.016, seed, 5) * 7.0 + ridged(x * 0.12, y * 0.045, seed + 1, 3) * 3.5
-                  + fbm(x * 0.025, y * 0.04, seed + 2, 4) * 4.0 + fbm(x * 0.2, y * 0.2, seed + 4, 3) * 0.9) * amp * min(1.6, s)
-            terr = (y * 0.11 + fbm(x * 0.015, y * 0.02, seed + 3, 3) * 1.6)
-            ledge = -1.1 * smoothstep(0.7, 0.97, terr - math.floor(terr)) * amp
-            bx = fbm(x * 0.05 + 3.3, y * 0.05, seed + 5, 3) * 2.5 * amp
-            if j > rows:
-                bz *= 0.3; ledge = 0.0
-            col.append(bm.verts.new(G(x + bx, y, z + bz + ledge)))
-        grid.append(col)
-    faces = []
+        a = math.pi - math.pi * i / n
+        pts.append((r * math.cos(a), y0 + h - r + r * math.sin(a)))
+    pts.append((r, y0))
+    return pts
+
+def extrude(g, M, pts, z0, z1, m):
+    """Convex outline extruded from z0 (back) to z1 (front), in the local frame M."""
+    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
+    F = [bm.verts.new(_L(M, px, py, z1)) for px, py in pts]
+    B = [bm.verts.new(_L(M, px, py, z0)) for px, py in pts]
+    new = [bm.faces.new(F), bm.faces.new(B[::-1])]
+    n = len(pts)
     for i in range(n):
-        for j in range(rows + top_rows):
-            faces.append(bm.faces.new((grid[i][j], grid[i + 1][j], grid[i + 1][j + 1], grid[i][j + 1])))
-    bmesh.ops.recalc_face_normals(bm, faces=faces)
-    bm.normal_update()
-    if sum(f.normal.y for f in faces[: rows * 3]) > 0:      # the face must look toward the arena (Blender -y = Godot +z)
-        for f in faces:
-            f.normal_flip()
-    _tag(gg, faces, m)
+        j = (i + 1) % n
+        new.append(bm.faces.new((F[i], B[i], B[j], F[j])))
+    bmesh.ops.recalc_face_normals(bm, faces=new)
+    _tag(gg, new, m); return new
 
-def build_cliffs():
-    """A dramatic North Ambria panorama seen from an exposed plateau: past the plateau edge a valley full of mist,
-    and across it dark, rugged, steep cliff faces capped with snow, then ridge after ridge to the horizon with haze
-    between. The side cliffs swing back into the distance (no bowl); every layer dips where the valley runs off.
-    The faces are steep (dark rock; snow only on the ledges, crevices and crests) and the crests are sharp ridges."""
-    def recede(z0, k):
-        return lambda x, z0=z0, k=k: z0 - k * max(abs(x) - 30.0, 0.0)
-    def peaks(x, seed, f, amp):                      # jagged crest line: sharp peaks and notches
-        return amp * (ridged(x * f, 0.3, seed, 4) - 0.4) + 0.4 * amp * (ridged(x * f * 2.7, 0.8, seed + 7, 3) - 0.45)
-    zl = recede(-150.0, 0.45)
-    cliff("NA_Cliffs", -300.0, -24.0, 1.2,
-          lambda x: zl(x) + 7.0 * fbm(x * 0.03, 0.5, 41, 3),
-          lambda x: -6.0 + 34.0 * smoothstep(-24.0, -95.0, x) + peaks(x, 44, 0.05, 12.0) + 5.0 * fbm(x * 0.02, 0.2, 42, 3),
-          -30.0, 7.0, 43, "Cliff", 40, 5, 1.2)
-    zr = recede(-162.0, 0.42)
-    cliff("NA_Cliffs", 22.0, 300.0, 1.2,
-          lambda x: zr(x) + 7.0 * fbm(x * 0.03, 0.9, 51, 3),
-          lambda x: -6.0 + 30.0 * smoothstep(22.0, 90.0, x) + peaks(x, 54, 0.05, 11.0) + 5.0 * fbm(x * 0.02, 0.6, 52, 3),
-          -30.0, 7.0, 53, "Cliff", 40, 5, 1.2)
-    z2 = recede(-260.0, 0.25)
-    cliff("NA_Cliffs", -480.0, 480.0, 2.0,
-          lambda x: z2(x) + 26.0 * fbm(x * 0.008, 0.3, 61, 3),
-          lambda x: 2.0 + 56.0 * smoothstep(12.0, 240.0, abs(x)) + peaks(x, 63, 0.022, 16.0) + 6.0 * fbm(x * 0.014, 0.4, 62, 3),
-          -32.0, 10.0, 64, "CliffFar", 38, 5, 1.6)
-    cliff("NA_Far", -880.0, 880.0, 4.0,
-          lambda x: -450.0 - 0.12 * max(abs(x) - 60.0, 0.0) + 40.0 * fbm(x * 0.004, 0.7, 71, 3),
-          lambda x: 16.0 + 80.0 * smoothstep(20.0, 500.0, abs(x)) + peaks(x, 73, 0.01, 30.0) + 10.0 * fbm(x * 0.007, 0.2, 72, 3),
-          -34.0, 18.0, 74, "Ridge", 30, 4, 2.4)
-    cliff("NA_Far", -1000.0, 1000.0, 8.0,
-          lambda x: -830.0 + 60.0 * fbm(x * 0.002, 0.1, 81, 3),
-          lambda x: 48.0 + 80.0 * smoothstep(40.0, 700.0, abs(x)) + peaks(x, 82, 0.005, 46.0) + 12.0 * fbm(x * 0.004, 0.9, 83, 3),
-          -34.0, 30.0, 84, "Ridge", 22, 4, 3.6)
+def band(g, M, inner, outer, z0, z1, m, closed=False):
+    """A strip between two matching polylines (frame / snow cap), extruded from z0 to z1."""
+    gg = grp(g) if isinstance(g, str) else g; bm = gg.bm
+    IF = [bm.verts.new(_L(M, px, py, z1)) for px, py in inner]; OF = [bm.verts.new(_L(M, px, py, z1)) for px, py in outer]
+    IB = [bm.verts.new(_L(M, px, py, z0)) for px, py in inner]; OB = [bm.verts.new(_L(M, px, py, z0)) for px, py in outer]
+    n = len(inner); new = []
+    for i in range(n if closed else n - 1):
+        j = (i + 1) % n
+        new += [bm.faces.new((IF[i], OF[i], OF[j], IF[j])), bm.faces.new((IB[j], OB[j], OB[i], IB[i])),
+                bm.faces.new((OF[i], OB[i], OB[j], OF[j])), bm.faces.new((IF[j], IB[j], IB[i], IF[i]))]
+    if not closed:
+        for k in (0, n - 1):
+            new.append(bm.faces.new((IF[k], IB[k], OB[k], OF[k])))
+    bmesh.ops.recalc_face_normals(bm, faces=new)
+    _tag(gg, new, m); return new
 
-# ======================================================================
-#  cards: sky, mist, blowing powder
-# ======================================================================
+def gravestone(x, z, w, h, d, base_y, seed, yaw=0.0, tilt=0.0, emblem="cross"):
+    """A clean round-topped headstone: two-step plinth, slab with a raised carved border, an emblem and
+    inscription lines, and a thick snow cap that follows the arch (heaviest on top)."""
+    g = "NA_Ground"; rnd = random.Random(seed)
+    obox(g, (x, base_y + 0.18, z), (w + 1.0, 0.42, d + 0.9), yaw * 0.4, "Grave", 0.06)        # plinth
+    obox(g, (x, base_y + 0.48, z), (w + 0.5, 0.2, d + 0.45), yaw * 0.4, "Grave", 0.04)
+    obox(g, (x, base_y + 0.4, z + 0.05), (w + 0.85, 0.05, d + 0.6), yaw * 0.4, "Snow", 0.02)  # snow on the lower step
+    obox(g, (x, base_y + 0.6, z), (w + 0.38, 0.05, d + 0.3), yaw * 0.4, "Snow", 0.02)         # snow on the upper step
+    y0 = base_y + 0.56
+    M = _xf(x, y0, z, yaw, tilt)
+    extrude(g, M, arch_pts(w, h), -d / 2, d / 2, "Grave")                                     # slab
+    o = arch_pts(w - 0.16, h - 0.16, 16, 0.12); i = arch_pts(w - 0.34, h - 0.34, 16, 0.24)     # raised border
+    band(g, M, i, o, d / 2 - 0.01, d / 2 + 0.035, "Grave")                                  # front frame
+    band(g, M, i, o, -d / 2 - 0.035, -d / 2 + 0.01, "Grave")                                # back frame
+    extrude(g, M, [(-w / 2 + 0.08, 0.12), (w / 2 - 0.08, 0.12), (w / 2 - 0.08, 0.24), (-w / 2 + 0.08, 0.24)], d / 2 - 0.01, d / 2 + 0.035, "Grave")
+    zf = d / 2 + 0.02
+    if emblem == "cross":                                                                      # emblem high in the arch
+        for (ex, ey, ew, eh) in ((0, h - w / 2 - 0.05, 0.1, 0.62), (0, h - w / 2 + 0.08, 0.4, 0.1)):
+            extrude(g, M, [(ex - ew / 2, ey - eh / 2), (ex + ew / 2, ey - eh / 2), (ex + ew / 2, ey + eh / 2), (ex - ew / 2, ey + eh / 2)],
+                    zf - 0.02, zf + 0.03, "GraveDark")
+    else:                                                                                      # crossed swords (a jaeger's grave)
+        for sgn in (-1, 1):
+            a = math.radians(35 * sgn); L = 0.72; cx, cy = 0, h - w / 2 - 0.02
+            dx, dy = math.sin(a) * L / 2, math.cos(a) * L / 2; nx, ny = math.cos(a) * 0.035, -math.sin(a) * 0.035
+            extrude(g, M, [(cx - dx - nx, cy - dy - ny), (cx - dx + nx, cy - dy + ny), (cx + dx + nx, cy + dy + ny), (cx + dx - nx, cy + dy - ny)],
+                    zf - 0.02, zf + 0.03, "GraveDark")
+    for k, (ly, lw) in enumerate(((h - w / 2 - 0.62, 0.62), (h - w / 2 - 0.86, 0.7), (h - w / 2 - 1.06, 0.5), (h - w / 2 - 1.26, 0.58))):
+        if ly < 0.45:
+            break
+        extrude(g, M, [(-lw / 2, ly - 0.025), (lw / 2, ly - 0.025), (lw / 2, ly + 0.025), (-lw / 2, ly + 0.025)], zf - 0.02, zf + 0.012, "GraveDark")
+    # snow cap following the arch, thicker on top, lumpy, overhanging front and back
+    r = w / 2; n = 18; inner, outer = [], []
+    for k in range(n + 1):
+        a = math.radians(170 - 160 * k / n)
+        t = 0.03 + 0.2 * math.sin(a) ** 2 + rnd.uniform(-0.02, 0.025) * math.sin(a)
+        inner.append(((r - 0.02) * math.cos(a), h - r + (r - 0.02) * math.sin(a)))
+        outer.append(((r + t) * math.cos(a), h - r + (r + t) * math.sin(a)))
+    band(g, M, inner, outer, -d / 2 - 0.07, d / 2 + 0.08, "Snow")
+    # drift banked against the front of the plinth + a little at the back
+    drift("NA_Ground", x + rnd.uniform(-0.2, 0.2), z + d / 2 + 0.55, w * 0.75, 0.5, 0.42, seed + 40, "Snow", 12, y0=base_y - 0.05)
+    drift("NA_Ground", x, z - d / 2 - 0.5, w * 0.6, 0.4, 0.3, seed + 41, "Snow", 10, y0=base_y - 0.05)
+
+def mound_y(dx, dz):
+    """Height of the mound's snow dome at (dx, dz) from its centre (0 outside)."""
+    rr = math.sqrt((dx / 12.0) ** 2 + (dz / 6.5) ** 2)
+    if rr >= 1.0:
+        return 0.0
+    return max(0.0, MOUND_H * math.sin(math.pi / 2 * math.sqrt(1 - rr * rr)) - 0.15)
+
+def build_mound():
+    """The raised rocky mound with the two gravestones (back centre)."""
+    mx, mz = MOUND
+    # rocky sides: a ring of big snowy boulders + cliff faces
+    rnd = random.Random(21)
+    drift("NA_Ground", mx, mz, 12.0, 6.5, MOUND_H, 5, "Snow", 20)
+    for k in range(22):
+        a = rnd.uniform(-math.pi, math.pi)
+        rx, rz = 11.5 * math.cos(a), 6.0 * math.sin(a)
+        if rz > 3.0 and abs(rx) < 5.0 and rnd.random() < 0.5:
+            continue
+        s = rnd.uniform(0.9, 2.2)
+        rock("NA_Ground", mx + rx, MOUND_H * 0.1, mz + rz, s * 1.3, s * 1.5, s, 300 + k, "Cliff", 2, 0.3)
+    for k in range(10):                                                   # rocks poking through the top
+        rock("NA_Ground", mx + rnd.uniform(-8, 8), MOUND_H - 0.2, mz + rnd.uniform(-3.5, 3.0), rnd.uniform(0.4, 1.0),
+             rnd.uniform(0.3, 0.6), rnd.uniform(0.4, 0.9), 400 + k, "SnowRock")
+    gravestone(mx - 2.6, mz - 0.5, 1.6, 3.1, 0.5, MOUND_H - 0.25, 7, yaw=4.0, tilt=-1.5, emblem="cross")
+    gravestone(mx + 2.6, mz - 0.5, 1.5, 2.85, 0.5, MOUND_H - 0.25, 9, yaw=-5.0, tilt=2.0, emblem="swords")
+    build_grave_props(mx, mz, MOUND_H - 0.25)
+
+def build_field():
+    """Snowy rocks, drifts and ice crystals around the field (outside the fight lane)."""
+    rnd = random.Random(5)
+    for k, (x, z, s) in enumerate(((-21.0, -18.0, 1.6), (-16.5, -26.0, 1.2), (-26.0, -30.0, 2.0), (22.0, -19.5, 1.7),
+                                   (17.0, -28.0, 1.1), (27.0, -33.0, 2.1), (-15.2, 3.5, 1.1), (15.5, 2.5, 1.2),
+                                   (-19.5, -8.0, 1.0), (20.0, -9.0, 0.9), (-9.0, -40.0, 1.3), (11.0, -42.0, 1.4))):
+        crystal_cluster(x, z, s * 1.5, 50 + k * 3)
+    for k in range(60):                                                   # scattered snowy rocks
+        x = rnd.uniform(-34, 34); z = rnd.uniform(-48, 10)
+        if in_lane(x, z, 1.5) or (abs(x - MOUND[0]) < 13 and abs(z - MOUND[1]) < 7.5):
+            continue
+        s = rnd.uniform(0.4, 1.4) * (1.0 + max(0, -z - 20) / 30)
+        rock("NA_Ground", x, 0, z, s * rnd.uniform(1.0, 1.5), s * rnd.uniform(0.8, 1.2), s, 600 + k, "SnowRock", 2)
+        if rnd.random() < 0.6:
+            drift("NA_Ground", x + rnd.uniform(-0.5, 0.5), z + s * 0.6, s * 1.5, s * 0.9, s * 0.35, 700 + k, "Snow", 10)
+    for k in range(40):                                                   # low snow drifts across the field (never in the lane)
+        x = rnd.uniform(-36, 36); z = rnd.uniform(-50, 14)
+        if in_lane(x, z, 2.0):
+            continue
+        drift("NA_Ground", x, z, rnd.uniform(1.5, 4.5), rnd.uniform(0.8, 2.0), rnd.uniform(0.2, 0.7), 800 + k, "Snow", 12)
+    # foreground framing: big snowy boulders + crystals at the screen-edge corners
+    for sx in (-1, 1):
+        for k, (x, z, s) in enumerate(((14.5, 6.5, 1.8), (17.5, 4.0, 2.4), (13.0, 9.5, 1.3))):
+            rock("NA_Ground", sx * x, 0, z, s * 1.4, s * 0.85, s, 900 + k + (sx > 0) * 10, "SnowRock", 2)
+            drift("NA_Ground", sx * x, z + 0.4, s * 1.6, s * 1.1, s * 0.55, 950 + k + (sx > 0) * 10, "Snow", 12)
+
+def build_grave_props(mx, mz, top):
+    """A jaeger's sword planted in the snow between the graves, a tattered banner on a pole behind them,
+    and a few small stone markers and cairns."""
+    g = "NA_Props"
+    # sword: blade, guard, grip, pommel, leaning a little in the wind
+    sx, sz, lean = mx + 0.1, mz + 0.9, (0.08, 0.0, 0.03)
+    top = mound_y(sx - mx, sz - mz)
+    L = 1.5; hy = top + 1.05
+    cone_dir(g, (sx + lean[0] * 1.6, hy, sz), (-lean[0], -1.0, -lean[2]), 0.07, L, "Metal", 4)   # blade, point buried
+    obox(g, (sx + lean[0] * 1.6, hy, sz), (0.5, 0.07, 0.08), 0, "Metal")                     # guard
+    cyl(g, sx + lean[0] * 1.7, hy + 0.03, sz, 0.035, 0.035, 0.32, "Wood", 6)                  # grip
+    cyl(g, sx + lean[0] * 1.9, hy + 0.35, sz, 0.06, 0.05, 0.08, "Metal", 6)                   # pommel
+    # banner pole + tattered cloth streaming with the wind (+x)
+    px, pz = mx + 5.6, mz - 1.6
+    top = mound_y(5.6, -1.6)
+    cyl(g, px, top - 0.6, pz, 0.07, 0.05, 5.4, "Wood", 6)
+    obox(g, (px + 0.55, top + 4.55, pz), (1.2, 0.06, 0.06), 0, "Wood")
+    gg = grp(g); bm = gg.bm; rnd = random.Random(77)
+    cols, rows, W, H = 9, 6, 1.5, 1.7
+    def cp(i, j, off):
+        u, v = i / cols, j / rows
+        bx = px + 0.1 + u * W; by = top + 4.5 - v * H * (1 - 0.25 * u)
+        bz = pz + 0.18 * math.sin(u * 5.0 + v * 1.3) * u + off
+        return G(bx, by - 0.25 * u * u, bz)
+    for off, flip in ((0.012, False), (-0.012, True)):
+        V2 = [[bm.verts.new(cp(i, j, off)) for i in range(cols + 1)] for j in range(rows + 1)]
+        fs = []
+        for j in range(rows):
+            for i in range(cols):
+                if j >= rows - 2 and (i * 7 + j * 3) % 5 < 2 and i > 1:
+                    continue                                        # tattered holes along the bottom and the fly
+                q = (V2[j][i], V2[j][i + 1], V2[j + 1][i + 1], V2[j + 1][i])
+                fs.append(bm.faces.new(q[::-1] if flip else q))
+        for f in fs:
+            f.normal_update()
+        if not flip:
+            if sum(f.normal.y for f in fs) > 0:
+                for f in fs: f.normal_flip()
+        else:
+            if sum(f.normal.y for f in fs) < 0:
+                for f in fs: f.normal_flip()
+        _tag(gg, fs, "Cloth")
+    # small stone markers + cairns on the mound
+    for k, (dx, dz, s) in enumerate(((-6.2, 1.2, 0.8), (6.8, 0.6, 0.7), (-4.4, 2.6, 0.55), (4.6, 2.8, 0.6))):
+        if k < 2:
+            ty = mound_y(dx, dz)
+            obox(g, (mx + dx, ty + 0.35 * s, mz + dz), (0.5 * s, 0.9 * s, 0.22 * s), rnd.uniform(-12, 12), "Ruin", 0.04)
+            obox(g, (mx + dx, ty + 0.8 * s + 0.03, mz + dz), (0.5 * s + 0.06, 0.07, 0.3 * s), 0, "Snow", 0.02)
+        else:
+            for j in range(3):
+                rock(g, mx + dx + rnd.uniform(-0.1, 0.1), mound_y(dx, dz) - 0.1 + j * 0.28 * s, mz + dz, 0.4 * s * (1 - j * 0.25),
+                     0.22 * s, 0.35 * s * (1 - j * 0.25), 1500 + k * 5 + j, "SnowRock", 1, 0.2)
+
+def broken_pillar(x, z, r, h, seed, base_y=0.0, fallen=False):
+    g = "NA_Props"; rnd = random.Random(seed)
+    if fallen:
+        a = rnd.uniform(0, 360)
+        for j in range(3):                                          # three drum sections lying in the snow
+            dx, dz = math.cos(math.radians(a)) * j * r * 2.3, math.sin(math.radians(a)) * j * r * 2.3
+            gg = grp(g)
+            M = Matrix.Translation(G(x + dx, base_y + r * 0.8, z + dz)) @ Matrix.Rotation(math.radians(-a), 4, 'Z') @ \
+                Matrix.Rotation(math.radians(90 + rnd.uniform(-8, 8)), 4, 'Y')
+            rr = bmesh.ops.create_cone(gg.bm, cap_ends=True, cap_tris=False, segments=10, radius1=r, radius2=r * 0.95, depth=r * 2.0, matrix=M)
+            _tag(gg, list({f for v in rr["verts"] for f in v.link_faces}), "Ruin")
+        drift("NA_Ground", x, z, r * 4, r * 2.5, r * 0.7, seed + 3, "Snow", 12, y0=base_y - 0.05)
+        return
+    cyl(g, x, base_y - 0.3, z, r * 1.35, r * 1.35, 0.6, "Ruin", 8)                            # base
+    cyl(g, x, base_y + 0.3, z, r, r * 0.95, h, "Ruin", 10, rnd.uniform(0, 30))               # shaft
+    # broken top: a jagged cap, snow on it
+    spire(g, x, z, rnd.uniform(0.3, 0.7), r * 0.95, seed + 1, "Ruin", (rnd.uniform(-0.3, 0.3), 0), 0.05, 10, 2, base_y + 0.3 + h)
+    drift("NA_Ground", x, z, r * 0.9, r * 0.9, 0.18, seed + 2, "Snow", 10, y0=base_y + 0.3 + h + 0.15)
+    drift("NA_Ground", x, z, r * 2.4, r * 2.0, 0.45, seed + 4, "Snow", 12, y0=base_y - 0.05)
+
+def ruins():
+    """What is left of an old stone ring around the mound and a broken wall to the left."""
+    mx, mz = MOUND
+    for k, (dx, dz, r, h, fallen) in enumerate(((-10.5, 2.0, 0.55, 3.6, False), (10.8, 1.5, 0.55, 2.2, False),
+                                                (-12.8, -2.5, 0.5, 1.4, False), (13.2, -3.0, 0.5, 4.4, False),
+                                                (-7.5, -5.0, 0.5, 5.2, False), (7.8, -5.2, 0.5, 1.0, False),
+                                                (15.5, 3.5, 0.42, 0, True))):
+        broken_pillar(mx + dx, mz + dz, r, h, 2000 + k * 11, mound_y(dx, dz), fallen)
+    # a broken wall on the left, mid-field
+    rnd = random.Random(31)
+    x0, z0 = -33.0, -22.5
+    for k in range(9):
+        hh = 2.4 - abs(k - 2.5) * 0.45 + rnd.uniform(-0.3, 0.3)
+        if hh < 0.4:
+            continue
+        for j in range(int(hh / 0.45) + 1):
+            obox("NA_Props", (x0 + k * 1.05 + rnd.uniform(-0.05, 0.05), 0.22 + j * 0.45, z0 + k * 0.35 + rnd.uniform(-0.05, 0.05)),
+                 (1.0, 0.43, 0.7), -18 + rnd.uniform(-3, 3), "Ruin", 0.04)
+        obox("NA_Props", (x0 + k * 1.05, 0.22 + (int(hh / 0.45) + 1) * 0.45 - 0.18, z0 + k * 0.35), (1.06, 0.1, 0.76), -18, "Snow", 0.03)
+    drift("NA_Ground", x0 + 4.5, z0 + 2.2, 6.0, 1.6, 0.9, 33, "Snow", 14)
+    for k in range(6):                                              # fallen blocks
+        rock("NA_Props", x0 + rnd.uniform(0, 10), 0.1, z0 + rnd.uniform(1.5, 4.0), 0.45, 0.3, 0.35, 3100 + k, "Ruin", 1, 0.12)
+
+def fence():
+    """Leaning old fence posts and a sagging rope marking a path up to the graves."""
+    mx, mz = MOUND; rnd = random.Random(41)
+    for sx in (-1, 1):
+        pts = []
+        for k in range(7):
+            z = -12.0 - k * 2.6
+            x = sx * (3.6 + k * 0.08 + rnd.uniform(-0.15, 0.15))
+            if k == 4 and sx > 0:                                   # one post fallen over
+                rock("NA_Props", x, 0.05, z, 0.12, 0.1, 0.8, 4000 + k, "Wood", 1, 0.1)
+                continue
+            h = rnd.uniform(1.0, 1.35)
+            lx, lz = rnd.uniform(-0.12, 0.12), rnd.uniform(-0.1, 0.1)
+            cone_dir("NA_Props", (x, -0.3, z), (lx, 1, lz), 0.09, h + 0.3, "Wood", 5)
+            cyl("NA_Props", x + lx * h, h - 0.08, z + lz * h, 0.1, 0.06, 0.1, "Snow", 6)
+            drift("NA_Ground", x, z, 0.5, 0.4, 0.22, 4100 + k * 2 + (sx > 0), "Snow", 8)
+            pts.append((x + lx * (h - 0.15), h - 0.15, z + lz * (h - 0.15)))
+        for a, b in zip(pts, pts[1:]):                              # sagging rope (thin boxes)
+            for t0 in (0.0, 0.5):
+                t1 = t0 + 0.5
+                def at(t):
+                    return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t - 0.35 * math.sin(math.pi * t), a[2] + (b[2] - a[2]) * t)
+                p0, p1 = at(t0), at(t1)
+                _rope(p0, p1)
+
+def _rope(p0, p1, r=0.022):
+    g = grp("NA_Props")
+    d = Vector((p1[0] - p0[0], -(p1[2] - p0[2]), p1[1] - p0[1])); L = d.length
+    M = Matrix.Translation((G(*p0) + G(*p1)) / 2) @ d.normalized().to_track_quat('Z', 'Y').to_matrix().to_4x4()
+    rr = bmesh.ops.create_cone(g.bm, cap_ends=False, cap_tris=False, segments=4, radius1=r, radius2=r, depth=L, matrix=M)
+    _tag(g, list({f for v in rr["verts"] for f in v.link_faces}), "Wood")
+
+def pine(x, z, h, seed, base_y=0.0):
+    g = "NA_Trees"; rnd = random.Random(seed)
+    cyl(g, x, base_y - 0.2, z, h * 0.04, h * 0.025, h * 0.35, "Bark", 5)
+    tiers = rnd.randint(4, 5)
+    for k in range(tiers):
+        t = k / tiers
+        r = h * 0.28 * (1 - t * 0.75) * rnd.uniform(0.9, 1.1)
+        y = base_y + h * (0.18 + 0.68 * t)
+        cyl(g, x + rnd.uniform(-0.05, 0.05) * h, y, z, r, 0.0, h * 0.32, "Pine", rnd.choice([6, 7]), rnd.uniform(0, 60))
+    drift("NA_Ground", x, z, h * 0.22, h * 0.2, h * 0.05, seed + 1, "Snow", 8)
+
+def dead_tree(x, z, h, seed, base_y=0.0):
+    g = "NA_Props"; rnd = random.Random(seed)
+    lx = rnd.uniform(-0.12, 0.12)
+    cone_dir(g, (x, base_y - 0.4, z), (lx, 1, 0), h * 0.05, h + 0.4, "Bark", 6)
+    def branch(p, d, L, r, depth):
+        cone_dir(g, p, d, r, L, "Bark", 4)
+        if depth == 0:
+            return
+        for k in range(rnd.randint(1, 3)):
+            t = rnd.uniform(0.45, 0.85)
+            q = (p[0] + d[0] * L * t, p[1] + d[1] * L * t, p[2] + d[2] * L * t)
+            a = rnd.uniform(-1.0, 1.0)
+            nd = (d[0] * 0.6 + a, d[1] * 0.7 + rnd.uniform(0.2, 0.6), d[2] * 0.6 + rnd.uniform(-0.5, 0.5))
+            nl = math.sqrt(sum(c * c for c in nd)); nd = tuple(c / nl for c in nd)
+            branch(q, nd, L * rnd.uniform(0.45, 0.65), r * 0.55, depth - 1)
+    for k in range(rnd.randint(3, 5)):
+        t = rnd.uniform(0.35, 0.9)
+        p = (x + lx * h * t, base_y + h * t, z)
+        s = rnd.choice([-1, 1]); dd = (s * rnd.uniform(0.6, 1.0), rnd.uniform(0.3, 0.9), rnd.uniform(-0.4, 0.4))
+        nl = math.sqrt(sum(c * c for c in dd)); dd = tuple(c / nl for c in dd)
+        branch(p, dd, h * rnd.uniform(0.25, 0.4), h * 0.025, 2)
+    drift("NA_Ground", x, z, h * 0.2, h * 0.16, h * 0.06, seed + 1, "Snow", 10)
+
+def build_env():
+    """Extra life around the field: forest bands on both sides, dead trees, ruins, the fence path, big ice."""
+    ruins(); fence()
+    rnd = random.Random(61)
+    for k in range(70):                                             # snowy pine forest at the sides and behind
+        sx = rnd.choice([-1, 1])
+        x = sx * rnd.uniform(20, 38); z = rnd.uniform(-56, -30)
+        if k < 22:
+            x = rnd.uniform(-38, 38); z = rnd.uniform(-56, -47)
+            if abs(x) < 16:
+                continue
+        pine(x, z, rnd.uniform(5, 10) * (1 + max(0, -z - 40) / 40), 5000 + k)
+    for k in range(10):                                             # a few pines a bit closer at the edges
+        sx = 1 if k % 2 else -1
+        pine(sx * rnd.uniform(24, 32), rnd.uniform(-22, -12), rnd.uniform(4, 6.5), 5200 + k)
+    for k, (x, z, h) in enumerate(((-18.5, -14.0, 4.6), (19.5, -15.5, 5.2), (-24.0, -6.0, 3.8), (25.0, -24.0, 5.8),
+                                   (-13.5, -31.0, 4.0), (14.5, -36.0, 4.4))):
+        dead_tree(x, z, h, 6000 + k * 7)
+    for sx, z, s in ((-1, -30.0, 2.6), (1, -26.0, 2.4)):            # big ice formations in the mid-field
+        crystal_cluster(sx * 33.0, z, s, 6100 + int(z))
+        crystal_cluster(sx * 29.5, z - 5, s * 0.7, 6150 + int(z))
+
+def build_far():
+    g = "NA_Far"; rnd = random.Random(4)
+    # broken hills and cliffs right behind the field (seen through the mist)
+    for k in range(18):
+        x = rnd.uniform(-80, 80); z = rnd.uniform(-85, -62)
+        if abs(x) < 14 and z > -70:
+            continue
+        for j in range(3):                                       # each crag is a few overlapping rough spikes
+            spire(g, x + rnd.uniform(-5, 5), z + rnd.uniform(-3, 3), rnd.uniform(7, 18) * (1 - 0.25 * j), rnd.uniform(4, 8),
+                  1000 + k * 5 + j, "Mountain", (rnd.uniform(-0.12, 0.12), rnd.uniform(-0.05, 0.05)), 3, rnd.choice([7, 8, 9]), 3)
+    ridge(g, -110, -260, 260, -4, [(-180, 38, 70), (-110, 30, 50), (-50, 26, 40), (40, 30, 45), (110, 40, 60), (190, 34, 60)], 3, "Mountain")
+    ridge(g, -170, -320, 320, -6, [(-240, 60, 90), (-120, 50, 80), (0, 44, 70), (130, 58, 90), (250, 50, 80)], 5, "MountainFar")
+
 def build_cards():
-    g = grp("NA_Sky", "Cards"); n = 128; y0, y1 = -160.0, 1000.0
+    # sky cylinder
+    g = grp("NA_Sky", "Cards"); n = 96; y0, y1 = -40.0, 300.0
     for i in range(n):
         t0, t1 = i / n, (i + 1) / n
         A0, A1 = 2 * math.pi * t0 - math.pi, 2 * math.pi * t1 - math.pi
-        p0 = (SKY_R * math.sin(A0), 0, -150 - SKY_R * math.cos(A0)); p1 = (SKY_R * math.sin(A1), 0, -150 - SKY_R * math.cos(A1))
+        p0 = (SKY_R * math.sin(A0), 0, -10 - SKY_R * math.cos(A0)); p1 = (SKY_R * math.sin(A1), 0, -10 - SKY_R * math.cos(A1))
         quad(g, [(p0[0], y0, p0[2]), (p1[0], y0, p1[2]), (p1[0], y1, p1[2]), (p0[0], y1, p0[2])], [(t0, 0), (t1, 0), (t1, 1), (t0, 1)], "SkyCard")
-    # mist: (id, z, half width, bottom, top); UV.x = metres / 40 so the shader's noise has a world scale
-    for fid, z, hw, yb, yt in ((0, -62.0, 240.0, -6.5, 3.0), (1, -140.0, 420.0, -6.5, 12.0), (2, -232.0, 560.0, -6.5, 24.0),
-                               (3, -415.0, 950.0, -6.5, 46.0), (4, -780.0, 1080.0, -6.5, 80.0), (5, -50.0, 90.0, -1.0, 5.0)):
-        card("NA_Mist", [(-hw, yb, z), (hw, yb, z), (hw, yt, z), (-hw, yt, z)], fid, "MistCard", 0.0, 2 * hw / 40.0)
-    # the sea of storm mist filling the gulf below the plateau edge (horizontal; h runs from the edge outward)
-    card("NA_Fog", [(-1300.0, -6.0, -57.0), (1300.0, -6.0, -57.0), (1300.0, -6.0, -980.0), (-1300.0, -6.0, -980.0)], 0, "MistCard", 0.0, 2600.0 / 40.0)
+    # mist banks between the layers + a low drift layer blowing across the field behind the fighters
+    for i, (z, top, hw) in enumerate(MIST):
+        quad("NA_Mist", [(-hw, -0.5, z), (hw, -0.5, z), (hw, top, z), (-hw, top, z)],
+             [(0, i + 0.001), (2 * hw / 20.0, i + 0.001), (2 * hw / 20.0, i + 0.999), (0, i + 0.999)], "MistCard")
 
 def build_preview():
     g = grp("Preview_Standins", "Preview")
@@ -837,20 +801,17 @@ def build_lights():
     w = bpy.data.worlds.new("World"); bpy.context.scene.world = w; w.use_nodes = True
     bg = w.node_tree.nodes["Background"]
     bg.inputs["Color"].default_value = (*srgb(V["world"][0]), 1); bg.inputs["Strength"].default_value = V["world"][1]
-    bpy.context.scene["ce_variant"] = VARIANT
+    bpy.context.scene["ce_variant"] = "day"
     bpy.context.scene["ce_world_strength"] = V["world"][1]
-    sd = bpy.data.lights.new("Sun", 'SUN'); sd.energy = V["sun"][0]; sd.color = srgb(V["sun"][1]); sd.angle = math.radians(V["sun"][2])
-    s = bpy.data.objects.new("Sun", sd); col("Lights").objects.link(s)
-    d = Vector(SUN_DIR).normalized()
-    s.rotation_mode = 'QUATERNION'; s.rotation_quaternion = Vector((d.x, -d.z, d.y)).to_track_quat('-Z', 'Y')
-    def area(name, pos, aim, size, power, colr):
+    for name, pos, aim, size, (power, colr) in (
+            ("Break_Back", (0, 60, -120), (0, 0, -20), (120, 60), V["break"]),       # the bright gap in the clouds
+            ("Sky_Top", (0, 50, -15), (0, 0, -15), (100, 100), V["top"]),
+            ("Fill_Front", (0, 14, 28), (0, 1, -10), (60, 20), V["fill"])):
         ld = bpy.data.lights.new(name, 'AREA'); ld.shape = 'RECTANGLE'
         ld.size, ld.size_y = size; ld.energy = power; ld.color = srgb(colr)
         o = bpy.data.objects.new(name, ld); col("Lights").objects.link(o); o.location = G(*pos)
         o.rotation_mode = 'QUATERNION'; o.rotation_quaternion = (G(*aim) - G(*pos)).normalized().to_track_quat('-Z', 'Y')
         o.visible_camera = False
-    area("Fill_Front", (0, 12.0, 30.0), (0, 0.0, -14.0), (60, 16), V["fill"][0], V["fill"][1])
-    area("Fill_Top", (0, 34.0, -16.0), (0, 0.0, -16.0), (70, 70), V["top"][0], V["top"][1])
 
 def setup_render():
     sc = bpy.context.scene
@@ -877,235 +838,22 @@ CAMS = (("CAM_near", (0, 1.4, 6.5)), ("CAM_mid", (0, 1.9, 9.5)), ("CAM_far", (0,
 def build_cameras():
     for name, pos in CAMS:
         cd = bpy.data.cameras.new(name); cd.sensor_fit = 'VERTICAL'; cd.angle_y = math.radians(30)
-        cd.clip_start = 0.1; cd.clip_end = 3000
+        cd.clip_start = 0.1; cd.clip_end = 900
         o = bpy.data.objects.new(name, cd); col("Cameras").objects.link(o)
         o.location = G(*pos); o.rotation_euler = (math.radians(90), 0, 0)
     bpy.context.scene.camera = bpy.data.objects["CAM_mid"]
 
-CARD_GROUPS = ("NA_Sky", "NA_Mist", "NA_Fog")
-HIDDEN = ("NA_Mist", "NA_Fog")
-
 def build_all():
     reset(); COLS.clear(); MATS.clear(); GR.clear()
     build_materials()
-    build_floor(); build_rocks(); build_cliffs(); build_cards(); build_preview()
+    build_floor(); build_mound(); build_field(); build_env(); build_far(); build_cards(); build_preview()
     objs = {name: g.finish() for name, g in list(GR.items())}
-    for n in ("NA_Floor", "NA_Rocks", "NA_Cliffs", "NA_Far"):        # soft, natural forms: smooth shading everywhere
-        if n in objs:
-            for p in objs[n].data.polygons:
-                p.use_smooth = True
-    for n in CARD_GROUPS:
-        if n in objs:
-            objs[n].visible_shadow = False
-    for n in HIDDEN:
-        if n in objs:
-            objs[n].hide_render = True
+    for n in ("NA_Sky", "NA_Mist"):
+        objs[n].visible_shadow = False
+    objs["NA_Mist"].hide_render = True
     build_lights(); build_cameras(); setup_render()
     tris = {o.name: sum(len(p.vertices) - 2 for p in o.data.polygons) for o in objs.values()}
-    return {"variant": VARIANT, "blockout": BLOCKOUT, "objects": list(objs), "tris": tris, "total_tris": sum(tris.values())}
-
-# ======================================================================
-#  the final camera render (Cycles, the full lit scene + a real storm)
-# ======================================================================
-def _mat_flake():
-    m = bpy.data.materials.new("Beauty_Flake"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
-    out = nt.nodes.new("ShaderNodeOutputMaterial")
-    tc = nt.nodes.new("ShaderNodeTexCoord")
-    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Location"].default_value = (-0.5, -0.5, 0); mp.inputs["Scale"].default_value = (2, 2, 1)
-    nt.links.new(tc.outputs["UV"], mp.inputs[0])
-    gr = nt.nodes.new("ShaderNodeTexGradient"); gr.gradient_type = 'SPHERICAL'
-    nt.links.new(mp.outputs[0], gr.inputs[0])
-    pw = nt.nodes.new("ShaderNodeMath"); pw.operation = 'POWER'; pw.inputs[1].default_value = 1.6
-    nt.links.new(gr.outputs["Fac"], pw.inputs[0])
-    at = nt.nodes.new("ShaderNodeAttribute"); at.attribute_type = 'GEOMETRY'; at.attribute_name = "Alpha"
-    mul = nt.nodes.new("ShaderNodeMath"); mul.operation = 'MULTIPLY'
-    nt.links.new(pw.outputs[0], mul.inputs[0]); nt.links.new(at.outputs["Fac"], mul.inputs[1])
-    em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb("#eef2f8"), 1); em.inputs["Strength"].default_value = 1.1
-    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
-    mix = nt.nodes.new("ShaderNodeMixShader")
-    nt.links.new(mul.outputs[0], mix.inputs[0]); nt.links.new(tr.outputs[0], mix.inputs[1]); nt.links.new(em.outputs[0], mix.inputs[2])
-    nt.links.new(mix.outputs[0], out.inputs[0])
-    return m
-
-def _mat_veil(name, colour, strength, alpha, scale, vert=True):
-    """Mist / drifting powder for the beauty render: emission + transparency through noise, densest low down."""
-    m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
-    out = nt.nodes.new("ShaderNodeOutputMaterial")
-    geo = nt.nodes.new("ShaderNodeNewGeometry")
-    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (1.0 / scale, 1.0 / scale, 2.4 / scale)
-    nt.links.new(geo.outputs["Position"], mp.inputs[0])
-    nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 1.0; nz.inputs["Detail"].default_value = 6.0
-    nz.inputs["Roughness"].default_value = 0.6; nz.inputs["Distortion"].default_value = 0.4
-    nt.links.new(mp.outputs[0], nz.inputs["Vector"])
-    cr = nt.nodes.new("ShaderNodeMapRange"); cr.inputs["From Min"].default_value = 0.35; cr.inputs["From Max"].default_value = 0.75
-    nt.links.new(nz.outputs["Fac"], cr.inputs[0])
-    uvn = nt.nodes.new("ShaderNodeUVMap"); uvn.uv_map = "Tex"
-    sep = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(uvn.outputs[0], sep.inputs[0])
-    fr = nt.nodes.new("ShaderNodeMath"); fr.operation = 'FRACT'; nt.links.new(sep.outputs[1], fr.inputs[0])
-    inv = nt.nodes.new("ShaderNodeMath"); inv.operation = 'SUBTRACT'; inv.inputs[0].default_value = 1.0; nt.links.new(fr.outputs[0], inv.inputs[1])
-    pw = nt.nodes.new("ShaderNodeMath"); pw.operation = 'POWER'; pw.inputs[1].default_value = 1.4 if vert else 0.8
-    nt.links.new(inv.outputs[0], pw.inputs[0])
-    edge = nt.nodes.new("ShaderNodeMath"); edge.operation = 'MULTIPLY'; nt.links.new(pw.outputs[0], edge.inputs[0])
-    sm = nt.nodes.new("ShaderNodeMapRange"); sm.inputs["From Min"].default_value = 0.0; sm.inputs["From Max"].default_value = 0.12
-    nt.links.new(fr.outputs[0], sm.inputs[0]); nt.links.new(sm.outputs[0], edge.inputs[1])
-    a = nt.nodes.new("ShaderNodeMath"); a.operation = 'MULTIPLY'; nt.links.new(edge.outputs[0], a.inputs[0]); nt.links.new(cr.outputs[0], a.inputs[1])
-    a2 = nt.nodes.new("ShaderNodeMath"); a2.operation = 'MULTIPLY'; a2.inputs[1].default_value = alpha; nt.links.new(a.outputs[0], a2.inputs[0])
-    em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb(colour), 1); em.inputs["Strength"].default_value = strength
-    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
-    mix = nt.nodes.new("ShaderNodeMixShader")
-    nt.links.new(a2.outputs[0], mix.inputs[0]); nt.links.new(tr.outputs[0], mix.inputs[1]); nt.links.new(em.outputs[0], mix.inputs[2])
-    nt.links.new(mix.outputs[0], out.inputs[0])
-    return m
-
-def _mat_fogsea():
-    """The mist sea for the beauty render: nearly opaque, billowing, a little brighter far off toward the break."""
-    m = bpy.data.materials.new("Beauty_FogSea"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
-    out = nt.nodes.new("ShaderNodeOutputMaterial")
-    geo = nt.nodes.new("ShaderNodeNewGeometry")
-    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (0.012, 0.03, 0.012)
-    nt.links.new(geo.outputs["Position"], mp.inputs[0])
-    nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 1.0; nz.inputs["Detail"].default_value = 7.0
-    nz.inputs["Roughness"].default_value = 0.6
-    nt.links.new(mp.outputs[0], nz.inputs["Vector"])
-    a = nt.nodes.new("ShaderNodeMapRange"); a.inputs["From Min"].default_value = 0.3; a.inputs["From Max"].default_value = 0.7
-    a.inputs["To Min"].default_value = 0.72; a.inputs["To Max"].default_value = 0.97
-    nt.links.new(nz.outputs["Fac"], a.inputs[0])
-    c = nt.nodes.new("ShaderNodeMapRange"); c.inputs["To Min"].default_value = 0.8; c.inputs["To Max"].default_value = 1.08
-    nt.links.new(nz.outputs["Fac"], c.inputs[0])
-    em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Color"].default_value = (*srgb("#aeb8c8"), 1)
-    nt.links.new(c.outputs[0], em.inputs["Strength"])
-    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
-    mix = nt.nodes.new("ShaderNodeMixShader")
-    nt.links.new(a.outputs[0], mix.inputs[0]); nt.links.new(tr.outputs[0], mix.inputs[1]); nt.links.new(em.outputs[0], mix.inputs[2])
-    nt.links.new(mix.outputs[0], out.inputs[0])
-    return m
-
-def _mat_sky():
-    """Storm sky for the beauty render: dark churning cloud, paler at the horizon, a bright break behind the rise."""
-    m = bpy.data.materials.new("Beauty_Sky"); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
-    out = nt.nodes.new("ShaderNodeOutputMaterial")
-    geo = nt.nodes.new("ShaderNodeNewGeometry")
-    cam = G(0, 1.9, 9.5)
-    sub = nt.nodes.new("ShaderNodeVectorMath"); sub.operation = 'SUBTRACT'; sub.inputs[1].default_value = cam
-    nt.links.new(geo.outputs["Position"], sub.inputs[0])
-    nrm = nt.nodes.new("ShaderNodeVectorMath"); nrm.operation = 'NORMALIZE'; nt.links.new(sub.outputs[0], nrm.inputs[0])
-    sep = nt.nodes.new("ShaderNodeSeparateXYZ"); nt.links.new(nrm.outputs[0], sep.inputs[0])
-    ramp = nt.nodes.new("ShaderNodeValToRGB"); cr = ramp.color_ramp
-    stops = [(0.0, "#b4becc"), (0.05, "#8692a6"), (0.14, "#525c70"), (0.3, "#2a3242")]
-    while len(cr.elements) < len(stops):
-        cr.elements.new(0.5)
-    for e, (p, c) in zip(cr.elements, stops):
-        e.position = p; e.color = (*srgb(c), 1)
-    nt.links.new(sep.outputs[2], ramp.inputs[0])
-    nz = nt.nodes.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 3.0; nz.inputs["Detail"].default_value = 8.0
-    nz.inputs["Roughness"].default_value = 0.62; nz.inputs["Distortion"].default_value = 1.2
-    mp = nt.nodes.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (2.2, 1.0, 5.0)
-    nt.links.new(nrm.outputs[0], mp.inputs[0]); nt.links.new(mp.outputs[0], nz.inputs["Vector"])
-    cl = nt.nodes.new("ShaderNodeMapRange"); cl.inputs["From Min"].default_value = 0.38; cl.inputs["From Max"].default_value = 0.72
-    cl.inputs["To Min"].default_value = 0.55; cl.inputs["To Max"].default_value = 1.25
-    nt.links.new(nz.outputs["Fac"], cl.inputs[0])
-    mul = nt.nodes.new("ShaderNodeMix"); mul.data_type = 'RGBA'; mul.blend_type = 'MULTIPLY'; mul.inputs[0].default_value = 1.0
-    nt.links.new(ramp.outputs[0], mul.inputs[6]); nt.links.new(cl.outputs[0], mul.inputs[7])
-    # the break: brightness around the direction behind the rise, just above the horizon
-    bd = Vector((0.05, 0.995, 0.07)).normalized()            # Blender space: ahead (+y) and a little up
-    dot = nt.nodes.new("ShaderNodeVectorMath"); dot.operation = 'DOT_PRODUCT'; dot.inputs[1].default_value = bd
-    nt.links.new(nrm.outputs[0], dot.inputs[0])
-    br = nt.nodes.new("ShaderNodeMapRange"); br.inputs["From Min"].default_value = 0.97; br.inputs["From Max"].default_value = 1.0
-    br.interpolation_type = 'SMOOTHSTEP'
-    br.inputs["To Min"].default_value = 0.0; br.inputs["To Max"].default_value = 1.0
-    nt.links.new(dot.outputs["Value"], br.inputs[0])
-    brk = nt.nodes.new("ShaderNodeMath"); brk.operation = 'MULTIPLY'; nt.links.new(br.outputs[0], brk.inputs[0]); nt.links.new(nz.outputs["Fac"], brk.inputs[1])
-    add = nt.nodes.new("ShaderNodeMix"); add.data_type = 'RGBA'; add.blend_type = 'ADD'
-    nt.links.new(brk.outputs[0], add.inputs[0]); nt.links.new(mul.outputs[2], add.inputs[6]); add.inputs[7].default_value = (0.32, 0.35, 0.4, 1)
-    em = nt.nodes.new("ShaderNodeEmission"); em.inputs["Strength"].default_value = 1.0
-    nt.links.new(add.outputs[2], em.inputs[0]); nt.links.new(em.outputs[0], out.inputs[0])
-    return m
-
-def make_beauty(cam_name="CAM_mid", flakes=12000, seed=5):
-    """Add the storm (flakes at every depth, streaked near the lens, mist veils, blowing powder) as real geometry,
-    switch the cards to beauty materials, and set up a full-quality 16:9 render from the game camera."""
-    sc = bpy.context.scene
-    for o in bpy.data.objects:
-        if o.name.startswith("PV_") or o.name.startswith("Preview"):
-            o.hide_render = True
-        elif o.name.startswith("NA_") or o.type == 'LIGHT':
-            o.hide_render = False
-    bg = sc.world.node_tree.nodes["Background"].inputs["Strength"]
-    bg.default_value = sc.get("ce_world_strength", 1.0)
-    bc = bpy.data.collections.get("Beauty") or bpy.data.collections.new("Beauty")
-    if bc.name not in sc.collection.children:
-        sc.collection.children.link(bc)
-    for o in list(bc.objects):
-        bpy.data.objects.remove(o)
-    def override(objname, mat):
-        o = bpy.data.objects.get(objname)
-        if o is None:
-            return
-        for slot in o.material_slots:
-            slot.link = 'OBJECT'; slot.material = mat
-    override("NA_Sky", _mat_sky())
-    override("NA_Mist", _mat_veil("Beauty_Mist", "#b0bacb", 1.0, 0.22, 30.0))
-    override("NA_Fog", _mat_fogsea())
-    sf = bpy.data.materials.get("SnowField")              # a clearer powder relief for the camera render
-    if sf:
-        for nd in sf.node_tree.nodes:
-            if nd.type == 'BUMP':
-                nd.inputs["Strength"].default_value = 0.6; nd.inputs["Distance"].default_value = 0.35
-    # flakes: camera-facing quads through the whole view, smaller and fainter far away, streaked near the lens
-    cam = bpy.data.objects[cam_name]
-    cp = cam.location
-    me = bpy.data.meshes.new("Beauty_Snow"); bm = bmesh.new()
-    uvl = bm.loops.layers.uv.new("UVMap")
-    cl = bm.loops.layers.float_color.new("Alpha")
-    rnd = random.Random(seed)
-    wdir = Vector((0.95, 0.0, -0.31)).normalized()            # streak direction on screen (right and down)
-    up = Vector((0.0, 0.0, 1.0)); right = Vector((1.0, 0.0, 0.0))
-    for k in range(flakes):
-        if rnd.random() < 0.22:
-            d = rnd.uniform(1.4, 12.0)                         # close flakes, streaked by the wind
-        else:
-            d = 4.0 + 86.0 * rnd.random() ** (1.0 / 2.2)         # the rest fill the depth of the storm
-        x = rnd.uniform(-1.05, 1.05) * d * math.tan(math.radians(15.0)) * 1.778
-        z = rnd.uniform(-1.05, 1.05) * d * math.tan(math.radians(15.0))
-        c = cp + Vector((x, d, z))                            # the camera looks along Blender +y (Godot -z)
-        s = (0.003 + 0.005 * rnd.random()) * (1.0 + d * 0.045)
-        if d < 4.0:
-            s *= 1.6                                            # bigger soft flakes by the lens
-        streak = 1.0 + 0.7 * rnd.random()                       # only slightly drawn out by the wind, never lines
-        alpha = (0.26 if d < 4 else 0.78) * rnd.uniform(0.6, 1.0) * (1.0 - 0.55 * min(d / 90.0, 1.0))
-        a = wdir * (s * streak); b = Vector((-wdir.z, 0.0, wdir.x)) * s
-        vs = [bm.verts.new(c - a - b), bm.verts.new(c + a - b), bm.verts.new(c + a + b), bm.verts.new(c - a + b)]
-        f = bm.faces.new(vs)
-        for l, uv in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))):
-            l[uvl].uv = uv; l[cl] = (alpha, alpha, alpha, 1.0)
-    # soft powder blowing low over the snow, from near to far
-    for k in range(1600):
-        d = 2.5 + 55.0 * rnd.random() ** 1.5
-        x = rnd.uniform(-1.05, 1.05) * d * math.tan(math.radians(15.0)) * 1.778
-        c = Vector((cp.x + x, cp.y + d, rnd.uniform(0.0, 0.5) ** 1.5 + 0.02))
-        s = rnd.uniform(0.12, 0.45) * (1.0 + d * 0.02)
-        a = wdir * (s * 1.8); a.z *= 0.2; b = Vector((0.0, 0.0, s * 0.45))
-        vs = [bm.verts.new(c - a - b), bm.verts.new(c + a - b), bm.verts.new(c + a + b), bm.verts.new(c - a + b)]
-        f = bm.faces.new(vs)
-        al = rnd.uniform(0.03, 0.07)
-        for l, uv in zip(f.loops, ((0, 0), (1, 0), (1, 1), (0, 1))):
-            l[uvl].uv = uv; l[cl] = (al, al, al, 1.0)
-    bm.to_mesh(me); bm.free()
-    me.materials.append(_mat_flake())
-    so = bpy.data.objects.new("Beauty_Snow", me); bc.objects.link(so)
-    so.visible_shadow = False
-    sc.camera = cam
-    sc.render.resolution_x, sc.render.resolution_y = 1920, 1080
-    sc.render.resolution_percentage = 100
-    sc.cycles.samples = 160; sc.cycles.use_denoising = True
-    sc.cycles.transparent_max_bounces = 96
-    sc.view_settings.view_transform = 'AgX'
-    try:
-        sc.view_settings.look = 'AgX - Medium Low Contrast'
-    except Exception:
-        sc.view_settings.look = 'None'
-    sc.view_settings.exposure = 0.35
-    return {"flakes": flakes}
+    return {"objects": list(objs), "tris": tris, "total_tris": sum(tris.values())}
 
 if __name__ == "__main__":
     BUILD_INFO = build_all()

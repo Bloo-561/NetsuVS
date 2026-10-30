@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crw8aki4hc0eh"
+uid="uid://ei06tx5ro762"
 path.s3tc="res://.godot/imported/north_ambria_na_far.png-239ada76105fe13773365d428361761a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d982adbba30fed42c8ef7da21c9728bd"
+"md5": "0c50ae18730c9cdbae1f62d42adb7e58"
 }
 
 [deps]

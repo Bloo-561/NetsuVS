@@ -1,43 +1,33 @@
 [gd_scene format=3]
 
 [ext_resource type="PackedScene" path="res://stages/north_ambria/north_ambria.glb" id="1_glb"]
-[ext_resource type="Shader" path="res://stages/north_ambria/na_sky.gdshader" id="s_sky"]
-[ext_resource type="Shader" path="res://stages/north_ambria/na_mist.gdshader" id="s_mist"]
-[ext_resource type="Shader" path="res://stages/north_ambria/na_floor.gdshader" id="s_floor"]
+[ext_resource type="Shader" path="res://stages/north_ambria/na_floor.gdshader" id="2_floor"]
+[ext_resource type="Shader" path="res://stages/north_ambria/na_sky.gdshader" id="3_sky"]
+[ext_resource type="Shader" path="res://stages/north_ambria/na_mist.gdshader" id="4_mist"]
 [ext_resource type="Texture2D" path="res://stages/north_ambria/textures/floor_light.png" id="t_light"]
 [ext_resource type="Texture2D" path="res://stages/north_ambria/textures/dot.png" id="t_dot"]
-[ext_resource type="Script" path="res://stages/north_ambria/na_fighter_light.gd" id="s_light"]
 
 [sub_resource type="ShaderMaterial" id="Mat_floor"]
-shader = ExtResource("s_floor")
+shader = ExtResource("2_floor")
 shader_parameter/light_tex = ExtResource("t_light")
-shader_parameter/floor_gain = 0.95
-shader_parameter/exposure = 0.75
-shader_parameter/shoulder = 0.85
-shader_parameter/saturation = 0.9
-shader_parameter/shadow_tint = Vector3(0.92, 0.96, 1.08)
-shader_parameter/highlight_tint = Vector3(1.0, 1.0, 1.02)
-shader_parameter/tint_amount = 0.45
 
 [sub_resource type="ShaderMaterial" id="Mat_sky"]
 render_priority = -2
-shader = ExtResource("s_sky")
+shader = ExtResource("3_sky")
 
 [sub_resource type="ShaderMaterial" id="Mat_mist"]
 render_priority = 1
-shader = ExtResource("s_mist")
+shader = ExtResource("4_mist")
 
-[sub_resource type="ShaderMaterial" id="Mat_fog"]
-render_priority = 0
-shader = ExtResource("s_mist")
-shader_parameter/sea = true
+[sub_resource type="PlaneMesh" id="Mesh_floor"]
+size = Vector2(80, 80)
 
 [sub_resource type="StandardMaterial3D" id="Mat_flake"]
 transparency = 1
 shading_mode = 0
 disable_fog = true
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.9)
+albedo_color = Color(0.95, 0.97, 1, 0.9)
 albedo_texture = ExtResource("t_dot")
 billboard_mode = 3
 billboard_keep_scale = true
@@ -45,128 +35,17 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="StandardMaterial3D" id="Mat_flake_far"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.6)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_flake_near"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.82)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_flake_lens"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.22)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_flake_deep"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.42)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_puff"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.1)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_flake_diag"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.7)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="StandardMaterial3D" id="Mat_puff_low"]
-transparency = 1
-shading_mode = 0
-disable_fog = true
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.94, 0.96, 1, 0.07)
-albedo_texture = ExtResource("t_dot")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
+[sub_resource type="QuadMesh" id="Mesh_flake_big"]
+material = SubResource("Mat_flake")
+size = Vector2(0.2, 0.2)
 
 [sub_resource type="QuadMesh" id="Mesh_flake"]
 material = SubResource("Mat_flake")
-size = Vector2(0.06, 0.06)
+size = Vector2(0.14, 0.14)
 
 [sub_resource type="QuadMesh" id="Mesh_flake_far"]
-material = SubResource("Mat_flake_far")
-size = Vector2(0.16, 0.16)
-
-[sub_resource type="QuadMesh" id="Mesh_flake_near"]
-material = SubResource("Mat_flake_near")
-size = Vector2(0.12, 0.08)
-
-[sub_resource type="QuadMesh" id="Mesh_flake_lens"]
-material = SubResource("Mat_flake_lens")
-size = Vector2(0.3, 0.3)
-
-[sub_resource type="QuadMesh" id="Mesh_flake_deep"]
-material = SubResource("Mat_flake_deep")
-size = Vector2(0.28, 0.28)
-
-[sub_resource type="QuadMesh" id="Mesh_puff"]
-material = SubResource("Mat_puff")
-size = Vector2(1.8, 0.45)
-
-[sub_resource type="QuadMesh" id="Mesh_flake_diag"]
-material = SubResource("Mat_flake_diag")
-size = Vector2(0.11, 0.045)
-
-[sub_resource type="QuadMesh" id="Mesh_puff_low"]
-material = SubResource("Mat_puff_low")
-size = Vector2(1.5, 0.3)
+material = SubResource("Mat_flake")
+size = Vector2(0.34, 0.34)
 
 [sub_resource type="Gradient" id="Grad"]
 offsets = PackedFloat32Array(0, 0.1, 0.85, 1)
@@ -174,26 +53,22 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Environment" id="Env"]
 background_mode = 1
-background_color = Color(0.52, 0.56, 0.64, 1)
+background_color = Color(0.55, 0.6, 0.7, 1)
 ambient_light_source = 2
 ambient_light_color = Color(0.8, 0.86, 0.95, 1)
 ambient_light_energy = 0.6
 tonemap_mode = 0
 glow_enabled = true
-glow_intensity = 0.3
+glow_intensity = 0.4
 glow_strength = 1.0
 glow_bloom = 0.0
 glow_blend_mode = 1
-glow_hdr_threshold = 1.0
+glow_hdr_threshold = 0.95
 fog_enabled = false
 
 [node name="NorthAmbria" type="Node3D"]
 
 [node name="Stage" parent="." instance=ExtResource("1_glb")]
-
-[node name="Floor" parent="Stage"]
-material_override = SubResource("Mat_floor")
-cast_shadow = 0
 
 [node name="Sky" parent="Stage"]
 material_override = SubResource("Mat_sky")
@@ -203,190 +78,81 @@ cast_shadow = 0
 material_override = SubResource("Mat_mist")
 cast_shadow = 0
 
-[node name="Fog" parent="Stage"]
-material_override = SubResource("Mat_fog")
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
 cast_shadow = 0
-
-[node name="FighterLight" type="Node" parent="."]
-script = ExtResource("s_light")
-tint = Color(0.82, 0.87, 0.97, 1)
+mesh = SubResource("Mesh_floor")
+surface_material_override/0 = SubResource("Mat_floor")
 
 [node name="FX" type="Node3D" parent="."]
 
-[node name="SnowDeep" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.75, 26.12, -90.00)
+[node name="SnowNear" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 2)
 cast_shadow = 0
-amount = 6000
-lifetime = 9.0
-preprocess = 9.0
-randomness = 0.5
+amount = 1400
+lifetime = 2.2
+preprocess = 2.2
+randomness = 0.6
 lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake_deep")
+local_coords = true
+mesh = SubResource("Mesh_flake_big")
 emission_shape = 3
-emission_box_extents = Vector3(140, 18, 40)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 10.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 6.0
-initial_velocity_max = 9.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.6
-scale_amount_max = 1.4
-color_ramp = SubResource("Grad")
-
-[node name="SnowFar" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.00, 22.20, -40.00)
-cast_shadow = 0
-amount = 5200
-lifetime = 8.0
-preprocess = 8.0
-randomness = 0.5
-lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake_far")
-emission_shape = 3
-emission_box_extents = Vector3(72, 13, 20)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 8.0
-gravity = Vector3(0, 0, 0)
+emission_box_extents = Vector3(26, 6, 7)
+direction = Vector3(1, -0.35, 0.1)
+spread = 18.0
+gravity = Vector3(1.2, -0.8, 0)
 initial_velocity_min = 7.0
 initial_velocity_max = 10.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.6
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_min = 0.5
 scale_amount_max = 1.4
 color_ramp = SubResource("Grad")
 
 [node name="SnowMid" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.50, 12.65, -8.00)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -14)
 cast_shadow = 0
-amount = 4200
-lifetime = 6.0
-preprocess = 6.0
-randomness = 0.5
-lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake")
-emission_shape = 3
-emission_box_extents = Vector3(28, 6, 10)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 8.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 7.0
-initial_velocity_max = 10.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.6
-scale_amount_max = 1.4
-color_ramp = SubResource("Grad")
-
-[node name="SnowDiag" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.00, 10.60, -2.00)
-cast_shadow = 0
-amount = 2400
-lifetime = 4.0
-preprocess = 4.0
-randomness = 0.5
-lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake_diag")
-emission_shape = 3
-emission_box_extents = Vector3(22, 5, 8)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 5.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 9.0
-initial_velocity_max = 13.0
-angle_min = -17.0
-angle_max = -17.0
-scale_amount_min = 0.7
-scale_amount_max = 1.3
-color_ramp = SubResource("Grad")
-
-[node name="SnowNear" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.50, 7.95, 3.50)
-cast_shadow = 0
-amount = 1300
+amount = 2000
 lifetime = 3.0
 preprocess = 3.0
-randomness = 0.5
+randomness = 0.6
 lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake_near")
+local_coords = true
+mesh = SubResource("Mesh_flake")
 emission_shape = 3
-emission_box_extents = Vector3(15, 4, 3.5)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 6.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 9.0
-initial_velocity_max = 13.0
-angle_min = -17.0
-angle_max = -17.0
-scale_amount_min = 0.7
-scale_amount_max = 1.3
-color_ramp = SubResource("Grad")
-
-[node name="SnowLens" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.40, 5.72, 7.80)
-cast_shadow = 0
-amount = 90
-lifetime = 1.6
-preprocess = 1.6
-randomness = 0.5
-lifetime_randomness = 0.3
-mesh = SubResource("Mesh_flake_lens")
-emission_shape = 3
-emission_box_extents = Vector3(9, 3, 1.0)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 5.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 11.0
-initial_velocity_max = 15.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.7
+emission_box_extents = Vector3(34, 8, 12)
+direction = Vector3(1, -0.3, 0)
+spread = 18.0
+gravity = Vector3(1.0, -0.6, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 9.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_min = 0.5
 scale_amount_max = 1.4
 color_ramp = SubResource("Grad")
 
-[node name="Spindrift" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 4.94, -12.00)
+[node name="SnowFar" type="CPUParticles3D" parent="FX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14, -45)
 cast_shadow = 0
-amount = 1400
-lifetime = 3.5
-preprocess = 3.5
-randomness = 0.5
+amount = 1100
+lifetime = 4.0
+preprocess = 4.0
+randomness = 0.6
 lifetime_randomness = 0.3
-mesh = SubResource("Mesh_puff")
+local_coords = true
+mesh = SubResource("Mesh_flake_far")
 emission_shape = 3
-emission_box_extents = Vector3(36, 0.22, 20)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 4.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 7.0
-initial_velocity_max = 11.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.6
-scale_amount_max = 1.8
-color_ramp = SubResource("Grad")
-
-[node name="SpindriftNear" type="CPUParticles3D" parent="FX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.50, 3.87, 2.00)
-cast_shadow = 0
-amount = 450
-lifetime = 2.5
-preprocess = 2.5
-randomness = 0.5
-lifetime_randomness = 0.3
-mesh = SubResource("Mesh_puff_low")
-emission_shape = 3
-emission_box_extents = Vector3(18, 0.12, 4)
-direction = Vector3(1.0, -0.3, 0.1)
-spread = 3.0
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 8.0
-initial_velocity_max = 12.0
-angle_min = -180.0
-angle_max = 180.0
-scale_amount_min = 0.6
-scale_amount_max = 1.5
+emission_box_extents = Vector3(70, 16, 18)
+direction = Vector3(1, -0.25, 0)
+spread = 18.0
+gravity = Vector3(0.8, -0.5, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+scale_amount_min = 0.5
+scale_amount_max = 1.4
 color_ramp = SubResource("Grad")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

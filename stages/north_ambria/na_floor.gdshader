@@ -1,36 +1,44 @@
-// North Ambria - the snowfield (visual only), on the sculpted ground mesh, times the baked light map.
-// Wind-packed powder: soft ripples running across the wind, shallow drift tails, a fine grain; blowing powder
-// streams over the surface in gusts. Fully MATTE: no specular, no sparkle, no reflection of any kind.
+// North Ambria - the snowfield floor, procedural, times the baked light map.
+//   * soft wind-shaped dunes and ripples (shaded from a fake height field, lit from the bright gap behind)
+//   * glittering ice sparkles that twinkle as the camera moves
+//   * streaks of loose snow blowing across the ground with the wind, in gusts
+// The floor stays flat; this is shading only (the fighters always stand on y = 0). Visual only.
 shader_type spatial;
-render_mode unshaded, blend_mix, depth_draw_opaque, cull_back, shadows_disabled, fog_disabled;
+render_mode unshaded, cull_back, shadows_disabled;
 
 uniform sampler2D light_tex : hint_default_white, filter_linear, repeat_disable;
 uniform float light_max = 4.0;
-uniform float floor_gain = 1.0;
-uniform float light_saturation = 0.45;
-uniform vec2 floor_x = vec2(-90.0, 90.0);
-uniform vec2 floor_z = vec2(-66.0, 24.0);
+uniform float floor_gain = 1.15;
+uniform float light_saturation = 0.35;  // the baked light is quite blue; keep the snow mostly white
+uniform vec2 floor_x = vec2(-40.0, 40.0);
+uniform vec2 floor_z = vec2(-58.0, 22.0);
 
 group_uniforms snow;
-uniform vec3 snow_color : source_color = vec3(0.88, 0.9, 0.93);
-uniform vec3 shade_color : source_color = vec3(0.62, 0.69, 0.81);     // restrained blue-grey in the ripple shadows
-uniform vec2 wind = vec2(0.94, 0.34);
-uniform float ripple = 0.8;          // strength of the ripple shading
-uniform float grain = 0.02;
-uniform float packed_amount = 0.45;    // smoother, slightly brighter patches of packed snow
+uniform vec3 snow_lit : source_color = vec3(0.95, 0.96, 0.99);
+uniform vec3 snow_shade : source_color = vec3(0.72, 0.76, 0.84);
+uniform float dune_scale = 0.22;       // dunes per metre
+uniform float dune_strength = 0.7;
+uniform float ripple_strength = 0.35;
+uniform vec3 light_dir = vec3(0.0, 0.55, -1.0);   // toward the bright gap (behind the mound)
+uniform float lane_calm = 0.5;         // dunes are softer right under the fighters
 
-group_uniforms haze;
-uniform vec3 haze_color : source_color = vec3(0.68, 0.72, 0.8);
-uniform vec2 haze_range = vec2(22.0, 95.0);
-uniform float haze_max = 0.55;
+group_uniforms sparkle;
+uniform float sparkle_density = 0.04;
+uniform float sparkle_strength = 1.4;
+
+group_uniforms wind;
+uniform vec2 wind_dir = vec2(1.0, 0.25);
+uniform float wind_speed = 4.0;        // metres per second
+uniform float drift_strength = 0.35;
+uniform float gust_period = 7.0;
 
 group_uniforms look;      // keep in sync with src/bake_north_ambria.py
 uniform float exposure = 0.0;
-uniform float shoulder = 0.85;
-uniform float saturation = 0.9;
-uniform vec3 shadow_tint = vec3(0.92, 0.96, 1.08);
-uniform vec3 highlight_tint = vec3(1.0, 1.0, 1.02);
-uniform float tint_amount = 0.45;
+uniform float shoulder = 0.82;
+uniform float saturation = 0.95;
+uniform vec3 shadow_tint = vec3(0.86, 0.92, 1.14);
+uniform vec3 highlight_tint = vec3(0.98, 1.0, 1.04);
+uniform float tint_amount = 0.55;
 
 varying vec3 wpos;
 void vertex() { wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz; }
@@ -49,31 +57,17 @@ vec3 grade(vec3 lin) {
 	return clamp(c, 0.0, 1.0);
 }
 float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
-vec2 grad2(vec2 p) { float a = hash(p) * 6.2831853; return vec2(cos(a), sin(a)); }
-// smooth gradient noise with a quintic fade: no lattice creases, so the relief never forms plates or a grid
-float gnoise(vec2 p) {
+float vnoise(vec2 p) {
 	vec2 i = floor(p), f = fract(p);
-	vec2 u = f * f * f * (f * (f * 6.0 - 15.0) + 10.0);
-	float a = dot(grad2(i), f), b = dot(grad2(i + vec2(1.0, 0.0)), f - vec2(1.0, 0.0));
-	float c = dot(grad2(i + vec2(0.0, 1.0)), f - vec2(0.0, 1.0)), d = dot(grad2(i + vec2(1.0, 1.0)), f - vec2(1.0, 1.0));
-	return mix(mix(a, b, u.x), mix(c, d, u.x), u.y) * 0.7 + 0.5;
+	vec2 u = f * f * (3.0 - 2.0 * f);
+	return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x), mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
 }
-float vnoise(vec2 p) { return gnoise(p); }
-float fbm(vec2 p) {                                            // every octave rotated: no repeats, no axis lines
-	float s = 0.0, a = 0.5;
-	for (int i = 0; i < 5; i++) { s += gnoise(p) * a; p = mat2(vec2(0.8, 0.6), vec2(-0.6, 0.8)) * p * 2.03 + 1.7; a *= 0.5; }
-	return s / 0.97;
-}
-// height of the powder's surface: broad, soft, irregular wind-shaped swells a few metres across, a little stretched
-// across the wind and warped so nothing lines up, with a gentle smaller undulation on them - smooth everywhere
-float ripples(vec2 p) {
-	vec2 w = normalize(wind);
-	vec2 q = vec2(dot(p, w), dot(p, vec2(-w.y, w.x))) * vec2(1.0, 0.7);
-	vec2 wq = q + vec2(fbm(q * 0.08), fbm(q * 0.07 + 5.0)) * 4.0;
-	return fbm(wq * 0.3) * 0.9 + fbm(wq * 1.05 + 3.0) * 0.18;
-}
-float packed(vec2 p) {                                         // very soft, broad areas of smoother wind-packed snow
-	return smoothstep(0.38, 0.75, fbm(p * 0.045 + vec2(fbm(p * 0.02) * 2.0, 0.0)));
+float height(vec2 p, float calm) {
+	// big rounded dunes, stretched across the wind, plus small ripples
+	vec2 q = vec2(p.x * 0.55, p.y) * dune_scale;
+	float h = vnoise(q) * 0.6 + vnoise(q * 2.1 + 3.0) * 0.3 + vnoise(q * 4.3 + 7.0) * 0.1;
+	float rip = sin(p.y * 2.2 + vnoise(p * 0.6) * 4.0) * 0.5 + 0.5;
+	return h * dune_strength * calm + rip * ripple_strength * 0.15 * calm;
 }
 
 void fragment() {
@@ -82,19 +76,27 @@ void fragment() {
 	vec3 light = pow(texture(light_tex, luv).rgb, vec3(2.2)) * light_max * floor_gain;
 	float ll = dot(light, vec3(0.2126, 0.7152, 0.0722));
 	light = vec3(ll) + (light - vec3(ll)) * light_saturation;
-	// fake-lit ripple relief from a soft light from behind-above (the storm's bright side)
-	float pk = packed(p) * packed_amount;
-	float e = 0.3;
-	float h0 = ripples(p), hx = ripples(p + vec2(e, 0.0)), hz = ripples(p + vec2(0.0, e));
-	vec2 grad = vec2(hx - h0, hz - h0) / e;
-	float relief = clamp(-dot(grad, vec2(0.55, -0.6)) * ripple * (1.0 - pk * 0.5), -0.2, 0.2);
-	vec3 alb = snow_color;
-	alb = mix(alb, shade_color, smoothstep(0.0, 0.3, -relief) * 0.65);
-	alb *= 1.0 + smoothstep(0.0, 0.3, relief) * 0.06;
-	alb = mix(alb, alb * 1.03 + vec3(0.0, 0.004, 0.01), pk);                       // packed: smoother, a touch brighter
-	alb *= 1.0 + ((gnoise(p * 23.0) - 0.5) * grain + (gnoise(p * 6.0) - 0.5) * grain * 1.5) * (1.0 - pk * 0.5);
+	float calm = 1.0 - lane_calm * (1.0 - smoothstep(2.0, 6.0, abs(p.y))) * (1.0 - smoothstep(12.0, 16.0, abs(p.x)));
+	// fake normal from the height field
+	float e = 0.15;
+	float h0 = height(p, calm);
+	float hx = height(p + vec2(e, 0.0), calm);
+	float hz = height(p + vec2(0.0, e), calm);
+	vec3 n = normalize(vec3(-(hx - h0) / e, 1.0, -(hz - h0) / e));
+	float shade = clamp(0.55 + 0.6 * dot(n, normalize(light_dir)), 0.0, 1.2);
+	vec3 alb = mix(snow_shade, snow_lit, shade);
 	vec3 col = grade(alb * light);
-	float dist = length(wpos - CAMERA_POSITION_WORLD);
-	col = mix(col, haze_color, smoothstep(haze_range.x, haze_range.y, dist) * haze_max);
+	// blowing snow streaks drifting with the wind, in gusts
+	float gust = 0.55 + 0.45 * sin(TIME * 6.2832 / gust_period) * sin(TIME * 6.2832 / (gust_period * 0.37));
+	vec2 wd = normalize(wind_dir);
+	vec2 wq = vec2(dot(p, wd), dot(p, vec2(-wd.y, wd.x)));
+	float streak = vnoise(vec2(wq.x * 0.25 - TIME * wind_speed * 0.25, wq.y * 2.2)) * vnoise(vec2(wq.x * 0.6 - TIME * wind_speed * 0.6, wq.y * 4.0 + 5.0));
+	col = mix(col, vec3(1.0, 1.0, 1.05), smoothstep(0.25, 0.6, streak) * drift_strength * gust);
+	// sparkles: tiny glints that twinkle with the view direction
+	vec2 cell = floor(p * 7.0);
+	float sp = step(1.0 - sparkle_density, hash(cell));
+	vec2 f = fract(p * 7.0) - vec2(hash(cell + 1.3), hash(cell + 2.7)) * 0.6 - 0.2;
+	float tw = pow(max(0.0, sin(dot(VIEW, vec3(hash(cell + 4.0), hash(cell + 5.0), hash(cell + 6.0))) * 40.0 + TIME * 2.0)), 16.0);
+	col += vec3(0.9, 0.95, 1.0) * sp * tw * (1.0 - smoothstep(0.02, 0.08, length(f))) * sparkle_strength;
 	ALBEDO = col;
 }

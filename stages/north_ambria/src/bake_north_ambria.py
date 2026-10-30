@@ -1,30 +1,27 @@
-# North Ambria (v3) - bake, grade, preview and export (Blender 5.x, works in --background).
+# North Ambria - bake, grade, preview and export (Blender 5.x, works in --background).
 # Lighting is baked with Cycles, graded here with grade(), and shown UNSHADED in Godot.
-# The snowfield (NA_Floor, a sculpted mesh) bakes a light map only; Godot's floor shader draws the snow on it.
-# No mirror copy, no reflections, nothing cut below the floor (the gulf falls away behind the plateau).
-#   storm: src/baked/, src/cache/, textures/floor_light.png, north_ambria.glb
+# The floor bakes a light map only; Godot's floor shader draws the snow (dunes, sparkle, blowing drift).
 import bpy, bmesh, math, os, json, struct
 import numpy as np
 
 ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\north_ambria"
-VARIANT = globals().get("VARIANT") or bpy.context.scene.get("ce_variant", "storm")
-SUFFIX = "" if VARIANT == "storm" else "_" + VARIANT
+VARIANT = globals().get("VARIANT") or bpy.context.scene.get("ce_variant", "day")
+SUFFIX = "" if VARIANT == "day" else "_" + VARIANT
 OUT = ROOT + r"\textures"
 ATLAS_DIR = ROOT + r"\src\baked" + SUFFIX
-CACHE = ROOT + r"\src\cache" + ("" if VARIANT == "storm" else "\\" + VARIANT)
-ATLAS = {"NA_Rocks": 4096, "NA_Cliffs": 4096, "NA_Far": 2048}
-CARDS = [g for g in ("NA_Sky", "NA_Mist", "NA_Fog", "NA_Drift") if g in bpy.data.objects]
-HIDDEN_CARDS = ("NA_Mist", "NA_Fog", "NA_Drift")   # Godot only (the beauty render gives them their own materials)
-FLOOR_X, FLOOR_BACK, FLOOR_FRONT = 90.0, -66.0, 24.0
-FLOOR_LIGHT = (4096, 2048)
+CACHE = ROOT + r"\src\cache" + ("" if VARIANT == "day" else "\\" + VARIANT)
+ATLAS = {"NA_Ground": 4096, "NA_Ice": 2048, "NA_Far": 2048, "NA_Props": 2048, "NA_Trees": 2048}
+CARDS = ["NA_Sky", "NA_Mist"]
+FLOOR_X, FLOOR_BACK, FLOOR_FRONT = 40.0, -58.0, 22.0
+FLOOR_LIGHT = (2048, 2048)
 LIGHT_MAX = 4.0              # floor light map encoding: stored = (light / LIGHT_MAX) ** (1/2.2)
 D_SPP, I_SPP, I_DIV = 48, 256, 4
 MARGIN_PX = 16
 
 # ---- look (keep in sync with the floor material's "look" group in the variant's .tscn) ----
 LOOKS = {   # keep in sync with the floor material's "look" group in north_ambria.tscn
-    "storm": dict(EXPOSURE=0.75, SHOULDER=0.85, SATURATION=0.9, SHADOW_TINT=(0.92, 0.96, 1.08),
-                  HIGHLIGHT_TINT=(1.0, 1.0, 1.02), TINT_AMOUNT=0.45),
+    "day": dict(EXPOSURE=0.0, SHOULDER=0.82, SATURATION=0.95, SHADOW_TINT=(0.86, 0.92, 1.14),
+                HIGHLIGHT_TINT=(0.98, 1.0, 1.04), TINT_AMOUNT=0.55),
 }
 globals().update(LOOKS[VARIANT])
 
@@ -147,7 +144,7 @@ def lit_scene():
         if o.name.startswith("PV_") or o.name.startswith("Preview"):
             o.hide_render = True
         elif o.name.startswith("NA_"):
-            o.hide_render = o.name in HIDDEN_CARDS      # the sky card lights the scene; mist and drift are Godot only
+            o.hide_render = o.name == "NA_Mist"     # the sky card lights the snow; the mist is drawn by Godot
         elif o.type == 'LIGHT':
             o.hide_render = False
     w = bpy.context.scene.world.node_tree.nodes["Background"].inputs["Strength"]
@@ -196,9 +193,9 @@ def bake_floor():
 FLOOR_TILE_M = 4.0
 
 def floor_preview_image(res=(1024, 1024)):
-    """Blender preview of the floor: a flat snow colour x light (Godot draws the ripples and blowing powder)."""
+    """Blender preview of the floor: a flat steel colour x light (Godot draws the real plating)."""
     L = np.load(CACHE + "\\_floor_light.npy").astype(np.float32)
-    return grade(L * np.array([0.74, 0.78, 0.84], np.float32))
+    return grade(L * np.array([0.82, 0.86, 0.92], np.float32))
 
 def bake_all(groups=None):
     os.makedirs(CACHE, exist_ok=True); os.makedirs(ATLAS_DIR, exist_ok=True)
@@ -260,7 +257,8 @@ def _pv_copy(src, mat, name, mirror, coll):
         slot.link = 'OBJECT'; slot.material = mat
     return o
 
-CARD_PV = ("NA_Sky",)                          # shown in the preview with its own emissive material
+CARD_LOOK = {   # Blender preview stand-ins for the Godot card shaders (their own emissive materials)
+    "NA_Sky": "SkyCard"}
 
 def make_preview():
     pv = bpy.data.collections.get("BakedPreview") or bpy.data.collections.new("BakedPreview")
@@ -271,11 +269,11 @@ def make_preview():
     for g in ATLAS:
         m = _unlit_mat("PVM_" + g, ATLAS_DIR + "\\" + g.lower() + ".png")
         _pv_copy(bpy.data.objects[g], m, "PV_" + g, False, pv)
-    for g in CARD_PV:
-        if g in bpy.data.objects:
-            src = bpy.data.objects[g]
-            o = bpy.data.objects.new("PV_" + g, src.data); pv.objects.link(o); o.matrix_world = src.matrix_world.copy()
-    # floor (opaque - no mirror on this stage)
+        _pv_copy(bpy.data.objects[g], m, "PV_" + g + "_m", True, pv)
+    for g, mname in CARD_LOOK.items():
+        m = bpy.data.materials[mname]
+        _pv_copy(bpy.data.objects[g], m, "PV_" + g, False, pv)
+    # floor
     fl = bpy.data.objects["NA_Floor"]
     m = bpy.data.materials.get("PVM_Floor") or bpy.data.materials.new("PVM_Floor")
     m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
@@ -285,7 +283,16 @@ def make_preview():
     tex.image = bpy.data.images.load(CACHE + "\\_floor_preview.png", check_existing=True); tex.image.reload()
     nt.links.new(uvn.outputs[0], tex.inputs[0])
     em = nt.nodes.new("ShaderNodeEmission"); nt.links.new(tex.outputs[0], em.inputs[0])
-    nt.links.new(em.outputs[0], out.inputs[0])
+    tr = nt.nodes.new("ShaderNodeBsdfTransparent")
+    lw = nt.nodes.new("ShaderNodeLayerWeight"); lw.inputs["Blend"].default_value = 0.5
+    pw = nt.nodes.new("ShaderNodeMath"); pw.operation = 'POWER'; pw.inputs[1].default_value = 3.0
+    nt.links.new(lw.outputs["Facing"], pw.inputs[0])
+    mr = nt.nodes.new("ShaderNodeMapRange")
+    mr.inputs["To Min"].default_value = FLOOR_ALPHA_NEAR; mr.inputs["To Max"].default_value = FLOOR_ALPHA_FAR
+    nt.links.new(pw.outputs[0], mr.inputs[0])
+    mix = nt.nodes.new("ShaderNodeMixShader")
+    nt.links.new(mr.outputs[0], mix.inputs[0]); nt.links.new(tr.outputs[0], mix.inputs[1])
+    nt.links.new(em.outputs[0], mix.inputs[2]); nt.links.new(mix.outputs[0], out.inputs[0])
     _pv_copy(fl, m, "PV_Floor", False, pv)
     for o in bpy.data.objects:
         if o.name.startswith("NA_") or o.type == 'LIGHT' or o.name.startswith("Preview"):
@@ -298,29 +305,27 @@ def make_preview():
 # ----------------------------------------------------------------------
 #  export
 # ----------------------------------------------------------------------
-NAMES = {"NA_Floor": "Floor", "NA_Rocks": "Rocks", "NA_Cliffs": "Cliffs", "NA_Far": "Far", "NA_Sky": "Sky", "NA_Mist": "Mist",
-         "NA_Fog": "Fog", "NA_Drift": "Drift"}
+NAMES = {"NA_Props": "Props", "NA_Trees": "Trees", "NA_Ground": "Ground", "NA_Ice": "Ice", "NA_Far": "Far", "NA_Sky": "Sky", "NA_Mist": "Mist"}
 
 def export_glb(path=None):
-    path = path or ROOT + r"\north_ambria" + SUFFIX + ".glb"
+    path = path or ROOT + r"\north_ambria.glb"
     ex = bpy.data.collections.get("Export") or bpy.data.collections.new("Export")
     if ex.name not in bpy.context.scene.collection.children:
         bpy.context.scene.collection.children.link(ex)
     for o in list(ex.objects):
         bpy.data.objects.remove(o)
     keep = []
-    for g in list(ATLAS) + CARDS + ["NA_Floor"]:
+    for g in list(ATLAS) + CARDS:
         src = bpy.data.objects[g]
         me = src.data.copy(); me.name = g + "_export"
-        uv_keep = "Bake" if (g in ATLAS or g == "NA_Floor") else "Tex"
+        uv_keep = "Bake" if g in ATLAS else "Tex"
         for uvl in list(me.uv_layers):
             if uvl.name != uv_keep:
                 me.uv_layers.remove(uvl)
-        _uv_active(me)                      # outdoor: nothing is cut below the floor
+        if g not in ("NA_Sky", "NA_Far"):
+            _cut_below_floor(me)
         me.materials.clear()
         mat = bpy.data.materials.get("PVM_" + g) if g in ATLAS else None
-        if g == "NA_Floor":
-            mat = bpy.data.materials.get("EXP_floor") or bpy.data.materials.new("EXP_floor")
         if mat is None:
             mat = bpy.data.materials.get("EXP_card") or bpy.data.materials.new("EXP_card")
         me.materials.append(mat)
@@ -353,6 +358,35 @@ def _uv_active(me):
     if len(me.uv_layers):
         me.uv_layers.active = me.uv_layers[0]
         me.uv_layers[0].active_render = True
+
+def _split_islands(me, coll):
+    """One object per floating island (origin at its centre) so the Godot bob shader can phase each one.
+    Loose parts (towers, walls) join the island whose centre is nearest."""
+    from mathutils import Vector
+    centres = [Vector((c[0], -c[2], c[1])) for c in bpy.context.scene["sd_islands"]]   # Godot -> Blender
+    bm = bmesh.new(); bm.from_mesh(me); bm.faces.ensure_lookup_table()
+    owner = {}
+    for f in bm.faces:
+        c = f.calc_center_median()
+        owner[f.index] = min(range(len(centres)), key=lambda k: (c - centres[k]).length)
+    parent = bpy.data.objects.new("Islands", None); coll.objects.link(parent)
+    out = [parent]
+    for k, cen in enumerate(centres):
+        part = bm.copy(); part.faces.ensure_lookup_table()
+        bmesh.ops.delete(part, geom=[f for f in part.faces if owner[f.index] != k], context='FACES')
+        loose = [v for v in part.verts if not v.link_faces]
+        bmesh.ops.delete(part, geom=loose, context='VERTS')
+        if not part.faces:
+            part.free(); continue
+        for v in part.verts:
+            v.co -= cen
+        pm = bpy.data.meshes.new("Island_%d" % k); part.to_mesh(pm); part.free(); _uv_active(pm)
+        for mat in me.materials:
+            pm.materials.append(mat)
+        o = bpy.data.objects.new("Island_%d" % k, pm); o.location = cen; o.parent = parent
+        coll.objects.link(o); out.append(o)
+    bm.free()
+    return out
 
 def _force_unlit(path):
     data = open(path, "rb").read()

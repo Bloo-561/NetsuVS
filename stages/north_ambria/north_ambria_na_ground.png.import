@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b683g7r87i2hs"
-path.s3tc="res://.godot/imported/north_ambria_na_rocks.png-1d49d81b1dcf0b6223165b332e080f32.s3tc.ctex"
+uid="uid://bfhf3c6yo2l8u"
+path.s3tc="res://.godot/imported/north_ambria_na_ground.png-edf75275e32e6e701ab9b29fd7935ded.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1e13c06b4fbd2b184cd393547e8fcb9b"
+"md5": "37b6d304b69009f415586ab0749d49d2"
 }
 
 [deps]
 
-source_file="res://stages/north_ambria/north_ambria_na_rocks.png"
-dest_files=["res://.godot/imported/north_ambria_na_rocks.png-1d49d81b1dcf0b6223165b332e080f32.s3tc.ctex"]
+source_file="res://stages/north_ambria/north_ambria_na_ground.png"
+dest_files=["res://.godot/imported/north_ambria_na_ground.png-edf75275e32e6e701ab9b29fd7935ded.s3tc.ctex"]
 
 [params]
 
