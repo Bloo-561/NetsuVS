@@ -28,6 +28,8 @@ const ITEMS := [
 		"line": "Challengers from far away?\nBring it on!"},
 	{"id": "gallery", "label": "GALLERY", "blurb": "Art, music and memories from the campaign. (Coming soon)",
 		"line": "Memories from our journey...\nLet's look through them sometime."},
+	{"id": "commands", "label": "COMMAND LIST", "blurb": "Every system, fighter and assist move, with live previews and frame data.",
+		"line": "Want to go over the moves together?\nTake all the time you need."},
 	{"id": "options", "label": "OPTIONS", "blurb": "Controls, sound, display and match settings.",
 		"line": "Adjust the controls and sound\nhowever you like."},
 	{"id": "return", "label": "RETURN", "blurb": "Back to the title screen.",
@@ -68,9 +70,7 @@ var _options: Control = null   # the open panel (Options, Versus settings or sid
 
 
 func _ready() -> void:
-	var audio := get_node_or_null("/root/AudioManager")
-	if audio:
-		audio.call("StopBGM")
+	_play_theme()
 	# back at the menu: everyone's controls go back to normal
 	Controls.clear_sides()
 	MatchSetup.humans = []
@@ -120,19 +120,95 @@ func _confirm() -> void:
 			_open_character_select("Training")
 		"network":
 			MatchSetup.mode_name = "Online"
+			_fade_out_theme()
 			SceneRouter.go_to(SceneRouter.ONLINE_LOBBY)
 		"options":
 			_open_options()
+		"commands":
+			_open_command_list()
 		"return":
 			SceneRouter.go_to(SceneRouter.TITLE)
 		_:
 			_footer["text"].text = "Coming soon!"
 
 
+## Nov 2 2026: the command list (game/ui/command_list/netsu_command_list.gd) over the whole menu.
+func _open_command_list() -> void:
+	var cl := NetsuCommandList.new()
+	cl.footer_override = _footer
+	cl.start_tab = "system"
+	cl.start_fighter = guide_fighter
+	cl.closed.connect(_on_command_list_closed)
+	add_child(cl)
+	move_child(cl, _footer["root"].get_index())   # under the footer
+	_options = cl
+	cl.modulate.a = 0.0
+	create_tween().tween_property(cl, "modulate:a", 1.0, 0.2)
+
+
+func _on_command_list_closed() -> void:
+	var cl := _options
+	var t := create_tween()
+	t.tween_property(cl, "modulate:a", 0.0, 0.16)
+	t.tween_callback(cl.queue_free)
+	_on_options_closed()
+
+
 ## Picks the engine game mode (data/game_modes/) and opens the character select.
 func _open_character_select(mode: String) -> void:
 	MatchSetup.mode_name = mode
+	_fade_out_theme()
 	SceneRouter.go_to(SceneRouter.CHARACTER_SELECT)
+
+
+# --- Music ------------------------------------------------------------------------------------
+## Nov 2: the main menu theme, "Reflect" by Manbou Nitouhei (OpenTracks #5657). Trimmed to the composer's loop end
+## (2:50.823); plays from the start, then loops back to theme_loop_start. It keeps playing under everything opened
+## from this menu (Options, Command List, Versus settings, side select) and fades out with the screen when you head into
+## a mode (Training, Versus -> character select, Online): silent by the time the loading emblem shows. RETURN goes back
+## to the title, which plays its own theme.
+const THEME_PATH := "res://assets/audio/music/netsu/reflect.ogg"
+@export var theme_loop_start: float = 24.0
+
+
+## Starts the menu theme on the BGM bus (Options > Sound > BGM volume). Carries on if it's already playing.
+func _play_theme() -> void:
+	var audio := get_node_or_null("/root/AudioManager")
+	if audio == null:
+		return
+	var theme = load(THEME_PATH) if ResourceLoader.exists(THEME_PATH) else null
+	if theme == null:
+		audio.call("StopBGM")
+		return
+	if "loop" in theme:
+		theme.loop = true
+	if "loop_offset" in theme:
+		theme.loop_offset = theme_loop_start
+	var player = audio.get("BGM")
+	if player is AudioStreamPlayer and player.playing and player.stream == theme:
+		return
+	audio.call("PlayBGM", theme)
+
+
+## Fades the theme out while the screen fades to black (SceneRouter.black_in), then stops it.
+func _fade_out_theme() -> void:
+	var audio := get_node_or_null("/root/AudioManager")
+	if audio == null:
+		return
+	var player = audio.get("BGM")
+	if not (player is AudioStreamPlayer) or not player.playing:
+		return
+	var level: float = player.volume_db
+	var t := create_tween()
+	t.tween_property(player, "volume_db", level - 40.0, maxf(0.05, float(SceneRouter.black_in))).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	t.tween_callback(_stop_theme.bind(player, level))
+
+
+func _stop_theme(player: AudioStreamPlayer, level: float) -> void:
+	var audio := get_node_or_null("/root/AudioManager")
+	if audio:
+		audio.call("StopBGM")
+	player.volume_db = level
 
 
 # --- Building ---------------------------------------------------------------------

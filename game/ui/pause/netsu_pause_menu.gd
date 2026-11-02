@@ -354,25 +354,34 @@ func _load_commands(fighter: int) -> Dictionary:
 
 
 func _open_commands() -> void:
-	_cmd_side = 0
-	_cmd = Control.new()
-	_cmd.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_cmd.size = CANVAS
-	add_child(_cmd)
-	move_child(_footer["root"], get_child_count() - 1)
-	_sub = _cmd
-	_footer["prompts"].text = "UP / DOWN  MOVE     LEFT / RIGHT  OTHER FIGHTER     B  BACK"
-	_footer["text"].text = NUMPAD_HINT
-	_footer_lines(2)   # a move's description can take two lines
-	_cmd_sel = 0
+	# Nov 2 2026: the new command list (game/ui/command_list/netsu_command_list.gd): System / Characters / Assists
+	# tabs, built from the fighters' own move data, with live previews. The old list's code below is unused.
 	_band_away()
-	_cmd.pivot_offset = CANVAS / 2.0
-	_cmd.modulate.a = 0.0
-	_cmd.scale = Vector2(0.96, 0.96)
+	var cl := NetsuCommandList.new()
+	cl.overlay = true
+	cl.footer_override = _footer
+	cl.start_tab = "characters"
+	cl.start_fighter = _fighter_index(0)
+	cl.start_opponent = _fighter_index(1)   # previews hit the fighter you're playing against
+	cl.start_assist = maxi(0, MatchSetup.assist_for_side(0))
+	cl.side = 0
+	cl.closed.connect(_close_command_list)
+	add_child(cl)
+	move_child(_footer["root"], get_child_count() - 1)
+	_sub = cl
+	_footer_lines(1)
+	cl.pivot_offset = CANVAS / 2.0
+	cl.modulate.a = 0.0
+	cl.scale = Vector2(0.97, 0.97)
 	var t := create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	t.tween_property(_cmd, "modulate:a", 1.0, 0.2).set_delay(0.06)
-	t.tween_property(_cmd, "scale", Vector2.ONE, 0.3).set_delay(0.06)
-	_refresh_commands()
+	t.tween_property(cl, "modulate:a", 1.0, 0.2).set_delay(0.06)
+	t.tween_property(cl, "scale", Vector2.ONE, 0.3).set_delay(0.06)
+
+
+func _close_command_list() -> void:
+	if _sub is NetsuCommandList:
+		_cmd = _sub   # _close_sub fades out and frees _cmd, then puts the pause menu back
+		_close_sub()
 
 
 ## Oct 25: Normals and Specials go in the left column, the supers, System and the assist on the right.

@@ -15,15 +15,18 @@ extends Control
 @export var press_spacing: int = 22
 @export var drifting_petals: int = 26
 
+## Nov 2: title theme, "forget-me-not" (ワスレナグサ) by Manbou Nitouhei (OpenTracks #9562). Trimmed to the composer's
+## loop end (4:45.473); plays from the start once, then loops back to theme_loop_start. Stops when the main menu opens.
+const THEME_PATH := "res://assets/audio/music/netsu/forget_me_not.ogg"
+@export var theme_loop_start: float = 40.421
+
 var _press: Label
 var _busy := false
 var _time := 0.0
 
 
 func _ready() -> void:
-	var audio := get_node_or_null("/root/AudioManager")
-	if audio:
-		audio.call("StopBGM")
+	_play_theme()
 	var bg := NetsuUI.picture(self, NetsuUI.TITLE_BG)
 	var lights := NetsuLights.new()
 	lights.beams = NetsuLights.preset("title")
@@ -68,3 +71,22 @@ func _go() -> void:
 	flash.tween_property(_press, "scale", Vector2.ONE, 0.12)
 	await get_tree().create_timer(0.18).timeout
 	SceneRouter.go_to(SceneRouter.MAIN_MENU, Color.WHITE)
+
+
+## Starts the title theme on the BGM bus (Options > Sound > BGM volume). Carries on if it's already playing.
+func _play_theme() -> void:
+	var audio := get_node_or_null("/root/AudioManager")
+	if audio == null:
+		return
+	var theme = load(THEME_PATH) if ResourceLoader.exists(THEME_PATH) else null
+	if theme == null:
+		audio.call("StopBGM")
+		return
+	if "loop" in theme:
+		theme.loop = true
+	if "loop_offset" in theme:
+		theme.loop_offset = theme_loop_start
+	var player = audio.get("BGM")
+	if player is AudioStreamPlayer and player.playing and player.stream == theme:
+		return
+	audio.call("PlayBGM", theme)

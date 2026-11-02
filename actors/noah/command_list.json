@@ -1,166 +1,126 @@
 {
- "fighter": "Noah",
- "note": "Numpad notation, facing right: 6 = forward, 4 = back, 2 = down, 8 = up, 236 = quarter circle forward. Craft Gauge: 4 bars (400%), kept between rounds. You build it by landing hits (more) and by being hit or blocking (less); whiffs give nothing, and a move that spends meter gives its user none. After spending meter, gains are cut to a quarter for 3 seconds. Below 35% health it slowly fills by itself. Burst gauge: starts full, kept between rounds, refills over time (faster at low health) and when you're hit.",
- "sections": [
-  {
-   "title": "Normals",
-   "moves": [
-    [
-     "5A / 5B / 5C",
-     "A / B / C",
-     "chains A > B > C; 5C is a long devil-arm punch"
-    ],
-    [
-     "2A / 2B / 2C",
-     "2 + A / B / C",
-     "2A is low; 2C sweeps"
-    ],
-    [
-     "Air A / B / C",
-     "in air: A / B / C",
-     "air C punches down"
-    ],
-    [
-     "6C",
-     "6 + C",
-     "rising devil-arm uppercut: launches; any normal cancels into it; jump (8) on hit to chase (no jump cancel on block)"
-    ]
-   ]
-  },
-  {
-   "title": "Specials",
-   "moves": [
-    [
-     "Shade Wave",
-     "236 + A",
-     "a wave of shadow rolls along the floor"
-    ],
-    [
-     "Twin Shade",
-     "236 + B",
-     "two waves, one after the other"
-    ],
-    [
-     "Umbral Wall (EX)",
-     "236 + C (1 bar)",
-     "invincible start; a wall of energy pushes slowly forward: three hits, the last throws them sky-high"
-    ],
-    [
-     "Event Horizon",
-     "22 + A / B",
-     "a black hole opens close in front of him (A) or far away (B); it waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him"
-    ],
-    [
-     "Twin Horizon (EX)",
-     "22 + C (1 bar)",
-     "both holes, invincible start: the far one collapses at once and throws them toward him, into the near one"
-    ],
-    [
-     "Collapse",
-     "22 + A / B / C (a hole is open)",
-     "finger snap: the holes suck the opponent in and burst; the near one throws them away, the far one toward him"
-    ],
-    [
-     "Void Grasp",
-     "214 + A",
-     "low grab lunge; on hit he drains them and stocks the energy"
-    ],
-    [
-     "Abyss Hammer",
-     "214 + B (also in air)",
-     "jumping overhead smash with the devil arm (also in air). Ground version: 214 + B again on hit or block = Abyss Riser"
-    ],
-    [
-     "Abyss Riser",
-     "214 + B after Abyss Hammer hits or is blocked",
-     "rising uppercut (not an overhead): launches; on hit, air jump or air attacks to keep the combo going"
-    ],
-    [
-     "Void Devour (EX)",
-     "214 + C (1 bar)",
-     "invincible lunge: grabs the face, drains, and the explosion blows them away; stocks the energy"
-    ],
-    [
-     "Overflow Ray",
-     "214 + A / B / C (energy stocked, also in air)",
-     "with energy stocked, any 214 fires a quick beam (three hits, +15 on block); uses the stock"
-    ],
-    [
-     "Fallen Grasp",
-     "in air: 214 + A",
-     "air grab: drags them down into a ground explosion, then drains them and stocks the energy"
-    ]
-   ]
-  },
-  {
-   "title": "Supers",
-   "moves": [
-    [
-     "Raging Storm",
-     "236 + B + C (3 bars)",
-     "charge, ground slam, a storm of purple fire around him, then the last burst throws them away"
-    ],
-    [
-     "God Press",
-     "214 + B + C (3 bars)",
-     "sliding grab: carries them to the wall, three slams, then a blast that knocks him back onto one knee"
-    ]
-   ]
-  },
-  {
-   "title": "System",
-   "moves": [
-    [
-     "Dash / Back dash",
-     "66 / 44",
-     ""
-    ],
-    [
-     "Super jump",
-     "2 then 8",
-     ""
-    ],
-    [
-     "Air dash",
-     "in air: 66 / 44",
-     ""
-    ],
-    [
-     "Throw",
-     "B + C (close)",
-     "4 + B+C throws behind you"
-    ],
-    [
-     "Throw break",
-     "B + C as you're grabbed",
-     "12-frame window"
-    ],
-    [
-     "Burst",
-     "A + C",
-     "needs a FULL Burst gauge and uses all of it; works in hitstun (not out of every special / EX / super hit). Does no damage, knocks them away"
-    ],
-    [
-     "Overdrive",
-     "A + B + C",
-     "full Burst gauge"
-    ],
-    [
-     "Dash macro",
-     "A + B (the AB button)",
-     "On the ground: dash forward, or back dash with back held. In the air: air dash forward, or back with back held"
-    ],
-    [
-     "Pushblock",
-     "A + B",
-     "while blocking, 1 bar"
-    ],
-    [
-     "Recover",
-     "hold A / B / C (air) or any button (ground)",
-     "knocked into the air: holding a button techs as soon as you can (hold forward to tech forward). Knocked down: any button"
-    ]
-   ]
+  "fighter": "Noah",
+  "note": "Notes for the command list (docs/command_list.md). Every move in the fighter's data shows up by itself; here, keyed by the ENGINE move name, you can add a display name, description, tags, a shown input, preview states, a group to merge into, or hide a move.",
+  "moves": {
+    "5A": {
+      "desc": "Quick jab."
+    },
+    "5B": {
+      "desc": "Mid-range strike."
+    },
+    "5C": {
+      "desc": "Long devil-arm punch."
+    },
+    "2A": {
+      "desc": "Quick low."
+    },
+    "2B": {
+      "desc": "Low strike."
+    },
+    "2C": {
+      "desc": "Sweep."
+    },
+    "6C": {
+      "name": "Devil Uppercut",
+      "tags": [
+        "LAUNCHER"
+      ],
+      "desc": "Rising devil-arm uppercut: launches. Any normal cancels into it; jump (8) on hit to chase."
+    },
+    "j.5A": {
+      "name": "j.A"
+    },
+    "j.5B": {
+      "name": "j.B"
+    },
+    "j.5C": {
+      "name": "j.C",
+      "desc": "Punches down."
+    },
+    "Shade Wave": {
+      "desc": "A wave of shadow rolls along the floor."
+    },
+    "Twin Shade": {
+      "desc": "Two waves, one after the other."
+    },
+    "Umbral Wall": {
+      "desc": "Invincible start. A wall of energy pushes slowly forward: three hits, the last throws them sky-high."
+    },
+    "Event Horizon": {
+      "tags": [
+        "SETUP"
+      ],
+      "desc": "A black hole opens close in front of him (A) or far away (B) and waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him."
+    },
+    "Twin Horizon": {
+      "desc": "Both holes, invincible start: the far one collapses at once and throws them toward him, into the near one."
+    },
+    "Collapse": {
+      "desc": "With a hole open: a finger snap. The holes suck the opponent in and burst."
+    },
+    "Void Grasp": {
+      "states": [
+        80,
+        81
+      ],
+      "tags": [
+        "GRAB",
+        "LOW"
+      ],
+      "desc": "Low grab lunge. On hit he drains them and stocks the energy."
+    },
+    "Abyss Hammer": {
+      "desc": "Jumping overhead smash with the devil arm (also in the air). On the ground, 214 + B again on hit or block = Abyss Riser."
+    },
+    "Abyss Riser": {
+      "desc": "Rising uppercut (not an overhead) that launches. On hit, air jump or air attacks keep the combo going."
+    },
+    "Void Devour": {
+      "states": [
+        83,
+        84
+      ],
+      "tags": [
+        "GRAB",
+        "INVINCIBLE"
+      ],
+      "desc": "Invincible lunge: grabs the face, drains, and the explosion blows them away. Stocks the energy."
+    },
+    "Overflow Ray": {
+      "tags": [
+        "STOCK"
+      ],
+      "desc": "With energy stocked, any 214 fires a quick three-hit beam (+15 on block). Uses the stock.",
+      "input": "214 A|B|C"
+    },
+    "Overflow Ray (air)": {
+      "group": "Overflow Ray"
+    },
+    "Fallen Grasp": {
+      "tags": [
+        "GRAB"
+      ],
+      "desc": "Air grab: drags them down into a ground explosion, then drains them and stocks the energy."
+    },
+    "Raging Storm": {
+      "desc": "Charge, ground slam, a storm of purple fire around him, then the last burst throws them away."
+    },
+    "God Press": {
+      "states": [
+        107,
+        108,
+        109
+      ],
+      "tags": [
+        "GRAB"
+      ],
+      "desc": "Sliding grab: carries them to the wall, three slams, then a blast that knocks him back onto one knee."
+    },
+    "Throw": {
+      "desc": "Close range. 4 + B+C throws behind you."
+    },
+    "Air Throw": {
+      "desc": "Throw in the air, close range."
+    }
   }
- ]
 }

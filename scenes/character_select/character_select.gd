@@ -94,8 +94,10 @@ var _ready_label: Label
 var _footer: Dictionary
 var _sfx: AudioStreamPlayer
 
-## Character select theme ("Battle in the Moonlight"). Loops; keeps playing into stage select.
-const THEME_PATH := "res://assets/audio/music/netsu/battle_in_the_moonlight.mp3"
+## Character select theme (Nov 2: "Beyond the Crimson Horizon" by Manbou Nitouhei, TamaDeez's edit that starts 16.28 s
+## into the song, played to the end then from the top). Loops; keeps playing into stage select.
+## Was "Battle in the Moonlight" (still selectable in battle).
+const THEME_PATH := "res://assets/audio/music/netsu/beyond_the_crimson_horizon_select.ogg"
 
 # preview per side: {"viewport", "camera", "sprite", "rect", "ring", "frames", "material", "frame", "time"}
 var _preview: Array[Dictionary] = [{}, {}]

@@ -40,7 +40,7 @@ extends Control
 @export var card_size: int = 120
 
 @export_group("Hit Notifications")
-@export var notif_position: Vector2 = Vector2(40, 470)   ## P1 top-left; P2 is mirrored
+@export var notif_position: Vector2 = Vector2(40, 520)   ## P1 top-left; P2 is mirrored (Oct 30: lower, the combo counter moved down)
 @export var notif_size: Vector2 = Vector2(330, 36)
 @export var notif_gap: float = 8.0
 @export var notif_text_size: int = 21
@@ -49,7 +49,7 @@ extends Control
 @export var training_panel_position: Vector2 = Vector2(28, 652)   ## P1; P2 is mirrored
 @export var training_panel_size: Vector2 = Vector2(370, 268)
 @export var training_labels: PackedStringArray = ["Last hit", "Combo dmg", "Best combo", "Hit type", "Scaling", "Frame data"]
-@export var history_position: Vector2 = Vector2(20, 174)   ## P1 column; P2 mirrored
+@export var history_position: Vector2 = Vector2(20, 290)   ## P1 column; P2 mirrored (Oct 30: under the assist card)
 @export var history_size: Vector2 = Vector2(166, 29)
 @export var training_shift: float = 175.0   ## how far combo/notifs move right when input history is on
 

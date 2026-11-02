@@ -161,7 +161,7 @@ func _ready() -> void:
 		_footer["prompts"].text = MENU_PROMPTS
 	_build_capture_box()
 	if start_page == "":
-		_play_preview_music()   # only the full Options screen plays music
+		_play_preview_music()   # only the full Options screen plays music (Nov 2: and only if nothing is playing)
 	Controls.bindings_changed.connect(_refresh_sheet)
 	if start_page != "":
 		_behind.visible = false   # just the one page, no settings list
@@ -317,8 +317,9 @@ func _close_direct() -> void:
 
 func _leave() -> void:
 	var audio := get_node_or_null("/root/AudioManager")
-	if audio:
+	if audio and _preview_playing:   # Nov 2: only stop the preview song this screen started (the menu theme keeps going)
 		audio.call("StopBGM")
+	_preview_playing = false
 	if not embedded:
 		SceneRouter.go_to(SceneRouter.MAIN_MENU)
 		return
@@ -1073,10 +1074,14 @@ func _audio(method: String, index: int) -> void:
 		audio.call(method, index)
 
 
-## Plays the first song in data/soundtrack.tres so BGM volume can be heard.
+## Plays the first song in data/soundtrack.tres so BGM volume can be heard. Nov 2: not when music is already playing
+## (the main menu theme carries on under Options and is what you hear while changing the volume).
+var _preview_playing := false
 func _play_preview_music() -> void:
 	var audio := get_node_or_null("/root/AudioManager")
 	if audio == null or not ResourceLoader.exists("res://data/soundtrack.tres"):
+		return
+	if audio.has_method("PlayingBGM") and audio.call("PlayingBGM"):
 		return
 	var list = load("res://data/soundtrack.tres")
 	if list == null:
@@ -1084,6 +1089,7 @@ func _play_preview_music() -> void:
 	var songs = list.get("elements")
 	if songs and songs.size() > 0 and songs[0].get("clip"):
 		audio.call("PlayBGM", songs[0].get("clip"))
+		_preview_playing = true
 
 
 ## The settings list "grows" out of the OPTIONS row: the joining line draws
