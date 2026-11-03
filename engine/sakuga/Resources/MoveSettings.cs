@@ -93,6 +93,20 @@ public partial class MoveSettings : Resource
 	[Export(PropertyHint.None, "")]
 	public bool SkipCheck;
 
+	/// <summary>Netsu (Nov 3, TamaDeez): this normal can be jump-cancelled on hit (like 2B / 5C / 6C), whatever its
+	/// name. Leticia's 2C.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuJumpCancelOnHit;
+
+	/// <summary>Netsu (Nov 3, TamaDeez): with NetsuNeedSpawnPool >= 0, the move only comes out while one of this fighter's
+	/// spawned objects from that spawnables pool is active in one of NetsuNeedSpawnStates. Noah's snaps: 22A again sets
+	/// off the near (A) hole only, 22B again the far (B) hole only.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuNeedSpawnPool = -1;
+
+	[Export(PropertyHint.None, "")]
+	public int[] NetsuNeedSpawnStates = new int[0];
+
 	[Export(PropertyHint.None, "")]
 	public bool Unlockable;
 

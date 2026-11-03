@@ -7,20 +7,38 @@
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("3")
 MoveIndex = 56
-Conditions = 2
-FrameThreshold = Vector2i(8, 34)
+Conditions = 6
+FrameThreshold = Vector2i(8, 38)
 
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("3")
 MoveIndex = 55
-Conditions = 2
-FrameThreshold = Vector2i(8, 34)
+Conditions = 6
+FrameThreshold = Vector2i(8, 38)
 
 [sub_resource type="Resource" id="s3"]
 script = ExtResource("3")
 MoveIndex = 57
 Conditions = 6
 FrameThreshold = Vector2i(12, 36)
+
+[sub_resource type="Resource" id="ex1"]
+script = ExtResource("3")
+MoveIndex = 45
+Conditions = 6
+FrameThreshold = Vector2i(8, 38)
+
+[sub_resource type="Resource" id="ex2"]
+script = ExtResource("3")
+MoveIndex = 48
+Conditions = 6
+FrameThreshold = Vector2i(8, 38)
+
+[sub_resource type="Resource" id="ex3"]
+script = ExtResource("3")
+MoveIndex = 51
+Conditions = 6
+FrameThreshold = Vector2i(8, 38)
 
 [resource]
 script = ExtResource("1")
@@ -29,7 +47,7 @@ MoveState = 76
 Inputs = ExtResource("2")
 Priority = 9
 MoveEnd = 2
-CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("ex1"), SubResource("ex2"), SubResource("ex3"), SubResource("s3")]
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true

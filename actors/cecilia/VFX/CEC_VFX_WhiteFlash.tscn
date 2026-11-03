@@ -1,0 +1,51 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://d4e1sv1gy8i8a" path="res://engine/sakuga/Components/SakugaVFX.cs" id="1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/VFX/white_4.png" id="2"]
+
+[sub_resource type="Animation" id="anim_gfx"]
+resource_name = "GFX"
+length = 1.75
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/White:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75, 1.1, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="lib"]
+_data = {
+&"GFX": SubResource("anim_gfx")
+}
+
+[node name="VFX" type="Node" node_paths=PackedStringArray("Player", "Graphics")]
+script = ExtResource("1")
+Duration = 105
+Player = NodePath("Graphics/Visuals/AnimationPlayer")
+Graphics = NodePath("Graphics")
+AnimationName = "GFX"
+metadata/_custom_type_script = "uid://d4e1sv1gy8i8a"
+
+[node name="Graphics" type="Node3D" parent="."]
+
+[node name="Visuals" type="Node3D" parent="Graphics"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Visuals"]
+root_node = NodePath("../../..")
+libraries/ = SubResource("lib")
+
+[node name="White" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 100.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 25.0
+no_depth_test = true
+render_priority = 100
+texture = ExtResource("2")

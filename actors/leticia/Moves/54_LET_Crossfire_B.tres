@@ -22,6 +22,12 @@ MoveIndex = 57
 Conditions = 6
 FrameThreshold = Vector2i(19, 40)
 
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("3")
+MoveIndex = 65
+Conditions = 6
+FrameThreshold = Vector2i(14, 40)
+
 [resource]
 script = ExtResource("1")
 MoveName = "Ricochet Prism"
@@ -29,7 +35,7 @@ MoveState = 82
 Inputs = ExtResource("2")
 Priority = 7
 MoveEnd = 2
-CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("s3")]
+CanCancelTo = [SubResource("s1"), SubResource("s2"), SubResource("s4"), SubResource("s3")]
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true

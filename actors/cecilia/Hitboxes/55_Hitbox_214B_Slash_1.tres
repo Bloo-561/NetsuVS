@@ -110,5 +110,4 @@ HitboxType = 1
 
 [resource]
 script = ExtResource("e3")
-Pushbox = ExtResource("e1")
 Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4"), SubResource("s5")]

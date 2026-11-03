@@ -64,7 +64,7 @@ Scale = Vector2(0.926, 0.926)
 
 [sub_resource type="Resource" id="s9"]
 script = ExtResource("e10")
-AtFrame = 6
+AtFrame = 1
 Modifiers = [SubResource("s8")]
 
 [sub_resource type="Resource" id="s10"]
@@ -85,7 +85,7 @@ Scale = Vector2(0.961, 0.961)
 
 [sub_resource type="Resource" id="sh4"]
 script = ExtResource("e10")
-AtFrame = 9
+AtFrame = 13
 Modifiers = [SubResource("sh3")]
 
 [sub_resource type="Resource" id="sh5"]
@@ -96,7 +96,7 @@ Scale = Vector2(1.077, 1.077)
 
 [sub_resource type="Resource" id="sh6"]
 script = ExtResource("e10")
-AtFrame = 9
+AtFrame = 15
 Modifiers = [SubResource("sh5")]
 
 [sub_resource type="Resource" id="sh7"]
@@ -106,7 +106,7 @@ Offset = Vector2(-129.0, -4.0)
 
 [sub_resource type="Resource" id="sh8"]
 script = ExtResource("e10")
-AtFrame = 7
+AtFrame = 10
 Modifiers = [SubResource("sh7")]
 
 [sub_resource type="Resource" id="sh9"]
@@ -116,12 +116,13 @@ Offset = Vector2(-113.0, -4.0)
 
 [sub_resource type="Resource" id="sh10"]
 script = ExtResource("e10")
-AtFrame = 8
+AtFrame = 11
 Modifiers = [SubResource("sh9")]
 
 [resource]
 script = ExtResource("e13")
 Duration = 35
-Animations = [SubResource("s7"), SubResource("s9"), SubResource("sh8"), SubResource("sh10"), SubResource("sh6")]
+Afterimages = true
+Animations = [SubResource("s7"), SubResource("s9"), SubResource("sh8"), SubResource("sh10"), SubResource("sh4"), SubResource("sh6")]
 Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]
 AttackProfiles = [SubResource("s5")]

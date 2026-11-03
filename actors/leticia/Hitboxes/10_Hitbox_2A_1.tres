@@ -112,6 +112,7 @@ AirHitstun = 13
 AirBlockKnockback = Vector2i(-20000, 0)
 AirBlockstun = 10
 SelfPushbackForce = -45000
+AirHitKnockbackGravity = 150000
 
 [resource]
 script = ExtResource("3")

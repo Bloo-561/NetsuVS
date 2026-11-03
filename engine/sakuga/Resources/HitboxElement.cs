@@ -230,6 +230,12 @@ public partial class HitboxElement : Resource
 	[Export(PropertyHint.None, "")]
 	public bool NetsuAllowRestand;
 
+	/// <summary>Netsu (Nov 3, TamaDeez): splash. This hit also reaches an opponent lying on the ground (even past the OTG
+	/// window) and picks them back up: it isn't an OTG hit, so its own hit reaction and knockback apply. Flan's Big Bang
+	/// Crash landing explosion.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuOtgRelaunch;
+
 	/// <summary>Netsu (Oct 28): this attack box only comes out if the opponent is in hitstun (a hit reaction). On block,
 	/// or if they are in any other state, it does nothing and the attacker passes right through (Leticia's j.236).</summary>
 	[Export(PropertyHint.None, "")]

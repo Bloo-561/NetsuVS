@@ -449,6 +449,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 	// combo's proration, never longer than impact + lying). A hit can override the three lengths (HitboxElement
 	// NetsuKnockdown*, 0 = global); they are remembered here. Saved for rollback (SakugaActorState keys 39-42).
 	public int NetsuOtgSpent;
+
+	/// <summary>Nov 3: set by BaseDamage for a splash hit (HitboxElement.NetsuOtgRelaunch) on a downed opponent, read and
+	/// cleared by HitDamage in the same call (never kept across frames, so rollback needn't save it).</summary>
+	public bool NetsuRelaunchNow;
 	public int NetsuKdImpact;
 	public int NetsuKdLying;
 	public int NetsuKdGetUp;
@@ -1069,9 +1073,16 @@ public partial class SakugaActor : SakugaNode, IDamage
 	// the hold lets go even if the EX still has attack frames (Cecilia's 623C dive on an airborne opponent). Key 58.
 	public int NetsuExHoldAge;
 
-	private void NetsuExHoldStart(SakugaActor attacker)
+	private void NetsuExHoldStart(SakugaActor attacker, int knockbackY = 0)
 	{
 		NetsuExHoldKey = 0;
+		// Nov 3 (TamaDeez): a slam (a hit that sends them DOWN: Flan's 214C punch, Leticia's 623C finisher) never holds
+		// them up. The hold zeroed the slam's fall, and LaunchDown has no gravity of its own, so they hung in the air,
+		// drifting across the screen, and with a hard knockdown they could never tech. It also ends any earlier hold.
+		if (knockbackY < 0)
+		{
+			return;
+		}
 		if (!NetsuHitMove(attacker, out SakugaActor root, out int move, out int use) || root.StanceManager == null)
 		{
 			return;
@@ -1163,7 +1174,8 @@ public partial class SakugaActor : SakugaNode, IDamage
 		}
 		NetsuExHoldAge++;
 		int grace = GameManager.Instance != null ? GameManager.Instance.NetsuExHoldGraceFrames : 20;
-		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuExHoldAge > grace || !NetsuExStillGoing(GetOpponent(0)))
+		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuExHoldAge > grace || !NetsuExStillGoing(GetOpponent(0))
+			|| HitstunType >= HitstunType.HARD_KNOCKDOWN)   // Nov 3: a hard knockdown is never held up (it must land)
 		{
 			NetsuExHoldKey = 0;
 			return;
@@ -2276,7 +2288,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			NetsuNoBurst = true;   // Oct 27 (TamaDeez): no Burst out of a special / EX move / super hit (until the combo ends)
 		}
-		if ((NetsuDownFrames > 0 || NetsuLying()) && !IsKO())
+		bool netsuRelaunchHit = NetsuRelaunchNow;   // Nov 3: a splash hit picks them up instead (BaseDamage)
+		NetsuRelaunchNow = false;
+		if (!netsuRelaunchHit && (NetsuDownFrames > 0 || NetsuLying()) && !IsKO())
 		{
 			// Netsu (Oct 26): hit while lying (BaseDamage only lets it through inside the OTG window, and never from
 			// a super): they stay down
@@ -2348,6 +2362,19 @@ public partial class SakugaActor : SakugaNode, IDamage
 			finalKnockbackGravity = NetsuLaunchGravity;
 		}
 		int finalHitReaction = ((!isGroundHit) ? box.AirHitReaction : (IsCrouchState() ? box.CrouchHitReaction : box.GroundHitReaction));
+		// Netsu (Nov 3, TamaDeez): NO RESTANDS. An opponent in the air, or juggled (launched and not lying yet, even if their
+		// feet touch the floor), is never put back on their feet by a hit: the standing / crouching / sweep reactions (and
+		// the light air reaction, whose end lets them land standing) become the falling air reaction, which always ends
+		// in the down state on landing. Only a hit made to restand does (HitboxElement.NetsuAllowRestand). Noah's j.214A
+		// blast stood them up this way.
+		if (!box.NetsuAllowRestand && (netsuJuggled || !isGroundHit))
+		{
+			const int netsuAirStrong = 5;   // HitReactions: 0 stand weak, 1 stand strong, 2 crouch, 3 sweep, 4 air weak, 5 air strong, 6 crumple
+			if (finalHitReaction <= 3 || (finalHitReaction == 4 && netsuJuggled) || (finalHitReaction == 6 && Body != null && !Body.IsOnGround))
+			{
+				finalHitReaction = netsuAirStrong;
+			}
+		}
 		HitstunType = (isGroundHit ? box.GroundHitstunType : box.AirHitstunType);
 		if (netsuJuggled && HitstunType < HitstunType.KNOCKDOWN)
 		{
@@ -2376,7 +2403,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 			// Netsu (Oct 26 c15): BlazBlue-style juggle decay by combo time (was: -1 frame per hit after the 8th hit)
 			// Oct 27 c27: + repeat proration on air hits (the untech time); ground hitstun only has the time decay
 			finalHitstunForReal = Mathf.Max(finalHitstun - (netsuSpecialCounter ? 0 : NetsuJuggleDecay(target)) - (isGroundHit ? netsuRepeat / 2 : netsuRepeat), isGroundHit ? 8 : 1);   // Oct 27 c33: ground hits lose half the repeat proration
-			decayingKnockback = 2500 * Parameters.Prorations.GravityDecayFactor;
+			decayingKnockback = (GameManager.Instance != null ? GameManager.Instance.NetsuGravityDecayPerHit : 2500) * Parameters.Prorations.GravityDecayFactor;   // Nov 3: a setting (was 2500)
 		}
 		// Oct 28: UNI-style recovery scaling: an air hit REPLACES their untech time with base x the combo's recovery scale
 		// (never adding to what was left); then this hit scales the later ones. Ground hits keep their hitstun and only
@@ -2440,7 +2467,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		PushActor(finalKnockbackTime, finalDamageKnockback.X * -target.Body.PlayerSide, finalDamageKnockback.Y - decayingKnockback, finalKnockbackGravity);
 		NetsuFloatStart(box);   // Netsu (Oct 28): a float hit (Leticia's j.236) holds them up; any other hit ends a float
 		NetsuCarryStart(target, box);   // Netsu (Oct 29): Flan's upward Star Rush carries them up with her
-		NetsuExHoldStart(target);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over
+		NetsuExHoldStart(target, finalDamageKnockback.Y - decayingKnockback);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over (Nov 3: not a slam)
 		if (Parameters != null)
 		{
 			int stunFrame = ((target.StateManager != null) ? (target.StateManager.GetCurrentState().AnimationData.Duration - target.StateManager.CurrentStateFrame) : 0);
@@ -2765,9 +2792,21 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	public void BaseDamage(SakugaActor target, HitboxElement box, Vector2I contact)
 	{
-		if (target.ContainsFrameProperty(FrameProperties.DAMAGE_IMUNITY) || NetsuSuperOtg(target))
+		// Nov 3 (TamaDeez): a splash hit (HitboxElement.NetsuOtgRelaunch) picks a downed opponent back up: it gets past
+		// the wake-up invincibility and the super OTG rule, and HitDamage treats it as a normal hit (not an OTG hit)
+		target.NetsuRelaunchNow = false;
+		bool netsuRelaunch = box.NetsuOtgRelaunch && !target.IsKO() && (target.NetsuDownFrames > 0 || target.NetsuLying())
+			&& (target.FrameProperties & FrameProperties.DAMAGE_IMUNITY) == 0;
+		if (!netsuRelaunch && (target.ContainsFrameProperty(FrameProperties.DAMAGE_IMUNITY) || NetsuSuperOtg(target)))
 		{
 			return;   // (Oct 26 evening: supers can't OTG: they never hit a fighter lying on the ground)
+		}
+		if (netsuRelaunch)
+		{
+			target.NetsuRelaunchNow = true;
+			target.NetsuDownFrames = 0;
+			target.NetsuOtgSpent = 0;
+			target.NetsuOtgWindowAtLand = -1;
 		}
 		if (box.HitType == HitType.UNBLOCKABLE || (box.HitType == HitType.HIGH && target.Body.IsOnGround && target.IsCrouchState()))
 		{
@@ -2801,8 +2840,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 		FighterState netsuKeepState = StateManager?.GetCurrentState();
 		if (netsuKeepState != null && netsuKeepState.NetsuKeepBlockSide && Body != null)
 		{
-			// her facing flips at frame 8 (ChangeSideAction), so after that the side she came from is +PlayerSide
-			netsuBlockSide = StateManager.CurrentStateFrame >= 8 ? Body.PlayerSide : -Body.PlayerSide;
+			// her facing flips at NetsuKeepBlockSideFlipFrame (the state's ChangeSideAction), so from then on the side she
+			// came from is +PlayerSide. Nov 3: was fixed at frame 8, but Cecilia's slash flips at 10 and still hits on
+			// frame 8, so that hit had to be blocked the other way (a cross-up).
+			netsuBlockSide = StateManager.CurrentStateFrame >= netsuKeepState.NetsuKeepBlockSideFlipFrame ? Body.PlayerSide : -Body.PlayerSide;
 		}
 		// Netsu (Oct 26 late, TamaDeez): every assist hit (and its projectiles) is a mid: blocked standing or crouching.
 		HitType netsuHitType = NetsuIsAssistHit() && box.HitType != HitType.UNBLOCKABLE ? HitType.MEDIUM : box.HitType;

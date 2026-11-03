@@ -14,6 +14,7 @@
 [ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623A_Fin.tres" id="12"]
 [ext_resource type="Resource" uid="uid://ba6p2b2u1pyli" path="res://actors/leticia/Hitboxes/35_Hitbox_RisingComet_A_4.tres" id="13"]
 [ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="14"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623A_H1b.tres" id="nx_up"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("2")
@@ -94,8 +95,14 @@ AtFrame = 33
 animationStage = 2
 HitboxData = ExtResource("13")
 
+[sub_resource type="Resource" id="nx_up_hs"]
+script = ExtResource("9")
+AtFrame = 7
+animationStage = 1
+HitboxData = ExtResource("nx_up")
+
 [resource]
 script = ExtResource("14")
 Duration = 240
 Animations = [SubResource("s2"), SubResource("s4"), SubResource("s6"), SubResource("s8"), SubResource("s10")]
-Hitboxes = [SubResource("s11"), SubResource("s12"), SubResource("s13"), SubResource("s14"), SubResource("s15")]
+Hitboxes = [SubResource("s11"), SubResource("s12"), SubResource("nx_up_hs"), SubResource("s13"), SubResource("s14"), SubResource("s15")]

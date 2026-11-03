@@ -7,14 +7,14 @@
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("3")
 MoveIndex = 57
-Conditions = 2
-FrameThreshold = Vector2i(0, 60)
+Conditions = 6
+FrameThreshold = Vector2i(0, 300)
 
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("3")
 MoveIndex = 56
-Conditions = 2
-FrameThreshold = Vector2i(0, 60)
+Conditions = 6
+FrameThreshold = Vector2i(0, 300)
 
 [resource]
 script = ExtResource("1")
@@ -25,7 +25,7 @@ SuperFlash = 15
 Priority = 9
 MoveEnd = 2
 SuperGaugeRequired = 10000
-CanCancelTo = null
+CanCancelTo = [SubResource("s1"), SubResource("s2")]
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true

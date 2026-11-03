@@ -50,13 +50,13 @@
       "tags": [
         "SETUP"
       ],
-      "desc": "A black hole opens close in front of him (A) or far away (B) and waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him."
+      "desc": "A black hole opens close in front of him (A) or far away (B) and waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him. Both holes can be out at once: A again sets off the near one, B again the far one."
     },
     "Twin Horizon": {
       "desc": "Both holes, invincible start: the far one collapses at once and throws them toward him, into the near one."
     },
     "Collapse": {
-      "desc": "With a hole open: a finger snap. The holes suck the opponent in and burst."
+      "desc": "With both kinds of hole out (or after Twin Horizon), 41236C: a finger snap that sets off every waiting hole."
     },
     "Void Grasp": {
       "states": [
@@ -73,7 +73,7 @@
       "desc": "Jumping overhead smash with the devil arm (also in the air). On the ground, 214 + B again on hit or block = Abyss Riser."
     },
     "Abyss Riser": {
-      "desc": "Rising uppercut (not an overhead) that launches. On hit, air jump or air attacks keep the combo going."
+      "desc": "Rising uppercut (not an overhead) that launches. Jump-cancellable on hit (air jump), or air attacks, to keep the combo going."
     },
     "Void Devour": {
       "states": [
@@ -121,6 +121,14 @@
     },
     "Air Throw": {
       "desc": "Throw in the air, close range."
+    },
+    "Collapse A": {
+      "name": "Collapse (near)",
+      "desc": "Event Horizon A again while the near hole is waiting: snap, the near hole sucks them in and bursts. The far hole stays."
+    },
+    "Collapse B": {
+      "name": "Collapse (far)",
+      "desc": "Event Horizon B again while the far hole is waiting: snap, the far hole sucks them in and bursts. The near hole stays."
     }
   }
 }

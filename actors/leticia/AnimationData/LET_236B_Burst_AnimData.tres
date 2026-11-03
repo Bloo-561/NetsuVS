@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="1"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="2"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/39_Hitbox_RicochetPrism_0.tres" id="3"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_236B_Burst_Beam.tres" id="4"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/39_Hitbox_RicochetPrism_2.tres" id="5"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/39_Hitbox_RicochetPrism_3.tres" id="6"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sp"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="an"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/cb_3.png" id="t_cb_3"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/cb_5.png" id="t_cb_5"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/cb_6.png" id="t_cb_6"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/cb_7.png" id="t_cb_7"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/cb_8.png" id="t_cb_8"]
+[ext_resource type="Texture2D" path="res://actors/leticia/Sprites/v2/prism_ext_strip.png" id="t_prism"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("2")
+HitboxData = ExtResource("3")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("2")
+AtFrame = 17
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("2")
+AtFrame = 23
+animationStage = 2
+HitboxData = ExtResource("5")
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("2")
+AtFrame = 40
+animationStage = 2
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_3")
+Offset = Vector2(-152, -6)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("an")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_5")
+Offset = Vector2(-131, -8)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("an")
+AtFrame = 5
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_6")
+Offset = Vector2(-283, -6)
+
+[sub_resource type="Resource" id="M2_1"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_prism")
+Offset = Vector2(0.4312, 604.5)
+Scale = Vector2(1090.0, 0.5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("an")
+AtFrame = 17
+Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_6")
+Offset = Vector2(-283, -6)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("an")
+AtFrame = 23
+Modifiers = [SubResource("M3_0")]
+
+[sub_resource type="Resource" id="M4_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_7")
+Offset = Vector2(-275, -7)
+
+[sub_resource type="Resource" id="A4"]
+script = ExtResource("an")
+AtFrame = 30
+Modifiers = [SubResource("M4_0")]
+
+[sub_resource type="Resource" id="M5_0"]
+script = ExtResource("sp")
+Sprite = ExtResource("t_cb_8")
+Offset = Vector2(-154, -8)
+
+[sub_resource type="Resource" id="A5"]
+script = ExtResource("an")
+AtFrame = 40
+Modifiers = [SubResource("M5_0")]
+
+[resource]
+script = ExtResource("1")
+Duration = 52
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5")]
+Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3"), SubResource("s4")]

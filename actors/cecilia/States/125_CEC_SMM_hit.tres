@@ -1,0 +1,1255 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="smm_hold"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="smm_vfx"]
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="nf1"]
+[ext_resource type="Script" uid="uid://v25jcnaz58zf" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuSuperFlashAction.cs" id="nf2"]
+[ext_resource type="Script" uid="uid://bjpttaax4o3kc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuPlaceAction.cs" id="nf3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRestandAction.cs" id="nf4"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="nf7"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="nf9"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="nf11"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="nf13"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="nf15"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="nf17"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="nf112"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/125_CEC_SMM_hit_AnimData.tres" id="nf117"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="nf119"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="nf121"]
+
+[ext_resource type="Script" uid="uid://b1wnmgsdqaa50" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="c6goto"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="c6range"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuFreezeOpponentAction.cs" id="c6freeze"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuOpponentHitReactionCondition.cs" id="c6react"]
+
+[sub_resource type="Resource" id="c9_fc"]
+script = ExtResource("nf15")
+Frame = 84
+
+[sub_resource type="Resource" id="c9_fa"]
+script = ExtResource("c6freeze")
+Frames = 8
+
+[sub_resource type="Resource" id="nf_r23_f18"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r27_f19"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r30_f20"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r33_f22"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r36_f24"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r39_f26"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r42_f27"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r45_f28"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r49_f29"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r52_f30"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r55_f32"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r58_f34"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r61_f36"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r64_f37"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r67_f38"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r71_f39"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, -4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r74_f40"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r77_f42"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r80_f44"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, 4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r83_f46"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r86_f47"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r89_f48"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r93_f49"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, -4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r96_f50"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r99_f52"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r102_f54"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, 4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r105_f56"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r108_f57"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r67_f58"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r67_f78"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r71_f59"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r71_f79"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, -4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r74_f60"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r74_f80"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r77_f62"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r77_f82"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r80_f64"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r80_f84"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, 4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r83_f66"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r83_f86"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_r89_f68"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r93_f69"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r96_f70"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r99_f72"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r102_f74"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_r105_f76"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="c9_fe"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c9_fc")]
+Actions = [SubResource("c9_fa")]
+
+[sub_resource type="Resource" id="c8_pc"]
+script = ExtResource("nf15")
+Frame = 105
+
+[sub_resource type="Resource" id="c8_pa"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 0)
+KeepHeight = true
+
+[sub_resource type="Resource" id="c8_pe"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c8_pc")]
+Actions = [SubResource("c8_pa")]
+
+[sub_resource type="Resource" id="c7_cr"]
+script = ExtResource("c6range")
+MinFrame = 1
+MaxFrame = 16
+
+[sub_resource type="Resource" id="c7_mv"]
+script = ExtResource("nf9")
+Velocity = 6000
+
+[sub_resource type="Resource" id="c7_ce"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c7_cr")]
+Actions = [SubResource("c7_mv")]
+
+[sub_resource type="Resource" id="c7_sc"]
+script = ExtResource("nf15")
+Frame = 17
+
+[sub_resource type="Resource" id="c7_st"]
+script = ExtResource("nf9")
+Velocity = 0
+
+[sub_resource type="Resource" id="c7_se"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c7_sc")]
+Actions = [SubResource("c7_st")]
+
+[sub_resource type="Resource" id="c7_xc"]
+script = ExtResource("nf15")
+Frame = 138
+
+[sub_resource type="Resource" id="c7_xs"]
+script = ExtResource("nf112")
+Amplitude = 0.08
+Duration = 18
+
+[sub_resource type="Resource" id="c7_xa"]
+script = ExtResource("nf11")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="c7_xe"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c7_xc")]
+Actions = [SubResource("c7_xs"), SubResource("c7_xa")]
+
+[sub_resource type="Resource" id="c6_rc0"]
+script = ExtResource("nf15")
+Frame = 38
+
+[sub_resource type="Resource" id="c6_ra0"]
+script = ExtResource("nf17")
+
+[sub_resource type="Resource" id="c6_re0"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_rc0")]
+Actions = [SubResource("c6_ra0")]
+
+[sub_resource type="Resource" id="c6_rc1"]
+script = ExtResource("nf15")
+Frame = 48
+
+[sub_resource type="Resource" id="c6_ra1"]
+script = ExtResource("nf17")
+
+[sub_resource type="Resource" id="c6_re1"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_rc1")]
+Actions = [SubResource("c6_ra1")]
+
+[sub_resource type="Resource" id="c6_rc2"]
+script = ExtResource("nf15")
+Frame = 138
+
+[sub_resource type="Resource" id="c6_ra2"]
+script = ExtResource("nf17")
+
+[sub_resource type="Resource" id="c6_re2"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_rc2")]
+Actions = [SubResource("c6_ra2")]
+
+[sub_resource type="Resource" id="c6_fc"]
+script = ExtResource("nf15")
+Frame = 1
+
+[sub_resource type="Resource" id="c6_fa"]
+script = ExtResource("c6freeze")
+Frames = 20
+
+[sub_resource type="Resource" id="c6_fe"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_fc")]
+Actions = [SubResource("c6_fa")]
+
+[sub_resource type="Resource" id="c6_wc1"]
+script = ExtResource("nf15")
+Frame = 150
+
+[sub_resource type="Resource" id="c6_wc2"]
+script = ExtResource("c6react")
+
+[sub_resource type="Resource" id="c6_wa"]
+script = ExtResource("c6goto")
+Frame = 149
+
+[sub_resource type="Resource" id="c6_we"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_wc1"), SubResource("c6_wc2")]
+Actions = [SubResource("c6_wa")]
+
+[sub_resource type="Resource" id="c6_rsc"]
+script = ExtResource("c6range")
+MinFrame = 0
+MaxFrame = 137
+
+[sub_resource type="Resource" id="nf_r5"]
+script = ExtResource("nf2")
+Frames = 20
+
+[sub_resource type="Resource" id="nf_s6"]
+script = ExtResource("nf7")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="nf_s8"]
+script = ExtResource("nf9")
+Velocity = 0
+
+[sub_resource type="Resource" id="nf_s10"]
+script = ExtResource("nf11")
+Source = 3
+Index = 38
+
+[sub_resource type="Resource" id="nf_s12"]
+script = ExtResource("nf13")
+Actions = [SubResource("nf_s6"), SubResource("nf_s8"), SubResource("nf_s10")]
+
+[sub_resource type="Resource" id="nf_s14"]
+script = ExtResource("nf15")
+Frame = 18
+
+[sub_resource type="Resource" id="nf_s16"]
+script = ExtResource("nf17")
+
+[sub_resource type="Resource" id="nf_s18"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s14")]
+Actions = [SubResource("nf_s16")]
+
+[sub_resource type="Resource" id="nf_s19"]
+script = ExtResource("nf15")
+Frame = 28
+
+[sub_resource type="Resource" id="nf_s20"]
+script = ExtResource("nf17")
+
+[sub_resource type="Resource" id="nf_s21"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s19")]
+Actions = [SubResource("nf_s20")]
+
+[sub_resource type="Resource" id="nf_s22"]
+script = ExtResource("nf15")
+Frame = 18
+
+[sub_resource type="Resource" id="nf_r23"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s24"]
+script = ExtResource("nf11")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="nf_s25"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s22")]
+Actions = [SubResource("nf_r23_f18"), SubResource("nf_s24")]
+
+[sub_resource type="Resource" id="nf_s26"]
+script = ExtResource("nf15")
+Frame = 19
+
+[sub_resource type="Resource" id="nf_r27"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s28"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s26")]
+Actions = [SubResource("nf_r27_f19")]
+
+[sub_resource type="Resource" id="nf_s29"]
+script = ExtResource("nf15")
+Frame = 20
+
+[sub_resource type="Resource" id="nf_r30"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s31"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s29")]
+Actions = [SubResource("nf_r30_f20")]
+
+[sub_resource type="Resource" id="nf_s32"]
+script = ExtResource("nf15")
+Frame = 22
+
+[sub_resource type="Resource" id="nf_r33"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s34"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s32")]
+Actions = [SubResource("nf_r33_f22")]
+
+[sub_resource type="Resource" id="nf_s35"]
+script = ExtResource("nf15")
+Frame = 24
+
+[sub_resource type="Resource" id="nf_r36"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s37"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s35")]
+Actions = [SubResource("nf_r36_f24")]
+
+[sub_resource type="Resource" id="nf_s38"]
+script = ExtResource("nf15")
+Frame = 26
+
+[sub_resource type="Resource" id="nf_r39"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_s40"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s38")]
+Actions = [SubResource("nf_r39_f26")]
+
+[sub_resource type="Resource" id="nf_s41"]
+script = ExtResource("nf15")
+Frame = 27
+
+[sub_resource type="Resource" id="nf_r42"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s43"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s41")]
+Actions = [SubResource("nf_r42_f27")]
+
+[sub_resource type="Resource" id="nf_s44"]
+script = ExtResource("nf15")
+Frame = 28
+
+[sub_resource type="Resource" id="nf_r45"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s46"]
+script = ExtResource("nf11")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="nf_s47"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s44")]
+Actions = [SubResource("nf_r45_f28"), SubResource("nf_s46")]
+
+[sub_resource type="Resource" id="nf_s48"]
+script = ExtResource("nf15")
+Frame = 29
+
+[sub_resource type="Resource" id="nf_r49"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s50"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s48")]
+Actions = [SubResource("nf_r49_f29")]
+
+[sub_resource type="Resource" id="nf_s51"]
+script = ExtResource("nf15")
+Frame = 30
+
+[sub_resource type="Resource" id="nf_r52"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s53"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s51")]
+Actions = [SubResource("nf_r52_f30")]
+
+[sub_resource type="Resource" id="nf_s54"]
+script = ExtResource("nf15")
+Frame = 32
+
+[sub_resource type="Resource" id="nf_r55"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s56"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s54")]
+Actions = [SubResource("nf_r55_f32")]
+
+[sub_resource type="Resource" id="nf_s57"]
+script = ExtResource("nf15")
+Frame = 34
+
+[sub_resource type="Resource" id="nf_r58"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s59"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s57")]
+Actions = [SubResource("nf_r58_f34")]
+
+[sub_resource type="Resource" id="nf_s60"]
+script = ExtResource("nf15")
+Frame = 36
+
+[sub_resource type="Resource" id="nf_r61"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_s62"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s60")]
+Actions = [SubResource("nf_r61_f36")]
+
+[sub_resource type="Resource" id="nf_s63"]
+script = ExtResource("nf15")
+Frame = 37
+
+[sub_resource type="Resource" id="nf_r64"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s65"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s63")]
+Actions = [SubResource("nf_r64_f37")]
+
+[sub_resource type="Resource" id="nf_s66"]
+script = ExtResource("nf15")
+Frame = 38
+
+[sub_resource type="Resource" id="nf_r67"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, -5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s68"]
+script = ExtResource("nf11")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="nf_s69"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s66")]
+Actions = [SubResource("nf_r67_f38"), SubResource("nf_s68")]
+
+[sub_resource type="Resource" id="nf_s70"]
+script = ExtResource("nf15")
+Frame = 39
+
+[sub_resource type="Resource" id="nf_r71"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, -4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s72"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s70")]
+Actions = [SubResource("nf_r71_f39")]
+
+[sub_resource type="Resource" id="nf_s73"]
+script = ExtResource("nf15")
+Frame = 40
+
+[sub_resource type="Resource" id="nf_r74"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s75"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s73")]
+Actions = [SubResource("nf_r74_f40")]
+
+[sub_resource type="Resource" id="nf_s76"]
+script = ExtResource("nf15")
+Frame = 42
+
+[sub_resource type="Resource" id="nf_r77"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s78"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s76")]
+Actions = [SubResource("nf_r77_f42")]
+
+[sub_resource type="Resource" id="nf_s79"]
+script = ExtResource("nf15")
+Frame = 44
+
+[sub_resource type="Resource" id="nf_r80"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, 4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s81"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s79")]
+Actions = [SubResource("nf_r80_f44")]
+
+[sub_resource type="Resource" id="nf_s82"]
+script = ExtResource("nf15")
+Frame = 46
+
+[sub_resource type="Resource" id="nf_r83"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_s84"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s82")]
+Actions = [SubResource("nf_r83_f46")]
+
+[sub_resource type="Resource" id="nf_s85"]
+script = ExtResource("nf15")
+Frame = 47
+
+[sub_resource type="Resource" id="nf_r86"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s87"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s85")]
+Actions = [SubResource("nf_r86_f47")]
+
+[sub_resource type="Resource" id="nf_s88"]
+script = ExtResource("nf15")
+Frame = 48
+
+[sub_resource type="Resource" id="nf_r89"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s90"]
+script = ExtResource("nf11")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="nf_s91"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s88")]
+Actions = [SubResource("nf_r89_f48"), SubResource("nf_s90")]
+
+[sub_resource type="Resource" id="nf_s92"]
+script = ExtResource("nf15")
+Frame = 49
+
+[sub_resource type="Resource" id="nf_r93"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-9000, 4050)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s94"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s92")]
+Actions = [SubResource("nf_r93_f49")]
+
+[sub_resource type="Resource" id="nf_s95"]
+script = ExtResource("nf15")
+Frame = 50
+
+[sub_resource type="Resource" id="nf_r96"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(-7500, 3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s97"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s95")]
+Actions = [SubResource("nf_r96_f50")]
+
+[sub_resource type="Resource" id="nf_s98"]
+script = ExtResource("nf15")
+Frame = 52
+
+[sub_resource type="Resource" id="nf_r99"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(7500, -3375)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s100"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s98")]
+Actions = [SubResource("nf_r99_f52")]
+
+[sub_resource type="Resource" id="nf_s101"]
+script = ExtResource("nf15")
+Frame = 54
+
+[sub_resource type="Resource" id="nf_r102"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(9500, -4275)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s103"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s101")]
+Actions = [SubResource("nf_r102_f54")]
+
+[sub_resource type="Resource" id="nf_s104"]
+script = ExtResource("nf15")
+Frame = 56
+
+[sub_resource type="Resource" id="nf_r105"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, -5400)
+KeepHeight = false
+FaceBack = true
+
+[sub_resource type="Resource" id="nf_s106"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s104")]
+Actions = [SubResource("nf_r105_f56")]
+
+[sub_resource type="Resource" id="nf_s107"]
+script = ExtResource("nf15")
+Frame = 57
+
+[sub_resource type="Resource" id="nf_r108"]
+script = ExtResource("nf3")
+Target = 2
+Offset = Vector2i(12000, 5400)
+KeepHeight = false
+
+[sub_resource type="Resource" id="nf_s109"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s107")]
+Actions = [SubResource("nf_r108_f57")]
+
+[sub_resource type="Resource" id="nf_s110"]
+script = ExtResource("nf15")
+Frame = 89
+
+[sub_resource type="Resource" id="nf_s111"]
+script = ExtResource("nf112")
+Amplitude = 0.05
+Duration = 14
+
+[sub_resource type="Resource" id="nf_s113"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s110")]
+Actions = [SubResource("nf_s111")]
+
+[sub_resource type="Resource" id="nf_s114"]
+script = ExtResource("nf15")
+Frame = 106
+
+[sub_resource type="Resource" id="nf_s115"]
+script = ExtResource("nf11")
+Source = 4
+Index = 40
+
+[sub_resource type="Resource" id="nf_s116"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s114")]
+Actions = [SubResource("nf_s115")]
+
+[sub_resource type="Resource" id="nf_s118"]
+script = ExtResource("nf119")
+
+[sub_resource type="Resource" id="nf_s120"]
+script = ExtResource("nf121")
+
+[sub_resource type="Resource" id="nf_s122"]
+script = ExtResource("nf13")
+Conditions = [SubResource("nf_s118")]
+Actions = [SubResource("nf_s120")]
+
+[sub_resource type="Resource" id="nf_s123"]
+script = ExtResource("nf7")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="nf_s124"]
+script = ExtResource("nf13")
+Actions = [SubResource("nf_s123")]
+
+[sub_resource type="Resource" id="nf_r125"]
+script = ExtResource("nf4")
+
+[sub_resource type="Resource" id="nf_s126"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c6_rsc")]
+Actions = [SubResource("nf_r125")]
+
+[sub_resource type="Resource" id="c10_c1"]
+script = ExtResource("nf15")
+Frame = 58
+
+[sub_resource type="Resource" id="c10_e1"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c1")]
+Actions = [SubResource("c6_ra0")]
+
+[sub_resource type="Resource" id="c10_c2"]
+script = ExtResource("nf15")
+Frame = 78
+
+[sub_resource type="Resource" id="c10_e2"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c2")]
+Actions = [SubResource("c6_ra0")]
+
+[sub_resource type="Resource" id="c10_c3"]
+script = ExtResource("nf15")
+Frame = 68
+
+[sub_resource type="Resource" id="c10_e3"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c3")]
+Actions = [SubResource("c6_ra1")]
+
+[sub_resource type="Resource" id="c10_c4"]
+script = ExtResource("nf15")
+Frame = 58
+
+[sub_resource type="Resource" id="c10_e4"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c4")]
+Actions = [SubResource("nf_r67_f58"), SubResource("nf_s68")]
+
+[sub_resource type="Resource" id="c10_c5"]
+script = ExtResource("nf15")
+Frame = 78
+
+[sub_resource type="Resource" id="c10_e5"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c5")]
+Actions = [SubResource("nf_r67_f78"), SubResource("nf_s68")]
+
+[sub_resource type="Resource" id="c10_c6"]
+script = ExtResource("nf15")
+Frame = 59
+
+[sub_resource type="Resource" id="c10_e6"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c6")]
+Actions = [SubResource("nf_r71_f59")]
+
+[sub_resource type="Resource" id="c10_c7"]
+script = ExtResource("nf15")
+Frame = 79
+
+[sub_resource type="Resource" id="c10_e7"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c7")]
+Actions = [SubResource("nf_r71_f79")]
+
+[sub_resource type="Resource" id="c10_c8"]
+script = ExtResource("nf15")
+Frame = 60
+
+[sub_resource type="Resource" id="c10_e8"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c8")]
+Actions = [SubResource("nf_r74_f60")]
+
+[sub_resource type="Resource" id="c10_c9"]
+script = ExtResource("nf15")
+Frame = 80
+
+[sub_resource type="Resource" id="c10_e9"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c9")]
+Actions = [SubResource("nf_r74_f80")]
+
+[sub_resource type="Resource" id="c10_c10"]
+script = ExtResource("nf15")
+Frame = 62
+
+[sub_resource type="Resource" id="c10_e10"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c10")]
+Actions = [SubResource("nf_r77_f62")]
+
+[sub_resource type="Resource" id="c10_c11"]
+script = ExtResource("nf15")
+Frame = 82
+
+[sub_resource type="Resource" id="c10_e11"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c11")]
+Actions = [SubResource("nf_r77_f82")]
+
+[sub_resource type="Resource" id="c10_c12"]
+script = ExtResource("nf15")
+Frame = 64
+
+[sub_resource type="Resource" id="c10_e12"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c12")]
+Actions = [SubResource("nf_r80_f64")]
+
+[sub_resource type="Resource" id="c10_c13"]
+script = ExtResource("nf15")
+Frame = 84
+
+[sub_resource type="Resource" id="c10_e13"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c13")]
+Actions = [SubResource("nf_r80_f84")]
+
+[sub_resource type="Resource" id="c10_c14"]
+script = ExtResource("nf15")
+Frame = 66
+
+[sub_resource type="Resource" id="c10_e14"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c14")]
+Actions = [SubResource("nf_r83_f66")]
+
+[sub_resource type="Resource" id="c10_c15"]
+script = ExtResource("nf15")
+Frame = 86
+
+[sub_resource type="Resource" id="c10_e15"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c15")]
+Actions = [SubResource("nf_r83_f86")]
+
+[sub_resource type="Resource" id="c10_c16"]
+script = ExtResource("nf15")
+Frame = 68
+
+[sub_resource type="Resource" id="c10_e16"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c16")]
+Actions = [SubResource("nf_r89_f68"), SubResource("nf_s90")]
+
+[sub_resource type="Resource" id="c10_c17"]
+script = ExtResource("nf15")
+Frame = 69
+
+[sub_resource type="Resource" id="c10_e17"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c17")]
+Actions = [SubResource("nf_r93_f69")]
+
+[sub_resource type="Resource" id="c10_c18"]
+script = ExtResource("nf15")
+Frame = 70
+
+[sub_resource type="Resource" id="c10_e18"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c18")]
+Actions = [SubResource("nf_r96_f70")]
+
+[sub_resource type="Resource" id="c10_c19"]
+script = ExtResource("nf15")
+Frame = 72
+
+[sub_resource type="Resource" id="c10_e19"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c19")]
+Actions = [SubResource("nf_r99_f72")]
+
+[sub_resource type="Resource" id="c10_c20"]
+script = ExtResource("nf15")
+Frame = 74
+
+[sub_resource type="Resource" id="c10_e20"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c20")]
+Actions = [SubResource("nf_r102_f74")]
+
+[sub_resource type="Resource" id="c10_c21"]
+script = ExtResource("nf15")
+Frame = 76
+
+[sub_resource type="Resource" id="c10_e21"]
+script = ExtResource("nf13")
+Conditions = [SubResource("c10_c21")]
+Actions = [SubResource("nf_r105_f76")]
+
+
+[sub_resource type="Resource" id="smm_hc"]
+script = ExtResource("c6range")
+MinFrame = 17
+MaxFrame = 88
+
+[sub_resource type="Resource" id="smm_ha"]
+script = ExtResource("smm_hold")
+Offset = Vector2i(0, 52000)
+LiftRate = 200
+
+[sub_resource type="Resource" id="smm_h"]
+script = ExtResource("nf13")
+Conditions = [SubResource("smm_hc")]
+Actions = [SubResource("smm_ha")]
+
+[sub_resource type="Resource" id="smm_goc"]
+script = ExtResource("nf15")
+Frame = 88
+
+[sub_resource type="Resource" id="smm_goa"]
+script = ExtResource("nf121")
+StateIndex = 127
+
+[sub_resource type="Resource" id="smm_go"]
+script = ExtResource("nf13")
+Conditions = [SubResource("smm_goc")]
+Actions = [SubResource("smm_goa")]
+
+[sub_resource type="Resource" id="smm_c1"]
+script = ExtResource("nf15")
+Frame = 18
+
+[sub_resource type="Resource" id="smm_a1"]
+script = ExtResource("smm_vfx")
+xRelativeTo = 2
+Index = 20
+
+[sub_resource type="Resource" id="smm_e1"]
+script = ExtResource("nf13")
+Conditions = [SubResource("smm_c1")]
+Actions = [SubResource("smm_a1")]
+
+[sub_resource type="Resource" id="smm_c2"]
+script = ExtResource("nf15")
+Frame = 138
+
+[sub_resource type="Resource" id="smm_a2"]
+script = ExtResource("smm_vfx")
+xRelativeTo = 2
+Index = 21
+
+[sub_resource type="Resource" id="smm_e2"]
+script = ExtResource("nf13")
+Conditions = [SubResource("smm_c2")]
+Actions = [SubResource("smm_a2")]
+
+[resource]
+script = ExtResource("nf1")
+StateName = "Sakura Morning Moon (air slashes)"
+Type = 2
+AnimationData = ExtResource("nf117")
+TransitionEvents = [SubResource("nf_s122")]
+OnEnterEvents = [SubResource("nf_s12")]
+OnTickEvents = [SubResource("smm_h"), SubResource("smm_go"), SubResource("c10_e1"), SubResource("c10_e2"), SubResource("c10_e3"), SubResource("c10_e4"), SubResource("c10_e5"), SubResource("c10_e6"), SubResource("c10_e7"), SubResource("c10_e8"), SubResource("c10_e9"), SubResource("c10_e10"), SubResource("c10_e11"), SubResource("c10_e12"), SubResource("c10_e13"), SubResource("c10_e14"), SubResource("c10_e15"), SubResource("c10_e16"), SubResource("c10_e17"), SubResource("c10_e18"), SubResource("c10_e19"), SubResource("c10_e20"), SubResource("c10_e21"), SubResource("c9_fe"), SubResource("c8_pe"), SubResource("c7_ce"), SubResource("c7_se"), SubResource("c7_xe"), SubResource("c6_re0"), SubResource("c6_re1"), SubResource("c6_re2"), SubResource("c6_fe"), SubResource("c6_we"), SubResource("nf_s18"), SubResource("nf_s21"), SubResource("nf_s25"), SubResource("nf_s28"), SubResource("nf_s31"), SubResource("nf_s34"), SubResource("nf_s37"), SubResource("nf_s40"), SubResource("nf_s47"), SubResource("nf_s50"), SubResource("nf_s53"), SubResource("nf_s56"), SubResource("nf_s59"), SubResource("nf_s62"), SubResource("nf_s69"), SubResource("nf_s72"), SubResource("nf_s75"), SubResource("nf_s78"), SubResource("nf_s81"), SubResource("nf_s84"), SubResource("nf_s91"), SubResource("nf_s94"), SubResource("nf_s97"), SubResource("nf_s100"), SubResource("nf_s103"), SubResource("nf_s106"), SubResource("nf_s113"), SubResource("nf_s116")]
+OnExitEvents = [SubResource("nf_s124")]
+OnHitConfirmEvents = null
+NetsuFrameBoth = true
+AIFlags = 18

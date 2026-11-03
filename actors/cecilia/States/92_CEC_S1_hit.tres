@@ -26,7 +26,7 @@ Frame = 84
 
 [sub_resource type="Resource" id="c9_fa"]
 script = ExtResource("c6freeze")
-Frames = 32
+Frames = 56
 
 [sub_resource type="Resource" id="c9_fe"]
 script = ExtResource("nf13")
@@ -77,7 +77,7 @@ Actions = [SubResource("c7_st")]
 
 [sub_resource type="Resource" id="c7_xc"]
 script = ExtResource("nf15")
-Frame = 114
+Frame = 138
 
 [sub_resource type="Resource" id="c7_xs"]
 script = ExtResource("nf112")
@@ -120,7 +120,7 @@ Actions = [SubResource("c6_ra1")]
 
 [sub_resource type="Resource" id="c6_rc2"]
 script = ExtResource("nf15")
-Frame = 114
+Frame = 138
 
 [sub_resource type="Resource" id="c6_ra2"]
 script = ExtResource("nf17")
@@ -162,7 +162,7 @@ Actions = [SubResource("c6_wa")]
 [sub_resource type="Resource" id="c6_rsc"]
 script = ExtResource("c6range")
 MinFrame = 0
-MaxFrame = 113
+MaxFrame = 137
 
 [sub_resource type="Resource" id="nf_r5"]
 script = ExtResource("nf2")

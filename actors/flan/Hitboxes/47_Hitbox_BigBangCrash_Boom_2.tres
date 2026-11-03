@@ -13,6 +13,7 @@ OpponentSuperGaugeGain = 100
 SelfSuperGaugeGain = 0
 HitEffectIndex = 6
 HitType = 1
+NetsuOtgRelaunch = true
 BaseDamage = 175
 SelfHitStopDuration = 4
 OpponentHitStopDuration = 4

@@ -2,35 +2,142 @@
   "fighter": "Cecilia Richter",
   "note": "Notes for the command list (docs/command_list.md). The list itself comes from the fighter's data: every move in Stances[0].Moves shows up by itself with its input, frame data and animation. Here, keyed by the ENGINE move name (MoveSettings.MoveName), you can give a move a display name, a description, tags, an input to show instead of the worked-out one, which states the preview plays, a group to merge it into, or hide it. extra = rows the data can't show (moves reached by holding a button or by a state change).",
   "moves": {
-    "5A": {"desc": "Fast jab. Chains into B or C, and into another normal once per chain."},
-    "5B": {"desc": "Long-reach mid slash. Your main button in footsies."},
-    "5C": {"desc": "Heavy slash. Cancels into specials, EX moves and 6C."},
-    "2A": {"desc": "Quick low. Starts most low-to-high pressure."},
-    "2B": {"desc": "Low poke. Chains into 5B, 5C, 2C and jump."},
-    "2C": {"desc": "Sweep (Sixth Form, Scarlet Sky). Knocks down."},
-    "4A": {"desc": "Close slash with a tight hitbox. A fast check up close."},
-    "6C": {"name": "Rising Slash", "tags": ["LAUNCHER"], "desc": "Launches. Any ground normal cancels into it on hit or block. Jump (8) on hit to chase into an air combo; no jump cancel on block."},
-    "j.5A": {"name": "j.A", "desc": "Fast air jab. Air-to-air and the start of air combos."},
-    "j.5B": {"name": "j.B", "desc": "Wide air slash. Your main jump-in."},
-    "j.5C": {"name": "j.C", "desc": "Big downward slash. Ends air combos and covers below you."},
-    "Iaido": {"desc": "Stationary quickdraw: a long lightning slash straight ahead."},
-    "Iaido: Rising Cut": {"tags": ["ANTI-AIR"], "desc": "Quickdraw cut diagonally upward. Anti-air that launches."},
-    "EX Iaido: Thunder Barrage": {"name": "Thunder Barrage", "desc": "Stationary six-hit slash barrage. The last hit blasts them away (hard knockdown)."},
-    "Command Dash": {"states": [73], "desc": "A: short dash, B: longer dash. The dash itself doesn't hit. Press A during it for a palm strike, or C (or hold B) for the slash-through."},
-    "Command Dash: Pierce": {"name": "Palm Strike", "input": "> A", "desc": "A palm strike out of either dash."},
-    "Lightning Dash: Final Slash": {"hide": true},
-    "EX Dash Slash": {"desc": "Invincible lightning dash. On hit she slashes through them again and again."},
-    "Teleport Slash": {"name": "Crescent Slash", "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher."},
-    "EX Teleport Slash": {"name": "EX Crescent Slash", "desc": "Invincible two-hit rising crescent. On hit she turns into lightning at the peak, slashes straight down onto them, holds them while she sheathes, and the click unleashes a last slash (hard knockdown)."},
-    "Skyfall Slash": {"states": [108, 111], "desc": "Diving slash from the air. Slams airborne opponents down."},
-    "EX Skyfall Slash": {"states": [110, 112], "desc": "Invincible dive. The lightning X on landing is a pillar that launches them (+3 on block)."},
-    "Thunder Plunge": {"states": [93, 95], "desc": "Ground or air. In the air she plunges down: anyone she touches on the way is dragged to the floor and takes the whole surge."},
-    "Counter · Thunderclap": {"states": [85, 92], "tags": ["SUPER", "COUNTER"], "desc": "Counter stance. When it catches a hit she crosses through them four times and sheathes on her own side."},
-    "Throw": {"states": [100, 101], "desc": "Close range. 4 + B+C throws behind you. Break a throw with B+C within 10 frames."},
-    "Air Throw": {"desc": "Throw in the air, close range."}
+    "5A": {
+      "desc": "Fast jab. Chains into B or C, and into another normal once per chain."
+    },
+    "5B": {
+      "desc": "Long-reach mid slash. Your main button in footsies."
+    },
+    "5C": {
+      "desc": "Heavy slash. Cancels into specials, EX moves and 6C."
+    },
+    "2A": {
+      "desc": "Quick low. Starts most low-to-high pressure."
+    },
+    "2B": {
+      "desc": "Low poke. Chains into 5B, 5C, 2C and jump."
+    },
+    "2C": {
+      "desc": "Sweep (Sixth Form, Scarlet Sky). Knocks down."
+    },
+    "4A": {
+      "desc": "Close slash with a tight hitbox. A fast check up close."
+    },
+    "6C": {
+      "name": "Rising Slash",
+      "tags": [
+        "LAUNCHER"
+      ],
+      "desc": "Launches. Any ground normal cancels into it on hit or block. Jump (8) on hit to chase into an air combo; no jump cancel on block."
+    },
+    "j.5A": {
+      "name": "j.A",
+      "desc": "Fast air jab. Air-to-air and the start of air combos."
+    },
+    "j.5B": {
+      "name": "j.B",
+      "desc": "Wide air slash. Your main jump-in."
+    },
+    "j.5C": {
+      "name": "j.C",
+      "desc": "Big downward slash. Ends air combos and covers below you."
+    },
+    "Iaido": {
+      "desc": "Stationary quickdraw: a long lightning slash straight ahead."
+    },
+    "Iaido: Rising Cut": {
+      "tags": [
+        "ANTI-AIR"
+      ],
+      "desc": "Quickdraw cut diagonally upward. Anti-air that launches."
+    },
+    "EX Iaido: Thunder Barrage": {
+      "name": "Thunder Barrage",
+      "desc": "Stationary six-hit slash barrage. The last hit blasts them away (hard knockdown)."
+    },
+    "Command Dash": {
+      "states": [
+        73
+      ],
+      "desc": "A: short dash, B: longer dash. The dash itself doesn't hit. Press A during it for a palm strike, or C (or hold B) for the slash-through: she ends up on their other side, but it is blocked toward the side she came from (never a cross-up)."
+    },
+    "Command Dash: Pierce": {
+      "name": "Palm Strike",
+      "input": "> A",
+      "desc": "A palm strike out of either dash."
+    },
+    "Lightning Dash: Final Slash": {
+      "hide": true
+    },
+    "EX Dash Slash": {
+      "desc": "Invincible lightning dash. On hit she slashes through them again and again."
+    },
+    "Teleport Slash": {
+      "name": "Crescent Slash",
+      "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher."
+    },
+    "EX Teleport Slash": {
+      "name": "EX Crescent Slash",
+      "desc": "Invincible two-hit rising crescent. On hit she turns into lightning at the peak, slashes straight down onto them, holds them while she sheathes, and the click unleashes a last slash (hard knockdown)."
+    },
+    "Skyfall Slash": {
+      "states": [
+        108,
+        111
+      ],
+      "desc": "Diving slash from the air. Slams airborne opponents down."
+    },
+    "EX Skyfall Slash": {
+      "states": [
+        110,
+        112
+      ],
+      "desc": "Invincible dive. The lightning X on landing is a pillar that launches them (+3 on block)."
+    },
+    "Thunder Plunge": {
+      "hide": true
+    },
+    "Counter · Thunderclap": {
+      "states": [
+        85,
+        92
+      ],
+      "tags": [
+        "SUPER",
+        "COUNTER"
+      ],
+      "desc": "Counter stance. When it catches a hit she crosses through them four times, then sheathes on her own side: the final cut lands the moment the blade clicks home."
+    },
+    "Throw": {
+      "states": [
+        100,
+        101
+      ],
+      "desc": "Close range. 4 + B+C throws behind you. Break a throw with B+C within 10 frames."
+    },
+    "Air Throw": {
+      "desc": "Throw in the air, close range."
+    },
+    "Sakura Morning Moon": {
+      "tags": [
+        "SUPER"
+      ],
+      "desc": "Invincible lightning dash. On hit she cuts through them back and forth, launches them with a rising slash, then turns into lightning and strikes straight down through them. They hang in the air while she kneels and sheathes: the click sets off the last cut, a burst of cherry blossoms and a white flash. When the screen comes back she is standing and they fall into a hard knockdown under falling petals."
+    }
   },
   "extra": [
-    {"name": "Lightning Slash-Through", "input": "> C", "after": "Command Dash", "states": [106, 107], "tags": ["UNSAFE"],
-     "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up."}
+    {
+      "name": "Lightning Slash-Through",
+      "input": "> C",
+      "after": "Command Dash",
+      "states": [
+        106,
+        107
+      ],
+      "tags": [
+        "UNSAFE"
+      ],
+      "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up."
+    }
   ]
 }

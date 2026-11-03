@@ -104,7 +104,7 @@ GroundHitstunType = 2
 GroundHitReaction = 7
 CrouchHitReaction = 7
 GroundHitKnockback = Vector2i(-45000, 25000)
-GroundHitKnockbackGravity = 200000
+GroundHitKnockbackGravity = 170000
 GroundHitstun = 30
 GroundBlockKnockback = Vector2i(-45000, 0)
 GroundBlockstun = 18
@@ -114,6 +114,7 @@ AirHitKnockback = Vector2i(-40000, 30000)
 AirHitstun = 30
 AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 18
+AirHitKnockbackGravity = 170000
 
 [resource]
 script = ExtResource("1")

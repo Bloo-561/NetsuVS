@@ -41,10 +41,20 @@ public partial class FighterState : Resource
 	[Export(PropertyHint.None, "")]
 	public bool NetsuShowStage;
 
+	/// <summary>Netsu (Nov 3): the camera frames both fighters whole while the fighter is in this state, like
+	/// NetsuShowStage, but the super's backdrop stays. Cecilia's Sakura Morning Moon.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuFrameBoth;
+
 	/// <summary>Netsu (Oct 27): while this state runs, the opponent blocks as if the fighter were still on the side she
 	/// faces FROM (before she passed through them), so a slash-through that ends up behind them is not a cross-up.</summary>
 	[Export(PropertyHint.None, "")]
 	public bool NetsuKeepBlockSide;
+
+	/// <summary>Netsu (Nov 3): with NetsuKeepBlockSide, the state frame at which her facing flips (its ChangeSideAction).
+	/// Before it she still faces them from the side she came from; from it on she faces back from the far side.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuKeepBlockSideFlipFrame = 8;
 
 	/// <summary>Netsu (Oct 29): while the fighter is in this state, an opponent lying on the floor can't get up (the same
 	/// hold a 3-bar super gets). Noah's j.214A landing: they stay down until the drain is absorbed and he has recovered.</summary>

@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://rc48nysxcxks" path="res://actors/_shared/sakuga/VFX/VFX_22.tscn" id="19"]
 [ext_resource type="PackedScene" uid="uid://dyraso6pdd3ea" path="res://actors/_shared/sakuga/VFX/VFX_1000.tscn" id="20"]
 [ext_resource type="Script" uid="uid://k0lh4a8ntjdo" path="res://engine/sakuga/Resources/SpawnsList.cs" id="21"]
+[ext_resource type="PackedScene" path="res://actors/cecilia/VFX/CEC_VFX_SakuraFall.tscn" id="smm_fall"]
+[ext_resource type="PackedScene" path="res://actors/cecilia/VFX/CEC_VFX_SakuraBurst.tscn" id="smm_burst"]
+[ext_resource type="PackedScene" path="res://actors/cecilia/VFX/CEC_VFX_WhiteFlash.tscn" id="smm_white"]
+[ext_resource type="PackedScene" path="res://actors/cecilia/VFX/CEC_VFX_VerticalCut.tscn" id="smm_cut"]
 
 [sub_resource type="Resource" id="Resource_2floy"]
 script = ExtResource("2")
@@ -158,6 +162,30 @@ Instance = ExtResource("20")
 PoolSize = 1
 metadata/_custom_type_script = "uid://fshoagbsdqd4"
 
+[sub_resource type="Resource" id="smm_s1"]
+script = ExtResource("2")
+Key = "Sakura Fall"
+Instance = ExtResource("smm_fall")
+PoolSize = 1
+
+[sub_resource type="Resource" id="smm_s2"]
+script = ExtResource("2")
+Key = "Sakura Burst"
+Instance = ExtResource("smm_burst")
+PoolSize = 1
+
+[sub_resource type="Resource" id="smm_s3"]
+script = ExtResource("2")
+Key = "White Flash"
+Instance = ExtResource("smm_white")
+PoolSize = 1
+
+[sub_resource type="Resource" id="smm_s4"]
+script = ExtResource("2")
+Key = "Vertical Cut"
+Instance = ExtResource("smm_cut")
+PoolSize = 1
+
 [resource]
 script = ExtResource("21")
-SpawnObjects = [SubResource("Resource_2floy"), SubResource("Resource_6t0f1"), SubResource("Resource_widxw"), SubResource("Resource_55vjd"), SubResource("Resource_j030x"), SubResource("Resource_hvpm4"), SubResource("Resource_mpb6w"), SubResource("Resource_sf1f6"), SubResource("Resource_nvlaq"), SubResource("Resource_5iot4"), SubResource("Resource_eo317"), SubResource("Resource_mifet"), SubResource("Resource_bacd6"), SubResource("Resource_vqe4n"), SubResource("Resource_innfp"), SubResource("Resource_1c6eg"), SubResource("Resource_hu11k"), SubResource("Resource_n8hhw"), SubResource("Resource_75g1q"), SubResource("Resource_oqoy4")]
+SpawnObjects = [SubResource("Resource_2floy"), SubResource("Resource_6t0f1"), SubResource("Resource_widxw"), SubResource("Resource_55vjd"), SubResource("Resource_j030x"), SubResource("Resource_hvpm4"), SubResource("Resource_mpb6w"), SubResource("Resource_sf1f6"), SubResource("Resource_nvlaq"), SubResource("Resource_5iot4"), SubResource("Resource_eo317"), SubResource("Resource_mifet"), SubResource("Resource_bacd6"), SubResource("Resource_vqe4n"), SubResource("Resource_innfp"), SubResource("Resource_1c6eg"), SubResource("Resource_hu11k"), SubResource("Resource_n8hhw"), SubResource("Resource_75g1q"), SubResource("Resource_oqoy4"), SubResource("smm_s1"), SubResource("smm_s2"), SubResource("smm_s3"), SubResource("smm_s4")]

@@ -1,0 +1,1322 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://d4e1sv1gy8i8a" path="res://engine/sakuga/Components/SakugaVFX.cs" id="1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/VFX/sakura_petal_0.png" id="t0"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/VFX/sakura_petal_1.png" id="t1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/VFX/sakura_petal_2.png" id="t2"]
+
+[sub_resource type="Animation" id="anim_gfx"]
+resource_name = "GFX"
+length = 2.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Graphics/Visuals/P0:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.5077), Vector3(0.1041, 2.2398, -0.5077), Vector3(0.1223, 3.0225, -0.5077), Vector3(0.2892, 3.5048, -0.5077), Vector3(0.5926, 3.7886, -0.5077), Vector3(0.7529, 3.9416, -0.5077), Vector3(0.677, 4.0084, -0.5077), Vector3(0.4466, 4.0184, -0.5077), Vector3(0.2583, 3.9909, -0.5077), Vector3(0.2702, 3.9386, -0.5077), Vector3(0.4793, 3.8701, -0.5077), Vector3(0.7244, 3.7909, -0.5077), Vector3(0.8149, 3.7046, -0.5077), Vector3(0.681, 3.6136, -0.5077), Vector3(0.4297, 3.5196, -0.5077), Vector3(0.2601, 3.4235, -0.5077)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Graphics/Visuals/P0:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.8905, 3.9557), Vector3(0, 1.2709, 4.1999), Vector3(0, 1.6512, 4.4439), Vector3(0, 2.0317, 4.6881), Vector3(0, 2.4121, 4.9323), Vector3(0, 2.7924, 5.1764), Vector3(0, 3.1728, 5.4205), Vector3(0, 3.5533, 5.6647), Vector3(0, 3.9336, 5.9088), Vector3(0, 4.314, 6.153), Vector3(0, 4.6945, 6.3972), Vector3(0, 5.0747, 6.6412), Vector3(0, 5.4552, 6.8854), Vector3(0, 5.8357, 7.1296), Vector3(0, 6.2159, 7.3737), Vector3(0, 6.5964, 7.6179)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Graphics/Visuals/P0:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics/Visuals/P1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.655), Vector3(-0.5566, 2.1862, 0.655), Vector3(-0.8356, 2.9337, 0.655), Vector3(-0.9225, 3.3927, 0.655), Vector3(-1.0677, 3.6612, 0.655), Vector3(-1.2885, 3.804, 0.655), Vector3(-1.5065, 3.8642, 0.655), Vector3(-1.6135, 3.8697, 0.655), Vector3(-1.5668, 3.8393, 0.655), Vector3(-1.4294, 3.7852, 0.655), Vector3(-1.3256, 3.7154, 0.655), Vector3(-1.3477, 3.6354, 0.655), Vector3(-1.4861, 3.5485, 0.655), Vector3(-1.6383, 3.4572, 0.655), Vector3(-1.6894, 3.3629, 0.655), Vector3(-1.6017, 3.2667, 0.655)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics/Visuals/P1:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.8865, 0.374), Vector3(0, 4.4321, 0.1158), Vector3(0, 3.978, -0.1423), Vector3(0, 3.5236, -0.4005), Vector3(0, 3.0692, -0.6587), Vector3(0, 2.6151, -0.9168), Vector3(0, 2.1607, -1.175), Vector3(0, 1.7063, -1.4332), Vector3(0, 1.2522, -1.6912), Vector3(0, 0.7978, -1.9495), Vector3(0, 0.3434, -2.2077), Vector3(0, -0.1107, -2.4657), Vector3(0, -0.5651, -2.7239), Vector3(0, -1.0195, -2.9821), Vector3(0, -1.4737, -3.2402), Vector3(0, -1.9281, -3.4984)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Graphics/Visuals/P1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = false
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Graphics/Visuals/P2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = false
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.5201), Vector3(-1.1559, 1.6391, 0.5201), Vector3(-1.8368, 2.0262, 0.5201), Vector3(-2.1251, 2.2474, 0.5201), Vector3(-2.3564, 2.3591, 0.5201), Vector3(-2.6689, 2.3987, 0.5201), Vector3(-3.0105, 2.3907, 0.5201), Vector3(-3.2346, 2.3514, 0.5201), Vector3(-3.2457, 2.2914, 0.5201), Vector3(-3.0934, 2.2177, 0.5201), Vector3(-2.9419, 2.1351, 0.5201), Vector3(-2.9417, 2.0466, 0.5201), Vector3(-3.1097, 1.9541, 0.5201), Vector3(-3.3186, 1.8591, 0.5201), Vector3(-3.4034, 1.7624, 0.5201), Vector3(-3.2992, 1.6646, 0.5201)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Graphics/Visuals/P2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = false
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.1868, 4.445), Vector3(0, 0.6351, 4.2911), Vector3(0, 1.0831, 4.1372), Vector3(0, 1.5313, 3.9832), Vector3(0, 1.9796, 3.8293), Vector3(0, 2.4276, 3.6754), Vector3(0, 2.8758, 3.5214), Vector3(0, 3.3241, 3.3675), Vector3(0, 3.7721, 3.2136), Vector3(0, 4.2203, 3.0596), Vector3(0, 4.6686, 2.9057), Vector3(0, 5.1166, 2.7518), Vector3(0, 5.5648, 2.5978), Vector3(0, 6.0131, 2.4439), Vector3(0, 6.4611, 2.29), Vector3(0, 6.9093, 2.136)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Graphics/Visuals/P2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = false
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Graphics/Visuals/P3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = false
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.2004), Vector3(0.4697, 2.4611, 0.2004), Vector3(0.8711, 3.3898, 0.2004), Vector3(1.0216, 3.9683, 0.2004), Vector3(0.9512, 4.3155, 0.2004), Vector3(1.0088, 4.5103, 0.2004), Vector3(1.2469, 4.6046, 0.2004), Vector3(1.4337, 4.6328, 0.2004), Vector3(1.3766, 4.6172, 0.2004), Vector3(1.1886, 4.5729, 0.2004), Vector3(1.1447, 4.5096, 0.2004), Vector3(1.3193, 4.4338, 0.2004), Vector3(1.4906, 4.3498, 0.2004), Vector3(1.4372, 4.2603, 0.2004), Vector3(1.2351, 4.1673, 0.2004), Vector3(1.1563, 4.0718, 0.2004)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Graphics/Visuals/P3:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = false
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.556, 2.9515), Vector3(0, 3.0238, 3.3519), Vector3(0, 2.492, 3.752), Vector3(0, 1.9599, 4.1524), Vector3(0, 1.4277, 4.5528), Vector3(0, 0.8959, 4.9529), Vector3(0, 0.3637, 5.3533), Vector3(0, -0.1684, 5.7537), Vector3(0, -0.7003, 6.1538), Vector3(0, -1.2324, 6.5542), Vector3(0, -1.7646, 6.9546), Vector3(0, -2.2964, 7.3547), Vector3(0, -2.8285, 7.7551), Vector3(0, -3.3607, 8.1555), Vector3(0, -3.8925, 8.5556), Vector3(0, -4.4247, 8.956)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Graphics/Visuals/P3:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = false
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Graphics/Visuals/P4:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = false
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.2826), Vector3(0.5326, 1.615, 0.2826), Vector3(0.9996, 1.9862, 0.2826), Vector3(1.2846, 2.197, 0.2826), Vector3(1.2603, 2.3018, 0.2826), Vector3(1.2424, 2.3369, 0.2826), Vector3(1.4118, 2.3259, 0.2826), Vector3(1.6451, 2.2846, 0.2826), Vector3(1.698, 2.2233, 0.2826), Vector3(1.5447, 2.1488, 0.2826), Vector3(1.4201, 2.0656, 0.2826), Vector3(1.5105, 1.9767, 0.2826), Vector3(1.7079, 1.884, 0.2826), Vector3(1.7562, 1.7888, 0.2826), Vector3(1.5966, 1.692, 0.2826), Vector3(1.4463, 1.5941, 0.2826)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Graphics/Visuals/P4:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = false
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.8098, 0.0688), Vector3(0, 2.233, 0.0396), Vector3(0, 1.6565, 0.0104), Vector3(0, 1.0796, -0.0189), Vector3(0, 0.5027, -0.0481), Vector3(0, -0.0738, -0.0773), Vector3(0, -0.6506, -0.1065), Vector3(0, -1.2275, -0.1357), Vector3(0, -1.804, -0.1649), Vector3(0, -2.3809, -0.1942), Vector3(0, -2.9577, -0.2234), Vector3(0, -3.5343, -0.2526), Vector3(0, -4.1111, -0.2818), Vector3(0, -4.688, -0.311), Vector3(0, -5.2645, -0.3402), Vector3(0, -5.8413, -0.3695)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Graphics/Visuals/P4:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = false
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Graphics/Visuals/P5:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = false
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.1678), Vector3(-0.8016, 1.7779, -0.1678), Vector3(-1.2835, 2.2564, -0.1678), Vector3(-1.6709, 2.5379, -0.1678), Vector3(-2.0614, 2.6894, -0.1678), Vector3(-2.3318, 2.7552, -0.1678), Vector3(-2.4307, 2.7645, -0.1678), Vector3(-2.3807, 2.7365, -0.1678), Vector3(-2.2802, 2.6841, -0.1678), Vector3(-2.2423, 2.6154, -0.1678), Vector3(-2.3215, 2.536, -0.1678), Vector3(-2.4783, 2.4496, -0.1678), Vector3(-2.6118, 2.3586, -0.1678), Vector3(-2.6333, 2.2645, -0.1678), Vector3(-2.5327, 2.1684, -0.1678), Vector3(-2.3856, 2.071, -0.1678)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Graphics/Visuals/P5:rotation")
+tracks/16/interp = 1
+tracks/16/loop_wrap = false
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.2644, 6.2668), Vector3(0, -0.1626, 5.8664), Vector3(0, -0.5895, 5.4663), Vector3(0, -1.0165, 5.0659), Vector3(0, -1.4436, 4.6655), Vector3(0, -1.8704, 4.2654), Vector3(0, -2.2975, 3.865), Vector3(0, -2.7246, 3.4646), Vector3(0, -3.1514, 3.0645), Vector3(0, -3.5784, 2.6641), Vector3(0, -4.0055, 2.2637), Vector3(0, -4.4323, 1.8635), Vector3(0, -4.8594, 1.4631), Vector3(0, -5.2865, 1.0628), Vector3(0, -5.7133, 0.6626), Vector3(0, -6.1404, 0.2622)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Graphics/Visuals/P5:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = false
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Graphics/Visuals/P6:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = false
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.2631), Vector3(1.0391, 2.1026, 0.2631), Vector3(1.732, 2.795, 0.2631), Vector3(2.1037, 3.2177, 0.2631), Vector3(2.2568, 3.4622, 0.2631), Vector3(2.3704, 3.5893, 0.2631), Vector3(2.5229, 3.639, 0.2631), Vector3(2.7173, 3.6377, 0.2631), Vector3(2.8966, 3.6028, 0.2631), Vector3(2.9913, 3.5457, 0.2631), Vector3(2.97, 3.4739, 0.2631), Vector3(2.865, 3.3926, 0.2631), Vector3(2.7542, 3.3049, 0.2631), Vector3(2.7154, 3.213, 0.2631), Vector3(2.7783, 3.1183, 0.2631), Vector3(2.9068, 3.0218, 0.2631)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Graphics/Visuals/P6:rotation")
+tracks/19/interp = 1
+tracks/19/loop_wrap = false
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 6.0234, 0.0974), Vector3(0, 5.3788, -0.0121), Vector3(0, 4.7347, -0.1215), Vector3(0, 4.0901, -0.2309), Vector3(0, 3.4456, -0.3404), Vector3(0, 2.8015, -0.4498), Vector3(0, 2.1569, -0.5592), Vector3(0, 1.5124, -0.6687), Vector3(0, 0.8682, -0.7781), Vector3(0, 0.2237, -0.8875), Vector3(0, -0.4208, -0.997), Vector3(0, -1.065, -1.1064), Vector3(0, -1.7095, -1.2159), Vector3(0, -2.3541, -1.3253), Vector3(0, -2.9982, -1.4347), Vector3(0, -3.6428, -1.5442)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Graphics/Visuals/P6:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = false
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Graphics/Visuals/P7:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = false
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.6273), Vector3(1.0783, 1.5056, 0.6273), Vector3(1.7014, 1.8046, 0.6273), Vector3(1.9799, 1.9678, 0.6273), Vector3(2.2026, 2.0413, 0.6273), Vector3(2.4701, 2.0557, 0.6273), Vector3(2.7685, 2.0311, 0.6273), Vector3(3.0103, 1.9808, 0.6273), Vector3(3.1088, 1.9135, 0.6273), Vector3(3.0462, 1.8351, 0.6273), Vector3(2.8921, 1.7494, 0.6273), Vector3(2.7651, 1.6588, 0.6273), Vector3(2.7594, 1.565, 0.6273), Vector3(2.8871, 1.469, 0.6273), Vector3(3.072, 1.3717, 0.6273), Vector3(3.1995, 1.2735, 0.6273)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Graphics/Visuals/P7:rotation")
+tracks/22/interp = 1
+tracks/22/loop_wrap = false
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.5402, 4.6436), Vector3(0, 5.9719, 5.0107), Vector3(0, 6.4033, 5.3775), Vector3(0, 6.835, 5.7446), Vector3(0, 7.2668, 6.1117), Vector3(0, 7.6982, 6.4785), Vector3(0, 8.1299, 6.8456), Vector3(0, 8.5616, 7.2127), Vector3(0, 8.9931, 7.5795), Vector3(0, 9.4248, 7.9466), Vector3(0, 9.8565, 8.3137), Vector3(0, 10.288, 8.6806), Vector3(0, 10.7197, 9.0476), Vector3(0, 11.1514, 9.4147), Vector3(0, 11.5829, 9.7816), Vector3(0, 12.0146, 10.1486)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Graphics/Visuals/P7:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = false
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Graphics/Visuals/P8:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = false
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.3896), Vector3(0.8343, 1.1589, -0.3896), Vector3(1.4599, 1.2296, -0.3896), Vector3(1.9874, 1.2421, -0.3896), Vector3(2.3083, 1.2163, -0.3896), Vector3(2.4233, 1.1652, -0.3896), Vector3(2.3928, 1.0975, -0.3896), Vector3(2.3191, 1.0187, -0.3896), Vector3(2.3015, 0.9327, -0.3896), Vector3(2.387, 0.842, -0.3896), Vector3(2.5494, 0.748, -0.3896), Vector3(2.7086, 0.6521, -0.3896), Vector3(2.7813, 0.5547, -0.3896), Vector3(2.7314, 0.4564, -0.3896), Vector3(2.5931, 0.3576, -0.3896), Vector3(2.4508, 0.2584, -0.3896)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Graphics/Visuals/P8:rotation")
+tracks/25/interp = 1
+tracks/25/loop_wrap = false
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7938, 1.8428), Vector3(0, 0.1001, 1.5722), Vector3(0, -0.5931, 1.3019), Vector3(0, -1.2867, 1.0314), Vector3(0, -1.9804, 0.7608), Vector3(0, -2.6736, 0.4905), Vector3(0, -3.3673, 0.2199), Vector3(0, -4.0609, -0.0506), Vector3(0, -4.7541, -0.3209), Vector3(0, -5.4478, -0.5915), Vector3(0, -6.1414, -0.862), Vector3(0, -6.8347, -1.1324), Vector3(0, -7.5283, -1.4029), Vector3(0, -8.222, -1.6734), Vector3(0, -8.9152, -1.9438), Vector3(0, -9.6089, -2.2143)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Graphics/Visuals/P8:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = false
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Graphics/Visuals/P9:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = false
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.4654), Vector3(-1.1509, 1.657, -0.4654), Vector3(-2.016, 2.0559, -0.4654), Vector3(-2.6292, 2.2849, -0.4654), Vector3(-2.843, 2.4018, -0.4654), Vector3(-2.9048, 2.4447, -0.4654), Vector3(-3.0614, 2.439, -0.4654), Vector3(-3.3267, 2.4011, -0.4654), Vector3(-3.5017, 2.3421, -0.4654), Vector3(-3.4552, 2.2691, -0.4654), Vector3(-3.3084, 2.1868, -0.4654), Vector3(-3.2905, 2.0986, -0.4654), Vector3(-3.4512, 2.0063, -0.4654), Vector3(-3.6019, 1.9114, -0.4654), Vector3(-3.5607, 1.8148, -0.4654), Vector3(-3.3882, 1.717, -0.4654)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Graphics/Visuals/P9:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = false
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.579, 1.5641), Vector3(0, 0.1046, 1.1862), Vector3(0, -0.3696, 0.8085), Vector3(0, -0.844, 0.4306), Vector3(0, -1.3184, 0.0527), Vector3(0, -1.7925, -0.325), Vector3(0, -2.2669, -0.7029), Vector3(0, -2.7413, -1.0808), Vector3(0, -3.2155, -1.4585), Vector3(0, -3.6899, -1.8364), Vector3(0, -4.1643, -2.2143), Vector3(0, -4.6384, -2.592), Vector3(0, -5.1128, -2.9699), Vector3(0, -5.5872, -3.3478), Vector3(0, -6.0613, -3.7255), Vector3(0, -6.5357, -4.1034)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Graphics/Visuals/P9:modulate")
+tracks/29/interp = 1
+tracks/29/loop_wrap = false
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Graphics/Visuals/P10:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = false
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.5911), Vector3(-1.3387, 1.1947, -0.5911), Vector3(-2.3042, 1.2889, -0.5911), Vector3(-3.1194, 1.317, -0.5911), Vector3(-3.602, 1.3014, -0.5911), Vector3(-3.7315, 1.2571, -0.5911), Vector3(-3.6808, 1.1938, -0.5911), Vector3(-3.6875, 1.118, -0.5911), Vector3(-3.8718, 1.034, -0.5911), Vector3(-4.149, 0.9445, -0.5911), Vector3(-4.3212, 0.8514, -0.5911), Vector3(-4.2675, 0.756, -0.5911), Vector3(-4.0607, 0.659, -0.5911), Vector3(-3.9052, 0.5609, -0.5911), Vector3(-3.9531, 0.4623, -0.5911), Vector3(-4.1676, 0.3631, -0.5911)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Graphics/Visuals/P10:rotation")
+tracks/31/interp = 1
+tracks/31/loop_wrap = false
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.0284, 4.4021), Vector3(0, 2.6844, 4.7878), Vector3(0, 2.3406, 5.1733), Vector3(0, 1.9966, 5.559), Vector3(0, 1.6525, 5.9447), Vector3(0, 1.3087, 6.3302), Vector3(0, 0.9647, 6.7159), Vector3(0, 0.6206, 7.1017), Vector3(0, 0.2768, 7.4872), Vector3(0, -0.0672, 7.8729), Vector3(0, -0.4113, 8.2586), Vector3(0, -0.7551, 8.6441), Vector3(0, -1.0991, 9.0298), Vector3(0, -1.4431, 9.4155), Vector3(0, -1.787, 9.801), Vector3(0, -2.131, 10.1867)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Graphics/Visuals/P10:modulate")
+tracks/32/interp = 1
+tracks/32/loop_wrap = false
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Graphics/Visuals/P11:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = false
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.8554), Vector3(0.8194, 1.3547, 0.8554), Vector3(1.3792, 1.5543, 0.8554), Vector3(1.648, 1.6519, 0.8554), Vector3(1.7091, 1.6821, 0.8554), Vector3(1.7677, 1.668, 0.8554), Vector3(1.9085, 1.6246, 0.8554), Vector3(2.1162, 1.5619, 0.8554), Vector3(2.301, 1.4866, 0.8554), Vector3(2.3705, 1.4028, 0.8554), Vector3(2.3001, 1.3134, 0.8554), Vector3(2.1543, 1.2205, 0.8554), Vector3(2.0445, 1.1251, 0.8554), Vector3(2.0538, 1.0282, 0.8554), Vector3(2.1801, 0.9302, 0.8554), Vector3(2.3388, 0.8316, 0.8554)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Graphics/Visuals/P11:rotation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = false
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.6572, 4.9817), Vector3(0, 6.1666, 5.3276), Vector3(0, 6.6756, 5.6733), Vector3(0, 7.185, 6.0192), Vector3(0, 7.6944, 6.3651), Vector3(0, 8.2034, 6.7108), Vector3(0, 8.7128, 7.0567), Vector3(0, 9.2221, 7.4026), Vector3(0, 9.7312, 7.7483), Vector3(0, 10.2405, 8.0942), Vector3(0, 10.7499, 8.4401), Vector3(0, 11.2589, 8.7858), Vector3(0, 11.7683, 9.1317), Vector3(0, 12.2776, 9.4776), Vector3(0, 12.7867, 9.8233), Vector3(0, 13.296, 10.1692)]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Graphics/Visuals/P11:modulate")
+tracks/35/interp = 1
+tracks/35/loop_wrap = false
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Graphics/Visuals/P12:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = false
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.4654), Vector3(-0.8733, 1.1571, 0.4654), Vector3(-1.4386, 1.2265, 0.4654), Vector3(-1.7312, 1.2382, 0.4654), Vector3(-1.8378, 1.2118, 0.4654), Vector3(-1.8979, 1.1604, 0.4654), Vector3(-1.9748, 1.0924, 0.4654), Vector3(-2.0954, 1.0135, 0.4654), Vector3(-2.2499, 0.9274, 0.4654), Vector3(-2.4026, 0.8366, 0.4654), Vector3(-2.5098, 0.7426, 0.4654), Vector3(-2.5402, 0.6466, 0.4654), Vector3(-2.489, 0.5492, 0.4654), Vector3(-2.381, 0.451, 0.4654), Vector3(-2.2617, 0.3521, 0.4654), Vector3(-2.18, 0.2529, 0.4654)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Graphics/Visuals/P12:rotation")
+tracks/37/interp = 1
+tracks/37/loop_wrap = false
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.5731, 0.5037), Vector3(0, 5.4033, 0.6199), Vector3(0, 6.233, 0.736), Vector3(0, 7.0631, 0.8522), Vector3(0, 7.8933, 0.9684), Vector3(0, 8.7229, 1.0845), Vector3(0, 9.5531, 1.2007), Vector3(0, 10.3833, 1.3169), Vector3(0, 11.2129, 1.433), Vector3(0, 12.0431, 1.5492), Vector3(0, 12.8733, 1.6654), Vector3(0, 13.7029, 1.7815), Vector3(0, 14.5331, 1.8977), Vector3(0, 15.3632, 2.0139), Vector3(0, 16.1929, 2.13), Vector3(0, 17.0231, 2.2462)]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Graphics/Visuals/P12:modulate")
+tracks/38/interp = 1
+tracks/38/loop_wrap = false
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Graphics/Visuals/P13:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = false
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.5602), Vector3(-0.7144, 1.9686, 0.5602), Vector3(-1.2048, 2.5727, 0.5602), Vector3(-1.4, 2.9371, 0.5602), Vector3(-1.4209, 3.1433, 0.5602), Vector3(-1.5027, 3.245, 0.5602), Vector3(-1.7041, 3.2781, 0.5602), Vector3(-1.9359, 3.2658, 0.5602), Vector3(-2.0534, 3.2236, 0.5602), Vector3(-1.992, 3.1617, 0.5602), Vector3(-1.8293, 3.0868, 0.5602), Vector3(-1.7225, 3.0034, 0.5602), Vector3(-1.7747, 2.9143, 0.5602), Vector3(-1.9478, 2.8215, 0.5602), Vector3(-2.0963, 2.7263, 0.5602), Vector3(-2.0946, 2.6294, 0.5602)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Graphics/Visuals/P13:rotation")
+tracks/40/interp = 1
+tracks/40/loop_wrap = false
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.8981, 3.0204), Vector3(0, 5.5807, 2.7955), Vector3(0, 6.2629, 2.5708), Vector3(0, 6.9456, 2.346), Vector3(0, 7.6282, 2.1211), Vector3(0, 8.3104, 1.8964), Vector3(0, 8.9931, 1.6715), Vector3(0, 9.6757, 1.4467), Vector3(0, 10.3579, 1.2219), Vector3(0, 11.0406, 0.9971), Vector3(0, 11.7232, 0.7722), Vector3(0, 12.4054, 0.5475), Vector3(0, 13.0881, 0.3226), Vector3(0, 13.7707, 0.0978), Vector3(0, 14.4529, -0.127), Vector3(0, 15.1356, -0.3518)]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Graphics/Visuals/P13:modulate")
+tracks/41/interp = 1
+tracks/41/loop_wrap = false
+tracks/41/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Graphics/Visuals/P14:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = false
+tracks/42/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.1471), Vector3(0.5688, 1.5371, -0.1471), Vector3(0.8539, 1.857, -0.1471), Vector3(0.9554, 2.0339, -0.1471), Vector3(1.1472, 2.1164, -0.1471), Vector3(1.4027, 2.1367, -0.1471), Vector3(1.5824, 2.116, -0.1471), Vector3(1.5826, 2.0683, -0.1471), Vector3(1.4549, 2.0028, -0.1471), Vector3(1.3626, 1.9255, -0.1471), Vector3(1.4217, 1.8405, -0.1471), Vector3(1.5871, 1.7504, -0.1471), Vector3(1.7012, 1.6569, -0.1471), Vector3(1.6547, 1.5611, -0.1471), Vector3(1.4992, 1.464, -0.1471), Vector3(1.3947, 1.3659, -0.1471)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Graphics/Visuals/P14:rotation")
+tracks/43/interp = 1
+tracks/43/loop_wrap = false
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.2466, 3.1294), Vector3(0, 1.7824, 2.9139), Vector3(0, 2.3179, 2.6986), Vector3(0, 2.8538, 2.4831), Vector3(0, 3.3896, 2.2676), Vector3(0, 3.9251, 2.0523), Vector3(0, 4.4609, 1.8368), Vector3(0, 4.9967, 1.6213), Vector3(0, 5.5322, 1.406), Vector3(0, 6.068, 1.1905), Vector3(0, 6.6038, 0.975), Vector3(0, 7.1393, 0.7597), Vector3(0, 7.6752, 0.5442), Vector3(0, 8.211, 0.3288), Vector3(0, 8.7465, 0.1134), Vector3(0, 9.2823, -0.1021)]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Graphics/Visuals/P14:modulate")
+tracks/44/interp = 1
+tracks/44/loop_wrap = false
+tracks/44/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("Graphics/Visuals/P15:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = false
+tracks/45/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.5475), Vector3(-0.9735, 1.4578, 0.5475), Vector3(-1.6486, 1.7254, 0.5475), Vector3(-2.2302, 1.8678, 0.5475), Vector3(-2.6726, 1.9276, 0.5475), Vector3(-2.8933, 1.933, 0.5475), Vector3(-2.9123, 1.9024, 0.5475), Vector3(-2.8242, 1.8482, 0.5475), Vector3(-2.7565, 1.7784, 0.5475), Vector3(-2.7994, 1.6983, 0.5475), Vector3(-2.9559, 1.6114, 0.5475), Vector3(-3.1449, 1.5201, 0.5475), Vector3(-3.2579, 1.4257, 0.5475), Vector3(-3.2305, 1.3295, 0.5475), Vector3(-3.0862, 1.232, 0.5475), Vector3(-2.9221, 1.1336, 0.5475)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("Graphics/Visuals/P15:rotation")
+tracks/46/interp = 1
+tracks/46/loop_wrap = false
+tracks/46/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7086, 4.4664), Vector3(0, 0.2367, 4.8415), Vector3(0, -0.2348, 5.2164), Vector3(0, -0.7066, 5.5914), Vector3(0, -1.1785, 5.9665), Vector3(0, -1.65, 6.3414), Vector3(0, -2.1218, 6.7164), Vector3(0, -2.5936, 7.0915), Vector3(0, -3.0652, 7.4664), Vector3(0, -3.537, 7.8414), Vector3(0, -4.0088, 8.2165), Vector3(0, -4.4804, 8.5914), Vector3(0, -4.9522, 8.9664), Vector3(0, -5.424, 9.3415), Vector3(0, -5.8956, 9.7164), Vector3(0, -6.3674, 10.0914)]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("Graphics/Visuals/P15:modulate")
+tracks/47/interp = 1
+tracks/47/loop_wrap = false
+tracks/47/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("Graphics/Visuals/P16:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = false
+tracks/48/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.2876), Vector3(-1.0011, 1.5974, -0.2876), Vector3(-1.5428, 1.957, -0.2876), Vector3(-1.8007, 2.1601, -0.2876), Vector3(-2.1391, 2.26, -0.2876), Vector3(-2.52, 2.2917, -0.2876), Vector3(-2.7737, 2.2785, -0.2876), Vector3(-2.7855, 2.2357, -0.2876), Vector3(-2.6363, 2.1735, -0.2876), Vector3(-2.5372, 2.0983, -0.2876), Vector3(-2.6283, 2.0147, -0.2876), Vector3(-2.8444, 1.9256, -0.2876), Vector3(-2.9858, 1.8327, -0.2876), Vector3(-2.9215, 1.7374, -0.2876), Vector3(-2.7241, 1.6405, -0.2876), Vector3(-2.597, 1.5425, -0.2876)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("Graphics/Visuals/P16:rotation")
+tracks/49/interp = 1
+tracks/49/loop_wrap = false
+tracks/49/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.2594, 0.469), Vector3(0, 3.4895, 0.0785), Vector3(0, 2.7201, -0.3118), Vector3(0, 1.9502, -0.7023), Vector3(0, 1.1803, -1.0928), Vector3(0, 0.4109, -1.4831), Vector3(0, -0.359, -1.8736), Vector3(0, -1.1289, -2.2641), Vector3(0, -1.8984, -2.6544), Vector3(0, -2.6683, -3.0449), Vector3(0, -3.4382, -3.4354), Vector3(0, -4.2076, -3.8257), Vector3(0, -4.9775, -4.2162), Vector3(0, -5.7474, -4.6067), Vector3(0, -6.5169, -4.9969), Vector3(0, -7.2868, -5.3874)]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("Graphics/Visuals/P16:modulate")
+tracks/50/interp = 1
+tracks/50/loop_wrap = false
+tracks/50/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("Graphics/Visuals/P17:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = false
+tracks/51/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.2173), Vector3(0.7981, 2.2472, 0.2173), Vector3(1.2848, 3.0349, 0.2173), Vector3(1.6013, 3.5205, 0.2173), Vector3(1.8775, 3.8065, 0.2173), Vector3(2.1017, 3.9608, 0.2173), Vector3(2.2666, 4.0286, 0.2173), Vector3(2.3587, 4.0391, 0.2173), Vector3(2.3775, 4.0121, 0.2173), Vector3(2.3428, 3.9601, 0.2173), Vector3(2.291, 3.8918, 0.2173), Vector3(2.26, 3.8127, 0.2173), Vector3(2.2732, 3.7264, 0.2173), Vector3(2.3298, 3.6355, 0.2173), Vector3(2.4058, 3.5415, 0.2173), Vector3(2.4664, 3.4454, 0.2173)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("Graphics/Visuals/P17:rotation")
+tracks/52/interp = 1
+tracks/52/loop_wrap = false
+tracks/52/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.8039, 4.8937), Vector3(0, 1.9784, 5.1411), Vector3(0, 1.1534, 5.3884), Vector3(0, 0.3279, 5.6358), Vector3(0, -0.4976, 5.8833), Vector3(0, -1.3226, 6.1305), Vector3(0, -2.1481, 6.378), Vector3(0, -2.9736, 6.6254), Vector3(0, -3.7987, 6.8726), Vector3(0, -4.6242, 7.1201), Vector3(0, -5.4497, 7.3675), Vector3(0, -6.2747, 7.6148), Vector3(0, -7.1002, 7.8622), Vector3(0, -7.9257, 8.1096), Vector3(0, -8.7507, 8.3569), Vector3(0, -9.5762, 8.6043)]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("Graphics/Visuals/P17:modulate")
+tracks/53/interp = 1
+tracks/53/loop_wrap = false
+tracks/53/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("Graphics/Visuals/P18:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = false
+tracks/54/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.2429), Vector3(-0.4664, 1.9785, -0.2429), Vector3(-0.7216, 2.5892, -0.2429), Vector3(-0.8428, 2.9579, -0.2429), Vector3(-0.9687, 3.1669, -0.2429), Vector3(-1.1093, 3.2705, -0.2429), Vector3(-1.2502, 3.3048, -0.2429), Vector3(-1.3555, 3.2933, -0.2429), Vector3(-1.3948, 3.2517, -0.2429), Vector3(-1.3647, 3.1902, -0.2429), Vector3(-1.2928, 3.1155, -0.2429), Vector3(-1.2257, 3.0323, -0.2429), Vector3(-1.2047, 2.9433, -0.2429), Vector3(-1.2444, 2.8505, -0.2429), Vector3(-1.3256, 2.7553, -0.2429), Vector3(-1.4058, 2.6585, -0.2429)]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("Graphics/Visuals/P18:rotation")
+tracks/55/interp = 1
+tracks/55/loop_wrap = false
+tracks/55/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.3892, 3.3588), Vector3(0, 3.8359, 2.9723), Vector3(0, 4.2823, 2.5859), Vector3(0, 4.7289, 2.1993), Vector3(0, 5.1756, 1.8127), Vector3(0, 5.622, 1.4263), Vector3(0, 6.0686, 1.0397), Vector3(0, 6.5153, 0.6531), Vector3(0, 6.9617, 0.2668), Vector3(0, 7.4083, -0.1198), Vector3(0, 7.855, -0.5064), Vector3(0, 8.3013, -0.8928), Vector3(0, 8.748, -1.2794), Vector3(0, 9.1946, -1.666), Vector3(0, 9.641, -2.0524), Vector3(0, 10.0877, -2.439)]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("Graphics/Visuals/P18:modulate")
+tracks/56/interp = 1
+tracks/56/loop_wrap = false
+tracks/56/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("Graphics/Visuals/P19:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = false
+tracks/57/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.1337), Vector3(-0.4616, 2.3589, -0.1337), Vector3(-0.6974, 3.2201, -0.1337), Vector3(-0.9676, 3.7542, -0.1337), Vector3(-1.2952, 4.0721, -0.1337), Vector3(-1.433, 4.2476, -0.1337), Vector3(-1.3462, 4.3292, -0.1337), Vector3(-1.2143, 4.3489, -0.1337), Vector3(-1.2405, 4.3279, -0.1337), Vector3(-1.4302, 4.2799, -0.1337), Vector3(-1.5901, 4.2142, -0.1337), Vector3(-1.5535, 4.1369, -0.1337), Vector3(-1.3719, 4.0517, -0.1337), Vector3(-1.259, 3.9616, -0.1337), Vector3(-1.3476, 3.8681, -0.1337), Vector3(-1.5398, 3.7723, -0.1337)]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("Graphics/Visuals/P19:rotation")
+tracks/58/interp = 1
+tracks/58/loop_wrap = false
+tracks/58/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.3663, 0.8158), Vector3(0, 1.7201, 0.7771), Vector3(0, 1.0742, 0.7384), Vector3(0, 0.428, 0.6997), Vector3(0, -0.2182, 0.6609), Vector3(0, -0.8641, 0.6222), Vector3(0, -1.5103, 0.5835), Vector3(0, -2.1566, 0.5448), Vector3(0, -2.8024, 0.5061), Vector3(0, -3.4486, 0.4674), Vector3(0, -4.0949, 0.4286), Vector3(0, -4.7407, 0.3899), Vector3(0, -5.387, 0.3512), Vector3(0, -6.0332, 0.3125), Vector3(0, -6.6791, 0.2738), Vector3(0, -7.3253, 0.235)]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("Graphics/Visuals/P19:modulate")
+tracks/59/interp = 1
+tracks/59/loop_wrap = false
+tracks/59/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("Graphics/Visuals/P20:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = false
+tracks/60/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.7054), Vector3(-1.237, 2.0432, 0.7054), Vector3(-2.1578, 2.6964, 0.7054), Vector3(-2.8711, 3.0932, 0.7054), Vector3(-3.1998, 3.3207, 0.7054), Vector3(-3.2613, 3.4366, 0.7054), Vector3(-3.2762, 3.4789, 0.7054), Vector3(-3.4152, 3.4727, 0.7054), Vector3(-3.6637, 3.4346, 0.7054), Vector3(-3.858, 3.3754, 0.7054), Vector3(-3.86, 3.3022, 0.7054), Vector3(-3.7029, 3.22, 0.7054), Vector3(-3.5641, 3.1316, 0.7054), Vector3(-3.5954, 3.0393, 0.7054), Vector3(-3.776, 2.9444, 0.7054), Vector3(-3.935, 2.8478, 0.7054)]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("Graphics/Visuals/P20:rotation")
+tracks/61/interp = 1
+tracks/61/loop_wrap = false
+tracks/61/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.3721, 1.3395), Vector3(0, 4.1958, 1.6729), Vector3(0, 5.0191, 2.0061), Vector3(0, 5.8428, 2.3395), Vector3(0, 6.6666, 2.6728), Vector3(0, 7.4898, 3.006), Vector3(0, 8.3136, 3.3394), Vector3(0, 9.1373, 3.6728), Vector3(0, 9.9606, 4.006), Vector3(0, 10.7843, 4.3394), Vector3(0, 11.6081, 4.6728), Vector3(0, 12.4313, 5.006), Vector3(0, 13.255, 5.3393), Vector3(0, 14.0788, 5.6727), Vector3(0, 14.902, 6.0059), Vector3(0, 15.7258, 6.3393)]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("Graphics/Visuals/P20:modulate")
+tracks/62/interp = 1
+tracks/62/loop_wrap = false
+tracks/62/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("Graphics/Visuals/P21:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = false
+tracks/63/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.3893), Vector3(0.9731, 2.0721, -0.3893), Vector3(1.6201, 2.7445, -0.3893), Vector3(1.9782, 3.1539, -0.3893), Vector3(2.1614, 3.3897, -0.3893), Vector3(2.3182, 3.5111, -0.3893), Vector3(2.4974, 3.557, -0.3893), Vector3(2.6682, 3.5532, -0.3893), Vector3(2.7665, 3.5166, -0.3893), Vector3(2.7622, 3.4584, -0.3893), Vector3(2.6925, 3.386, -0.3893), Vector3(2.6375, 3.3042, -0.3893), Vector3(2.6574, 3.2161, -0.3893), Vector3(2.7455, 3.124, -0.3893), Vector3(2.835, 3.0293, -0.3893), Vector3(2.856, 2.9327, -0.3893)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("Graphics/Visuals/P21:rotation")
+tracks/64/interp = 1
+tracks/64/loop_wrap = false
+tracks/64/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.6937, 3.0612), Vector3(0, 1.9557, 2.6681), Vector3(0, 1.218, 2.2753), Vector3(0, 0.48, 1.8822), Vector3(0, -0.2581, 1.4891), Vector3(0, -0.9957, 1.0963), Vector3(0, -1.7337, 0.7032), Vector3(0, -2.4718, 0.3102), Vector3(0, -3.2094, -0.0827), Vector3(0, -3.9474, -0.4758), Vector3(0, -4.6855, -0.8688), Vector3(0, -5.4231, -1.2617), Vector3(0, -6.1611, -1.6547), Vector3(0, -6.8992, -2.0478), Vector3(0, -7.6368, -2.4406), Vector3(0, -8.3748, -2.8337)]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("Graphics/Visuals/P21:modulate")
+tracks/65/interp = 1
+tracks/65/loop_wrap = false
+tracks/65/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("Graphics/Visuals/P22:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = false
+tracks/66/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.18), Vector3(0.678, 2.3004, -0.18), Vector3(1.0914, 3.1232, -0.18), Vector3(1.3868, 3.6318, -0.18), Vector3(1.6688, 3.933, -0.18), Vector3(1.8912, 4.0974, -0.18), Vector3(2.0336, 4.1718, -0.18), Vector3(2.0845, 4.1867, -0.18), Vector3(2.0578, 4.1625, -0.18), Vector3(1.9927, 4.1124, -0.18), Vector3(1.9388, 4.0454, -0.18), Vector3(1.9342, 3.9671, -0.18), Vector3(1.9886, 3.8814, -0.18), Vector3(2.0798, 3.7908, -0.18), Vector3(2.1655, 3.6971, -0.18), Vector3(2.2051, 3.6011, -0.18)]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("Graphics/Visuals/P22:rotation")
+tracks/67/interp = 1
+tracks/67/loop_wrap = false
+tracks/67/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.7592, 5.9393), Vector3(0, 3.9512, 5.9331), Vector3(0, 3.1436, 5.9269), Vector3(0, 2.3355, 5.9207), Vector3(0, 1.5274, 5.9146), Vector3(0, 0.7198, 5.9084), Vector3(0, -0.0882, 5.9022), Vector3(0, -0.8963, 5.896), Vector3(0, -1.7039, 5.8898), Vector3(0, -2.512, 5.8837), Vector3(0, -3.32, 5.8775), Vector3(0, -4.1276, 5.8713), Vector3(0, -4.9357, 5.8651), Vector3(0, -5.7438, 5.8589), Vector3(0, -6.5514, 5.8527), Vector3(0, -7.3594, 5.8466)]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("Graphics/Visuals/P22:modulate")
+tracks/68/interp = 1
+tracks/68/loop_wrap = false
+tracks/68/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("Graphics/Visuals/P23:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = false
+tracks/69/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.4442), Vector3(0.8477, 2.1523, -0.4442), Vector3(1.5314, 2.8774, -0.4442), Vector3(1.9958, 3.3217, -0.4442), Vector3(2.0899, 3.5805, -0.4442), Vector3(2.0441, 3.7169, -0.4442), Vector3(2.0614, 3.7729, -0.4442), Vector3(2.2357, 3.7756, -0.4442), Vector3(2.4904, 3.7434, -0.4442), Vector3(2.6569, 3.6881, -0.4442), Vector3(2.6249, 3.6175, -0.4442), Vector3(2.4422, 3.537, -0.4442), Vector3(2.2769, 3.4497, -0.4442), Vector3(2.2783, 3.3581, -0.4442), Vector3(2.4508, 3.2637, -0.4442), Vector3(2.6523, 3.1674, -0.4442)]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("Graphics/Visuals/P23:rotation")
+tracks/70/interp = 1
+tracks/70/loop_wrap = false
+tracks/70/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.3428, 5.996), Vector3(0, 5.981, 6.3045), Vector3(0, 6.6188, 6.6128), Vector3(0, 7.257, 6.9212), Vector3(0, 7.8952, 7.2297), Vector3(0, 8.533, 7.5379), Vector3(0, 9.1711, 7.8464), Vector3(0, 9.8093, 8.1548), Vector3(0, 10.4471, 8.4631), Vector3(0, 11.0853, 8.7716), Vector3(0, 11.7235, 9.08), Vector3(0, 12.3613, 9.3883), Vector3(0, 12.9995, 9.6967), Vector3(0, 13.6376, 10.0052), Vector3(0, 14.2754, 10.3135), Vector3(0, 14.9136, 10.6219)]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("Graphics/Visuals/P23:modulate")
+tracks/71/interp = 1
+tracks/71/loop_wrap = false
+tracks/71/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("Graphics/Visuals/P24:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = false
+tracks/72/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.4639), Vector3(0.818, 1.933, 0.4639), Vector3(1.4099, 2.5136, 0.4639), Vector3(1.7818, 2.8626, 0.4639), Vector3(1.9058, 3.0585, 0.4639), Vector3(1.9277, 3.1536, 0.4639), Vector3(1.9322, 3.1822, 0.4639), Vector3(1.9798, 3.167, 0.4639), Vector3(2.0892, 3.1229, 0.4639), Vector3(2.2363, 3.0597, 0.4639), Vector3(2.3698, 2.984, 0.4639), Vector3(2.4386, 2.9, 0.4639), Vector3(2.4182, 2.8106, 0.4639), Vector3(2.3234, 2.7175, 0.4639), Vector3(2.2021, 2.6221, 0.4639), Vector3(2.1136, 2.5251, 0.4639)]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("Graphics/Visuals/P24:rotation")
+tracks/73/interp = 1
+tracks/73/loop_wrap = false
+tracks/73/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.0837, 3.2406), Vector3(0, 2.3497, 3.1577), Vector3(0, 1.6161, 3.0749), Vector3(0, 0.8821, 2.9921), Vector3(0, 0.1481, 2.9092), Vector3(0, -0.5855, 2.8264), Vector3(0, -1.3195, 2.7435), Vector3(0, -2.0535, 2.6606), Vector3(0, -2.7871, 2.5778), Vector3(0, -3.5211, 2.495), Vector3(0, -4.2551, 2.4121), Vector3(0, -4.9887, 2.3293), Vector3(0, -5.7227, 2.2464), Vector3(0, -6.4567, 2.1636), Vector3(0, -7.1903, 2.0808), Vector3(0, -7.9243, 1.9979)]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("Graphics/Visuals/P24:modulate")
+tracks/74/interp = 1
+tracks/74/loop_wrap = false
+tracks/74/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("Graphics/Visuals/P25:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = false
+tracks/75/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.3535), Vector3(-1.229, 1.3266, -0.3535), Vector3(-2.1482, 1.5077, -0.3535), Vector3(-2.5707, 1.5931, -0.3535), Vector3(-2.6115, 1.6153, -0.3535), Vector3(-2.7664, 1.5958, -0.3535), Vector3(-3.1532, 1.5489, -0.3535), Vector3(-3.5223, 1.4839, -0.3535), Vector3(-3.5781, 1.407, -0.3535), Vector3(-3.3412, 1.3222, -0.3535), Vector3(-3.1396, 1.2323, -0.3535), Vector3(-3.2417, 1.1389, -0.3535), Vector3(-3.5545, 1.0433, -0.3535), Vector3(-3.7345, 0.9461, -0.3535), Vector3(-3.5856, 0.848, -0.3535), Vector3(-3.2857, 0.7493, -0.3535)]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("Graphics/Visuals/P25:rotation")
+tracks/76/interp = 1
+tracks/76/loop_wrap = false
+tracks/76/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.2969, 2.7235), Vector3(0, 4.0807, 2.9866), Vector3(0, 4.864, 3.2496), Vector3(0, 5.6477, 3.5128), Vector3(0, 6.4315, 3.7759), Vector3(0, 7.2148, 4.0389), Vector3(0, 7.9986, 4.3021), Vector3(0, 8.7823, 4.5652), Vector3(0, 9.5656, 4.8282), Vector3(0, 10.3494, 5.0914), Vector3(0, 11.1332, 5.3545), Vector3(0, 11.9165, 5.6175), Vector3(0, 12.7002, 5.8807), Vector3(0, 13.484, 6.1438), Vector3(0, 14.2673, 6.4068), Vector3(0, 15.0511, 6.67)]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("Graphics/Visuals/P25:modulate")
+tracks/77/interp = 1
+tracks/77/loop_wrap = false
+tracks/77/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("Graphics/Visuals/P26:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = false
+tracks/78/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, -0.4864), Vector3(-0.5192, 2.5063, -0.4864), Vector3(-0.8697, 3.4648, -0.4864), Vector3(-1.2145, 4.0629, -0.4864), Vector3(-1.4563, 4.4231, -0.4864), Vector3(-1.5024, 4.6264, -0.4864), Vector3(-1.4385, 4.7264, -0.4864), Vector3(-1.427, 4.7583, -0.4864), Vector3(-1.5405, 4.7452, -0.4864), Vector3(-1.6908, 4.7025, -0.4864), Vector3(-1.7346, 4.6402, -0.4864), Vector3(-1.6399, 4.5652, -0.4864), Vector3(-1.5244, 4.4816, -0.4864), Vector3(-1.5256, 4.3924, -0.4864), Vector3(-1.6469, 4.2995, -0.4864), Vector3(-1.7552, 4.2042, -0.4864)]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("Graphics/Visuals/P26:rotation")
+tracks/79/interp = 1
+tracks/79/loop_wrap = false
+tracks/79/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.138, 2.0227), Vector3(0, 2.4946, 1.9021), Vector3(0, 1.8517, 1.7816), Vector3(0, 1.2083, 1.661), Vector3(0, 0.565, 1.5405), Vector3(0, -0.078, 1.42), Vector3(0, -0.7213, 1.2994), Vector3(0, -1.3647, 1.1788), Vector3(0, -2.0076, 1.0583), Vector3(0, -2.651, 0.9378), Vector3(0, -3.2943, 0.8172), Vector3(0, -3.9373, 0.6967), Vector3(0, -4.5806, 0.5761), Vector3(0, -5.224, 0.4556), Vector3(0, -5.8669, 0.3351), Vector3(0, -6.5103, 0.2145)]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("Graphics/Visuals/P26:modulate")
+tracks/80/interp = 1
+tracks/80/loop_wrap = false
+tracks/80/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("Graphics/Visuals/P27:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = false
+tracks/81/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.6431), Vector3(-0.439, 2.3112, 0.6431), Vector3(-0.7622, 3.141, 0.6431), Vector3(-1.2065, 3.6544, 0.6431), Vector3(-1.4672, 3.9587, 0.6431), Vector3(-1.3834, 4.1251, 0.6431), Vector3(-1.1969, 4.2008, 0.6431), Vector3(-1.23, 4.2166, 0.6431), Vector3(-1.5015, 4.193, 0.6431), Vector3(-1.7147, 4.1433, 0.6431), Vector3(-1.6315, 4.0765, 0.6431), Vector3(-1.3722, 3.9984, 0.6431), Vector3(-1.2694, 3.9128, 0.6431), Vector3(-1.458, 3.8223, 0.6431), Vector3(-1.7091, 3.7286, 0.6431), Vector3(-1.7151, 3.6327, 0.6431)]
+}
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("Graphics/Visuals/P27:rotation")
+tracks/82/interp = 1
+tracks/82/loop_wrap = false
+tracks/82/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.326, 3.3798), Vector3(0, 2.7256, 3.6831), Vector3(0, 2.1255, 3.9861), Vector3(0, 1.525, 4.2894), Vector3(0, 0.9245, 4.5927), Vector3(0, 0.3244, 4.8957), Vector3(0, -0.276, 5.199), Vector3(0, -0.8765, 5.5022), Vector3(0, -1.4766, 5.8053), Vector3(0, -2.077, 6.1086), Vector3(0, -2.6775, 6.4118), Vector3(0, -3.2776, 6.7149), Vector3(0, -3.878, 7.0182), Vector3(0, -4.4785, 7.3214), Vector3(0, -5.0786, 7.6245), Vector3(0, -5.679, 7.9278)]
+}
+tracks/83/type = "value"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("Graphics/Visuals/P27:modulate")
+tracks/83/interp = 1
+tracks/83/loop_wrap = false
+tracks/83/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/84/type = "value"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("Graphics/Visuals/P28:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = false
+tracks/84/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.3268), Vector3(-0.2372, 1.8196, 0.3268), Vector3(-0.5503, 2.3255, 0.3268), Vector3(-0.7267, 2.6252, 0.3268), Vector3(-0.5525, 2.7886, 0.3268), Vector3(-0.3535, 2.8622, 0.3268), Vector3(-0.3696, 2.8767, 0.3268), Vector3(-0.6183, 2.8522, 0.3268), Vector3(-0.8825, 2.802, 0.3268), Vector3(-0.9235, 2.7347, 0.3268), Vector3(-0.7112, 2.6564, 0.3268), Vector3(-0.4553, 2.5706, 0.3268), Vector3(-0.4049, 2.48, 0.3268), Vector3(-0.6111, 2.3862, 0.3268), Vector3(-0.878, 2.2903, 0.3268), Vector3(-0.9512, 2.193, 0.3268)]
+}
+tracks/85/type = "value"
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/path = NodePath("Graphics/Visuals/P28:rotation")
+tracks/85/interp = 1
+tracks/85/loop_wrap = false
+tracks/85/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.5827, 1.3699), Vector3(0, 4.8055, 1.7853), Vector3(0, 4.0287, 2.2005), Vector3(0, 3.2514, 2.6158), Vector3(0, 2.4742, 3.0312), Vector3(0, 1.6974, 3.4463), Vector3(0, 0.9201, 3.8617), Vector3(0, 0.1429, 4.2771), Vector3(0, -0.6339, 4.6922), Vector3(0, -1.4112, 5.1076), Vector3(0, -2.1885, 5.523), Vector3(0, -2.9653, 5.9381), Vector3(0, -3.7425, 6.3535), Vector3(0, -4.5198, 6.7689), Vector3(0, -5.2966, 7.184), Vector3(0, -6.0738, 7.5994)]
+}
+tracks/86/type = "value"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("Graphics/Visuals/P28:modulate")
+tracks/86/interp = 1
+tracks/86/loop_wrap = false
+tracks/86/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+tracks/87/type = "value"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("Graphics/Visuals/P29:position")
+tracks/87/interp = 1
+tracks/87/loop_wrap = false
+tracks/87/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0.2882), Vector3(0.538, 1.606, 0.2882), Vector3(1.0332, 1.9713, 0.2882), Vector3(1.464, 2.1781, 0.2882), Vector3(1.5756, 2.2804, 0.2882), Vector3(1.4764, 2.3137, 0.2882), Vector3(1.3406, 2.3016, 0.2882), Vector3(1.3356, 2.2595, 0.2882), Vector3(1.5086, 2.1978, 0.2882), Vector3(1.7592, 2.1229, 0.2882), Vector3(1.9194, 2.0395, 0.2882), Vector3(1.882, 1.9505, 0.2882), Vector3(1.6832, 1.8577, 0.2882), Vector3(1.4767, 1.7624, 0.2882), Vector3(1.4203, 1.6656, 0.2882), Vector3(1.5583, 1.5677, 0.2882)]
+}
+tracks/88/type = "value"
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/path = NodePath("Graphics/Visuals/P29:rotation")
+tracks/88/interp = 1
+tracks/88/loop_wrap = false
+tracks/88/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7248, 0.6032), Vector3(0, 1.237, 0.6615), Vector3(0, 1.7489, 0.7197), Vector3(0, 2.2612, 0.778), Vector3(0, 2.7734, 0.8362), Vector3(0, 3.2853, 0.8945), Vector3(0, 3.7975, 0.9527), Vector3(0, 4.3098, 1.011), Vector3(0, 4.8217, 1.0692), Vector3(0, 5.3339, 1.1275), Vector3(0, 5.8462, 1.1857), Vector3(0, 6.3581, 1.244), Vector3(0, 6.8703, 1.3022), Vector3(0, 7.3825, 1.3605), Vector3(0, 7.8945, 1.4187), Vector3(0, 8.4067, 1.477)]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("Graphics/Visuals/P29:modulate")
+tracks/89/interp = 1
+tracks/89/loop_wrap = false
+tracks/89/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333, 1, 1.1667, 1.3333, 1.5, 1.6667, 1.8333, 2, 2.1667, 2.3333, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.8333), Color(1, 1, 1, 0.5555), Color(1, 1, 1, 0.2778), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="lib"]
+_data = {
+&"GFX": SubResource("anim_gfx")
+}
+
+[node name="VFX" type="Node" node_paths=PackedStringArray("Player", "Graphics")]
+script = ExtResource("1")
+Duration = 150
+Player = NodePath("Graphics/Visuals/AnimationPlayer")
+Graphics = NodePath("Graphics")
+AnimationName = "GFX"
+metadata/_custom_type_script = "uid://d4e1sv1gy8i8a"
+
+[node name="Graphics" type="Node3D" parent="."]
+
+[node name="Visuals" type="Node3D" parent="Graphics"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/Visuals"]
+root_node = NodePath("../../..")
+libraries/ = SubResource("lib")
+
+[node name="P0" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0023
+texture = ExtResource("t2")
+
+[node name="P1" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.002
+texture = ExtResource("t2")
+
+[node name="P2" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0023
+texture = ExtResource("t0")
+
+[node name="P3" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0019
+texture = ExtResource("t2")
+
+[node name="P4" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0019
+texture = ExtResource("t2")
+
+[node name="P5" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0018
+texture = ExtResource("t1")
+
+[node name="P6" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0022
+texture = ExtResource("t2")
+
+[node name="P7" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0024
+texture = ExtResource("t1")
+
+[node name="P8" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0022
+texture = ExtResource("t2")
+
+[node name="P9" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0018
+texture = ExtResource("t1")
+
+[node name="P10" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0025
+texture = ExtResource("t1")
+
+[node name="P11" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0027
+texture = ExtResource("t1")
+
+[node name="P12" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0021
+texture = ExtResource("t2")
+
+[node name="P13" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0024
+texture = ExtResource("t1")
+
+[node name="P14" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0022
+texture = ExtResource("t0")
+
+[node name="P15" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0022
+texture = ExtResource("t0")
+
+[node name="P16" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.002
+texture = ExtResource("t1")
+
+[node name="P17" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0024
+texture = ExtResource("t2")
+
+[node name="P18" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0028
+texture = ExtResource("t2")
+
+[node name="P19" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0023
+texture = ExtResource("t2")
+
+[node name="P20" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0026
+texture = ExtResource("t1")
+
+[node name="P21" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0017
+texture = ExtResource("t2")
+
+[node name="P22" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0022
+texture = ExtResource("t2")
+
+[node name="P23" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0028
+texture = ExtResource("t2")
+
+[node name="P24" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0025
+texture = ExtResource("t0")
+
+[node name="P25" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0018
+texture = ExtResource("t1")
+
+[node name="P26" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0024
+texture = ExtResource("t2")
+
+[node name="P27" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0027
+texture = ExtResource("t2")
+
+[node name="P28" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0018
+texture = ExtResource("t0")
+
+[node name="P29" type="Sprite3D" parent="Graphics/Visuals"]
+layers = 2
+sorting_offset = 5.0
+modulate = Color(1, 1, 1, 0)
+pixel_size = 0.0023
+texture = ExtResource("t1")

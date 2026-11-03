@@ -184,35 +184,56 @@ public partial class GameManager : Node, IGameState
 	public int NetsuUntechHeavy = 44;   // Oct 29: 40 -> 44
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechSpecial = 44;   // Oct 29: 40 -> 44
+	public int NetsuUntechSpecial = 48;   // Oct 29: 40 -> 44; Nov 3: 48 (longer combos)
 
 	[Export(PropertyHint.Range, "0,120,1")]
-	public int NetsuUntechEx = 52;   // EX moves and supers (a dedicated launcher: set 48 on its hitbox)
+	public int NetsuUntechEx = 56;   // Nov 3: 52 -> 56. EX moves and supers (a dedicated launcher: set 48 on its hitbox)
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleLight = 955;   // Oct 29: the juggle meter drains a bit slower
+	public int NetsuScaleLight = 970;   // Oct 29: the juggle meter drains a bit slower; Nov 3: 955 -> 970 (long, floaty combos)
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleMedium = 935;
+	public int NetsuScaleMedium = 955;   // Nov 3: 935 -> 955
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleHeavy = 915;
+	public int NetsuScaleHeavy = 945;   // Nov 3: 915 -> 945
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleSpecial = 915;
+	public int NetsuScaleSpecial = 945;   // Nov 3: 915 -> 945
 
 	[Export(PropertyHint.Range, "500,1000,1")]
-	public int NetsuScaleEx = 915;
+	public int NetsuScaleEx = 950;   // Nov 3: 915 -> 950
+
+	/// <summary>Netsu (Nov 3, TamaDeez): juggle gravity. A fighter being hit whose hit state asks for the "default" gravity
+	/// falls with this instead of 260000 (jumps and other movement keep 260000). Lower = floatier juggles.</summary>
+	[Export(PropertyHint.Range, "100000,300000,1000")]
+	public int NetsuJuggleGravity = 200000;
+
+	/// <summary>Netsu (Nov 3): every air hit in a combo takes this much off the upward knockback of the hits after it
+	/// (was a fixed 2500). Lower = relaunches keep working deeper into a combo.</summary>
+	[Export(PropertyHint.Range, "0,5000,100")]
+	public int NetsuGravityDecayPerHit = 1200;
+
+	/// <summary>Netsu (Nov 3, TamaDeez): midscreen wall bounces. A wall-bounce hit sends them this far (units) from the
+	/// attacker, then they bounce off an invisible wall (a hit can set its own: HitboxElement.NetsuWallBounceDistance;
+	/// the real stage walls and the screen edge still count if they're nearer). Was the screen edge (7.5 m).</summary>
+	[Export(PropertyHint.Range, "15000,75000,1000")]
+	public int NetsuWallBounceDistance = 37000;
+
+	/// <summary>Netsu (Nov 3): after a wall bounce they fly back so they come down this far (units) in front of the
+	/// attacker (where she is at the bounce). 0 = the old slow drift back (Bounce_Wall's MaxBackSpeed).</summary>
+	[Export(PropertyHint.Range, "0,40000,1000")]
+	public int NetsuWallReturnGap = 12000;
 
 	/// <summary>Netsu (Oct 27 c27, TamaDeez): repeat proration. A move already used earlier in this combo gives less untech
 	/// time on air hits: this many frames per earlier use (counted up to 3). A normal costs less than a special; EX moves
 	/// and supers count as specials; a projectile counts as the move that threw it. Hits of one use of a move
 	/// (multi-hits) are one use. Assist hits don't count.</summary>
 	[Export(PropertyHint.Range, "0,30,1")]
-	public int NetsuRepeatNormalUntech = 6;   // Oct 27 c33: 3 -> 6 (the same move again drains the juggle meter faster)
+	public int NetsuRepeatNormalUntech = 4;   // Oct 27 c33: 3 -> 6; Nov 3: 4 (the same move again drains the juggle meter faster)
 
 	[Export(PropertyHint.Range, "0,30,1")]
-	public int NetsuRepeatSpecialUntech = 12;   // Oct 27 c33: 7 -> 12 (ground hits now lose half of it too)
+	public int NetsuRepeatSpecialUntech = 8;   // Oct 27 c33: 7 -> 12; Nov 3: 8 (ground hits now lose half of it too)
 
 	/// <summary>Netsu (Oct 27 c33, TamaDeez): a COUNTER HIT with a special / EX move: this much more hitstun (on top of the
 	/// usual counter bonus), the hit ignores the juggle-time decay and the repeat proration, and its knockback (percent) and

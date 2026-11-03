@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="H0"]
 script = ExtResource("3")
-Center = Vector2i(1600, 12300)
-Size = Vector2i(8100, 3300)
+Center = Vector2i(-2000, 6500)
+Size = Vector2i(5000, 13000)
 SelfSuperGaugeGain = 25
 OpponentSuperGaugeGain = 10
 HitEffectIndex = 0
@@ -22,24 +22,8 @@ BounceYIntensity = 0
 
 [sub_resource type="Resource" id="H1"]
 script = ExtResource("3")
-Center = Vector2i(-500, 8000)
-Size = Vector2i(9200, 5900)
-SelfSuperGaugeGain = 25
-OpponentSuperGaugeGain = 10
-HitEffectIndex = 0
-BlockEffectIndex = 1
-ClashEffectIndex = 2
-AirHitKnockbackGravity = 300000
-AirBlockKnockbackGravity = 30
-SelfPushbackForce = 0
-SelfPushbackDuration = 0
-BounceXIntensity = 0
-BounceYIntensity = 0
-
-[sub_resource type="Resource" id="H2"]
-script = ExtResource("3")
-Center = Vector2i(-1100, 2400)
-Size = Vector2i(10100, 6500)
+Center = Vector2i(2750, 9750)
+Size = Vector2i(4500, 4500)
 SelfSuperGaugeGain = 25
 OpponentSuperGaugeGain = 10
 HitEffectIndex = 0
@@ -72,8 +56,8 @@ HitType = 1
 
 [sub_resource type="Resource" id="A0"]
 script = ExtResource("3")
-Center = Vector2i(3000, 4000)
-Size = Vector2i(30000, 36000)
+Center = Vector2i(5000, 11500)
+Size = Vector2i(6000, 6000)
 HitboxType = 1
 OpponentSuperGaugeGain = 100
 SelfSuperGaugeGain = 400
@@ -100,7 +84,39 @@ AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 18
 AirHitKnockbackGravity = 222000
 NetsuIgnoreRecoveryScaling = true
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+Center = Vector2i(4500, 6250)
+Size = Vector2i(6000, 5500)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 400
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 900
+SelfHitStopDuration = 13
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 2
+GroundHitReaction = 8
+CrouchHitReaction = 8
+GroundHitKnockback = Vector2i(-7500, 81400)
+GroundHitKnockbackGravity = 222000
+GroundHitstun = 80
+GroundBlockKnockback = Vector2i(-10000, 0)
+GroundBlockstun = 18
+AirHitstunType = 2
+AirHitReaction = 8
+AirHitKnockback = Vector2i(-7500, 81400)
+AirHitstun = 80
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 18
+AirHitKnockbackGravity = 222000
+NetsuIgnoreRecoveryScaling = true
+
 [resource]
 script = ExtResource("1")
 Pushbox = ExtResource("2")
-Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("H2"), SubResource("P0"), SubResource("A0")]
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("P0"), SubResource("A0"), SubResource("A1")]

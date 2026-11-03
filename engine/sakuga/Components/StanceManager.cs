@@ -98,6 +98,10 @@ public partial class StanceManager : Node
 		{
 			return false;
 		}
+		if (GetMove(index).NetsuNeedSpawnPool >= 0 && !NetsuSpawnInState(GetMove(index)))
+		{
+			return false;   // Nov 3: Noah's 22A / 22B snaps need their own hole out and waiting
+		}
 		if (GetMove(index).NetsuNoRepeatWhileSpawned && _owner.Pool != null)
 		{
 			FighterStance netsuSt = GetCurrentStance();
@@ -1055,23 +1059,30 @@ public partial class StanceManager : Node
 		{
 			return (_owner.CancelConditions & (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)) == 0;
 		}
-		if (name == "2B" || name == "6C")   // Oct 29 (TamaDeez): 6C jump-cancels on hit only, not on block
+		if (name == "2B" || name == "6C" || name == "5C" || GetCurrentMove().NetsuJumpCancelOnHit)   // Oct 29 (TamaDeez): 6C jump-cancels on hit only, not on block; Nov 3: 5C too
 		{
 			return (_owner.CancelConditions & CancelCondition.HIT_CANCEL) == 0;
 		}
 		return true;
 	}
 
-	/// <summary>Netsu (Oct 26 late, TamaDeez): 5A and 5B can be jump-cancelled on hit or block, 2B and 6C (Oct 29) on hit only.</summary>
+	/// <summary>Netsu (Oct 26 late, TamaDeez): 5A and 5B can be jump-cancelled on hit or block, 2B, 6C (Oct 29) and 5C (Nov 3) on hit only.</summary>
 	private bool NetsuJumpCancel()
 	{
-		if (CurrentMove < 0 || !_owner.Body.IsOnGround)
+		if (CurrentMove < 0)
+		{
+			return false;
+		}
+		// Nov 3 (TamaDeez): a move flagged NetsuJumpCancelOnHit that is in the air on hit (Noah's 214B~X Abyss Riser)
+		// cancels into an air jump instead (the air jumps' own limit still applies)
+		bool netsuAir = !_owner.Body.IsOnGround;
+		if (netsuAir && !GetCurrentMove().NetsuJumpCancelOnHit)
 		{
 			return false;
 		}
 		string name = GetCurrentMove().MoveName;
 		CancelCondition need = name == "5A" || name == "5B" ? (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)
-			: (name == "2B" || name == "6C" ? CancelCondition.HIT_CANCEL : 0);   // Oct 29: 6C on hit only
+			: (name == "2B" || name == "6C" || name == "5C" || GetCurrentMove().NetsuJumpCancelOnHit ? CancelCondition.HIT_CANCEL : 0);   // Oct 29: 6C on hit only; Nov 3: every 5C on hit
 		if (need == 0 || (_owner.CancelConditions & need) == 0)
 		{
 			return false;
@@ -1081,7 +1092,9 @@ public partial class StanceManager : Node
 		for (int i = (stance != null && stance.Moves != null ? stance.Moves.Length : 0) - 1; i >= 0; i--)
 		{
 			MoveSettings j = stance.Moves[i];
-			if (j == null || !j.UseOnGround || j.UseOnAir || j.MoveName == null || !j.MoveName.Contains("Jump") || j.MoveName.Contains("Dash"))
+			if (j == null || j.MoveName == null || j.MoveName.Contains("Dash")
+				|| (!netsuAir && (!j.UseOnGround || j.UseOnAir || !j.MoveName.Contains("Jump")))
+				|| (netsuAir && (!j.UseOnAir || j.UseOnGround || !j.MoveName.Contains("Air Jump"))))
 			{
 				continue;
 			}
@@ -1089,6 +1102,36 @@ public partial class StanceManager : Node
 			{
 				BufferMove(i, moveCancel: true);
 				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>Netsu (Nov 3): one of the owner's spawned objects from pool m.NetsuNeedSpawnPool is active and in one of
+	/// m.NetsuNeedSpawnStates.</summary>
+	private bool NetsuSpawnInState(MoveSettings m)
+	{
+		if (_owner.Pool == null || m.NetsuNeedSpawnPool >= _owner.Pool.SpawnCount || m.NetsuNeedSpawnStates == null)
+		{
+			return false;
+		}
+		PoolReference reference = _owner.Pool.GetSpawnReference(m.NetsuNeedSpawnPool);
+		if (reference.Objects == null)
+		{
+			return false;
+		}
+		foreach (SakugaActor spawn in reference.Objects)
+		{
+			if (spawn == null || !spawn.IsActive || spawn.StateManager == null)
+			{
+				continue;
+			}
+			foreach (int st in m.NetsuNeedSpawnStates)
+			{
+				if (spawn.StateManager.CurrentState == st)
+				{
+					return true;
+				}
 			}
 		}
 		return false;

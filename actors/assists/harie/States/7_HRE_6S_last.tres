@@ -65,7 +65,7 @@ Velocity = 0
 
 [sub_resource type="Resource" id="s13"]
 script = ExtResource("9")
-StateIndex = 5
+StateIndex = 14
 
 [sub_resource type="Resource" id="s14"]
 script = ExtResource("3")

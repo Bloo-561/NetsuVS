@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1")
-MoveName = "Thunder Plunge"
-MoveState = 93
+MoveName = "Sakura Morning Moon"
+MoveState = 124
 Inputs = ExtResource("2")
 SuperFlash = 20
 Priority = 10

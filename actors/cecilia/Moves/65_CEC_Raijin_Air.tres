@@ -16,4 +16,4 @@ CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true
 AcceptCombatStates = true
-UseOnAir = true
+UseOnAir = false
