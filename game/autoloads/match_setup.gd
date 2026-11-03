@@ -816,8 +816,9 @@ func netsu_stock_hud(side: int, value: int) -> void:
 	stock_hud[side] = {"value": value, "msec": Time.get_ticks_msec()}
 
 
-func netsu_assist_hud(side: int, assist_name_text: String, ratio: float, phase: int, buff: float, icon) -> void:
+func netsu_assist_hud(side: int, assist_name_text: String, ratio: float, phase: int, buff: float, icon, frames_left: int = -1) -> void:
 	if side < 0 or side > 1:
 		return
+	# Oct 30: frames_left = frames until the assist is ready (countdown badge); -1 = not cooling down / older engine build
 	assist_hud[side] = {"name": assist_name_text, "ratio": ratio, "phase": phase, "buff": buff, "icon": icon,
-		"msec": Time.get_ticks_msec()}
+		"frames_left": frames_left, "msec": Time.get_ticks_msec()}

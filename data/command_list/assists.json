@@ -1,0 +1,25 @@
+{
+  "note": "Assists tab of the command list. Keyed by AssistName (data/assist_list.tres), then by the assist move's MoveName (5S / 6S). Every key is optional: name and desc default to the move's DisplayName and Description in assist_list.tres, the input to S / 6 S / 4 S from its Direction, the preview to its StateIndex. states = the assist's state indices played one after another in the preview. \"*\" = rows every assist shows (preview: {\"state\": \"Assist Call\"} plays the shown fighter's call pose).",
+  "*": {
+    "extra": [
+      {"name": "Calling in Neutral", "section": "Calling", "input": "S or 6 S", "preview": {"state": "Assist Call"},
+       "desc": "Free on the ground, but your fighter poses and can't block while the assist comes in. Not in the air or while blocking.",
+       "data": [["COST", "free"], ["POSE", "30f"]]},
+      {"name": "Assist Cancel", "section": "Calling", "input": "S", "cost": 1, "preview": {"move": "5C"},
+       "desc": "During a normal or special that hit or was blocked, the assist comes at once with no pose. Not out of an EX move, super or throw.",
+       "data": [["COST", "1 bar"]]}
+    ]
+  },
+  "Adin": {
+    "5S": {"states": [1, 2]},
+    "6S": {"states": [3, 4, 5]}
+  },
+  "Eren": {
+    "5S": {"states": [1, 5, 2]},
+    "6S": {"states": [3, 4, 6, 7]}
+  },
+  "Harie": {
+    "5S": {"states": [1, 3]},
+    "6S": {"states": [4, 5]}
+  }
+}

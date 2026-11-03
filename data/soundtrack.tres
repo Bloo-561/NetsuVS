@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b8mvfcxgdf66h" path="res://assets/audio/music/netsu/will_you_still_cry.ogg" id="6"]
 [ext_resource type="Script" uid="uid://nup8upyemx4m" path="res://engine/sakuga/Resources/BGMList.cs" id="7"]
 [ext_resource type="AudioStream" uid="uid://dlc760ruupxcg" path="res://assets/audio/music/netsu/emotional_catharsis.ogg" id="8"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/netsu/beyond_the_crimson_horizon.ogg" id="9"]
 
 [sub_resource type="Resource" id="bgm_lobelia"]
 script = ExtResource("2")
@@ -55,6 +56,14 @@ Artist = "Manbou Nitouhei (まんぼう二等兵)"
 Source = "OpenTracks - opentracks.com/en/bgm/detail/6391"
 LoopStart = 6.486
 
+[sub_resource type="Resource" id="bgm_crimson_horizon"]
+script = ExtResource("2")
+SongName = "Beyond the Crimson Horizon (緋色の境界を越えて)"
+clip = ExtResource("9")
+Artist = "Manbou Nitouhei (まんぼう二等兵)"
+Source = "OpenTracks - opentracks.com/en/bgm/detail/23962"
+LoopStart = 17.71
+
 [resource]
 script = ExtResource("7")
-elements = [SubResource("bgm_lobelia"), SubResource("bgm_moonlight"), SubResource("bgm_glockenspiel"), SubResource("bgm_interception"), SubResource("bgm_willyoustillcry"), SubResource("bgm_catharsis")]
+elements = [SubResource("bgm_lobelia"), SubResource("bgm_moonlight"), SubResource("bgm_glockenspiel"), SubResource("bgm_interception"), SubResource("bgm_willyoustillcry"), SubResource("bgm_catharsis"), SubResource("bgm_crimson_horizon")]

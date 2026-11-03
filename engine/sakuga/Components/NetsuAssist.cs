@@ -779,7 +779,9 @@ public partial class NetsuAssist : SakugaNode
 		_hudPhase = Phase;
 		_hudName = Element.AssistName;
 		_hudIcon = Element.Icon;
-		_hud.Call(NetsuHudMethod, (int)Fighter.playerID, Element.AssistName, ratio, Phase, buff, Element.Icon);
+		// Oct 30: + frames until ready (the HUD's countdown badge), -1 when not cooling down
+		_hud.Call(NetsuHudMethod, (int)Fighter.playerID, Element.AssistName, ratio, Phase, buff, Element.Icon,
+			Phase == PhaseCooldown ? Mathf.Max(0, GaugeMax - Gauge) : -1);
 	}
 
 	/// <summary>A buffed fighter wears the assist's aura (Mary's music) until the buff runs out.</summary>

@@ -160,9 +160,29 @@ def load_command_list(path):
         for s in d.get('sections', []):
             for m in s.get('moves', []):
                 entries.append((m[0].strip(), m[1].strip()))
+        # Nov 2 2026: the new format (docs/command_list.md): "moves" keyed by the engine move name; only moves with
+        # an "input" note say anything here (the game works the rest out from the move data).
+        for name, note in d.get('moves', {}).items():
+            if isinstance(note, dict) and note.get('input'):
+                entries.append((name.strip(), new_to_old_input(note['input'])))
     except FileNotFoundError:
         pass
     return entries
+
+
+def new_to_old_input(text):
+    """The command list notation ('j. 236 A|B', '214 B+C') -> the old one ('in air: 236 + A / B', '214 + B + C')."""
+    t = text.strip().split(' or ')[0].lstrip('> ').strip()
+    air = t.startswith('j.')
+    t = t[2:].strip() if air else t
+    parts = t.split(' ', 1)
+    if len(parts) == 2 and parts[0].isdigit():
+        dirs, btn = parts
+    else:
+        dirs, btn = '', t
+    btn = btn.strip('[]').replace('|', ' / ').replace('+', ' + ')
+    out = (dirs + ' + ' + btn) if dirs else btn
+    return ('in air: ' + out) if air else out
 
 
 def short_input(text, letter=None):

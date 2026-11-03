@@ -16,9 +16,14 @@ extends Control
 ## Layout, Player 1 (top-left):  hexagon portrait in the corner, "1P" tab, long
 ## health bar in a framed housing, name under the bar, BURST box under the name,
 ## round markers above the timer end of the bar. Hexagon TIME badge in the middle.
-## Bottom-left: percentage in a hexagon box, Craft Point cells, "CRAFT POINTS".
-## Just above it: the ASSIST gauge (the assist's face, name and refill bar; READY when S
-## can call it). Its data comes from the engine through MatchSetup.assist_hud.
+## Bottom-left: percentage and Craft Point cells on one clean plate, "CRAFT POINTS".
+## Oct 30 (TamaDeez, after the Climax-style reference): name above the bar by the 1P tab, BURST diamond under the bar
+## by the portrait, the ASSIST card under the portrait (dimmed with a countdown when used), TIME shield.
+## Assist data comes from the engine through MatchSetup.assist_hud.
+## Nov 2 (TamaDeez, after the polished reference screenshot): thicker bright-outlined bar housing whose timer end runs
+## parallel to the timer's side, red-pink bar for P2, wider flat-bottomed TIME panel (Burst diamond kept as it was),
+## angular assist card with a bigger countdown diamond, and a new Craft Gauge plate (big
+## percentage block, larger gold segments, CRAFT POINTS centred under them). Old version: _backup_stage_select/pre_hud_nov02/.
 
 const K := 1920.0 / 1456.0
 ## Read by netsu_match_overlay.gd (it nudges the combo counter in training).
@@ -27,8 +32,10 @@ var layout_scale := K
 @export_group("Colours")
 @export var p1_accent: Color = Color(0.25, 0.6, 1.0)
 @export var p2_accent: Color = Color(1.0, 0.22, 0.35)
-@export var bar_dark: Color = Color(0.18, 0.4, 0.9)          ## health fill near the portrait
-@export var bar_light: Color = Color(0.68, 0.92, 1.0)        ## health fill near the timer
+@export var bar_dark: Color = Color(0.1, 0.39, 1.0)          ## P1 health fill near the portrait
+@export var bar_light: Color = Color(0.4, 0.97, 1.0)         ## P1 health fill near the timer
+@export var p2_bar_dark: Color = Color(0.9, 0.12, 0.36)      ## Nov 2: P2 health fill near the portrait
+@export var p2_bar_light: Color = Color(1.0, 0.68, 0.8)      ## Nov 2: P2 health fill near the timer
 @export var damage_color: Color = Color(1.0, 0.88, 0.94)     ## chunk you just lost
 @export var danger_color: Color = Color(1.0, 0.4, 0.35)      ## pulses toward this when low
 @export_range(0.0, 1.0) var danger_threshold: float = 0.3    ## health bar pulses below this
@@ -39,8 +46,8 @@ var layout_scale := K
 @export var overdrive_bar_dark: Color = Color(0.5, 0.0, 0.04)    ## Oct 28: health fill in Overdrive, portrait end
 @export var overdrive_bar_light: Color = Color(1.0, 0.12, 0.1)   ## Oct 28: health fill in Overdrive, timer end
 @export var will_locked_color: Color = Color(0.9, 0.2, 0.3)
-@export var meter_color: Color = Color(0.98, 0.72, 0.2)
-@export var meter_light: Color = Color(1.0, 0.86, 0.42)
+@export var meter_color: Color = Color(1.0, 0.77, 0.22)
+@export var meter_light: Color = Color(1.0, 0.92, 0.6)
 @export var percent_color: Color = Color(1.0, 0.97, 0.88)
 @export var text_color: Color = Color(1, 1, 1)
 @export var outline_color: Color = Color(0.02, 0.03, 0.12, 0.9)
@@ -56,36 +63,51 @@ var layout_scale := K
 @export var juggle_otg: Color = Color(0.3, 0.85, 1.0)      ## Oct 26 c20: lying: OTG window left
 
 @export_group("Layout (mockup pixels)")
-@export var bar_x: Vector2 = Vector2(169, 636)     ## health fill: portrait end / timer end (bottom edge)
-@export var bar_y: float = 51.0
-@export var bar_height: float = 26.0
-@export var bar_slant: float = 14.0
+@export var bar_x: Vector2 = Vector2(161, 653)     ## health fill: portrait end (bottom corner) / timer end (top corner)
+@export var bar_y: float = 58.0
+@export var bar_height: float = 28.0
+@export var bar_slant: float = 7.0                 ## portrait end leans "/" by this much
+@export var bar_end_slant: float = 10.5            ## Nov 2: timer end leans "\" by this much (parallel to the timer's side)
 ## Where the eyes (the middle of HUD_Portrait.png) sits in the corner frame, and how wide the whole picture is.
 @export var portrait_center: Vector2 = Vector2(88, 70)
 @export var portrait_span: float = 190.0
-@export var name_position: Vector2 = Vector2(178, 100)   ## left end of the name's baseline
+@export var name_position: Vector2 = Vector2(236, 45)   ## left end of the name's baseline (Oct 30: above the bar, beside the 1P tab)
 @export var name_size: int = 24
-@export var burst_box: Rect2 = Rect2(140, 109, 193, 19)
-@export var rounds_position: Vector2 = Vector2(592, 33)  ## first round marker
-@export var rounds_step: float = 24.0
+## Oct 30: only places the STOCK / STAR badges now (under the bar, past the Burst diamond).
+@export var burst_box: Rect2 = Rect2(296, 82, 150, 19)
+@export var rounds_position: Vector2 = Vector2(612, 37)  ## first round marker (Nov 2: just outside the timer)
+@export var rounds_step: float = 22.0
 @export var rounds_to_win: int = 2   ## replaced by the match's real "rounds to win" when a fight starts
 @export var timer_center_x: float = 728.0
-@export var timer_size: int = 62
+@export var timer_size: int = 64
+@export var timer_top: float = 16.0          ## Nov 2: the TIME panel's top edge / half widths (top, bottom) / bottom (mockup px)
+@export var timer_half_width: Vector2 = Vector2(77, 43)
+@export var timer_bottom: float = 113.0
+@export var timer_warning: int = 10      ## Oct 30: at this many seconds or fewer the number turns red and pulses
+
+@export_group("Burst Diamond")
+@export var burst_center: Vector2 = Vector2(252, 114)    ## middle of the diamond (mockup px, P1)
+@export var burst_size: float = 25.0                     ## centre to tip (mockup px)
+@export var burst_label: String = "BURST"
 
 @export_group("Craft Gauge")
 @export var meter_caption: String = "CRAFT POINTS"
 @export var meter_per_stock: int = 10000     ## 10000 = 100% (Oct 29: units x5; was 2000)
-@export var meter_cells_x: Vector2 = Vector2(161, 497)    ## the cell row (bottom-left / top-right)
+@export var meter_cells_x: Vector2 = Vector2(170, 474)    ## the cell row (left end / right end, bottom edge)
+@export var meter_y: float = 701.0                        ## top of the Craft Gauge plate (mockup px)
 
 @export_group("Assist Gauge")
 @export var assist_ready_color: Color = Color(1.0, 0.86, 0.45)
 @export var stock_color: Color = Color(0.72, 0.35, 1.0)   ## Oct 26: the STOCK READY badge under the Burst gauge (Noah)
 @export var assist_fill_color: Color = Color(0.55, 0.85, 1.0)
 @export var assist_buff_color: Color = Color(0.45, 1.0, 0.8)
-@export var assist_y: float = 668.0          ## top of the assist row (mockup px)
+@export var assist_y: float = 132.0          ## Oct 30: top of the assist card under the portrait (mockup px)
+@export var assist_card_x: Vector2 = Vector2(11, 139)  ## card's bottom edge: screen-edge end / inner end (mockup px)
+@export var assist_card_height: float = 53.0
+@export var assist_gray: Color = Color(0.72, 0.72, 0.76)   ## how the grey (used) picture is tinted
 
 @export_group("Combo Counter")
-@export var combo_position: Vector2 = Vector2(95, 245)   ## P1: left end of the number's baseline
+@export var combo_position: Vector2 = Vector2(95, 300)   ## P1: left end of the number's baseline (Oct 30: lower, under the assist card)
 @export var combo_number_size: int = 120
 @export var combo_label: String = "HIT"
 @export var combo_label_size: int = 40
@@ -165,6 +187,20 @@ var _od_prev := [false, false]
 var _od_flash := [0.0, 0.0]
 
 
+## Oct 30: Burst diamond / assist card / timer animation state.
+const BURST_FLASH_TIME := 0.45
+const ASSIST_FLASH_TIME := 0.6
+var _burst_was_ready := [true, true]
+var _burst_used_flash := [0.0, 0.0]     # Burst just used: the diamond empties with a burst of light
+var _burst_ready_flash := [0.0, 0.0]    # Burst just refilled: the diamond lights up
+var _assist_prev_phase := [0, 0]
+var _assist_flash := [0.0, 0.0]         # assist ready again: the card flashes in the side's colour
+var _gray_icons := {}                   # assist icon -> grey copy (made once)
+var _timer_text := ""
+var _timer_pop := 0.0                   # the number just changed: it pops
+var _timer_since := 0.0                 # seconds since it last changed (drives the sweep under the number)
+
+
 ## Oct 28: the Overdrive Link (one faster assist recovery) hasn't been used yet.
 func _od_link(side: int) -> bool:
 	return MatchSetup.overdrive_hud.size() > side and (int(MatchSetup.overdrive_hud[side]) & 2) != 0
@@ -186,7 +222,42 @@ func _process(delta: float) -> void:
 			_od_flash[side] = OD_FLASH_TIME
 		_od_prev[side] = od
 		_od_flash[side] = maxf(0.0, _od_flash[side] - delta)
+		# Oct 30: Burst used / refilled
+		var ready := _burst_ready(side)
+		if _burst_was_ready[side] and not ready:
+			_burst_used_flash[side] = BURST_FLASH_TIME
+		elif ready and not _burst_was_ready[side]:
+			_burst_ready_flash[side] = BURST_FLASH_TIME
+		_burst_was_ready[side] = ready
+		_burst_used_flash[side] = maxf(0.0, _burst_used_flash[side] - delta)
+		_burst_ready_flash[side] = maxf(0.0, _burst_ready_flash[side] - delta)
+		# Oct 30: assist ready again
+		var info: Dictionary = MatchSetup.assist_hud[side] if MatchSetup.assist_hud.size() > side else {}
+		if not info.is_empty():
+			var phase := int(info.get("phase", 0))
+			if phase == 0 and _assist_prev_phase[side] != 0:
+				_assist_flash[side] = ASSIST_FLASH_TIME
+			_assist_prev_phase[side] = phase
+		_assist_flash[side] = maxf(0.0, _assist_flash[side] - delta)
+	# Oct 30: the timer number pops when it changes
+	var label = _src.get("timer")
+	var t: String = str(label.text) if label else ""
+	if t != _timer_text:
+		if _timer_text != "":
+			_timer_pop = 1.0
+		_timer_text = t
+		_timer_since = 0.0
+	_timer_since += delta
+	_timer_pop = move_toward(_timer_pop, 0.0, delta * 5.0)
 	queue_redraw()
+
+
+## Oct 30: Burst is full and not locked.
+func _burst_ready(side: int) -> bool:
+	if not _src.has(side):
+		return true
+	var lock = _src[side]["will_lock"]
+	return _ratio(_src[side]["will"]) >= 0.999 and not (lock != null and lock.visible)
 
 
 # --- Reading the engine -----------------------------------------------------------------
@@ -337,13 +408,15 @@ func _draw_portrait(side: int) -> void:
 	_glow_line(rim, accent.lightened(0.25), 2.5)
 	draw_polyline(_pts(PORTRAIT_INNER.slice(1), side), Color(frame_color, 0.45), 1.2, true)
 	# "1P" / "2P" tab
-	var tab := _slanted(157, 206, 17, 23, 7, side)
+	# Nov 2: bigger, sitting on the bar housing's top line, with a thin outline-only slash after it
+	var tab := _slanted(160, 207, 26, 23, 8, side)
 	draw_colored_polygon(tab, accent)
 	draw_polyline(_closed(tab), accent.lightened(0.4), 1.2, true)
+	draw_polyline(_closed(_slanted(212, 222, 26, 23, 8, side)), Color(accent.lightened(0.3), 0.8), 1.2, true)
 	var tag := "%dP" % (side + 1)
-	var tw := _width(_serif, tag, 24)
+	var tw := _width(_serif, tag, 27)
 	var tc := (tab[0] + tab[2]) / 2.0
-	_text(_serif, Vector2(tc.x - tw / 2.0, tc.y + 9), tag, 24, Color.WHITE, 0)
+	_text(_serif, Vector2(tc.x - tw / 2.0, tc.y + 10), tag, 27, Color.WHITE, 0)
 	# Oct 28: Overdrive just started: the portrait flashes white then red, and its rim glows red while it lasts
 	var flash: float = _od_flash[side] / OD_FLASH_TIME
 	if flash > 0.0:
@@ -353,26 +426,33 @@ func _draw_portrait(side: int) -> void:
 		_glow_line(rim, Color(1.0, 0.3, 0.25, 0.55 + 0.25 * sin(_time * 4.0)), 2.0, 0.5)
 
 
-## The frame the health bar sits in, the dark strip behind the name, and the line to the rounds.
+## The frame the health bar sits in (Nov 2: a dark body with a bright outline a few px out from the bar; its timer end
+## runs "\" parallel to the timer's side), and the faint strip behind the name.
 func _draw_housing(side: int) -> void:
 	var accent := _accent(side)
 	var x1 := bar_x.y
-	var top := bar_y - 11.0
-	var body := _pts([Vector2(150, top), Vector2(445, top), Vector2(452, top + 6), Vector2(x1 + 22, top + 6),
-		Vector2(x1 + 4, bar_y + bar_height + 7), Vector2(140, bar_y + bar_height + 7)], side)
-	draw_colored_polygon(body, Color(backing, 0.6))
-	# name strip under the bar, fading out toward the timer
-	var strip := _slanted(136, 470, bar_y + bar_height + 7, 25, 6, side)
-	draw_polygon(strip, PackedColorArray([Color(backing, 0.75), Color(backing, 0.0), Color(backing, 0.0), Color(backing, 0.75)]))
-	# top edge: from the tab, stepping down halfway along
-	_glow_line(_pts([Vector2(157, top), Vector2(445, top), Vector2(452, top + 6), Vector2(x1 + 22, top + 6)], side),
-		accent.lightened(0.3), 2.0)
-	# bottom edge and the slanted end by the timer
-	_glow_line(_pts([Vector2(150, bar_y + bar_height + 7), Vector2(x1 + 4, bar_y + bar_height + 7), Vector2(x1 + 22, top + 6)], side),
-		Color(accent.lightened(0.2), 0.85), 1.6)
-	# fine line + sparkle running up to the round markers
-	draw_line(_p(555, 0, side), _p(578, top + 6, side), Color(frame_color, 0.45), 1.2, true)
-	_sparkle(_p(557, 35, side), 5.0, Color(frame_color, 0.6))
+	var top := bar_y - 5.0
+	var bottom := bar_y + bar_height + 3.0
+	var k := bar_end_slant / bar_height          # how far the timer end moves right per mockup px down
+	var right_top := x1 + 5.0
+	var right_bottom := right_top + k * (bottom - top)
+	var body := _pts([Vector2(150, top), Vector2(right_top, top), Vector2(right_bottom, bottom), Vector2(140, bottom)], side)
+	draw_colored_polygon(body, Color(backing, 0.88))
+	# the name sits above the bar, on a faint strip fading out toward the timer
+	var strip := _slanted(205, 420, top - 24, 22, 5, side)
+	draw_polygon(strip, PackedColorArray([Color(backing, 0.0), Color(backing, 0.0), Color(backing, 0.6), Color(backing, 0.6)]))
+	# outline: bright along the top and the timer end, the side's colour along the bottom
+	var light := accent.lerp(Color(0.75, 0.95, 1.0), 0.55)
+	_glow_line(_pts([Vector2(157, top), Vector2(right_top, top), Vector2(right_bottom, bottom)], side), light, 2.2, 0.28)
+	_glow_line(_pts([Vector2(right_bottom, bottom), Vector2(140, bottom)], side), accent.lightened(0.15), 2.0, 0.28)
+
+
+## The bar's shape between two points along it (mockup x of the bottom-left corner / top-right corner): the portrait end
+## leans "/" (bar_slant) and the timer end "\" (bar_end_slant). Nov 2.
+func _bar_poly(xa: float, xb: float, y: float, h: float, side: int, end_cut: bool) -> PackedVector2Array:
+	var k := bar_end_slant / bar_height
+	var br := xb + k * h if end_cut else xb - bar_slant * h / bar_height
+	return _pts([Vector2(xa + bar_slant * h / bar_height, y), Vector2(xb, y), Vector2(br, y + h), Vector2(xa, y + h)], side)
 
 
 func _draw_health(side: int) -> void:
@@ -384,15 +464,17 @@ func _draw_health(side: int) -> void:
 	var length := x1 - x0
 	var y := bar_y
 	var h := bar_height
-	draw_colored_polygon(_slanted(x0, x1, y, h, bar_slant, side), Color(0.03, 0.05, 0.16, 0.95))
+	draw_colored_polygon(_bar_poly(x0, x1, y, h, side, true), Color(0.02, 0.04, 0.13, 0.96))
 	# Oct 26 c15 (TamaDeez): the bar is anchored at the TIMER end and empties from the portrait side (BlazBlue style):
 	# the health left sits next to the timer, the lost part opens up by the portrait.
 	if lost > hp:
-		draw_colored_polygon(_slanted(x1 - length * lost, x1 - length * hp, y, h, bar_slant, side), damage_color)
+		draw_colored_polygon(_bar_poly(x1 - length * lost, x1 - length * hp, y, h, side, false), damage_color)
 	if hp > 0.0:
 		var x_start := x1 - length * hp
-		var near := bar_dark.lerp(bar_light, 1.0 - hp)   # colour by position: dark at the portrait end, light at the timer
-		var far := bar_light
+		var dark := bar_dark if side == 0 else p2_bar_dark
+		var light := bar_light if side == 0 else p2_bar_light
+		var near := dark.lerp(light, 1.0 - hp)   # colour by position: dark at the portrait end, light at the timer
+		var far := light
 		if _overdrive(side):
 			# Oct 28 (TamaDeez): Overdrive = under 35% health: the bar turns red (a slow glow, no danger flashing)
 			var glow := 0.5 + 0.5 * sin(_time * 3.0)
@@ -402,15 +484,16 @@ func _draw_health(side: int) -> void:
 			var pulse := 0.5 + 0.5 * sin(_time * 8.0)
 			near = near.lerp(danger_color, 0.4 + 0.4 * pulse)
 			far = far.lerp(danger_color, 0.5 + 0.4 * pulse)
-		draw_polygon(_slanted(x_start, x1, y, h, bar_slant, side), PackedColorArray([near, far, far.darkened(0.12), near.darkened(0.12)]))
-		draw_polygon(_slanted(x_start, x1 - 3, y + 2, h * 0.35, bar_slant * 0.35, side),
-			PackedColorArray([Color(1, 1, 1, 0.08), Color(1, 1, 1, 0.45), Color(1, 1, 1, 0.25), Color(1, 1, 1, 0.04)]))
-	# tight white frame around the bar
-	draw_polyline(_closed(_slanted(x0 - 3, x1 + 3, y - 2, h + 4, bar_slant + 1, side)), Color(frame_color, 0.9), 1.8, true)
+		draw_polygon(_bar_poly(x_start, x1, y, h, side, true), PackedColorArray([near, far, far.darkened(0.18), near.darkened(0.18)]))
+		# sheen along the top third, a thin bright edge on top
+		draw_polygon(_bar_poly(x_start, x1, y, h * 0.38, side, true),
+			PackedColorArray([Color(1, 1, 1, 0.12), Color(1, 1, 1, 0.38), Color(1, 1, 1, 0.1), Color(1, 1, 1, 0.02)]))
+		draw_line(_p(x_start + bar_slant, y + 1.0, side), _p(x1, y + 1.0, side), Color(1, 1, 1, 0.45), 1.4, true)
+	draw_polyline(_closed(_bar_poly(x0, x1, y, h, side, true)), Color(frame_color, 0.55), 1.2, true)
 	# Overdrive (A+B+C): shown while it runs
 	if _overdrive(side):
 		var pulse := 0.6 + 0.4 * sin(_time * 5.0)
-		_side_text(_serif, 480, 103, "OVERDRIVE", 26, Color(overdrive_color, pulse), side, 3)
+		_side_text(_serif, 480, 112, "OVERDRIVE", 26, Color(overdrive_color, pulse), side, 3)
 
 
 ## Oct 28: true while this fighter is in Overdrive (health under 35%). The engine reports it through
@@ -423,8 +506,8 @@ func _draw_name_and_rounds(side: int) -> void:
 	var label = _src[side]["name"]
 	var text: String = str(label.text).to_upper() if label else ""
 	if text != "":
-		_side_text(_thin, name_position.x, name_position.y, text, name_size, text_color, side, 5)
-	# rounds: a glowing diamond for each round won, hollow circles for the rest
+		_spaced_name(name_position.x, name_position.y, text, name_size, side)
+	# rounds: a glowing diamond for each round won, small hollow circles for the rest (just outside the timer)
 	var won := _rounds_won(side)
 	var accent := _accent(side)
 	for i in rounds_to_win:
@@ -432,42 +515,92 @@ func _draw_name_and_rounds(side: int) -> void:
 		if i < won:
 			_diamond(at, 9.0, accent, true)
 		else:
-			draw_arc(at, 8.0, 0, TAU, 24, Color(0.85, 0.9, 1.0, 0.85), 1.6, true)
+			draw_circle(at, 7.5, Color(backing, 0.7))
+			draw_arc(at, 7.5, 0, TAU, 24, Color(0.85, 0.92, 1.0, 0.9), 1.6, true)
 
 
+## Nov 2: the name in white caps with a little letter spacing; left end at mockup x (right end for P2).
+func _spaced_name(x: float, y: float, text: String, size_px: int, side: int) -> void:
+	var gap := size_px * 0.08
+	var w := 0.0
+	for ch in text:
+		w += _width(_thin, ch, size_px) + gap
+	w -= gap
+	var px := _x(x, side) - (0.0 if side == 0 else w)
+	for ch in text:
+		_text(_thin, Vector2(px, y * K), ch, size_px, text_color, 5)
+		px += _width(_thin, ch, size_px) + gap
+
+
+## Oct 30 (TamaDeez, refined): the Burst emblem under the bar by the portrait, BURST on the portrait side. Same finish as
+## the top frame: flat navy diamond, one crisp outline, no wide glows.
+##   Ready  = solid diamond in the side's colour, bright white four-point star, a tight halo one step out.
+##   Used   = a short white blink inside the diamond, then it's empty.
+##   Refilling = one bright line traces the outline: from the top, round the tip AWAY from the portrait, down, round the
+##            tip by the portrait and back to the top (P2 mirrored).
+##   Locked (Burst not allowed) = the trace is grey.
+## Settings: Burst Diamond group. Data: HealthBars/P1Will (0..max), P1WillLocked.
 func _draw_burst(side: int) -> void:
 	var src: Dictionary = _src[side]
 	var accent := _accent(side)
-	var b := burst_box
-	var shape := _slanted(b.position.x, b.end.x, b.position.y, b.size.y, 7, side)
-	draw_colored_polygon(shape, Color(backing, 0.9))
-	draw_polyline(_closed(shape), Color(accent.lightened(0.3), 0.9), 1.5, true)
-	# bright accent line over the label part
-	_glow_line(PackedVector2Array([_p(b.position.x + 8, b.position.y - 2, side), _p(b.position.x + 85, b.position.y - 2, side)]),
-		accent.lightened(0.5), 2.0)
+	var cx := burst_center.x
+	var cy := burst_center.y
+	var s := burst_size
+	# P1 order: top, away from the portrait, bottom, by the portrait (mirroring gives P2 the same path)
+	var shape := _pts([Vector2(cx, cy - s), Vector2(cx + s, cy), Vector2(cx, cy + s), Vector2(cx - s, cy)], side)
+	var c := _p(cx, cy, side)
+	var r := s * K
 	var ratio := _ratio(src["will"])
 	var lock = src["will_lock"]
-	var color := accent
-	if ratio >= 0.999:
-		color = burst_ready_color.lerp(Color.WHITE, 0.3 + 0.3 * sin(_time * 6.0))
-	elif lock and lock.visible:
-		color = Color(0.3, 0.3, 0.38)
-	var f0 := b.position.x + 87.0
-	var f1 := b.end.x - 6.0
-	var fy := b.position.y + 3.0
-	var fh := b.size.y - 6.0
-	draw_colored_polygon(_slanted(f0, f1, fy, fh, 5, side), Color(0.05, 0.07, 0.18))
-	if ratio > 0.0:
-		draw_polygon(_slanted(f0, f0 + (f1 - f0) * ratio, fy, fh, 5, side),
-			PackedColorArray([color.darkened(0.15), color.lightened(0.35), color, color.darkened(0.3)]))
-	draw_polyline(_closed(_slanted(f0, f1, fy, fh, 5, side)), Color(frame_color, 0.7), 1.2, true)
-	_side_text(_thin, b.position.x + 26, b.position.y + 16, "BURST", 18, Color(1, 1, 1, 0.95), side, 0)
-	# Oct 26 evening: the Overdrive timer, just past the end of the Burst gauge (seconds left)
-	var od_frames: int = 0   # Oct 28: Overdrive has no timer any more (it lasts while health is under 35%)
-	if od_frames > 0:
-		var secs := "%.1f" % (float(od_frames) / 60.0)
-		var pulse := 0.75 + 0.25 * sin(_time * 8.0)
-		_side_text(_serif, b.end.x + 10, b.position.y + 18, secs, 22, Color(overdrive_color.lightened(0.2), pulse), side, 4)
+	var locked: bool = lock != null and lock.visible
+	var ready := ratio >= 0.999 and not locked
+	var line := accent.lightened(0.45)
+	# label on the portrait side (same type as the other HUD labels)
+	var lw := _width(_thin, burst_label, 20) / K
+	_side_text(_thin, cx - s - 8.0 - lw, cy + 6.0, burst_label, 20, text_color, side, 4)
+	# flat navy diamond
+	draw_colored_polygon(shape, Color(0.02, 0.04, 0.14, 0.94))
+	if ready:
+		# tight halo: one thin outline a step outside
+		draw_polyline(_closed(_scaled(shape, c, 1.22)), Color(accent, 0.45), 1.2, true)
+		draw_colored_polygon(_scaled(shape, c, 0.86), accent)
+		var a := r * 0.66
+		var b := r * 0.13
+		draw_colored_polygon(PackedVector2Array([c + Vector2(0, -a), c + Vector2(b, -b), c + Vector2(a, 0), c + Vector2(b, b),
+			c + Vector2(0, a), c + Vector2(-b, b), c + Vector2(-a, 0), c + Vector2(-b, -b)]), Color.WHITE)
+		draw_polyline(_closed(shape), line, 2.0, true)
+	else:
+		draw_polyline(_closed(shape), Color(line, 0.3), 1.4, true)
+		var col := Color(0.6, 0.62, 0.7) if locked else line
+		var p := clampf(ratio, 0.0, 1.0) * 4.0
+		if p > 0.0:
+			var path := PackedVector2Array([shape[0]])
+			var i := 0
+			while i < 4 and p > 0.0:
+				path.append((shape[i] as Vector2).lerp(shape[(i + 1) % 4], minf(p, 1.0)))
+				p -= 1.0
+				i += 1
+			draw_polyline(path, col, 2.6, true)
+			draw_circle(path[path.size() - 1], 2.6, Color.WHITE if not locked else col)
+		# dim centre mark so the emblem still reads when empty
+		var m := r * 0.3
+		draw_line(c + Vector2(-m, 0), c + Vector2(m, 0), Color(line, 0.35), 1.4, true)
+		draw_line(c + Vector2(0, -m), c + Vector2(0, m), Color(line, 0.35), 1.4, true)
+	# just used: a short white blink inside the diamond
+	var uf: float = _burst_used_flash[side] / BURST_FLASH_TIME
+	if uf > 0.0:
+		draw_colored_polygon(_scaled(shape, c, 0.86), Color(1, 1, 1, 0.6 * uf))
+	# just refilled: the outline flashes white
+	var rf: float = _burst_ready_flash[side] / BURST_FLASH_TIME
+	if rf > 0.0:
+		draw_polyline(_closed(shape), Color(1, 1, 1, rf), 2.4, true)
+
+
+func _scaled(points: PackedVector2Array, centre: Vector2, k: float) -> PackedVector2Array:
+	var out := PackedVector2Array()
+	for q in points:
+		out.append(centre + (q - centre) * k)
+	return out
 
 
 ## Oct 26 (TamaDeez): under the Burst gauge, a small badge while the fighter has a resource stocked (Noah: the energy
@@ -520,27 +653,79 @@ func _draw_stars(side: int) -> void:
 			_sparkle(c, 5.0, Color(gold, 0.25))
 
 
-## Hexagon badge with TIME over the number (mockup points around the centre line).
+## Nov 2 (after the polished reference): the TIME panel. A dark inverted trapezoid a little below the top of the screen,
+## wide at the top with a flat bottom, its sides parallel to the ends of the health bars; TIME over the number.
+## The number pops each time it changes and a thin arc under it sweeps round once per second. At timer_warning seconds
+## or fewer the number turns red, pulses, and the panel's edge flashes red on every tick. No time limit (--): an
+## infinity sign with a slow shimmer.
 func _draw_timer() -> void:
 	var cx := timer_center_x
-	var outer := [Vector2(cx - 38, 0), Vector2(cx + 38, 0), Vector2(cx + 66, 62), Vector2(cx + 29, 112),
-		Vector2(cx, 124), Vector2(cx - 29, 112), Vector2(cx - 66, 62)]
-	var inner := [Vector2(cx - 34, 5), Vector2(cx + 34, 5), Vector2(cx + 60, 62), Vector2(cx + 26, 107),
-		Vector2(cx, 118), Vector2(cx - 26, 107), Vector2(cx - 60, 62)]
-	var shape := _pts(outer, 0)
-	draw_colored_polygon(shape, Color(0.02, 0.04, 0.14, 0.9))
-	_glow_line(_closed(shape), Color(frame_color, 0.85), 1.8, 0.3)
-	draw_polyline(_closed(_pts(inner, 0)), Color(frame_color, 0.35), 1.0, true)
-	for s in [-1.0, 1.0]:   # little sparkles beside the badge
-		_sparkle(Vector2((cx + s * 76) * K, 92 * K), 4.0, Color(frame_color, 0.5))
-	var c := cx * K
-	_text(_thin, Vector2(c - _width(_thin, "TIME", 19) / 2.0, 37 * K), "TIME", 19, Color(0.86, 0.9, 1.0), 0)
 	var label = _src["timer"]
 	var t: String = str(label.text) if label else "99"
-	if t == "--":
+	var infinite := t == "--" or t == ""
+	if infinite:
 		t = "∞"
-	_text(_serif, Vector2(c - _width(_serif, t, timer_size) / 2.0, 83 * K), t, timer_size, text_color, 3)
+	var secs := int(t) if t.is_valid_int() else -1
+	var warn := secs >= 0 and secs <= timer_warning
+	var tick := clampf(1.0 - _timer_since / 0.35, 0.0, 1.0)   # fades out after each change
+	var y0 := timer_top
+	var y1 := timer_bottom
+	var wt := timer_half_width.x
+	var wb := timer_half_width.y
+	var outer := [Vector2(cx - wt, y0), Vector2(cx + wt, y0), Vector2(cx + wb, y1), Vector2(cx - wb, y1)]
+	var inset := 6.0
+	var d := (wt - wb) / (y1 - y0) * inset
+	var inner := [Vector2(cx - wt + inset + d, y0 + inset), Vector2(cx + wt - inset - d, y0 + inset),
+		Vector2(cx + wb - inset + d * 0.2, y1 - inset), Vector2(cx - wb + inset - d * 0.2, y1 - inset)]
+	var shape := _pts(outer, 0)
+	draw_polygon(shape, PackedColorArray([Color(0.05, 0.08, 0.22, 0.96), Color(0.05, 0.08, 0.22, 0.96),
+		Color(0.01, 0.02, 0.09, 0.96), Color(0.01, 0.02, 0.09, 0.96)]))
+	var edge := Color(0.82, 0.92, 1.0, 0.95)
+	if warn:
+		edge = edge.lerp(Color(1.0, 0.3, 0.25), 0.4 + 0.6 * tick)
+	_glow_line(_closed(shape), edge, 2.2, 0.25 + 0.4 * (tick if warn else 0.0))
+	draw_polyline(_closed(_pts(inner, 0)), Color(frame_color, 0.28), 1.0, true)
+	var c := cx * K
+	_text(_thin, Vector2(c - _width(_thin, "TIME", 26) / 2.0, (y0 + 27.0) * K), "TIME", 26, Color(0.9, 0.94, 1.0), 0)
+	# the number (or infinity), centred a little below the middle of the panel
+	var mid_y := (y0 + 57.0) * K
+	var size_px := int(timer_size * (1.0 + 0.22 * _timer_pop))
+	var col := text_color
+	if warn:
+		col = Color(1.0, 0.45, 0.4).lerp(Color.WHITE, 0.35 * tick + 0.15 * sin(_time * 10.0))
+	var base_y := mid_y + size_px * 0.36
+	if infinite:
+		size_px = int(timer_size * 1.45)
+		col = text_color.lerp(Color(0.8, 0.93, 1.0), 0.4 + 0.4 * sin(_time * 2.0))
+		base_y = mid_y + size_px * 0.27
+	var nw := _width(_serif, t, size_px)
+	if _timer_pop > 0.0:   # a quick glow behind the new number
+		draw_string_outline(_serif, Vector2(c - nw / 2.0, base_y), t, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px, 14,
+			Color(col if warn else frame_color, 0.3 * _timer_pop))
+	_text(_serif, Vector2(c - nw / 2.0, base_y), t, size_px, col, 4)
+	# per-second sweep under the number (a slow shimmer when there's no time limit)
+	var arc_c := Vector2(c, mid_y + 2.0)
+	var arc_r := 27.0 * K
+	if infinite:
+		var start := fmod(_time * 1.5, TAU)
+		draw_arc(arc_c, arc_r, start, start + 0.8, 16, Color(0.75, 0.9, 1.0, 0.25), 2.0, true)
+	elif secs >= 0:
+		var frac := clampf(_timer_since, 0.0, 1.0)
+		var a_from := PI * 0.2
+		var a_to := PI * 0.8
+		draw_arc(arc_c, arc_r, a_from, a_to, 24, Color(frame_color, 0.15), 2.0, true)
+		draw_arc(arc_c, arc_r, a_to - (a_to - a_from) * (1.0 - frac), a_to, 24,
+			Color(Color(1.0, 0.4, 0.35) if warn else frame_color.lightened(0.2), 0.75), 2.4, true)
 
+
+## Nov 2 (after the polished reference): one angular plate in each bottom corner. On the outer end a raised block with
+## the big percentage (pointed toward the screen edge), stepping down to the row of gold segments (one per bar), with
+## CRAFT POINTS on a tab hanging under the segments. Navy fill, one bright outline in the side's colour, a few small
+## light glints. A full segment is solid gold, the filling one is darker gold up to how full it is.
+## Overdrive: the plate's top line turns warm.
+## Shape points are mockup px for P1 measured from meter_y (701 in the reference).
+const METER_PLATE := [Vector2(48, 0), Vector2(176, 0), Vector2(192, 16), Vector2(494, 16), Vector2(503, 35),
+	Vector2(490, 61), Vector2(447, 61), Vector2(437, 76), Vector2(290, 76), Vector2(280, 61), Vector2(24, 61), Vector2(6, 48)]
 
 func _draw_meter(side: int) -> void:
 	var node = _src[side]["meter"]
@@ -549,148 +734,176 @@ func _draw_meter(side: int) -> void:
 	var stocks := maxi(1, int(round(max_value / meter_per_stock)))
 	var percent := int(value / meter_per_stock * 100.0)
 	var accent := _accent(side)
-	var bright := accent.lightened(0.45)
+	var y0 := meter_y
+	var od := _overdrive(side)
+	var pts: Array = []
+	for q in METER_PLATE:
+		pts.append(Vector2(q.x, q.y + y0))
+	var plate := _pts(pts, side)
+	draw_colored_polygon(plate, Color(0.01, 0.04, 0.15, 0.9))
+	var line := accent.lerp(Color(0.6, 0.92, 1.0), 0.35)
+	_glow_line(_closed(plate), line, 2.0, 0.28)
+	if od:   # the top edge turns warm and glows
+		_glow_line(_pts([pts[0], pts[1], pts[2], pts[3], pts[4]], side), Color(1.0, 0.85, 0.5, 0.75 + 0.25 * sin(_time * 5.0)), 2.2, 0.4)
+	# inner line under the percentage block and small light glints on the corners
+	draw_polyline(_pts([Vector2(40, y0 + 8), Vector2(168, y0 + 8), Vector2(178, y0 + 18)], side), Color(line, 0.35), 1.0, true)
+	draw_colored_polygon(_pts([Vector2(16, y0 + 51), Vector2(42, y0 + 51), Vector2(46, y0 + 56), Vector2(20, y0 + 56)], side), Color(0.85, 0.97, 1.0, 0.9))
+	draw_line(_p(150, y0 + 61, side), _p(170, y0 + 61, side), Color(0.85, 0.97, 1.0, 0.9), 2.4)
+	draw_line(_p(160, y0 - 0.5, side), _p(176, y0 - 0.5, side), Color(0.85, 0.97, 1.0, 0.9), 2.4)
+	# segments
 	var c0 := meter_cells_x.x
 	var c1 := meter_cells_x.y
-	# 1. coloured light panel spreading out of the corner, with diagonal streaks
-	var panel := [Vector2(0, 733), Vector2(33, 740), Vector2(50, 766), Vector2(100, 769), Vector2(110, 779),
-		Vector2(330, 779), Vector2(292, 816), Vector2(0, 816)]
-	var cols := PackedColorArray()
-	for q in panel:
-		cols.append(Color(accent.darkened(0.15), 0.6 * clampf(1.0 - q.x / 340.0, 0.0, 1.0)))
-	draw_polygon(_pts(panel, side), cols)
-	draw_polygon(_pts([Vector2(0, 769), Vector2(100, 769), Vector2(110, 779), Vector2(60, 816), Vector2(0, 816)], side),
-		PackedColorArray([Color(accent, 0.35), Color(accent, 0.25), Color(accent, 0.2), Color(accent, 0.1), Color(accent, 0.3)]))
-	for streak in [[Vector2(190, 763), Vector2(142, 816), 0.9], [Vector2(312, 769), Vector2(268, 816), 0.55],
-			[Vector2(122, 784), Vector2(97, 816), 0.4]]:
-		_glow_line(PackedVector2Array([_p(streak[0].x, streak[0].y, side), _p(streak[1].x, streak[1].y, side)]),
-			Color(bright, streak[2]), 1.6)
-	_glow_line(_pts([Vector2(33, 740), Vector2(0, 770)], side), bright, 2.0)
-	_glow_line(_pts([Vector2(0, 769), Vector2(100, 769), Vector2(110, 779), Vector2(320, 779)], side), Color(bright, 0.9), 1.6)
-	# 2. track behind the cells and the dark strip for the caption
-	draw_colored_polygon(_pts([Vector2(170, 733), Vector2(c1 + 3, 733), Vector2(c1 - 11, 762), Vector2(158, 762)], side),
-		Color(0.02, 0.04, 0.16, 0.6))
-	draw_polygon(_pts([Vector2(150, 762), Vector2(c1 - 11, 762), Vector2(c1 - 20, 783), Vector2(140, 783)], side),
-		PackedColorArray([Color(0.02, 0.04, 0.16, 0.2), Color(0.02, 0.04, 0.16, 0.6), Color(0.02, 0.04, 0.16, 0.6), Color(0.02, 0.04, 0.16, 0.2)]))
-	_glow_line(_pts([Vector2(176, 729), Vector2(300, 729), Vector2(305, 733), Vector2(c1 + 3, 733)], side), Color(frame_color, 0.75), 1.3, 0.25)
-	_sparkle(_p(302, 727, side), 4.0, Color(bright, 0.9))
-	_glow_line(_pts([Vector2(c1 + 18, 740), Vector2(c1 - 4, 765)], side), bright, 2.5)   # end stroke
-	# 3. hexagon holding the percentage
-	var hex := _pts([Vector2(33, 740), Vector2(50, 714), Vector2(163, 714), Vector2(176, 729), Vector2(165, 765), Vector2(50, 765)], side)
-	draw_polygon(hex, PackedColorArray([Color(0.04, 0.07, 0.24, 0.94), Color(0.06, 0.1, 0.3, 0.94), Color(0.03, 0.05, 0.2, 0.94),
-		Color(0.02, 0.04, 0.16, 0.94), Color(0.02, 0.04, 0.16, 0.94), Color(0.03, 0.05, 0.2, 0.94)]))
-	_glow_line(_pts([Vector2(176, 729), Vector2(163, 714), Vector2(50, 714), Vector2(33, 740), Vector2(50, 765), Vector2(150, 765), Vector2(165, 779)], side),
-		Color(bright, 0.95), 1.8)
-	draw_polyline(_pts([Vector2(160, 719), Vector2(53, 719), Vector2(39, 740), Vector2(53, 760), Vector2(148, 760)], side), Color(frame_color, 0.3), 1.0, true)
-	for corner in [Vector2(52, 715), Vector2(150, 715)]:   # little bright ticks on the top corners
-		draw_line(_p(corner.x - 4, corner.y, side), _p(corner.x + 6, corner.y, side), Color(1, 1, 1, 0.9), 2.5, true)
-	# 4. the cells: one per bar (10000 = 100%)
-	var gap := 3.0
+	var gap := 5.0
 	var cell := (c1 - c0 - gap * (stocks - 1)) / stocks
-	var cy := 739.0
-	var ch := 20.0
-	var slant := 8.0
+	var cy := y0 + 27.0
+	var ch := 24.0
+	var slant := 11.0
 	var level := value / meter_per_stock
-	if level > 0.0:   # gold light leaking out under the first cell
-		_glow_line(_pts([Vector2(c0 - 6, cy + ch + 3), Vector2(c0 + 14, cy + ch + 3)], side), Color(meter_color, 0.8), 2.0, 0.4)
 	for i in stocks:
-		var cx0 := c0 + i * (cell + gap)
-		var shape := _slanted(cx0, cx0 + cell, cy, ch, slant, side)
-		draw_colored_polygon(shape, Color(0.05, 0.07, 0.2, 0.95))
+		var x0 := c0 + i * (cell + gap)
+		var shape := _slanted(x0, x0 + cell, cy, ch, slant, side)
+		draw_colored_polygon(shape, Color(0.05, 0.08, 0.22, 0.95))
 		var fill := clampf(level - i, 0.0, 1.0)
 		if fill > 0.0:
-			var top := meter_light
-			var bottom := meter_color
-			draw_polygon(_slanted(cx0, cx0 + cell * fill, cy, ch, slant, side),
-				PackedColorArray([top, top, bottom, bottom]))
-			draw_polygon(_slanted(cx0 + 2, cx0 + cell * fill, cy + 1, ch * 0.3, slant * 0.3, side),
-				PackedColorArray([Color(1, 1, 1, 0.3), Color(1, 1, 1, 0.3), Color(1, 1, 1, 0.0), Color(1, 1, 1, 0.0)]))
-			if fill < 1.0:   # the bar still filling: a bright flare at its tip
-				var tip_x := cx0 + cell * fill
-				draw_line(_p(tip_x + slant, cy, side), _p(tip_x, cy + ch, side), Color(1, 0.98, 0.85, 0.95), 2.5, true)
-				draw_line(_p(tip_x + slant - 4, cy - 1, side), _p(tip_x + slant + 14, cy - 1, side), Color(1, 0.95, 0.7, 0.8), 2.0, true)
-		draw_polyline(_closed(shape), Color(1, 1, 1, 0.85), 1.5, true)
-	# Oct 28: Overdrive: a brighter frame around the Craft Gauge
-	if _overdrive(side):
-		var glow := 0.7 + 0.3 * sin(_time * 5.0)
-		_glow_line(_closed(_slanted(c0 - 5, c1 + 5, cy - 4, ch + 8, slant, side)), Color(1.0, 0.92, 0.6, glow), 2.5, 0.7)
-		_glow_line(_pts([Vector2(176, 729), Vector2(163, 714), Vector2(50, 714), Vector2(33, 740), Vector2(50, 765), Vector2(150, 765), Vector2(165, 779)], side),
-			Color(1.0, 0.95, 0.75, glow), 2.6, 0.6)
-	# 5. text
+			var col := meter_color if fill >= 1.0 else meter_color.darkened(0.3)
+			draw_colored_polygon(_slanted(x0, x0 + cell * fill, cy, ch, slant, side), col)
+			draw_line(_p(x0 + slant, cy + 1.0, side), _p(x0 + slant + (cell - slant * 0.0) * fill, cy + 1.0, side), Color(meter_light, 0.8), 1.4)
+		draw_polyline(_closed(shape), Color(0.0, 0.02, 0.1, 0.9) if fill >= 1.0 else Color(line, 0.35), 1.2, true)
+	# CRAFT POINTS on the hanging tab
+	_spaced_text(_thin, 306, y0 + 70.0, meter_caption, 18, 128.0 * K, Color(1, 1, 1, 0.95), side)
+	# percentage: big italic number with a smaller %, a soft blue glow
 	var num := str(percent)
-	var nsize := 50
-	var ssize := 38
+	var nsize := 56
+	var ssize := 34
 	var nw := _width(_serif, num, nsize)
 	var sw := _width(_serif, "%", ssize)
-	var px := _x(106, side) - (nw + 3.0 + sw) / 2.0
-	var base := 751.0 * K
-	for part in [[num, nsize, px], ["%", ssize, px + nw + 3.0]]:
-		var at := Vector2(part[2], base)
-		draw_string_outline(_serif, at, part[0], HORIZONTAL_ALIGNMENT_LEFT, -1, part[1], 12, Color(1.0, 0.75, 0.3, 0.25))
-		draw_string_outline(_serif, at, part[0], HORIZONTAL_ALIGNMENT_LEFT, -1, part[1], 6, Color(0.25, 0.13, 0.04, 0.95))
-		draw_string(_serif, at, part[0], HORIZONTAL_ALIGNMENT_LEFT, -1, part[1], percent_color)
-	_spaced_text(_thin, 357, 775, meter_caption, 17, 149.0, Color(1, 1, 1, 0.92), side)
+	var px := _x(112, side) - (nw + 2.0 + sw) / 2.0
+	var base := (y0 + 45.0) * K
+	draw_string_outline(_serif, Vector2(px, base), num, HORIZONTAL_ALIGNMENT_LEFT, -1, nsize, 14, Color(accent, 0.22))
+	_text(_serif, Vector2(px, base), num, nsize, percent_color, 6)
+	_text(_serif, Vector2(px + nw + 2.0, base), "%", ssize, percent_color, 5)
 
 
-## The assist row: a small hexagon with the assist's face, its name and the refill bar.
-## Ready: the bar glows gold and READY pulses. While the assist is on screen the bar is empty.
-## A buff it gave (Mary's 5S) shows as a thin teal bar under it, running down.
+## Nov 2 (after the polished reference): the assist card under the portrait, its name centred under it. One angular card:
+## the screen-edge side leans "/", the inner side comes to a point; flat navy backing, one crisp outline, a small
+## team-colour corner at the bottom outer end.
+##   Ready    = portrait in full colour, outline bright.
+##   Cooldown = portrait dimmed (grey), with the countdown diamond (seconds left) over the outer part of the portrait.
+##   Called (on screen) = dimmed, no number yet.
+##   Ready again = a short white blink of the outline.
+## Mary's buff: a thin teal bar under the card. Overdrive Link: a small diamond beside the card.
+## Settings: Assist Gauge group. Data: MatchSetup.assist_hud (engine: NetsuAssist.Render; "frames_left" from the engine,
+## or estimated here from how fast the gauge fills if the engine is an older build).
 func _draw_assist(side: int) -> void:
 	var info: Dictionary = MatchSetup.assist_hud[side] if MatchSetup.assist_hud.size() > side else {}
 	if info.is_empty() or Time.get_ticks_msec() - int(info.get("msec", 0)) > 600:
 		return
 	var accent := _accent(side)
 	var y := assist_y
+	var h := assist_card_height
 	var ratio: float = clampf(float(info.get("ratio", 0.0)), 0.0, 1.0)
 	var phase: int = int(info.get("phase", 0))
 	var ready := phase == 0
-	# hexagon with the face
-	var hexa := [Vector2(42, y), Vector2(94, y), Vector2(108, y + 19), Vector2(94, y + 38), Vector2(42, y + 38), Vector2(28, y + 19)]
-	var shape := _pts(hexa, side)
-	draw_colored_polygon(shape, backing)
+	var x0 := assist_card_x.x
+	var x1 := assist_card_x.y
+	var sl := 12.0
+	var tip := 11.0
+	var card := _pts([Vector2(x0 + sl, y), Vector2(x1, y), Vector2(x1 + tip, y + h * 0.42), Vector2(x1, y + h), Vector2(x0, y + h)], side)
+	draw_colored_polygon(card, Color(0.02, 0.04, 0.14, 0.94))
 	var tex = info.get("icon")
 	if tex is Texture2D:
-		var uvs := PackedVector2Array()
-		for q in hexa:
-			var du: float = (q.x - 68.0) / 80.0
-			if side == 1:
-				du = -du
-			uvs.append(Vector2(0.5 + du, 0.5 + (q.y - (y + 19.0)) / 80.0))
-		draw_polygon(shape, PackedColorArray([Color.WHITE if ready else Color(0.62, 0.64, 0.72)]), uvs, tex)
-	var rim_color := assist_ready_color.lerp(Color.WHITE, 0.3 + 0.3 * sin(_time * 6.0)) if ready else accent.lightened(0.25)
-	_glow_line(_closed(shape), rim_color, 2.0, 0.35 if ready else 0.2)
-	# Oct 28: Overdrive Link marker (the next assist call comes back faster)
-	if _od_link(side):
-		var link_c := Color(1.0, 0.35, 0.25).lerp(Color(1.0, 0.85, 0.45), 0.5 + 0.5 * sin(_time * 5.0))
-		_diamond(_p(14, y + 19, side), 7.0, link_c, true)
-		_diamond(_p(14, y + 19, side), 10.0, Color(link_c, 0.6), false)
-	# name and READY
-	var label := str(info.get("name", "")).to_upper()
-	_side_text(_thin, 116, y + 12, label, 17, Color(1, 1, 1, 0.95), side, 4)
-	if ready:
-		var pulse := 0.65 + 0.35 * sin(_time * 6.0)
-		_side_text(_serif, 236, y + 13, "READY", 18, Color(assist_ready_color, pulse), side, 3)
-	elif phase == 1:
-		_side_text(_thin, 236, y + 12, "IN PLAY", 15, Color(accent.lightened(0.5), 0.9), side, 3)
-	# the refill bar
-	var x0 := 114.0
-	var x1 := 300.0
-	var by := y + 19.0
-	var bh := 11.0
-	draw_colored_polygon(_slanted(x0, x1, by, bh, 5, side), Color(0.03, 0.05, 0.16, 0.95))
-	if ratio > 0.0:
-		var c := assist_ready_color if ready else assist_fill_color
+		var center := _p((x0 + x1 + sl) / 2.0 + 14.0, y + h * 0.5, side)
+		var span := (x1 - x0) * K * 0.86   # how wide the whole icon is drawn: smaller = bigger face
 		if ready:
-			c = c.lerp(Color.WHITE, 0.15 + 0.15 * sin(_time * 6.0))
-		draw_polygon(_slanted(x0, x0 + (x1 - x0) * ratio, by, bh, 5, side),
-			PackedColorArray([c.darkened(0.1), c.lightened(0.3), c, c.darkened(0.3)]))
-	draw_polyline(_closed(_slanted(x0, x1, by, bh, 5, side)), Color(frame_color, 0.75), 1.3, true)
-	# buff time left
+			_icon_poly(card, tex, center, span, Color.WHITE)
+		else:
+			_icon_poly(card, _gray_icon(tex), center, span, assist_gray.darkened(0.4))
+	var line := accent.lerp(Color(0.75, 0.95, 1.0), 0.4)
+	if ready:
+		draw_polyline(_closed(card), Color(accent, 0.25), 6.0, true)
+	draw_polyline(_closed(card), line if ready else Color(line, 0.5), 2.0 if ready else 1.5, true)
+	# team-colour corner at the bottom outer end
+	draw_colored_polygon(_pts([Vector2(x0, y + h), Vector2(x0 + 14, y + h), Vector2(x0 + 4, y + h - 9)], side), accent if ready else Color(accent, 0.5))
+	# ready again: one white blink of the outline
+	var fl: float = _assist_flash[side] / ASSIST_FLASH_TIME
+	if fl > 0.0:
+		draw_polyline(_closed(card), Color(1, 1, 1, fl), 2.6, true)
+	# countdown diamond (cooldown only), over the outer part of the portrait
+	if phase == 2:
+		var secs := _assist_seconds(side, info, ratio)
+		var bc := _p(x0 + sl + 21.0, y + 18.0, side)
+		var br := 21.0 * K
+		var badge := PackedVector2Array([bc + Vector2(0, -br), bc + Vector2(br, 0), bc + Vector2(0, br), bc + Vector2(-br, 0)])
+		draw_colored_polygon(badge, Color(0.01, 0.04, 0.13, 0.97))
+		draw_polyline(_closed(badge), Color(accent, 0.3), 6.0, true)
+		draw_polyline(_closed(badge), line, 2.0, true)
+		if secs > 0:
+			var t := str(secs)
+			var ts := 30
+			var tw := _width(_serif, t, ts)
+			_text(_serif, Vector2(bc.x - tw / 2.0 - 1.0, bc.y + ts * 0.36), t, ts, text_color, 3)
+	# Overdrive Link marker (the next assist call comes back faster)
+	if _od_link(side):
+		_diamond(_p(x1 + tip + 12, y + h * 0.42, side), 6.0, Color(1.0, 0.55, 0.3), true)
+	# buff time left (Mary's 5S)
 	var buff: float = clampf(float(info.get("buff", 0.0)), 0.0, 1.0)
+	var name_y := y + h + 18.0
 	if buff > 0.0:
-		var bx1 := x0 + (x1 - x0) * buff
-		draw_colored_polygon(_slanted(x0, bx1, by + bh + 3.0, 4.0, 2, side), Color(assist_buff_color, 0.9))
-		_side_text(_thin, x1 + 10, by + bh + 7, "♪", 16, assist_buff_color, side, 3)
+		draw_line(_p(x0, y + h + 5.0, side), _p(x0 + (x1 - x0) * buff, y + h + 5.0, side), assist_buff_color, 3.0)
+		name_y += 4.0
+	# name, centred under the card
+	var label := str(info.get("name", "")).to_upper()
+	var nw := _width(_thin, label, 21)
+	var ncx := _x((x0 + x1 + sl) / 2.0, side)
+	_text(_thin, Vector2(ncx - nw / 2.0, name_y * K), label, 21, text_color if ready else Color(0.78, 0.8, 0.86), 4)
+
+
+## Seconds until the assist is ready: from the engine (frames_left) when it sends it, otherwise estimated from how fast
+## the gauge is filling.
+var _cd_start := [{}, {}]
+func _assist_seconds(side: int, info: Dictionary, ratio: float) -> int:
+	if info.has("frames_left") and int(info["frames_left"]) >= 0:
+		return int(ceil(int(info["frames_left"]) / 60.0))
+	var now := Time.get_ticks_msec() / 1000.0
+	var st: Dictionary = _cd_start[side]
+	if st.is_empty() or ratio < float(st.get("r", 0.0)) - 0.001:
+		_cd_start[side] = {"t": now, "r": ratio}
+		return 0
+	var dt := now - float(st["t"])
+	var dr := ratio - float(st["r"])
+	if dt < 0.25 or dr <= 0.0:
+		return 0
+	return int(ceil((1.0 - ratio) * dt / dr))
+
+
+## The assist's picture drawn into a screen-space polygon: the picture's middle sits on `center`, `span` screen px wide.
+func _icon_poly(poly: PackedVector2Array, tex: Texture2D, center: Vector2, span: float, tint: Color) -> void:
+	var uvs := PackedVector2Array()
+	for q in poly:
+		uvs.append(Vector2(0.5 + (q.x - center.x) / span, 0.42 + (q.y - center.y) / span))
+	draw_polygon(poly, PackedColorArray([tint]), uvs, tex)
+
+
+## A grey copy of an assist icon (made the first time it's needed).
+func _gray_icon(tex: Texture2D) -> Texture2D:
+	if _gray_icons.has(tex):
+		return _gray_icons[tex]
+	var out: Texture2D = tex
+	var img := tex.get_image()
+	if img:
+		img = img.duplicate()
+		if img.is_compressed():
+			img.decompress()
+		img.clear_mipmaps()
+		img.convert(Image.FORMAT_RGBA8)
+		for yy in img.get_height():
+			for xx in img.get_width():
+				var c := img.get_pixel(xx, yy)
+				var l := c.r * 0.3 + c.g * 0.59 + c.b * 0.11
+				img.set_pixel(xx, yy, Color(l, l, l, c.a))
+		out = ImageTexture.create_from_image(img)
+	_gray_icons[tex] = out
+	return out
 
 
 ## Text stretched with letter spacing to a set width (screen px); left end at mockup x (right end for P2).

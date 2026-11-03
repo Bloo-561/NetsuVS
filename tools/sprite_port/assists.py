@@ -646,6 +646,10 @@ def write_art(k, a, port):
     from PIL import Image
     import numpy as np
     art = base(k) + 'Artwork/'
+    if os.path.exists(res_file(art + 'Icon.png')) and not FORCE:
+        # Oct 29: the icons are cut from the Netsu iF card art by assist_icons.py; keep them (a new assist still gets one here)
+        if a.get('buff_aura'): write_aura(k, a, port)
+        return art + 'Icon.png'
     fid, hair = a['icon'][:2]
     spec = port.m['frames'][fid]
     src = Image.open(os.path.join(port.root, spec['src'])).convert('RGBA')
@@ -668,7 +672,15 @@ def write_art(k, a, port):
     y0 = max(0, top - side // 10)
     head = src.crop((cx - side // 2, y0, cx + side // 2, y0 + side)).resize((256, 256), Image.LANCZOS)
     save_png(head, art + 'Icon.png')
-    if a.get('buff_aura'):
+    if a.get('buff_aura'): write_aura(k, a, port)
+    return art + 'Icon.png'
+
+def write_aura(k, a, port):
+    """Mary's buff aura textures"""
+    from PIL import Image
+    import numpy as np
+    art = base(k) + 'Artwork/'
+    if True:
         srcs = a['buff_aura'] + [a['buff_pulse']]
         root = port.root
         imgs = [Image.open(os.path.join(root, 'Mary', s)).convert('RGBA') for s in srcs]
