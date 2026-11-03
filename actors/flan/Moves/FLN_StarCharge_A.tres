@@ -10,6 +10,7 @@ MoveState = 113
 Inputs = ExtResource("2")
 Priority = 7
 MoveEnd = 2
+SkipCheck = true
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true

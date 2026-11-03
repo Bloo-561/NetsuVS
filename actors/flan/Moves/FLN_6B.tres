@@ -70,24 +70,6 @@ MoveIndex = 52
 Conditions = 2
 FrameThreshold = Vector2i(0, 999)
 
-[sub_resource type="Resource" id="c57"]
-script = ExtResource("1")
-MoveIndex = 57
-Conditions = 2
-FrameThreshold = Vector2i(0, 999)
-
-[sub_resource type="Resource" id="c58"]
-script = ExtResource("1")
-MoveIndex = 58
-Conditions = 2
-FrameThreshold = Vector2i(0, 999)
-
-[sub_resource type="Resource" id="c59"]
-script = ExtResource("1")
-MoveIndex = 59
-Conditions = 2
-FrameThreshold = Vector2i(0, 999)
-
 [resource]
 script = ExtResource("3")
 MoveName = "6B"
@@ -95,7 +77,7 @@ MoveState = 120
 Inputs = ExtResource("2")
 Priority = 6
 MoveEnd = 2
-CanCancelTo = [SubResource("c41"), SubResource("c42"), SubResource("c43"), SubResource("c44"), SubResource("c45"), SubResource("c46"), SubResource("c48"), SubResource("c49"), SubResource("c50"), SubResource("c51"), SubResource("c52"), SubResource("c57"), SubResource("c58"), SubResource("c59")]
+CanCancelTo = [SubResource("c41"), SubResource("c42"), SubResource("c43"), SubResource("c44"), SubResource("c45"), SubResource("c46"), SubResource("c48"), SubResource("c49"), SubResource("c50"), SubResource("c51"), SubResource("c52")]
 VariablesRequirement = null
 VariablesChange = null
 CanBeOverrided = true
