@@ -1,0 +1,184 @@
+[gd_resource type="Resource" script_class="HitboxSettings" format=3]
+
+[ext_resource type="Script" uid="uid://dxuwyhds75mce" path="res://engine/sakuga/Resources/HitboxSettings.cs" id="1"]
+[ext_resource type="Resource" uid="uid://cc6na07fk5pf2" path="res://actors/_shared/sakuga/HitboxTemplates/Box_Neutral_std.tres" id="2"]
+[ext_resource type="Script" uid="uid://c0y740kryylcs" path="res://engine/sakuga/Resources/HitboxElement.cs" id="3"]
+
+[sub_resource type="Resource" id="H0"]
+script = ExtResource("3")
+Center = Vector2i(-1000, 6000)
+Size = Vector2i(5000, 10000)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="H1"]
+script = ExtResource("3")
+Center = Vector2i(500, 12500)
+Size = Vector2i(2400, 6000)
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+
+[sub_resource type="Resource" id="P0"]
+script = ExtResource("3")
+Center = Vector2i(5400, 8100)
+Size = Vector2i(11600, 18400)
+HitboxType = 2
+SelfSuperGaugeGain = 25
+OpponentSuperGaugeGain = 10
+HitEffectIndex = 0
+BlockEffectIndex = 1
+ClashEffectIndex = 2
+AirHitKnockbackGravity = 300000
+AirBlockKnockbackGravity = 30
+SelfPushbackForce = 0
+SelfPushbackDuration = 0
+BounceXIntensity = 0
+BounceYIntensity = 0
+HitType = 1
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Center = Vector2i(2500, 5500)
+Size = Vector2i(5000, 5000)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 300
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 600
+SelfHitStopDuration = 13
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 2
+GroundHitReaction = 8
+CrouchHitReaction = 8
+GroundHitKnockback = Vector2i(-7500, 81433)
+GroundHitKnockbackGravity = 174500
+GroundHitstun = 90
+GroundBlockKnockback = Vector2i(-12000, 0)
+GroundBlockstun = 18
+AirHitstunType = 2
+AirHitReaction = 8
+AirHitKnockback = Vector2i(-7500, 81433)
+AirHitstun = 90
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 18
+AirHitKnockbackGravity = 174500
+NetsuIgnoreRecoveryScaling = true
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+Center = Vector2i(4000, 9500)
+Size = Vector2i(5000, 5000)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 300
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 600
+SelfHitStopDuration = 13
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 2
+GroundHitReaction = 8
+CrouchHitReaction = 8
+GroundHitKnockback = Vector2i(-7500, 81433)
+GroundHitKnockbackGravity = 174500
+GroundHitstun = 90
+GroundBlockKnockback = Vector2i(-12000, 0)
+GroundBlockstun = 18
+AirHitstunType = 2
+AirHitReaction = 8
+AirHitKnockback = Vector2i(-7500, 81433)
+AirHitstun = 90
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 18
+AirHitKnockbackGravity = 174500
+NetsuIgnoreRecoveryScaling = true
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+Center = Vector2i(2000, 13500)
+Size = Vector2i(5000, 5000)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 300
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 600
+SelfHitStopDuration = 13
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 2
+GroundHitReaction = 8
+CrouchHitReaction = 8
+GroundHitKnockback = Vector2i(-7500, 81433)
+GroundHitKnockbackGravity = 174500
+GroundHitstun = 90
+GroundBlockKnockback = Vector2i(-12000, 0)
+GroundBlockstun = 18
+AirHitstunType = 2
+AirHitReaction = 8
+AirHitKnockback = Vector2i(-7500, 81433)
+AirHitstun = 90
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 18
+AirHitKnockbackGravity = 174500
+NetsuIgnoreRecoveryScaling = true
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("3")
+Center = Vector2i(6000, 8000)
+Size = Vector2i(3000, 6000)
+HitboxType = 1
+OpponentSuperGaugeGain = 100
+SelfSuperGaugeGain = 300
+HitEffectIndex = 6
+HitType = 1
+BaseDamage = 600
+SelfHitStopDuration = 13
+OpponentHitStopDuration = 13
+BlockStopDuration = 13
+DamageScalingSubtract = 10
+GroundHitstunType = 2
+GroundHitReaction = 8
+CrouchHitReaction = 8
+GroundHitKnockback = Vector2i(-7500, 81433)
+GroundHitKnockbackGravity = 174500
+GroundHitstun = 90
+GroundBlockKnockback = Vector2i(-12000, 0)
+GroundBlockstun = 18
+AirHitstunType = 2
+AirHitReaction = 8
+AirHitKnockback = Vector2i(-7500, 81433)
+AirHitstun = 90
+AirBlockKnockback = Vector2i(-12000, 0)
+AirBlockstun = 18
+AirHitKnockbackGravity = 174500
+NetsuIgnoreRecoveryScaling = true
+
+[resource]
+script = ExtResource("1")
+Pushbox = ExtResource("2")
+Hitboxes = [SubResource("H0"), SubResource("H1"), SubResource("P0"), SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]

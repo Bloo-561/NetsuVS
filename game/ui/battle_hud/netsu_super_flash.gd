@@ -152,6 +152,16 @@ func _on_flash(side: int, pos: Vector3, cost: int, frames: int) -> void:
 	if _warm > 0:
 		_warm = 1
 		_warm_tick()
+	if cost == -3:
+		_on_burst(side, pos, frames)
+		return
+	if cost == -4:
+		return   # Nov 3: the PUNISH ring / text was removed
+	if cost == -5:
+		for b in _bb:   # Nov 3: the Burst's explosion follows the Burster while it lasts
+			if b["side"] == side:
+				b["pos"] = pos
+		return
 	# kind: 0 EX, 1 super, 2 Assist Cancel, 3 another flash, 4 Roman Cancel (cost -2; Oct 28: removed from the
 	# engine, nothing sends -2 any more). Oct 29: EX moves cost 10000 (1 bar), supers 30000 (units x5).
 	var kind := 4 if cost == -2 else (2 if cost < 0 else (1 if cost >= 30000 else (0 if cost >= 10000 else 3)))
@@ -189,7 +199,142 @@ func _on_flash(side: int, pos: Vector3, cost: int, frames: int) -> void:
 				"size": spark_size * _rng.randf_range(0.5, 1.3), "color": col})
 
 
+## Nov 3 (BlazBlue style): a BURST. The engine sends cost -3 as it starts (SakugaActor.NetsuBurstBegin). A white flash
+## over everything, a sphere of light in her colour bursting out from her chest with a white-hot core, long spiky
+## rays, two shockwave rings racing out and a shower of sparks; the stage dims while the fight is held.
+@export_group("Burst (the defensive Burst)")
+@export var bb_time: float = 0.6          ## seconds the explosion lasts
+@export var bb_radius: float = 1.6         ## metres: the sphere at its biggest
+@export var bb_ray_count: int = 26
+@export var bb_ray_length: float = 2.2     ## metres
+@export var bb_ring_to: float = 6.5        ## metres: how far the shockwaves go
+@export var bb_flash: float = 0.25         ## white flash over the screen (0-1)
+@export var bb_dim: float = 0.35            ## stage darkness while it's held
+@export var bb_sparks: int = 22
+@export var bb_beam_length: float = 3.2    ## metres each way: the beams through her (was the whole screen)
+
+var _bb: Array = []
+var _bb_flash := 0.0
+## Nov 3: the Burst's reach, drawn as a dome (the Burst hitbox: 10 m x 8 m, centred 1.5 m up = 0.6 m above the chest)
+@export var bb_area_half: Vector2 = Vector2(5.0, 4.0)
+@export var bb_area_lift: float = 0.6
+@export var bb_area_startup: float = 0.25      ## seconds until the Burst can hit (16 frames)
+@export var bb_area_active_end: float = 0.33   ## seconds: the end of its active frames (frame 20)
+@export var punish_color: Color = Color(1.0, 0.16, 0.14)
+var _punish: Array = []
+var _punish_font: Font
+
+
+## Nov 3: the Burster's invincibility just ended: a red ring snaps in on her and PUNISH! pops over her head.
+func _on_punish(side: int, pos: Vector3) -> void:
+	_punish = _punish.filter(func(p): return p["side"] != side)
+	_punish.append({"side": side, "pos": pos, "t": 0.0})
+	queue_redraw()
+
+
+func _draw_punish(p: Dictionary) -> void:
+	var t: float = p["t"]
+	var k := clampf(t / 0.6, 0.0, 1.0)
+	var pos: Vector3 = p["pos"]
+	var c := _to_screen(pos)
+	var metre := (_to_screen(pos + Vector3(0, 1, 0)) - c).length()
+	if metre <= 0.0:
+		return
+	var snap := 1.0 - pow(1.0 - clampf(t / 0.15, 0.0, 1.0), 3.0)
+	var r := lerpf(1.8, 0.75, snap) * metre
+	draw_arc(c, r, 0.0, TAU, 64, Color(punish_color, 1.0 - k), 10.0, true)
+	draw_arc(c, r * 1.12, 0.0, TAU, 64, Color(punish_color, 0.4 * (1.0 - k)), 2.0, true)
+	if _punish_font == null:
+		_punish_font = NetsuUI.sans(4, true)
+	var txt := "PUNISH!"
+	var size_px := int(clampf(metre * 0.45, 34.0, 64.0))
+	var w := _punish_font.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px).x
+	var head := _to_screen(pos + Vector3(0, 1.1 + 0.15 * snap, 0))
+	var tc := Color(punish_color.lightened(0.3), 1.0 - k * k)
+	for i in 2:   # this layer adds light: twice for a solid read
+		draw_string(_punish_font, head - Vector2(w / 2.0, 0), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px, tc)
+
+
+func _on_burst(side: int, pos: Vector3, frames: int) -> void:
+	var key := "%d:burst" % side
+	var now := Time.get_ticks_msec()
+	if float(now - int(_last.get(key, -100000))) < repeat_guard * 1000.0:
+		return
+	_last[key] = now
+	var col := p1_color if side == 0 else p2_color
+	if MatchSetup.has_method("side_color"):
+		col = MatchSetup.side_color(side).lerp(Color(1, 1, 1), 0.2)
+	var lens: Array = []
+	for i in bb_ray_count:
+		lens.append(_rng.randf_range(0.45, 1.0))
+	_bb = _bb.filter(func(b): return b["side"] != side)
+	_bb.append({"side": side, "pos": pos, "t": 0.0, "color": col, "lens": lens, "spin": _rng.randf() * TAU})
+	_bb_flash = bb_flash
+	_dim_target = bb_dim
+	_dim_hold = maxf(_dim_hold, float(frames) / 60.0 + dim_in)
+	_pause_kind = 0
+	for i in bb_sparks:
+		var ang := _rng.randf() * TAU
+		var dir := Vector3(cos(ang), sin(ang), 0.0)
+		_sparks.append({"side": side, "pos": pos, "vel": dir * spark_speed * _rng.randf_range(1.2, 2.6),
+			"t": -_rng.randf_range(0.0, 0.06), "time": spark_time * _rng.randf_range(0.8, 1.4),
+			"size": spark_size * _rng.randf_range(0.8, 1.8), "color": col.lerp(Color(1, 0.95, 0.8), _rng.randf() * 0.5)})
+
+
+func _draw_bb(b: Dictionary) -> void:
+	var t: float = b["t"]
+	var k := clampf(t / bb_time, 0.0, 1.0)
+	var a := 1.0 - k
+	var pos: Vector3 = b["pos"]
+	var c := _to_screen(pos)
+	var metre := (_to_screen(pos + Vector3(0, 1, 0)) - c).length()
+	if metre <= 0.0:
+		return
+	var col: Color = b["color"]
+	var grow := 1.0 - pow(1.0 - clampf(t / 0.09, 0.0, 1.0), 3.0)   # bursts out in ~5 frames
+	# spiky rays, slowly turning
+	var lens: Array = b["lens"]
+	for i in lens.size():
+		var ang: float = b["spin"] + t * 0.8 + TAU * float(i) / float(lens.size())
+		var d := Vector2(cos(ang), sin(ang))
+		var n := Vector2(-d.y, d.x)
+		var length: float = bb_ray_length * metre * float(lens[i]) * grow * (1.0 + 0.25 * k)
+		var half := 0.06 * metre * (1.0 - k * 0.5)
+		draw_polygon(PackedVector2Array([c + n * half, c + d * length, c - n * half]),
+			PackedColorArray([Color(1, 0.96, 0.85, 0.75 * a), Color(col, 0.0), Color(1, 0.96, 0.85, 0.75 * a)]))
+	# Nov 3 (second pass): long beams of light slashing right across the screen through her
+	var reach := size.length()
+	var beams := [-0.42, 0.18, -0.12]
+	for j in beams.size():
+		var bk := clampf((t - 0.03 * j) / (bb_time * 0.55), 0.0, 1.0)
+		if bk <= 0.0 or bk >= 1.0:
+			continue
+		var ang: float = b["spin"] * 0.1 + float(beams[j])
+		var d := Vector2(cos(ang), sin(ang))
+		var n := Vector2(-d.y, d.x)
+		var w := (16.0 - 5.0 * j) * (1.0 - bk) * metre / 120.0 + 1.5
+		var l := minf(reach, bb_beam_length * metre) * (0.4 + 0.6 * sqrt(bk))
+		var beam_col := Color(col.lerp(Color.WHITE, 0.45), 0.85 * (1.0 - bk))
+		draw_polygon(PackedVector2Array([c - d * l + n * w * 0.2, c + n * w, c + d * l + n * w * 0.2, c + d * l - n * w * 0.2, c - n * w, c - d * l - n * w * 0.2]),
+			PackedColorArray([Color(beam_col, 0.0), beam_col, Color(beam_col, 0.0), Color(beam_col, 0.0), beam_col, Color(beam_col, 0.0)]))
+	# the sphere: her colour, a white-hot core
+	var r := bb_radius * metre * grow * (1.0 + 0.15 * k)
+	draw_texture_rect(_glow, Rect2(c - Vector2(r, r), Vector2(r, r) * 2.0), false, Color(col, 0.95 * a))
+	draw_texture_rect(_glow, Rect2(c - Vector2(r, r) * 0.55, Vector2(r, r) * 1.1), false, Color(1, 1, 1, a))
+
+
 func _process(delta: float) -> void:
+	if not _punish.is_empty():
+		for p in _punish:
+			p["t"] += delta
+		_punish = _punish.filter(func(p): return p["t"] < 0.6)
+		queue_redraw()
+	if not _bb.is_empty() or _bb_flash > 0.0:
+		for b in _bb:
+			b["t"] += delta
+		_bb = _bb.filter(func(b): return b["t"] < bb_time)
+		_bb_flash = maxf(0.0, _bb_flash - delta * 3.0)
+		queue_redraw()
 	if _warm > 0:
 		_warm_tick()
 		return
@@ -252,6 +397,11 @@ func _to_screen(world: Vector3) -> Vector2:
 
 
 func _draw() -> void:
+	for b in _bb:
+		_draw_bb(b)
+
+	if _bb_flash > 0.0:
+		draw_rect(Rect2(Vector2.ZERO, size), Color(1, 1, 1, _bb_flash))
 	for b in _bursts:
 		_draw_burst(b)
 	for p in _sparks:

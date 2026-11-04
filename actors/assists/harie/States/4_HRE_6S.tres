@@ -14,7 +14,7 @@
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("4")
 Target = 2
-MinDistance = 75000
+MinDistance = 38000
 
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("5")
@@ -67,7 +67,7 @@ Velocity = 0
 
 [sub_resource type="Resource" id="s13"]
 script = ExtResource("9")
-StateIndex = 5
+StateIndex = 10
 
 [sub_resource type="Resource" id="s14"]
 script = ExtResource("3")
@@ -94,5 +94,5 @@ TransitionEvents = [SubResource("s5"), SubResource("s10")]
 OnEnterEvents = [SubResource("netsu_ev1"), SubResource("sfx_0_0")]
 OnTickEvents = null
 OnExitEvents = null
-OnHitConfirmEvents = null
+OnHitConfirmEvents = [SubResource("s14")]
 OnHitReactionEvents = null

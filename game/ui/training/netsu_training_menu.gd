@@ -246,6 +246,12 @@ func _tab_rows(id: String) -> Array:
 				_pick("Wake-up Action", "wakeup_action", range(9),
 					["None", "Jump", "Back Jump", "Backdash", "5A", "2A", "Assist Call", "Burst", "Recording"],
 					"Done on the first frame the dummy can act after getting up (a reversal). Recording plays your recording."),
+				{"type": "spacer"},
+				_pick("Auto Burst", "auto_burst", [0, 1, 2, 3], ["Disabled", "On Hit", "On Block", "Hit or Block"],
+					"The dummy Bursts by itself once it has taken Auto Burst After hits in one combo (On Hit), blocked that many in one string (On Block), or either. Practise baiting it: stop and guard, or jump-cancel and air-block."),
+				_pick("Auto Burst After", "auto_burst_hits", range(1, 11), ["1 Hit", "2 Hits", "3 Hits", "4 Hits", "5 Hits",
+					"6 Hits", "7 Hits", "8 Hits", "9 Hits", "10 Hits"],
+					"How many hits (or blocked hits) before the dummy's Auto Burst. It needs a full Burst gauge (Gauges tab)."),
 			]
 		"gauges":
 			var health := [[100, 75, 50, 25, 10, 0], ["100%", "75%", "50%", "25%", "10%", "No Refill"]]
@@ -512,7 +518,7 @@ func _apply_quick() -> void:
 	var d1 := int(cfg.P1SelectedDevice) if cfg else 0
 	var d2 := int(cfg.P2SelectedDevice) if cfg else -1
 	MatchSetup.start_match(int(_quick["p1"]), int(_quick["p2"]), d1, d2, int(_quick["st"]),
-		int(_quick["c1"]), int(_quick["c2"]), int(_quick["a1"]), int(_quick["a2"]))
+		int(_quick["c1"]), int(_quick["c2"]), int(_quick["a1"]), int(_quick["a2"]), true)   # Nov 3: no VS screen
 
 
 # --- Drawing --------------------------------------------------------------------------------------

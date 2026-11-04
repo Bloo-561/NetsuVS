@@ -49,6 +49,7 @@ public partial class SakugaParameters : Node
 		{
 			SuperGauge.Initialize(_owner.Data);
 		}
+		NetsuApplyCraftCap();   // Nov 2: 300% until Overdrive
 		if (Will != null)
 		{
 			Will.Initialize(_owner.Data);
@@ -88,6 +89,7 @@ public partial class SakugaParameters : Node
 			Will.State = WillState.WORKING;
 		}
 		NetsuOverdriveOn = false;   // Oct 28: Overdrive is once per round
+		NetsuApplyCraftCap();       // Nov 2: back to the 300% cap (a 4th bar kept from an Overdrive is lost)
 		NetsuMeterRoundFrame = 0;   // Oct 29: the low-health trickle's frame counter starts again each round
 		NetsuMeterCooldown = 0;     // Oct 29: no cooldown carried into a new round
 		NetsuOverdriveLinkPending = false;
@@ -125,6 +127,7 @@ public partial class SakugaParameters : Node
 
 	public void Tick()
 	{
+		NetsuApplyCraftCap();
 		if (GameManager.Instance.Monitor.MatchState == MatchState.ROUND_RUNNING)
 		{
 			if (SuperGauge != null)
@@ -187,6 +190,31 @@ public partial class SakugaParameters : Node
 	public const int OverdriveDamageTakenPercent = 90;
 	public const bool OverdriveCharacterExtras = false;
 
+	/// <summary>Nov 2 2026 (TamaDeez): the Craft Gauge holds 3 bars (300%) normally. In Overdrive the cap goes up to the
+	/// full DataContainer.MaxSuperGauge (4 bars, 400%) and the fighter gains a bar (OverdriveGaugeBonus), so an EX into a
+	/// S-Craft (100% + 300%) is the comeback combo. The cap is SuperGauge.MaxValue (every gain / spend clamps to it); it is
+	/// worked out from NetsuOverdriveOn, so rollback only needs that flag (ParametersState calls this after loading).</summary>
+	public const int CraftCapNormal = 30000;
+
+	public int NetsuCraftCap()
+	{
+		int full = _owner != null && _owner.Data != null ? _owner.Data.MaxSuperGauge : 40000;
+		return NetsuOverdriveOn ? full : Mathf.Min(CraftCapNormal, full);
+	}
+
+	public void NetsuApplyCraftCap()
+	{
+		if (SuperGauge == null || _owner == null || _owner.Data == null)
+		{
+			return;
+		}
+		SuperGauge.MaxValue = NetsuCraftCap();
+		if (SuperGauge.CurrentValue > SuperGauge.MaxValue)
+		{
+			SuperGauge.CurrentValue = SuperGauge.MaxValue;
+		}
+	}
+
 	/// <summary>Overdrive has started this round (and stays on until the round ends).</summary>
 	public bool NetsuOverdriveOn;
 
@@ -226,6 +254,7 @@ public partial class SakugaParameters : Node
 		}
 		NetsuOverdriveOn = true;
 		NetsuOverdriveLinkPending = true;
+		NetsuApplyCraftCap();   // Nov 2: the cap goes up to 400% before the bonus bar
 		if (SuperGauge != null)
 		{
 			SuperGauge.SetSuperGauge(SuperGauge.CurrentValue + OverdriveGaugeBonus);

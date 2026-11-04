@@ -1,8 +1,9 @@
 # Command List (Nov 2 2026)
 
 A three-tab command list: **SYSTEM**, **CHARACTERS**, **ASSISTS**. Each tab has a scrollable list of moves (a still
-from the move, its name, tags and input) and, on the right, the move **playing on a loop** with its description
-and frame data. Opened from the pause menu (Command List) and the main menu (COMMAND LIST). Pure GDScript:
+from the move, its name, tags and input) and, on the right, the move **played out in Thor's Hall against an
+opponent**, looping, with its description and frame data. On CHARACTERS each fighter's moves are split into four
+category tabs: **NORMALS · CRAFTS · S-CRAFTS · UNIVERSAL** (with move counts; empty ones are greyed). Opened from the pause menu (Command List) and the main menu (COMMAND LIST). Pure GDScript:
 **no Build needed.**
 
 ## It updates itself
@@ -39,10 +40,24 @@ yet" in grey. Give it a description in its fighter's `command_list.json` (below)
   (×N for N boxes), guard = its HitType (HIGH / MID / LOW), or THROW / COUNTER.
 - **Tags:** EX (1–2 bars), OVERHEAD (a ground move that hits high), LOW (a special that hits low), INVINCIBLE (no
   hurtbox from frame 1 to the first active frame), PROJECTILE, AIR OK (ground and air versions).
-- **Preview** (`netsu_anim_preview.gd`): plays the move's state(s) from their AnimationData: each key's sprite
-  layers with Offset / Scale / Rotation / FlipX / FlipY, 60 frames a second, looping. All of a fighter's moves are
-  drawn at the same size (her standing pose sets it). Moves play in place: movement isn't simulated.
+- **List stills** (`netsu_anim_preview.gd`): one frame of each move, all of a fighter's moves at the same size.
 
+## The live preview (`netsu_move_sim.gd` + `netsu_move_stage.gd`)
+- **The stage:** `stages/thors_hall_3d/thors_hall_3d.tscn`, the real 3D stage, loaded on a thread into a
+  SubViewport with a camera like the fight's (30° field of view, level), following both fighters and pulling back
+  when they separate or go up. A dim gradient shows until it has loaded.
+- **The opponent:** in a match, the fighter you're playing against; from the main menu, the next fighter on the
+  roster (a mirror match if there's no other fighter to load). It starts at the move's reach (its first attack box,
+  clamped 0.75–3 m) and stands idle, getting hit.
+- **The simulation** runs the engine's own data for ~4 seconds: the move's states (and `states` from the notes, in
+  order), their TransitionEvents / OnEnter / OnTick / OnExit / OnHitConfirm events (velocity, gravity, inertia,
+  state changes, spawns), hitboxes against the opponent's hurtboxes, hit stop on both, hitstun, knockback, the
+  stance's HitReactions (so the opponent flinches, launches, knocks down and lands with the real reaction
+  states), pushboxes and hit sparks. Projectiles and summons come from the fighter's SpawnablesList
+  (`SpawnActorAction`) and hit too.
+- **Assists:** the caller (your fighter, or the System tab's) plays its Assist Call state, the assist appears at its
+  `SpawnOffset` and does the move into the opponent.
+- **Size:** 1 sprite pixel = 0.00275 m (the fighters' Sprite3D pixel_size) × NetsuScale, so sizes match the fight.
 ## Notes: `actors/<fighter>/command_list.json`
 Keyed by the **engine** move name (`MoveSettings.MoveName`, e.g. "Teleport Slash", "j.5A"). Every key is optional.
 
@@ -85,15 +100,19 @@ Keyed by the **engine** move name (`MoveSettings.MoveName`, e.g. "Teleport Slash
   `states` for the preview, `name`, `desc`, `data`. `"*"` holds the rows every assist shows (Calling, Assist Cancel).
 
 ## Controls
-Up / Down: pick a move. Left / Right (or LT / RT): the next fighter / page. LB / RB (keyboard Q / E, Tab, Page Up /
-Down): the next tab. A: play the move again. B: back. Mouse: click a tab or a move, wheel to scroll.
+Up / Down: pick a move. **Characters tab:** Left / Right = NORMALS / CRAFTS / S-CRAFTS / UNIVERSAL, LT / RT (keyboard
+Page Up / Down) = the next fighter. **System / Assists:** Left / Right (or LT / RT) = the next page / assist.
+LB / RB (keyboard Q / E, Tab): the next tab. A: play the move again. B: back. Mouse: click a tab, a category or a
+move, wheel to scroll. Each fighter remembers its category and each category its selected move.
 
 ## Files
 | File | What |
 |---|---|
 | `game/ui/command_list/netsu_command_list.gd` | the screen (`NetsuCommandList`, emits `closed`) |
 | `game/ui/command_list/netsu_move_catalog.gd` | reads the data (moves, inputs, frame data, assists, system topics) |
-| `game/ui/command_list/netsu_anim_preview.gd` | plays AnimationData |
+| `game/ui/command_list/netsu_anim_preview.gd` | the list stills |
+| `game/ui/command_list/netsu_move_sim.gd` | `NetsuMoveSim`: plays a move against an opponent from the engine data, records the frames |
+| `game/ui/command_list/netsu_move_stage.gd` | `NetsuMoveStage`: Thor's Hall + camera + draws the recorded frames |
 | `game/ui/command_list/netsu_input_glyphs.gd` | draws inputs (arrows, A/B/C/S circles) |
 | `game/ui/command_list/netsu_cl_illustration.gd` | the drawn examples on the System tab |
 | `data/command_list/system.json`, `assists.json` | System topics, assist notes |
@@ -103,7 +122,10 @@ Down): the next tab. A: play the move again. B: back. Mouse: click a tab or a mo
 | `tools/frame_data/make_sheets.py` | reads the new notes format too (`input` notes only) |
 
 ## Known limits
-- Previews don't move the fighter across the screen (dashes and lunges animate in place) and show no opponent.
+- The preview is a re-enactment in GDScript, not the match engine: it follows the data's events, hitboxes and
+  reactions, but conditions it can't judge (inputs held, meter, counter-hit, an opponent attacking) take the
+  plain path, the opponent never blocks, and effects drawn by C# code or shaders (cut-ins, screen flashes, the
+  Will / Overdrive auras) aren't shown. Counters show the stance but nothing hits them.
 - A move whose first state doesn't attack (a dash before its strike) needs `states` in its notes to show the strike.
 - On block is "—" outside the engine's normal / special rule; put a value in `data` for moves where it matters.
 - The System tab's numbers (costs, frames) are text in `system.json`, not read from the engine.

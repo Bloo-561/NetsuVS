@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bjpttaax4o3kc" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuPlaceAction.cs" id="e7"]
 [ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="e8"]
 [ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="e9"]
+[ext_resource type="Script" uid="uid://brs4f5rp741x" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuSlideToAction.cs" id="sl1"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="sl2"]
 [ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="e10"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRestandAction.cs" id="e11"]
 [ext_resource type="Resource" path="res://actors/cecilia/AnimationData/77_CEC_214B_SL_AnimData.tres" id="e12"]
@@ -45,7 +47,7 @@ Actions = [SubResource("s4"), SubResource("s5"), SubResource("s6")]
 
 [sub_resource type="Resource" id="s8"]
 script = ExtResource("e7")
-Target = 1
+Target = 2
 Offset = Vector2i(-7000, 0)
 KeepHeight = true
 
@@ -116,7 +118,7 @@ Frame = 9
 
 [sub_resource type="Resource" id="z2"]
 script = ExtResource("e7")
-Target = 1
+Target = 2
 Offset = Vector2i(9000, 0)
 KeepHeight = true
 
@@ -125,6 +127,36 @@ script = ExtResource("e3")
 Conditions = [SubResource("z1")]
 Actions = [SubResource("z2")]
 
+[sub_resource type="Resource" id="slc1"]
+script = ExtResource("sl2")
+MinFrame = 1
+MaxFrame = 5
+
+[sub_resource type="Resource" id="sla1"]
+script = ExtResource("sl1")
+Offset = -7000
+Step = 6000
+
+[sub_resource type="Resource" id="slev1"]
+script = ExtResource("e3")
+Conditions = [SubResource("slc1")]
+Actions = [SubResource("sla1")]
+
+[sub_resource type="Resource" id="slc2"]
+script = ExtResource("sl2")
+MinFrame = 6
+MaxFrame = 9
+
+[sub_resource type="Resource" id="sla2"]
+script = ExtResource("sl1")
+Offset = 9000
+Step = 4000
+
+[sub_resource type="Resource" id="slev2"]
+script = ExtResource("e3")
+Conditions = [SubResource("slc2")]
+Actions = [SubResource("sla2")]
+
 [resource]
 script = ExtResource("e13")
 StateName = "Command Dash: Lightning Slash-Through"
@@ -132,8 +164,9 @@ Type = 2
 AnimationData = ExtResource("e12")
 TransitionEvents = [SubResource("s3")]
 OnEnterEvents = [SubResource("s7")]
-OnTickEvents = [SubResource("s10"), SubResource("s15"), SubResource("s18"), SubResource("zev1")]
+OnTickEvents = [SubResource("slev1"), SubResource("slev2"), SubResource("s15"), SubResource("s18")]
 OnExitEvents = [SubResource("s22")]
 OnHitConfirmEvents = null
 NetsuKeepBlockSide = true
+NetsuKeepBlockSideFlipFrame = 10
 AIFlags = 18

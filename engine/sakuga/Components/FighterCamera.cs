@@ -130,7 +130,8 @@ public partial class FighterCamera : Camera3D
 
 	private static bool NetsuShowsStage(SakugaActor a)
 	{
-		return a?.StateManager?.GetCurrentState()?.NetsuShowStage == true;
+		SakugaEngine.Resources.FighterState st = a?.StateManager?.GetCurrentState();
+		return st != null && (st.NetsuShowStage || st.NetsuFrameBoth);   // Nov 3: NetsuFrameBoth frames them without clearing the backdrop
 	}
 
 	private const float DELTA = 1f / 6f;

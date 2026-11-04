@@ -54,5 +54,4 @@ BounceYIntensity = 0
 
 [resource]
 script = ExtResource("e3")
-Pushbox = ExtResource("e1")
 Hitboxes = [SubResource("s1"), SubResource("s2"), SubResource("s3")]

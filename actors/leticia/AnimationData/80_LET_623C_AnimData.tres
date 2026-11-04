@@ -26,6 +26,7 @@
 [ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_Fin.tres" id="24"]
 [ext_resource type="Resource" uid="uid://2f860fovnw31" path="res://actors/leticia/Hitboxes/37_Hitbox_CometBurst_6.tres" id="25"]
 [ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="26"]
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/LET_623C_R1b.tres" id="nx_up"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("2")
@@ -377,8 +378,14 @@ AtFrame = 62
 animationStage = 2
 HitboxData = ExtResource("25")
 
+[sub_resource type="Resource" id="nx_up_hs"]
+script = ExtResource("13")
+AtFrame = 7
+animationStage = 1
+HitboxData = ExtResource("nx_up")
+
 [resource]
 script = ExtResource("26")
 Duration = 240
 Animations = [SubResource("s2"), SubResource("s4"), SubResource("s6"), SubResource("s8"), SubResource("s10"), SubResource("s12"), SubResource("s14"), SubResource("s16"), SubResource("s18"), SubResource("s20"), SubResource("s22"), SubResource("s24"), SubResource("s26"), SubResource("s28"), SubResource("s30"), SubResource("s32"), SubResource("s34"), SubResource("s36"), SubResource("s38"), SubResource("s40"), SubResource("s42"), SubResource("s44"), SubResource("s46")]
-Hitboxes = [SubResource("s47"), SubResource("s48"), SubResource("s49"), SubResource("s50"), SubResource("s51"), SubResource("s52"), SubResource("s53"), SubResource("s54"), SubResource("s55"), SubResource("s56"), SubResource("s57"), SubResource("s58"), SubResource("s59"), SubResource("s60"), SubResource("s61"), SubResource("s62"), SubResource("s63"), SubResource("s64"), SubResource("s65")]
+Hitboxes = [SubResource("s47"), SubResource("s48"), SubResource("nx_up_hs"), SubResource("s49"), SubResource("s50"), SubResource("s51"), SubResource("s52"), SubResource("s53"), SubResource("s54"), SubResource("s55"), SubResource("s56"), SubResource("s57"), SubResource("s58"), SubResource("s59"), SubResource("s60"), SubResource("s61"), SubResource("s62"), SubResource("s63"), SubResource("s64"), SubResource("s65")]

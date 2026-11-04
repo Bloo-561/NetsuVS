@@ -113,7 +113,9 @@ func _find_mode(wanted: String) -> int:
 ##   p1_assist / p2_assist: index in data/assist_list.tres, -2 = the last one picked
 ##                          (assist_picks). Everyone has an assist: -1 becomes the first one.
 func start_match(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_device: int = -1,
-		stage: int = -1, p1_color: int = -1, p2_color: int = -1, p1_assist: int = -2, p2_assist: int = -2) -> void:
+		stage: int = -1, p1_color: int = -1, p2_color: int = -1, p1_assist: int = -2, p2_assist: int = -2,
+		skip_vs: bool = false) -> void:
+	# Nov 3: skip_vs = straight into the fight behind the loading screen (Training's Quick Select), no VS screen
 	var cfg = settings()
 	if "P1SelectedAssist" in cfg:   # (only after the C# project is built)
 		cfg.P1SelectedAssist = _valid_assist(assist_picks[0] if p1_assist == -2 else p1_assist)
@@ -143,7 +145,7 @@ func start_match(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_device
 		cfg.GameModes[cfg.SelectedMode].ShowMatchIntro = bool(online_rules.get("intros", true))
 	bg_release(_match_paths)
 	_match_paths = []
-	if mode_name in VS_SCREEN_MODES and ResourceLoader.exists(VS_SCREEN):
+	if not skip_vs and mode_name in VS_SCREEN_MODES and ResourceLoader.exists(VS_SCREEN):
 		SceneRouter.go_to(VS_SCREEN)   # it loads the fight while it plays, then calls enter_battle()
 	else:
 		await SceneRouter.go_to(BATTLE_SCENE)
@@ -558,7 +560,7 @@ func choose_stage(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_devic
 		p1_color: int = -1, p2_color: int = -1, p1_assist: int = -2, p2_assist: int = -2) -> void:
 	pending = {"p1": p1_fighter, "p2": p2_fighter, "d1": p1_device, "d2": p2_device, "c1": p1_color, "c2": p2_color,
 		"a1": p1_assist, "a2": p2_assist}
-	SceneRouter.go_to(STAGE_SELECT_SCENE)
+	SceneRouter.go_to(STAGE_SELECT_SCENE, Color.BLACK, true)   # Nov 3: a quick wipe, no loading screen
 
 
 ## Called by the stage select: start the fight with the remembered picks.

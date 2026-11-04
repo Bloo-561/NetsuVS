@@ -142,12 +142,19 @@ func _build_cams() -> void:
 		var want_h := maxf(min_view_height, top / 10000.0 / (ground_ratio * 0.95))
 		want_h = maxf(want_h, (hi - lo) / 10000.0 / (aspect * 0.92))
 		var want_x := (lo + hi) / 2.0
+		var pz: Dictionary = _frames[i].get("pause", {})
+		if not pz.is_empty():
+			# EX / super pause: the camera closes in on her (FighterCamera NetsuZoom...)
+			var pp: Vector2i = pz["pos"]
+			want_x = pp.x
+			want_h = min_view_height * (0.72 if pz["super"] else 0.82)
 		if i == 0:
 			cx = want_x
 			vh = want_h
 		else:
-			cx = lerpf(cx, want_x, 0.12)
-			vh = lerpf(vh, want_h, 0.08 if want_h < vh else 0.2)
+			var fast: bool = not pz.is_empty() or _frames[i - 1].has("pause")
+			cx = lerpf(cx, want_x, 0.25 if fast else 0.12)
+			vh = lerpf(vh, want_h, 0.25 if fast else (0.08 if want_h < vh else 0.2))
 		_cams.append(Vector2(cx, vh))
 
 
@@ -179,6 +186,85 @@ func _process(delta: float) -> void:
 		_shown = f
 		_place_camera(mini(f, _frames.size() - 1))
 		_layer.queue_redraw()
+
+
+## Where the engine draws a sprite layer (AnimationViewer.ViewAnimations: the Sprite3D gets the layer's Offset and
+## Scale, then RotationDegrees.z, which turns it around the fighter's FEET; FlipX / FlipY flip the picture in place;
+## facing left mirrors the whole thing). Maps the layer's own rect (l["rect"], sprite pixels, y down, feet at 0,0)
+## to the screen: `origin` = the feet on screen, `px` = screen pixels per sprite pixel, side = 1 / -1.
+## Nov 2: was turning each layer around its own middle, so tumbling hit reactions (drawn below the feet and turned
+## 150 degrees) showed under the floor.
+## Nov 2: the EX / super pause, as in a match: the stage goes dark (darker for a super), a glow behind her and the
+## cut-in band (EX CRAFT / S-CRAFT and the move's name) behind the fighters...
+func _draw_pause_back(L: Control, pz: Dictionary, ox: float, ground: float, k: float) -> void:
+	var t: float = float(pz["t"])
+	var n: float = maxf(1.0, float(pz["n"]))
+	var fade := clampf(t / 6.0, 0.0, 1.0) * clampf((n - t) / 8.0, 0.0, 1.0)
+	var is_super: bool = pz["super"]
+	L.draw_rect(Rect2(Vector2.ZERO, size), Color(0.0, 0.01, 0.05, (0.72 if is_super else 0.55) * fade))
+	var p: Vector2i = pz["pos"]
+	var at := Vector2(ox + p.x * k, ground - (p.y + 8000) * k)
+	var col := Color(1.0, 0.35, 0.45) if is_super else Color(0.4, 0.75, 1.0)
+	for j in 5:
+		L.draw_circle(at, (1.0 - j * 0.18) * 1.1 * size.y * 0.32, Color(col, 0.07 * fade))
+	# the cut-in band behind the fighters (as in a match): slides in, holds, slides out
+	var slide := clampf(t / 7.0, 0.0, 1.0)
+	var out := clampf((n - t) / 7.0, 0.0, 1.0)
+	var a := minf(slide, out)
+	if a <= 0.0:
+		return
+	var h := size.y * 0.2
+	var cy := size.y * 0.66
+	var off := (1.0 - slide) * -size.x * 0.4 + (1.0 - out) * size.x * 0.4
+	var sl := h * 0.5
+	var band := PackedVector2Array([Vector2(off - sl, cy - h / 2 + sl * 0.2), Vector2(size.x + off + sl, cy - h / 2 - sl * 0.2),
+		Vector2(size.x + off + sl, cy + h / 2 - sl * 0.2), Vector2(off - sl, cy + h / 2 + sl * 0.2)])
+	L.draw_colored_polygon(band, Color(0.02, 0.03, 0.1, 0.82 * a))
+	L.draw_line(band[0], band[1], Color(col, a), 3.0, true)
+	L.draw_line(band[3], band[2], Color(col, 0.6 * a), 2.0, true)
+	var font := NetsuUI.sans(1, true)
+	var tag := "S-CRAFT" if is_super else "EX CRAFT"
+	var ts := int(h * 0.22)
+	var ns := int(h * 0.42)
+	var move_title := str(pz.get("name", "")).to_upper()
+	var x := size.x * 0.1 + off
+	L.draw_string(font, Vector2(x, cy - h * 0.12), tag, HORIZONTAL_ALIGNMENT_LEFT, -1, ts, Color(col.lightened(0.3), a))
+	if move_title != "":
+		L.draw_string_outline(font, Vector2(x, cy + h * 0.3), move_title, HORIZONTAL_ALIGNMENT_LEFT, -1, ns, 6, Color(0, 0, 0.05, 0.8 * a))
+		L.draw_string(font, Vector2(x, cy + h * 0.3), move_title, HORIZONTAL_ALIGNMENT_LEFT, -1, ns, Color(1, 1, 1, a))
+
+
+## ...and in front of her, a flash of light as it starts.
+func _draw_pause_front(L: Control, pz: Dictionary, ox: float, ground: float, k: float) -> void:
+	var t: float = float(pz["t"])
+	var p: Vector2i = pz["pos"]
+	var at := Vector2(ox + p.x * k, ground - (p.y + 8000) * k)
+	if t < 8.0:
+		var f := 1.0 - t / 8.0
+		L.draw_circle(at, size.y * (0.08 + 0.5 * (1.0 - f)), Color(1, 1, 1, 0.55 * f))
+
+
+static func layer_xform(l: Dictionary, origin: Vector2, px: float, side: int) -> Transform2D:
+	var th: float = l["rot"]   # radians, counter-clockwise (the engine's y is up)
+	var c := cos(th)
+	var sn := sin(th)
+	var xf := Transform2D(Vector2(side * px * c, -px * sn), Vector2(side * px * sn, px * c), origin)
+	if l["fx"] or l["fy"]:
+		var r: Rect2 = l["rect"]
+		var mid := r.position + r.size / 2.0
+		var flip := Transform2D(0.0, Vector2(-1.0 if l["fx"] else 1.0, -1.0 if l["fy"] else 1.0), 0.0, Vector2.ZERO)
+		xf = xf * Transform2D(0.0, Vector2.ONE, 0.0, mid) * flip * Transform2D(0.0, Vector2.ONE, 0.0, -mid)
+	return xf
+
+
+## A layer's drawn bounds around the feet, in sprite pixels (y down), facing right, rotation included.
+static func layer_bounds(l: Dictionary) -> Rect2:
+	var xf := layer_xform(l, Vector2.ZERO, 1.0, 1)
+	var r: Rect2 = l["rect"]
+	var out := Rect2(xf * r.position, Vector2.ZERO)
+	for q in [Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]:
+		out = out.expand(xf * q)
+	return out
 
 
 static func compiled(ad) -> Dictionary:
@@ -216,6 +302,9 @@ func _draw_layer() -> void:
 	var k := size.y / c.y / 10000.0          # screen px per engine unit
 	var ground := size.y * ground_ratio
 	var ox := size.x / 2.0 - c.x * k
+	var pz: Dictionary = snap.get("pause", {})
+	if not pz.is_empty():
+		_draw_pause_back(L, pz, ox, ground, k)
 	# shadows first
 	for a in snap["actors"]:
 		if not a["fighter"]:
@@ -241,19 +330,13 @@ func _draw_layer() -> void:
 		var unit: float = UNIT_PX * a["scale"]
 		var shake := (2.0 if (i % 2 == 0) else -2.0) if a["shake"] else 0.0
 		var tint := Color(1.0, 0.72, 0.72) if a["flash"] else Color.WHITE
+		var feet := Vector2(ox + p.x * k + shake, ground - p.y * k)
 		for l in layers:
-			var rect: Rect2 = l["rect"]
-			var x0 := rect.position.x * unit
-			var w := rect.size.x * unit
-			if side < 0:
-				x0 = -(x0 + w)
-			var center := Vector2(ox + (p.x + x0 + w / 2.0) * k + shake, ground - p.y * k + (rect.position.y * unit + rect.size.y * unit / 2.0) * k)
-			var flip := Vector2(-1.0 if (l["fx"] != (side < 0)) else 1.0, -1.0 if l["fy"] else 1.0)
-			var rot: float = l["rot"] * (-1.0 if side < 0 else 1.0)
-			L.draw_set_transform(center, rot, flip)
-			var s := Vector2(w, rect.size.y * unit) * k
-			L.draw_texture_rect(l["tex"], Rect2(-s / 2.0, s), false, tint)
+			L.draw_set_transform_matrix(layer_xform(l, feet, unit * k, side))
+			L.draw_texture_rect(l["tex"], l["rect"], false, tint)
 	L.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if not pz.is_empty():
+		_draw_pause_front(L, pz, ox, ground, k)
 	# hit sparks
 	for sp in snap["sparks"]:
 		var sp_pos: Vector2i = sp["pos"]

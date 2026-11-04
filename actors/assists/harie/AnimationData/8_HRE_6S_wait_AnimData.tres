@@ -17,6 +17,6 @@ Modifiers = [SubResource("M0_0")]
 
 [resource]
 script = ExtResource("1")
-Duration = 90
+Duration = 62
 Animations = [SubResource("A0")]
 Hitboxes = []

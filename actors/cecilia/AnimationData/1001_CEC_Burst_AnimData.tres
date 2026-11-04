@@ -18,13 +18,13 @@ HitboxData = ExtResource("6")
 
 [sub_resource type="Resource" id="Resource_sv2n2"]
 script = ExtResource("5")
-AtFrame = 4
+AtFrame = 15
 animationStage = 1
 HitboxData = ExtResource("4")
 
 [sub_resource type="Resource" id="Resource_8bvbx"]
 script = ExtResource("5")
-AtFrame = 13
+AtFrame = 40
 animationStage = 2
 HitboxData = ExtResource("6")
 metadata/_custom_type_script = "uid://5qrsoteskjym"
@@ -57,7 +57,7 @@ OnlyOnContact = true
 
 [sub_resource type="Resource" id="A1"]
 script = ExtResource("3")
-AtFrame = 10
+AtFrame = 20
 Modifiers = [SubResource("M1_0"), SubResource("M1_1")]
 
 [sub_resource type="Resource" id="M2_0"]
@@ -73,7 +73,7 @@ OnlyOnContact = true
 
 [sub_resource type="Resource" id="A2"]
 script = ExtResource("3")
-AtFrame = 25
+AtFrame = 42
 Modifiers = [SubResource("M2_0"), SubResource("M2_1")]
 
 [sub_resource type="Resource" id="M3_0"]
@@ -83,12 +83,12 @@ Offset = Vector2(-168, -5)
 
 [sub_resource type="Resource" id="A3"]
 script = ExtResource("3")
-AtFrame = 35
+AtFrame = 54
 Modifiers = [SubResource("M3_0")]
 
 [resource]
 script = ExtResource("7")
-Duration = 45
+Duration = 67
 Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
 Hitboxes = [SubResource("Resource_su5f"), SubResource("Resource_sv2n2"), SubResource("Resource_8bvbx")]
 AttackProfiles = []

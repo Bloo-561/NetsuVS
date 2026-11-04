@@ -603,12 +603,12 @@ Modifiers = [SubResource("nf_s89")]
 [sub_resource type="Resource" id="nf_s127"]
 script = ExtResource("nf99")
 AtFrame = 114
-Modifiers = [SubResource("nf_s91"), SubResource("c7_m1")]
+Modifiers = [SubResource("nf_s91")]
 
 [sub_resource type="Resource" id="nf_s128"]
 script = ExtResource("nf99")
 AtFrame = 122
-Modifiers = [SubResource("nf_s93"), SubResource("c7_m3")]
+Modifiers = [SubResource("nf_s93")]
 
 [sub_resource type="Resource" id="nf_s129"]
 script = ExtResource("nf99")
@@ -618,12 +618,12 @@ Modifiers = [SubResource("nf_s95")]
 [sub_resource type="Resource" id="nf_s130"]
 script = ExtResource("nf99")
 AtFrame = 138
-Modifiers = [SubResource("nf_s97")]
+Modifiers = [SubResource("nf_s97"), SubResource("c7_m1")]
 
 [sub_resource type="Resource" id="c7_a88"]
 script = ExtResource("nf99")
 AtFrame = 118
-Modifiers = [SubResource("nf_s91"), SubResource("c7_m2")]
+Modifiers = [SubResource("nf_s91")]
 
 [sub_resource type="Resource" id="c7_a96"]
 script = ExtResource("nf99")
@@ -684,13 +684,13 @@ HitboxData = ExtResource("nf136")
 
 [sub_resource type="Resource" id="c6_hb9"]
 script = ExtResource("nf133")
-AtFrame = 114
+AtFrame = 138
 animationStage = 1
 HitboxData = ExtResource("c6h4")
 
 [sub_resource type="Resource" id="c6_hb10"]
 script = ExtResource("nf133")
-AtFrame = 120
+AtFrame = 144
 animationStage = 2
 HitboxData = ExtResource("nf138")
 
@@ -821,9 +821,24 @@ animationStage = 2
 HitboxData = ExtResource("nf136")
 
 
+[sub_resource type="Resource" id="n3_sh1"]
+script = ExtResource("nf99")
+AtFrame = 141
+Modifiers = [SubResource("nf_s97"), SubResource("c7_m2")]
+
+[sub_resource type="Resource" id="n3_sh2"]
+script = ExtResource("nf99")
+AtFrame = 144
+Modifiers = [SubResource("nf_s97"), SubResource("c7_m3")]
+
+[sub_resource type="Resource" id="n3_sh3"]
+script = ExtResource("nf99")
+AtFrame = 148
+Modifiers = [SubResource("nf_s97")]
+
 [resource]
 script = ExtResource("nf1")
 Duration = 154
 Afterimages = true
-Animations = [SubResource("c6_a0"), SubResource("nf_s98"), SubResource("nf_s100"), SubResource("nf_s101"), SubResource("nf_s102"), SubResource("nf_s103"), SubResource("nf_s104"), SubResource("nf_s105"), SubResource("nf_s106"), SubResource("nf_s107"), SubResource("nf_s108"), SubResource("nf_s109"), SubResource("nf_s110"), SubResource("nf_s111"), SubResource("nf_s112"), SubResource("nf_s113"), SubResource("nf_s114"), SubResource("nf_s115"), SubResource("nf_s116"), SubResource("nf_s117"), SubResource("nf_s118"), SubResource("nf_s119"), SubResource("nf_s120"), SubResource("nf_s121"), SubResource("nf_s122"), SubResource("nf_s123"), SubResource("c10_1"), SubResource("c10_3"), SubResource("c10_5"), SubResource("c10_7"), SubResource("c10_9"), SubResource("c10_11"), SubResource("c10_13"), SubResource("c10_14"), SubResource("c10_15"), SubResource("c10_16"), SubResource("c10_17"), SubResource("c10_18"), SubResource("c10_2"), SubResource("c10_4"), SubResource("c10_6"), SubResource("c10_8"), SubResource("c10_10"), SubResource("c10_12"), SubResource("nf_s124"), SubResource("nf_s125"), SubResource("nf_s126"), SubResource("nf_s127"), SubResource("c7_a88"), SubResource("nf_s128"), SubResource("c7_a96"), SubResource("nf_s129"), SubResource("nf_s130")]
+Animations = [SubResource("c6_a0"), SubResource("nf_s98"), SubResource("nf_s100"), SubResource("nf_s101"), SubResource("nf_s102"), SubResource("nf_s103"), SubResource("nf_s104"), SubResource("nf_s105"), SubResource("nf_s106"), SubResource("nf_s107"), SubResource("nf_s108"), SubResource("nf_s109"), SubResource("nf_s110"), SubResource("nf_s111"), SubResource("nf_s112"), SubResource("nf_s113"), SubResource("nf_s114"), SubResource("nf_s115"), SubResource("nf_s116"), SubResource("nf_s117"), SubResource("nf_s118"), SubResource("nf_s119"), SubResource("nf_s120"), SubResource("nf_s121"), SubResource("nf_s122"), SubResource("nf_s123"), SubResource("c10_1"), SubResource("c10_3"), SubResource("c10_5"), SubResource("c10_7"), SubResource("c10_9"), SubResource("c10_11"), SubResource("c10_13"), SubResource("c10_14"), SubResource("c10_15"), SubResource("c10_16"), SubResource("c10_17"), SubResource("c10_18"), SubResource("c10_2"), SubResource("c10_4"), SubResource("c10_6"), SubResource("c10_8"), SubResource("c10_10"), SubResource("c10_12"), SubResource("nf_s124"), SubResource("nf_s125"), SubResource("nf_s126"), SubResource("nf_s127"), SubResource("c7_a88"), SubResource("nf_s128"), SubResource("c7_a96"), SubResource("nf_s129"), SubResource("nf_s130"), SubResource("n3_sh1"), SubResource("n3_sh2"), SubResource("n3_sh3")]
 Hitboxes = [SubResource("c6_hb0"), SubResource("c6_hb1"), SubResource("c6_hb2"), SubResource("c6_hb3"), SubResource("c6_hb4"), SubResource("c6_hb5"), SubResource("c6_hb6"), SubResource("c6_hb7"), SubResource("c6_hb8"), SubResource("c10_19"), SubResource("c10_21"), SubResource("c10_23"), SubResource("c10_24"), SubResource("c10_20"), SubResource("c10_22"), SubResource("c6_hb9"), SubResource("c6_hb10")]

@@ -114,7 +114,7 @@ AirHitKnockback = Vector2i(-60000, 35000)
 AirHitstun = 33
 AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 33
-BounceTime = 60
+BounceTime = 90
 BounceXIntensity = 100
 BounceYIntensity = 0
 [resource]

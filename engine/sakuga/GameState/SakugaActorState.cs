@@ -198,6 +198,15 @@ public struct SakugaActorState
 	[Key(63)]
 	public int NetsuFastAcc;
 
+	[Key(64)]
+	public bool NetsuBurstInvul;     // Nov 3: Burst invincibility
+
+	[Key(65)]
+	public bool NetsuBurstPunishable;   // Nov 3: after the Burst's invincibility, until she lands
+
+	[Key(66)]
+	public int NetsuBurstStartY;        // Nov 3: her height when the Burst started (its lift)
+
 	public void GetStateData(ref SakugaActor reference)
 	{
 		IsActive = reference.IsActive;
@@ -245,6 +254,9 @@ public struct SakugaActorState
 		NetsuKdLying = reference.NetsuKdLying;
 		NetsuKdGetUp = reference.NetsuKdGetUp;
 		NetsuAirTechInvul = reference.NetsuAirTechInvul;
+		NetsuBurstInvul = reference.NetsuBurstInvul;
+		NetsuBurstPunishable = reference.NetsuBurstPunishable;
+		NetsuBurstStartY = reference.NetsuBurstStartY;
 		NetsuAirTechWait = reference.NetsuAirTechWait;
 		NetsuAirTechFresh = reference.NetsuAirTechFresh;
 		NetsuFloatFrame = reference.NetsuFloatFrame;
@@ -313,6 +325,9 @@ public struct SakugaActorState
 		reference.NetsuKdLying = NetsuKdLying;
 		reference.NetsuKdGetUp = NetsuKdGetUp;
 		reference.NetsuAirTechInvul = NetsuAirTechInvul;
+		reference.NetsuBurstInvul = NetsuBurstInvul;
+		reference.NetsuBurstPunishable = NetsuBurstPunishable;
+		reference.NetsuBurstStartY = NetsuBurstStartY;
 		reference.NetsuAirTechWait = NetsuAirTechWait;
 		reference.NetsuAirTechFresh = NetsuAirTechFresh;
 		reference.NetsuFloatFrame = NetsuFloatFrame;

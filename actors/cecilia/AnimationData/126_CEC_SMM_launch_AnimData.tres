@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="AD"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="HS"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="SM"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="AS"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_startup.png" id="t0"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_early_rise.png" id="t1"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/dp2_apex.png" id="t2"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/CEC_DP2_None.tres" id="h0"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/47_Hitbox_SMM_Launch.tres" id="h1"]
+
+[sub_resource type="Resource" id="m0"]
+script = ExtResource("SM")
+Sprite = ExtResource("t0")
+Offset = Vector2(-246, -9)
+
+[sub_resource type="Resource" id="a0"]
+script = ExtResource("AS")
+Modifiers = [SubResource("m0")]
+
+[sub_resource type="Resource" id="m1"]
+script = ExtResource("SM")
+Sprite = ExtResource("t1")
+Offset = Vector2(-279, -62)
+
+[sub_resource type="Resource" id="a1"]
+script = ExtResource("AS")
+AtFrame = 5
+Modifiers = [SubResource("m1")]
+
+[sub_resource type="Resource" id="m2"]
+script = ExtResource("SM")
+Sprite = ExtResource("t2")
+Offset = Vector2(-397, -90)
+
+[sub_resource type="Resource" id="a2"]
+script = ExtResource("AS")
+AtFrame = 10
+Modifiers = [SubResource("m2")]
+
+[sub_resource type="Resource" id="b0"]
+script = ExtResource("HS")
+HitboxData = ExtResource("h0")
+
+[sub_resource type="Resource" id="b1"]
+script = ExtResource("HS")
+AtFrame = 5
+animationStage = 1
+HitboxData = ExtResource("h1")
+
+[sub_resource type="Resource" id="b2"]
+script = ExtResource("HS")
+AtFrame = 9
+animationStage = 2
+HitboxData = ExtResource("h0")
+
+[resource]
+script = ExtResource("AD")
+Duration = 24
+Afterimages = true
+Animations = [SubResource("a0"), SubResource("a1"), SubResource("a2")]
+Hitboxes = [SubResource("b0"), SubResource("b1"), SubResource("b2")]

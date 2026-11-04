@@ -477,10 +477,19 @@ static func fighter_rows(data: Resource, notes: Dictionary) -> Array:
 			var st := int(_g(m, "MoveState", -1))
 			if st >= 0 and not st in states:
 				states.append(st)
+		# Nov 2: what the preview plays: ONE version of the move (the first that works on the ground, else the first),
+		# not every version one after another (Rising Star A then B looked like the move playing twice)
+		var play_move = first
+		for m in g["moves"]:
+			if bool(_g(m, "UseOnGround", false)):
+				play_move = m
+				break
+		var play: Array = preview_plan(data, play_move)
 		if note.has("states"):
 			states = []
 			for s in note["states"]:
 				states.append(int(s))
+			play = preview_plan(data, play_move, states)
 		var air_only: bool = g["air"] and not g["ground"]
 		var input := str(note.get("input", input_text(options, air_only, ex_dirs if g["cost"] < BAR else {})))
 		if g["follow"] and not input.begins_with(">"):
@@ -508,7 +517,7 @@ static func fighter_rows(data: Resource, notes: Dictionary) -> Array:
 		var row := {"name": str(note.get("name", key)), "key": key, "section": str(note.get("section", g["section"])),
 			"input": input, "desc": desc if desc != "" else NO_DESC, "auto_desc": desc == "", "tags": tags,
 			"cost": int(g["cost"] / BAR), "states": states, "data": data_rows, "follow": g["follow"], "seq": g["seq"],
-			"air": air_only}
+			"air": air_only, "play": play, "move": play_move}
 		built[key] = row
 	# follow-ups go right after the move they come out of
 	var placed: Array = []
@@ -573,6 +582,80 @@ static func states_of_move(data: Resource, move_name: String) -> Array:
 		if m != null and str(_g(m, "MoveName", "")) == move_name:
 			return [int(_g(m, "MoveState", -1))]
 	return []
+
+
+## Nov 2: how the preview gets to a move, from the game's own data (a queue for NetsuMoveSim.setup):
+##  - a follow-up (SkipCheck) that another move cancels into (its CanCancelTo): that move first, then this one in
+##    the cancel window (CancelConditions mask, FrameThreshold, NetsuOnlyInState), e.g. Rising Star > Falling Star;
+##    one with IsSequenceFromStates and no cancel: that state, then this one
+##  - a move that only works in the air: a forward jump, then the move at the top of it
+##  - else just the move. `override` (a row's "states" note) plays those states instead, the first one as the move.
+## The entry marked "show" is the move itself (where the EX / super pause and the opponent's placing happen).
+static func preview_plan(data: Resource, mv, override: Array = [], depth: int = 0) -> Array:
+	if mv == null:
+		return []
+	var stances: Array = _g(data, "Stances", [])
+	var moves: Array = _g(stances[0], "Moves", []) if not stances.is_empty() and stances[0] != null else []
+	var st := int(_g(mv, "MoveState", -1))
+	var air_only: bool = bool(_g(mv, "UseOnAir", false)) and not bool(_g(mv, "UseOnGround", false))
+	if not override.is_empty():
+		var out: Array = [{"state": int(override[0]), "show": true}]
+		for i in range(1, override.size()):
+			out.append({"state": int(override[i])})
+		if air_only:
+			var jump := _jump_state(moves)
+			if jump >= 0:
+				out[0]["when"] = "apex"
+				out.push_front({"state": jump})
+		return out
+	if st < 0:
+		return []
+	if bool(_g(mv, "SkipCheck", false)) and depth < 3:
+		var idx := moves.find(mv)
+		for m in moves:
+			if m == null or m == mv:
+				continue
+			for c in _g(m, "CanCancelTo", []):
+				if c != null and int(_g(c, "MoveIndex", -1)) == idx and idx >= 0:
+					var plan := preview_plan(data, m, [], depth + 1)
+					for e in plan:
+						e.erase("show")
+					var thr: Vector2i = _g(c, "FrameThreshold", Vector2i(0, 999))
+					plan.append({"state": st, "when": "cancel", "mask": int(_g(c, "Conditions", 3)), "min": thr.x,
+						"max": thr.y if thr.y > 0 else 999, "in": int(_g(c, "NetsuOnlyInState", -1)), "show": true})
+					return plan
+		var seq = _g(mv, "IsSequenceFromStates", [])
+		if seq.size() > 0:
+			return [{"state": int(seq[0])}, {"state": st, "show": true}]
+	var plan: Array = [{"state": st, "show": true}]
+	if air_only:
+		var jump := _jump_state(moves)
+		if jump >= 0:
+			plan = [{"state": jump}, {"state": st, "when": "apex", "show": true}]
+	# a move that lasts while its button is held (MoveEnd RELEASE_BUTTON: dashes): held a moment, then let go
+	if int(_g(mv, "MoveEnd", 0)) == 1 and int(_g(mv, "MoveEndState", -1)) >= 0:
+		plan.append({"state": int(_g(mv, "MoveEndState", -1)), "when": "after", "frames": 22})
+	return plan
+
+
+## The state of the stance's forward jump (else the neutral one), -1 if none.
+static func _jump_state(moves: Array) -> int:
+	for want in ["Forward Jump", "Neutral Jump"]:
+		for m in moves:
+			if m != null and str(_g(m, "MoveName", "")) == want and int(_g(m, "MoveState", -1)) >= 0:
+				return int(_g(m, "MoveState", -1))
+	return -1
+
+
+## The stance move with this engine name (null if none).
+static func move_named(data: Resource, move_name: String) -> Resource:
+	var stances: Array = _g(data, "Stances", [])
+	if stances.is_empty() or stances[0] == null:
+		return null
+	for m in _g(stances[0], "Moves", []):
+		if m != null and str(_g(m, "MoveName", "")) == move_name:
+			return m
+	return null
 
 
 ## True when the move with this engine name only works in the air (the preview starts her in the air).

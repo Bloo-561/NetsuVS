@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="FS"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="EV"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="AT"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="RG"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="END"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="PS"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="MX"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="MY"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="FP"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="HOLD"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="RH"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="SHK"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="SND"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="VFX"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/TeleportAction.cs" id="TP"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/128_CEC_SMM_end_AnimData.tres" id="ANIM"]
+
+[sub_resource type="Resource" id="q1"]
+script = ExtResource("TP")
+xRelativeTo = 1
+yRelativeTo = 0
+
+[sub_resource type="Resource" id="q2"]
+script = ExtResource("MX")
+Velocity = 0
+
+[sub_resource type="Resource" id="q3"]
+script = ExtResource("MY")
+Velocity = 0
+
+[sub_resource type="Resource" id="q4"]
+script = ExtResource("FP")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="q5"]
+script = ExtResource("EV")
+Actions = [SubResource("q1"), SubResource("q2"), SubResource("q3"), SubResource("q4")]
+
+[sub_resource type="Resource" id="q6"]
+script = ExtResource("END")
+
+[sub_resource type="Resource" id="q7"]
+script = ExtResource("PS")
+
+[sub_resource type="Resource" id="q8"]
+script = ExtResource("EV")
+Conditions = [SubResource("q6")]
+Actions = [SubResource("q7")]
+
+[sub_resource type="Resource" id="q9"]
+script = ExtResource("FP")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="q10"]
+script = ExtResource("EV")
+Actions = [SubResource("q9")]
+
+[resource]
+script = ExtResource("FS")
+StateName = "Sakura Morning Moon (finish)"
+Type = 2
+AnimationData = ExtResource("ANIM")
+TransitionEvents = [SubResource("q8")]
+OnEnterEvents = [SubResource("q5")]
+OnTickEvents = []
+OnExitEvents = [SubResource("q10")]
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+NetsuFrameBoth = true
+AIFlags = 18

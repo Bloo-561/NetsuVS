@@ -19,6 +19,10 @@ extends Control
 ## loop end (4:45.473); plays from the start once, then loops back to theme_loop_start. Stops when the main menu opens.
 const THEME_PATH := "res://assets/audio/music/netsu/forget_me_not.ogg"
 @export var theme_loop_start: float = 40.421
+## Nov 2: the sound when PRESS START is pressed (SFX bus). It plays on the scene tree's root, so the scene change
+## doesn't cut it off.
+@export_file("*.wav", "*.ogg") var start_sound: String = "res://assets/audio/menu/mahou/StrongConfirmSoundVers4.wav"
+@export var start_sound_db: float = -3.0
 
 var _press: Label
 var _busy := false
@@ -65,6 +69,7 @@ func _input(event: InputEvent) -> void:
 
 func _go() -> void:
 	_busy = true
+	_play_start_sound()
 	_press.modulate.a = 1.0
 	var flash := create_tween()
 	flash.tween_property(_press, "scale", Vector2(1.08, 1.08), 0.07)
@@ -90,3 +95,15 @@ func _play_theme() -> void:
 	if player is AudioStreamPlayer and player.playing and player.stream == theme:
 		return
 	audio.call("PlayBGM", theme)
+
+
+func _play_start_sound() -> void:
+	if start_sound == "" or not ResourceLoader.exists(start_sound):
+		return
+	var player := AudioStreamPlayer.new()
+	player.bus = &"SFX"
+	player.stream = load(start_sound)
+	player.volume_db = start_sound_db
+	player.finished.connect(player.queue_free)
+	get_tree().root.add_child(player)
+	player.play()

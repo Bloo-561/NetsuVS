@@ -4,6 +4,7 @@ extends Control
 ## Player 1 picks on the left (blue), Player 2 on the right (crimson).
 ## The big renders are shown as drawn for both players (never mirrored).
 ##   Move:     left / right (up / down jumps between rows)
+## Nov 2 evening: laid out and opened like Melty Blood Act Cadenza's select (see netsu_select_mb.gd and the intro below).
 ##   Pick:     A, S or Start   -> then pick a COLOR (left / right), A, then an ASSIST from the grid
 ##             of every assist (arrows; it grows with data/assist_list.tres), A again to lock
 ##   Undo:     B or C  (Escape also works for P1)
@@ -31,18 +32,28 @@ const SFX_PICK := "res://assets/audio/menu/mahou/ConfirmSound.wav"
 const SFX_BACK := "res://assets/audio/menu/mahou/CancelSound.wav"
 const SFX_START := "res://assets/audio/menu/mahou/StrongConfirmSoundVers4.wav"
 const RENDER_FADE := preload("res://game/ui/netsu/render_fade.gdshader")
+## Nov 2: embers, beat streaks and edge pulses in time with the select theme (behind the renders)
+const SELECT_FX := preload("res://scenes/character_select/netsu_select_fx.gd")
+## Nov 2 (evening): Melty Blood Act Cadenza style dressing: heat emblem + lore (behind the renders), title plate, mode,
+## scrolling bio lines and CHARACTER SELECT (over them). Also times the intro (song_time).
+const SELECT_MB := preload("res://scenes/character_select/netsu_select_mb.gd")
+## Nov 2 (late): THE IGNITION intro: the heat emblem lights up on the beat and bursts open on the big hit.
+const SELECT_IGNITION := preload("res://scenes/character_select/netsu_select_ignition.gd")
+## Which intro plays: "ignition" (Nov 2 late) or "tiles" (the Melty Blood style portraits flying in).
+@export var intro_style: String = "ignition"
 
 const ACCENT := [Color(0.18, 0.55, 1.0), Color(1.0, 0.16, 0.3)]          # P1 blue, P2 crimson
 const ACCENT_LIGHT := [Color(0.3, 0.82, 1.0), Color(1.0, 0.62, 0.7)]     # status text
 
 @export var roster_slots: int = 12
 @export var roster_columns: int = 6
-@export_group("Roster slots (mockup pixels)")
-## Per row: [top y, x of the first slot's top-left corner, distance between slots, top edge width, height].
-## (The mockup's rows are a touch different, like a slight perspective.)
-@export var slot_rows: Array = [[597.0, 555.7, 105.8, 94.0, 106.0], [716.0, 530.0, 109.0, 98.0, 105.0]]
-## How far the slots lean: px sideways per px of height.
-@export var slot_lean: float = 0.245
+@export_group("Roster tiles (screen pixels)")
+## Nov 2 (evening, after Melty Blood Act Cadenza): two rows of upright portrait tiles at the bottom centre, the top row
+## a little to the left, the bottom row a little to the right.
+@export var tile_size: Vector2 = Vector2(104, 118)
+@export var tile_gap: float = 10.0
+@export var tile_rows_y: Array = [700.0, 828.0]
+@export var tile_rows_shift: Array = [-30.0, 30.0]
 @export_group("Renders (mockup pixels)")
 ## [top-left x, top-left y, mockup px per render px (1024-wide render), tilt in degrees]
 @export var render_p1: Array = [-17.1, 35.1, 0.724, 3.25]
@@ -107,6 +118,20 @@ var _prefetch: Array = []
 ## True once both sides are picked and the stage select is opening.
 var _picked := false
 
+## Nov 2 (evening): the Melty Blood style dressing (back: emblem + lore; front: plate, mode, bio lines, label), and the
+## intro: the screen starts dark, CHARACTER SELECT flashes in on the first beat, the portraits fly in one pair per half
+## beat (top row from the left, bottom row from the right), and on the 4th beat (the big hit) the dark lifts, the
+## emblem flares, the fighters slide in and the cursors appear.
+var _mb_back: Control
+var _mb_front: Control
+var _overlay: ColorRect
+var _intro_on := false
+var _ignition_on := false
+var _intro_clock := -1.0
+var _intro_wait := 0.0
+const INTRO_REVEAL_BEAT := 3
+const INTRO_FLY := 0.12
+
 
 func _ready() -> void:
 	_play_theme_when_shown()
@@ -119,6 +144,10 @@ func _ready() -> void:
 	var lights := NetsuLights.new()
 	lights.beams = NetsuLights.preset("select")
 	add_child(lights)
+	add_child(SELECT_FX.new())
+	_mb_back = SELECT_MB.new()
+	_mb_back.kind = 0
+	add_child(_mb_back)
 	_build_renders()
 	_build_header()
 	_footer = NetsuUI.footer(self, false, 858.0, 93.0, 888.0, 1613.0, 890.0)
@@ -130,6 +159,16 @@ func _ready() -> void:
 	_cursor[1] = mini(1, _count - 1)
 	_prefetch_fighters()
 	_build_plates()
+	_overlay = ColorRect.new()
+	_overlay.color = Color(0.01, 0.015, 0.05)
+	_overlay.size = Vector2(1920, 1080)
+	_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_overlay.visible = false
+	add_child(_overlay)
+	_mb_front = SELECT_MB.new()
+	_mb_front.kind = 1
+	_mb_front.mode_text = MatchSetup.mode_name.to_upper()
+	add_child(_mb_front)
 	_build_roster()
 	_build_cursors()
 	_build_previews()
@@ -149,7 +188,136 @@ func _ready() -> void:
 	# footer on top, so settings sheets opened under it cover everything else
 	move_child(_footer["root"], get_child_count() - 1)
 	_refresh()
-	NetsuUI.cascade(self, 3)   # entrance (skips the sound player, background and light beams)
+	if _theme_playing():
+		_show_bio(0)
+		NetsuUI.cascade(self, 5)   # back from the stage select: just the entrance (skips sound, background, beams, motion)
+	else:
+		_start_intro()
+
+
+# --- Intro (Nov 2 evening, after Melty Blood Act Cadenza) -------------------------------------------
+
+func _start_intro() -> void:
+	if intro_style == "ignition":
+		_intro_on = true
+		_ignition_on = true
+		var ign := SELECT_IGNITION.new()
+		ign.revealed.connect(_on_ignition_revealed)
+		add_child(ign)   # a CanvasLayer over everything
+		return
+	_intro_on = true
+	_overlay.visible = true
+	_overlay.modulate.a = 1.0
+	_mb_front.shown = 0.0
+	_mb_front.label_shown = 0.0
+	_mb_front.top_shown = 0.0
+	_mb_front.top_target = 0.0
+	for tile in _tiles:
+		tile["node"].modulate.a = 0.0
+	for n in _cursor_frames + _cursor_tags:
+		n.modulate.a = 0.0
+	_footer["root"].modulate.a = 0.0
+
+
+## Time into the intro: the select theme's playback position, or (no music after 1.2 s) its own clock.
+func _intro_time(delta: float) -> float:
+	var m: float = _mb_front.song_time()
+	if m >= 0.0 and _intro_clock < 0.0:
+		return m
+	_intro_wait += delta
+	if _intro_clock >= 0.0:
+		_intro_clock += delta
+	elif _intro_wait >= 1.2:
+		_intro_clock = 0.0
+	return _intro_clock
+
+
+func _update_intro(delta: float) -> void:
+	var t := _intro_time(delta)
+	var b0: float = _mb_front.beat_time(0)
+	var half: float = 30.0 / _mb_front.bpm
+	var reveal: float = _mb_front.beat_time(INTRO_REVEAL_BEAT)
+	# the bright and faint lines come up before the first beat; CHARACTER SELECT flashes in on it
+	_mb_front.shown = clampf(t / maxf(b0, 0.05), 0.0, 1.0) if t >= 0.0 else 0.0
+	if t >= b0 and _mb_front.label_shown < 1.0:
+		_mb_front.label_shown = 1.0
+		_mb_front.label_flash = 1.0
+	# the portraits: one pair per half beat, top row left to right from the left, bottom row right to left from the right
+	for i in _tiles.size():
+		var tile: Dictionary = _tiles[i]
+		var cut := _intro_cut(i)
+		var land := b0 + cut * half
+		var p := clampf((t - (land - INTRO_FLY)) / INTRO_FLY, 0.0, 1.0) if t >= 0.0 else 0.0
+		var e := 1.0 - pow(1.0 - p, 3.0)
+		var from := -320.0 if tile["row"] % 2 == 0 else 320.0
+		tile["node"].position = tile["pos"] + Vector2(from * (1.0 - e), 0.0)
+		tile["node"].modulate.a = e
+		var flash: Polygon2D = tile["flash"]
+		flash.color.a = 0.85 * clampf(1.0 - (t - land) / 0.16, 0.0, 1.0) if t >= land else 0.0
+	if t >= reveal:
+		_end_intro()
+
+
+## Which half beat a tile lands on: pairs of (top row from the left, bottom row from the right).
+func _intro_cut(i: int) -> int:
+	var row := i / roster_columns
+	var col := i % roster_columns
+	var n := mini(roster_columns, maxi(1, _tiles.size() - row * roster_columns))
+	var k := col if row % 2 == 0 else n - 1 - col
+	var cuts := maxi(1, roster_columns)
+	return int(round(float(k) * 5.0 / float(maxi(1, cuts - 1)))) if cuts > 1 else 0
+
+
+func _end_intro() -> void:
+	_intro_on = false
+	for tile in _tiles:
+		tile["node"].position = tile["pos"]
+		tile["node"].modulate.a = 1.0
+		var flash: Polygon2D = tile["flash"]
+		flash.color.a = 0.0
+	_mb_front.shown = 1.0
+	_mb_front.label_shown = 1.0
+	_mb_front.top_target = 1.0
+	_mb_back.pop()
+	var t := create_tween().set_parallel(true)
+	t.tween_property(_overlay, "modulate:a", 0.0, 0.28)
+	t.tween_property(_footer["root"], "modulate:a", 1.0, 0.3)
+	for n in _cursor_frames + _cursor_tags:
+		t.tween_property(n, "modulate:a", 1.0, 0.2).set_delay(0.08)
+	t.chain().tween_callback(func(): _overlay.visible = false)
+	for side in 2:
+		_show_fighter(side, true)
+	_show_bio(0)
+	_refresh()
+
+
+## The ignition burst open (the big hit): the fighters slide in, everything else cascades in behind the shards.
+func _on_ignition_revealed() -> void:
+	_intro_on = false
+	_ignition_on = false
+	NetsuUI.cascade(self, 5, 0.0, 0.22, 36.0)
+	for side in 2:
+		_show_fighter(side, true)
+	_mb_back.pop()
+	_show_bio(0)
+
+
+## The bright scrolling line shows this side's fighter and bio.
+func _show_bio(side: int) -> void:
+	if _mb_front == null or _count == 0:
+		return
+	var profile = MatchSetup.fighter_profile(_cursor[side])
+	var bio = profile.get("Bio")
+	_mb_front.show_bio(String(profile.FighterName), String(bio) if bio != null else "", ACCENT[side])
+
+
+## The select theme is already playing (coming back from the stage select).
+func _theme_playing() -> bool:
+	var audio := get_node_or_null("/root/AudioManager")
+	if audio == null:
+		return false
+	var player = audio.get("BGM")
+	return player is AudioStreamPlayer and player.playing and player.stream != null and str(player.stream.resource_path) == THEME_PATH
 
 
 ## Oct 24: the roster only names each colour's fighter scene now (ScenePath) instead of loading every
@@ -178,6 +346,8 @@ func _exit_tree() -> void:
 
 
 func _process(delta: float) -> void:
+	if _intro_on and not _ignition_on:
+		_update_intro(delta)
 	for side in 2:
 		var pv: Dictionary = _preview[side]
 		if pv.is_empty() or pv["frames"].is_empty():
@@ -193,6 +363,8 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if _panel != null:
 		return
+	if _intro_on:
+		return   # nothing can be picked until the intro has opened the menu
 	if _leaving or SceneRouter.is_busy() or _count == 0:
 		if _count == 0 and _is_back(event, 1):
 			SceneRouter.go_to(MAIN_MENU)
@@ -271,6 +443,7 @@ func _move(player: int, step: int) -> void:
 	_color[side] = _default_color(side)
 	_play(SFX_MOVE)
 	_show_fighter(side, true)
+	_show_bio(side)
 	_refresh()
 
 
@@ -771,10 +944,10 @@ func _show_fighter(side: int, animate: bool) -> void:
 	if not animate:
 		r.position = _render_home[side]
 		return
-	r.position = _render_home[side] + Vector2(-90 if side == 0 else 90, 0)
+	r.position = _render_home[side] + Vector2(-160 if side == 0 else 160, 0)
 	var slide := create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	slide.tween_property(r, "position", _render_home[side], 0.22)
-	slide.tween_property(r, "self_modulate:a", 1.0, 0.18).from(0.0)
+	slide.tween_property(r, "position", _render_home[side], 0.26)
+	slide.tween_property(r, "self_modulate:a", 1.0, 0.2).from(0.0)
 
 
 func _move_cursor(side: int) -> void:
@@ -986,33 +1159,11 @@ func _build_renders() -> void:
 
 
 func _build_header() -> void:
-	var k := NetsuUI.K
-	# a dark band across the top, over the renders (a raised fist or a hat reaches up here): the header reads on it
+	# a dark band across the top, over the renders (a raised fist or a hat reaches up here): the plate and mode read on it.
+	# Nov 2 evening: CHARACTER SELECT moved over the roster and the mode to the top centre (netsu_select_mb.gd).
 	var shade := NetsuUI.gradient_rect(Color(0.02, 0.03, 0.12, 0.62), Color(0.02, 0.03, 0.12, 0.0), true)
 	shade.size = Vector2(1920, 190)
 	add_child(shade)
-	var star := NetsuUI.sparkle(12.0 * k, Color(0.78, 0.93, 1.0))
-	star.position = NetsuUI.m(51, 50)
-	add_child(star)
-	var halo := NetsuUI.poly(_ellipse(Vector2(10, 10) * k, 20), Color(0.4, 0.75, 1.0, 0.25))
-	halo.position = star.position
-	add_child(halo)
-	var title := NetsuUI.label("CHARACTER SELECT", 42, Color.WHITE, NetsuUI.sans(6))
-	title.position = Vector2(73 * k, 46 * k - 30)
-	title.size = Vector2(700, 60)
-	title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	add_child(title)
-	add_child(NetsuUI.hairline(NetsuUI.m(32, 76.7), 451 * k, Color(0.42, 0.8, 1.0, 0.95), 2.0, "right"))
-	var mode := NetsuUI.label(MatchSetup.mode_name.to_upper(), 38, NetsuUI.PINK, NetsuUI.sans(7))
-	mode.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	mode.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	mode.position = Vector2(1627 * k - 700 + 7, 46 * k - 30)
-	mode.size = Vector2(700, 60)
-	for l in [title, mode]:
-		l.add_theme_constant_override("outline_size", 8)
-		l.add_theme_color_override("font_outline_color", Color(0.02, 0.03, 0.12, 0.55))
-	add_child(mode)
-	add_child(NetsuUI.hairline(NetsuUI.m(1460, 76.7), 166 * k, Color(0.88, 0.6, 1.0, 0.85), 2.0, "left"))
 
 
 func _build_plates() -> void:
@@ -1083,46 +1234,56 @@ func _place(l: Label, x_left: float, x_right: float, y: float, right: bool, spac
 
 
 func _build_roster() -> void:
-	var k := NetsuUI.K
 	var total := maxi(roster_slots, _count)
 	var empty_tex: Texture2D = load(NetsuUI.SLOT_EMPTY) if ResourceLoader.exists(NetsuUI.SLOT_EMPTY) else null
+	var w := tile_size.x
+	var h := tile_size.y
+	var row_w := roster_columns * w + (roster_columns - 1) * tile_gap
 	for i in total:
 		var row := i / roster_columns
 		var col := i % roster_columns
-		var spec: Array = slot_rows[mini(row, slot_rows.size() - 1)]
-		var extra_rows := maxi(row - (slot_rows.size() - 1), 0)
-		var top_y: float = spec[0] + extra_rows * 119.0
-		var h: float = spec[4]
-		var skew := h * slot_lean
-		var top_left_x: float = spec[1] + col * float(spec[2]) - extra_rows * 119.0 * slot_lean
-		var top_w: float = spec[3]
-		var shape := NetsuUI.para(top_w * k, h * k, skew * k)
+		var ry: float = float(tile_rows_y[mini(row, tile_rows_y.size() - 1)]) + maxi(0, row - (tile_rows_y.size() - 1)) * (h + 10.0)
+		var shift: float = float(tile_rows_shift[row % tile_rows_shift.size()])
+		var shape := NetsuUI.para(w, h, 0.0)
 		var tile := Node2D.new()
-		tile.position = Vector2((top_left_x - skew) * k, top_y * k)
-		var box := Vector2((top_w + skew) * k, h * k)
-		var back := NetsuUI.poly(shape, Color(0.08, 0.08, 0.12, 0.92))
-		tile.add_child(back)
+		tile.position = Vector2(960.0 - row_w / 2.0 + shift + col * (w + tile_gap), ry)
+		var box := Vector2(w, h)
+		tile.add_child(NetsuUI.poly(shape, Color(0.04, 0.05, 0.12, 0.92)))
 		var pic := Polygon2D.new()
 		pic.polygon = shape
 		var tex: Texture2D = null
-		var crop := Rect2(0, 0, 1, 1)
 		if i < _count:
 			tex = MatchSetup.fighter_profile(i).Portrait
-			crop = PORTRAIT_CROP
 		else:
 			tex = empty_tex
 		if tex:
 			pic.texture = tex
 			var ts := tex.get_size()
+			var crop := Rect2(0, 0, 1, 1)
+			if i < _count:
+				# upright tile: keep PORTRAIT_CROP's height, take a centred strip as wide as the tile's shape
+				var cw := minf(1.0, (w / h) * PORTRAIT_CROP.size.y * ts.y / ts.x)
+				crop = Rect2(0.5 - cw / 2.0, PORTRAIT_CROP.position.y, cw, PORTRAIT_CROP.size.y)
 			var uv := PackedVector2Array()
 			for p in shape:
 				uv.append(Vector2((crop.position.x + p.x / box.x * crop.size.x) * ts.x,
 					(crop.position.y + p.y / box.y * crop.size.y) * ts.y))
 			pic.uv = uv
+			if i >= _count:
+				pic.color = Color(1, 1, 1, 0.55)
 			tile.add_child(pic)
-		tile.add_child(NetsuUI.outline(shape, Color(0.86, 0.87, 0.92, 0.95 if i < _count else 0.8), 2.0))
+		# a soft shade along the bottom and the white frame (Melty Blood's tiles have a thin light border)
+		var shade := Polygon2D.new()
+		shade.polygon = PackedVector2Array([Vector2(0, h * 0.62), Vector2(w, h * 0.62), Vector2(w, h), Vector2(0, h)])
+		shade.vertex_colors = PackedColorArray([Color(0.02, 0.03, 0.12, 0.0), Color(0.02, 0.03, 0.12, 0.0),
+			Color(0.02, 0.03, 0.12, 0.45), Color(0.02, 0.03, 0.12, 0.45)])
+		tile.add_child(shade)
+		tile.add_child(NetsuUI.outline(shape, Color(0.92, 0.94, 1.0, 0.95 if i < _count else 0.55), 2.0))
+		var flash := NetsuUI.poly(shape, Color(1, 1, 1, 0.0))   # the intro's white flash as it lands
+		tile.add_child(flash)
 		add_child(tile)
-		_tiles.append({"pos": tile.position, "size": box, "shape": shape, "skew": skew * k, "top_w": top_w * k})
+		_tiles.append({"pos": tile.position, "size": box, "shape": shape, "skew": 0.0, "top_w": w,
+			"node": tile, "flash": flash, "row": row})
 
 
 func _build_cursors() -> void:

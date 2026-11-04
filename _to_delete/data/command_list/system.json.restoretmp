@@ -1,0 +1,80 @@
+{
+  "note": "System tab of the command list (game/ui/command_list/netsu_command_list.gd). One page per entry of pages; topics are rows, {\"heading\": \"...\"} starts a group. preview: {\"move\": \"<engine move name>\"} or {\"state\": \"<state name>\"} plays it with the fighter shown (the player's own in a match), {\"illustration\": \"gauge|scaling|levels|overdrive|juggle\"} draws an example, {\"cutin\": \"ex|super\"} shows the fighter's cut-in art. data: up to six [label, value] cells. Numbers here are text: update them when the rules change (docs/game_systems.md).",
+  "pages": [
+    {
+      "id": "basics",
+      "title": "BASICS",
+      "topics": [
+        {"heading": "MOVEMENT"},
+        {"name": "Dash · Air Dash", "input": "66 / 44", "preview": {"moves": ["Dash Forward", "Forward Air Dash"]},
+         "desc": "Double-tap to dash or back dash; in the air it's an air dash. The forward air dash is a low hop that bumps into standing opponents but clears crouching ones. The back air dash is a stall.",
+         "data": [["MACRO", "A+B"], ["SUPER JUMP", "2 › 8"]]},
+        {"name": "Jumping", "input": "7 / 8 / 9", "preview": {"move": "Forward Jump"},
+         "desc": "You can't block for the first 10 frames of a jump, so jumping out of pressure is a read, not a free escape.",
+         "data": [["NO BLOCK", "10f"]]},
+        {"heading": "ATTACKING"},
+        {"name": "Chains & Reverse Beat", "input": "A > B > C", "preview": {"move": "5C"},
+         "desc": "Normals chain from light to heavy. A normal that hit or was blocked can also chain into a lighter one, each normal once per chain."},
+        {"name": "Universal Launcher", "input": "6 C", "tags": ["LAUNCHER"], "preview": {"move": "6C"},
+         "desc": "Every ground normal cancels into 6C on hit or block. On hit, jump (8) to chase into an air combo."},
+        {"name": "Throw", "input": "B+C", "preview": {"move": "Throw"},
+         "desc": "Close range. 4 + B+C throws behind you. A throw that connects can cancel into an EX move or a super. The answer to blocking.",
+         "data": [["STARTUP", "4f"], ["TECH WINDOW", "10f"]]}
+      ]
+    },
+    {
+      "id": "offense",
+      "title": "OFFENSE",
+      "topics": [
+        {"heading": "METER"},
+        {"name": "EX Moves", "input": "236 C", "cost": 1, "preview": {"cutin": "ex"},
+         "desc": "C on a special spends 1 bar for its EX version: invincible, or a bigger launch or bounce. Without the bar it comes out as the B version.",
+         "data": [["COST", "1 bar"], ["PAUSE", "30f"]]},
+        {"name": "Supers (S-Crafts)", "input": "236 B+C", "cost": 3, "tags": ["SUPER"], "preview": {"cutin": "super"},
+         "desc": "A motion plus B+C spends 3 bars. The fight stops for the cut-in, and the super cancels all your momentum as it starts.",
+         "data": [["COST", "3 bars"], ["PAUSE", "60f"]]},
+        {"name": "Special › EX Cancel", "input": "236 A > 214 C", "preview": {"cutin": "ex"},
+         "desc": "Any special that hit or was blocked cancels into an EX move."},
+        {"heading": "COMBOS"},
+        {"name": "Damage Scaling", "preview": {"illustration": "scaling"},
+         "desc": "From the 2nd hit everything does 72%, and every hit lowers the hits after it. Using the same move again costs more. EX moves and supers keep a minimum damage."},
+        {"name": "Juggle Decay & OTG", "preview": {"illustration": "juggle"},
+         "desc": "The longer a combo runs, the less untech time each hit gives; when it runs out they always air tech. A downed opponent can only be hit for a short OTG window."},
+        {"name": "Counter Hits", "tags": ["+12f"], "preview": {"move": "5C"},
+         "desc": "Hitting a move during its startup or recovery adds 12 frames of hitstun, so slow moves combo on counter hit."}
+      ]
+    },
+    {
+      "id": "defense",
+      "title": "DEFENSE",
+      "topics": [
+        {"heading": "BLOCKING"},
+        {"name": "Attack Levels", "input": "4 / 1", "preview": {"illustration": "levels"},
+         "desc": "Hold back to block; crouch to block lows, stand to block overheads. Every attack has a level that sets how long you're stuck blocking it."},
+        {"name": "Pushblock", "input": "A+B", "cost": 1, "preview": {"move": "Pushblock"},
+         "desc": "While blocking: stay in block and push the attacker about 1.6 m away. In the corner you slide back instead. It doesn't end blockstun.",
+         "data": [["COST", "1 bar"], ["PUSH", "1.6 m"], ["LENGTH", "18f"]]},
+        {"name": "Throw Tech", "input": "B+C", "preview": {"move": "Throw"},
+         "desc": "Press B+C within 10 frames of being grabbed to break it. Nobody takes damage."},
+        {"heading": "BREAKERS"},
+        {"name": "Burst", "input": "A+C", "tags": ["FULL GAUGE"], "preview": {"move": "Brave Burst"},
+         "desc": "Only while being hit. Uses the whole Burst gauge and knocks them away. It refills slowly: plan on about one per round.",
+         "data": [["STARTUP", "5f"], ["ACTIVE", "9f"]]}
+      ]
+    },
+    {
+      "id": "gauges",
+      "title": "GAUGES & COMEBACK",
+      "topics": [
+        {"heading": "RESOURCES"},
+        {"name": "Craft Gauge", "preview": {"illustration": "gauge"},
+         "desc": "Kept between rounds. Landing hits fills it most; getting hit or blocking fills it less; whiffs give nothing. After spending, gains drop to a quarter for 3 seconds. Below 35% health it slowly fills by itself."},
+        {"name": "Overdrive", "preview": {"illustration": "overdrive"},
+         "desc": "Turns on by itself once per round at 30% health or lower, and lasts until the round ends."},
+        {"name": "Assist Calls", "input": "S or 6 S", "preview": {"state": "Assist Call"},
+         "desc": "In neutral the call is free, but your fighter poses and can't block. During a normal or special that hit or was blocked it's an Assist Cancel for 1 bar. Not in the air, while blocking or out of an EX move, super or throw.",
+         "data": [["NEUTRAL", "free · pose"], ["CANCEL", "1 bar"]]}
+      ]
+    }
+  ]
+}

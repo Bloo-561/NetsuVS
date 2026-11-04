@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_7rgrk"]
 script = ExtResource("1")
-Center = Vector2i(0, 15000)
-Size = Vector2i(100000, 80000)
+Center = Vector2i(0, 9000)
+Size = Vector2i(40000, 44000)
 HitboxType = 1
 HitEffectIndex = 4
 HitType = 3
@@ -23,19 +23,19 @@ DamageScalingSubtract = 0
 GroundHitstunType = 2
 GroundHitReaction = 7
 CrouchHitReaction = 7
-GroundHitKnockback = Vector2i(-60000, 50000)
+GroundHitKnockback = Vector2i(-110000, 40000)
 GroundHitKnockbackGravity = 200000
-GroundHitKnockbackTime = 30
-GroundHitstun = 60
+GroundHitKnockbackTime = 40
+GroundHitstun = 300
 GroundBlockKnockback = Vector2i(-25000, 0)
-GroundBlockstun = 20
+GroundBlockstun = 32
 AirHitstunType = 2
 AirHitReaction = 7
-AirHitKnockback = Vector2i(-60000, 50000)
-AirHitKnockbackTime = 30
-AirHitstun = 60
+AirHitKnockback = Vector2i(-110000, 40000)
+AirHitKnockbackTime = 40
+AirHitstun = 300
 AirBlockKnockback = Vector2i(-18000, 50000)
-AirBlockstun = 20
+AirBlockstun = 32
 metadata/_custom_type_script = "uid://c0y740kryylcs"
 
 [resource]

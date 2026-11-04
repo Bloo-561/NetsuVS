@@ -836,21 +836,41 @@ func _illus_glyph(r: Dictionary) -> String:
 func _row_source(r: Dictionary) -> Dictionary:
 	var p: Dictionary = r.get("preview", {})
 	if p.has("illustration") or p.has("cutin"):
-		return {"data": null, "states": [], "air": false, "assist": false}
+		return {"data": null, "states": [], "air": false, "assist": false, "plan": [], "move": null}
 	var src := _data
 	var assist: bool = TABS[_tab][0] == "assists"
-	if (p.has("move") or p.has("state")) and assist:
+	if (p.has("move") or p.has("moves") or p.has("state")) and assist:
 		src = _caller   # a calling row: played by the fighter, not the assist
 		assist = false
 	var states: Array = r.get("states", [])
-	var air: bool = r.get("air", false)
-	if src != null and p.has("move"):
-		states = NetsuMoveCatalog.states_of_move(src, str(p["move"]))
-		air = NetsuMoveCatalog.move_is_air(src, str(p["move"]))
+	var air: bool = r.get("air", false) and not r.has("play")
+	var plan: Array = r.get("play", [])
+	var mv = r.get("move", null)
+	if src != null and (p.has("move") or p.has("moves")):
+		# Nov 2: System topics play the move the way the game gets there (a jump before an air dash, ...);
+		# "moves" plays several one after another
+		var names: Array = p["moves"] if p.has("moves") else [p["move"]]
+		plan = []
+		states = []
+		for n in names:
+			var m := NetsuMoveCatalog.move_named(src, str(n))
+			if m == null:
+				continue
+			var part := NetsuMoveCatalog.preview_plan(src, m)
+			for e in plan:
+				e.erase("show")
+			plan.append_array(part)
+			mv = m
+			states.append_array(NetsuMoveCatalog.states_of_move(src, str(n)))
+		air = false
 	elif src != null and p.has("state"):
 		var s := NetsuMoveCatalog.state_by_name(src, str(p["state"]))
 		states = [s] if s >= 0 else []
-	return {"data": src, "states": states, "air": air, "assist": assist}
+		plan = []
+	if plan.is_empty():
+		for i in states.size():
+			plan.append({"state": int(states[i]), "show": i == 0})
+	return {"data": src, "states": states, "air": air, "assist": assist, "plan": plan, "move": mv}
 
 
 ## The AnimationData list a row's still comes from.
@@ -864,7 +884,7 @@ func _row_anims(r: Dictionary) -> Array:
 ## Plays a row on the stage: the move against the opponent (an assist with its caller beside her).
 func _play_row(r: Dictionary) -> bool:
 	var src := _row_source(r)
-	if src["data"] == null or (src["states"] as Array).is_empty():
+	if src["data"] == null or ((src["states"] as Array).is_empty() and (src["plan"] as Array).is_empty()):
 		_stage.clear()
 		return false
 	var sim := NetsuMoveSim.new()
@@ -876,7 +896,7 @@ func _play_row(r: Dictionary) -> bool:
 			var call := NetsuMoveCatalog.state_by_name(_caller, "Assist Call")
 			sim.add_extra(_caller, call if call >= 0 else 0, Vector2i(0, 0), 1)
 	else:
-		sim.setup(src["data"], src["states"], _opp, src["air"])
+		sim.setup(src["data"], src["plan"], _opp, src["air"], -1, 0, {"move": src["move"], "name": str(r.get("name", ""))})
 	sim.record()
 	_stage.show_sim(sim)
 	return true

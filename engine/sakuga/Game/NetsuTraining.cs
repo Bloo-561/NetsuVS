@@ -59,6 +59,11 @@ public class NetsuTraining
 	public readonly int[] Craft = { -1, -1 };
 	/// <summary>Burst gauge: -1 always full, -2 works as in a match.</summary>
 	public readonly int[] Burst = { -1, -1 };
+	/// <summary>Nov 3 (after Guilty Gear's Auto Blue Psych Burst): the dummy Bursts by itself after AutoBurstHits hits taken
+	/// in one combo (On Hit), blocked in one string (On Block), or either.</summary>
+	public const int AutoBurstOff = 0, AutoBurstHit = 1, AutoBurstBlock = 2, AutoBurstBoth = 3;
+	public int AutoBurst;
+	public int AutoBurstHits = 3;
 	/// <summary>The assist gauge refills the moment the assist has left.</summary>
 	public bool AssistInstant = true;
 	/// <summary>Playback started with the shortcut repeats until stopped.</summary>
@@ -88,6 +93,10 @@ public class NetsuTraining
 	private int _tick;
 	private int _cpuLevel = -1;
 	private readonly int[] _free = { 0, 0 };   // frames each side has been out of a combo (health / bars refill)
+	private int _blocked;          // Auto Burst: hits blocked in this string
+	private int _lastStop;         // Auto Burst: the dummy's hitstop last frame (a new block starts a fresh one)
+	private bool _burstPending;    // Auto Burst: the count is reached: press Burst until it comes out
+	private bool _burstDone;       // Auto Burst: already Burst in this combo / string
 
 	private const PlayerInputs Forward = PlayerInputs.RIGHT;   // stored facing right
 	private const PlayerInputs Back = PlayerInputs.LEFT;
@@ -118,6 +127,8 @@ public class NetsuTraining
 		Burst[1] = Get(o, "p2_burst", Burst[1]);
 		AssistInstant = Get(o, "assist_instant", AssistInstant ? 1 : 0) != 0;
 		PlaybackRepeat = Get(o, "playback_repeat", PlaybackRepeat ? 1 : 0) != 0;
+		AutoBurst = Mathf.Clamp(Get(o, "auto_burst", AutoBurst), 0, 3);
+		AutoBurstHits = Mathf.Clamp(Get(o, "auto_burst_hits", AutoBurstHits), 1, 99);
 		_guardArmed = false;
 		_randomGuard = -1;
 	}
@@ -252,6 +263,7 @@ public class NetsuTraining
 			_guardArmed = false;   // left alone for half a second: the next string starts fresh
 			_randomGuard = -1;
 		}
+		AutoBurstCount(d, dt);
 		// frames each side has been out of hitstun / blockstun; health and set bars come back once
 		// BOTH have been for RefillDelay frames (the attacker is never in hitstun during a combo)
 		for (int i = 0; i < f.Length && i < 2; i++)
@@ -284,7 +296,7 @@ public class NetsuTraining
 			{
 				a.Parameters.Health.CurrentValue = Mathf.Max(1, a.Data.MaxHealth * Mathf.Clamp(Health[i], 1, 100) / 100);
 			}
-			int maxCraft = a.Data.MaxSuperGauge;
+			int maxCraft = a.Parameters.SuperGauge.MaxValue;   // Nov 2: the current cap (300%, 400% in Overdrive)
 			if (Craft[i] == -1 && idle)
 			{
 				a.Parameters.SuperGauge.CurrentValue = maxCraft;
@@ -297,6 +309,34 @@ public class NetsuTraining
 			{
 				a.Parameters.Will.CurrentValue = a.Data.MaxWill;
 			}
+		}
+	}
+
+	/// <summary>Nov 3: counts the hits taken / blocked in this combo or string and arms the Auto Burst.</summary>
+	private void AutoBurstCount(SakugaActor d, StateType dt)
+	{
+		int stop = d.Hitstop != null && d.Hitstop.IsRunning() ? (int)d.Hitstop.TimeLeft : 0;
+		if (dt == StateType.BLOCKING && stop > _lastStop)
+		{
+			_blocked++;   // a new block: its hitstop just started
+		}
+		_lastStop = stop;
+		if (_calm > 20)
+		{
+			_blocked = 0;   // the string is over
+			_burstDone = false;
+			_burstPending = false;
+		}
+		if (AutoBurst == AutoBurstOff || _burstDone || _burstPending || _dummyHuman || Recording)
+		{
+			return;
+		}
+		int hits = d.Parameters != null && d.Parameters.Tracker != null ? d.Parameters.Tracker.HitCombo : 0;
+		bool onHit = (AutoBurst == AutoBurstHit || AutoBurst == AutoBurstBoth) && dt == StateType.HIT_REACTION && hits >= AutoBurstHits;
+		bool onBlock = (AutoBurst == AutoBurstBlock || AutoBurst == AutoBurstBoth) && dt == StateType.BLOCKING && _blocked >= AutoBurstHits;
+		if (onHit || onBlock)
+		{
+			_burstPending = true;
 		}
 	}
 
@@ -345,6 +385,19 @@ public class NetsuTraining
 	private PlayerInputs DummyInput(SakugaActor d)
 	{
 		StateType type = d.StateManager.CurrentStateType();
+		if (_burstPending)
+		{
+			if (d.NetsuBursting() || (type != StateType.HIT_REACTION && type != StateType.BLOCKING))
+			{
+				_burstPending = false;   // it came out (or the combo is over)
+				_burstDone = true;
+			}
+			else
+			{
+				// A+C on every other frame: a fresh press the moment the Burst is allowed
+				return (_tick & 1) == 0 ? (PlayerInputs.FACE_A | PlayerInputs.FACE_C) : PlayerInputs.NEUTRAL;
+			}
+		}
 		PlayerInputs stance = Action == ActCrouch ? PlayerInputs.DOWN : (Action == ActJump ? PlayerInputs.UP : PlayerInputs.NEUTRAL);
 		if (type == StateType.HIT_REACTION)
 		{
@@ -662,7 +715,7 @@ public class NetsuTraining
 			}
 			else if (Craft[i] >= 0)
 			{
-				f[i].Parameters.SuperGauge.CurrentValue = Mathf.Clamp(StanceManager.NetsuBarSize * Craft[i], 0, f[i].Data.MaxSuperGauge);
+				f[i].Parameters.SuperGauge.CurrentValue = Mathf.Clamp(StanceManager.NetsuBarSize * Craft[i], 0, f[i].Parameters.SuperGauge.MaxValue);
 			}
 			if (Burst[i] == -2)
 			{

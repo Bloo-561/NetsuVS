@@ -1,0 +1,210 @@
+[gd_resource type="Resource" script_class="FighterState" format=3 uid="uid://7gpz8y0v8jng"]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="1"]
+[ext_resource type="Resource" uid="uid://bkarmr6ief8il" path="res://actors/flan/AnimationData/74_FLN_236B_AnimData.tres" id="2"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="3"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="4"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="5"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="6"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="7"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="8"]
+[ext_resource type="Script" uid="uid://ylv4rubm1b8g" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetArmorAction.cs" id="9"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="sfx_play"]
+[ext_resource type="Script" uid="uid://6o7vtk08qcty" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckHitCondition.cs" id="nf2"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/NetsuOverdriveCondition.cs" id="nf4"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuBounceOpponentAction.cs" id="nf6"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="x1"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="x2"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/43_Input_HoldB_or_C.tres" id="x3"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="pt_play"]
+
+[sub_resource type="Resource" id="s1"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="s2"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="s3"]
+script = ExtResource("3")
+Conditions = [SubResource("s1")]
+Actions = [SubResource("s2")]
+
+[sub_resource type="Resource" id="s4"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="s5"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s6"]
+script = ExtResource("3")
+Actions = [SubResource("s4"), SubResource("s5")]
+
+[sub_resource type="Resource" id="s7"]
+script = ExtResource("8")
+Frame = 4
+
+[sub_resource type="Resource" id="s8"]
+script = ExtResource("9")
+Value = 1
+
+[sub_resource type="Resource" id="s9"]
+script = ExtResource("3")
+Conditions = [SubResource("s7")]
+Actions = [SubResource("s8")]
+
+[sub_resource type="Resource" id="s10"]
+script = ExtResource("8")
+Frame = 25
+
+[sub_resource type="Resource" id="s11"]
+script = ExtResource("7")
+Velocity = 110000
+
+[sub_resource type="Resource" id="s12"]
+script = ExtResource("3")
+Conditions = [SubResource("s10")]
+Actions = [SubResource("s11")]
+
+[sub_resource type="Resource" id="s13"]
+script = ExtResource("8")
+Frame = 28
+
+[sub_resource type="Resource" id="s14"]
+script = ExtResource("9")
+Value = -1
+
+[sub_resource type="Resource" id="s15"]
+script = ExtResource("3")
+Conditions = [SubResource("s13")]
+Actions = [SubResource("s14")]
+
+[sub_resource type="Resource" id="s16"]
+script = ExtResource("8")
+Frame = 34
+
+[sub_resource type="Resource" id="s17"]
+script = ExtResource("7")
+Velocity = 0
+
+[sub_resource type="Resource" id="s18"]
+script = ExtResource("3")
+Conditions = [SubResource("s16")]
+Actions = [SubResource("s17")]
+
+[sub_resource type="Resource" id="s19"]
+script = ExtResource("9")
+Value = -1
+
+[sub_resource type="Resource" id="s20"]
+script = ExtResource("3")
+Actions = [SubResource("s19")]
+
+[sub_resource type="Resource" id="sfx_4_0_play"]
+script = ExtResource("sfx_play")
+Source = 3
+Index = 49
+
+[sub_resource type="Resource" id="sfx_4_0_at"]
+script = ExtResource("8")
+Frame = 4
+
+[sub_resource type="Resource" id="sfx_4_0"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_4_0_at")]
+Actions = [SubResource("sfx_4_0_play")]
+
+[sub_resource type="Resource" id="sfx_22_1_play"]
+script = ExtResource("sfx_play")
+Source = 2
+Index = 47
+
+[sub_resource type="Resource" id="sfx_22_1_at"]
+script = ExtResource("8")
+Frame = 26
+
+[sub_resource type="Resource" id="sfx_22_1"]
+script = ExtResource("3")
+Conditions = [SubResource("sfx_22_1_at")]
+Actions = [SubResource("sfx_22_1_play")]
+
+[sub_resource type="Resource" id="nf_s1"]
+script = ExtResource("nf2")
+HitCheck = 2
+
+[sub_resource type="Resource" id="nf_s3"]
+script = ExtResource("nf4")
+
+[sub_resource type="Resource" id="nf_s5"]
+script = ExtResource("nf6")
+HitReaction = 7
+Knockback = Vector2i(-110000, 50000)
+KnockbackTime = 8
+KnockbackGravity = 130000
+Hitstun = 70
+HitstunType = 2
+BounceTime = 120
+BounceX = 40
+WallDistance = 38000
+
+[sub_resource type="Resource" id="nf_s7"]
+script = ExtResource("3")
+Conditions = [SubResource("nf_s1"), SubResource("nf_s3")]
+Actions = [SubResource("nf_s5")]
+
+[sub_resource type="Resource" id="z1"]
+script = ExtResource("x1")
+MinFrame = 14
+MaxFrame = 14
+
+[sub_resource type="Resource" id="z2"]
+script = ExtResource("x2")
+Input = ExtResource("x3")
+
+[sub_resource type="Resource" id="z3"]
+script = ExtResource("9")
+Value = -1
+
+[sub_resource type="Resource" id="z4"]
+script = ExtResource("5")
+StateIndex = 116
+
+[sub_resource type="Resource" id="zev1"]
+script = ExtResource("3")
+Conditions = [SubResource("z1"), SubResource("z2")]
+Actions = [SubResource("z3"), SubResource("z4")]
+
+[sub_resource type="Resource" id="pt_c"]
+script = ExtResource("nf2")
+HitCheck = 6
+
+[sub_resource type="Resource" id="pt_a"]
+script = ExtResource("pt_play")
+StateIndex = 121
+
+[sub_resource type="Resource" id="pt_e"]
+script = ExtResource("3")
+Conditions = [SubResource("pt_c")]
+Actions = [SubResource("pt_a")]
+
+[sub_resource type="Resource" id="face_act"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="face_ev"]
+script = ExtResource("3")
+Actions = [SubResource("face_act")]
+
+[resource]
+script = ExtResource("1")
+StateName = "Twirling Star Fist"
+NetsuChargeAt = 14
+NetsuChargeHold = ExtResource("x3")
+Type = 2
+AnimationData = ExtResource("2")
+TransitionEvents = [SubResource("zev1"), SubResource("s3")]
+OnEnterEvents = [SubResource("s6")]
+OnTickEvents = [SubResource("sfx_4_0"), SubResource("sfx_22_1"), SubResource("s9"), SubResource("s12"), SubResource("s15"), SubResource("s18")]
+OnExitEvents = [SubResource("s20"), SubResource("face_ev")]
+OnHitConfirmEvents = [SubResource("nf_s7"), SubResource("pt_e")]
+OnHitReactionEvents = null
+AIFlags = 18

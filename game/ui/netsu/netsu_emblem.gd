@@ -51,6 +51,8 @@ var _fading := false
 var _lit_sent := false
 var _glow: GradientTexture2D
 var _glow_layer: Control
+## Nov 2 (late): the middle is one of the seven marbles, picked at random each time it plays, lit on the ignition.
+var _core := 0
 
 
 func _ready() -> void:
@@ -69,6 +71,7 @@ func _ready() -> void:
 
 
 func play() -> void:
+	_core = randi() % _n()
 	_t = 0.0
 	_alpha = 1.0
 	_fading = false
@@ -215,22 +218,13 @@ func _draw() -> void:
 		var stone: Color = stone_colors[i % stone_colors.size()]
 		draw_circle(p, r * 0.115, Color(steel_mid, a))
 		draw_arc(p, r * 0.115, 0.0, TAU, 32, Color(steel_light, 0.6 * a), 1.5 * s, true)
-		_draw_quartz(p, r * 0.082, stone, lit, a)
-		var sign_col := Color(steel_mid.lightened(0.15), 0.9 * a).lerp(Color(_glow_of(i).lightened(0.25), a), lit)
-		_draw_sign(ELEMENTS[i % ELEMENTS.size()], c + _dir(i) * r * 0.765, r * 0.05, sign_col, s)
-	# the core: a steel ring and the heat sigil
+		_draw_quartz(p, r * 0.092, stone, lit, a)
+	# the core (Nov 2 late): a big marble, one of the seven at random, dark until the ignition
 	var ignite := _k(T_IGNITE, T_IGNITE + 0.14)
 	draw_circle(c, r * 0.22, Color(steel_mid, a))
 	draw_arc(c, r * 0.22, 0.0, TAU, 48, Color(steel_light, 0.7 * a), 2.0 * s, true)
-	draw_circle(c, r * 0.17, Color(face_color.lerp(core_color.darkened(0.55), ignite), a))
-	var sun := core_color.darkened(0.7).lerp(Color(1, 0.95, 0.85), ignite)
-	for i in 12:
-		var ang := TAU * float(i) / 12.0 + _t * 0.4 * ignite
-		var d := Vector2(cos(ang), sin(ang))
-		var nn := Vector2(-d.y, d.x)
-		var ray_len := r * (0.15 if i % 2 == 0 else 0.11)
-		draw_colored_polygon(PackedVector2Array([c + d * r * 0.075 + nn * r * 0.022, c + d * ray_len, c + d * r * 0.075 - nn * r * 0.022]), Color(sun, a))
-	draw_circle(c, r * 0.07, Color(sun, a))
+	draw_circle(c, r * 0.19, Color(steel_dark, a))
+	_draw_quartz(c, r * 0.165, stone_colors[_core % stone_colors.size()], ignite, a)
 
 
 ## The light (additive): channels running, stones glowing, the core's flare and ring.
@@ -272,7 +266,6 @@ func _draw_glow() -> void:
 		var flare := 1.0 - _k(T_FIRST + T_STEP * i + T_RUN, T_FIRST + T_STEP * i + T_RUN + 0.3)
 		_glow_dot(_socket(i), r * (0.25 + 0.18 * flare), Color(col, 0.55 * lit * pulse))
 		_glow_dot(_socket(i), r * 0.09, Color(1, 1, 1, (0.3 + 0.5 * flare) * lit))
-		_glow_dot(c + _dir(i) * r * 0.765, r * 0.09, Color(col, 0.35 * lit * pulse))
 	# spokes: light pouring from every stone into the core
 	var spoke := clampf((_t - T_SPOKES) / (T_IGNITE - T_SPOKES), 0.0, 1.0)
 	if spoke > 0.0:
@@ -285,13 +278,14 @@ func _draw_glow() -> void:
 				_glow_dot(head, r * 0.07, Color(col.lightened(0.5), 0.9))
 	# the core ignites: a flare, then a ring of light opening out, then a steady glow
 	var ignite := _k(T_IGNITE, T_IGNITE + 0.14)
+	var core_col := _glow_of(_core).lerp(Color.WHITE, 0.15)
 	if ignite > 0.0:
 		var flash := 1.0 - _k(T_IGNITE, T_IGNITE + 0.45)
-		_glow_dot(c, r * (0.5 + 1.1 * flash), Color(core_color, (0.45 + 0.5 * flash) * ignite * pulse))
+		_glow_dot(c, r * (0.5 + 1.1 * flash), Color(core_col, (0.45 + 0.5 * flash) * ignite * pulse))
 		_glow_dot(c, r * 0.22, Color(1, 1, 1, (0.5 + 0.5 * flash) * ignite))
 		var ring := _k(T_IGNITE, T_IGNITE + 0.6)
 		if ring < 1.0:
-			_glow_layer.draw_arc(c, r * (0.25 + 1.0 * ring), 0.0, TAU, 96, Color(core_color.lightened(0.3), 0.8 * (1.0 - ring)), (6.0 - 4.0 * ring) * s, true)
+			_glow_layer.draw_arc(c, r * (0.25 + 1.0 * ring), 0.0, TAU, 96, Color(core_col.lightened(0.3), 0.8 * (1.0 - ring)), (6.0 - 4.0 * ring) * s, true)
 		# rays of light off the sigil, briefly
 		if flash > 0.0:
 			for i in 12:
@@ -299,32 +293,42 @@ func _draw_glow() -> void:
 				var d := Vector2(cos(ang), sin(ang))
 				var nn := Vector2(-d.y, d.x)
 				var ray_len := r * (0.5 + 0.9 * (1.0 - flash))
-				_glow_layer.draw_colored_polygon(PackedVector2Array([c + nn * r * 0.03, c + d * ray_len, c - nn * r * 0.03]), Color(1, 0.9, 0.7, 0.35 * flash))
+				_glow_layer.draw_colored_polygon(PackedVector2Array([c + nn * r * 0.03, c + d * ray_len, c - nn * r * 0.03]), Color(core_col.lightened(0.4), 0.35 * flash))
 	# the lock's flash
 	var lock := _k(T_LOCK - 0.02, T_LOCK + 0.1) * (1.0 - _k(T_LOCK + 0.1, T_LOCK + 0.35))
 	if lock > 0.0:
 		_glow_dot(c + Vector2(0, -r * 0.93), r * 0.22, Color(0.75, 0.9, 1.0, 0.8 * lock))
 
 
-## A faceted quartz (an elongated hexagon cut like the game's quartz icons): dark until lit.
+## Nov 2 (late): a glass marble in its steel cup (was a faceted hexagon): a round, glossy quartz sphere, shaded light at
+## the top left and dark at the bottom right, a bright glint, a soft reflection underneath and, once lit, a glowing
+## heart with a slow swirl of light inside. Dimmed (but still coloured) until its turn.
 func _draw_quartz(p: Vector2, g: float, stone: Color, lit: float, a: float) -> void:
-	var base := stone.darkened(0.78).lerp(stone, lit)
-	var pts := PackedVector2Array()
-	for k in 6:
-		var ang := -PI * 0.5 + TAU * float(k) / 6.0
-		pts.append(p + Vector2(cos(ang) * 0.86, sin(ang)) * g)
-	draw_colored_polygon(pts, Color(base, a))
-	# facets: a lighter top-left face, a darker bottom-right face, the table in the middle
-	var inner := PackedVector2Array()
-	for k in 6:
-		inner.append(p.lerp(pts[k], 0.45))
-	draw_colored_polygon(PackedVector2Array([pts[5], pts[0], pts[1], inner[1], inner[0], inner[5]]), Color(base.lightened(0.35), a))
-	draw_colored_polygon(PackedVector2Array([pts[2], pts[3], pts[4], inner[4], inner[3], inner[2]]), Color(base.darkened(0.35), a))
-	draw_colored_polygon(inner, Color(base.lightened(0.12), a))
-	var rim := steel_light if stone.get_luminance() > 0.2 else steel_light.lightened(0.2)
-	pts.append(pts[0])
-	draw_polyline(pts, Color(rim, (0.55 + 0.35 * lit) * a), 1.4 * _scale(), true)
-	draw_circle(p + Vector2(-0.3, -0.42) * g, g * 0.16, Color(1, 1, 1, (0.12 + 0.6 * lit) * a))   # a glint
+	var s := _scale()
+	var base := stone.darkened(0.62).lerp(stone, lit)
+	if stone.get_luminance() < 0.15:
+		base = base.lerp(Color(0.32, 0.26, 0.45), 0.35)   # Time's black stone still reads as glass
+	# a shadow in the cup, then the sphere shaded from the bottom right (dark) to the top left (light)
+	draw_circle(p + Vector2(0.08, 0.1) * g, g * 1.04, Color(0, 0, 0, 0.55 * a))
+	var light_at := p + Vector2(-0.32, -0.36) * g
+	for i in 9:
+		var k := float(i) / 8.0
+		var rr := g * (1.0 - 0.72 * k)
+		var cc := p.lerp(light_at, k * 0.85)
+		var col := base.darkened(0.45).lerp(base.lightened(0.38), k)
+		draw_circle(cc, rr, Color(col, a))
+	# the glowing heart and a slow swirl inside it (lit stones only)
+	if lit > 0.0:
+		draw_circle(p, g * 0.42, Color(stone.lightened(0.55), 0.55 * lit * a))
+		var spin := _t * 2.2 + p.x * 0.01
+		draw_arc(p, g * 0.55, spin, spin + 2.2, 16, Color(stone.lightened(0.7), 0.6 * lit * a), 1.6 * s, true)
+		draw_arc(p, g * 0.3, -spin * 1.3, -spin * 1.3 + 1.8, 12, Color(1, 1, 1, 0.45 * lit * a), 1.2 * s, true)
+	# a soft reflection along the bottom edge, the rim, and the glints
+	draw_arc(p, g * 0.78, deg_to_rad(25), deg_to_rad(150), 18, Color(base.lightened(0.5), (0.25 + 0.25 * lit) * a), 1.6 * s, true)
+	draw_arc(p, g, 0.0, TAU, 32, Color(0.02, 0.02, 0.05, 0.75 * a), 1.4 * s, true)
+	draw_circle(p + Vector2(-0.36, -0.42) * g, g * 0.24, Color(1, 1, 1, (0.35 + 0.4 * lit) * a))
+	draw_circle(p + Vector2(-0.42, -0.48) * g, g * 0.1, Color(1, 1, 1, (0.7 + 0.3 * lit) * a))
+	draw_circle(p + Vector2(0.38, 0.36) * g, g * 0.07, Color(1, 1, 1, 0.25 * a))
 
 
 ## The element's sign, drawn in lines (u = half its size).

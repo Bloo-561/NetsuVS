@@ -53,8 +53,8 @@ Offset = Vector2(-170, -6)
 [sub_resource type="Resource" id="M1_1"]
 script = ExtResource("sp")
 Sprite = ExtResource("c16strip")
-Offset = Vector2(0.2431, 132.67)
-Scale = Vector2(1300.0, 3.0)
+Offset = Vector2(1.0551, 375)
+Scale = Vector2(671.0, 1.0)
 
 [sub_resource type="Resource" id="A1"]
 script = ExtResource("an")

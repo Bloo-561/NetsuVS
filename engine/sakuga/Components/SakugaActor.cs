@@ -426,6 +426,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return true;   // Netsu (Oct 28): air tech: can't be hit or thrown until she lands or acts
 		}
+		if ((CompareTo & NetsuWakeImmunity) != 0 && NetsuBurstInvul)
+		{
+			return true;   // Netsu (Nov 3): Burst: fully invincible (hits, throws, projectiles)
+		}
 		return (FrameProperties & CompareTo) != 0;
 	}
 
@@ -449,6 +453,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 	// combo's proration, never longer than impact + lying). A hit can override the three lengths (HitboxElement
 	// NetsuKnockdown*, 0 = global); they are remembered here. Saved for rollback (SakugaActorState keys 39-42).
 	public int NetsuOtgSpent;
+
+	/// <summary>Nov 3: set by BaseDamage for a splash hit (HitboxElement.NetsuOtgRelaunch) on a downed opponent, read and
+	/// cleared by HitDamage in the same call (never kept across frames, so rollback needn't save it).</summary>
+	public bool NetsuRelaunchNow;
 	public int NetsuKdImpact;
 	public int NetsuKdLying;
 	public int NetsuKdGetUp;
@@ -905,6 +913,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		}
 		NetsuWasAir = netsuAir;
 		NetsuAirTechTick();   // Netsu (Oct 28): air tech lockout / invincibility
+		NetsuBurstTick();     // Netsu (Nov 3): Burst invincibility
 		if (StateManager.CurrentStateType() != StateType.COMBAT)
 		{
 			NetsuChainUsed = 0;   // Netsu (Oct 26 late): out of her moves: a new chain
@@ -1069,9 +1078,16 @@ public partial class SakugaActor : SakugaNode, IDamage
 	// the hold lets go even if the EX still has attack frames (Cecilia's 623C dive on an airborne opponent). Key 58.
 	public int NetsuExHoldAge;
 
-	private void NetsuExHoldStart(SakugaActor attacker)
+	private void NetsuExHoldStart(SakugaActor attacker, int knockbackY = 0)
 	{
 		NetsuExHoldKey = 0;
+		// Nov 3 (TamaDeez): a slam (a hit that sends them DOWN: Flan's 214C punch, Leticia's 623C finisher) never holds
+		// them up. The hold zeroed the slam's fall, and LaunchDown has no gravity of its own, so they hung in the air,
+		// drifting across the screen, and with a hard knockdown they could never tech. It also ends any earlier hold.
+		if (knockbackY < 0)
+		{
+			return;
+		}
 		if (!NetsuHitMove(attacker, out SakugaActor root, out int move, out int use) || root.StanceManager == null)
 		{
 			return;
@@ -1163,7 +1179,8 @@ public partial class SakugaActor : SakugaNode, IDamage
 		}
 		NetsuExHoldAge++;
 		int grace = GameManager.Instance != null ? GameManager.Instance.NetsuExHoldGraceFrames : 20;
-		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuExHoldAge > grace || !NetsuExStillGoing(GetOpponent(0)))
+		if (IsKO() || StateManager.CurrentStateType() != StateType.HIT_REACTION || NetsuExHoldAge > grace || !NetsuExStillGoing(GetOpponent(0))
+			|| HitstunType >= HitstunType.HARD_KNOCKDOWN)   // Nov 3: a hard knockdown is never held up (it must land)
 		{
 			NetsuExHoldKey = 0;
 			return;
@@ -1762,7 +1779,13 @@ public partial class SakugaActor : SakugaNode, IDamage
 			NetsuReport("netsu_super_hold", backdrop);
 		}
 		bool aura = hold || (flashing && NetsuFlashCost >= SakugaEngine.StanceManager.NetsuExCost);
-		if (NetsuOverdrivePausing())
+		if (NetsuBurstInvul && NetsuBursting())
+		{
+			// Nov 3: Burst, invincible part: a wide white-gold glow, so you can see you can't touch her
+			float pulse = 0.85f + 0.15f * Mathf.Sin(Time.GetTicksMsec() * 0.05f);
+			Animator.SetAura(new Color(1f, 0.93f, 0.62f, pulse), NetsuAuraWidthSuper);
+		}
+		else if (NetsuOverdrivePausing())
 		{
 			// Oct 26 evening: Overdrive activation: she glows (her colour, brighter and wider than an EX)
 			Color c = NetsuAuraColor().Lerp(Colors.White, 0.35f);
@@ -2276,7 +2299,9 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			NetsuNoBurst = true;   // Oct 27 (TamaDeez): no Burst out of a special / EX move / super hit (until the combo ends)
 		}
-		if ((NetsuDownFrames > 0 || NetsuLying()) && !IsKO())
+		bool netsuRelaunchHit = NetsuRelaunchNow;   // Nov 3: a splash hit picks them up instead (BaseDamage)
+		NetsuRelaunchNow = false;
+		if (!netsuRelaunchHit && (NetsuDownFrames > 0 || NetsuLying()) && !IsKO())
 		{
 			// Netsu (Oct 26): hit while lying (BaseDamage only lets it through inside the OTG window, and never from
 			// a super): they stay down
@@ -2348,6 +2373,19 @@ public partial class SakugaActor : SakugaNode, IDamage
 			finalKnockbackGravity = NetsuLaunchGravity;
 		}
 		int finalHitReaction = ((!isGroundHit) ? box.AirHitReaction : (IsCrouchState() ? box.CrouchHitReaction : box.GroundHitReaction));
+		// Netsu (Nov 3, TamaDeez): NO RESTANDS. An opponent in the air, or juggled (launched and not lying yet, even if their
+		// feet touch the floor), is never put back on their feet by a hit: the standing / crouching / sweep reactions (and
+		// the light air reaction, whose end lets them land standing) become the falling air reaction, which always ends
+		// in the down state on landing. Only a hit made to restand does (HitboxElement.NetsuAllowRestand). Noah's j.214A
+		// blast stood them up this way.
+		if (!box.NetsuAllowRestand && (netsuJuggled || !isGroundHit))
+		{
+			const int netsuAirStrong = 5;   // HitReactions: 0 stand weak, 1 stand strong, 2 crouch, 3 sweep, 4 air weak, 5 air strong, 6 crumple
+			if (finalHitReaction <= 3 || (finalHitReaction == 4 && netsuJuggled) || (finalHitReaction == 6 && Body != null && !Body.IsOnGround))
+			{
+				finalHitReaction = netsuAirStrong;
+			}
+		}
 		HitstunType = (isGroundHit ? box.GroundHitstunType : box.AirHitstunType);
 		if (netsuJuggled && HitstunType < HitstunType.KNOCKDOWN)
 		{
@@ -2376,7 +2414,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 			// Netsu (Oct 26 c15): BlazBlue-style juggle decay by combo time (was: -1 frame per hit after the 8th hit)
 			// Oct 27 c27: + repeat proration on air hits (the untech time); ground hitstun only has the time decay
 			finalHitstunForReal = Mathf.Max(finalHitstun - (netsuSpecialCounter ? 0 : NetsuJuggleDecay(target)) - (isGroundHit ? netsuRepeat / 2 : netsuRepeat), isGroundHit ? 8 : 1);   // Oct 27 c33: ground hits lose half the repeat proration
-			decayingKnockback = 2500 * Parameters.Prorations.GravityDecayFactor;
+			decayingKnockback = (GameManager.Instance != null ? GameManager.Instance.NetsuGravityDecayPerHit : 2500) * Parameters.Prorations.GravityDecayFactor;   // Nov 3: a setting (was 2500)
 		}
 		// Oct 28: UNI-style recovery scaling: an air hit REPLACES their untech time with base x the combo's recovery scale
 		// (never adding to what was left); then this hit scales the later ones. Ground hits keep their hitstun and only
@@ -2440,7 +2478,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		PushActor(finalKnockbackTime, finalDamageKnockback.X * -target.Body.PlayerSide, finalDamageKnockback.Y - decayingKnockback, finalKnockbackGravity);
 		NetsuFloatStart(box);   // Netsu (Oct 28): a float hit (Leticia's j.236) holds them up; any other hit ends a float
 		NetsuCarryStart(target, box);   // Netsu (Oct 29): Flan's upward Star Rush carries them up with her
-		NetsuExHoldStart(target);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over
+		NetsuExHoldStart(target, finalDamageKnockback.Y - decayingKnockback);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over (Nov 3: not a slam)
 		if (Parameters != null)
 		{
 			int stunFrame = ((target.StateManager != null) ? (target.StateManager.GetCurrentState().AnimationData.Duration - target.StateManager.CurrentStateFrame) : 0);
@@ -2765,9 +2803,21 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	public void BaseDamage(SakugaActor target, HitboxElement box, Vector2I contact)
 	{
-		if (target.ContainsFrameProperty(FrameProperties.DAMAGE_IMUNITY) || NetsuSuperOtg(target))
+		// Nov 3 (TamaDeez): a splash hit (HitboxElement.NetsuOtgRelaunch) picks a downed opponent back up: it gets past
+		// the wake-up invincibility and the super OTG rule, and HitDamage treats it as a normal hit (not an OTG hit)
+		target.NetsuRelaunchNow = false;
+		bool netsuRelaunch = box.NetsuOtgRelaunch && !target.IsKO() && (target.NetsuDownFrames > 0 || target.NetsuLying())
+			&& (target.FrameProperties & FrameProperties.DAMAGE_IMUNITY) == 0;
+		if (!netsuRelaunch && (target.ContainsFrameProperty(FrameProperties.DAMAGE_IMUNITY) || NetsuSuperOtg(target)))
 		{
 			return;   // (Oct 26 evening: supers can't OTG: they never hit a fighter lying on the ground)
+		}
+		if (netsuRelaunch)
+		{
+			target.NetsuRelaunchNow = true;
+			target.NetsuDownFrames = 0;
+			target.NetsuOtgSpent = 0;
+			target.NetsuOtgWindowAtLand = -1;
 		}
 		if (box.HitType == HitType.UNBLOCKABLE || (box.HitType == HitType.HIGH && target.Body.IsOnGround && target.IsCrouchState()))
 		{
@@ -2801,12 +2851,23 @@ public partial class SakugaActor : SakugaNode, IDamage
 		FighterState netsuKeepState = StateManager?.GetCurrentState();
 		if (netsuKeepState != null && netsuKeepState.NetsuKeepBlockSide && Body != null)
 		{
-			// her facing flips at frame 8 (ChangeSideAction), so after that the side she came from is +PlayerSide
-			netsuBlockSide = StateManager.CurrentStateFrame >= 8 ? Body.PlayerSide : -Body.PlayerSide;
+			// her facing flips at NetsuKeepBlockSideFlipFrame (the state's ChangeSideAction), so from then on the side she
+			// came from is +PlayerSide. Nov 3: was fixed at frame 8, but Cecilia's slash flips at 10 and still hits on
+			// frame 8, so that hit had to be blocked the other way (a cross-up).
+			netsuBlockSide = StateManager.CurrentStateFrame >= netsuKeepState.NetsuKeepBlockSideFlipFrame ? Body.PlayerSide : -Body.PlayerSide;
 		}
 		// Netsu (Oct 26 late, TamaDeez): every assist hit (and its projectiles) is a mid: blocked standing or crouching.
 		HitType netsuHitType = NetsuIsAssistHit() && box.HitType != HitType.UNBLOCKABLE ? HitType.MEDIUM : box.HitType;
+		if (NetsuBursting())
+		{
+			// Netsu (Nov 3, BlazBlue): a Burst can be blocked, standing, crouching or in the air, by anyone who is free
+			// to block when it comes out (out of their attack in time: jump-cancel and air-block, or recover and guard
+			// on the ground). Someone still in an attack or in hitstun just gets hit.
+			netsuHitType = HitType.MEDIUM;
+		}
+		target.StanceManager.NetsuVsBurst = NetsuBursting();   // Nov 3: Burst hits have their own guard rule
 		int blockState = target.StanceManager.GetBlockState(netsuHitType, (byte)((!box.GuardCrush) ? 1u : 2u), netsuBlockSide);
+		target.StanceManager.NetsuVsBurst = false;
 		NetsuLog.Debug(blockState.ToString());
 		if (target.Parameters.SuperArmor != null && target.Parameters.SuperArmor.CurrentValue > 0)
 		{
@@ -2893,6 +2954,138 @@ public partial class SakugaActor : SakugaNode, IDamage
 	//  - she is invincible (hits, throws, projectiles) until she lands. Doing anything before landing ends it.
 	// Saved for rollback (SakugaActorState keys 44-46).
 	public const int NetsuAirTechFreshFrames = 8;
+
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Nov 3 2026, TamaDeez): BURST (BlazBlue style). From its first frame a Burst makes her fully invincible
+	// (can't be hit, thrown or touched by projectiles) for the whole Burst (not after it: a baited Burst is punishable).
+	// It can be blocked (ground or air) by anyone free to block when it comes out; on hit it launches far up and away
+	// (Hitboxes/100_Hitbox_Burst). The fight does NOT stop (frame data below); the battle HUD draws the
+	// explosion (netsu_super_flash.gd, cost -3). Saved for rollback (SakugaActorState key 64).
+	// Nov 3 (third pass, BlazBlue Central Fiction frame data): startup 6, active 6, recovery 43; invincible frames 1-48;
+	// -24 on block; untechable 300 on hit. NO pause any more (it made a Burst impossible to bait): it just comes out.
+	// An air Burst is vulnerable from frame 49 until she lands.
+	// Nov 3 (P4AU Reversal Burst): startup 16, total 67, invincible 1-25, -19 on block (blockstun 32). The BBCF
+	// numbers above were the pass before.
+	public const int NetsuBurstInvulFrames = 41;   // Nov 3 (TamaDeez): invincible through the startup (16) and the Burst itself (25)
+	/// <summary>How long the explosion's stage dimming lasts (presentation only; the fight doesn't stop).</summary>
+	public const int NetsuBurstFxFrames = 20;
+
+	public bool NetsuBurstInvul;
+
+	/// <summary>Called by StanceManager.ExecuteMove when a Burst starts.</summary>
+	public void NetsuBurstBegin()
+	{
+		NetsuBurstInvul = true;
+		NetsuBurstPunishable = false;
+		NetsuBurstStartY = Body != null ? Body.FixedPosition.Y : 0;
+		// (the explosion starts on the Burst's first active frame: NetsuBurstTick)
+	}
+
+	/// <summary>She is in her Burst's own state right now.</summary>
+	public bool NetsuBursting()
+	{
+		if (StanceManager == null || StateManager == null)
+		{
+			return false;
+		}
+		int move = StanceManager.CurrentMove;
+		return move >= 0 && StanceManager.NetsuIsBurst(move) && StanceManager.GetCurrentMove() != null
+			&& StateManager.CurrentState == StanceManager.GetCurrentMove().MoveState;
+	}
+
+	/// <summary>Nov 3 (second pass): invincible only for the Burst itself. Once it's over she can be hit again, so a
+	/// Burst that was baited (air-blocked) can be punished as she falls.</summary>
+	/// <summary>Nov 3 (presentation): she can be punished: from the end of her Burst's invincibility until she lands
+	/// (an air Burst), recovers on the ground, does something else or is hit. Drives the red flash (aura) and the
+	/// "PUNISH" cue (netsu_super_flash.gd, cost -4).</summary>
+	public bool NetsuBurstPunishable;
+
+	/// <summary>Nov 3 (Persona 4 Arena Ultimax, Yu's Burst in the tutorial): she lifts up off the ground (or up from where
+	/// she is in the air) as the Burst goes off, NetsuBurstRise (1.5 m) over the startup, then drifts back down. On the ground
+	/// she lands before the Burst ends; from the air she falls on after it and can't act until she lands.</summary>
+	public const int NetsuBurstRise = 7000;   // Nov 3: 0.7 m (1.5 m was too high)
+	// Nov 3 (TamaDeez's timeline, after P4U2): frames 0-11 she rises fast and gets ready; frame 15 the Burst goes off
+	// (NetsuBurstActiveFrom) and lasts 25 frames, invincible, while she hangs at the top; from frame 41 she gently comes
+	// down (NetsuBurstFallFrames), can't block or act, until she lands and is back to neutral: the punish window.
+	public const int NetsuBurstRiseFrames = 12;
+	public const int NetsuBurstActiveFrom = 15;
+	public const int NetsuBurstActiveFrames = 25;
+	public const int NetsuBurstFallFrames = 25;
+
+	/// <summary>Her height when the Burst started (saved for rollback, SakugaActorState key 66).</summary>
+	public int NetsuBurstStartY;
+
+	private void NetsuBurstTick()
+	{
+		if (NetsuBursting() && Body != null)
+		{
+			// the lift: up fast (easing out) to 0.7 m off the ground (an air Burst already higher just hangs where she is),
+			// hang there for the Burst, then gently down to the ground (easing in) by frame 66
+			int f = StateManager.CurrentStateFrame;
+			int top = Mathf.Max(NetsuBurstStartY, NetsuBurstRise);
+			int y;
+			if (f <= NetsuBurstRiseFrames)
+			{
+				float k = 1f - (float)f / NetsuBurstRiseFrames;
+				y = NetsuBurstStartY + (int)((top - NetsuBurstStartY) * (1f - k * k));
+			}
+			else if (f < NetsuBurstInvulFrames)
+			{
+				y = top;
+			}
+			else
+			{
+				// always on the ground by the end of the Burst, so the frames are the same every time; once she's down
+				// she stays stuck there (can't act) until it's over
+				float k = Mathf.Min(1f, (float)(f - NetsuBurstInvulFrames) / NetsuBurstFallFrames);
+				y = (int)(top * (1f - k * k));
+			}
+			Body.FixedPosition.Y = Mathf.Max(0, y);
+			Body.FixedVelocity = Vector2I.Zero;
+			// the explosion (presentation): starts on the first active frame and follows her while it lasts
+			if (f == NetsuBurstActiveFrom)
+			{
+				NetsuBurstCue(-3, NetsuBurstActiveFrames);
+			}
+			else if (f > NetsuBurstActiveFrom && f < NetsuBurstActiveFrom + NetsuBurstActiveFrames)
+			{
+				NetsuBurstCue(-5, 0);
+			}
+		}
+		if (NetsuBurstPunishable && !NetsuBursting() && Body != null && !Body.IsOnGround && NetsuAirTechWait == 0)
+		{
+			NetsuAirTechWait = 999;   // falling from a Burst: no acting until she lands (the air tech lock, cleared on landing)
+		}
+		if (NetsuBurstInvul && (!NetsuBursting() || StateManager.CurrentStateFrame >= NetsuBurstInvulFrames))
+		{
+			NetsuBurstInvul = false;   // frames 1-48 only
+			NetsuBurstPunishable = true;   // (Nov 3: no red ring / PUNISH cue any more)
+		}
+		if (NetsuBurstPunishable)
+		{
+			StateType t = StateManager != null ? StateManager.CurrentStateType() : StateType.NULL;
+			bool stillBurst = NetsuBursting();
+			bool falling = Body != null && !Body.IsOnGround && t != StateType.HIT_REACTION && t != StateType.COMBAT;
+			if (!stillBurst && !falling)
+			{
+				NetsuBurstPunishable = false;   // landed / recovered, hit, or doing something else
+			}
+		}
+	}
+
+	private void NetsuBurstCue(int code, int frames)
+	{
+		if (Body == null || Engine.GetMainLoop() is not SceneTree tree)
+		{
+			return;
+		}
+		Node setup = tree.Root.GetNodeOrNull("MatchSetup");
+		if (setup != null && setup.HasMethod("netsu_super_flash"))
+		{
+			Vector3 chest = GlobalFunctions.ToScaledVector3(Body.FixedPosition + new Vector2I(0, NetsuChestHeight));
+			setup.Call("netsu_super_flash", (int)playerID, chest, code, frames);
+		}
+	}
 
 	public bool NetsuAirTechInvul;
 	public int NetsuAirTechWait;

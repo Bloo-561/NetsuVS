@@ -1,0 +1,258 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="FS"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="EV"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="AT"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="RG"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="END"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="PS"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="MX"]
+[ext_resource type="Script" uid="uid://bw1835rb2hj7y" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveYAction.cs" id="MY"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="FP"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuHoldOpponentAction.cs" id="HOLD"]
+[ext_resource type="Script" uid="uid://bw56p1f6qccsb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ResetHitAction.cs" id="RH"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="SHK"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="SND"]
+[ext_resource type="Script" uid="uid://gx2c16shb4hs" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SpawnVFXAction.cs" id="VFX"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/TeleportAction.cs" id="TP"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/127_CEC_SMM_sky_AnimData.tres" id="ANIM"]
+
+[sub_resource type="Resource" id="q1"]
+script = ExtResource("FP")
+Properties = 7
+ChangeMode = 0
+
+[sub_resource type="Resource" id="q2"]
+script = ExtResource("MX")
+Velocity = 0
+
+[sub_resource type="Resource" id="q3"]
+script = ExtResource("MY")
+Velocity = 150000
+
+[sub_resource type="Resource" id="q4"]
+script = ExtResource("EV")
+Actions = [SubResource("q1"), SubResource("q2"), SubResource("q3")]
+
+[sub_resource type="Resource" id="q5"]
+script = ExtResource("MY")
+Velocity = 0
+
+[sub_resource type="Resource" id="q6"]
+script = ExtResource("AT")
+Frame = 9
+
+[sub_resource type="Resource" id="q7"]
+script = ExtResource("EV")
+Conditions = [SubResource("q6")]
+Actions = [SubResource("q5")]
+
+[sub_resource type="Resource" id="q8"]
+script = ExtResource("HOLD")
+Offset = Vector2i(0, 45000)
+LiftRate = 150
+
+[sub_resource type="Resource" id="q9"]
+script = ExtResource("RG")
+MinFrame = 0
+MaxFrame = 25
+
+[sub_resource type="Resource" id="q10"]
+script = ExtResource("EV")
+Conditions = [SubResource("q9")]
+Actions = [SubResource("q8")]
+
+[sub_resource type="Resource" id="q11"]
+script = ExtResource("HOLD")
+Offset = Vector2i(0, 45000)
+
+[sub_resource type="Resource" id="q12"]
+script = ExtResource("RG")
+MinFrame = 26
+MaxFrame = 173
+
+[sub_resource type="Resource" id="q13"]
+script = ExtResource("EV")
+Conditions = [SubResource("q12")]
+Actions = [SubResource("q11")]
+
+[sub_resource type="Resource" id="q14"]
+script = ExtResource("HOLD")
+Offset = Vector2i(-9000, 45000)
+
+[sub_resource type="Resource" id="q15"]
+script = ExtResource("RG")
+MinFrame = 174
+MaxFrame = 175
+
+[sub_resource type="Resource" id="q16"]
+script = ExtResource("EV")
+Conditions = [SubResource("q15")]
+Actions = [SubResource("q14")]
+
+[sub_resource type="Resource" id="q17"]
+script = ExtResource("SND")
+Source = 2
+Index = 36
+
+[sub_resource type="Resource" id="q18"]
+script = ExtResource("AT")
+Frame = 10
+
+[sub_resource type="Resource" id="q19"]
+script = ExtResource("EV")
+Conditions = [SubResource("q18")]
+Actions = [SubResource("q17")]
+
+[sub_resource type="Resource" id="q20"]
+script = ExtResource("TP")
+xRelativeTo = 2
+yRelativeTo = 1
+
+[sub_resource type="Resource" id="q21"]
+script = ExtResource("AT")
+Frame = 17
+
+[sub_resource type="Resource" id="q22"]
+script = ExtResource("EV")
+Conditions = [SubResource("q21")]
+Actions = [SubResource("q20")]
+
+[sub_resource type="Resource" id="q23"]
+script = ExtResource("MY")
+Velocity = -600000
+
+[sub_resource type="Resource" id="q24"]
+script = ExtResource("SND")
+Source = 2
+Index = 36
+
+[sub_resource type="Resource" id="q25"]
+script = ExtResource("AT")
+Frame = 18
+
+[sub_resource type="Resource" id="q26"]
+script = ExtResource("EV")
+Conditions = [SubResource("q25")]
+Actions = [SubResource("q23"), SubResource("q24")]
+
+[sub_resource type="Resource" id="q27"]
+script = ExtResource("TP")
+xRelativeTo = 1
+yRelativeTo = 0
+
+[sub_resource type="Resource" id="q28"]
+script = ExtResource("MY")
+Velocity = 0
+
+[sub_resource type="Resource" id="q29"]
+script = ExtResource("SHK")
+Amplitude = 0.08
+Duration = 12
+
+[sub_resource type="Resource" id="q30"]
+script = ExtResource("VFX")
+xRelativeTo = 1
+Index = 23
+
+[sub_resource type="Resource" id="q31"]
+script = ExtResource("AT")
+Frame = 26
+
+[sub_resource type="Resource" id="q32"]
+script = ExtResource("EV")
+Conditions = [SubResource("q31")]
+Actions = [SubResource("q27"), SubResource("q28"), SubResource("q29"), SubResource("q30")]
+
+[sub_resource type="Resource" id="q33"]
+script = ExtResource("SND")
+Source = 4
+Index = 40
+
+[sub_resource type="Resource" id="q34"]
+script = ExtResource("AT")
+Frame = 116
+
+[sub_resource type="Resource" id="q35"]
+script = ExtResource("EV")
+Conditions = [SubResource("q34")]
+Actions = [SubResource("q33")]
+
+[sub_resource type="Resource" id="q36"]
+script = ExtResource("RH")
+
+[sub_resource type="Resource" id="q37"]
+script = ExtResource("AT")
+Frame = 118
+
+[sub_resource type="Resource" id="q38"]
+script = ExtResource("EV")
+Conditions = [SubResource("q37")]
+Actions = [SubResource("q36")]
+
+[sub_resource type="Resource" id="q39"]
+script = ExtResource("SND")
+Source = 2
+Index = 34
+
+[sub_resource type="Resource" id="q40"]
+script = ExtResource("SHK")
+Amplitude = 0.1
+Duration = 20
+
+[sub_resource type="Resource" id="q41"]
+script = ExtResource("VFX")
+xRelativeTo = 2
+yRelativeTo = 2
+Index = 21
+
+[sub_resource type="Resource" id="q42"]
+script = ExtResource("AT")
+Frame = 119
+
+[sub_resource type="Resource" id="q43"]
+script = ExtResource("EV")
+Conditions = [SubResource("q42")]
+Actions = [SubResource("q39"), SubResource("q40"), SubResource("q41")]
+
+[sub_resource type="Resource" id="q44"]
+script = ExtResource("VFX")
+xRelativeTo = 2
+yRelativeTo = 2
+Index = 22
+
+[sub_resource type="Resource" id="q45"]
+script = ExtResource("AT")
+Frame = 129
+
+[sub_resource type="Resource" id="q46"]
+script = ExtResource("EV")
+Conditions = [SubResource("q45")]
+Actions = [SubResource("q44")]
+
+[sub_resource type="Resource" id="q47"]
+script = ExtResource("PS")
+StateIndex = 128
+
+[sub_resource type="Resource" id="q48"]
+script = ExtResource("AT")
+Frame = 176
+
+[sub_resource type="Resource" id="q49"]
+script = ExtResource("EV")
+Conditions = [SubResource("q48")]
+Actions = [SubResource("q47")]
+
+[resource]
+script = ExtResource("FS")
+StateName = "Sakura Morning Moon (lightning)"
+Type = 2
+AnimationData = ExtResource("ANIM")
+TransitionEvents = []
+OnEnterEvents = [SubResource("q4")]
+OnTickEvents = [SubResource("q7"), SubResource("q10"), SubResource("q13"), SubResource("q16"), SubResource("q19"), SubResource("q22"), SubResource("q26"), SubResource("q32"), SubResource("q35"), SubResource("q38"), SubResource("q43"), SubResource("q46"), SubResource("q49")]
+OnExitEvents = []
+OnHitConfirmEvents = null
+OnHitReactionEvents = null
+NetsuFrameBoth = true
+AIFlags = 18

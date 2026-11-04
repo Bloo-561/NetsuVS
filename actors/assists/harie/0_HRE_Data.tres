@@ -11,9 +11,15 @@
 [ext_resource type="Resource" path="res://actors/assists/harie/States/7_HRE_6S_last.tres" id="nf2"]
 [ext_resource type="Resource" path="res://actors/assists/harie/States/8_HRE_6S_wait1.tres" id="x1"]
 [ext_resource type="Resource" path="res://actors/assists/harie/States/9_HRE_6S_wait2.tres" id="x2"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/10_HRE_6S_hit2.tres" id="h0"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/11_HRE_6S_hit3.tres" id="h1"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/12_HRE_6S_back_hit2.tres" id="h2"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/13_HRE_6S_back_hit3.tres" id="h3"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/14_HRE_6S_last_hit2.tres" id="h4"]
+[ext_resource type="Resource" path="res://actors/assists/harie/States/15_HRE_6S_last_hit3.tres" id="h5"]
 
 [resource]
 script = ExtResource("1")
-States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("nf1"), ExtResource("nf2"), ExtResource("x1"), ExtResource("x2")]
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("nf1"), ExtResource("nf2"), ExtResource("x1"), ExtResource("x2"), ExtResource("h0"), ExtResource("h1"), ExtResource("h2"), ExtResource("h3"), ExtResource("h4"), ExtResource("h5")]
 BaseAttack = 100
 BaseDefense = 100

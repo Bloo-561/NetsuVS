@@ -146,6 +146,7 @@ public struct ParametersState
 			}
 			{
 				reference.NetsuOverdriveOn = NetsuOverdriveOn;
+				reference.NetsuApplyCraftCap();   // Nov 2: the Craft Gauge cap follows Overdrive
 				reference.NetsuOverdriveLinkPending = NetsuOverdriveLinkPending;
 				reference.NetsuMeterCooldown = NetsuMeterCooldown;
 				reference.NetsuMeterRoundFrame = NetsuMeterRoundFrame;

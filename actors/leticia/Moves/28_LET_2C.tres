@@ -104,3 +104,4 @@ IgnoreSamePriority = false
 AcceptNullStates = true
 AcceptCombatStates = true
 UseOnGround = true
+NetsuJumpCancelOnHit = true

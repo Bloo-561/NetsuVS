@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bca7xpht678ms"]
+
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
+[ext_resource type="Resource" uid="uid://bbm20pkwnznec" path="res://actors/noah/Hitboxes/100_Hitbox_Burst.tres" id="4"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="5"]
+[ext_resource type="Resource" uid="uid://beimwo5kjk5ng" path="res://actors/noah/Hitboxes/-1_Hitbox_CollisionOnly.tres" id="6"]
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="7"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/crouch_x.png" id="t_crouch_x"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/6c_act.png" id="t_6c_act"]
+[ext_resource type="Texture2D" path="res://actors/noah/Sprites/v2/stand.png" id="t_stand"]
+
+[sub_resource type="Resource" id="Resource_su5f"]
+script = ExtResource("5")
+animationStage = 0
+HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="Resource_sv2n2"]
+script = ExtResource("5")
+AtFrame = 15
+animationStage = 1
+HitboxData = ExtResource("4")
+
+[sub_resource type="Resource" id="Resource_8bvbx"]
+script = ExtResource("5")
+AtFrame = 40
+animationStage = 2
+HitboxData = ExtResource("6")
+metadata/_custom_type_script = "uid://5qrsoteskjym"
+
+[sub_resource type="Resource" id="M0_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_crouch_x")
+Offset = Vector2(-193, -7)
+
+[sub_resource type="Resource" id="A0"]
+script = ExtResource("3")
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="M1_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_6c_act")
+Offset = Vector2(-209, -5)
+
+[sub_resource type="Resource" id="A1"]
+script = ExtResource("3")
+AtFrame = 19
+Modifiers = [SubResource("M1_0")]
+
+[sub_resource type="Resource" id="M2_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_6c_act")
+Offset = Vector2(-209, -5)
+
+[sub_resource type="Resource" id="A2"]
+script = ExtResource("3")
+AtFrame = 54
+Modifiers = [SubResource("M2_0")]
+
+[sub_resource type="Resource" id="M3_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_stand")
+Offset = Vector2(-184, -4)
+
+[sub_resource type="Resource" id="A3"]
+script = ExtResource("3")
+AtFrame = 60
+Modifiers = [SubResource("M3_0")]
+
+[resource]
+script = ExtResource("7")
+Duration = 67
+Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3")]
+Hitboxes = [SubResource("Resource_su5f"), SubResource("Resource_sv2n2"), SubResource("Resource_8bvbx")]
+AttackProfiles = []
+metadata/_custom_type_script = "uid://ddkya5wrb53ly"

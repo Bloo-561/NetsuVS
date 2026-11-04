@@ -20,7 +20,14 @@ public partial class AddGravityAction : FrameDataAction
 		{
 			if (SetValue)
 			{
-				Actor.Body.CurrentGravity = (UseDefault ? 260000 : Force);
+				int def = 260000;
+				// Nov 3 (TamaDeez): someone being hit uses the juggle gravity (GameManager.NetsuJuggleGravity) instead
+				if (UseDefault && SakugaEngine.Game.GameManager.Instance != null && Actor.StateManager != null
+					&& Actor.StateManager.CurrentStateType() == SakugaEngine.Global.StateType.HIT_REACTION)
+				{
+					def = SakugaEngine.Game.GameManager.Instance.NetsuJuggleGravity;
+				}
+				Actor.Body.CurrentGravity = (UseDefault ? def : Force);
 			}
 			Actor.Body.AddGravity();
 		}

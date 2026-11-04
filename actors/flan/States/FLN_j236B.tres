@@ -236,6 +236,13 @@ script = ExtResource("3")
 Conditions = [SubResource("pt_c")]
 Actions = [SubResource("pt_a")]
 
+[sub_resource type="Resource" id="face_act"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="face_ev"]
+script = ExtResource("3")
+Actions = [SubResource("face_act")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Air Twirling Star Fist"
@@ -244,7 +251,7 @@ AnimationData = ExtResource("2")
 TransitionEvents = [SubResource("j_lev"), SubResource("s3")]
 OnEnterEvents = [SubResource("j_enter"), SubResource("s6")]
 OnTickEvents = [SubResource("j_gev"), SubResource("sfx_4_0"), SubResource("sfx_22_1"), SubResource("s9"), SubResource("s12"), SubResource("s15"), SubResource("s18")]
-OnExitEvents = [SubResource("s20")]
+OnExitEvents = [SubResource("s20"), SubResource("face_ev")]
 OnHitConfirmEvents = [SubResource("nf_s7"), SubResource("pt_e")]
 OnHitReactionEvents = null
 AIFlags = 18

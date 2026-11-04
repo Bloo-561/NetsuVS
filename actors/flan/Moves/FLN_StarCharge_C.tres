@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1")
+SkipCheck = true
 MoveName = "Star Charge C"
 MoveState = 115
 Inputs = ExtResource("2")

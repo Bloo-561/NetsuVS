@@ -101,6 +101,13 @@ script = ExtResource("3")
 Conditions = [SubResource("sfx_14_0_at")]
 Actions = [SubResource("sfx_14_0_play")]
 
+[sub_resource type="Resource" id="face_act"]
+script = ExtResource("6")
+
+[sub_resource type="Resource" id="face_ev"]
+script = ExtResource("3")
+Actions = [SubResource("face_act")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Supernova Fist"
@@ -109,7 +116,7 @@ AnimationData = ExtResource("2")
 TransitionEvents = [SubResource("s3")]
 OnEnterEvents = [SubResource("s7")]
 OnTickEvents = [SubResource("sfx_14_0"), SubResource("s10"), SubResource("s13"), SubResource("s16")]
-OnExitEvents = [SubResource("s18")]
+OnExitEvents = [SubResource("s18"), SubResource("face_ev")]
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
 AIFlags = 4114

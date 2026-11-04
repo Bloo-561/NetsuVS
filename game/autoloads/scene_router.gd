@@ -20,6 +20,8 @@ const BATTLE := "res://scenes/battle/battle.tscn"
 const VS_SCREEN := "res://scenes/vs_screen/vs_screen.tscn"
 const ONLINE_LOBBY := "res://scenes/online/online_lobby.tscn"
 const EMBLEM := preload("res://game/ui/netsu/netsu_emblem.gd")
+## Nov 2: bottom right, Tobias chasing Leticia on her Flux Board (LOADING sign); bottom left, the next part of the story.
+const CHASE := preload("res://game/ui/netsu/netsu_loading_chase.gd")
 
 ## Seconds for each half of the transition (cover, then reveal).
 @export var fade_time: float = 0.3
@@ -28,10 +30,13 @@ const EMBLEM := preload("res://game/ui/netsu/netsu_emblem.gd")
 @export var black_in: float = 0.22         ## seconds to fade to black
 @export var black_out: float = 0.32        ## seconds from black into the new scene
 @export var emblem_speed: float = 1.5      ## the emblem's light-up: 1 = about a second, 2 = twice as fast
+## Nov 2: the loading screen stays up at least this long (seconds after the black), so the story line can be read.
+@export var loading_min_time: float = 1.4
 
 var _fade: ColorRect      # used for the white flash
 var _wipe: Wipe
 var _emblem: Control      # game/ui/netsu/netsu_emblem.gd
+var _chase: Control       # game/ui/netsu/netsu_loading_chase.gd
 var _busy := false
 ## Oct 25 evening: true while the screen is covered (black / wipe) during a change; `shown` is emitted the moment
 ## the new screen starts to appear (character select starts its music then: `await SceneRouter.wait_shown()`).
@@ -55,6 +60,9 @@ func _ready() -> void:
 	_emblem = EMBLEM.new()
 	_emblem.name = "NetsuEmblem"
 	add_child(_emblem)
+	_chase = CHASE.new()
+	_chase.name = "LoadingChase"
+	add_child(_chase)
 
 
 ## Waits until the new screen starts to appear (returns at once when nothing covers it).
@@ -74,12 +82,13 @@ func is_busy() -> bool:
 	return _busy
 
 
-func go_to(scene_path: String, fade_color: Color = Color.BLACK) -> void:
+## Nov 3: no_loading = the quick slanted wipe instead of the loading screen (character select <-> stage select).
+func go_to(scene_path: String, fade_color: Color = Color.BLACK, no_loading: bool = false) -> void:
 	if _busy:
 		return
 	_busy = true
 	var flash := fade_color != Color.BLACK
-	if not flash and use_emblem:
+	if not flash and use_emblem and not no_loading:
 		await _emblem_go(scene_path)
 		_busy = false
 		return
@@ -131,8 +140,9 @@ func _emblem_go(scene_path: String) -> void:
 	var cover := create_tween()
 	cover.tween_property(_fade, "modulate:a", 1.0, black_in).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	await cover.finished
-	_emblem.speed = emblem_speed
-	_emblem.play()
+	# Nov 2 (late): menus' loading screen = the Tobias / Leticia chase and the story (the emblem only appears in the
+	# character select's intro now)
+	_chase.play()
 	var packed = null
 	var waited := 0.0
 	while true:
@@ -142,7 +152,7 @@ func _emblem_go(scene_path: String) -> void:
 		if bg:
 			packed = loader.bg_get(scene_path)
 			can_go = packed != null or loader.bg_progress([scene_path]) >= 1.0 or waited > 20.0
-		if can_go and _emblem.finished_lighting():
+		if can_go and waited >= loading_min_time:
 			break
 	var error: int
 	_covered = true
@@ -157,7 +167,7 @@ func _emblem_go(scene_path: String) -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	_reveal()
-	_emblem.fade_out(0.16)
+	_chase.fade_out(0.12 + black_out)   # keeps running until the black has lifted
 	var reveal := create_tween()
 	reveal.tween_interval(0.12)
 	reveal.tween_property(_fade, "modulate:a", 0.0, black_out).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

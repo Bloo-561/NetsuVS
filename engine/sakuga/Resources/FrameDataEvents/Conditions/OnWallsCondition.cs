@@ -55,8 +55,12 @@ public partial class OnWallsCondition : FrameDataCondition
 		// furthest the two fighters can be apart, GlobalVariables.NetsuMaxSeparation), then they bounce back toward the
 		// attacker. The per-hit early distances (NetsuWallBounceDistance) are no longer used.
 		int max = GlobalVariables.NetsuMaxSeparation > 0 ? GlobalVariables.NetsuMaxSeparation : GlobalVariables.MaxPlayersDistance;
+		// Nov 3 (TamaDeez): midscreen the wall is closer: the hit's own distance, else GameManager.NetsuWallBounceDistance
+		int wall = actor.NetsuWallBounceDistance > 0 ? actor.NetsuWallBounceDistance
+			: (SakugaEngine.Game.GameManager.Instance != null ? SakugaEngine.Game.GameManager.Instance.NetsuWallBounceDistance : max);
+		wall = Mathf.Min(wall, max);
 		int ad = Mathf.Abs(dx);
-		if (ad < max - NetsuScreenEdgeMargin)
+		if (ad < wall - NetsuScreenEdgeMargin)
 		{
 			return false;
 		}

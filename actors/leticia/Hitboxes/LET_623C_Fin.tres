@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="A0"]
 script = ExtResource("3")
-Center = Vector2i(3000, 4000)
-Size = Vector2i(30000, 36000)
+Center = Vector2i(6500, 3500)
+Size = Vector2i(10000, 9000)
 HitboxType = 1
 OpponentSuperGaugeGain = 100
 SelfSuperGaugeGain = 0
@@ -34,6 +34,7 @@ AirBlockKnockback = Vector2i(-12000, 0)
 AirBlockstun = 20
 AirHitKnockbackGravity = 260000
 NetsuIgnoreRecoveryScaling = true
+
 [resource]
 script = ExtResource("1")
 Pushbox = ExtResource("2")

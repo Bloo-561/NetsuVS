@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="e9"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FighterState.cs" id="e10"]
 [ext_resource type="Resource" path="res://actors/flan/AnimationData/FLN_StarRush_8_AnimData.tres" id="e11"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="face_side_script"]
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("e0")
@@ -121,6 +122,13 @@ script = ExtResource("e3")
 Conditions = [SubResource("s23")]
 Actions = [SubResource("s24")]
 
+[sub_resource type="Resource" id="face_act"]
+script = ExtResource("face_side_script")
+
+[sub_resource type="Resource" id="face_ev"]
+script = ExtResource("e3")
+Actions = [SubResource("face_act")]
+
 [resource]
 script = ExtResource("e10")
 StateName = "Star Rush (8)"
@@ -129,7 +137,7 @@ AnimationData = ExtResource("e11")
 TransitionEvents = [SubResource("s22"), SubResource("s25")]
 OnEnterEvents = [SubResource("s4")]
 OnTickEvents = [SubResource("s8"), SubResource("s11"), SubResource("s14"), SubResource("s17")]
-OnExitEvents = null
+OnExitEvents = [SubResource("face_ev")]
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
 AIFlags = 18

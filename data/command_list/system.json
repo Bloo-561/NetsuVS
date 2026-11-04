@@ -6,7 +6,7 @@
       "title": "BASICS",
       "topics": [
         {"heading": "MOVEMENT"},
-        {"name": "Dash · Air Dash", "input": "66 / 44", "preview": {"move": "Dash Forward"},
+        {"name": "Dash · Air Dash", "input": "66 / 44", "preview": {"moves": ["Dash Forward", "Forward Air Dash"]},
          "desc": "Double-tap to dash or back dash; in the air it's an air dash. The forward air dash is a low hop that bumps into standing opponents but clears crouching ones. The back air dash is a stall.",
          "data": [["MACRO", "A+B"], ["SUPER JUMP", "2 › 8"]]},
         {"name": "Jumping", "input": "7 / 8 / 9", "preview": {"move": "Forward Jump"},

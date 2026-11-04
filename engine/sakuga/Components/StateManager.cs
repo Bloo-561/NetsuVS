@@ -30,6 +30,7 @@ public partial class StateManager : Node
 	{
 		if (state >= 0)
 		{
+			bool netsuFromAttack = CurrentState >= 0 && GetCurrentState().Type == StateType.COMBAT;
 			FrameDataEvent[] onExitEvents = GetCurrentState().OnExitEvents;
 			for (int i = 0; onExitEvents != null && i < onExitEvents.Length; i++)   // Netsu: a state may have none
 			{
@@ -47,6 +48,13 @@ public partial class StateManager : Node
 			_owner.Body.UpdateColliders();
 			_owner.Body.ResetHits();
 			_owner.CancelConditions = CancelCondition.WHIFF_CANCEL | CancelCondition.KARA_CANCEL;
+			// Netsu (Nov 3): auto-correct: an attack that ended with the sides switched (crossed through, cross-up, a
+			// rush that went past) turns her to face the opponent as she goes back to neutral, on the ground or in the air
+			StateType netsuNow = GetCurrentState().Type;
+			if (netsuFromAttack && (netsuNow == StateType.NULL || netsuNow == StateType.MOVEMENT) && _owner.GetMaster() == null && _owner.Body != null)
+			{
+				_owner.Body.FlipSide();
+			}
 			onExitEvents = GetCurrentState().OnEnterEvents;
 			for (int i = 0; onExitEvents != null && i < onExitEvents.Length; i++)
 			{

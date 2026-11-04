@@ -117,7 +117,8 @@ func _compile(anims: Array) -> void:
 				var rect := Rect2(Vector2(off.x * sc.x, -(off.y * sc.y) - size.y), size)
 				layers.append({"tex": tex, "rect": rect, "rot": deg_to_rad(float(m.get("Rotation"))),
 					"fx": bool(m.get("FlipX")), "fy": bool(m.get("FlipY"))})
-				_bounds = rect if not have else _bounds.merge(rect)
+				var lb := NetsuMoveStage.layer_bounds(layers[-1])   # Nov 2: rotation (around the feet) included
+				_bounds = lb if not have else _bounds.merge(lb)
 				have = true
 			_stages.append({"start": _total + at, "layers": layers})
 		_total += dur
@@ -154,9 +155,9 @@ func _draw() -> void:
 	var origin := Vector2.ZERO
 	if _still >= 0:
 		# a thumbnail: this picture alone, cropped and fitted
-		var r: Rect2 = layers[0]["rect"]
+		var r: Rect2 = NetsuMoveStage.layer_bounds(layers[0])
 		for l in layers:
-			r = r.merge(l["rect"])
+			r = r.merge(NetsuMoveStage.layer_bounds(l))
 		k = minf(size.x / maxf(r.size.x, 1.0), size.y / maxf(r.size.y, 1.0)) * 0.94
 		origin = size / 2.0 - (r.position + r.size / 2.0) * k
 	else:
@@ -172,10 +173,6 @@ func _draw() -> void:
 			draw_set_transform(Vector2(origin.x, ground), 0.0, Vector2(1.0, 0.2))
 			draw_circle(Vector2.ZERO, radius, Color(0, 0, 0, 0.3))
 	for l in layers:
-		var rect: Rect2 = l["rect"]
-		var center: Vector2 = origin + (rect.position + rect.size / 2.0) * k
-		var flip := Vector2(-1.0 if l["fx"] else 1.0, -1.0 if l["fy"] else 1.0)
-		draw_set_transform(center, l["rot"], flip)
-		var s: Vector2 = rect.size * k
-		draw_texture_rect(l["tex"], Rect2(-s / 2.0, s), false)
+		draw_set_transform_matrix(NetsuMoveStage.layer_xform(l, origin, k, 1))   # Nov 2: as the engine draws it
+		draw_texture_rect(l["tex"], l["rect"], false)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)

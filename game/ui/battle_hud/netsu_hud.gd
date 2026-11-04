@@ -74,7 +74,7 @@ var layout_scale := K
 @export var name_position: Vector2 = Vector2(236, 45)   ## left end of the name's baseline (Oct 30: above the bar, beside the 1P tab)
 @export var name_size: int = 24
 ## Oct 30: only places the STOCK / STAR badges now (under the bar, past the Burst diamond).
-@export var burst_box: Rect2 = Rect2(296, 82, 150, 19)
+@export var burst_box: Rect2 = Rect2(150, 105, 150, 19)
 @export var rounds_position: Vector2 = Vector2(612, 37)  ## first round marker (Nov 2: just outside the timer)
 @export var rounds_step: float = 22.0
 @export var rounds_to_win: int = 2   ## replaced by the match's real "rounds to win" when a fight starts
@@ -86,14 +86,20 @@ var layout_scale := K
 @export var timer_warning: int = 10      ## Oct 30: at this many seconds or fewer the number turns red and pulses
 
 @export_group("Burst Diamond")
-@export var burst_center: Vector2 = Vector2(252, 114)    ## middle of the diamond (mockup px, P1)
-@export var burst_size: float = 25.0                     ## centre to tip (mockup px)
+@export var burst_center: Vector2 = Vector2(318, 103)    ## middle of the diamond (mockup px, P1); Nov 2: inside the Burst tab
+@export var burst_size: float = 12.5                     ## centre to tip (mockup px)
+## Nov 2: the Burst tab, part of the bar housing: hangs under it from the portrait to this x (top edge), down to the
+## portrait's bottom (y 117); its end leans like the portrait's edge.
+@export var burst_tab_end: float = 352.0
+@export var burst_tab_bottom: float = 117.0
 @export var burst_label: String = "BURST"
 
 @export_group("Craft Gauge")
-@export var meter_caption: String = "CRAFT POINTS"
+@export var meter_caption: String = "CRAFT GAUGE"
 @export var meter_per_stock: int = 10000     ## 10000 = 100% (Oct 29: units x5; was 2000)
 @export var meter_cells_x: Vector2 = Vector2(170, 474)    ## the cell row (left end / right end, bottom edge)
+## Nov 2: Craft Gauge cap outside Overdrive (engine SakugaParameters.CraftCapNormal); bars above it are drawn locked.
+@export var meter_normal_cap: float = 30000.0
 @export var meter_y: float = 701.0                        ## top of the Craft Gauge plate (mockup px)
 
 @export_group("Assist Gauge")
@@ -101,7 +107,7 @@ var layout_scale := K
 @export var stock_color: Color = Color(0.72, 0.35, 1.0)   ## Oct 26: the STOCK READY badge under the Burst gauge (Noah)
 @export var assist_fill_color: Color = Color(0.55, 0.85, 1.0)
 @export var assist_buff_color: Color = Color(0.45, 1.0, 0.8)
-@export var assist_y: float = 132.0          ## Oct 30: top of the assist card under the portrait (mockup px)
+@export var assist_y: float = 128.0          ## Oct 30: top of the assist card under the portrait (mockup px)
 @export var assist_card_x: Vector2 = Vector2(11, 139)  ## card's bottom edge: screen-edge end / inner end (mockup px)
 @export var assist_card_height: float = 53.0
 @export var assist_gray: Color = Color(0.72, 0.72, 0.76)   ## how the grey (used) picture is tinted
@@ -436,7 +442,11 @@ func _draw_housing(side: int) -> void:
 	var k := bar_end_slant / bar_height          # how far the timer end moves right per mockup px down
 	var right_top := x1 + 5.0
 	var right_bottom := right_top + k * (bottom - top)
-	var body := _pts([Vector2(150, top), Vector2(right_top, top), Vector2(right_bottom, bottom), Vector2(140, bottom)], side)
+	# Nov 2: the Burst tab is part of the housing: one body, the bar on top, the tab hanging under it by the portrait
+	var tab_b := burst_tab_bottom
+	var tab_end_b := burst_tab_end + (_portrait_edge_x(tab_b) - _portrait_edge_x(bottom))   # leans like the portrait edge
+	var body := _pts([Vector2(150, top), Vector2(right_top, top), Vector2(right_bottom, bottom), Vector2(burst_tab_end, bottom),
+		Vector2(tab_end_b, tab_b), Vector2(120, tab_b), Vector2(120, bottom)], side)
 	draw_colored_polygon(body, Color(backing, 0.88))
 	# the name sits above the bar, on a faint strip fading out toward the timer
 	var strip := _slanted(205, 420, top - 24, 22, 5, side)
@@ -444,7 +454,10 @@ func _draw_housing(side: int) -> void:
 	# outline: bright along the top and the timer end, the side's colour along the bottom
 	var light := accent.lerp(Color(0.75, 0.95, 1.0), 0.55)
 	_glow_line(_pts([Vector2(157, top), Vector2(right_top, top), Vector2(right_bottom, bottom)], side), light, 2.2, 0.28)
-	_glow_line(_pts([Vector2(right_bottom, bottom), Vector2(140, bottom)], side), accent.lightened(0.15), 2.0, 0.28)
+	_glow_line(_pts([Vector2(right_bottom, bottom), Vector2(burst_tab_end, bottom), Vector2(tab_end_b, tab_b),
+		Vector2(_portrait_edge_x(tab_b) - 2.0, tab_b)], side), accent.lightened(0.15), 2.0, 0.28)
+	# a faint seam where the tab meets the bar's frame
+	draw_line(_p(_portrait_edge_x(bottom), bottom, side), _p(burst_tab_end - 4.0, bottom, side), Color(light, 0.18), 1.0, true)
 
 
 ## The bar's shape between two points along it (mockup x of the bottom-left corner / top-right corner): the portrait end
@@ -510,13 +523,13 @@ func _draw_name_and_rounds(side: int) -> void:
 	# rounds: a glowing diamond for each round won, small hollow circles for the rest (just outside the timer)
 	var won := _rounds_won(side)
 	var accent := _accent(side)
-	for i in rounds_to_win:
+	for i in maxi(2, rounds_to_win):   # Nov 2: always two small thin circles per player (more if the match needs more)
 		var at := _p(rounds_position.x + i * rounds_step, rounds_position.y, side)
 		if i < won:
 			_diamond(at, 9.0, accent, true)
 		else:
-			draw_circle(at, 7.5, Color(backing, 0.7))
-			draw_arc(at, 7.5, 0, TAU, 24, Color(0.85, 0.92, 1.0, 0.9), 1.6, true)
+			draw_circle(at, 6.5, Color(backing, 0.55))
+			draw_arc(at, 6.5, 0, TAU, 24, Color(accent.lerp(Color.WHITE, 0.6), 0.9), 1.3, true)
 
 
 ## Nov 2: the name in white caps with a little letter spacing; left end at mockup x (right end for P2).
@@ -555,9 +568,14 @@ func _draw_burst(side: int) -> void:
 	var locked: bool = lock != null and lock.visible
 	var ready := ratio >= 0.999 and not locked
 	var line := accent.lightened(0.45)
-	# label on the portrait side (same type as the other HUD labels)
-	var lw := _width(_thin, burst_label, 20) / K
-	_side_text(_thin, cx - s - 8.0 - lw, cy + 6.0, burst_label, 20, text_color, side, 4)
+	# Nov 2: BURST sits inside the tab (part of the bar housing), centred between the portrait's edge and the diamond
+	var lw := _width(_thin, burst_label, 18) / K
+	var left := _portrait_edge_x(cy)
+	var lx: float = left + ((cx - s - 6.0) - left - lw) / 2.0
+	_side_text(_thin, lx, cy + 6.5, burst_label, 18, text_color, side, 3)
+	# a short divider between the label and the diamond, leaning like the tab's end
+	var dx := cx - s - 7.0
+	draw_line(_p(dx + 4.0, cy - 9.0, side), _p(dx - 2.0, cy + 9.0, side), Color(line, 0.35), 1.2, true)
 	# flat navy diamond
 	draw_colored_polygon(shape, Color(0.02, 0.04, 0.14, 0.94))
 	if ready:
@@ -594,6 +612,13 @@ func _draw_burst(side: int) -> void:
 	var rf: float = _burst_ready_flash[side] / BURST_FLASH_TIME
 	if rf > 0.0:
 		draw_polyline(_closed(shape), Color(1, 1, 1, rf), 2.4, true)
+
+
+## Nov 2: x of the corner portrait's slanted inner edge at mockup height y (P1 coordinates).
+func _portrait_edge_x(y: float) -> float:
+	var pa: Vector2 = PORTRAIT[2]
+	var pb: Vector2 = PORTRAIT[3]
+	return pa.x + (pb.x - pa.x) * (y - pa.y) / (pb.y - pa.y)
 
 
 func _scaled(points: PackedVector2Array, centre: Vector2, k: float) -> PackedVector2Array:
@@ -672,19 +697,29 @@ func _draw_timer() -> void:
 	var y1 := timer_bottom
 	var wt := timer_half_width.x
 	var wb := timer_half_width.y
-	var outer := [Vector2(cx - wt, y0), Vector2(cx + wt, y0), Vector2(cx + wb, y1), Vector2(cx - wb, y1)]
-	var inset := 6.0
-	var d := (wt - wb) / (y1 - y0) * inset
-	var inner := [Vector2(cx - wt + inset + d, y0 + inset), Vector2(cx + wt - inset - d, y0 + inset),
-		Vector2(cx + wb - inset + d * 0.2, y1 - inset), Vector2(cx - wb + inset - d * 0.2, y1 - inset)]
+	# Nov 2: a downward-pointing shield (flat top, sides slanting in, a shallow point at the bottom)
+	var outer := [Vector2(cx - wt, y0), Vector2(cx + wt, y0), Vector2(cx + wb, y1 - 9.0), Vector2(cx, y1 + 5.0), Vector2(cx - wb, y1 - 9.0)]
 	var shape := _pts(outer, 0)
 	draw_polygon(shape, PackedColorArray([Color(0.05, 0.08, 0.22, 0.96), Color(0.05, 0.08, 0.22, 0.96),
-		Color(0.01, 0.02, 0.09, 0.96), Color(0.01, 0.02, 0.09, 0.96)]))
+		Color(0.01, 0.02, 0.09, 0.96), Color(0.01, 0.02, 0.09, 0.96), Color(0.01, 0.02, 0.09, 0.96)]))
 	var edge := Color(0.82, 0.92, 1.0, 0.95)
 	if warn:
 		edge = edge.lerp(Color(1.0, 0.3, 0.25), 0.4 + 0.6 * tick)
 	_glow_line(_closed(shape), edge, 2.2, 0.25 + 0.4 * (tick if warn else 0.0))
-	draw_polyline(_closed(_pts(inner, 0)), Color(frame_color, 0.28), 1.0, true)
+	var mid := _p(cx, (y0 + y1) / 2.0, 0)
+	draw_polyline(_closed(_scaled(shape, mid, 0.9)), Color(frame_color, 0.28), 1.0, true)
+	# slim angular brackets just outside the panel, P1 blue on the left / P2 red on the right, each joined to its
+	# health bar's frame by a short line along the frame's top
+	var d := (wt - wb) / (y1 - 9.0 - y0)      # how far the panel's side moves in per mockup px down
+	for side in 2:
+		var col := _accent(side).lerp(Color.WHITE, 0.3)
+		var y_a := y0 + 3.0
+		var y_b := y1 - 22.0
+		var x_a := cx - wt - 10.0 + d * (y_a - y0)
+		var x_b := cx - wt - 10.0 + d * (y_b - y0)
+		# a short tab out along the top toward the bar, down the side (meeting the bar frame's end), a hook in at the bottom
+		var pts := _pts([Vector2(x_a - 22.0, y_a), Vector2(x_a, y_a), Vector2(x_b, y_b), Vector2(x_b + 10.0, y_b + 8.0)], side)
+		_glow_line(pts, col, 2.0, 0.35)
 	var c := cx * K
 	_text(_thin, Vector2(c - _width(_thin, "TIME", 26) / 2.0, (y0 + 27.0) * K), "TIME", 26, Color(0.9, 0.94, 1.0), 0)
 	# the number (or infinity), centred a little below the middle of the panel
@@ -762,6 +797,14 @@ func _draw_meter(side: int) -> void:
 	for i in stocks:
 		var x0 := c0 + i * (cell + gap)
 		var shape := _slanted(x0, x0 + cell, cy, ch, slant, side)
+		# Nov 2: the gauge holds 300% until Overdrive opens the 4th bar: locked bars are dark and hatched
+		if not od and (i + 1) * meter_per_stock > meter_normal_cap + 1.0:
+			draw_colored_polygon(shape, Color(0.015, 0.02, 0.07, 0.95))
+			for h in range(1, 7):
+				var hx := x0 + slant + (cell - slant) * h / 7.0
+				draw_line(_p(hx, cy + 3.0, side), _p(hx - slant * 0.8, cy + ch - 3.0, side), Color(line, 0.14), 1.2, true)
+			draw_polyline(_closed(shape), Color(line, 0.2), 1.0, true)
+			continue
 		draw_colored_polygon(shape, Color(0.05, 0.08, 0.22, 0.95))
 		var fill := clampf(level - i, 0.0, 1.0)
 		if fill > 0.0:
@@ -831,15 +874,15 @@ func _draw_assist(side: int) -> void:
 	# countdown diamond (cooldown only), over the outer part of the portrait
 	if phase == 2:
 		var secs := _assist_seconds(side, info, ratio)
-		var bc := _p(x0 + sl + 21.0, y + 18.0, side)
-		var br := 21.0 * K
+		var bc := _p(x0 + sl + 22.0, y, side)   # Nov 2: sits on the card's top edge, outer end
+		var br := 18.0 * K
 		var badge := PackedVector2Array([bc + Vector2(0, -br), bc + Vector2(br, 0), bc + Vector2(0, br), bc + Vector2(-br, 0)])
 		draw_colored_polygon(badge, Color(0.01, 0.04, 0.13, 0.97))
 		draw_polyline(_closed(badge), Color(accent, 0.3), 6.0, true)
 		draw_polyline(_closed(badge), line, 2.0, true)
 		if secs > 0:
 			var t := str(secs)
-			var ts := 30
+			var ts := 26
 			var tw := _width(_serif, t, ts)
 			_text(_serif, Vector2(bc.x - tw / 2.0 - 1.0, bc.y + ts * 0.36), t, ts, text_color, 3)
 	# Overdrive Link marker (the next assist call comes back faster)

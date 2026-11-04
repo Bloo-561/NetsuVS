@@ -18,3 +18,4 @@ UseOnGround = true
 UseOnAir = true
 IsSequenceFromStates = PackedInt32Array(82, 97)
 SkipCheck = true
+NetsuJumpCancelOnHit = true

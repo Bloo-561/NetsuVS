@@ -98,6 +98,10 @@ public partial class StanceManager : Node
 		{
 			return false;
 		}
+		if (GetMove(index).NetsuNeedSpawnPool >= 0 && !NetsuSpawnInState(GetMove(index)))
+		{
+			return false;   // Nov 3: Noah's 22A / 22B snaps need their own hole out and waiting
+		}
 		if (GetMove(index).NetsuNoRepeatWhileSpawned && _owner.Pool != null)
 		{
 			FighterStance netsuSt = GetCurrentStance();
@@ -143,6 +147,11 @@ public partial class StanceManager : Node
 		if (_owner != null && _owner.NetsuDownFrames > 0 && !_owner.IsKO())
 		{
 			return;   // Oct 27 c34: hard knockdown: no moves, jumps, throws or bursts (holding a guard direction is fine) until the 72 ticks are over
+		}
+		if (_owner != null && (_owner.NetsuBursting() || _owner.NetsuBurstPunishable))
+		{
+			CheckMoveEndCondition();
+			return;   // Nov 3: nothing else during a Burst or while coming down from it (until she's back to neutral)
 		}
 		if (NetsuAutoAirTech())
 		{
@@ -426,13 +435,22 @@ public partial class StanceManager : Node
 	{
 		BufferedMove = moveIndex;
 		CancelBuffer = moveCancel;
-		MoveBuffer.Start(10u);
+		uint netsuWait = 0u;
+		if (NetsuIsBurst(moveIndex) && _owner.Hitstop != null && _owner.Hitstop.IsRunning())
+		{
+			netsuWait = _owner.Hitstop.TimeLeft;   // Nov 3: a Burst pressed in hitstop waits for it to end (stays buffered)
+		}
+		MoveBuffer.Start(10u + netsuWait);
 	}
 
 	public const int NetsuAirDashLandLag = 12;   // Oct 28: Leticia's air dashes (MoveSettings.NetsuAirLandLag)
 
 	public void ExecuteMove(int moveIndex)
 	{
+		if (NetsuAutoFace(GetMove(moveIndex)) && _owner.Body != null)
+		{
+			_owner.Body.FlipSide();   // Nov 3: auto-correct: specials / EX / supers start facing the opponent
+		}
 		// Netsu (Oct 28): an air tech starts its lockout / invincibility; anything else she does ends the invincibility
 		int netsuMs = GetMove(moveIndex).MoveState;
 		FighterState[] netsuStates = _owner.Data?.States;
@@ -444,6 +462,14 @@ public partial class StanceManager : Node
 		else if (_owner.NetsuAirTechInvul)
 		{
 			_owner.NetsuAirTechInvul = false;
+		}
+		if (NetsuIsBurst(moveIndex))
+		{
+			_owner.NetsuBurstBegin();   // Nov 3: fully invincible, a moment's pause, the explosion
+		}
+		else
+		{
+			_owner.NetsuBurstInvul = false;   // anything else she does ends it
 		}
 		int netsuCost = GetMove(moveIndex).SuperGaugeRequired;
 		if (netsuCost > 0)
@@ -615,7 +641,7 @@ public partial class StanceManager : Node
 				break;
 			}
 		}
-		if (!found && !NetsuReverseBeat() && !NetsuJumpCancel() && !NetsuOverdriveCancel() && !NetsuStarCancel())
+		if (!found && !NetsuReverseBeat() && !NetsuJumpCancel() && !NetsuOverdriveCancel() && !NetsuStarCancel() && !NetsuExToSuper())
 		{
 			NetsuSpecialToEx();
 		}
@@ -706,7 +732,7 @@ public partial class StanceManager : Node
 		StateType t = _owner.StateManager.CurrentStateType();
 		if (NetsuIsBurst(index))
 		{
-			return t == StateType.HIT_REACTION;
+			return t == StateType.HIT_REACTION || t == StateType.BLOCKING;   // Nov 3 (BlazBlue): also out of blockstun
 		}
 		if (NetsuIsOverdrive(index))
 		{
@@ -723,6 +749,10 @@ public partial class StanceManager : Node
 	/// blocking whatever its data says (from her own attacks it comes through NetsuOverdriveCancel).</summary>
 	private bool NetsuAllowedStateType(int index)
 	{
+		if (NetsuIsBurst(index) && _owner.StateManager.CurrentStateType() == StateType.BLOCKING)
+		{
+			return true;   // Nov 3: a Burst also works while blocking (its move data only accepts hit reactions)
+		}
 		if (NetsuIsOverdrive(index))
 		{
 			StateType t = _owner.StateManager.CurrentStateType();
@@ -732,6 +762,37 @@ public partial class StanceManager : Node
 	}
 
 	/// <summary>The move's input is done. Overdrive also takes the Burst's input (the same press does both jobs).</summary>
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Nov 3 2026, TamaDeez): AUTO-CORRECT, the way Street Fighter / Guilty Gear / BlazBlue do it. Specials, EX
+	// moves, supers, Burst and Pushblock read their motion from the side the opponent is really on (not the way the
+	// fighter happens to be facing) and turn her to face the opponent as they start, so a special that crossed through
+	// the opponent cancels into an EX / super aimed at where they are now. Throws keep her facing (4 + B + C is a back
+	// throw). When any attack ends (StateManager.PlayState), she turns to face the opponent too (NetsuFaceOpponent).
+
+	/// <summary>A move that reads its input from the opponent's side and turns her round as it starts.</summary>
+	public bool NetsuAutoFace(MoveSettings m)
+	{
+		if (m == null || _owner == null || _owner.GetMaster() != null)
+		{
+			return false;   // fighters only (not assists, not projectiles)
+		}
+		if (m.MoveName != null && m.MoveName.Contains("Throw"))
+		{
+			return false;
+		}
+		return m.Priority >= 7 || m.SuperGaugeRequired > 0 || m.WillGaugeRequired > 0;
+	}
+
+	/// <summary>The side (1 / -1) to read a move's motion from.</summary>
+	public int NetsuMoveInputSide(MoveSettings m)
+	{
+		if (m != null && m.SideCheck == InputSideCheck.CHARACTER_RELATIVE && NetsuAutoFace(m) && _owner.Body != null)
+		{
+			return _owner.Body.IsLeftSide ? 1 : -1;
+		}
+		return _owner.InputSide(m != null ? m.SideCheck : InputSideCheck.CHARACTER_RELATIVE);
+	}
+
 	public bool NetsuInputDone(int index)
 	{
 		MoveSettings m = GetMove(index);
@@ -739,7 +800,7 @@ public partial class StanceManager : Node
 		{
 			return false;
 		}
-		if (_owner.Inputs.CheckMotionInputs(m.Inputs, _owner.InputSide(m.SideCheck)))
+		if (_owner.Inputs.CheckMotionInputs(m.Inputs, NetsuMoveInputSide(m)))
 		{
 			return true;
 		}
@@ -840,6 +901,47 @@ public partial class StanceManager : Node
 		return false;
 	}
 
+	/// <summary>Netsu (Nov 2 2026, TamaDeez): EX Craft → S-Craft cancel, for every fighter. An EX move that has hit or been
+	/// blocked can be cancelled into any S-Craft (a super, 300%) whose input is done, until the EX move ends. The EX's
+	/// 100% is already spent, so it needs 300% left: with the normal 300% cap that means Overdrive (400%). The move's own
+	/// CanCancelTo list is checked first. Returns true when it buffered one (or one is already waiting).</summary>
+	private bool NetsuExToSuper()
+	{
+		MoveSettings current = GetCurrentMove();
+		if (!NetsuIsExMove(current) || current.WillGaugeRequired > 0)
+		{
+			return false;
+		}
+		if ((_owner.CancelConditions & (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)) == 0)
+		{
+			return false;
+		}
+		if (BufferedMove >= 0 && CancelBuffer)
+		{
+			return true;
+		}
+		int[] order = NetsuMoveOrder();
+		for (int o = 0; o < order.Length; o++)
+		{
+			int i = order[o];
+			MoveSettings move = GetMove(i);
+			if (move == null || move.SkipCheck || i == CurrentMove || move.SuperGaugeRequired < NetsuSuperCost || move.WillGaugeRequired > 0)
+			{
+				continue;
+			}
+			if (_netsuMultiPressed && !NetsuMultiButton(move.Inputs))
+			{
+				continue;
+			}
+			if (CheckMoveConditions(i, ignoreStateType: true) && NetsuInputDone(i))
+			{
+				BufferMove(i, moveCancel: true);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/// <summary>Netsu (Oct 26, TamaDeez): Special → EX cancel, for every fighter. A special move (no meter,
 	/// Priority 7 or 8) that has hit or been blocked can be cancelled into any EX move (costs 1 bar since Oct 28, under a
 	/// super's 3) whose input is done, from the hit until the special ends. Works on top of the moves' own CanCancelTo lists
@@ -872,7 +974,7 @@ public partial class StanceManager : Node
 			{
 				continue;
 			}
-			if (CheckMoveConditions(i) && _owner.Inputs.CheckMotionInputs(move.Inputs, _owner.InputSide(move.SideCheck)))
+			if (CheckMoveConditions(i) && _owner.Inputs.CheckMotionInputs(move.Inputs, NetsuMoveInputSide(move)))
 			{
 				BufferMove(i, moveCancel: true);
 				return;
@@ -1055,23 +1157,30 @@ public partial class StanceManager : Node
 		{
 			return (_owner.CancelConditions & (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)) == 0;
 		}
-		if (name == "2B" || name == "6C")   // Oct 29 (TamaDeez): 6C jump-cancels on hit only, not on block
+		if (name == "2B" || name == "6C" || name == "5C" || GetCurrentMove().NetsuJumpCancelOnHit)   // Oct 29 (TamaDeez): 6C jump-cancels on hit only, not on block; Nov 3: 5C too
 		{
 			return (_owner.CancelConditions & CancelCondition.HIT_CANCEL) == 0;
 		}
 		return true;
 	}
 
-	/// <summary>Netsu (Oct 26 late, TamaDeez): 5A and 5B can be jump-cancelled on hit or block, 2B and 6C (Oct 29) on hit only.</summary>
+	/// <summary>Netsu (Oct 26 late, TamaDeez): 5A and 5B can be jump-cancelled on hit or block, 2B, 6C (Oct 29) and 5C (Nov 3) on hit only.</summary>
 	private bool NetsuJumpCancel()
 	{
-		if (CurrentMove < 0 || !_owner.Body.IsOnGround)
+		if (CurrentMove < 0)
+		{
+			return false;
+		}
+		// Nov 3 (TamaDeez): a move flagged NetsuJumpCancelOnHit that is in the air on hit (Noah's 214B~X Abyss Riser)
+		// cancels into an air jump instead (the air jumps' own limit still applies)
+		bool netsuAir = !_owner.Body.IsOnGround;
+		if (netsuAir && !GetCurrentMove().NetsuJumpCancelOnHit)
 		{
 			return false;
 		}
 		string name = GetCurrentMove().MoveName;
 		CancelCondition need = name == "5A" || name == "5B" ? (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)
-			: (name == "2B" || name == "6C" ? CancelCondition.HIT_CANCEL : 0);   // Oct 29: 6C on hit only
+			: (name == "2B" || name == "6C" || name == "5C" || GetCurrentMove().NetsuJumpCancelOnHit ? CancelCondition.HIT_CANCEL : 0);   // Oct 29: 6C on hit only; Nov 3: every 5C on hit
 		if (need == 0 || (_owner.CancelConditions & need) == 0)
 		{
 			return false;
@@ -1081,7 +1190,9 @@ public partial class StanceManager : Node
 		for (int i = (stance != null && stance.Moves != null ? stance.Moves.Length : 0) - 1; i >= 0; i--)
 		{
 			MoveSettings j = stance.Moves[i];
-			if (j == null || !j.UseOnGround || j.UseOnAir || j.MoveName == null || !j.MoveName.Contains("Jump") || j.MoveName.Contains("Dash"))
+			if (j == null || j.MoveName == null || j.MoveName.Contains("Dash")
+				|| (!netsuAir && (!j.UseOnGround || j.UseOnAir || !j.MoveName.Contains("Jump")))
+				|| (netsuAir && (!j.UseOnAir || j.UseOnGround || !j.MoveName.Contains("Air Jump"))))
 			{
 				continue;
 			}
@@ -1089,6 +1200,36 @@ public partial class StanceManager : Node
 			{
 				BufferMove(i, moveCancel: true);
 				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>Netsu (Nov 3): one of the owner's spawned objects from pool m.NetsuNeedSpawnPool is active and in one of
+	/// m.NetsuNeedSpawnStates.</summary>
+	private bool NetsuSpawnInState(MoveSettings m)
+	{
+		if (_owner.Pool == null || m.NetsuNeedSpawnPool >= _owner.Pool.SpawnCount || m.NetsuNeedSpawnStates == null)
+		{
+			return false;
+		}
+		PoolReference reference = _owner.Pool.GetSpawnReference(m.NetsuNeedSpawnPool);
+		if (reference.Objects == null)
+		{
+			return false;
+		}
+		foreach (SakugaActor spawn in reference.Objects)
+		{
+			if (spawn == null || !spawn.IsActive || spawn.StateManager == null)
+			{
+				continue;
+			}
+			foreach (int st in m.NetsuNeedSpawnStates)
+			{
+				if (spawn.StateManager.CurrentState == st)
+				{
+					return true;
+				}
 			}
 		}
 		return false;
@@ -1151,7 +1292,7 @@ public partial class StanceManager : Node
 			BufferedMove = -1;
 			NetsuLog.Debug("Buffer Cleaned!");
 		}
-		else if ((CancelBuffer || _owner.StateManager.CurrentStateType() != StateType.COMBAT) && (CancelBuffer || NetsuAllowedStateType(BufferedMove)) && NetsuBurstOrOverdriveState(BufferedMove) && (GetBufferedMove().Unlockable || !_owner.ContainsFrameProperty(FrameProperties.LOCK_MOVE)) && (GetBufferedMove().IgnoreHitstop || !_owner.Hitstop.IsRunning()) && (GetBufferedMove().IgnoreHitstun || NetsuIsOverdrive(BufferedMove) || !_owner.Hitstun.IsRunning()))
+		else if ((CancelBuffer || _owner.StateManager.CurrentStateType() != StateType.COMBAT) && (CancelBuffer || NetsuAllowedStateType(BufferedMove)) && NetsuBurstOrOverdriveState(BufferedMove) && (GetBufferedMove().Unlockable || !_owner.ContainsFrameProperty(FrameProperties.LOCK_MOVE)) && ((GetBufferedMove().IgnoreHitstop && !NetsuIsBurst(BufferedMove)) || !_owner.Hitstop.IsRunning()) && (GetBufferedMove().IgnoreHitstun || NetsuIsOverdrive(BufferedMove) || !_owner.Hitstun.IsRunning()))
 		{
 			if (CurrentMove < 0 || CancelBuffer || (GetCurrentMove().CanBeOverrided && (GetCurrentMove().IgnoreSamePriority ? (GetBufferedMove().Priority > GetCurrentMove().Priority) : (GetBufferedMove().Priority >= GetCurrentMove().Priority))))
 			{
@@ -1347,8 +1488,83 @@ public partial class StanceManager : Node
 		return n != null && (n.StartsWith("Jump_") || n.StartsWith("Super_Jump") || n.StartsWith("Dash_Jump"));
 	}
 
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Nov 3 2026, TamaDeez): BAITING A BURST, a rule for the whole game.
+	//  - A Burst only comes out once the Burster's hitstop is over (ProcessMoveBuffer), so the attacker gets the same
+	//    frames to react as the Burst's startup (6).
+	//  - Against a Burst hit (NetsuVsBurst, set by the Burster's hit code), the attacker guards if she is free:
+	//      * in the recovery of a LIGHT (A) normal that connected and she pressed nothing after it (lights recover fast
+	//        enough: bursting a light is a risk);
+	//      * in a jump, from its first frame (a jump cancel out of a B / C normal is fast enough; the usual "no block in
+	//        the first 10F of a jump" doesn't apply to a Burst);
+	//      * in neutral / walking / dashing.
+	//    She guards unless she's holding toward the Burster; she doesn't need to hold back (she saw it coming or not).
+	//  - Still in a B / C normal (no jump cancel), a special, a super, or already in her next attack: she gets hit.
+
+	/// <summary>Set by the attacker's hit code while it asks whether a Burst hit is guarded.</summary>
+	public bool NetsuVsBurst;
+
+	/// <summary>A light (A) normal that has hit or been blocked: its recovery can guard a Burst.</summary>
+	private bool NetsuLightRecovery()
+	{
+		return CurrentMove >= 0 && NetsuIsNormal(CurrentMove) && NetsuStrength(CurrentMove) == 0
+			&& (_owner.CancelConditions & (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)) != 0;
+	}
+
+	private int NetsuBurstGuard(HitType type, byte state)
+	{
+		StateType t = _owner.StateManager.CurrentStateType();
+		if (t == StateType.HIT_REACTION || t == StateType.LOCKED || _owner.NetsuLandLag > 0)
+		{
+			return -1;
+		}
+		if (t == StateType.COMBAT && _owner.StateManager.CurrentStateFrame >= 3 && !NetsuLightRecovery())
+		{
+			return -1;   // still in her attack (a B / C normal, a special, a super) or already in the next one
+		}
+		if (GetCurrentStance().BlockReactions == null || GetCurrentStance().BlockReactions.Length == 0)
+		{
+			return -1;
+		}
+		int forcedGuard = GameManager.Instance?.Training?.ForcedGuard(_owner) ?? 0;
+		if (forcedGuard < 0)
+		{
+			return -1;   // Training: a dummy set to not guard
+		}
+		InputManager inp = _owner.Inputs;
+		PlayerInputs toward = (_owner.Body != null && _owner.Body.IsLeftSide) ? PlayerInputs.RIGHT : PlayerInputs.LEFT;
+		if (forcedGuard == 0 && inp != null && inp.IsBeingPressed(inp.CurrentHistory, toward))
+		{
+			return -1;   // walking into it
+		}
+		int pick = NetsuForcedBlock(type);
+		if (pick < 0)
+		{
+			return -1;
+		}
+		BlockSettings b = GetCurrentStance().BlockReactions[pick];
+		switch (state)
+		{
+		case 0:
+			return b.EnterState;
+		case 1:
+			return b.StunState;
+		case 2:
+			return b.GuardCrushState;
+		}
+		return -1;
+	}
+
 	public int GetBlockState(HitType Type, byte state, int sideOverride = 0)
 	{
+		if (_owner.NetsuBurstPunishable)
+		{
+			return -1;   // Nov 3: coming down from her Burst: she can't block (the punish window)
+		}
+		if (NetsuVsBurst)
+		{
+			return NetsuBurstGuard(Type, state);
+		}
 		if (_owner.NetsuLandLag > 0)
 		{
 			return -1;   // Netsu (Oct 26 late): can't block during landing recovery

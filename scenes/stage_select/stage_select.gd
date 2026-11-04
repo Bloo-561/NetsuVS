@@ -269,7 +269,7 @@ func _back() -> void:
 	_leaving = true
 	MatchSetup.music_choice = _music
 	_play(SFX_BACK)
-	SceneRouter.go_to(SceneRouter.CHARACTER_SELECT)
+	SceneRouter.go_to(SceneRouter.CHARACTER_SELECT, Color.BLACK, true)   # Nov 3: a quick wipe, no loading screen
 
 
 ## [base name, variant] - "Thors Training Hall - Dusk" -> ["THORS TRAINING HALL", "DUSK"].
