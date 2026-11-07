@@ -58,8 +58,8 @@
          "desc": "Press B+C within 10 frames of being grabbed to break it. Nobody takes damage."},
         {"heading": "BREAKERS"},
         {"name": "Burst", "input": "A+C", "tags": ["FULL GAUGE"], "preview": {"move": "Brave Burst"},
-         "desc": "Only while being hit. Uses the whole Burst gauge and knocks them away. It refills slowly: plan on about one per round.",
-         "data": [["STARTUP", "5f"], ["ACTIVE", "9f"]]}
+         "desc": "While being hit or blocking. Uses the whole Burst gauge and knocks them away, invincible from the press to frame 47. Blocked, you can't act until it ends: they can punish it. In Overdrive it's bigger and hits longer. Their Burst after its 3rd frame stops yours (WAIT). It refills slowly: about one per round.",
+         "data": [["STARTUP", "5f"], ["ACTIVE", "9f (16f)"], ["TOTAL", "55f"], ["INVINCIBLE", "1-47f"]]}
       ]
     },
     {

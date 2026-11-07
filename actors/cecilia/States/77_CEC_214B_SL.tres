@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="sl2"]
 [ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="e10"]
 [ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRestandAction.cs" id="e11"]
+[ext_resource type="Script" uid="uid://culfsmxfb5o0x" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="ch_in"]
+[ext_resource type="Resource" uid="uid://42f8tk770b454" path="res://actors/_shared/sakuga/Inputs/43_Input_HoldB_or_C.tres" id="ch_hold"]
 [ext_resource type="Resource" path="res://actors/cecilia/AnimationData/77_CEC_214B_SL_AnimData.tres" id="e12"]
 [ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="e13"]
 
@@ -157,6 +159,23 @@ script = ExtResource("e3")
 Conditions = [SubResource("slc2")]
 Actions = [SubResource("sla2")]
 
+[sub_resource type="Resource" id="ch_at"]
+script = ExtResource("e8")
+Frame = 5
+
+[sub_resource type="Resource" id="ch_cond"]
+script = ExtResource("ch_in")
+Input = ExtResource("ch_hold")
+
+[sub_resource type="Resource" id="ch_play"]
+script = ExtResource("e2")
+StateIndex = 129
+
+[sub_resource type="Resource" id="ch_ev"]
+script = ExtResource("e3")
+Conditions = [SubResource("ch_at"), SubResource("ch_cond")]
+Actions = [SubResource("ch_play")]
+
 [resource]
 script = ExtResource("e13")
 StateName = "Command Dash: Lightning Slash-Through"
@@ -164,7 +183,7 @@ Type = 2
 AnimationData = ExtResource("e12")
 TransitionEvents = [SubResource("s3")]
 OnEnterEvents = [SubResource("s7")]
-OnTickEvents = [SubResource("slev1"), SubResource("slev2"), SubResource("s15"), SubResource("s18")]
+OnTickEvents = [SubResource("slev1"), SubResource("slev2"), SubResource("s15"), SubResource("s18"), SubResource("ch_ev")]
 OnExitEvents = [SubResource("s22")]
 OnHitConfirmEvents = null
 NetsuKeepBlockSide = true

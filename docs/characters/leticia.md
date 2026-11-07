@@ -21,7 +21,7 @@ animation, hitbox, special and super was rebuilt from her own drawings. Move nam
 | Photon Line | 214 + A | straight beam across mid-range |
 | Ricochet Prism | 214 + B (hold B) | (Oct 25, two angles like Hollow Point) B tapped: the shot bounces off the floor first; B held: it goes up first and bounces down |
 | Prism Overdrive (EX) | 214 + C (2 bars) | straight shot, ricochet, then the big beam |
-| Flux Dive | in air: 236 + A / B | the board flips once (B: twice), then she twirls down at an angle; (Oct 25) the twirl spikes them to the floor: her air combo ender |
+| Flux Dive (now Flux Dash) | in air: 236 + A / B | the board flips once (B: twice), then she twirls down at an angle; (Oct 25) the twirl spikes them to the floor: her air combo ender |
 | Flux Storm (EX) | in air: 236 + C (2 bars) | three flips, the last one spikes them down; she keeps air control after |
 | Stardrive Cannon | 236 + B + C (3 bars) | huge sustained beam across the screen, invincible |
 | Crimson Waltz | 214 + B + C (3 bars) | board rush (passes through projectiles); on hit the flame prison floats them up and (Oct 25) she flies one smooth loop and a quarter around it on her board, firing into it, lands, flips her hair, and it explodes |
@@ -89,3 +89,8 @@ vs Cecilia "Your blade's fast, Cecilia... but light is faster."; vs Flan "All th
   bounce. Photon Line (214A) reaches the whole screen (as before; the text said mid-range).
 - Note: moves added after `_fix_speeds` in `moves_leticia.py` (the slam) use real speeds, not halved ones.
 - (Oct 26) Every ground normal cancels into 6C. 6C startup is now 15 (the wind-up was held longer): 2B, 5B and 5C combo into it, 5A / 2A / 4A only on counter hit.
+
+## Nov 4: Flux Dash (j.236A / B / C) travels less
+About 40% shorter, the order kept (A short, B medium, C long): the burst `MoveX` 240000 / 440000 / 680000 → 150000 /
+270000 / 410000, and the drift after it 40000 / 55000 / 68000 → 24000 / 33000 / 41000 (`States/LET_j236A-C.tres`). From a
+normal jump height that is roughly A 2.9 → 1.8 m, B 4.5 → 2.8 m, C 6.2 → 3.8 m in all. Tune it there.

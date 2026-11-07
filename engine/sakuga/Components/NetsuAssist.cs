@@ -252,6 +252,13 @@ public partial class NetsuAssist : SakugaNode
 		}
 		GameManager gm = GameManager.Instance;
 		bool frozen = Fighter.SuperFlashing;   // the opponent's super flash stops our timers too
+		// Nov 4 (TamaDeez): the assist's projectiles still out (Mary's notes) go away when its partner is hit, grabbed or
+		// knocked out, whether the assist is still on screen or has already left (SakugaActor.NetsuAssistStruck does the
+		// same when the assist herself is hit)
+		if (Actor.Pool != null && (Fighter.StateManager.CurrentStateType() == StateType.HIT_REACTION || Fighter.IsGrabbed() || Fighter.IsKO()))
+		{
+			Actor.Pool.NetsuClearSpawns();
+		}
 		if (PendingMove >= 0)
 		{
 			StateType ft = Fighter.StateManager.CurrentStateType();

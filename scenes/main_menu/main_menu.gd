@@ -2,42 +2,58 @@ extends Control
 ## MAIN MENU  (Oct 19 2026 mockup)
 ##   Up / Down  move      A  pick      B  back to the title
 ##
-## TO ADD AN ENTRY: add a line to ITEMS ("line" is what the character in the
-## speech box says), then handle its id in _confirm().
-## The character on the right is the first fighter in data/roster.tres
-## (change `guide_fighter` to show someone else).
+## TO ADD AN ENTRY: add a line to ITEMS, handle its id in _confirm(), and give it a speech line for each fighter in
+## data/menu_lines.json (missing lines fall back to Cecilia's).
 ##
-## OPTIONS opens INSIDE this screen: Cecilia and her speech box slide off to the
-## right and the settings list (scenes/options/options_menu.gd) grows out of the
-## OPTIONS row. Backing out of it brings her back.
+## THE MENU CHARACTER (Nov 4 2026) on the right is the player's choice in CUSTOMIZE > MENU CHARACTER (GameSettings
+## "profile" / "menu_character"): RANDOM SELECT (a different fighter each time the menu opens) or one fighter of
+## data/roster.tres. What they say for each item is in data/menu_lines.json (one block per fighter: see the notes at
+## the top of that file). How each fighter's render sits in the guide spot: GUIDE_FIT below.
+##
+## OPTIONS opens INSIDE this screen: the guide and the speech box slide off to the right and the settings list
+## (scenes/options/options_menu.gd) grows out of the OPTIONS row. Backing out of it brings them back.
+## CUSTOMIZE (Nov 4) and COMMAND LIST open over the whole menu (game/ui/profile/netsu_customize.gd,
+## game/ui/command_list/netsu_command_list.gd).
 ##
 ## Layout numbers are mockup pixels (1672 x 941), converted with NetsuUI.m().
 ## Background: assets/ui/netsu/menu_bg.png.
 
 const OPTIONS_SCENE := "res://scenes/options/options_menu.tscn"
 const SIDE_SELECT := "res://scenes/versus/device_select.gd"
+const CUSTOMIZE := "res://game/ui/profile/netsu_customize.gd"
+## The guide's speech lines: {"<fighter short name, lower case>": {"<item id>": "line\nline"}}.
+const LINES_FILE := "res://data/menu_lines.json"
+## Whose lines are used when a fighter has none for an item.
+const FALLBACK_SPEAKER := "cecilia"
 
 const ITEMS := [
-	{"id": "versus", "label": "VERSUS", "blurb": "Fight a friend or the CPU. Set the rules, pick sides, then fighters.",
-		"line": "Looking for a sparring partner?\nPick your fighter - I'll be waiting!"},
-	{"id": "training", "label": "TRAINING", "blurb": "Practice combos, frame data and timing against a dummy.",
-		"line": "The practice hall is open.\nWant to run some drills with me?"},
-	{"id": "arcade", "label": "ARCADE", "blurb": "Battle through a gauntlet of rivals. (Coming soon)",
-		"line": "One opponent after another...\nSounds like a good test of steel."},
-	{"id": "network", "label": "ONLINE", "blurb": "Rollback netplay with a friend: create a lobby and send them the code.",
-		"line": "Challengers from far away?\nBring it on!"},
-	{"id": "gallery", "label": "GALLERY", "blurb": "Art, music and memories from the campaign. (Coming soon)",
-		"line": "Memories from our journey...\nLet's look through them sometime."},
-	{"id": "commands", "label": "COMMAND LIST", "blurb": "Every system, fighter and assist move, with live previews and frame data.",
-		"line": "Want to go over the moves together?\nTake all the time you need."},
-	{"id": "options", "label": "OPTIONS", "blurb": "Controls, sound, display and match settings.",
-		"line": "Adjust the controls and sound\nhowever you like."},
-	{"id": "return", "label": "RETURN", "blurb": "Back to the title screen.",
-		"line": "Heading back already?\nI'll be right here."},
+	{"id": "versus", "label": "VERSUS", "blurb": "Fight a friend or the CPU. Set the rules, pick sides, then fighters."},
+	{"id": "training", "label": "TRAINING", "blurb": "Practice combos, frame data and timing against a dummy."},
+	{"id": "arcade", "label": "ARCADE", "blurb": "Battle through a gauntlet of rivals. (Coming soon)"},
+	{"id": "network", "label": "ONLINE", "blurb": "Rollback netplay with a friend: create a lobby and send them the code."},
+	{"id": "customize", "label": "CUSTOMIZE", "blurb": "Your profile icon and title (what others see online), and your menu character."},
+	{"id": "gallery", "label": "GALLERY", "blurb": "Art, music and memories from the campaign. (Coming soon)"},
+	{"id": "commands", "label": "COMMAND LIST", "blurb": "Every system, fighter and assist move, with live previews and frame data."},
+	{"id": "options", "label": "OPTIONS", "blurb": "Controls, sound, display and match settings."},
+	{"id": "return", "label": "RETURN", "blurb": "Back to the title screen."},
 ]
+
+## How each fighter's render sits in the guide spot, on top of guide_position / guide_scale (which fit Cecilia's):
+## "scale" multiplies the size, "offset" moves it (mockup pixels). Keyed by the fighter's ShortName in lower case;
+## a fighter not listed here uses no change. The renders are drawn 1024 px wide first (then these apply), so these
+## line the figures up: same height, the same place for the head.
+const GUIDE_FIT := {
+	"cecilia": {"scale": 1.0, "offset": Vector2(0, 0)},
+	"flan": {"scale": 1.0, "offset": Vector2(-180, 22)},
+	"leticia": {"scale": 1.1, "offset": Vector2(-60, -44)},
+	"noah": {"scale": 1.06, "offset": Vector2(-24, -46)},
+}
 const PROMPTS := "UP / DOWN  SELECT     A  CONFIRM     B  BACK"
 
+## The fighter shown (a roster index): set from the profile's menu character when the menu opens. -1 there = random.
 @export var guide_fighter: int = 0
+## For testing a render in the guide spot: >= 0 always shows that fighter (whatever the profile says).
+@export var guide_override: int = -1
 @export_group("Layout (mockup pixels)")
 ## Centre of the first row and the distance between rows.
 @export var first_row_y: float = 341.0
@@ -51,7 +67,7 @@ const PROMPTS := "UP / DOWN  SELECT     A  CONFIRM     B  BACK"
 @export var guide_tilt: float = 5.45
 @export var logo_position: Vector2 = Vector2(73.6, 100.9)
 @export var logo_width: float = 615.5
-## How far (screen px) Cecilia slides right (off screen) while Options is open.
+## How far (screen px) the guide slides right (off screen) while Options is open.
 @export var options_slide: float = 900.0
 
 var _items: Array[Label] = []
@@ -67,6 +83,7 @@ var _text_tween: Tween
 var _guide_home := Vector2.ZERO
 var _bubble_home := Vector2.ZERO
 var _options: Control = null   # the open panel (Options, Versus settings or side select), if any
+var _lines := {}               # data/menu_lines.json
 
 
 func _ready() -> void:
@@ -82,6 +99,8 @@ func _ready() -> void:
 	var lights := NetsuLights.new()
 	lights.beams = NetsuLights.preset("menu")
 	add_child(lights)
+	_lines = _load_lines()
+	guide_fighter = _pick_guide()
 	_build_guide()
 	_build_logo()
 	_build_list()
@@ -124,6 +143,8 @@ func _confirm() -> void:
 			SceneRouter.go_to(SceneRouter.ONLINE_LOBBY)
 		"options":
 			_open_options()
+		"customize":
+			_open_customize()
 		"commands":
 			_open_command_list()
 		"return":
@@ -152,6 +173,40 @@ func _on_command_list_closed() -> void:
 	t.tween_property(cl, "modulate:a", 0.0, 0.16)
 	t.tween_callback(cl.queue_free)
 	_on_options_closed()
+
+
+## Nov 4 2026: CUSTOMIZE (game/ui/profile/netsu_customize.gd) over the whole menu, like the command list.
+func _open_customize() -> void:
+	var cz: Control = load(CUSTOMIZE).new()
+	cz.set("footer_override", _footer)
+	cz.connect("closed", _on_customize_closed)
+	add_child(cz)
+	move_child(cz, _footer["root"].get_index())   # under the footer
+	_options = cz
+	cz.modulate.a = 0.0
+	create_tween().tween_property(cz, "modulate:a", 1.0, 0.2)
+
+
+## Back from CUSTOMIZE: a new menu character shows up straight away (RANDOM SELECT keeps whoever is here now, unless
+## it was just chosen: then a random one comes in).
+func _on_customize_closed(menu_character_changed: bool) -> void:
+	var cz := _options
+	var t := create_tween()
+	t.tween_property(cz, "modulate:a", 0.0, 0.16)
+	t.tween_callback(cz.queue_free)
+	if menu_character_changed:
+		var before := guide_fighter
+		guide_fighter = _pick_guide()
+		if guide_fighter != before:
+			_dress_guide()
+			_guide.modulate.a = 0.0
+			_guide.position.x = _guide_home.x + 160.0
+			var g := create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+			g.tween_property(_guide, "position:x", _guide_home.x, 0.5).set_delay(0.1)
+			g.tween_property(_guide, "modulate:a", 1.0, 0.4).set_delay(0.1)
+	_options = null
+	_footer["prompts"].text = PROMPTS
+	_select(_selected, false)
 
 
 ## Picks the engine game mode (data/game_modes/) and opens the character select.
@@ -222,15 +277,66 @@ func _build_guide() -> void:
 	_guide.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_guide.stretch_mode = TextureRect.STRETCH_SCALE
 	_guide.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	if MatchSetup.fighter_count() > guide_fighter:
-		var tex: Texture2D = MatchSetup.fighter_profile(guide_fighter).Render
-		if tex:
-			_guide.texture = tex
-			# the mockup render is 1024 px wide; other renders keep the same on-screen width
-			_guide.size = tex.get_size() * guide_scale * NetsuUI.K * (1024.0 / tex.get_size().x)
-	_guide.position = NetsuUI.m(guide_position.x, guide_position.y)
 	_guide.rotation_degrees = guide_tilt
 	add_child(_guide)
+	_dress_guide()
+
+
+## Puts the guide fighter's render in the guide spot (GUIDE_FIT lines each render up with Cecilia's).
+func _dress_guide() -> void:
+	_guide.texture = null
+	var fit: Dictionary = GUIDE_FIT.get(_speaker(), {})
+	var tex: Texture2D = null
+	if guide_fighter >= 0 and MatchSetup.fighter_count() > guide_fighter:
+		tex = MatchSetup.fighter_profile(guide_fighter).Render
+	if tex:
+		_guide.texture = tex
+		# the mockup render is 1024 px wide; other renders keep the same on-screen width
+		_guide.size = tex.get_size() * guide_scale * float(fit.get("scale", 1.0)) * NetsuUI.K * (1024.0 / tex.get_size().x)
+	var off: Vector2 = fit.get("offset", Vector2.ZERO)
+	_guide.position = NetsuUI.m(guide_position.x + off.x, guide_position.y + off.y)
+	_guide_home = _guide.position
+
+
+## The fighter for the guide spot: the profile's menu character (random = a new one each time the menu opens).
+func _pick_guide() -> int:
+	var n: int = MatchSetup.fighter_count()
+	if n <= 0:
+		return 0
+	if guide_override >= 0:
+		return clampi(guide_override, 0, n - 1)
+	var choice = ProfileCatalog.my_menu_character()
+	if choice is int and choice >= 0 and choice < n:
+		return choice
+	return randi() % n
+
+
+## The guide's ShortName in lower case ("cecilia"): the key of their lines and GUIDE_FIT.
+func _speaker() -> String:
+	if guide_fighter < 0 or guide_fighter >= MatchSetup.fighter_count():
+		return FALLBACK_SPEAKER
+	var prof = MatchSetup.fighter_profile(guide_fighter)
+	return String(prof.ShortName).to_lower() if prof else FALLBACK_SPEAKER
+
+
+func _load_lines() -> Dictionary:
+	if not FileAccess.file_exists(LINES_FILE):
+		push_warning("Main menu: %s is missing (no speech lines)." % LINES_FILE)
+		return {}
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string(LINES_FILE))
+	if not parsed is Dictionary:
+		push_warning("Main menu: %s couldn't be read (a missing comma or quote?)." % LINES_FILE)
+		return {}
+	return parsed
+
+
+## What the guide says for an item: their own line, else Cecilia's, else nothing.
+func _line_for(item_id: String) -> String:
+	for who in [_speaker(), FALLBACK_SPEAKER]:
+		var block = _lines.get(who, {})
+		if block is Dictionary and str(block.get(item_id, "")).strip_edges() != "":
+			return str(block[item_id])
+	return ""
 
 
 func _build_logo() -> void:
@@ -339,7 +445,7 @@ func _select(index: int, animate: bool = true) -> void:
 	else:
 		_bar.position = target
 	_footer["text"].text = ITEMS[_selected]["blurb"]
-	_bubble_text.text = ITEMS[_selected]["line"]
+	_bubble_text.text = _line_for(ITEMS[_selected]["id"])
 	if _text_tween:
 		_text_tween.kill()
 	_bubble_text.visible_ratio = 0.0
@@ -407,7 +513,7 @@ func _on_sides_confirmed(p1_device: String, p2_device: String) -> void:
 	_open_character_select("Versus")
 
 
-## Cecilia steps out to the right, her speech box drifts away, the list dims.
+## The guide steps out to the right, the speech box drifts away, the list dims.
 func _step_aside() -> void:
 	var t := create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 	t.tween_property(_guide, "position:x", _guide_home.x + options_slide, 0.5)
@@ -432,7 +538,7 @@ func _on_options_closed() -> void:
 		t.tween_property(_items[i], "modulate:a", 1.0, 0.25)
 		t.tween_property(_diamonds[i], "modulate:a", 1.0, 0.25)
 	_footer["prompts"].text = PROMPTS
-	_select(_selected, false)   # puts back the blurb and replays her line
+	_select(_selected, false)   # puts back the blurb and replays the guide's line
 
 
 func _entrance() -> void:

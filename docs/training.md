@@ -18,7 +18,7 @@ A or right opens a tab's rows, left / right changes a value, B goes back. Settin
 | | Counter Hit | Off, Always (the hit that starts each combo on the dummy is a counter hit: +12 hitstun) |
 | | Reset Position | Center, Dummy in Left / Right Corner, Sides Swapped, You in Left / Right Corner (what Q / Back does with no direction held). A on this row resets now |
 | Recovery | Air Recovery | Off, Neutral (flips back), Forward, Random: recovers the moment it's allowed |
-| | Wake-up | Stay Down, Quick Rise, Roll Forward, Roll Back, Random (see Notes for when each works) |
+| | Wake-up | Stay Down, Tech in Place, Roll Forward, Roll Back, Random: a ground tech as early as it's allowed (see Notes) |
 | | Wake-up Action | None, Jump, Back Jump, Backdash, 5A, 2A, Assist Call, Burst, Recording: input so it comes out on the first frame the dummy can act after getting up or rolling (a reversal) |
 | Gauges | P1 / P2 Health | 100 / 75 / 50 / 25 / 10 %: back to that once neither fighter has been in hitstun or blockstun for 40 frames (⅔ s); No Refill: keeps dropping (nobody is K.O.'d) |
 | | P1 / P2 Craft Gauge | Always Full, Normal (as in a match), 0–6 Bars (back to that at the same moment, also after spending it in neutral) |
@@ -65,10 +65,14 @@ AutoFillResources, CanKO off) is now done by `NetsuTraining.PostFrame` with the 
 ## Notes
 - Wake-up actions are generic inputs (jump, backdash, 5A, 2A, S, A+C). For a special or super reversal, record it
   (Recording tab) and set Wake-up Action to Recording.
-- Getting up uses the engine's recovery moves: **rolls** (6 / 4 + attack) work after an ordinary fall or a soft knockdown;
-  **Quick Rise** (the OTG recovery, 5 + attack) only after an ordinary fall (a juggle that ends without a knockdown hit);
-  after a **hard knockdown** nothing works and the dummy gets up normally. Random picks one of the three, so it sometimes
-  stays down. The wake-up action waits until a roll is over.
+- **Ground tech (Nov 4, BlazBlue style):** after a soft knockdown, from 20 ticks after landing
+  (`GameManager.NetsuGroundTechFromFrames`) until the normal get-up, holding or pressing A / B / C gets up at once:
+  forward = roll forward, back = roll back, no direction = tech in place (all invincible, white tech flash). After a
+  **hard knockdown** nothing works and the dummy gets up normally (the full 72 ticks). Stay Down = no tech. Random picks
+  one of the three techs. The wake-up action waits until the tech is over. (Before Nov 4 every knockdown lay the full
+  time and these options did nothing.)
+- **Wake-up buffer (Nov 4):** an attack / special / super input in the last 8 frames of getting up (or of a ground
+  tech) comes out on the first free frame, so wake-up reversals (DPs) are easier.
 - Health and set Craft bars come back only when **both** fighters are out of hitstun / blockstun (40 frames), so a long
   combo or blockstring keeps the damage and meter on screen until it ends.
 - The dummy only guards on its own while it stands / crouches / jumps; the CPU, a recording and a second player guard

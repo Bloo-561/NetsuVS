@@ -26,6 +26,7 @@ FrameThreshold = Vector2i(22, 56)
 script = ExtResource("1")
 MoveName = "Fragment Kick (Air)"
 NetsuNoRepeatWhileSpawned = true
+NetsuOwnOncePerJump = true
 MoveState = 121
 Inputs = ExtResource("2")
 Priority = 7

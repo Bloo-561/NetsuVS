@@ -1,0 +1,104 @@
+[gd_resource type="Resource" script_class="AnimationData" format=3]
+
+[ext_resource type="Script" uid="uid://ddkya5wrb53ly" path="res://engine/sakuga/Resources/AnimationData.cs" id="ad"]
+[ext_resource type="Script" uid="uid://5qrsoteskjym" path="res://engine/sakuga/Resources/HitboxState.cs" id="hs"]
+[ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="sm"]
+[ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="as"]
+[ext_resource type="Script" uid="uid://diafndij7pkla" path="res://engine/sakuga/Resources/AttackProfile.cs" id="ap"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/AttackLevels/AKT_LVL4.tres" id="lv4"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rcs_27.png" id="t_rcs27"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rcs_30.png" id="t_rcs30"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rcs_33.png" id="t_rcs33"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/rcs_36.png" id="t_rcs36"]
+[ext_resource type="Texture2D" path="res://actors/cecilia/Sprites/v2/r214_slash.png" id="t_slash"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/55_Hitbox_214B_Slash_1.tres" id="h_s1"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/55_Hitbox_214B_Slash_2.tres" id="h_s2"]
+[ext_resource type="Resource" path="res://actors/cecilia/Hitboxes/55_Hitbox_214B_Slash_3.tres" id="h_s3"]
+
+[sub_resource type="Resource" id="m0"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_slash")
+Offset = Vector2(-887.0, -4.0)
+Scale = Vector2(0.926, 0.926)
+
+[sub_resource type="Resource" id="a0"]
+script = ExtResource("as")
+Modifiers = [SubResource("m0")]
+
+[sub_resource type="Resource" id="m1"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_rcs27")
+Offset = Vector2(-129.0, -4.0)
+
+[sub_resource type="Resource" id="a1"]
+script = ExtResource("as")
+AtFrame = 5
+Modifiers = [SubResource("m1")]
+
+[sub_resource type="Resource" id="m2"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_rcs30")
+Offset = Vector2(-113.0, -4.0)
+
+[sub_resource type="Resource" id="a2"]
+script = ExtResource("as")
+AtFrame = 6
+Modifiers = [SubResource("m2")]
+
+[sub_resource type="Resource" id="m3"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_rcs33")
+Offset = Vector2(-130.0, -4.0)
+Scale = Vector2(0.961, 0.961)
+
+[sub_resource type="Resource" id="a3"]
+script = ExtResource("as")
+AtFrame = 8
+Modifiers = [SubResource("m3")]
+
+[sub_resource type="Resource" id="m4"]
+script = ExtResource("sm")
+Sprite = ExtResource("t_rcs36")
+Offset = Vector2(-135.0, -4.0)
+Scale = Vector2(1.077, 1.077)
+
+[sub_resource type="Resource" id="a4"]
+script = ExtResource("as")
+AtFrame = 10
+Modifiers = [SubResource("m4")]
+
+[sub_resource type="Resource" id="b0"]
+script = ExtResource("hs")
+HitboxData = ExtResource("h_s2")
+
+[sub_resource type="Resource" id="b1"]
+script = ExtResource("hs")
+AtFrame = 1
+animationStage = 1
+HitboxData = ExtResource("h_s1")
+
+[sub_resource type="Resource" id="b2"]
+script = ExtResource("hs")
+AtFrame = 4
+animationStage = 2
+HitboxData = ExtResource("h_s2")
+
+[sub_resource type="Resource" id="b3"]
+script = ExtResource("hs")
+AtFrame = 5
+animationStage = 2
+HitboxData = ExtResource("h_s3")
+
+[sub_resource type="Resource" id="p0"]
+script = ExtResource("ap")
+BaseDamage = 1100
+GuardCrushDamage = 300
+AttackLevel = ExtResource("lv4")
+
+[resource]
+script = ExtResource("ad")
+Duration = 30
+Afterimages = true
+Animations = [SubResource("a0"), SubResource("a1"), SubResource("a2"), SubResource("a3"), SubResource("a4")]
+Hitboxes = [SubResource("b0"), SubResource("b1"), SubResource("b2"), SubResource("b3")]
+AttackProfiles = [SubResource("p0")]

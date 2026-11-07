@@ -1,0 +1,106 @@
+[gd_resource type="Resource" script_class="FighterState" format=3]
+
+[ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="fs"]
+[ext_resource type="Script" uid="uid://c076jc3huncn2" path="res://engine/sakuga/Resources/FrameDataEvents/FrameDataEvent.cs" id="ev"]
+[ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="c_end"]
+[ext_resource type="Script" uid="uid://50grsd2r3wl8" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameCondition.cs" id="c_at"]
+[ext_resource type="Script" uid="uid://c42r1mjvviuhg" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/AtFrameRangeCondition.cs" id="c_rng"]
+[ext_resource type="Script" uid="uid://culfsmxfb5o0x" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckInputCondition.cs" id="c_in"]
+[ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="a_play"]
+[ext_resource type="Script" uid="uid://bgwrlqrhqb2a4" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/MoveXAction.cs" id="a_mx"]
+[ext_resource type="Script" uid="uid://cfq32y8apqltb" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/SetFramePropertiesAction.cs" id="a_prop"]
+[ext_resource type="Script" uid="uid://cydr41sr3vjdw" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlaySoundAction.cs" id="a_snd"]
+[ext_resource type="Script" uid="uid://7q4redt8oj1f" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/CameraShakeAction.cs" id="a_shake"]
+[ext_resource type="Script" uid="uid://brs4f5rp741x" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuSlideToAction.cs" id="a_slide"]
+[ext_resource type="Script" uid="uid://n7xih8pqfpwo" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/ChangeSideAction.cs" id="a_side"]
+[ext_resource type="Resource" uid="uid://42f8tk770b454" path="res://actors/_shared/sakuga/Inputs/43_Input_HoldB_or_C.tres" id="in_hold"]
+[ext_resource type="Resource" path="res://actors/cecilia/AnimationData/129_CEC_214_Charge_AnimData.tres" id="anim"]
+
+[sub_resource type="Resource" id="r1"]
+script = ExtResource("c_end")
+
+[sub_resource type="Resource" id="r2"]
+script = ExtResource("a_play")
+StateIndex = 130
+
+[sub_resource type="Resource" id="r3"]
+script = ExtResource("ev")
+Conditions = [SubResource("r1")]
+Actions = [SubResource("r2")]
+
+[sub_resource type="Resource" id="r4"]
+script = ExtResource("a_mx")
+Velocity = 0
+
+[sub_resource type="Resource" id="r5"]
+script = ExtResource("a_prop")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="r6"]
+script = ExtResource("a_snd")
+Source = 3
+Index = 35
+
+[sub_resource type="Resource" id="r7"]
+script = ExtResource("ev")
+Actions = [SubResource("r4"), SubResource("r5"), SubResource("r6")]
+
+[sub_resource type="Resource" id="r8"]
+script = ExtResource("c_at")
+Frame = 14
+
+[sub_resource type="Resource" id="r9"]
+script = ExtResource("c_in")
+Input = ExtResource("in_hold")
+
+[sub_resource type="Resource" id="r10"]
+script = ExtResource("a_play")
+StateIndex = 131
+
+[sub_resource type="Resource" id="r11"]
+script = ExtResource("ev")
+Conditions = [SubResource("r8"), SubResource("r9")]
+Actions = [SubResource("r10")]
+
+[sub_resource type="Resource" id="r12"]
+script = ExtResource("c_rng")
+MinFrame = 1
+MaxFrame = 14
+
+[sub_resource type="Resource" id="r13"]
+script = ExtResource("c_in")
+Input = ExtResource("in_hold")
+Not = true
+
+[sub_resource type="Resource" id="r14"]
+script = ExtResource("a_play")
+StateIndex = 130
+
+[sub_resource type="Resource" id="r15"]
+script = ExtResource("ev")
+Conditions = [SubResource("r12"), SubResource("r13")]
+Actions = [SubResource("r14")]
+
+[sub_resource type="Resource" id="r16"]
+script = ExtResource("a_prop")
+Properties = 0
+ChangeMode = 0
+
+[sub_resource type="Resource" id="r17"]
+script = ExtResource("ev")
+Actions = [SubResource("r16")]
+
+[resource]
+script = ExtResource("fs")
+StateName = "Command Dash: Slash-Through (charging)"
+Type = 2
+AnimationData = ExtResource("anim")
+TransitionEvents = [SubResource("r3")]
+OnEnterEvents = [SubResource("r7")]
+OnTickEvents = [SubResource("r11"), SubResource("r15")]
+OnExitEvents = [SubResource("r17")]
+NetsuChargeAt = 14
+NetsuChargeHold = ExtResource("in_hold")
+NetsuChargeFlareOffset = Vector2i(1500, 6000)
+AIFlags = 18

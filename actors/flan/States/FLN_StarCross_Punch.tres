@@ -53,4 +53,5 @@ OnTickEvents = [SubResource("zev3")]
 OnExitEvents = null
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
+NetsuOnBlock = -14
 AIFlags = 18

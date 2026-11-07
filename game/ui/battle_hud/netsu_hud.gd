@@ -93,6 +93,8 @@ var layout_scale := K
 @export var burst_tab_end: float = 352.0
 @export var burst_tab_bottom: float = 117.0
 @export var burst_label: String = "BURST"
+@export var burst_wait_label: String = "WAIT"            ## Nov 4: over the emblem while the opponent's Burst stops yours
+@export var burst_wait_color: Color = Color(1.0, 0.86, 0.4)
 
 @export_group("Craft Gauge")
 @export var meter_caption: String = "CRAFT GAUGE"
@@ -552,6 +554,7 @@ func _spaced_name(x: float, y: float, text: String, size_px: int, side: int) -> 
 ##   Refilling = one bright line traces the outline: from the top, round the tip AWAY from the portrait, down, round the
 ##            tip by the portrait and back to the top (P2 mirrored).
 ##   Locked (Burst not allowed) = the trace is grey.
+##   WAIT (Nov 4 night) = the opponent's Burst is going (past its 3rd frame): no Burst until it ends (DFCI).
 ## Settings: Burst Diamond group. Data: HealthBars/P1Will (0..max), P1WillLocked.
 func _draw_burst(side: int) -> void:
 	var src: Dictionary = _src[side]
@@ -612,6 +615,11 @@ func _draw_burst(side: int) -> void:
 	var rf: float = _burst_ready_flash[side] / BURST_FLASH_TIME
 	if rf > 0.0:
 		draw_polyline(_closed(shape), Color(1, 1, 1, rf), 2.4, true)
+	# Nov 4 night (DFCI's Escape Blast): the opponent's Burst is past its 3rd frame, so no Burst until it's over: WAIT
+	if MatchSetup.burst_wait.size() > side and bool(MatchSetup.burst_wait[side]):
+		draw_colored_polygon(_scaled(shape, c, 0.86), Color(0.02, 0.04, 0.14, 0.75))
+		var ww := _width(_serif, burst_wait_label, 16)
+		_text(_serif, c + Vector2(-ww * 0.5, 6.0), burst_wait_label, 16, burst_wait_color, 5)
 
 
 ## Nov 2: x of the corner portrait's slanted inner edge at mockup height y (P1 coordinates).

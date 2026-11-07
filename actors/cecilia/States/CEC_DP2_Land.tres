@@ -55,3 +55,4 @@ OnExitEvents = null
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
 AIFlags = 18
+NetsuBlockedRecoveryHere = true

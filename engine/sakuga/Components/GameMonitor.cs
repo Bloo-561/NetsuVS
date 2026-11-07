@@ -100,10 +100,18 @@ public partial class GameMonitor : Node
 		RoundWinner = 0;
 		int p1HealthPercentage = Mathf.Max(0, _fighters[0].Parameters.Health.CurrentValue) * 1000 / _fighters[0].Data.MaxHealth;
 		int p2HealthPercentage = Mathf.Max(0, _fighters[1].Parameters.Health.CurrentValue) * 1000 / _fighters[1].Data.MaxHealth;
-		if (_fighters[0].IsKO() && _fighters[1].IsKO())
+		bool netsuP1KO = _fighters[0].IsKO();
+		bool netsuP2KO = _fighters[1].IsKO();
+		if (netsuP1KO && netsuP2KO)
 		{
 			RoundWinner = -1;
 			GD.Print("Double K.O....");
+		}
+		else if (netsuP1KO || netsuP2KO)
+		{
+			// Netsu (Nov 4): a K.O. goes to the one still alive, even on 0 HP or under 0.1% (that rounded to a draw,
+			// which has no card: Animations[-1] threw every frame and the fight froze)
+			RoundWinner = netsuP1KO ? 1 : 0;
 		}
 		else if (p2HealthPercentage == p1HealthPercentage)
 		{
@@ -203,6 +211,20 @@ public partial class GameMonitor : Node
 			MatchLoop();
 			break;
 		case MatchState.ROUND_END:
+			if (RoundWinner >= 0 && RoundWinner < _fighters.Length && _fighters[RoundWinner].IsKO() && _fighters[RoundLoser].IsKO())
+			{
+				// Netsu (Nov 4): the round's winner was K.O.'d after it was decided (a projectile, an assist or a
+				// multi-hit still on its way): a late double K.O. The point (and a match win) is taken back
+				VictoryCounter[RoundWinner]--;
+				if (Winner == RoundWinner)
+				{
+					Winner = -1;
+					AudioManager.Instance.CallDeferred("NetsuResumeBGM");   // (the win had stopped the song)
+				}
+				RoundWinner = -1;
+				Cards.PlayKnockoutAnimation(-1, 2);
+				DelayTimer.Start(Cards.GetStateDelay());
+			}
 			if (!DelayTimer.IsRunning() && MatchEndCondition())
 			{
 				DelayTimer.Start(100u);
@@ -358,21 +380,16 @@ public partial class GameMonitor : Node
 		}
 		if (RoundWinner == 2)
 		{
-			if (_fighters[0].StateManager.CurrentState == 0)
-			{
-				return _fighters[1].StateManager.CurrentState == 0;
-			}
-			return false;
+			return NetsuSettled(_fighters[0]) && NetsuSettled(_fighters[1]);
 		}
-		if (_fighters[RoundWinner].StateManager.CurrentState == 0)
-		{
-			if (!_fighters[RoundLoser].IsKO() || !_fighters[RoundLoser].Body.IsOnGround || !_fighters[RoundLoser].StateManager.StateEnded())
-			{
-				return _fighters[RoundLoser].StateManager.CurrentState == 0;
-			}
-			return true;
-		}
-		return false;
+		return NetsuSettled(_fighters[RoundWinner]) && NetsuSettled(_fighters[RoundLoser]);
+	}
+
+	/// <summary>Netsu (Nov 4): back in Idle, or K.O.'d and lying still (someone K.O.'d after the round was decided never
+	/// gets back to Idle: the round waited for good).</summary>
+	private static bool NetsuSettled(SakugaActor f)
+	{
+		return f.StateManager.CurrentState == 0 || (f.IsKO() && f.Body.IsOnGround && f.StateManager.StateEnded());
 	}
 
 	private void SelectWinnerToAnimate()

@@ -369,7 +369,7 @@ var online_rules := {}      # {"rounds", "time", "intros"} from the host
 var online_notice := ""     # shown by the lobby when it opens (the opponent left during a fight...)
 
 
-## p: {"f1", "c1", "a1", "f2", "c2", "a2", "stage", "rules": {...}, "n1", "n2"} (fighter, colour, assist for each
+## p: {"f1", "c1", "a1", "f2", "c2", "a2", "stage", "music", "rules": {...}, "n1", "n2"} (fighter, colour, assist for each
 ## side, the players' names). side: 0 / 1 = this computer plays that side, -1 = it watches.
 func start_online_room(p: Dictionary, side: int) -> void:
 	mode_name = "Online"
@@ -387,7 +387,7 @@ func start_online_room(p: Dictionary, side: int) -> void:
 	if controls and controls.has_method("clear_sides"):
 		controls.clear_sides()   # keyboard 1 and controller 1 both drive this computer's player
 	assist_picks = [int(p.get("a1", 0)), int(p.get("a2", 0))]
-	music_choice = MUSIC_AUTO
+	music_choice = int(p.get("music", MUSIC_AUTO))   # the host's music, already one song (the same on every computer)
 	start_match(int(p.get("f1", 0)), int(p.get("f2", 0)), 0, 1, int(p.get("stage", 0)),
 		int(p.get("c1", 0)), int(p.get("c2", 0)), int(p.get("a1", 0)), int(p.get("a2", 0)))
 
@@ -816,6 +816,18 @@ func netsu_stock_hud(side: int, value: int) -> void:
 	if side < 0 or side > 1:
 		return
 	stock_hud[side] = {"value": value, "msec": Time.get_ticks_msec()}
+
+
+## Nov 4 night (TamaDeez, DFCI's Escape Blast: "cannot Blast after 3F, WAIT is displayed"): true while that side can't
+## Burst because the opponent's Burst is past its 3rd frame. The engine (SakugaActor.NetsuBurstWaitHud) sends it when it
+## changes; netsu_hud.gd writes WAIT over that side's Burst emblem.
+var burst_wait: Array = [false, false]
+
+
+func netsu_burst_wait(side: int, on: bool) -> void:
+	if side < 0 or side > 1:
+		return
+	burst_wait[side] = on
 
 
 func netsu_assist_hud(side: int, assist_name_text: String, ratio: float, phase: int, buff: float, icon, frames_left: int = -1) -> void:

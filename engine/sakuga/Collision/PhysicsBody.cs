@@ -391,6 +391,12 @@ public partial class PhysicsBody : Node
 		{
 			return;
 		}
+		if (_owner.NetsuBurstPowered())
+		{
+			// Nov 4 night (DFCI): the powered-up Burst (in Overdrive) has a bigger hitbox
+			center = center * SakugaActor.NetsuBurstPoweredScale / 1000;
+			size = size * SakugaActor.NetsuBurstPoweredScale / 1000;
+		}
 		if (!el.NetsuKeepHeight)
 		{
 			int top = center.Y + size.Y / 2;
@@ -425,6 +431,36 @@ public partial class PhysicsBody : Node
 			if (_owner.StateManager.CurrentStateFrame >= State.AnimationData.Hitboxes[i].AtFrame && _owner.StateManager.CurrentStateFrame <= nextFrame)
 			{
 				anim = i;
+			}
+		}
+		if (_owner.NetsuBurstBlocked && _owner.NetsuBursting() && _owner.StateManager.CurrentStateFrame >= _owner.NetsuBurstInvulEnd()
+			&& _owner.StateManager.CurrentStateFrame < SakugaActor.NetsuBurstInvulFrames)
+		{
+			// Nov 5 (TamaDeez, baitable): a blocked Burst can be hit as soon as it stops hitting: her standing hurtboxes
+			// (the key on NetsuBurstInvulFrames) come in early. Only the boxes: the animation is unchanged.
+			for (int i = 0; i < State.AnimationData.Hitboxes.Length; i++)
+			{
+				if (State.AnimationData.Hitboxes[i] != null && State.AnimationData.Hitboxes[i].AtFrame == SakugaActor.NetsuBurstInvulFrames)
+				{
+					return State.AnimationData.Hitboxes[i];
+				}
+			}
+		}
+		if (_owner.NetsuBurstPowered())
+		{
+			// Nov 4 night (DFCI): the powered-up Burst keeps its attack box (the key on NetsuBurstActiveFrom) out for
+			// NetsuBurstPoweredActiveFrames instead of the animation's 9
+			int f = _owner.StateManager.CurrentStateFrame;
+			int from = SakugaActor.NetsuBurstActiveFrom;
+			if (f >= from && f < from + SakugaActor.NetsuBurstPoweredActiveFrames)
+			{
+				for (int i = 0; i < State.AnimationData.Hitboxes.Length; i++)
+				{
+					if (State.AnimationData.Hitboxes[i] != null && State.AnimationData.Hitboxes[i].AtFrame == from)
+					{
+						return State.AnimationData.Hitboxes[i];
+					}
+				}
 			}
 		}
 		return State.AnimationData.Hitboxes[anim];

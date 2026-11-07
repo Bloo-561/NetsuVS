@@ -22,8 +22,8 @@ MaxFrame = 999
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("5")
 Target = 2
-MinDistance = -1100
-MaxDistance = 1100
+MinDistance = -2500
+MaxDistance = 2500
 
 [sub_resource type="Resource" id="s3"]
 script = ExtResource("6")
@@ -119,9 +119,9 @@ Actions = [SubResource("sfx_0_0_play")]
 
 [sub_resource type="Resource" id="chase_a"]
 script = ExtResource("aim")
-Frames = 20
-MinSpeed = -24000
-MaxSpeed = 24000
+Frames = 6
+MinSpeed = -54000
+MaxSpeed = 54000
 
 [sub_resource type="Resource" id="chase"]
 script = ExtResource("3")

@@ -41,16 +41,16 @@
       "desc": "A wave of shadow rolls along the floor."
     },
     "Twin Shade": {
-      "desc": "Two waves, one after the other."
+      "desc": "Two slower waves, one after the other (slower to start than Shade Wave)."
     },
     "Umbral Wall": {
-      "desc": "Invincible start. A wall of energy pushes slowly forward: three hits, the last throws them sky-high."
+      "desc": "Invincible start. A big wall of energy crawls forward very slowly (it fades after about 5 seconds if it touches nothing): three hits, the last throws them sky-high."
     },
     "Event Horizon": {
       "tags": [
         "SETUP"
       ],
-      "desc": "A black hole opens close in front of him (A) or far away (B) and waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him. Both holes can be out at once: A again sets off the near one, B again the far one."
+      "desc": "A black hole opens close in front of him (A) or far away (B) and waits about 5 seconds. Touching it: the near one launches them away, the far one throws them toward him. Both holes can be out at once: A again sets off the near one, B again the far one. If Noah is hit, blocks or is thrown, his holes burst."
     },
     "Twin Horizon": {
       "desc": "Both holes, invincible start: the far one collapses at once and throws them toward him, into the near one."

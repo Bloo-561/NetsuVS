@@ -160,6 +160,24 @@ public partial class AIBrain : Node
 	/// <summary>How many times it inputs a cancel / follow-up again when it didn't come out.</summary>
 	public const int NetsuRetries = 3;
 
+	// Nov 4 (TamaDeez): the CPU techs the way players do now (holding a button: air techs, StanceManager.NetsuAutoAirTech,
+	// and ground techs, StanceManager.NetsuGroundTech) and Bursts out of combos. Decided while it's being hit:
+	// NetsuHitPlan (every frame) and NetsuHitInput (the input, ahead of everything else in UpdateCommand).
+	private BotDifficulty _netsuLevel;
+	private bool _netsuAirHit;      // last frame: in the air in a hit reaction
+	private bool _netsuDownHit;     // last frame: lying on the floor in a hit reaction
+	private int _netsuTechDir;      // this time in the air / on the floor: 0 = no tech, 1 = forward, -1 = back, 2 = neutral / in place
+	private int _netsuTechWait;     // frames before it starts holding (a later ground tech now and then)
+	private bool _netsuInCombo;     // last frame it was being hit (a new combo rolls the Burst again)
+	private int _netsuBurstAt;      // this combo: Burst once it has taken this many hits (0 = not this combo)
+	private int _netsuBurstFrames;  // A+C presses left (a fresh press every other frame until it comes out)
+
+	/// <summary>Chance (out of 10) per combo that it Bursts, and the hits it waits for first, by difficulty
+	/// (BEGINNER .. PRO). Low health: it Bursts after NetsuBurstHitsLow hits.</summary>
+	private static readonly int[] NetsuBurstRate = { 0, 1, 3, 5, 7, 8 };
+	private static readonly int[] NetsuBurstHits = { 99, 8, 6, 5, 4, 4 };
+	public const int NetsuBurstHitsLow = 3;
+
 	private AIData data => _owner.Data._aiData;
 
 	/// <summary>Test switch: prints the CPU's reactions and guard decisions (off in the game).</summary>
@@ -219,6 +237,14 @@ public partial class AIBrain : Node
 			}
 		}
 		currentDecisionRate = 60;
+		_netsuLevel = difficulty;   // Nov 4: Burst chances
+		_netsuAirHit = false;
+		_netsuDownHit = false;
+		_netsuTechDir = 0;
+		_netsuTechWait = 0;
+		_netsuInCombo = false;
+		_netsuBurstAt = 0;
+		_netsuBurstFrames = 0;
 		_rng = new Random(unchecked((int)owner.playerID * 7919 + (int)difficulty * 104729 + (int)(Time.GetTicksMsec() & 0x7FFFFFFF)));
 		currentCommandList = Array.Empty<int>();
 		_netsuGuarding = false;
@@ -304,6 +330,7 @@ public partial class AIBrain : Node
 		}
 		NetsuTrackOpponent(opponent);
 		StateType type = _owner.StateManager.CurrentStateType();
+		NetsuHitPlan(type);   // Nov 4: tech holds and Burst
 		if (type == StateType.HIT_REACTION)
 		{
 			_netsuGuarding = false;
@@ -521,29 +548,116 @@ public partial class AIBrain : Node
 			teching = true;
 			return;
 		}
-		if (!_owner.Hitstun.IsRunning())
+		if (_owner.IsGrabbed())
 		{
+			return;   // the throw's hitstop hasn't started: look again next frame (for the throw break)
+		}
+		// Nov 4: techs are held now (NetsuHitPlan / NetsuHitInput): the old recovery presses are gone, and whatever plan
+		// it was running when hit is dropped (its presses could have teched by accident, or come out on recovery)
+		currentCommandList = Array.Empty<int>();
+		currentCommand = 0;
+		currentInputIndex = 0;
+		actionStarted = false;
+		waitingLink = false;
+		teching = true;
+	}
+
+	/// <summary>Nov 4 (TamaDeez): while it's being hit. Each time it's knocked into the air, and each time it lands lying
+	/// after a soft knockdown, it rolls TechingRate: a tech held from then on (forward / back / neutral), so it techs on
+	/// the first frame it's allowed. Each combo it rolls NetsuBurstRate: a Burst once the combo reaches NetsuBurstHits
+	/// hits (NetsuBurstHitsLow at low health). Not in Training (its Auto Burst setting decides there).</summary>
+	private void NetsuHitPlan(StateType type)
+	{
+		bool hit = type == StateType.HIT_REACTION && !_owner.IsKO() && !_owner.IsGrabbed();
+		bool air = hit && _owner.Body != null && !_owner.Body.IsOnGround;
+		bool down = hit && !air && _owner.NetsuLying() && _owner.HitstunType < HitstunType.HARD_KNOCKDOWN;
+		if ((air && !_netsuAirHit) || (down && !_netsuDownHit))
+		{
+			_netsuTechDir = 0;
+			_netsuTechWait = 0;
+			if (_rng.Next(0, 10) < currentBehavior.TechingRate)
+			{
+				int r = _rng.Next(0, 10);
+				bool defensive = mode == BotMode.DEFENSIVE;
+				_netsuTechDir = r < 4 ? 2 : (r < 7 ? (defensive ? -1 : 1) : (defensive ? 1 : -1));
+				if (down && _rng.Next(0, 10) < 3)
+				{
+					_netsuTechWait = _rng.Next(4, 20);   // now and then a later ground tech (BlazBlue: a delayed tech)
+				}
+			}
+		}
+		if (!air && !down)
+		{
+			_netsuTechDir = hit ? _netsuTechDir : 0;   // (bouncing or getting up: keep the choice for the landing)
+		}
+		_netsuAirHit = air;
+		_netsuDownHit = down;
+		if (_netsuTechWait > 0 && down)
+		{
+			_netsuTechWait--;
+		}
+		bool combo = type == StateType.HIT_REACTION && !_owner.IsKO();
+		if (combo && !_netsuInCombo)
+		{
+			int lv = Math.Clamp((int)_netsuLevel, 0, NetsuBurstRate.Length - 1);
+			bool training = GameManager.Instance != null && GameManager.Instance.Training != null;
+			_netsuBurstAt = !training && _rng.Next(0, 10) < NetsuBurstRate[lv] ? NetsuBurstHits[lv] + _rng.Next(0, 3) : 0;
+		}
+		_netsuInCombo = combo;
+		if (!combo)
+		{
+			_netsuBurstAt = 0;
+			_netsuBurstFrames = 0;
 			return;
 		}
-		int rnd = _rng.Next(0, 10);
-		if (rnd < currentBehavior.TechingRate)
+		int hits = _owner.Parameters != null && _owner.Parameters.Tracker != null ? _owner.Parameters.Tracker.HitCombo : 0;
+		int need = _netsuBurstAt;
+		if (need > 0 && _owner.Parameters != null && _owner.Parameters.Health.CurrentValue < currentBehavior.LowHealth)
 		{
-			rnd = _rng.Next(0, 10);
-			currentCommandList = new int[1];
-			switch (mode)
-			{
-			case BotMode.AGGRESSIVE:
-				currentCommandList[0] = rnd < currentBehavior.TechingRate ? data.ForwardRecoveryAction : data.BackRecoveryAction;
-				break;
-			default:
-				currentCommandList[0] = rnd < currentBehavior.TechingRate ? data.BackRecoveryAction : data.ForwardRecoveryAction;
-				break;
-			}
-			currentCommand = 0;
-			currentInputIndex = 0;
-			actionStarted = false;
+			need = Math.Min(need, NetsuBurstHitsLow);
 		}
-		teching = true;
+		if (need > 0 && hits >= need && _netsuBurstFrames == 0 && !_owner.NetsuLying() && _owner.NetsuBurstStatus() == "YES")
+		{
+			_netsuBurstAt = 0;
+			_netsuBurstFrames = 10;
+			Dbg($"Burst after {hits} hits");
+		}
+	}
+
+	/// <summary>Nov 4: this frame's input while it's being hit, if it has one: a Burst press (A+C every other frame) or a
+	/// held tech (A, with forward / back).</summary>
+	private bool NetsuHitInput(out PlayerInputs input)
+	{
+		input = PlayerInputs.NEUTRAL;
+		if (_owner.StateManager == null || _owner.StateManager.CurrentStateType() != StateType.HIT_REACTION || _owner.IsKO() || _owner.IsGrabbed())
+		{
+			return false;
+		}
+		if (_netsuBurstFrames > 0)
+		{
+			_netsuBurstFrames--;
+			if (_owner.NetsuBursting() || _owner.NetsuBurstHold > 0)   // Nov 5: or in the hold before it
+			{
+				_netsuBurstFrames = 0;
+			}
+			else
+			{
+				input = (_netsuBurstFrames & 1) == 1 ? (PlayerInputs.FACE_A | PlayerInputs.FACE_C) : PlayerInputs.NEUTRAL;
+				return true;
+			}
+		}
+		bool air = _owner.Body != null && !_owner.Body.IsOnGround;
+		if (_netsuTechDir == 0 || (!air && (!_owner.NetsuLying() || _netsuTechWait > 0)))
+		{
+			return false;
+		}
+		input = PlayerInputs.FACE_A;
+		if (_netsuTechDir == 1 || _netsuTechDir == -1)
+		{
+			bool right = (_netsuTechDir == 1) == (_owner.InputSide() > 0);
+			input |= right ? PlayerInputs.RIGHT : PlayerInputs.LEFT;
+		}
+		return true;
 	}
 
 	/// <summary>The first free frame after a knockdown: maybe an invincible move if they're right there.</summary>
@@ -1123,6 +1237,11 @@ public partial class AIBrain : Node
 	/// to keep going. Movement actions with AutoAdvance go straight on.</summary>
 	public void UpdateCommand()
 	{
+		if (NetsuHitInput(out PlayerInputs netsuHit))
+		{
+			_owner.Inputs.InsertToHistory(netsuHit);   // Nov 4: a Burst press or a held tech
+			return;
+		}
 		if (_netsuGuarding)
 		{
 			_owner.Inputs.InsertToHistory(NetsuGuardInput());

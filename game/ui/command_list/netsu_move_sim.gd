@@ -428,6 +428,19 @@ func _leads_to_queue(a: Actor, actions: Array) -> bool:
 	return false
 
 
+## Nov 4: true when a held-button check (not a "let go" one) in her state's events leads to the next listed move.
+func _hold_leads_to_queue(a: Actor) -> bool:
+	var st = a.cur_state()
+	for key in ["TransitionEvents", "OnTickEvents", "OnHitConfirmEvents"]:
+		for ev in _g(st, key, []):
+			if ev == null or not _leads_to_queue(a, _g(ev, "Actions", [])):
+				continue
+			for c in _g(ev, "Conditions", []):
+				if c != null and _kind(c) == "CheckInputCondition" and not bool(_g(c, "Not", false)):
+					return true
+	return false
+
+
 func _state_of(a: Actor, act) -> int:
 	var idx := int(_g(act, "StateIndex", -1))
 	if idx < 0:
@@ -523,6 +536,10 @@ func _check(a: Actor, c, actions: Array) -> bool:
 		"RoundRunningCondition":
 			r = true
 		"CheckInputCondition":
+			if no:
+				# Nov 4: "she let go" is true unless she's holding the button toward the next listed move (a held check in
+				# this state leads there): Cecilia's charge lets go back into the normal slash, a back throw holds back
+				return not _hold_leads_to_queue(a)
 			r = _leads_to_queue(a, actions)   # she presses what leads to the next listed move, nothing else
 		"CanBounceGroundCondition":
 			r = a.bounce > 0 and a.bounce_y > 0

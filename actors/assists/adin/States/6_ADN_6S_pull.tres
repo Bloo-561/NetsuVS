@@ -34,7 +34,7 @@ MaxFrame = 20
 
 [sub_resource type="Resource" id="z5"]
 script = ExtResource("x6")
-Radius = 90000
+Radius = 130000
 Speed = 1500
 
 [sub_resource type="Resource" id="zev2"]

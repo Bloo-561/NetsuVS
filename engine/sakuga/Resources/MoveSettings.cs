@@ -158,6 +158,18 @@ public partial class MoveSettings : Resource
 	[Export(PropertyHint.None, "")]
 	public bool NetsuOncePerJump;
 
+	/// <summary>Nov 4: once per jump like NetsuOncePerJump, but counted on its own: Leticia's air 214 (Fragment Kick) A / B / C
+	/// share it, so only one per jump (each one stopped her fall and lifted her 1.6 m: an air stall), while her Flux Dash
+	/// (NetsuOncePerJump) can still be cancelled into and out of it. SakugaActor.NetsuAirOwnMoveUsed.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuOwnOncePerJump;
+
+	/// <summary>Nov 4 (TamaDeez): DPs are unsafe on block. Once a hit of this move is blocked, its landing state (a state
+	/// marked FighterState.NetsuBlockedRecoveryHere) lasts this many frames longer (its last pose held): B and EX
+	/// versions of the 623 moves. 0 = no change. SakugaActor.NetsuBlockedExtra.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuBlockedRecovery;
+
 	/// <summary>Netsu (Oct 28): landing recovery (frames) this jump will have after this move (Leticia's air dashes: 12).
 	/// An air normal done afterwards cuts it down to the normal's own landing lag (StanceManager.NetsuAirDashLandLag).</summary>
 	[Export(PropertyHint.None, "")]

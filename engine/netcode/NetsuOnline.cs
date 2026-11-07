@@ -59,8 +59,13 @@ public partial class NetsuOnline : Node
 
 	/// <summary>Everyone needs the same game: this goes into the connection request (LiteNetLib key).
 	/// (2 = group lobbies, Oct 25: a copy of the game from before can't join, and says so.
-	/// 3 = Oct 25 evening: Big Bang Crash / Crimson Waltz keep new values in the saved match.)</summary>
-	public const string ProtocolVersion = "netsu-vs-online-3";
+	/// 3 = Oct 25 evening: Big Bang Crash / Crimson Waltz keep new values in the saved match.
+	/// 4 = Nov 4: ground tech, blocked-DP recovery (a new saved value), the lobby's Pass / Spectate messages.
+	/// 5 = Nov 4 night: the Burst's new timing and the balance batch (a copy from before would play a different game).
+	/// 6 = Nov 4 night (later): the Burst on DFCI's Escape Blast timing, powered up in Overdrive, the WAIT rule.
+	/// 7 = Nov 5: the Burst can be baited (a new saved value, NetsuBurstBlocked).
+	/// 8 = Nov 5 later: the BlazBlue Burst (the green hold before it, two new saved values).)</summary>
+	public const string ProtocolVersion = "netsu-vs-online-8";
 
 	/// <summary>What the connection request really carries: the version and which changes the frame data
 	/// spreadsheets make (NetsuFrameData.OnlineSignature; "fd0" = none), worked out when a lobby is opened or joined.

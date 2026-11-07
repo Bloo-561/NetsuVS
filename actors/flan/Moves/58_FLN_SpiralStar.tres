@@ -42,3 +42,4 @@ UseOnGround = true
 UseOnAir = true
 NetsuOncePerJump = true
 CanCancelTo = [SubResource("nf_s1"), SubResource("nf_s3"), SubResource("nf_s4")]
+NetsuBlockedRecovery = 14

@@ -37,7 +37,7 @@ SpawnOffset = Vector2i(-10450, 0)
 OnGround = true
 Cooldown = 900
 AIRange = Vector2i(4125, 49500)
-Description = "Mary plays a note that flies forward quickly and explodes when it reaches the opponent (or after about 3 s). Two notes chase the opponent. Launches."
+Description = "Mary plays two notes that chase the opponent fast and explode when they reach them (or after about 3 s). Launches. The notes vanish if you are hit."
 NetsuFaceCaller = true
 
 [sub_resource type="Resource" id="s3"]
@@ -75,7 +75,7 @@ SpawnOffset = Vector2i(-6050, 0)
 OnGround = true
 Cooldown = 720
 AIRange = Vector2i(8250, 101750)
-Description = "Adin throws his shield straight ahead (about 3.5 m) and it flies back to him. If it hits, it drags the opponent back toward him."
+Description = "Adin throws his shield across the whole screen and it flies back to him. If it hits, it drags the opponent back toward him."
 
 [sub_resource type="Resource" id="s6"]
 script = ExtResource("2")

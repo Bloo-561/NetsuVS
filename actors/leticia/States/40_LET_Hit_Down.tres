@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://50grsd2r3wl8"
 
 [sub_resource type="Resource" id="Resource_e7k0a"]
 script = ExtResource("7")
-CompareMode = 5
+CompareMode = 4
 metadata/_custom_type_script = "uid://b36gpjs1umb3b"
 
 [sub_resource type="Resource" id="Resource_nd74g"]

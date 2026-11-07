@@ -68,3 +68,5 @@ OnTickEvents = null
 OnExitEvents = null
 OnHitConfirmEvents = [SubResource("s11")]
 OnHitReactionEvents = null
+NetsuPopWhenOwnerStruck = true
+NetsuPopState = 6

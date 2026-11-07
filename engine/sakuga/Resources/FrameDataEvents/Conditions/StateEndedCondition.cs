@@ -14,10 +14,11 @@ public partial class StateEndedCondition : FrameDataCondition
 		{
 			return false;
 		}
+		// Nov 4: NetsuDuration = the animation's Duration, longer for a blocked DP's landing (FighterState.NetsuBlockedRecoveryHere)
 		if (Not)
 		{
-			return Actor.StateManager.CurrentStateFrame < Actor.StateManager.GetCurrentState().AnimationData.Duration;
+			return Actor.StateManager.CurrentStateFrame < Actor.StateManager.NetsuDuration();
 		}
-		return Actor.StateManager.CurrentStateFrame >= Actor.StateManager.GetCurrentState().AnimationData.Duration;
+		return Actor.StateManager.CurrentStateFrame >= Actor.StateManager.NetsuDuration();
 	}
 }

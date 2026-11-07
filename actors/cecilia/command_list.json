@@ -131,13 +131,35 @@
       "input": "> C",
       "after": "Command Dash",
       "states": [
-        106,
-        107
+        74,
+        77
       ],
       "tags": [
         "UNSAFE"
       ],
-      "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up."
+      "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up. Keep holding the button for the charged version."
+    },
+    {
+      "name": "Charged Slash-Through",
+      "input": "> [C]",
+      "after": "Lightning Slash-Through",
+      "states": [
+        74,
+        77,
+        129,
+        131
+      ],
+      "data_states": [
+        131
+      ],
+      "data": {
+        "STARTUP": "26"
+      },
+      "tags": [
+        "CRUMPLE",
+        "UNSAFE"
+      ],
+      "desc": "Keep holding C (or B) as she reaches them: she stops in front of them and charges, then a heavier slash-through. Much slower and she can be hit while charging, but a hit crumples them, standing or crouching, for a full combo. Let go early and the normal slash comes out at once."
     }
   ]
 }

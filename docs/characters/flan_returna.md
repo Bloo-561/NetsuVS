@@ -16,7 +16,7 @@ list). Move names are placeholders (rename them in the Move files' `MoveName`, s
 | 6C | 6 + C | fist pump: hits above her (anti-air) |
 | Air A / B / C | in air: A / B / C | air B is a knee |
 | Star Fist | 236 + A | short lunging punch |
-| Twirling Star Fist | 236 + B | arm twirl that absorbs one hit (half damage), then a punch that knocks them away |
+| Twirling Star Fist | 236 + B | arm twirl, then a punch that knocks them away (Nov 4: no armor any more; hold B for Star Cross, see Nov 4 below) |
 | Supernova Fist (EX) | 236 + C (2 bars) | invincible punch with a big light; crumples them for a follow-up; without 2 bars = 236 + B |
 | Rising Star | 623 + A / B | uppercut she holds while rising, burst of light at the top (B: higher, invincible start: her anti-air) |
 | Falling Star | A / B / C at the top of Rising Star | beam down at an angle that slams them to the floor |
@@ -117,3 +117,14 @@ fists hit harder!"; vs Leticia "Gotcha! You can't hover away from me forever!"; 
 - Supernova Fist (236C) blasts them across the screen into a wall bounce; Spiral Star (623C) ends sky-high; Meteor
   Impact (214C) is a launching pillar.
 - (Oct 26) Every ground normal cancels into 6C (startup 17): 5B and 5C combo into it, 5A / 2A / 2B only on counter hit. Its attack box now also covers the body in front (about 1 m).
+
+## Nov 4: 236[B] (Star Cross, the held Twirling Star Fist)
+TamaDeez: "make it unsafe on block, remove the super armor, add a few more startup to make it reactable".
+- **No armor:** the twirl no longer absorbs a hit (it was the only armor in her kit), for 236B and 236[B] alike (the
+  twirl is shared, and whether B is held is only known at frame 14). The "armor glint" sound at frame 4 is gone too
+  (`74_FLN_236B`, and `tools/sprite_port/sounds.py` CUES).
+- **Slower dash:** the Star Cross dash starts 5 frames later (`FLN_StarCross_Dash`: dash at 7, was 2; its windows and the
+  punch +5; 27 frames, was 22).
+- **Unsafe:** the dash punch (`FLN_StarCross_Hit` / `FLN_StarCross_Punch`) is **-14 on block** (was -6 by the universal
+  rule). Engine: `FighterState.NetsuOnBlock` (a state's own on-block number; 0 = the rule), read first by
+  `StanceManager.NetsuBlockAdvantage`. The plain 236B punch keeps -6.

@@ -100,6 +100,11 @@ const PAD := {
 ## Default extra keyboard keys for menus. The FIRST key of each list is the one
 ## shown (and changed) on the Options screen. Godot's built-in "ui_" keys
 ## (arrows, Enter, Escape) always work too, so menus can never get locked out.
+## Careful with text boxes (Nov 4): these keys are added to Godot's own ui_ actions,
+## and a focused LineEdit stops editing on ui_cancel (K, L, Backspace, Numpad 5 / 6:
+## it checks that before Backspace) and doesn't start editing while a ui_ direction
+## (W A S D) is held. So a screen where something is typed reads the keys itself
+## (the online lobby's code / name boxes: scenes/online/online_lobby.gd, _input).
 const MENU_KEYS := {
 	"ui_up": [KEY_W],
 	"ui_down": [KEY_S],
@@ -426,6 +431,17 @@ func pad_name(pad_input) -> String:
 func pad_binding(player: int, button: String) -> Dictionary:
 	var list: Array = pad[player].get(button, [])
 	return list[0] if not list.is_empty() else {}
+
+
+## Nov 4: one of a player's buttons ("a", "b", "c", "s", "ab", "bc", "abc", "start", "up", "down", "left",
+## "right") on a device ("kb1", "kb2", "pad1", "pad2", as device_from_event says) the way the player sees it:
+## "J", "Num 4", "Enter", "X", "RB"... ("---" when it has none). The online lobby's button legend uses it.
+func button_name(device: String, button: String) -> String:
+	if device.begins_with("pad"):
+		return pad_name(pad_binding(clampi(int(device.substr(3)), 1, 2), button))
+	if device.begins_with("kb"):
+		return key_name(keyboard[clampi(int(device.substr(2)), 1, 2)].get(button))
+	return "---"
 
 
 func _has_input(list: Array, pad_input: Dictionary) -> bool:

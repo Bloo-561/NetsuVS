@@ -241,8 +241,8 @@ func _tab_rows(id: String) -> Array:
 			return [
 				_pick("Air Recovery", "air_recovery", [0, 1, 2, 3], ["Off", "Neutral", "Forward", "Random"],
 					"Recovering when knocked into the air, as soon as it's allowed. Neutral flips backwards."),
-				_pick("Wake-up", "wakeup", [0, 1, 2, 3, 4], ["Stay Down", "Quick Rise", "Roll Forward", "Roll Back", "Random"],
-					"How the dummy gets up once it's on the ground. Rolls work after soft knockdowns, Quick Rise only after an ordinary fall (not a knockdown hit); nothing works after a hard knockdown."),
+				_pick("Wake-up", "wakeup", [0, 1, 2, 3, 4], ["Stay Down", "Tech in Place", "Roll Forward", "Roll Back", "Random"],
+					"Ground tech: after a soft knockdown the dummy holds a button and gets up as early as it's allowed (20 ticks after landing): in place, rolling forward or rolling back. Stay Down = the full knockdown. Nothing works after a hard knockdown."),
 				_pick("Wake-up Action", "wakeup_action", range(9),
 					["None", "Jump", "Back Jump", "Backdash", "5A", "2A", "Assist Call", "Burst", "Recording"],
 					"Done on the first frame the dummy can act after getting up (a reversal). Recording plays your recording."),

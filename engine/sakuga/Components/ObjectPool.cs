@@ -181,6 +181,75 @@ public partial class ObjectPool : Node
 		return null;
 	}
 
+	/// <summary>Nov 4 (TamaDeez): every object this pool has out disappears at once (an assist's projectiles, Mary's notes,
+	/// when her partner or she herself is hit). Returns how many were out. Rollback-safe: only IsActive changes, which
+	/// each actor's state saves.</summary>
+	public int NetsuClearSpawns()
+	{
+		int cleared = 0;
+		for (int r = 0; r < SpawnReferences.Count; r++)
+		{
+			SakugaActor[] objects = SpawnReferences[r].Objects;
+			for (int i = 0; objects != null && i < objects.Length; i++)
+			{
+				SakugaActor o = objects[i];
+				if (o == null || !o.IsActive)
+				{
+					continue;
+				}
+				o.IsActive = false;
+				if (o.Body != null)
+				{
+					o.Body.SetVelocity(Vector2I.Zero);
+				}
+				cleared++;
+			}
+		}
+		return cleared;
+	}
+
+	/// <summary>Nov 4 (TamaDeez): the fighter who owns this pool was just hit, blocked or was thrown: every object out whose
+	/// current state is marked FighterState.NetsuPopWhenOwnerStruck (Noah's black holes) plays that state's NetsuPopState
+	/// (its burst) or, with -1, disappears. Deterministic: pool order, only the objects' own states.</summary>
+	public void NetsuPopOnOwnerStruck()
+	{
+		for (int r = 0; r < SpawnReferences.Count; r++)
+		{
+			SakugaActor[] objects = SpawnReferences[r].Objects;
+			for (int i = 0; objects != null && i < objects.Length; i++)
+			{
+				SakugaActor o = objects[i];
+				if (o == null || !o.IsActive || o.StateManager == null || o.Data == null || o.Data.States == null)
+				{
+					continue;
+				}
+				int current = o.StateManager.CurrentState;
+				if (current < 0 || current >= o.Data.States.Length)
+				{
+					continue;
+				}
+				FighterState st = o.Data.States[current];
+				if (st == null || !st.NetsuPopWhenOwnerStruck)
+				{
+					continue;
+				}
+				if (st.NetsuPopState >= 0 && st.NetsuPopState < o.Data.States.Length)
+				{
+					o.StateManager.PlayState(st.NetsuPopState, reset: true);
+					o.StateManager.CurrentStateFrame = -1;
+				}
+				else
+				{
+					o.IsActive = false;
+					if (o.Body != null)
+					{
+						o.Body.SetVelocity(Vector2I.Zero);
+					}
+				}
+			}
+		}
+	}
+
 	/// <summary>Oct 27 c35: is a projectile / object that the given move spawned still out? (Roman Cancel on a whiff is only
 	/// allowed then: Noah's black hole.)</summary>
 	public bool NetsuHasActiveSpawnFrom(int moveIndex)

@@ -50,7 +50,7 @@ Actions = [SubResource("to0")]
 
 [sub_resource type="Resource" id="go"]
 script = ExtResource("6")
-Velocity = 70000
+Velocity = 20000
 
 [sub_resource type="Resource" id="goy"]
 script = ExtResource("7")
@@ -68,12 +68,20 @@ StateIndex = 2
 script = ExtResource("3")
 Actions = [SubResource("toburst")]
 
+[sub_resource type="Resource" id="life_end"]
+script = ExtResource("4")
+
+[sub_resource type="Resource" id="life"]
+script = ExtResource("3")
+Conditions = [SubResource("life_end")]
+Actions = [SubResource("off"), SubResource("stopx"), SubResource("stopy")]
+
 [resource]
 script = ExtResource("1")
 StateName = "Umbral Wall"
 Type = 2
 AnimationData = ExtResource("2")
-TransitionEvents = [SubResource("gone"), SubResource("loop")]
+TransitionEvents = [SubResource("gone"), SubResource("life")]
 OnEnterEvents = [SubResource("enter")]
 OnTickEvents = null
 OnExitEvents = null

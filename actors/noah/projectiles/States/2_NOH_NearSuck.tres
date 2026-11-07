@@ -121,3 +121,5 @@ OnTickEvents = [SubResource("s11"), SubResource("s14"), SubResource("s17"), SubR
 OnExitEvents = null
 OnHitConfirmEvents = null
 OnHitReactionEvents = null
+NetsuPopWhenOwnerStruck = true
+NetsuPopState = 5

@@ -102,7 +102,16 @@ public partial class StateManager : Node
 
 	public bool StateEnded()
 	{
-		return CurrentStateFrame >= GetCurrentState().AnimationData.Duration;
+		return CurrentStateFrame >= NetsuDuration();
+	}
+
+	/// <summary>Nov 4: how long the current state lasts: its animation, plus SakugaActor.NetsuBlockedExtra in a state marked
+	/// FighterState.NetsuBlockedRecoveryHere (a blocked DP's landing; the last pose is held). StateEndedCondition uses it.</summary>
+	public int NetsuDuration()
+	{
+		FighterState st = GetCurrentState();
+		int d = st.AnimationData != null ? st.AnimationData.Duration : 0;
+		return st.NetsuBlockedRecoveryHere && _owner != null ? d + _owner.NetsuBlockedExtra : d;
 	}
 
 	public int GetStateIndex(string name)

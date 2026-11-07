@@ -5,8 +5,8 @@
 
 [sub_resource type="Resource" id="s1"]
 script = ExtResource("2")
-Center = Vector2i(2000, 8000)
-Size = Vector2i(10000, 16000)
+Center = Vector2i(3000, 12000)
+Size = Vector2i(15000, 24000)
 HitboxType = 3
 OpponentSuperGaugeGain = 100
 SelfSuperGaugeGain = 0

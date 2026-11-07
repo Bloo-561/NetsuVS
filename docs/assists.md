@@ -43,9 +43,9 @@ character select; in the fight the **S** button calls it. **Needs a Build in God
 | Assist | Move | What it does | Damage | Refill |
 | --- | --- | --- | --- | --- |
 | **Mary** (violin) | 5S **Encore** | Appears behind you and plays; when the song peaks (0.8 s in) **your fighter deals 115% damage and gains 125% Craft Gauge for 8 seconds** and wears her music aura (a thin teal bar under the assist gauge counts it down) | — | 14 s |
-| | 6S **Fermata Note** | Plays a music note that floats forward (2.5 m/s, chest height) and **explodes** when it reaches the opponent, or after 1.6 s. Launches. Mary bows and leaves while the note keeps flying | 850 | 11 s |
+| | 6S **Fermata Note** | Plays two music notes that chase the opponent (up to 5.4 m/s since Nov 4, was 2.4; chest height) and **explode** when they reach them (within 0.25 m), or after about 3 s. Launches. Mary bows and leaves while the notes keep flying. **The notes vanish if you (her partner) are hit, grabbed or K.O.'d, or if Mary herself is hit** (Nov 4) | 850 | 11 s |
 | **Adin** (shield) | 5S **Shield Counter** | Stands in front of you with his shield up for 2/3 s. An attack that touches the shield is **absorbed** (it doesn't hit you either), the attacker freezes for 24 frames and Adin's rising shield bash launches them | 900 | 9 s |
-| | 6S **Rush Return** | Runs through the fight and off the screen, then **charges back from behind the opponent** and launches them high | 1000 | 12 s |
+| | 6S **Shield Throw** | Throws his shield **across the whole screen** (Nov 4; it was about 3.5 m) and it flies back to him; if it hits, it drags the opponent back toward him | 600 | 12 s |
 | **Eren** (sword) | 5S **Low Double Slash** | Dashes in low (stops when he reaches the opponent, up to ~5 m) and cuts twice: the first pops them up, the second is a hard knockdown. Block low | 450 + 550 | 10 s |
 | | 6S **Falling Spin** | Jumps over the opponent with a spinning slash (2 hits, block high), lands behind them, turns and does the low double slash back the other way | 2×250 + 350 + 450 | 13 s |
 | **Harie** (swimmer) | 5S **Puddle Trap** | Dives into a magic puddle 0.8 m in front of you and hides. When the opponent comes within ~0.3 m of it (or after 4 s) she bursts out with a rising uppercut that launches (catches jumpers above it too). The trap is live 0.2 s after she disappears | 900 | 12 s |

@@ -186,6 +186,10 @@ public partial class MatchCardsController : Control
 
 	public uint GetStateDelay()
 	{
+		if (CurrentAnimation < 0 || Animations == null || CurrentAnimation >= Animations.Length)
+		{
+			return 60u;   // Netsu (Nov 4): no card playing (this read Animations[-1] and threw)
+		}
 		return (uint)(GetCurrentAnimation().Duration - GetCurrentAnimation().DelaySubtract);
 	}
 }

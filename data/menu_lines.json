@@ -1,0 +1,60 @@
+{
+	"_how_to_edit": [
+		"What the MENU CHARACTER says on the main menu, for each main menu item (scenes/main_menu/main_menu.gd ITEMS).",
+		"One block per fighter, named after the fighter's ShortName in lower case (cecilia, flan, leticia, noah).",
+		"Each line is shown in the speech box: \\n starts the second line. Keep each half to about 40 letters.",
+		"Item names: versus, training, arcade, network (ONLINE), customize, gallery, commands (COMMAND LIST), options, return.",
+		"A line that is missing (or empty) falls back to Cecilia's line for that item.",
+		"\"_status\" is only a note for whoever writes the lines: \"final\" or \"PLACEHOLDER\" (written by Claude, please review).",
+		"A new fighter: copy a block, rename it to their ShortName in lower case, rewrite the lines.",
+		"Keep the commas and quotes as they are (it's JSON): after editing, the game shows Cecilia's lines if the file can't be read."
+	],
+	"cecilia": {
+		"_status": "final (the original lines; customize is new: please review)",
+		"versus": "Looking for a sparring partner?\nPick your fighter - I'll be waiting!",
+		"training": "The practice hall is open.\nWant to run some drills with me?",
+		"arcade": "One opponent after another...\nSounds like a good test of steel.",
+		"network": "Challengers from far away?\nBring it on!",
+		"customize": "A new look for the road?\nLet's find one that suits you.",
+		"gallery": "Memories from our journey...\nLet's look through them sometime.",
+		"commands": "Want to go over the moves together?\nTake all the time you need.",
+		"options": "Adjust the controls and sound\nhowever you like.",
+		"return": "Heading back already?\nI'll be right here."
+	},
+	"flan": {
+		"_status": "PLACEHOLDER - written by Claude, please review",
+		"versus": "A fight? Yes, yes, YES!\nPick someone strong - I'm all fired up!",
+		"training": "Warm-ups first! Fists up,\nand keep going till you see stars!",
+		"arcade": "One after another? Ooh!\nI'll punch my way right to the top!",
+		"network": "Someone far away wants a fight?\nTell them Flan says hi - with her fists!",
+		"customize": "Ooh, dressing up? Make it sparkly!\nStars go with everything.",
+		"gallery": "Pictures from the journey!\nI'm the one with the peace sign. Always.",
+		"commands": "Star Fist, Rising Star, Meteor Drop...\nWanna learn them all? I'll show you!",
+		"options": "Fiddling with settings?\nOkay, but hurry - my fists are getting cold!",
+		"return": "Leaving already? Aww...\nCome back soon, okay? Promise!"
+	},
+	"leticia": {
+		"_status": "PLACEHOLDER - written by Claude, please review",
+		"versus": "Need a target? I'm right here.\nTry to keep up with the board.",
+		"training": "Drills, huh? Fine.\nWatch how a real trick is done.",
+		"arcade": "A whole line of rivals?\nThey'll be down before they blink.",
+		"network": "Challengers from across the sea?\nTell them to aim well. I won't miss.",
+		"customize": "Polish your look first.\nStyle is half the win.",
+		"gallery": "Old photos? ...Skip that one.\nThe board crash was NOT my fault.",
+		"commands": "Crossfire, Rising Comet, Stardrive Cannon.\nWatch closely - I'll show you once.",
+		"options": "Tune it however you like.\nA good gunslinger checks her gear.",
+		"return": "Heading out? Suit yourself.\n...Not that I'll be waiting or anything."
+	},
+	"noah": {
+		"_status": "PLACEHOLDER - written by Claude, please review",
+		"versus": "...You want to fight me?\nFine. Don't let the shadows swallow you.",
+		"training": "Practice... I need it too.\nThis arm only listens when I make it.",
+		"arcade": "One after another, until no one's left.\n...I've walked roads like that before.",
+		"network": "Someone out there is calling.\nI'll answer. Quietly.",
+		"customize": "Change how they see you?\n...I've only ever had this hood.",
+		"gallery": "Memories... some of them\nI'd rather the dark kept.",
+		"commands": "Shade Wave. Event Horizon. God Press.\nLearn them before they learn you.",
+		"options": "Set things the way you want.\nI'll keep the shadows still meanwhile.",
+		"return": "Going? ...Alright.\nI'll be here. I usually am."
+	}
+}

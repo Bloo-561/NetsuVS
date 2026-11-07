@@ -35,7 +35,7 @@ Actions = [SubResource("s4"), SubResource("s5")]
 
 [sub_resource type="Resource" id="s7"]
 script = ExtResource("8")
-Frame = 14
+Frame = 20
 
 [sub_resource type="Resource" id="s8"]
 script = ExtResource("9")
@@ -43,7 +43,7 @@ TargetPosition = Vector2i(4125, 0)
 xRelativeTo = 1
 yRelativeTo = 1
 Index = 0
-InitialState = 1
+InitialState = 3
 
 [sub_resource type="Resource" id="s9"]
 script = ExtResource("3")
@@ -52,7 +52,7 @@ Actions = [SubResource("s8")]
 
 [sub_resource type="Resource" id="s10"]
 script = ExtResource("8")
-Frame = 26
+Frame = 32
 
 [sub_resource type="Resource" id="s11"]
 script = ExtResource("9")
@@ -60,7 +60,7 @@ TargetPosition = Vector2i(4125, 0)
 xRelativeTo = 1
 yRelativeTo = 1
 Index = 0
-InitialState = 1
+InitialState = 3
 
 [sub_resource type="Resource" id="s12"]
 script = ExtResource("3")
@@ -73,7 +73,7 @@ Index = 90
 
 [sub_resource type="Resource" id="sfx_12_0_at"]
 script = ExtResource("8")
-Frame = 12
+Frame = 18
 
 [sub_resource type="Resource" id="sfx_12_0"]
 script = ExtResource("3")
@@ -86,7 +86,7 @@ Index = 90
 
 [sub_resource type="Resource" id="sfx_24_1_at"]
 script = ExtResource("8")
-Frame = 24
+Frame = 30
 
 [sub_resource type="Resource" id="sfx_24_1"]
 script = ExtResource("3")

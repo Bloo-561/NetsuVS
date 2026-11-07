@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="AnimationData" format=3 uid="uid://bg82n4iihp4nv"]
 
+[ext_resource type="Resource" path="res://actors/leticia/Hitboxes/0_Hitbox_Basic.tres" id="nb_hurt"]
 [ext_resource type="Script" uid="uid://cai1mj5geilcj" path="res://engine/sakuga/Resources/SpriteModifier.cs" id="2"]
 [ext_resource type="Script" uid="uid://b8vqwkv52qq3e" path="res://engine/sakuga/Resources/AnimationSettings.cs" id="3"]
 [ext_resource type="Resource" uid="uid://bgck8hlgwu61j" path="res://actors/leticia/Hitboxes/100_Hitbox_Burst.tres" id="4"]
@@ -16,15 +17,21 @@ HitboxData = ExtResource("6")
 
 [sub_resource type="Resource" id="Resource_sv2n2"]
 script = ExtResource("5")
-AtFrame = 15
+AtFrame = 4
 animationStage = 1
 HitboxData = ExtResource("4")
 
-[sub_resource type="Resource" id="Resource_8bvbx"]
+[sub_resource type="Resource" id="nb_off"]
 script = ExtResource("5")
-AtFrame = 40
+AtFrame = 13
 animationStage = 2
 HitboxData = ExtResource("6")
+
+[sub_resource type="Resource" id="Resource_8bvbx"]
+script = ExtResource("5")
+AtFrame = 47
+animationStage = 2
+HitboxData = ExtResource("nb_hurt")
 metadata/_custom_type_script = "uid://5qrsoteskjym"
 
 [sub_resource type="Resource" id="M0_0"]
@@ -39,7 +46,17 @@ Offset = Vector2(-336, -38)
 
 [sub_resource type="Resource" id="A0"]
 script = ExtResource("3")
-Modifiers = [SubResource("M0_0"), SubResource("M0_1")]
+Modifiers = [SubResource("M0_0")]
+
+[sub_resource type="Resource" id="MB_0"]
+script = ExtResource("2")
+Sprite = ExtResource("t_s1_1")
+Offset = Vector2(-154, -7)
+
+[sub_resource type="Resource" id="AB"]
+script = ExtResource("3")
+AtFrame = 4
+Modifiers = [SubResource("MB_0"), SubResource("M0_1")]
 
 [sub_resource type="Resource" id="M1_0"]
 script = ExtResource("2")
@@ -48,13 +65,13 @@ Offset = Vector2(-154, -7)
 
 [sub_resource type="Resource" id="A1"]
 script = ExtResource("3")
-AtFrame = 34
+AtFrame = 15
 Modifiers = [SubResource("M1_0")]
 
 [resource]
 script = ExtResource("7")
-Duration = 67
-Animations = [SubResource("A0"), SubResource("A1")]
-Hitboxes = [SubResource("Resource_su5f"), SubResource("Resource_sv2n2"), SubResource("Resource_8bvbx")]
+Duration = 55
+Animations = [SubResource("A0"), SubResource("AB"), SubResource("A1")]
+Hitboxes = [SubResource("Resource_su5f"), SubResource("Resource_sv2n2"), SubResource("nb_off"), SubResource("Resource_8bvbx")]
 AttackProfiles = []
 metadata/_custom_type_script = "uid://ddkya5wrb53ly"

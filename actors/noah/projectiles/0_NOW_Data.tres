@@ -4,9 +4,10 @@
 [ext_resource type="Resource" uid="uid://bix38lksh7kw7" path="res://actors/noah/projectiles/States/0_NOW_Hidden.tres" id="2"]
 [ext_resource type="Resource" uid="uid://bleevv7xx7vpj" path="res://actors/noah/projectiles/States/1_NOW_Roll.tres" id="3"]
 [ext_resource type="Resource" uid="uid://bhqignynl8pfp" path="res://actors/noah/projectiles/States/2_NOW_Fade.tres" id="4"]
+[ext_resource type="Resource" path="res://actors/noah/projectiles/States/3_NOW_RollSlow.tres" id="st_slow"]
 
 [resource]
 script = ExtResource("1")
-States = [ExtResource("2"), ExtResource("3"), ExtResource("4")]
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("st_slow")]
 BaseAttack = 100
 BaseDefense = 100

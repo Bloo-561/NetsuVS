@@ -19,11 +19,42 @@ Removed in v2: Brave Cancel (the old roman-cancel move; Roman Cancel is back as 
 Both gauges carry over between rounds. An Overdrive still running ends when the round ends. (The assist gauge is a third, separate one: see Assists.)
 
 ## Burst (defensive) — A+C
-Uses the full Burst gauge. **Only while being hit** (hitstun, launched, knocked down); knocks the opponent away. Can't be used while Overdrive runs.
+Uses the full Burst gauge. **Only while being hit** (hitstun, launched, knocked down; since Nov 3 also blocking); knocks the opponent away. (Oct 28: Overdrive is now the low-health comeback state, not a mode that locks the gauge; the Burst works in it, powered up since Nov 4 night.)
 **Oct 26 late:** the same A+C press anywhere else (neutral, blocking, or cancelling one of your own moves that hit or
 was blocked) is **Overdrive** instead; A+B+C still works for Overdrive too. Engine: `StanceManager.NetsuIsBurst /
 NetsuIsOverdrive / NetsuBurstOrOverdriveState / NetsuAllowedStateType / NetsuInputDone / NetsuOverdriveCancel`.
 (Before this, Burst also worked in neutral and is checked before Overdrive, so A+B+C came out as a Burst.)
+
+**Nov 4 night (TamaDeez): Dengeki Bunko Fighting Climax Ignition's Escape Blast, invincible from the press.**
+- It comes out **the moment it's pressed**, even during the hitstop of the hit she's in (her hitstop ends; the attacker
+  stays frozen in his).
+- **Startup 5F** (it hits from state frame 4), **active 9F**, **total 55F** on the ground, **invincible 1F-47F**. An air
+  Burst hangs where it started and comes down in its last 8 frames. No lift.
+- **Powered up in Overdrive** (the comeback state, 30% health or lower): active **16F** and a **bigger hitbox** (x1.35),
+  drawn bigger too. (In DFCI you pick the Blast to power up at character select; we have no such pick.)
+- **WAIT:** from the 3rd frame of a Burst until it ends, the opponent can't Burst; "WAIT" shows over their Burst emblem.
+- **BlazBlue Central Fiction Burst (Nov 5 later, TamaDeez):** the press starts an **8F hold** first: she freezes in
+  her hit / block pose, turns **solid green** (the tell) and is invincible; **nothing else freezes** (the attacker's
+  hitstop ends on the press). Then the Burst plays exactly as before (animation and effects unchanged), hitting from its
+  frame 4: about **12F after the press**. **No special guard rule any more:** it is blocked like any attack (hold back)
+  by whoever has recovered when it hits; still in an attack, you're hit. Blocked: punishable as below. Startup above is
+  now 8F hold + the Burst's own 5F. `SakugaActor.NetsuBurstHold / NetsuBurstHoldMove` (saved, keys 70/71),
+  `NetsuBurstHoldFrames` 8, `NetsuBurstHoldBegin / NetsuBurstHoldTick`, the green in `NetsuBurstLook`;
+  `StanceManager.ExecuteMove` (starts the hold) / `NetsuBurstRelease`; `GetBlockState` no longer calls `NetsuBurstGuard`.
+  (Analysis: project doc claude/burst-blazblue-analysis.md.)
+- **Baiting (Nov 5, TamaDeez; the guard rule part is replaced by the entry above):** when she Bursts, the attacker's hitstop ends too, so the guard rule decides: in a light
+  normal's recovery, a jump or neutral he guards it; still in a real attack (a B / C normal, a special, a super) he's hit.
+  **Blocked**, her invincibility ends when it stops hitting (frame 13; 20 powered up) and she can't block or act until
+  frame 55: a full punish (her standing hurtboxes come in then too: `PhysicsBody.GetCurrentHitboxSettings`; the animation
+  is unchanged). On hit nothing changes (invincible 1F-47F). `SakugaActor.NetsuBurstBlocked` (saved, key 69),
+  `NetsuBurstInvulEnd()`; `StanceManager.ExecuteMove` ends both fighters' hitstop.
+- Engine: `SakugaActor.NetsuBurstActiveFrom` 4, `NetsuBurstActiveFrames` 9, `NetsuBurstPoweredActiveFrames` 16,
+  `NetsuBurstPoweredScale` 1350, `NetsuBurstInvulFrames` 47, `NetsuBurstFallFrames` 8, `NetsuBurstWaitFrom` 2,
+  `NetsuBurstPowered()`, `NetsuBurstWaitLocked()`; `PhysicsBody.GetCurrentHitboxSettings / NetsuBox` (the powered-up
+  box); `StanceManager.NetsuBurstOrOverdriveState` (the WAIT rule). Data: `actors/*/AnimationData/1001_*_Burst_AnimData.tres`
+  (55 frames: hits 4-12, no boxes 13-46, hurtboxes from 47), `actors/*/Hitboxes/100_Hitbox_Burst.tres` (blockstun 20).
+  HUD: `MatchSetup.burst_wait` → `netsu_hud.gd` (WAIT). The look: `game/ui/battle_hud/netsu_super_flash.gd` (the ring
+  after Million Arthur; the red fiery stage after it was removed, the blue wisps stay; cue -7 = powered up).
 
 ## Overdrive (offensive) — A+B+C
 - Needs a full Burst gauge. Usable in neutral, and as a cancel from normals on hit/block (where Brave Cancel used to be). Short activation pose with a super flash.

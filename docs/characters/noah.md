@@ -17,8 +17,8 @@ Health 10000 (Flan 11000).
 | 6C | 6 + C | devil-arm uppercut: launches, jump-cancel on hit into an air combo |
 | Air A / B / C | in air: A / B / C | j.C punches down |
 | Shade Wave | 236 + A | a wave of shadow rolls along the floor (its own actor: it keeps going after he recovers) |
-| Twin Shade | 236 + B | two waves |
-| Umbral Wall (EX) | 236 + C (2 bars) | invincible start; a big wall of energy (1.6× the drawing) races across the screen (7 m/s) and only disappears off the screen or when it touches the opponent: there it bursts, three hits, the last throws them sky-high |
+| Twin Shade | 236 + B | two slower waves (Nov 4: +6 startup, 6 m/s) |
+| Umbral Wall (EX) | 236 + C (2 bars) | invincible start; a huge wall of energy (Nov 4: 2.4× the drawing, 2.4 m tall) crawls forward (2 m/s) and fades after 5 s if it touches nothing; when it touches the opponent it bursts, three hits, the last throws them sky-high |
 | Event Horizon | 623 + A / B | a black hole opens close in front of him (A) or far away, about mid-screen (B). It waits 5 s; touching it hits (near: launches away, far: throws toward Noah) and it bursts |
 | Twin Horizon (EX) | 623 + C (2 bars) | both holes, invincible start; the far hole collapses at once and throws them toward Noah, into the near hole |
 | Collapse | 623 + A / B / C while a hole is open | finger snap: every hole sucks the opponent in (two small hits) and bursts. The near hole throws them away from Noah, the far one throws them toward him |
@@ -92,3 +92,13 @@ Health 10000 (Flan 11000).
   "Stock"; any fighter with one gets it): `SakugaActor.NetsuStockHud` → `MatchSetup.netsu_stock_hud` → `netsu_hud.gd`
   `_draw_stock`.
 - These were edited by hand: `moves_noah.py` leaves hand-edited files alone, but `--force` would put the old wall back.
+
+## Nov 4: Twin Shade (236B) and Umbral Wall (236C)
+- **Twin Shade:** the waves come out at frames 20 / 32 (were 14 / 26; the wind-up pose is held 6 frames longer, 64 frames
+  in all, recovery unchanged) and they're slower: 6 m/s (Shade Wave 236A keeps 9.5 m/s) for 114 frames, so they still
+  reach as far. They're a new state of the wave actor (`projectiles/States/3_NOW_RollSlow.tres`, state 3 of
+  `0_NOW_Data`); `74_NOA_236B` spawns that one.
+- **Umbral Wall:** 1.5× bigger (sprites 1.6 → 2.4, the hitboxes `1_Hitbox_NOX_Push_*` 1.5× around the wall's foot: 1.5 m
+  wide, 2.4 m tall) and it crawls: 2 m/s (was 7). Its travel is one 300-frame animation now instead of a 20-frame loop,
+  so it fades after 5 s if it hits nothing (`1_NOX_Push.tres`, `1b_NOX_Travel_AnimData.tres`). Its burst (three hits)
+  is as big.

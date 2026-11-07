@@ -38,6 +38,10 @@ public partial class NetsuHoldOpponentAction : FrameDataAction
 		{
 			return;
 		}
+		if (opponent.NetsuDownFrames > 0 || opponent.NetsuLying())
+		{
+			return;   // Nov 4: not someone lying down (an assist's hit let them fall during the freeze; this lifted them, lying)
+		}
 		int x;
 		int y;
 		if (LiftRate > 0)

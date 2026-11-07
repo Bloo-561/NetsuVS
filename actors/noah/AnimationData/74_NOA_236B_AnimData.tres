@@ -18,7 +18,7 @@ HitboxData = ExtResource("3")
 
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("2")
-AtFrame = 13
+AtFrame = 19
 animationStage = 2
 HitboxData = ExtResource("4")
 
@@ -48,7 +48,7 @@ Offset = Vector2(-199, -5)
 
 [sub_resource type="Resource" id="A2"]
 script = ExtResource("an")
-AtFrame = 13
+AtFrame = 19
 Modifiers = [SubResource("M2_0")]
 
 [sub_resource type="Resource" id="M3_0"]
@@ -58,7 +58,7 @@ Offset = Vector2(-245, -4)
 
 [sub_resource type="Resource" id="A3"]
 script = ExtResource("an")
-AtFrame = 25
+AtFrame = 31
 Modifiers = [SubResource("M3_0")]
 
 [sub_resource type="Resource" id="M4_0"]
@@ -68,7 +68,7 @@ Offset = Vector2(-249, -4)
 
 [sub_resource type="Resource" id="A4"]
 script = ExtResource("an")
-AtFrame = 36
+AtFrame = 42
 Modifiers = [SubResource("M4_0")]
 
 [sub_resource type="Resource" id="M5_0"]
@@ -78,11 +78,11 @@ Offset = Vector2(-184, -4)
 
 [sub_resource type="Resource" id="A5"]
 script = ExtResource("an")
-AtFrame = 46
+AtFrame = 52
 Modifiers = [SubResource("M5_0")]
 
 [resource]
 script = ExtResource("1")
-Duration = 58
+Duration = 64
 Animations = [SubResource("A0"), SubResource("A1"), SubResource("A2"), SubResource("A3"), SubResource("A4"), SubResource("A5")]
 Hitboxes = [SubResource("s1"), SubResource("s2")]

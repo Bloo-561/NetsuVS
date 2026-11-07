@@ -207,6 +207,19 @@ public struct SakugaActorState
 	[Key(66)]
 	public int NetsuBurstStartY;        // Nov 3: her height when the Burst started (its lift)
 
+	[Key(67)]
+	public bool NetsuAirOwnMoveUsed;    // Nov 4: a NetsuOwnOncePerJump move (Leticia's air 214) was used this jump
+
+	[Key(68)]
+	public int NetsuBlockedExtra;       // Nov 4: frames a blocked DP's landing lasts longer (MoveSettings.NetsuBlockedRecovery)
+
+	[Key(69)]
+	public bool NetsuBurstBlocked;      // Nov 5: her Burst was blocked (its invincibility ends with its hit)
+	[Key(70)]
+	public int NetsuBurstHold;          // Nov 5 (BlazBlue): frames left of the green hold before the Burst
+	[Key(71)]
+	public int NetsuBurstHoldMove;      // the Burst move it starts (only read while NetsuBurstHold > 0)
+
 	public void GetStateData(ref SakugaActor reference)
 	{
 		IsActive = reference.IsActive;
@@ -257,6 +270,11 @@ public struct SakugaActorState
 		NetsuBurstInvul = reference.NetsuBurstInvul;
 		NetsuBurstPunishable = reference.NetsuBurstPunishable;
 		NetsuBurstStartY = reference.NetsuBurstStartY;
+		NetsuAirOwnMoveUsed = reference.NetsuAirOwnMoveUsed;
+		NetsuBlockedExtra = reference.NetsuBlockedExtra;
+		NetsuBurstBlocked = reference.NetsuBurstBlocked;
+		NetsuBurstHold = reference.NetsuBurstHold;
+		NetsuBurstHoldMove = reference.NetsuBurstHoldMove;
 		NetsuAirTechWait = reference.NetsuAirTechWait;
 		NetsuAirTechFresh = reference.NetsuAirTechFresh;
 		NetsuFloatFrame = reference.NetsuFloatFrame;
@@ -328,6 +346,11 @@ public struct SakugaActorState
 		reference.NetsuBurstInvul = NetsuBurstInvul;
 		reference.NetsuBurstPunishable = NetsuBurstPunishable;
 		reference.NetsuBurstStartY = NetsuBurstStartY;
+		reference.NetsuAirOwnMoveUsed = NetsuAirOwnMoveUsed;
+		reference.NetsuBlockedExtra = NetsuBlockedExtra;
+		reference.NetsuBurstBlocked = NetsuBurstBlocked;
+		reference.NetsuBurstHold = NetsuBurstHold;
+		reference.NetsuBurstHoldMove = NetsuBurstHoldMove;
 		reference.NetsuAirTechWait = NetsuAirTechWait;
 		reference.NetsuAirTechFresh = NetsuAirTechFresh;
 		reference.NetsuFloatFrame = NetsuFloatFrame;

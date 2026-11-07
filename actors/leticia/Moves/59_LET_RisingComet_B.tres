@@ -15,3 +15,4 @@ IgnoreSamePriority = false
 AcceptNullStates = true
 AcceptCombatStates = true
 UseOnGround = true
+NetsuBlockedRecovery = 16

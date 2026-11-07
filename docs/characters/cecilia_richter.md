@@ -226,3 +226,22 @@ Rescaled to match idle: 2B x0.88, 2C x0.82 (around her rear foot), j.A x1.10, j.
 - Specials no longer slide with the momentum of a dash before them (`docs/game_systems.md` → Movement and momentum).
 - Her crouching normals now come out of chains (2B > 2C, 5A > 2B...): `docs/game_systems.md` → Cancels.
 - Assist call pose: 30 frames.
+
+## Nov 4: Charged Slash-Through (Command Dash, keep holding C or B)
+TamaDeez picked "a slower charge version that forces a restand / crumple" (like EX Narmaya's 214[M]) for the Command
+Dash slash-through (214A / 214B, then C, or hold B).
+- **How:** the slash-through as usual (C during the dash, or B / C still held when the dash checks). If the button is
+  still held when she reaches them (state 77, frame 5), she stops 0.7 m in front of them and charges (state 129, the
+  `ld_charge` pose with the growing charge spark). Held 14 more frames = the **charged slash-through** (131); let go any
+  time before = the normal slash at once (130, 77 from its strike: about 1 frame later than a tap).
+- **Charged (131):** white flare as it starts, strikes 6 frames later (about **26 frames after the slash input**, the normal
+  one is 7), 1350 damage (normal 1100), hitstop 14 / 18 (normal 12 / 14), passes through them and turns at frame 10, 32
+  frames in all. **On a grounded hit they crumple, standing or crouching** (`Hit_Crumple`, hitstun 60, soft knockdown
+  after it): she recovers about 14 frames before the crumple ends, time for a combo. Airborne: the normal slash-through's
+  lift (no restand from the air, so it can't loop). Blocked: the universal rule (-6; -4 when it came from 214A + hold).
+- **Counterplay:** she is not invincible while charging (the normal slash-through's slide-in is), standing right in front
+  of them for 14 frames: jab her, or block.
+- Files: states `129_CEC_214_Charge`, `130_CEC_214_SL_Release`, `131_CEC_214_SL_Charged` (+ their AnimationData),
+  hitbox `55_Hitbox_214B_Slash_C1` (the crumple), the hold check in `77_CEC_214B_SL` (frame 5), `0_CEC_Data` States
+  129-131. Command list: the extra row "Charged Slash-Through" (and the plain row's preview now plays the Command Dash
+  slash-through, states 74 / 77, instead of the old Lightning Dash rekka).

@@ -15,7 +15,7 @@
     "j.5C": {"name": "j.C"},
     "Star Fist": {"desc": "Short lunging punch. Follow up with a Star Rush in any direction."},
     "Air Star Fist": {"group": "Star Fist"},
-    "Twirling Star Fist": {"tags": ["ARMOR"], "desc": "Arm twirl that absorbs one hit, then a punch that pops them up. Hold B (or C) through the twirl to dash through them and punch from behind (crosses up)."},
+    "Twirling Star Fist": {"desc": "Arm twirl, then a punch that pops them up. Hold B (or C) through the twirl: a short pause, then she dashes through them and punches from behind (crosses up); that punch is very unsafe if blocked (-14).", "data": {"ON BLOCK": "−6 / −14"}},
     "Air Twirling Star Fist": {"group": "Twirling Star Fist"},
     "Supernova Fist": {"desc": "Invincible punch with a big light: knocks them to the edge of the screen and they bounce back toward her for a juggle."},
     "Star Rush": {"desc": "Out of Star Fist: dash punch in any of eight directions. Upward rushes carry them up with her."},

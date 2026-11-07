@@ -140,6 +140,12 @@ public partial class GameManager : Node, IGameState
 	[Export(PropertyHint.Range, "0,120,1")]
 	public int NetsuDownTotalFrames = 20;   // Oct 27 c33: the shortest a knockdown keeps them down (OTG window shorter than this, e.g. a heavily scaled combo); was 50
 
+	/// <summary>Netsu (Nov 4, TamaDeez): BlazBlue-style ground tech (SakugaActor.NetsuGroundTechOpen). A fighter lying after
+	/// a soft knockdown can tech from this many ticks after the first ground impact (until the usual get-up at
+	/// impact + lying = 50). OTG hits are guaranteed only before it; hard knockdowns can't tech at all.</summary>
+	[Export(PropertyHint.Range, "0,50,1")]
+	public int NetsuGroundTechFromFrames = 20;
+
 	/// <summary>Netsu (Oct 26 c15, TamaDeez): BlazBlue / Under Night style juggle decay. Every hit's hitstun (= the time
 	/// before the victim can tech) loses 1 frame for every NetsuJuggleDecayEvery frames the combo has lasted past
 	/// NetsuJuggleGraceFrames, up to NetsuJuggleMaxDecay. Long combos (assists included: it counts the victim's time)
@@ -735,6 +741,11 @@ public partial class GameManager : Node, IGameState
 			}
 			if (Fighters[j].UseAI)
 			{
+				if (Training != null && j == NetsuTraining.Dummy && Training.AutoBurstInput(Fighters[j], out PlayerInputs netsuBurst))
+				{
+					Inputs[j].InsertToHistory(netsuBurst);   // Nov 4: Training's Auto Burst works on a CPU dummy too
+					continue;
+				}
 				Fighters[j].Brain.SelectCommand();
 				Fighters[j].Brain.UpdateCommand();
 				continue;

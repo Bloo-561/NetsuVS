@@ -128,3 +128,31 @@ Main menu → **ONLINE**. Up to 8 players on different computers in one lobby, r
   would be easy.
 - IPv4 only.
 - Both players need the **same build** of the game (same fighters, same data), or the fight goes out of sync.
+
+## Lobby overhaul (Nov 4 2026)
+**Lobby (Nov 4 overhaul).** The room screen follows Persona 4 Arena Ultimax's PLAYER MATCH lobby:
+- title and room bar (host's lobby + code) top left;
+- the player list on the right in line order (place number, fighter avatar, name, and a status: Now Playing /
+  Picking / Ready / Waiting / Spectating; gold frame = you);
+- the 1P VS 2P bar, with the picks and the 60 s clock under it;
+- a message box with the room log (joins, leaves, results, passes);
+- an INFORMATION bar and a button legend that names the keys of the device last used.
+
+**Pass** (AB: U / RB) gives your turn to the next player waiting while you're picking or next in line. You swap
+places with them; in a pick phase they take your side with a fresh clock and the other player keeps their pick. With
+nobody waiting nothing happens. The king passing ends the streak.
+
+**Spectate only** (menu row, or S in the room when not picking) keeps you out of the line for good: you watch every
+match until you turn it off, then you go to the back. It's sent with `hi`, so you can join a lobby just to watch.
+Newcomers are queued on their first `hi`, not on connect.
+
+The JOIN page has five digit boxes: type the code (numpad too), or Up/Down/Left/Right on a controller or WASD /
+arrows; Ctrl+V pastes; Tab opens a box for a backup code or address. The lobby's text boxes read keys themselves
+because the game's menu keys (K, L, Backspace, Numpad 5/6 on `ui_cancel`) stop a Godot LineEdit from editing.
+
+Room protocol 3 (online version `netsu-vs-online-4`; `-5` since the Nov 4 night balance batch, `-6` since the DFCI Burst, `-7` since the baitable Burst (Nov 5), `-8` since the BlazBlue Burst (Nov 5 later); older copies are told they are a different version):
+- `members.spec` (was `out`) and `members.f`;
+- `room.log`;
+- messages `pass {match}` and `spectate {on}` (the old `queue` is still understood);
+- `hi.spec`.
+- The old **S = sit out** and the room layout described above are replaced by this.

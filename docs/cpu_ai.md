@@ -19,7 +19,13 @@ Inspector (the scripts rewrite the files, so re-running one undoes Inspector cha
 ## How the CPU thinks (Oct 24 night)
 Every frame, in this order:
 1. **Being hit / grabbed**: it breaks throws (B+C) with **TechingRate**-in-10 after noticing them (half its reaction
-   time; the break window is 12 frames) and recovers in the air with the same chance.
+   time; the break window is 12 frames). **Techs (Nov 4):** each time it's knocked into the air, and each time it lands
+   lying after a soft knockdown, it rolls TechingRate-in-10; on a yes it holds A (with forward / back, or neither) from
+   then on, so it air techs / ground techs on the first frame it's allowed, like a player holding a button (now and
+   then it waits a moment before a ground tech). **Burst (Nov 4):** once per combo it rolls a chance by level
+   (Beginner 0, Easy 1, Medium 3, Hard 5, Very Hard 7, Pro 8 in 10) and on a yes Bursts once the combo reaches
+   Beginner -, Easy 8-10, Medium 6-8, Hard 5-7, Very Hard / Pro 4-6 hits (3 at low health), if the gauge is full and the
+   combo allows Burst. Not in Training (its Auto Burst setting decides there). `AIBrain.NetsuHitPlan / NetsuHitInput`.
 2. **Reactions**: the "counter" conditions of its level (`CounterFlags`, Probability 0) are checked *every frame*,
    once per move of yours, after **ReactionTime** frames, with a **PredictionQuality**-in-10 chance (times the
    condition's **ReactChance**-in-10, lower for costly reads like a counter super):

@@ -97,6 +97,7 @@ public class NetsuTraining
 	private int _lastStop;         // Auto Burst: the dummy's hitstop last frame (a new block starts a fresh one)
 	private bool _burstPending;    // Auto Burst: the count is reached: press Burst until it comes out
 	private bool _burstDone;       // Auto Burst: already Burst in this combo / string
+	private int _wakeBurst;        // Nov 4: Wake-up Action Burst: frames after getting up in which a hit / block is Burst
 
 	private const PlayerInputs Forward = PlayerInputs.RIGHT;   // stored facing right
 	private const PlayerInputs Back = PlayerInputs.LEFT;
@@ -238,10 +239,31 @@ public class NetsuTraining
 		}
 		if (Playing || Looping)
 		{
-			input[Dummy] = PlayStep(d);
+			PlayerInputs step = PlayStep(d);
+			input[Dummy] = AutoBurstInput(d, out PlayerInputs burst) ? burst : step;   // Nov 4: Auto Burst works with Playback too
 			return;
 		}
 		input[Dummy] = DummyInput(d);
+	}
+
+	/// <summary>Nov 4: Auto Burst's press (A+C every other frame, a fresh press the moment it's allowed) while one is
+	/// due; also used for a Playback or CPU dummy (GameManager's AI branch). False = nothing to press.</summary>
+	public bool AutoBurstInput(SakugaActor d, out PlayerInputs press)
+	{
+		press = PlayerInputs.NEUTRAL;
+		if (!_burstPending || _dummyHuman || Recording || d == null || d.StateManager == null)
+		{
+			return false;
+		}
+		StateType type = d.StateManager.CurrentStateType();
+		if (d.NetsuBursting() || (type != StateType.HIT_REACTION && type != StateType.BLOCKING))
+		{
+			_burstPending = false;   // it came out (or the combo is over)
+			_burstDone = true;
+			return false;
+		}
+		press = (_tick & 1) == 0 ? (PlayerInputs.FACE_A | PlayerInputs.FACE_C) : PlayerInputs.NEUTRAL;
+		return true;
 	}
 
 	/// <summary>After the frame: health, gauges, and the guard settings' bookkeeping.</summary>
@@ -385,18 +407,20 @@ public class NetsuTraining
 	private PlayerInputs DummyInput(SakugaActor d)
 	{
 		StateType type = d.StateManager.CurrentStateType();
-		if (_burstPending)
+		if (_wakeBurst > 0)
 		{
-			if (d.NetsuBursting() || (type != StateType.HIT_REACTION && type != StateType.BLOCKING))
+			// Nov 4: Wake-up Action Burst: a Burst can only come out of a hit or a block, so it's the first one after
+			// getting up (a meaty) that gets Burst (pressing A+C on wake-up just gave a 5C)
+			_wakeBurst--;
+			if (type == StateType.HIT_REACTION || type == StateType.BLOCKING)
 			{
-				_burstPending = false;   // it came out (or the combo is over)
-				_burstDone = true;
+				_wakeBurst = 0;
+				_burstPending = true;
 			}
-			else
-			{
-				// A+C on every other frame: a fresh press the moment the Burst is allowed
-				return (_tick & 1) == 0 ? (PlayerInputs.FACE_A | PlayerInputs.FACE_C) : PlayerInputs.NEUTRAL;
-			}
+		}
+		if (AutoBurstInput(d, out PlayerInputs burst))
+		{
+			return burst;
 		}
 		PlayerInputs stance = Action == ActCrouch ? PlayerInputs.DOWN : (Action == ActJump ? PlayerInputs.UP : PlayerInputs.NEUTRAL);
 		if (type == StateType.HIT_REACTION)
@@ -426,6 +450,10 @@ public class NetsuTraining
 			if (WakeupAction == WakeActRecording && _tape.Count > 0)
 			{
 				_waitWake = true;
+			}
+			else if (WakeupAction == WakeActBurst)
+			{
+				_wakeBurst = 30;   // Nov 4: Burst the first hit / block within half a second of getting up
 			}
 			else if (WakeupAction != WakeActNone)
 			{
@@ -495,7 +523,9 @@ public class NetsuTraining
 		{
 			return PlayerInputs.NEUTRAL;   // standing / crouching hitstun: nothing to recover from
 		}
-		ushort press = (ushort)((_tick & 1) == 0 ? PlayerInputs.FACE_A : 0);
+		// Nov 4: in the air A is held (air techs happen by holding: StanceManager.NetsuAutoAirTech), so she techs on the
+		// first frame she's allowed; on the ground it's pressed every other frame (a fresh press for the wake-up choice)
+		ushort press = (ushort)(!d.Body.IsOnGround || (_tick & 1) == 0 ? PlayerInputs.FACE_A : 0);
 		return FromStored((ushort)(dir | press), d);
 	}
 
@@ -733,6 +763,7 @@ public class NetsuTraining
 		_randomGuard = -1;
 		_down = false;
 		_wakeFrames = 0;
+		_wakeBurst = 0;
 		_waitWake = false;
 		_airChoice = -1;
 		_wakeChoice = -1;

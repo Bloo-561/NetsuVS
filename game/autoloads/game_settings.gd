@@ -43,8 +43,14 @@ const DEFAULTS := {
 		"assist_instant": true, "playback_repeat": false,
 		"show_info": true, "show_inputs": true, "show_hitboxes": false, "show_guide": true},
 	# Online lobbies (scenes/online/online_lobby.gd): the name the other players see ("" = "Player N").
-	"online": {"name": ""},
+	"online": {"name": "", "spectate": false},
+	# Main Menu > CUSTOMIZE (game/ui/profile/netsu_customize.gd, Nov 4): the profile icon and title the other players see
+	# online (ids from game/ui/profile/profile_catalog.gd), and the main menu's character: "random" or a roster index.
+	"profile": {"icon": "logo_vs", "title": "challenger", "menu_character": "random"},
 }
+## Settings whose saved value may be of another type than their default (they're checked where they're used).
+##   profile / menu_character: "random" (String) or a roster index (int).
+const ANY_TYPE := {"profile": ["menu_character"]}
 
 ## Volume setting -> audio bus (data/audio_bus_layout.tres).
 const BUSES := {"master": "Master", "bgm": "BGM", "sfx": "SFX", "voice": "Voice", "announcer": "Announcer"}
@@ -136,7 +142,7 @@ func _load() -> void:
 		for key in DEFAULTS[section]:
 			if cfg.has_section_key(section, key):
 				var v = cfg.get_value(section, key)
-				if typeof(v) == typeof(DEFAULTS[section][key]):
+				if typeof(v) == typeof(DEFAULTS[section][key]) or key in ANY_TYPE.get(section, []):
 					_values[section][key] = v
 	if cfg.has_section("controls"):
 		var b := {}

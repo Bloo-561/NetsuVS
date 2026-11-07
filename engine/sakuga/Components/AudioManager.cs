@@ -58,6 +58,15 @@ public partial class AudioManager : Node
 		}
 	}
 
+	/// <summary>Netsu (Nov 4): the fight's song again after StopBGM (a match win that was taken back: a late double K.O.).</summary>
+	public void NetsuResumeBGM()
+	{
+		if (BGM != null && BGM.Stream != null && !BGM.Playing)
+		{
+			BGM.Play();
+		}
+	}
+
 	public void StopBGM()
 	{
 		BGM.Stop();

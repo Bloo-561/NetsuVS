@@ -100,20 +100,6 @@ Value = -1
 script = ExtResource("3")
 Actions = [SubResource("s19")]
 
-[sub_resource type="Resource" id="sfx_4_0_play"]
-script = ExtResource("sfx_play")
-Source = 3
-Index = 49
-
-[sub_resource type="Resource" id="sfx_4_0_at"]
-script = ExtResource("8")
-Frame = 4
-
-[sub_resource type="Resource" id="sfx_4_0"]
-script = ExtResource("3")
-Conditions = [SubResource("sfx_4_0_at")]
-Actions = [SubResource("sfx_4_0_play")]
-
 [sub_resource type="Resource" id="sfx_22_1_play"]
 script = ExtResource("sfx_play")
 Source = 2
@@ -203,7 +189,7 @@ Type = 2
 AnimationData = ExtResource("2")
 TransitionEvents = [SubResource("zev1"), SubResource("s3")]
 OnEnterEvents = [SubResource("s6")]
-OnTickEvents = [SubResource("sfx_4_0"), SubResource("sfx_22_1"), SubResource("s9"), SubResource("s12"), SubResource("s15"), SubResource("s18")]
+OnTickEvents = [SubResource("sfx_22_1"), SubResource("s12"), SubResource("s15"), SubResource("s18")]
 OnExitEvents = [SubResource("s20"), SubResource("face_ev")]
 OnHitConfirmEvents = [SubResource("nf_s7"), SubResource("pt_e")]
 OnHitReactionEvents = null

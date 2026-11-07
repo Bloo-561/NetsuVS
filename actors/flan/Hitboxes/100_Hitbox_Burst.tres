@@ -28,14 +28,14 @@ GroundHitKnockbackGravity = 200000
 GroundHitKnockbackTime = 40
 GroundHitstun = 300
 GroundBlockKnockback = Vector2i(-25000, 0)
-GroundBlockstun = 32
+GroundBlockstun = 20
 AirHitstunType = 2
 AirHitReaction = 7
 AirHitKnockback = Vector2i(-110000, 40000)
 AirHitKnockbackTime = 40
 AirHitstun = 300
 AirBlockKnockback = Vector2i(-18000, 50000)
-AirBlockstun = 32
+AirBlockstun = 20
 metadata/_custom_type_script = "uid://c0y740kryylcs"
 
 [resource]

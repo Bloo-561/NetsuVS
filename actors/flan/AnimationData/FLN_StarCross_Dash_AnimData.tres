@@ -22,7 +22,7 @@ HitboxData = ExtResource("h0")
 
 [resource]
 script = ExtResource("1")
-Duration = 22
+Duration = 27
 Animations = [SubResource("A0")]
 Hitboxes = [SubResource("S0")]
 Afterimages = true

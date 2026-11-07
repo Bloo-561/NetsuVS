@@ -72,8 +72,10 @@ Keyed by the **engine** move name (`MoveSettings.MoveName`, e.g. "Teleport Slash
     "Overflow Ray":   {"input": "214 A|B|C", "data": {"ON BLOCK": "+15"}}
   },
   "extra": [
-    {"name": "Lightning Slash-Through", "input": "> C", "after": "Command Dash", "states": [106, 107],
-     "tags": ["UNSAFE"], "desc": "..."}
+    {"name": "Lightning Slash-Through", "input": "> C", "after": "Command Dash", "states": [74, 77],
+     "tags": ["UNSAFE"], "desc": "..."},
+    {"name": "Charged Slash-Through", "input": "> [C]", "after": "Lightning Slash-Through", "states": [74, 77, 129, 131],
+     "data_states": [131], "data": {"STARTUP": "26"}, "tags": ["CRUMPLE", "UNSAFE"], "desc": "..."}
   ]
 }
 ```
@@ -88,7 +90,12 @@ Keyed by the **engine** move name (`MoveSettings.MoveName`, e.g. "Teleport Slash
 | `section` | Normals / Specials / Supers / Universal |
 | `hide` | leave it out |
 | `data` | set or add frame data cells, e.g. `{"ON BLOCK": "+15"}` |
-| `extra` | rows for things that aren't a stance move (reached by holding a button or a state change); `after` = the move it goes under |
+| `extra` | rows for things that aren't a stance move (reached by holding a button or a state change); `after` = the move (or extra row) it goes under. An extra row takes `name`, `input`, `desc`, `tags`, `states` (the preview), and (Nov 4) `data_states` (the states its numbers come from; default: the first of `states` with attack frames) and `data` (cells written by hand, as for a move) |
+
+**Held buttons in the preview (Nov 4):** the preview presses only what leads to the next listed state. A "let go"
+check (a `CheckInputCondition` with `Not`) is true unless a held-button check in the same state leads to the next listed
+state: Cecilia's charged slash-through keeps holding through its charge (`[74, 77, 129, 131]`), the plain one lets go;
+a forward throw now comes out on the throw's hit like in a match (before, it waited for the throw to end).
 
 ## System and assists
 - **System tab:** `data/command_list/system.json`, pages → topics. `preview` is `{"move": "<engine move name>"}` or

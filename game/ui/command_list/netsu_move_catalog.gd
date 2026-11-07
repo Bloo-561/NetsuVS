@@ -14,6 +14,7 @@ extends RefCounted
 ##   "moves": {"Teleport Slash": {"name": "Crescent Slash", "desc": "...", "input": "623 A|B", "tags": ["B: INVINCIBLE"],
 ##             "states": [82], "group": "Other Move Name", "hide": true, "section": "Specials", "data": {"ON BLOCK": "+3"}}}
 ##   "extra": [{"name": "...", "input": "...", "desc": "...", "section": "Specials", "after": "Command Dash", "states": [106]}]
+##     (an extra row may also have "data_states": the states its numbers come from, and "data": {"STARTUP": "26"})
 ## Every key is optional. A move with no notes still shows: its name, its input worked out from the data, its frame
 ## data and its animation; the description says it has none yet. Full guide: docs/command_list.md.
 
@@ -538,11 +539,27 @@ static func fighter_rows(data: Resource, notes: Dictionary) -> Array:
 		var states: Array = []
 		for s in extra.get("states", []):
 			states.append(int(s))
-		var fd := frame_data(data, states, null, [])
+		# Nov 4: "data_states" = the states the numbers come from (default: the preview's states; the first one with
+		# attack frames is used), "data" = cells written by hand, like a move note's (Cecilia's charged slash-through)
+		var data_states: Array = []
+		for s in extra.get("data_states", states):
+			data_states.append(int(s))
+		var fd := frame_data(data, data_states, null, [])
+		var data_rows: Array = fd["rows"]
+		var by_hand = extra.get("data", {})
+		if by_hand is Dictionary:
+			for k in by_hand:
+				var found := false
+				for r in data_rows:
+					if r[0] == str(k):
+						r[1] = str(by_hand[k])
+						found = true
+				if not found:
+					data_rows.append([str(k), str(by_hand[k])])
 		var row := {"name": str(extra.get("name", "?")), "key": str(extra.get("name", "?")),
 			"section": str(extra.get("section", "Specials")), "input": str(extra.get("input", "")),
 			"desc": str(extra.get("desc", NO_DESC)), "auto_desc": false, "tags": extra.get("tags", fd["tags"]).duplicate(),
-			"cost": int(extra.get("cost", 0)), "states": states, "data": fd["rows"], "follow": str(extra.get("input", "")).begins_with(">"), "seq": []}
+			"cost": int(extra.get("cost", 0)), "states": states, "data": data_rows, "follow": str(extra.get("input", "")).begins_with(">"), "seq": []}
 		var at := placed.size()
 		var after := str(extra.get("after", ""))
 		for i in placed.size():

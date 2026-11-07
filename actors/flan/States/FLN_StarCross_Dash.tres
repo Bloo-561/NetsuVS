@@ -45,7 +45,7 @@ Index = 49
 
 [sub_resource type="Resource" id="z7"]
 script = ExtResource("x7")
-Frame = 2
+Frame = 7
 
 [sub_resource type="Resource" id="zev3"]
 script = ExtResource("x3")
@@ -54,8 +54,8 @@ Actions = [SubResource("z5"), SubResource("z6")]
 
 [sub_resource type="Resource" id="z8"]
 script = ExtResource("x8")
-MinFrame = 3
-MaxFrame = 20
+MinFrame = 8
+MaxFrame = 25
 
 [sub_resource type="Resource" id="z9"]
 script = ExtResource("x9")
@@ -77,7 +77,7 @@ Velocity = 0
 
 [sub_resource type="Resource" id="z12"]
 script = ExtResource("x7")
-Frame = 20
+Frame = 25
 
 [sub_resource type="Resource" id="zev5"]
 script = ExtResource("x3")
@@ -86,7 +86,7 @@ Actions = [SubResource("z11")]
 
 [sub_resource type="Resource" id="zp1"]
 script = ExtResource("x7")
-Frame = 20
+Frame = 25
 
 [sub_resource type="Resource" id="zp2"]
 script = ExtResource("x2")

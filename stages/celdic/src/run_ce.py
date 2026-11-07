@@ -1,4 +1,4 @@
-# Celdic - one-shot pipeline for a BACKGROUND Blender (never touches open windows):
+# Celdic (v3) - one-shot pipeline for a BACKGROUND Blender (never touches open windows):
 #   blender --background --factory-startup --python "<project>/stages/celdic/src/run_ce.py" -- \
 #           VARIANT=burning STEPS=build,bake,preview,export TAG=pv CAMS=CAM_mid,CAM_far
 # VARIANT  day (default) | burning

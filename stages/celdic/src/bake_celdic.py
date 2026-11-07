@@ -12,9 +12,10 @@ SUFFIX = "" if VARIANT == "day" else "_" + VARIANT
 OUT = ROOT + r"\textures"
 ATLAS_DIR = ROOT + r"\src\baked" + SUFFIX
 CACHE = ROOT + r"\src\cache" + ("" if VARIANT == "day" else "\\" + VARIANT)
-ATLAS = {"CE_Buildings": 3072, "CE_Props": 3072, "CE_Far": 2048}   # 3072: fits in RAM next to other open Blenders
-CARDS = ["CE_Sky", "CE_Window", "CE_Bunting", "CE_Fire", "CE_Smoke", "CE_Haze"]
-FLOOR_X, FLOOR_BACK, FLOOR_FRONT = 40.0, -62.0, 22.0
+ATLAS = {"CE_Buildings": 3072, "CE_Props": 3072, "CE_Far": 2048}   # sized to fit low free RAM
+CARDS = [g for g in ("CE_Sky", "CE_Window", "CE_Bunting", "CE_Crowd", "CE_Grass", "CE_Sails", "CE_Fire", "CE_Smoke", "CE_Haze")
+         if g in bpy.data.objects]
+FLOOR_X, FLOOR_BACK, FLOOR_FRONT = 50.0, -30.0, 22.0
 FLOOR_LIGHT = (2048, 2048)
 LIGHT_MAX = 4.0              # floor light map encoding: stored = (light / LIGHT_MAX) ** (1/2.2)
 D_SPP, I_SPP, I_DIV = 48, 256, 4
@@ -22,10 +23,10 @@ MARGIN_PX = 16
 
 # ---- look (keep in sync with the floor material's "look" group in the variant's .tscn) ----
 LOOKS = {
-    "day": dict(EXPOSURE=0.35, SHOULDER=0.8, SATURATION=1.12, SHADOW_TINT=(0.9, 0.92, 1.1),
-                HIGHLIGHT_TINT=(1.06, 1.0, 0.92), TINT_AMOUNT=0.5),
-    "burning": dict(EXPOSURE=0.1, SHOULDER=0.78, SATURATION=1.0, SHADOW_TINT=(0.86, 0.8, 1.14),
-                    HIGHLIGHT_TINT=(1.12, 0.94, 0.8), TINT_AMOUNT=0.6),
+    "day": dict(EXPOSURE=0.24, SHOULDER=0.8, SATURATION=1.0, SHADOW_TINT=(0.9, 0.92, 1.1),
+                HIGHLIGHT_TINT=(1.04, 1.0, 0.94), TINT_AMOUNT=0.5),      # weathered: softer and less saturated
+    "burning": dict(EXPOSURE=0.2, SHOULDER=0.8, SATURATION=0.92, SHADOW_TINT=(0.86, 0.9, 1.14),
+                    HIGHLIGHT_TINT=(1.08, 0.98, 0.86), TINT_AMOUNT=0.55),
 }
 globals().update(LOOKS[VARIANT])
 
@@ -229,7 +230,7 @@ def regrade(groups=None):
 # ----------------------------------------------------------------------
 #  preview: what Godot draws (unlit atlases + mirrored world under a see-through floor)
 # ----------------------------------------------------------------------
-FLOOR_ALPHA_NEAR, FLOOR_ALPHA_FAR = 0.78, 0.45
+FLOOR_ALPHA_NEAR, FLOOR_ALPHA_FAR = 1.0, 1.0        # outdoor: an opaque floor in the preview
 
 def _unlit_mat(name, image_path, uv="Bake", strength=1.0, alpha=False, tint=None):
     if name in bpy.data.materials:
@@ -283,7 +284,6 @@ def make_preview():
     for g in ATLAS:
         m = _unlit_mat("PVM_" + g, ATLAS_DIR + "\\" + g.lower() + ".png")
         _pv_copy(bpy.data.objects[g], m, "PV_" + g, False, pv)
-        _pv_copy(bpy.data.objects[g], m, "PV_" + g + "_m", True, pv)
     for g, mname in CARD_LOOK.items():
         m = bpy.data.materials[mname]
         _pv_copy(bpy.data.objects[g], m, "PV_" + g, False, pv)
@@ -320,7 +320,8 @@ def make_preview():
 #  export
 # ----------------------------------------------------------------------
 NAMES = {"CE_Buildings": "Buildings", "CE_Props": "Props", "CE_Far": "Far", "CE_Sky": "Sky", "CE_Window": "Window",
-         "CE_Bunting": "Bunting", "CE_Fire": "Fire", "CE_Smoke": "Smoke", "CE_Haze": "Haze"}
+         "CE_Bunting": "Bunting", "CE_Crowd": "Crowd", "CE_Grass": "Grass", "CE_Sails": "Sails",
+         "CE_Fire": "Fire", "CE_Smoke": "Smoke", "CE_Haze": "Haze"}
 
 def export_glb(path=None):
     path = path or ROOT + r"\celdic" + SUFFIX + ".glb"
@@ -337,8 +338,7 @@ def export_glb(path=None):
         for uvl in list(me.uv_layers):
             if uvl.name != uv_keep:
                 me.uv_layers.remove(uvl)
-        if g not in ("CE_Sky", "CE_Far"):
-            _cut_below_floor(me)
+        # (no cut below the floor: the stairs and the market lie below the plaza level)
         me.materials.clear()
         mat = bpy.data.materials.get("PVM_" + g) if g in ATLAS else None
         if mat is None:

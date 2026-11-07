@@ -194,7 +194,7 @@ CUES.update(states('flan', {
     '71_FLN_J5C': [(7, 'fln_punch_heavy')],
     '72_FLN_6C': [(14, 'fln_punch_heavy')],
     '73_FLN_236A': [(6, 'fln_star_fist')],
-    '74_FLN_236B': [(4, 'fln_armor_glint'), (22, 'fln_star_fist')],
+    '74_FLN_236B': [(26, 'fln_star_fist')],   # Nov 4: no armor, so no armor glint; the punch is at 28 now
     '75_FLN_236C': [(14, 'fln_supernova')],
     '76_FLN_623A': [(2, 'fln_rising_star')],
     '77_FLN_623B': [(2, 'fln_rising_star')],
@@ -266,7 +266,7 @@ CUES.update(states('noah', {
     '71_NOA_J5C': [(7, 'fln_punch_heavy')],
     '72_NOA_6C': [(7, 'fln_punch_heavy')],
     '73_NOA_236A': [(12, 'hre_wave')],
-    '74_NOA_236B': [(12, 'hre_wave'), (24, 'hre_wave')],
+    '74_NOA_236B': [(18, 'hre_wave'), (30, 'hre_wave')],   # Nov 4: the waves at 20 / 32 (were 14 / 26)
     '75_NOA_236C': [(16, 'hre_wave_launch')],
     '76_NOA_623A': [(8, 'fln_armor_glint')],
     '77_NOA_623B': [(10, 'fln_armor_glint')],

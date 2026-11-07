@@ -46,3 +46,4 @@ AcceptCombatStates = true
 UseOnGround = true
 UseOnAir = true
 NetsuOncePerJump = true
+NetsuBlockedRecovery = 14

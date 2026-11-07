@@ -79,6 +79,25 @@ public partial class FighterState : Resource
 	[Export(PropertyHint.None, "")]
 	public Vector2I NetsuChargeFlareOffset = new Vector2I(1500, 7000);   // Oct 29 (2): centred on her body
 
+	/// <summary>Netsu (Nov 4, TamaDeez): an object in this state (Noah's black holes) bursts as soon as the fighter who placed
+	/// it is hit, blocks an attack or is thrown: it plays NetsuPopState (-1 = it just disappears).
+	/// ObjectPool.NetsuPopOnOwnerStruck, called from the fighter's PreTick.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuPopWhenOwnerStruck;
+
+	[Export(PropertyHint.None, "")]
+	public int NetsuPopState = -1;
+
+	/// <summary>Netsu (Nov 4, TamaDeez): a DP's landing state. When the move's hit was blocked and the move has
+	/// MoveSettings.NetsuBlockedRecovery, this state lasts that many frames longer (StateManager.NetsuDuration).</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuBlockedRecoveryHere;
+
+	/// <summary>Netsu (Nov 4, TamaDeez): frame advantage on block for a hit made in this state, replacing the universal rule
+	/// (specials A -4, B / C -6; StanceManager.NetsuBlockAdvantage). 0 = the rule. Flan's charged 236[B] punch: -14.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuOnBlock;
+
 	[ExportSubgroup("AI Flags", "")]
 	[Export(PropertyHint.None, "")]
 	public AIFlags AIFlags;

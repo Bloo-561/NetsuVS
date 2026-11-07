@@ -61,8 +61,11 @@ public partial class StanceManager : Node
 				return false;
 			}
 		}
-		if (GetMove(index).AcceptHitReactionStates && GetMove(index).IgnoreKnockdownHits && _owner.HitstunType >= HitstunType.KNOCKDOWN)
+		if (GetMove(index).AcceptHitReactionStates && GetMove(index).IgnoreKnockdownHits && _owner.HitstunType >= HitstunType.KNOCKDOWN
+			&& (_owner.HitstunType >= HitstunType.HARD_KNOCKDOWN || !NetsuIsAirTechMove(index)))
 		{
+			// Nov 4: air techs work out of a soft knockdown (every juggle hit is one: SakugaActor.HitDamage) once the
+			// untech time is over; before this, holding to tech could never work in a combo. Hard knockdowns still can't
 			return false;
 		}
 		if (_owner.NetsuAirCounterLock && GetMove(index).AcceptHitReactionStates && !NetsuIsBurst(index) && !NetsuIsOverdrive(index))
@@ -118,6 +121,10 @@ public partial class StanceManager : Node
 		{
 			return false;   // Netsu (Oct 26 late): once per jump (Flan's air 623)
 		}
+		if (GetMove(index).NetsuOwnOncePerJump && _owner.NetsuAirOwnMoveUsed && _owner.Body != null && !_owner.Body.IsOnGround)
+		{
+			return false;   // Nov 4: once per jump, counted on its own (Leticia's air 214)
+		}
 		if (!CheckStatesToIgnore(index))
 		{
 			return false;
@@ -146,7 +153,13 @@ public partial class StanceManager : Node
 		}
 		if (_owner != null && _owner.NetsuDownFrames > 0 && !_owner.IsKO())
 		{
-			return;   // Oct 27 c34: hard knockdown: no moves, jumps, throws or bursts (holding a guard direction is fine) until the 72 ticks are over
+			// Nov 4 (TamaDeez): a ground tech once it's allowed (soft knockdowns, BlazBlue style); and an attack / special /
+			// super pressed in the last frames of getting up is kept for the first free frame (easier wake-up reversals)
+			if (!NetsuGroundTech() && _owner.NetsuWakeBufferOpen(NetsuWakeBufferFrames))
+			{
+				NetsuWakeBuffer();
+			}
+			return;   // Oct 27 c34: knocked down: no moves, jumps, throws or bursts (holding a guard direction is fine) until the 72 ticks are over
 		}
 		if (_owner != null && (_owner.NetsuBursting() || _owner.NetsuBurstPunishable))
 		{
@@ -325,6 +338,85 @@ public partial class StanceManager : Node
 		return true;
 	}
 
+	// ---------------------------------------------------------------------------------------------
+	// Netsu (Nov 4 2026, TamaDeez): ground tech (BlazBlue style, SakugaActor.NetsuGroundTechOpen) and the wake-up buffer.
+
+	/// <summary>Frames at the end of getting up (or of a ground tech) in which an attack / special / super press is kept
+	/// for the first frame she can act.</summary>
+	public const int NetsuWakeBufferFrames = 8;
+
+	/// <summary>Lying and allowed to tech: A, B or C down this frame (held or just pressed) techs. Forward held = roll
+	/// forward, back held = roll back, anything else (nothing, up, down) = tech in place.</summary>
+	private bool NetsuGroundTech()
+	{
+		if (_owner == null || _owner.Inputs == null || !_owner.NetsuGroundTechOpen())
+		{
+			return false;
+		}
+		int h = _owner.Inputs.CurrentHistory;
+		PlayerInputs raw = _owner.Inputs.InputHistory[h].rawInput;
+		if ((raw & (PlayerInputs.FACE_A | PlayerInputs.FACE_B | PlayerInputs.FACE_C)) == 0)
+		{
+			return false;
+		}
+		int side = _owner.InputSide();
+		bool forward = _owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.RIGHT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.UP_RIGHT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.DOWN_RIGHT, ButtonMode.HOLD, false);
+		bool back = !forward && (_owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.LEFT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.UP_LEFT, ButtonMode.HOLD, false)
+			|| _owner.Inputs.CheckDirectionalInputs(h, side, DirectionalInputs.DOWN_LEFT, ButtonMode.HOLD, false));
+		return _owner.NetsuGroundTechNow(forward ? 1 : (back ? -1 : 0));
+	}
+
+	/// <summary>The ground tech move for a direction (1 roll forward, -1 roll back, 0 tech in place), found by its state's
+	/// name like the air techs: Recovery_Ground_Forward, Recovery_Ground_Back, Recovery_OTG.</summary>
+	public bool NetsuGroundTechMove(int dir, out int index)
+	{
+		index = -1;
+		FighterStance stance = GetCurrentStance();
+		FighterState[] states = _owner?.Data?.States;
+		string want = dir > 0 ? "Recovery_Ground_Forward" : (dir < 0 ? "Recovery_Ground_Back" : "Recovery_OTG");
+		for (int i = 0; stance != null && stance.Moves != null && states != null && i < stance.Moves.Length; i++)
+		{
+			MoveSettings m = GetMove(i);
+			if (m == null || m.MoveState < 0 || m.MoveState >= states.Length || states[m.MoveState] == null)
+			{
+				continue;
+			}
+			if (states[m.MoveState].StateName == want)
+			{
+				index = i;
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>The last NetsuWakeBufferFrames of getting up: an attack, special or super whose input is done now goes in
+	/// the buffer (it comes out on the first free frame: ProcessMoveBuffer checks the state again). Nothing comes out here,
+	/// and no Burst, tech or movement is kept.</summary>
+	private void NetsuWakeBuffer()
+	{
+		int[] order = NetsuMoveOrder();
+		for (int o = 0; o < order.Length; o++)
+		{
+			int i = order[o];
+			MoveSettings move = GetMove(i);
+			if (move == null || move.SkipCheck || move.Priority < NetsuStunBufferPriority || move.AcceptHitReactionStates
+				|| !(move.AcceptNullStates || move.AcceptMovementStates) || NetsuIsAirTechMove(i) || NetsuIsBurst(i) || NetsuIsOverdrive(i))
+			{
+				continue;
+			}
+			if (CheckMoveConditions(i, ignoreStateType: true) && NetsuInputDone(i))
+			{
+				BufferMove(i, false);
+				MoveBuffer.Start((uint)(NetsuWakeBufferFrames + 8));   // lasts past the end of the get-up
+				return;
+			}
+		}
+	}
+
 	/// <summary>Netsu (Oct 28): the move's input has a button in it (normals, specials, supers, throws, Burst).</summary>
 	private static bool NetsuUsesButton(MotionInputs inputs)
 	{
@@ -398,6 +490,10 @@ public partial class StanceManager : Node
 	private bool NetsuStunBuffer()
 	{
 		StateType type = _owner.StateManager.CurrentStateType();
+		if (type == StateType.LOCKED && !_owner.IsKO() && _owner.NetsuGroundTechEnding(NetsuWakeBufferFrames))
+		{
+			return true;   // Nov 4: the last frames of a ground tech, like the last frames of getting up (NetsuWakeBuffer)
+		}
 		if ((type != StateType.BLOCKING && type != StateType.HIT_REACTION) || _owner.IsGrabbed() || _owner.IsKO())
 		{
 			return false;
@@ -433,20 +529,53 @@ public partial class StanceManager : Node
 
 	private void BufferMove(int moveIndex, bool moveCancel)
 	{
+		if (BufferedMove >= 0 && BufferedMove != moveIndex && NetsuIsBurst(BufferedMove) && MoveBuffer.IsRunning())
+		{
+			return;   // Nov 4: a Burst waiting out hitstop isn't replaced by another press (a tech, an OTG recovery...)
+		}
 		BufferedMove = moveIndex;
 		CancelBuffer = moveCancel;
-		uint netsuWait = 0u;
-		if (NetsuIsBurst(moveIndex) && _owner.Hitstop != null && _owner.Hitstop.IsRunning())
-		{
-			netsuWait = _owner.Hitstop.TimeLeft;   // Nov 3: a Burst pressed in hitstop waits for it to end (stays buffered)
-		}
-		MoveBuffer.Start(10u + netsuWait);
+		MoveBuffer.Start(10u);   // (Nov 4: a Burst no longer waits out hitstop: it comes out on the press, ExecuteMove)
 	}
 
 	public const int NetsuAirDashLandLag = 12;   // Oct 28: Leticia's air dashes (MoveSettings.NetsuAirLandLag)
 
+	private bool _netsuBurstRelease;
+
+	/// <summary>Nov 5 (BlazBlue): the Burst hold is over (SakugaActor.NetsuBurstHoldTick): the Burst itself starts now.</summary>
+	public void NetsuBurstRelease(int moveIndex)
+	{
+		_netsuBurstRelease = true;
+		ExecuteMove(moveIndex);
+		_netsuBurstRelease = false;
+	}
+
 	public void ExecuteMove(int moveIndex)
 	{
+		if (_owner.NetsuBurstHold > 0 && !_netsuBurstRelease)
+		{
+			BufferedMove = -1;   // Nov 5: nothing else comes out during the Burst hold
+			CancelBuffer = false;
+			MoveBuffer.Stop();
+			return;
+		}
+		if (NetsuIsBurst(moveIndex) && !_netsuBurstRelease)
+		{
+			// Nov 5 (TamaDeez, BlazBlue Central Fiction): the press starts the hold first: she stays frozen in her hit
+			// (or block) pose, flashing green and invincible, for NetsuBurstHoldFrames; nothing else is frozen, so the
+			// attacker keeps moving (his hitstop ends now). Then the Burst (its animation unchanged) comes out:
+			// it hits about 12F after the press. Whoever has recovered by then can block it.
+			SakugaActor netsuFoe = _owner.GetOpponent(0);
+			if (netsuFoe != null && netsuFoe.Hitstop != null && netsuFoe.Hitstop.IsRunning())
+			{
+				netsuFoe.Hitstop.Stop();
+			}
+			_owner.NetsuBurstHoldBegin(moveIndex);
+			BufferedMove = -1;
+			CancelBuffer = false;
+			MoveBuffer.Stop();
+			return;
+		}
 		if (NetsuAutoFace(GetMove(moveIndex)) && _owner.Body != null)
 		{
 			_owner.Body.FlipSide();   // Nov 3: auto-correct: specials / EX / supers start facing the opponent
@@ -463,9 +592,19 @@ public partial class StanceManager : Node
 		{
 			_owner.NetsuAirTechInvul = false;
 		}
+		_owner.NetsuBlockedExtra = 0;   // Nov 4: a new move: the last one's blocked-DP landing is forgotten
 		if (NetsuIsBurst(moveIndex))
 		{
-			_owner.NetsuBurstBegin();   // Nov 3: fully invincible, a moment's pause, the explosion
+			// Nov 4 (TamaDeez): invincible from the moment it's pressed: a Burst pressed in hitstop comes out right away
+			// (her hitstop ends here), so it can't be hit before it starts.
+			// Nov 5 (TamaDeez, baitable): the attacker's hitstop ends too, so an attacker who left a gap (a light normal's
+			// recovery, a jump, neutral) is free to guard it; one still in a real attack gets hit.
+			// (Nov 5 BlazBlue: this now runs when the hold ends; the attacker's hitstop was ended on the press.)
+			if (_owner.Hitstop != null && _owner.Hitstop.IsRunning())
+			{
+				_owner.Hitstop.Stop();
+			}
+			_owner.NetsuBurstBegin();   // Nov 3: fully invincible, then the explosion
 		}
 		else
 		{
@@ -507,6 +646,10 @@ public partial class StanceManager : Node
 		if (GetMove(moveIndex).NetsuOncePerJump)
 		{
 			_owner.NetsuAirMoveUsed = true;   // Netsu (Oct 26 late): used up until she lands
+		}
+		if (GetMove(moveIndex).NetsuOwnOncePerJump)
+		{
+			_owner.NetsuAirOwnMoveUsed = true;   // Nov 4: used up until she lands
 		}
 		if (netsuOverdrive)
 		{
@@ -732,6 +875,10 @@ public partial class StanceManager : Node
 		StateType t = _owner.StateManager.CurrentStateType();
 		if (NetsuIsBurst(index))
 		{
+			if (_owner.NetsuBurstWaitLocked())
+			{
+				return false;   // Nov 4 night (DFCI): the opponent's Burst is past its 3rd frame ("WAIT")
+			}
 			return t == StateType.HIT_REACTION || t == StateType.BLOCKING;   // Nov 3 (BlazBlue): also out of blockstun
 		}
 		if (NetsuIsOverdrive(index))
@@ -803,6 +950,18 @@ public partial class StanceManager : Node
 		if (_owner.Inputs.CheckMotionInputs(m.Inputs, NetsuMoveInputSide(m)))
 		{
 			return true;
+		}
+		if (NetsuIsBurst(index))
+		{
+			// Nov 4: A held (holding to tech) and C pressed, or the other way round, is a Burst too (both had to be
+			// fresh presses within 2 frames)
+			InputManager inp = _owner.Inputs;
+			int h = inp.CurrentHistory;
+			if (inp.IsBeingPressed(h, PlayerInputs.FACE_A) && inp.IsBeingPressed(h, PlayerInputs.FACE_C)
+				&& (inp.WasPressed(h, PlayerInputs.FACE_A) || inp.WasPressed(h, PlayerInputs.FACE_C)))
+			{
+				return true;
+			}
 		}
 		if (!NetsuIsOverdrive(index))
 		{
@@ -1116,6 +1275,12 @@ public partial class StanceManager : Node
 		{
 			return false;
 		}
+		FighterState netsuState = _owner.StateManager != null ? _owner.StateManager.GetCurrentState() : null;
+		if (netsuState != null && netsuState.NetsuOnBlock != 0)
+		{
+			advantage = netsuState.NetsuOnBlock;   // Nov 4: the state's own number (Flan's charged 236[B] punch: -14)
+			return true;
+		}
 		int s = NetsuStrength(CurrentMove);
 		if (s < 0)
 		{
@@ -1292,7 +1457,7 @@ public partial class StanceManager : Node
 			BufferedMove = -1;
 			NetsuLog.Debug("Buffer Cleaned!");
 		}
-		else if ((CancelBuffer || _owner.StateManager.CurrentStateType() != StateType.COMBAT) && (CancelBuffer || NetsuAllowedStateType(BufferedMove)) && NetsuBurstOrOverdriveState(BufferedMove) && (GetBufferedMove().Unlockable || !_owner.ContainsFrameProperty(FrameProperties.LOCK_MOVE)) && ((GetBufferedMove().IgnoreHitstop && !NetsuIsBurst(BufferedMove)) || !_owner.Hitstop.IsRunning()) && (GetBufferedMove().IgnoreHitstun || NetsuIsOverdrive(BufferedMove) || !_owner.Hitstun.IsRunning()))
+		else if ((CancelBuffer || _owner.StateManager.CurrentStateType() != StateType.COMBAT) && (CancelBuffer || NetsuAllowedStateType(BufferedMove)) && NetsuBurstOrOverdriveState(BufferedMove) && (GetBufferedMove().Unlockable || !_owner.ContainsFrameProperty(FrameProperties.LOCK_MOVE)) && (GetBufferedMove().IgnoreHitstop || NetsuIsBurst(BufferedMove) || !_owner.Hitstop.IsRunning()) && (GetBufferedMove().IgnoreHitstun || NetsuIsOverdrive(BufferedMove) || !_owner.Hitstun.IsRunning()))
 		{
 			if (CurrentMove < 0 || CancelBuffer || (GetCurrentMove().CanBeOverrided && (GetCurrentMove().IgnoreSamePriority ? (GetBufferedMove().Priority > GetCurrentMove().Priority) : (GetBufferedMove().Priority >= GetCurrentMove().Priority))))
 			{
@@ -1490,8 +1655,13 @@ public partial class StanceManager : Node
 
 	// ---------------------------------------------------------------------------------------------
 	// Netsu (Nov 3 2026, TamaDeez): BAITING A BURST, a rule for the whole game.
-	//  - A Burst only comes out once the Burster's hitstop is over (ProcessMoveBuffer), so the attacker gets the same
-	//    frames to react as the Burst's startup (6).
+	//  - Nov 4 (TamaDeez): a Burst comes out the moment it's pressed, even in hitstop (the Burster's hitstop ends, the
+	//    attacker stays frozen in his), invincible from that frame, and hits from frame 4 (DFCI's Escape Blast, startup
+	//    5F; SakugaActor.NetsuBurstActiveFrom). (Before: it waited for the Burster's hitstop to end.)
+	//  - Nov 5 (TamaDeez, baitable): the attacker's hitstop ends with hers, so the guard rule below decides. Blocked, her
+	//    invincibility ends when it stops hitting (frame 13; 20 powered up) and she can't act until frame 55: a punish.
+	//  - Nov 5 later (BlazBlue Central Fiction): REPLACED: an 8F green hold before the Burst (SakugaActor.NetsuBurstHold)
+	//    and the normal block rule (hold back, recovered). The rule below is kept for reference but no longer used.
 	//  - Against a Burst hit (NetsuVsBurst, set by the Burster's hit code), the attacker guards if she is free:
 	//      * in the recovery of a LIGHT (A) normal that connected and she pressed nothing after it (lights recover fast
 	//        enough: bursting a light is a risk);
@@ -1517,6 +1687,10 @@ public partial class StanceManager : Node
 		if (t == StateType.HIT_REACTION || t == StateType.LOCKED || _owner.NetsuLandLag > 0)
 		{
 			return -1;
+		}
+		if (_owner.OnHitstop())
+		{
+			return -1;   // Nov 4: still frozen in the hit she was Burst out of: can't guard it (baiting has to be a real read)
 		}
 		if (t == StateType.COMBAT && _owner.StateManager.CurrentStateFrame >= 3 && !NetsuLightRecovery())
 		{
@@ -1561,10 +1735,8 @@ public partial class StanceManager : Node
 		{
 			return -1;   // Nov 3: coming down from her Burst: she can't block (the punish window)
 		}
-		if (NetsuVsBurst)
-		{
-			return NetsuBurstGuard(Type, state);
-		}
+		// Nov 5 (TamaDeez, BlazBlue): no special guard rule for a Burst any more (NetsuBurstGuard is unused): it is
+		// blocked like any attack, holding back, by whoever has recovered when it hits.
 		if (_owner.NetsuLandLag > 0)
 		{
 			return -1;   // Netsu (Oct 26 late): can't block during landing recovery

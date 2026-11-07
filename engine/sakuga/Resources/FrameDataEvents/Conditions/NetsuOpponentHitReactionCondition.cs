@@ -17,7 +17,9 @@ public partial class NetsuOpponentHitReactionCondition : FrameDataCondition
 	public override bool Check(ref SakugaActor Actor)
 	{
 		SakugaActor opponent = Actor.GetOpponent(0);
-		bool reacting = opponent != null && opponent.StateManager != null
+		// Netsu (Nov 4): a K.O.'d opponent never leaves its hit reaction: a hold waiting for them (the counter super's
+		// last frame) waited for good and the round never ended
+		bool reacting = opponent != null && opponent.StateManager != null && !opponent.IsKO()
 			&& (opponent.StateManager.CurrentStateType() == StateType.HIT_REACTION || opponent.OnHitstun());
 		return Not ? !reacting : reacting;
 	}

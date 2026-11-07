@@ -6,16 +6,22 @@ extends Control
 ##   EX Craft -> a slanted band opens across her side of the screen with a big close-up of her
 ##               (actors/<fighter>/Artwork/CutIn_EX.png), behind the fighters, for about half a second,
 ##               with the EX sound and the move's name.
-##   S-Craft  -> the stage turns to dark smoke in her colour (assets/shaders/netsu_super_backdrop.gdshader),
-##               a huge picture of her (CutIn_Super.png) fades in behind the fighters, the S-Craft sound
-##               plays and the move's name comes up big. The smoke stays until she is out of the super
-##               (MatchSetup.super_hold, from the engine).
+##   S-Craft  -> Nov 4: a Trails of Cold Steel S-Craft cut-in (Rean's, "Trails of Cold Steel - S-Craft Exhibition",
+##               0:06-0:09). While the super's pause holds the fight, a huge picture of her (CutIn_Super.png, or
+##               CutIn_Super_<Move_Name>.png for one super) slides in OVER the fight from the side she faces, washed
+##               in her colour with a bigger glowing echo of itself and a flare of white light; it settles into full
+##               colour, slowly pushes in, and dissolves (darkening) just as the pause ends (_draw_cs). The S-Craft
+##               sound plays and the move's name comes up on the far side. Under the fighters the stage turns to dark
+##               smoke in her colour (assets/shaders/netsu_super_backdrop.gdshader), which stays until she is out of
+##               the super (MatchSetup.super_hold, from the engine).
 ## The outline around the fighter is the engine (AnimationViewer.SetAura); the dark stage and the burst of
 ## light at her chest are netsu_super_flash.gd. Her colour: FighterProfile.NetsuAuraColor
 ## (MatchSetup.side_color). Sounds: assets/audio/sfx/netsu_ex_flash.wav / netsu_super_flash.wav
 ## (made by tools/fx/make_cutin_sfx.py).
-## Three layers: this node draws the names (over the HUD); it puts two more right under the fighters'
-## layer: the smoke (a ColorRect with the shader) and the pictures (_draw_back).
+## Layers: this node draws the names (over the HUD); it puts two right under the fighters' layer: the smoke (a
+## ColorRect with the shader) and the EX close-up (_draw_back); and (Nov 4) two over the fighters, under the HUD,
+## for the S-Craft cut-in: _front (the dark screen behind her and her picture) and _front_light (additive: her
+## colour washing off the picture, its echo, the flare, the glows behind her).
 ## Presentation only: nothing in the match depends on it. Rollback can start a move twice: repeats
 ## within 0.6 s are ignored.
 ## Oct 25: no more stall on the first EX move / super of a fight. Both fighters' pictures and the two sounds are
@@ -54,9 +60,16 @@ const ART := {
 @export var smoke_in: float = 0.1                       ## seconds to fill the screen
 @export var smoke_out: float = 0.45                     ## seconds to clear after the super
 @export var smoke_min: float = 0.75                     ## seconds the smoke stays at least
-@export var portrait_height: float = 1.75               ## the picture's height / the screen's
-@export var portrait_face: Vector2 = Vector2(600, 330)  ## where her face goes, left-side fighter
-@export var portrait_alpha: float = 0.9
+@export_group("S-Craft cut-in (Trails of Cold Steel)")
+@export var cs_delay: float = 0.06                      ## seconds after the super starts before her picture comes in
+@export var cs_in: float = 0.12                         ## seconds it slides in
+@export var cs_wash: float = 0.3                        ## seconds her colour takes to wash off it
+@export var cs_out: float = 0.26                        ## seconds it dissolves (ending as the pause does)
+@export var cs_height: float = 2.15                     ## the picture's height / the screen's (2.15: head to hips)
+@export var cs_face: Vector2 = Vector2(0.37, 0.31)      ## where her face goes (fractions of the screen), left-side fighter
+@export var cs_slide: float = 0.3                       ## how far it slides in from (fraction of the screen's width)
+@export var cs_push: float = 0.045                      ## how much it slowly grows while it's up
+@export var cs_backdrop: float = 0.9                    ## how dark the screen behind her goes (0-1)
 @export_group("Names")
 @export var text_color: Color = Color(1, 1, 1)
 @export var outline_color: Color = Color(0.02, 0.03, 0.12, 0.95)
@@ -85,6 +98,11 @@ var _sounds := {}          # path -> AudioStream (loaded as the fight starts)
 var _warm := 0             # frames of invisible warm-up drawing left (the fight's first, black frames)
 var _warm_step := 0
 var _warm_art: Array = []  # {"ex": Texture2D, "super": Texture2D, "art": {}} per fighter
+var _front: Control        # Nov 4: the S-Craft cut-in, over the fighters and under the HUD ...
+var _front_light: Control  # ... and its light (additive)
+var _game: Node            # GameManager (C#): how long the super's pause is (NetsuPauseInfo)
+var _glow: GradientTexture2D
+var _bokeh: Array = []     # soft lights behind her picture: [x, y (0-1 of the screen), radius, drift phase]
 
 ## Letters the move names can use: drawn once at every size so their glyphs are ready (_warm).
 const WARM_LETTERS := "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 -'!?.,&:"
@@ -113,6 +131,23 @@ func _ready() -> void:
 	_back.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_back.size = CANVAS
 	_back.draw.connect(_draw_back)
+	_front = Control.new()
+	_front.name = "NetsuSCraftCutIn"
+	_front.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_front.size = CANVAS
+	_front.draw.connect(func(): _draw_front(_front, 0))
+	_front_light = Control.new()
+	_front_light.name = "Light"
+	_front_light.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_front_light.size = CANVAS
+	var add := CanvasItemMaterial.new()
+	add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	_front_light.material = add
+	_front_light.draw.connect(func(): _draw_front(_front_light, 1))
+	_front.add_child(_front_light)
+	_glow = _make_glow()
+	for i in 9:
+		_bokeh.append([rng.randf_range(0.0, 1.0), rng.randf_range(0.05, 0.95), rng.randf_range(60.0, 190.0), rng.randf() * TAU])
 	_smoke = ColorRect.new()
 	_smoke.name = "NetsuSuperSmoke"
 	_smoke.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -155,6 +190,7 @@ func _warm_tick() -> void:
 	var on := _warm > 0
 	modulate.a = 0.01 if on else 1.0
 	_back.modulate.a = 0.01 if on else 1.0
+	_front.modulate.a = 0.01 if on else 1.0
 	if on:
 		_smoke.visible = true
 		_smoke.position = Vector2.ZERO
@@ -165,6 +201,8 @@ func _warm_tick() -> void:
 		_smoke.visible = false
 	queue_redraw()
 	_back.queue_redraw()
+	_front.queue_redraw()
+	_front_light.queue_redraw()
 
 
 func _end_warm() -> void:
@@ -180,14 +218,24 @@ func _place() -> void:
 	var hud := get_parent()
 	var root := hud.get_parent() if hud else null
 	var container: Node = root.get_node_or_null("ViewportContainer") if root else null
+	if root and root.get_parent():
+		for n in root.get_parent().get_children():
+			if n.has_method("NetsuPauseInfo"):
+				_game = n
 	if container == null:
 		add_child(_smoke)
 		add_child(_back)
+		add_child(_front)
 		return
 	root.add_child(_smoke)
 	root.add_child(_back)
 	root.move_child(_smoke, container.get_index())
 	root.move_child(_back, container.get_index())
+	# the S-Craft cut-in: over the fighters (and netsu_super_flash.gd), under the HUD (it's under GameHUD_Foreground
+	# and the Netsu HUD, as Cold Steel keeps its HUD over the cut-in)
+	root.add_child(_front)
+	var foreground := root.get_node_or_null("GameHUD_Foreground")
+	root.move_child(_front, foreground.get_index() if foreground else container.get_index() + 1)
 
 
 func _on_cut_in(side: int, fighter: String, move_name: String, is_super: bool, from_left: bool) -> void:
@@ -202,10 +250,21 @@ func _on_cut_in(side: int, fighter: String, move_name: String, is_super: bool, f
 	var folder := fighter.to_lower()
 	var ex_tex := _pic("res://actors/%s/Artwork/CutIn_EX.png" % folder)
 	var super_tex := _pic("res://actors/%s/Artwork/CutIn_Super.png" % folder)
+	if is_super:
+		# Nov 4: one super can have its own picture: CutIn_Super_<Move_Name>.png ("Big Bang Crash" -> Big_Bang_Crash)
+		var own := _pic("res://actors/%s/Artwork/CutIn_Super_%s.png" % [folder, _file_name(move_name)])
+		if own:
+			super_tex = own
 	var color: Color = MatchSetup.side_color(side) if MatchSetup.has_method("side_color") else (Color(0.3, 0.62, 1.0) if side == 0 else Color(1.0, 0.25, 0.38))
+	# how long the cut-in is up: an S-Craft's goes with the super's pause (GameManager.NetsuPauseInfo: it has
+	# just started), so the fight is back in view the moment it runs again
+	var life := super_time if is_super else ex_time
+	if is_super:
+		life = _cs_time_for(side)
 	_active = _active.filter(func(c): return c["side"] != side)
 	_active.append({"side": side, "name": move_name, "super": is_super, "left": from_left, "t": 0.0, "color": color,
-		"ex_tex": ex_tex if ex_tex else super_tex, "super_tex": super_tex if super_tex else ex_tex, "art": ART.get(folder, {})})
+		"ex_tex": ex_tex if ex_tex else super_tex, "super_tex": super_tex if super_tex else ex_tex, "art": ART.get(folder, {}),
+		"life": life})
 	if is_super:
 		_smoke_side = side
 		_smoke_t = 0.0
@@ -218,6 +277,24 @@ func _on_cut_in(side: int, fighter: String, move_name: String, is_super: bool, f
 		_sfx.stream = _sounds[path]
 		_sfx.volume_db = super_volume_db if is_super else ex_volume_db
 		_sfx.play()
+
+
+## Seconds an S-Craft's cut-in is up: the length of the pause `side`'s super just started (60 frames, or the
+## move's NetsuPauseFrames), else super_time.
+func _cs_time_for(side: int) -> float:
+	if _game:
+		var info = _game.call("NetsuPauseInfo")
+		if info is Array and info.size() > 2 and int(info[1]) == side and int(info[0]) > 0:
+			return maxf(float(info[2]) / 60.0, cs_delay + cs_in + cs_out + 0.1)
+	return super_time
+
+
+## A move's name as part of a file name: "Big Bang Crash" -> "Big_Bang_Crash".
+static func _file_name(move_name: String) -> String:
+	var out := ""
+	for ch in move_name.strip_edges():
+		out += ch if (ch >= "a" and ch <= "z") or (ch >= "A" and ch <= "Z") or (ch >= "0" and ch <= "9") else "_"
+	return out
 
 
 func _on_super_hold(side: int, on: bool) -> void:
@@ -240,14 +317,19 @@ func _process(delta: float) -> void:
 	if hud and _back.get_parent() != self:
 		_back.scale = hud.scale
 		_back.position = hud.position
+	if hud and _front.get_parent() != self:
+		_front.scale = hud.scale
+		_front.position = hud.position
 	_update_smoke(delta)
 	if _active.is_empty():
 		return
 	for c in _active:
 		c["t"] += delta
-	_active = _active.filter(func(c): return c["t"] < (super_time if c["super"] else ex_time))
+	_active = _active.filter(func(c): return c["t"] < float(c.get("life", super_time if c["super"] else ex_time)))
 	queue_redraw()
 	_back.queue_redraw()
+	_front.queue_redraw()
+	_front_light.queue_redraw()
 
 
 func _update_smoke(delta: float) -> void:
@@ -296,13 +378,21 @@ func _draw_back() -> void:
 			var fake := {"side": 0, "name": "", "super": false, "left": true, "t": 0.2, "color": Color.WHITE,
 				"ex_tex": w["ex"], "super_tex": w["super"], "art": w["art"]}
 			_draw_band(fake)
-			fake["left"] = false
-			_draw_portrait(fake)
+	for c in _active:
+		if not c["super"]:
+			_draw_band(c)
+
+
+## Nov 4: the S-Craft cut-in's layers (layer 0: _front, 1: _front_light).
+func _draw_front(on: CanvasItem, layer: int) -> void:
+	if _warm > 0:
+		for w in _warm_art:   # both fighters' pictures, both ways round, nearly transparent (under the black screen)
+			for left in [true, false]:
+				_draw_cs(on, {"side": 0, "name": "", "super": true, "left": left, "t": 0.12, "color": Color.WHITE,
+					"ex_tex": w["ex"], "super_tex": w["super"], "art": w["art"], "life": 1.0}, layer)
 	for c in _active:
 		if c["super"]:
-			_draw_portrait(c)
-		else:
-			_draw_band(c)
+			_draw_cs(on, c, layer)
 
 
 ## 0 -> 1 with an ease-out over `sec` from the start
@@ -415,50 +505,102 @@ func _art_uvs(u0: float, u1: float, v0: float, v1: float, au0: float, av0: float
 	return PackedVector2Array([Vector2(a.x, a.y), Vector2(b.x, a.y), Vector2(b.x, b.y), Vector2(a.x, b.y)])
 
 
-func _draw_portrait(c: Dictionary) -> void:
+## The S-Craft cut-in, after Trails of Cold Steel (Rean's S-Craft, "S-Craft Exhibition" 0:06-0:09), on one of its two
+## layers (0: the dark screen behind her and her picture; 1, additive: the light):
+##   it slides in fast (cs_in) from the side she faces, washed in her colour, with a bigger, glowing echo of itself
+##   further along and a flare of white light on the far side; her colour washes off it (cs_wash); then it holds in
+##   full colour, slowly pushing in (cs_push), soft lights in her colour drifting behind it; it dissolves, darkening,
+##   over the last cs_out of the pause. The right-side fighter's is mirrored, so she faces the middle.
+func _draw_cs(on: CanvasItem, c: Dictionary, layer: int) -> void:
 	var tex: Texture2D = c["super_tex"]
-	if tex == null:
-		return
 	var t: float = c["t"]
-	var k_in := _ease_in(t, 0.16)
-	var k_out := _ease_out(t, super_time, 0.4)
-	var alpha := portrait_alpha * minf(1.0, t / 0.08) * k_out
+	var life: float = c.get("life", super_time)
+	var lt := t - cs_delay
+	var col: Color = c["color"]
+	var left: bool = c["left"]
+	var dir := 1.0 if left else -1.0   # the way she faces
+	var out := clampf((t - (life - cs_out)) / cs_out, 0.0, 1.0)
+	var env := clampf(t / 0.1, 0.0, 1.0) * (1.0 - out)          # the screen behind her
+	var alpha := clampf(lt / 0.05, 0.0, 1.0) * (1.0 - out)      # the picture
+	if layer == 0 and env > 0.0:
+		on.draw_rect(Rect2(Vector2(-60, -60), CANVAS + Vector2(120, 120)), Color(col.darkened(0.86), cs_backdrop * env))
+	if tex == null or lt <= 0.0:
+		return
 	var ts := tex.get_size()
 	var art: Dictionary = c["art"]
 	var face: Vector2 = art.get("super_face", Vector2(ts.x * 0.5, ts.y * 0.15))
-	var s := portrait_height * CANVAS.y / ts.y * (1.07 - 0.07 * k_in + 0.025 * t)
-	var left: bool = c["left"]
-	var dir := 1.0 if left else -1.0
-	var fx := portrait_face.x if left else CANVAS.x - portrait_face.x
-	fx -= (1.0 - k_in) * 240.0 * dir
+	var k_in := _ease_in(lt, cs_in)
+	var s := cs_height * CANVAS.y / ts.y * (1.0 + cs_push * clampf(lt / maxf(life - cs_delay, 0.01), 0.0, 1.0))
+	var fx := (cs_face.x if left else 1.0 - cs_face.x) * CANVAS.x + (1.0 - k_in) * cs_slide * CANVAS.x * dir
+	var fy := cs_face.y * CANVAS.y
+	var at := Vector2(fx, fy)   # her face on the screen
 	var x0 := fx - (face.x * s if left else (ts.x - face.x) * s)
-	var y0 := portrait_face.y - face.y * s
-	var w := ts.x * s
-	var h := ts.y * s
-	# the picture (mirrored on the right so she faces the middle), fading out towards the bottom
-	var y_fade := y0 + h * 0.42
-	var on := Color(1, 1, 1, alpha)
-	var off := Color(1, 1, 1, 0.0)
+	var rect := Rect2(x0, fy - face.y * s, ts.x * s, ts.y * s)
+	if layer == 0:
+		# her picture: full colour, darkening into her colour as it dissolves
+		_cs_quad(on, tex, rect, left, Color(Color.WHITE.lerp(col.darkened(0.35), 0.6 * out), alpha))
+		return
+	# --- layer 1 (light) ---
+	# soft lights in her colour drifting behind her (Cold Steel's fire bokeh), and a glow behind her
+	for b in _bokeh:
+		var bx: float = float(b[0]) * CANVAS.x + sin(t * 0.9 + float(b[3])) * 30.0 - dir * t * 40.0
+		var by: float = float(b[1]) * CANVAS.y + cos(t * 0.7 + float(b[3])) * 20.0
+		var br: float = float(b[2]) * (0.9 + 0.1 * sin(t * 2.0 + float(b[3])))
+		on.draw_texture_rect(_glow, Rect2(Vector2(bx, by) - Vector2(br, br), Vector2(br, br) * 2.0), false,
+			Color(col.lerp(Color(1, 0.9, 0.7), 0.35), 0.22 * env))
+	var gr := 760.0
+	on.draw_texture_rect(_glow, Rect2(at + Vector2(dir * 80.0, 120.0) - Vector2(gr, gr), Vector2(gr, gr) * 2.0), false,
+		Color(col, 0.3 * env))
+	# her colour washing off the picture as it comes in
+	var wash := pow(clampf(1.0 - lt / cs_wash, 0.0, 1.0), 1.4)
+	if wash > 0.0:
+		_cs_quad(on, tex, rect, left, Color(col.lerp(Color.WHITE, 0.2), 0.95 * wash * alpha))
+	# the echo: a bigger copy further along, glowing in her colour and fading
+	var ek := clampf(lt / 0.34, 0.0, 1.0)
+	if ek < 1.0:
+		var grow := 1.32 - 0.1 * ek
+		var eat := at + Vector2(dir * 0.08 * CANVAS.x * (1.0 - 0.5 * ek), -0.03 * CANVAS.y)
+		_cs_quad(on, tex, Rect2(eat + (rect.position - at) * grow, rect.size * grow), left,
+			Color(col.lerp(Color.WHITE, 0.35), 0.45 * (1.0 - ek) * alpha))
+	# a flare of white light on the far side (Rean's blade catching the light)
+	var fk := clampf((lt - 0.02) / 0.42, 0.0, 1.0)
+	if fk < 1.0:
+		var fa := (1.0 - fk) * minf(1.0, lt / 0.04)
+		var fc := at + Vector2(dir * 0.36 * CANVAS.x, 0.17 * CANVAS.y)
+		on.draw_texture_rect(_glow, Rect2(fc - Vector2(560, 190), Vector2(1120, 380)), false, Color(1, 0.97, 0.9, 0.75 * fa))
+		on.draw_texture_rect(_glow, Rect2(fc - Vector2(170, 170), Vector2(340, 340)), false, Color(1, 1, 1, 0.9 * fa))
+		var half := 1100.0 * (0.6 + 0.4 * fk)
+		var th := 7.0 * (1.0 - fk) + 1.0
+		var w := Color(1, 1, 1, 0.85 * fa)
+		var none := Color(1, 1, 1, 0.0)
+		on.draw_primitive(PackedVector2Array([fc - Vector2(half, 0), fc - Vector2(0, th), fc + Vector2(half, 0), fc + Vector2(0, th)]),
+			PackedColorArray([none, w, none, w]), PackedVector2Array())
+
+
+## Her picture in `rect` (mirrored for the right-side fighter), tinted `tint`.
+func _cs_quad(on: CanvasItem, tex: Texture2D, rect: Rect2, left: bool, tint: Color) -> void:
+	if tint.a <= 0.0:
+		return
 	var ua := 0.0 if left else 1.0
-	var ub := 1.0 if left else 0.0
-	var vf := (y_fade - y0) / h
-	_back.draw_primitive(PackedVector2Array([Vector2(x0, y0), Vector2(x0 + w, y0), Vector2(x0 + w, y_fade), Vector2(x0, y_fade)]),
-		PackedColorArray([on, on, on, on]), PackedVector2Array([Vector2(ua, 0), Vector2(ub, 0), Vector2(ub, vf), Vector2(ua, vf)]), tex)
-	var y_end := minf(y0 + h, CANVAS.y + 40.0)
-	var ve := (y_end - y0) / h
-	_back.draw_primitive(PackedVector2Array([Vector2(x0, y_fade), Vector2(x0 + w, y_fade), Vector2(x0 + w, y_end), Vector2(x0, y_end)]),
-		PackedColorArray([on, on, off, off]), PackedVector2Array([Vector2(ua, vf), Vector2(ub, vf), Vector2(ub, ve), Vector2(ua, ve)]), tex)
-	# a sweep of light across her as she comes in
-	if t < 0.3:
-		var k := t / 0.3
-		var sx := lerpf(x0 - 300.0, x0 + w + 300.0, k) if left else lerpf(x0 + w + 300.0, x0 - 300.0, k)
-		var lw := 120.0
-		var a := 0.55 * (1.0 - k)
-		var col := Color(1, 1, 1, a)
-		var cl := Color(1, 1, 1, 0.0)
-		_back.draw_primitive(PackedVector2Array([Vector2(sx - lw + 260.0 * dir, -20), Vector2(sx + 260.0 * dir, -20),
-			Vector2(sx - 260.0 * dir, CANVAS.y + 20), Vector2(sx - lw - 260.0 * dir, CANVAS.y + 20)]),
-			PackedColorArray([cl, col, col, cl]), PackedVector2Array())
+	var ub := 1.0 - ua
+	var p := rect.position
+	var q := rect.end
+	on.draw_primitive(PackedVector2Array([p, Vector2(q.x, p.y), q, Vector2(p.x, q.y)]), PackedColorArray([tint, tint, tint, tint]),
+		PackedVector2Array([Vector2(ua, 0), Vector2(ub, 0), Vector2(ub, 1), Vector2(ua, 1)]), tex)
+
+
+func _make_glow() -> GradientTexture2D:
+	var g := Gradient.new()
+	g.offsets = PackedFloat32Array([0.0, 0.35, 1.0])
+	g.colors = PackedColorArray([Color(1, 1, 1, 1), Color(1, 1, 1, 0.5), Color(1, 1, 1, 0)])
+	var tex := GradientTexture2D.new()
+	tex.gradient = g
+	tex.fill = GradientTexture2D.FILL_RADIAL
+	tex.fill_from = Vector2(0.5, 0.5)
+	tex.fill_to = Vector2(1.0, 0.5)
+	tex.width = 128
+	tex.height = 128
+	return tex
 
 
 func _draw_ex_name(c: Dictionary) -> void:
@@ -487,9 +629,13 @@ func _draw_ex_name(c: Dictionary) -> void:
 
 func _draw_super_name(c: Dictionary) -> void:
 	var t: float = c["t"]
-	var k_in := _ease_in(t, 0.18)
-	var k_out := _ease_out(t, super_time, 0.3)
-	var alpha := minf(1.0, t / 0.1) * k_out
+	# Nov 4: it comes in once her picture has landed and goes with it
+	var lt := t - cs_delay - cs_in * 0.6
+	if lt <= 0.0:
+		return
+	var k_in := _ease_in(lt, 0.18)
+	var k_out := _ease_out(t, float(c.get("life", super_time)), cs_out)
+	var alpha := minf(1.0, lt / 0.1) * k_out
 	var left: bool = c["left"]
 	var dir := 1.0 if left else -1.0
 	var acc: Color = c["color"]
@@ -501,10 +647,10 @@ func _draw_super_name(c: Dictionary) -> void:
 		# a long name: smaller, in steps of 8 (the sizes the fight's first frames warm up: SUPER_SIZES)
 		size_px = maxi(40, int(size_px * room / tw) / 8 * 8)
 		tw = _name_font.get_string_size(label, HORIZONTAL_ALIGNMENT_LEFT, -1, size_px).x
-	# on the other side from her picture, above the fighters
+	# on the far side from her face, low (Nov 4: over the cut-in, which covers the fighters)
 	var tx := (CANVAS.x - 130.0 - tw) if left else 130.0
 	tx += (1.0 - k_in) * 380.0 * dir
-	var ty := CANVAS.y * 0.36
+	var ty := CANVAS.y * 0.7
 	_text(_tag_font, Vector2(tx, ty - 104), "S-CRAFT", 34, Color(acc.lightened(0.4), alpha), 5)
 	_text(_name_font, Vector2(tx, ty), label, size_px, Color(text_color, alpha), 10)
 	var lx0 := tx - 40.0 if left else tx

@@ -55,7 +55,7 @@ HitboxData = ExtResource("8")
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_1")
 Offset = Vector2(-338, 4)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A0"]
 script = ExtResource("an")
@@ -65,7 +65,7 @@ Modifiers = [SubResource("M0_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_2")
 Offset = Vector2(-358, 3)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A1"]
 script = ExtResource("an")
@@ -76,7 +76,7 @@ Modifiers = [SubResource("M1_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_3")
 Offset = Vector2(-338, 2)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A2"]
 script = ExtResource("an")
@@ -87,7 +87,7 @@ Modifiers = [SubResource("M2_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_4")
 Offset = Vector2(-349, 1)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A3"]
 script = ExtResource("an")
@@ -98,7 +98,7 @@ Modifiers = [SubResource("M3_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_1")
 Offset = Vector2(-338, 4)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A4"]
 script = ExtResource("an")
@@ -109,7 +109,7 @@ Modifiers = [SubResource("M4_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_2")
 Offset = Vector2(-358, 3)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A5"]
 script = ExtResource("an")
@@ -120,7 +120,7 @@ Modifiers = [SubResource("M5_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_3")
 Offset = Vector2(-338, 2)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A6"]
 script = ExtResource("an")
@@ -131,7 +131,7 @@ Modifiers = [SubResource("M6_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_4")
 Offset = Vector2(-349, 1)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A7"]
 script = ExtResource("an")
@@ -142,7 +142,7 @@ Modifiers = [SubResource("M7_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_1")
 Offset = Vector2(-338, 4)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A8"]
 script = ExtResource("an")
@@ -153,7 +153,7 @@ Modifiers = [SubResource("M8_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_2")
 Offset = Vector2(-358, 3)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A9"]
 script = ExtResource("an")
@@ -164,7 +164,7 @@ Modifiers = [SubResource("M9_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_3")
 Offset = Vector2(-338, 2)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A10"]
 script = ExtResource("an")
@@ -175,7 +175,7 @@ Modifiers = [SubResource("M10_0")]
 script = ExtResource("sp")
 Sprite = ExtResource("t_wall_4")
 Offset = Vector2(-349, 1)
-Scale = Vector2(1.6, 1.6)
+Scale = Vector2(2.4, 2.4)
 
 [sub_resource type="Resource" id="A11"]
 script = ExtResource("an")

@@ -71,7 +71,7 @@ Actions = [SubResource("s12")]
 
 [sub_resource type="Resource" id="s14"]
 script = ExtResource("7")
-Velocity = 240000
+Velocity = 150000
 
 [sub_resource type="Resource" id="s15"]
 script = ExtResource("8")
@@ -88,7 +88,7 @@ Actions = [SubResource("s14"), SubResource("s15")]
 
 [sub_resource type="Resource" id="s18"]
 script = ExtResource("7")
-Velocity = 40000
+Velocity = 24000
 
 [sub_resource type="Resource" id="s19"]
 script = ExtResource("8")
