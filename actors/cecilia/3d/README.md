@@ -19,7 +19,7 @@ Reference: `reference/Cecilia_Turnaround.png` (front/back/side sheet). `Artwork/
 ## Rebuild / render
 In Blender's Python console:
 ```python
-import sys; sys.path.insert(0, r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d\scripts")
+import sys; sys.path.insert(0, r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d\scripts")
 import build_all, render_views
 build_all.run()          # rebuild + save
 render_views.render()    # writes renders/review_*.png

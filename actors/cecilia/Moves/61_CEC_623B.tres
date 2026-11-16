@@ -16,3 +16,4 @@ AcceptNullStates = true
 AcceptCombatStates = true
 UseOnGround = true
 NetsuBlockedRecovery = 20
+NetsuChargeable = true

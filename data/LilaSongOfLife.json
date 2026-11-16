@@ -1,0 +1,41 @@
+{
+  "videoFile": "LilaSongOfLife.mp4",
+  "videoStart": 3,
+  "videoEnd": 0,
+  "videoSpeed": 1,
+  "speed": 1.3,
+  "cues": [
+    {
+      "phase": "intro",
+      "frame": 64,
+      "name": "EVFX Sanctuary SFX/EE01_01_Restore",
+      "volume": 100,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "intro",
+      "frame": 114,
+      "name": "EVFX Sanctuary SFX/EE01_02_Recover",
+      "volume": 100,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "intro",
+      "frame": 176,
+      "name": "EVFX Sanctuary SFX/EE01_05_Rejuvenate",
+      "volume": 100,
+      "pitch": 100,
+      "pan": 0
+    }
+  ],
+  "backgroundFile": "garden",
+  "backgroundFit": "cover",
+  "backgroundX": 32.52032520325203,
+  "backgroundY": 29.918699186991866,
+  "backgroundScale": 115,
+  "cutInPhase": "finale",
+  "cutInFrame": 0,
+  "assetVersion": 2
+}

@@ -6,7 +6,7 @@
 import bpy, bmesh, math, os, json, struct
 import numpy as np
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\roer"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\roer"
 VARIANT = globals().get("VARIANT") or bpy.context.scene.get("ce_variant", "dusk")
 SUFFIX = "" if VARIANT == "dusk" else "_" + VARIANT
 OUT = ROOT + r"\textures"

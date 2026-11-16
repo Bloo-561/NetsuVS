@@ -1,11 +1,11 @@
 # One-shot pipeline: build -> bake -> preview renders -> export glb.
 # In Blender's Python console (or via the MCP connector):
-#   exec(open(r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\thors_hall_3d\src\run_all.py", encoding="utf-8").read())
+#   exec(open(r"E:\Netsu Projects\NetsuVS\stages\thors_hall_3d\src\run_all.py", encoding="utf-8").read())
 # Set STEPS to skip parts, e.g. STEPS = {"preview", "export"} to re-export after a regrade.
 import bpy, time, json, traceback, os
 
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\thors_hall_3d\src"
-R = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\thors_hall_3d\renders"
+S = r"E:\Netsu Projects\NetsuVS\stages\thors_hall_3d\src"
+R = r"E:\Netsu Projects\NetsuVS\stages\thors_hall_3d\renders"
 STEPS = globals().get("STEPS") or {"build", "bake", "preview", "export"}
 TAG = globals().get("TAG") or "pv"
 status = S + r"\cache\_status.json"

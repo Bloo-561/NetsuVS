@@ -93,6 +93,9 @@ var spectate_only := false
 var my_setup := {}
 ## The lobby's message box, oldest first: [{"text", "local": a line of this computer's own}].
 var log_lines: Array = []
+## Nov 8: the host's CREATE LOBBY choices {"max", "rounds", "time", "comment"} ({} = the Options defaults); the next
+## lobby this computer opens uses them (room "max", "comment", "rules"). Stage / music: MatchSetup's online_* metas.
+var host_options := {}
 
 var _net: Node
 var _in_lobby := false   # the lobby screen is open
@@ -448,8 +451,10 @@ func _host_open() -> void:
 		"streak_id": -1,
 		"stage": int(MatchSetup.get_meta("online_stage", -1)) if MatchSetup.has_meta("online_stage") else -1,
 		"music": int(MatchSetup.get_meta("online_music", -2)) if MatchSetup.has_meta("online_music") else -2,
-		"rules": {"rounds": int(gs.get_value("game", "rounds_online")) if gs else 2,
-			"time": int(gs.get_value("game", "time_versus")) if gs else 99,
+		"max": clampi(int(host_options.get("max", 8)), 2, 8),
+		"comment": str(host_options.get("comment", "")).substr(0, 24),
+		"rules": {"rounds": int(host_options.get("rounds", gs.get_value("game", "rounds_online") if gs else 2)),
+			"time": int(host_options.get("time", gs.get_value("game", "time_versus") if gs else 99)),
 			"intros": bool(gs.get_value("game", "intros")) if gs else true},
 		"match": {"id": 0, "state": "none", "p1": -1, "p2": -1, "picks": {}, "p": {}},
 		"last": {},
@@ -849,6 +854,8 @@ func _normalized(r: Dictionary) -> Dictionary:
 	r["streak_id"] = int(r.get("streak_id", -1))
 	r["stage"] = int(r.get("stage", -1))
 	r["music"] = int(r.get("music", -2))
+	r["max"] = int(r.get("max", 8))          # (an older host sends none)
+	r["comment"] = str(r.get("comment", ""))
 	var members: Dictionary = r.get("members", {})
 	for key in members:
 		var mem: Dictionary = members[key]

@@ -306,6 +306,10 @@ public partial class SakugaParameters : Node
 		{
 			d = p._owner.NetsuAssist.BuffDamage(d);
 		}
+		if (p._owner != null && p._owner.NetsuAssist2 != null)
+		{
+			d = p._owner.NetsuAssist2.BuffDamage(d);   // Nov 8: the second partner's buff
+		}
 		return d;
 	}
 
@@ -315,6 +319,10 @@ public partial class SakugaParameters : Node
 		if (_owner != null && _owner.NetsuAssist != null)
 		{
 			g = _owner.NetsuAssist.BuffGain(g);
+		}
+		if (_owner != null && _owner.NetsuAssist2 != null)
+		{
+			g = _owner.NetsuAssist2.BuffGain(g);   // Nov 8: the second partner's buff
 		}
 		return g;
 	}

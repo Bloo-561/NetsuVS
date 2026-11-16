@@ -8,9 +8,10 @@
 [ext_resource type="Resource" uid="uid://bjndb6cvb0q7o" path="res://actors/assists/adin/States/4_ADN_6S_return.tres" id="6"]
 [ext_resource type="Resource" uid="uid://zdptk6z0ea8z" path="res://actors/assists/adin/States/5_ADN_6S_hit.tres" id="7"]
 [ext_resource type="Resource" path="res://actors/assists/adin/States/6_ADN_6S_pull.tres" id="x1"]
+[ext_resource type="Resource" path="res://actors/assists/adin/States/7_ADN_combo_rush.tres" id="lb_rush"]
 
 [resource]
 script = ExtResource("1")
-States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("x1")]
+States = [ExtResource("2"), ExtResource("3"), ExtResource("4"), ExtResource("5"), ExtResource("6"), ExtResource("7"), ExtResource("x1"), ExtResource("lb_rush")]
 BaseAttack = 100
 BaseDefense = 100

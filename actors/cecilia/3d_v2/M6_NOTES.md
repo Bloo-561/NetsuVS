@@ -130,7 +130,7 @@ GG's artists paint these; here they are measured from the model:
 ## Rebuild
 
 ```python
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 m4 = runpy.run_path(S + r"\m4_preview.py")
 m4["run"]("tag", build=m4["FULL"], shade=False)                               # geometry (5 s)
 runpy.run_path(S + r"\m6_preview.py")["run"]("tag", unwrap=True, sil=True)    # UVs, bake, shade bake, materials, renders (~2 min)

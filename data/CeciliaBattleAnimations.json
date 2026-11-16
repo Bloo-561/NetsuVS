@@ -1,0 +1,50 @@
+[
+  {
+    "motion": "defense",
+    "trigger": 0,
+    "animationId": 40,
+    "start": 0,
+    "end": 120,
+    "target": "self",
+    "scale": 100,
+    "offsetX": 0,
+    "offsetY": 0,
+    "replaceEffect": true
+  },
+  {
+    "motion": "fujin",
+    "trigger": 28,
+    "animationId": 127,
+    "start": 0,
+    "end": 120,
+    "target": "enemy",
+    "scale": 100,
+    "offsetX": 0,
+    "offsetY": 0,
+    "replaceEffect": true
+  },
+  {
+    "motion": "focus",
+    "trigger": 24,
+    "animationId": 40,
+    "start": 0,
+    "end": 120,
+    "target": "self",
+    "scale": 100,
+    "offsetX": 0,
+    "offsetY": 0,
+    "replaceEffect": true
+  },
+  {
+    "motion": "divider",
+    "trigger": 85,
+    "animationId": 40,
+    "start": 0,
+    "end": 120,
+    "target": "self",
+    "scale": 100,
+    "offsetX": 0,
+    "offsetY": 0,
+    "replaceEffect": true
+  }
+]

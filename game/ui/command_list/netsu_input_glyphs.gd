@@ -8,7 +8,8 @@ extends Control
 ##   "[A]"      -> hold A                "> A"     -> › (A)  (a follow-up)  "236 B+C or 236236 A|B|C"
 ## Anything else is printed as it is.
 
-const RING := {"A": Color(0.35, 0.71, 1.0), "B": Color(1.0, 0.79, 0.3), "C": Color(1.0, 0.35, 0.48), "S": Color(0.37, 0.88, 0.63)}
+const RING := {"A": Color(0.35, 0.71, 1.0), "B": Color(1.0, 0.79, 0.3), "C": Color(1.0, 0.35, 0.48), "S": Color(0.37, 0.88, 0.63),
+	"D": Color(1.0, 0.82, 0.35)}   # Nov 8: D = Link Drive (gold, like the crests)
 const ARROWS := {"1": Vector2(-1, 1), "2": Vector2(0, 1), "3": Vector2(1, 1), "4": Vector2(-1, 0), "6": Vector2(1, 0),
 	"7": Vector2(-1, -1), "8": Vector2(0, -1), "9": Vector2(1, -1)}
 const FONT_PATH := "res://assets/fonts/Rajdhani-Bold.ttf"
@@ -74,7 +75,7 @@ static func _is_buttons(s: String) -> bool:
 	var want_btn := true
 	for ch in s:
 		if want_btn:
-			if not ch in ["A", "B", "C", "S"]:
+			if not ch in ["A", "B", "C", "S", "D"]:
 				return false
 		elif not ch in ["+", "|"]:
 			return false

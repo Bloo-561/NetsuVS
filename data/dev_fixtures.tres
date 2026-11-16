@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="DevFixtures" format=3]
+
+[ext_resource type="Script" path="res://game/systems/dev/dev_fixtures.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enabled = true
+mode = "Training"
+p2_is_human = false
+p1_fighter = 0
+p1_color = 0
+p1_assist = 0
+p2_fighter = 3
+p2_color = -1
+p2_assist = 2
+stage = 0
+music = -2
+fake_online = true
+fake_players = 2
+fake_pick_seconds = 2.0
+fake_fight_seconds = 10.0

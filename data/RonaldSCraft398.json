@@ -1,0 +1,174 @@
+{
+  "videoFile": "Ronald_SCraft398_Finale.mp4",
+  "finishVideoSetup": 1,
+  "videoStart": 0,
+  "videoEnd": 0,
+  "videoSpeed": 1,
+  "sceneSpeed": 1.3,
+  "actorScale": 220,
+  "actorX": 30,
+  "actorY": 94,
+  "enemyX": 84,
+  "enemyY": 30,
+  "enemyScale": 100,
+  "domainPlacementVersion": 2,
+  "laserMode": "yellow",
+  "backgroundX": 0,
+  "backgroundY": 0,
+  "backgroundScale": 100,
+  "shotStart": 70,
+  "shotCount": 14,
+  "shotInterval": 7,
+  "chargeFrames": 26,
+  "crackFrames": 24,
+  "shatterFrames": 32,
+  "cutInFrame": 0,
+  "cutInName": "",
+  "laserColor": "#77dfff",
+  "cues": [
+    {
+      "phase": "stage",
+      "frame": 80,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 75,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 85,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 90,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 95,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 100,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 105,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 110,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 115,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 120,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 125,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 130,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 135,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 140,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 145,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 150,
+      "name": "Thunder2",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 200,
+      "name": "Thunder6",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    },
+    {
+      "phase": "stage",
+      "frame": 230,
+      "name": "break shield",
+      "volume": 80,
+      "pitch": 100,
+      "pan": 0
+    }
+  ]
+}

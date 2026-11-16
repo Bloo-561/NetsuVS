@@ -131,8 +131,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_move_variant(-1)
 		elif _phase == "stage" and event.is_action_pressed(p + "down"):
 			_move_variant(1)
-		elif event.is_action_pressed(p + "a") or event.is_action_pressed(p + "s") \
-				or event.is_action_pressed(p + "start"):
+		elif event.is_action_pressed(p + "a") or event.is_action_pressed(p + "d") or event.is_action_pressed(p + "s") \
+				or event.is_action_pressed(p + "start"):   # (Nov 8: + D, the pad's Cross / A)
 			if _phase == "stage":
 				_set_phase("music")
 			else:

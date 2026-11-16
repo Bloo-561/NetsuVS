@@ -82,6 +82,18 @@ public partial class NetsuAssist : SakugaNode
 	public NetsuAssistElement Element;
 	public int Index;
 
+	/// <summary>Nov 8 (Link Break): which partner this is. 0 = S1 (button FACE_D), 1 = S2 (FACE_F).</summary>
+	public int Slot;
+
+	/// <summary>Nov 8 (Link Break): knocked out for the rest of the round (hit while acting). Saved (key 18).</summary>
+	public bool Out;
+	/// <summary>Hit while acting this frame; the next Tick knocks it out (key 19).</summary>
+	public bool Struck;
+	/// <summary>This call already placed its crest / led its Break (key 20).</summary>
+	public bool Acted;
+	/// <summary>This call leads a Link Break (key 21; NetsuLink).</summary>
+	public bool LinkLead;
+
 	// --- match state (saved for rollback) ------------------------------------------------
 	public int Gauge;
 	public int GaugeMax = 1;
@@ -129,7 +141,7 @@ public partial class NetsuAssist : SakugaNode
 	/// <summary>Makes the assist for a fighter (called by GameManager.CreateFighter).
 	/// index: position in data/assist_list.tres. Everyone gets one: -1 or an index past the end
 	/// (an old setting) becomes the first assist.</summary>
-	public static NetsuAssist Create(SakugaActor fighter, int index)
+	public static NetsuAssist Create(SakugaActor fighter, int index, int slot = 0)
 	{
 		if (fighter == null || !ResourceLoader.Exists(ListPath))
 		{
@@ -159,7 +171,7 @@ public partial class NetsuAssist : SakugaNode
 		}
 		// Netsu (Oct 25): the Assists frame data spreadsheet (data/frame_data), before anything reads the data
 		NetsuFrameData.ApplyAssist(element, actor.Data);
-		actor.Name = fighter.playerID + "_Assist_" + element.AssistName;
+		actor.Name = fighter.playerID + "_Assist" + slot + "_" + element.AssistName;
 		actor.Inputs = fighter.Inputs;
 		actor.playerID = fighter.playerID;
 		GameManager.Instance.AddActor(actor);
@@ -172,9 +184,10 @@ public partial class NetsuAssist : SakugaNode
 			Fighter = fighter,
 			Actor = actor,
 			Element = element,
-			Index = index
+			Index = index,
+			Slot = slot
 		};
-		assist.Name = fighter.playerID + "_AssistGauge";
+		assist.Name = fighter.playerID + "_AssistGauge" + slot;
 		GameManager.Instance.AddActor(assist, isPhysicsBody: false);
 		assist.ResetRound();
 		return assist;
@@ -204,8 +217,41 @@ public partial class NetsuAssist : SakugaNode
 		BuffTotal = 0;
 		BuffDamagePercent = 100;
 		BuffGainPercent = 100;
-		AIWait = 90;
+		AIWait = 90 + Slot * 45;
 		LastMove = -1;
+		Out = false;   // Nov 8: a knocked-out partner is back for the new round
+		Struck = false;
+		Acted = false;
+		LinkLead = false;
+	}
+
+	/// <summary>Nov 8 (Link Break): LINK READY refreshes the partner (ready at once if it was refilling).</summary>
+	public void LinkRefresh()
+	{
+		if (!Out && Phase == PhaseCooldown)
+		{
+			Gauge = GaugeMax;
+			Phase = PhaseReady;
+			AIWait = 20 + RandomTo(40);
+		}
+	}
+
+	/// <summary>Nov 8 (Link Break): hit while acting: out for the rest of the round.</summary>
+	private void KnockOut()
+	{
+		if (Actor != null && Actor.Pool != null)
+		{
+			Actor.Pool.NetsuClearSpawns();
+		}
+		PendingMove = -1;
+		Park();
+		Phase = PhaseCooldown;
+		Gauge = 0;
+		OnScreen = 0;
+		Buffer = 0;
+		Out = true;
+		LinkCall = false;
+		Fighter?.NetsuLink?.OnPartnerOut(this);
 	}
 
 	/// <summary>The opponent started a super: the assist on screen stops for the flash too.</summary>
@@ -222,6 +268,15 @@ public partial class NetsuAssist : SakugaNode
 	/// <summary>Called by NetsuAssistBuffAction from the assist's state.</summary>
 	public void StartBuff(int frames, int damagePercent, int gainPercent)
 	{
+		if (LinkLead && Acted)
+		{
+			return;   // Nov 8: a support's Break already gave its (longer) buff the moment it was called (BreakCall)
+		}
+		// Nov 8 (Link Break): a support's effect places its crest, or (leading the Break) lasts twice as long
+		if (Fighter?.NetsuLink != null && Fighter.NetsuLink.OnPartnerActed(this))
+		{
+			frames = frames * NetsuLink.SupportLinkBuffPercent / 100;
+		}
 		BuffTotal = Mathf.Max(1, frames);
 		BuffFrames = BuffTotal;
 		BuffDamagePercent = damagePercent;
@@ -252,6 +307,28 @@ public partial class NetsuAssist : SakugaNode
 		}
 		GameManager gm = GameManager.Instance;
 		bool frozen = Fighter.SuperFlashing;   // the opponent's super flash stops our timers too
+		// Nov 8 (Link Break): hit while acting (SakugaActor.BaseDamage / HitTrade set Struck): out for the round
+		if (Struck)
+		{
+			Struck = false;
+			if (!Out)
+			{
+				KnockOut();
+			}
+		}
+		if (Out)
+		{
+			if (Actor.IsActive)
+			{
+				Park();
+			}
+			Buffer = 0;
+			if (BuffFrames > 0 && !frozen && gm != null && gm.Monitor.MatchState == MatchState.ROUND_RUNNING)
+			{
+				BuffFrames--;   // a buff already given keeps running
+			}
+			return;
+		}
 		// Nov 4 (TamaDeez): the assist's projectiles still out (Mary's notes) go away when its partner is hit, grabbed or
 		// knocked out, whether the assist is still on screen or has already left (SakugaActor.NetsuAssistStruck does the
 		// same when the assist herself is hit)
@@ -266,6 +343,7 @@ public partial class NetsuAssist : SakugaNode
 			{
 				PendingMove = -1;   // hit before the assist came: the call is lost
 				Leave();
+				LinkLead = false;
 			}
 			else if (!frozen && !Fighter.OnHitstop() && --PendingFrames <= 0)
 			{
@@ -282,9 +360,19 @@ public partial class NetsuAssist : SakugaNode
 			bool partnerHit = Fighter.StateManager.CurrentStateType() == StateType.HIT_REACTION || Fighter.IsGrabbed() || Fighter.IsKO();
 			bool stays = LastMove >= 0 && LastMove < Element.Moves.Length && Element.Moves[LastMove] != null && Element.Moves[LastMove].StayWhenPartnerHit;
 			bool assistHit = Actor.HitstunType != HitstunType.NONE && Actor.HitstunType != HitstunType.GRABBED;
-			if (!Actor.IsActive || OnScreen > Mathf.Max(60, Element.MaxOnScreen) || (partnerHit && !stays) || assistHit)
+			if (assistHit)
+			{
+				KnockOut();   // Nov 8 (Link Break): hit while acting = out for the round
+			}
+			else if (!Actor.IsActive || OnScreen > Mathf.Max(60, Element.MaxOnScreen))
 			{
 				Leave();
+				Fighter.NetsuLink?.OnPartnerFinished(this);   // its move ended normally
+			}
+			else if (partnerHit && !stays)
+			{
+				Leave();
+				LinkLead = false;
 			}
 		}
 		else if (Phase == PhaseCooldown && !frozen && gm != null && gm.Monitor != null && gm.Monitor.MatchState == MatchState.ROUND_RUNNING)
@@ -336,7 +424,7 @@ public partial class NetsuAssist : SakugaNode
 	/// <summary>True when the fighter is allowed to call right now.</summary>
 	public bool CanCall()
 	{
-		if (Phase != PhaseReady || Element.Moves == null || Element.Moves.Length == 0)
+		if (Out || Phase != PhaseReady || Element.Moves == null || Element.Moves.Length == 0)
 		{
 			return false;
 		}
@@ -473,28 +561,125 @@ public partial class NetsuAssist : SakugaNode
 		return _poseState;
 	}
 
-	private void ReadInput()
+	/// <summary>Nov 8 (Link Break): the button that calls this partner: S1 (FACE_D) or S2 (FACE_F).</summary>
+	public PlayerInputs CallButton => Slot == 0 ? PlayerInputs.FACE_D : PlayerInputs.FACE_F;
+
+	/// <summary>Nov 8 (Link Break): one move per partner, the neutral one (5S). The others stay in the data, unused.</summary>
+	public int PartnerMove()
 	{
-		InputManager input = Fighter.Inputs;
-		if (input == null || input.InputHistory == null || !input.WasPressed(input.CurrentHistory, PlayerInputs.FACE_D))
+		return PickMove(0);
+	}
+
+	/// <summary>Nov 8 (Link Break): can this partner lead a Break right now (D + S1 / D + S2)? In, ready, not on its way.</summary>
+	public bool CanLead()
+	{
+		return !Out && Phase == PhaseReady && PendingMove < 0 && Element.Moves != null && Element.Moves.Length > 0;
+	}
+
+	/// <summary>Nov 8 (Link Break): D + S1 / D + S2 while LINK READY (NetsuLink.Tick, when the fighter's "Link Call" move
+	/// starts). Free, no pose of its own (the fighter is already posing), comes after the short cancel delay, and leads.</summary>
+	public void BreakCall()
+	{
+		// a Break always uses the partner's combo move when it has one (Adin: Shield Rush, never the counter)
+		int moveIndex = PartnerMove();
+		int combo = ComboMove();
+		if (combo >= 0)
+		{
+			moveIndex = combo;
+		}
+		if (moveIndex < 0 || moveIndex >= Element.Moves.Length || Element.Moves[moveIndex] == null)
 		{
 			return;
 		}
-		// Netsu (Oct 26 c6, TamaDeez): 6S = S with any left / right in it (7, 4, 1, 9, 6, 3), whichever way she faces.
-		// 5S = S with no direction (5). Up or down alone (8, 2) also call 5S, but only during Overdrive (outside it,
-		// 8 + S / 2 + S call nothing, so a jump or crouch with S pressed doesn't throw the assist out).
-		int dir = 0;
-		bool horizontal = input.IsBeingPressed(input.CurrentHistory, PlayerInputs.LEFT) || input.IsBeingPressed(input.CurrentHistory, PlayerInputs.RIGHT);
-		bool vertical = input.IsBeingPressed(input.CurrentHistory, PlayerInputs.UP) || input.IsBeingPressed(input.CurrentHistory, PlayerInputs.DOWN);
-		if (horizontal)
+		NetsuAssistMove move = Element.Moves[moveIndex];
+		Buffer = 0;
+		Acted = false;
+		LinkLead = true;
+		NetsuFlash();
+		Phase = PhaseOnScreen;
+		Gauge = 0;
+		GaugeMax = Mathf.Max(1, move.Cooldown);
+		OnScreen = 0;
+		LastMove = moveIndex;
+		Calls++;
+		PendingMove = moveIndex;
+		PendingFrames = NetsuCancelDelay;
+		PendingSide = Fighter.Body.PlayerSide;
+		// Nov 8: a support's Break has no startup: its effect (Mary's buff, twice as long) and the Unbalance happen now;
+		// she still comes in and plays, but her own buff later does nothing (StartBuff)
+		if (NetsuLink.IsSupport(this))
 		{
-			dir = 1;
+			NetsuAssistBuffAction buff = FindBuff(move.StateIndex);
+			if (buff != null)
+			{
+				SakugaActor a = Actor;
+				buff.Execute(ref a);
+			}
 		}
-		else if (vertical)
+	}
+
+	/// <summary>Nov 8: the buff action (NetsuAssistBuffAction) in one of this assist's states, null if it has none.</summary>
+	private NetsuAssistBuffAction FindBuff(int stateIndex)
+	{
+		FighterState[] states = Actor?.Data?.States;
+		if (states == null || stateIndex < 0 || stateIndex >= states.Length || states[stateIndex] == null)
 		{
-			return;   // Oct 28: 8 + S / 2 + S call nothing (the Overdrive exception is gone)
+			return null;
 		}
-		BufferedMove = PickMove(dir);
+		FighterState st = states[stateIndex];
+		foreach (FrameDataEvent[] list in new[] { st.OnEnterEvents, st.OnTickEvents, st.TransitionEvents, st.OnExitEvents })
+		{
+			for (int i = 0; list != null && i < list.Length; i++)
+			{
+				FrameDataAction[] actions = list[i]?.Actions;
+				for (int j = 0; actions != null && j < actions.Length; j++)
+				{
+					if (actions[j] is NetsuAssistBuffAction b)
+					{
+						return b;
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	/// <summary>Nov 8: a partner's "combo" move (NetsuAssistMove.Direction 3: Adin's Shield Rush), -1 if it has none.
+	/// It replaces the partner's move when it is called while the opponent is being hit (a combo).</summary>
+	public const int ComboDirection = 3;
+
+	public int ComboMove()
+	{
+		for (int i = 0; Element.Moves != null && i < Element.Moves.Length; i++)
+		{
+			if (Element.Moves[i] != null && Element.Moves[i].Direction == ComboDirection)
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/// <summary>Nov 8: the opponent is in hitstun right now (not blockstun): a call now is part of a combo.</summary>
+	private bool OpponentComboed()
+	{
+		SakugaActor o = Fighter.GetOpponent(0);
+		return o != null && !o.BlockStun && o.StateManager != null && o.StateManager.CurrentStateType() == StateType.HIT_REACTION;
+	}
+
+	private void ReadInput()
+	{
+		InputManager input = Fighter.Inputs;
+		if (input == null || input.InputHistory == null || !input.WasPressed(input.CurrentHistory, CallButton))
+		{
+			return;
+		}
+		if (Fighter.NetsuLink != null && Fighter.NetsuLink.Ready && input.IsBeingPressed(input.CurrentHistory, PlayerInputs.FACE_E))
+		{
+			return;   // Nov 8: D + S while LINK READY is the partner's Link Break (the "Link Call" stance move), not a call
+		}
+		// Nov 8 (Link Break): S1 / S2 call the partner's one move, whatever direction is held
+		BufferedMove = PartnerMove();
 		Buffer = BufferFrames;
 	}
 
@@ -528,6 +713,12 @@ public partial class NetsuAssist : SakugaNode
 		{
 			return;
 		}
+		// Nov 8: called during a combo, a partner with a combo move uses it instead (Adin: Shield Rush, not the counter)
+		int combo = ComboMove();
+		if (combo >= 0 && moveIndex == PartnerMove() && OpponentComboed())
+		{
+			moveIndex = combo;
+		}
 		NetsuAssistMove move = Element.Moves[moveIndex];
 		if (Actor.Data == null || Actor.Data.States == null || move.StateIndex < 0 || move.StateIndex >= Actor.Data.States.Length)
 		{
@@ -558,6 +749,7 @@ public partial class NetsuAssist : SakugaNode
 			LinkReady = false;   // Oct 28: this call uses the Overdrive Link
 			LinkCall = true;
 		}
+		Fighter.NetsuLink?.OnPartnerCalled(this);   // Nov 8: while LINK READY, this call leads the Break
 		Phase = PhaseOnScreen;
 		Gauge = 0;
 		GaugeMax = Mathf.Max(1, move.Cooldown);
@@ -693,6 +885,10 @@ public partial class NetsuAssist : SakugaNode
 		for (int i = 0; i < Element.Moves.Length; i++)
 		{
 			NetsuAssistMove move = Element.Moves[i];
+			if (i != PartnerMove())
+			{
+				continue;   // Nov 8: one move per partner
+			}
 			if (move == null || distance < move.AIRange.X || distance > move.AIRange.Y)
 			{
 				continue;
@@ -754,6 +950,7 @@ public partial class NetsuAssist : SakugaNode
 	private int _hudQuiet;
 	private string _hudName;
 	private Texture2D _hudIcon;
+	private bool _hudOut;
 
 	/// <summary>The gauge for the battle HUD (game/ui/battle_hud/netsu_hud.gd), through MatchSetup. Oct 25: only
 	/// when something changed (a call every frame was garbage for the collector: its pauses were hitches).</summary>
@@ -776,7 +973,7 @@ public partial class NetsuAssist : SakugaNode
 		float buff = BuffFrames > 0 ? (float)BuffFrames / Mathf.Max(1, BuffTotal) : 0f;
 		// (and every 15 renders anyway: the HUD hides the row when it hasn't heard from the assist for 0.6 s)
 		_hudQuiet++;
-		if (_hudQuiet < 15 && ratio == _hudRatio && buff == _hudBuff && Phase == _hudPhase && Element.AssistName == _hudName && Element.Icon == _hudIcon)
+		if (_hudQuiet < 15 && ratio == _hudRatio && buff == _hudBuff && Phase == _hudPhase && Element.AssistName == _hudName && Element.Icon == _hudIcon && Out == _hudOut)
 		{
 			return;
 		}
@@ -786,9 +983,11 @@ public partial class NetsuAssist : SakugaNode
 		_hudPhase = Phase;
 		_hudName = Element.AssistName;
 		_hudIcon = Element.Icon;
+		_hudOut = Out;
 		// Oct 30: + frames until ready (the HUD's countdown badge), -1 when not cooling down
+		// Nov 8: + which partner (0 = S1, 1 = S2) and whether it is out for the round
 		_hud.Call(NetsuHudMethod, (int)Fighter.playerID, Element.AssistName, ratio, Phase, buff, Element.Icon,
-			Phase == PhaseCooldown ? Mathf.Max(0, GaugeMax - Gauge) : -1);
+			Phase == PhaseCooldown && !Out ? Mathf.Max(0, GaugeMax - Gauge) : -1, Slot, Out);
 	}
 
 	/// <summary>A buffed fighter wears the assist's aura (Mary's music) until the buff runs out.</summary>

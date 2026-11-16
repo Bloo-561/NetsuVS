@@ -18,7 +18,7 @@
 import bpy, bmesh, math
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\thors_hall_3d"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\thors_hall_3d"
 TEX = ROOT + r"\src\tex"
 
 # ---------------- room dimensions (Godot space, metres) ----------------

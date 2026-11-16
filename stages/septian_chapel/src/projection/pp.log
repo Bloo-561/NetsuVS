@@ -1,0 +1,62 @@
+00:00.016  color_management | Using OCIO=C:\Program Files\Blender Foundation\Blender 5.2\5.2\datafiles\colormanagement\config.ocio
+00:01.188  blend            | Read blend: "E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\septian_chapel.blend"
+PP: preview objects ['PV_CH_Chapel', 'PV_CH_Land', 'PV_CH_Sky', 'PV_CH_Village', 'PV_Floor']
+E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\paint_project.py:79: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  dm = bpy.data.materials.new("PP_depth"); dm.use_nodes = True; nt = dm.node_tree; nt.nodes.clear()
+00:05.234  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\plate_CH_Chapel.png'
+00:05.984  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\depth_CH_Chapel.exr'
+PP: rendered CH_Chapel
+00:07.297  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\plate_CH_Village.png'
+00:08.031  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\depth_CH_Village.exr'
+PP: rendered CH_Village
+00:09.391  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\plate_CH_Land.png'
+00:10.094  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\depth_CH_Land.exr'
+PP: rendered CH_Land
+E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\paint_project.py:110: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new("PP_attr"); m.use_nodes = True; t = m.node_tree; t.nodes.clear()
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+PP: CH_Chapel {'texels': 12241809, 'painted_frac': 0.095}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+PP: CH_Village {'texels': 8547993, 'painted_frac': 0.091}
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+PP: CH_Land {'texels': 12391404, 'painted_frac': 0.008}
+00:44.594  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_orig_CAM_far.png'
+00:45.391  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_orig_CAM_mid.png'
+00:46.219  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_orig_CAM_near_right.png'
+00:47.031  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_orig_CAM_jump_far.png'
+00:47.906  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_painted_CAM_far.png'
+00:48.750  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_painted_CAM_mid.png'
+00:49.594  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_painted_CAM_near_right.png'
+00:50.453  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\projection\ab_painted_CAM_jump_far.png'
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+09:57:05 | INFO: Starting glTF 2.0 export
+09:57:05 | INFO: Extracting primitive: CH_Birds_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Chapel_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Cloth_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Glass_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Grass_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Land_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Sails_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Sky_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Smoke_export
+09:57:05 | INFO: Primitives created: 1
+09:57:05 | INFO: Extracting primitive: CH_Village_export
+09:57:05 | INFO: Primitives created: 1
+09:57:06 | INFO: Finished glTF 2.0 export in 0.7697699069976807 s
+
+PP: DONE {"stats": {"CH_Chapel": {"texels": 12241809, "painted_frac": 0.095}, "CH_Village": {"texels": 8547993, "painted_frac": 0.091}, "CH_Land": {"texels": 12391404, "painted_frac": 0.008}}, "export": {"glb": "E:\\Netsu Projects\\NetsuVS\\stages\\septian_chapel\\septian_chapel_painted.glb", "bytes": 38910700}, "seconds": 50}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

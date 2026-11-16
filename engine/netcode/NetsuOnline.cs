@@ -65,7 +65,7 @@ public partial class NetsuOnline : Node
 	/// 6 = Nov 4 night (later): the Burst on DFCI's Escape Blast timing, powered up in Overdrive, the WAIT rule.
 	/// 7 = Nov 5: the Burst can be baited (a new saved value, NetsuBurstBlocked).
 	/// 8 = Nov 5 later: the BlazBlue Burst (the green hold before it, two new saved values).)</summary>
-	public const string ProtocolVersion = "netsu-vs-online-8";
+	public const string ProtocolVersion = "netsu-vs-online-10";   // Nov 8: Link Break (two partners, D / S2 buttons, NetsuLink state, hit-grab)
 
 	/// <summary>What the connection request really carries: the version and which changes the frame data
 	/// spreadsheets make (NetsuFrameData.OnlineSignature; "fd0" = none), worked out when a lobby is opened or joined.
@@ -103,6 +103,8 @@ public partial class NetsuOnline : Node
 
 	/// <summary>Players in one lobby, the host included.</summary>
 	public const int MaxMembers = 8;
+	/// <summary>Nov 8: the host's own limit (CREATE LOBBY > PLAYERS, 2 to MaxMembers), set before Host().</summary>
+	public int MaxPlayers { get; set; } = MaxMembers;
 
 	[Signal] public delegate void StatusChangedEventHandler(string text);
 	[Signal] public delegate void CodeReadyEventHandler(string code, string lanCode, string note);
@@ -428,7 +430,7 @@ public partial class NetsuOnline : Node
 		}
 		if (LobbyFull)
 		{
-			Status("The lobby is full (" + MaxMembers + " players).");
+			Status("The lobby is full (" + Math.Clamp(MaxPlayers, 2, MaxMembers) + " players).");
 			return false;
 		}
 		AddCall(target, null, 30.0, false, "");
@@ -436,7 +438,7 @@ public partial class NetsuOnline : Node
 		return true;
 	}
 
-	private bool LobbyFull => _members.Count >= MaxMembers - 1;
+	private bool LobbyFull => _members.Count >= Math.Clamp(MaxPlayers, 2, MaxMembers) - 1;
 
 	private void AddCall(IPEndPoint a, IPEndPoint b, double seconds, bool fromBoard, string nonce)
 	{
@@ -1087,7 +1089,7 @@ public partial class NetsuOnline : Node
 				string why = info.AdditionalData != null && info.AdditionalData.AvailableBytes > 0 ? info.AdditionalData.GetString() : "";
 				_target = null;
 				_target2 = null;
-				string text = why == "full" ? "That lobby is full (" + MaxMembers + " players)." : "The lobby turned the connection down (different game version?).";
+				string text = why == "full" ? "That lobby is full." : "The lobby turned the connection down (different game version?).";
 				Status(text);
 				EmitSignal(SignalName.Disconnected, text);
 			}

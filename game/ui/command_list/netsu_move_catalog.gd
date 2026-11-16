@@ -27,7 +27,7 @@ const NO_DESC := "No description yet. Add one in this fighter's command_list.jso
 
 ## DirectionalInputs bits -> numpad digit (facing right). ButtonInputs bits -> button letter.
 const DIR := {1: "2", 2: "4", 4: "6", 8: "8", 3: "1", 5: "3", 10: "7", 12: "9"}
-const BTN := [[1, "A"], [2, "B"], [4, "C"], [8, "S"]]
+const BTN := [[1, "A"], [2, "B"], [4, "C"], [8, "S"], [16, "D"]]   # Nov 8: 16 = FACE_E = the D button
 
 ## HitboxType / HitType (engine/sakuga/Globals).
 const HB_HURT := 0
@@ -717,10 +717,12 @@ static func assist_rows(index: int) -> Array:
 	var aname := str(_g(el, "AssistName", "Assist"))
 	var data := cached_data(assist_data_path(index))
 	var notes: Dictionary = read_json(ASSIST_NOTES_FILE).get(aname, {})
-	var dir_inputs := {0: "S", 1: "6 S", 2: "4 S"}
+	var dir_inputs := {0: "S", 1: "6 S", 2: "4 S", 3: "S"}
 	for mv in _g(el, "Moves", []):
 		if mv == null:
 			continue
+		if int(_g(mv, "Direction", 0)) != 0 and int(_g(mv, "Direction", 0)) != 3:
+			continue   # Nov 8 (Link Break): one move per partner (S1 / S2 call the 5S one; 3 = its combo version)
 		var mname := str(_g(mv, "MoveName", "5S"))
 		var note: Dictionary = notes.get(mname, {})
 		var states: Array = [int(_g(mv, "StateIndex", 1))]

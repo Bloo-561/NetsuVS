@@ -7,8 +7,8 @@
 # Writes src/cache/_status_<VARIANT>.json when done.
 import bpy, sys, time, json, traceback, os
 
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\celdic\src"
-R = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\celdic\renders"
+S = r"E:\Netsu Projects\NetsuVS\stages\celdic\src"
+R = r"E:\Netsu Projects\NetsuVS\stages\celdic\renders"
 args = dict(a.split("=", 1) for a in (sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []) if "=" in a)
 VARIANT = args.get("VARIANT", "day")
 STEPS = set(args.get("STEPS", "build,bake,preview,export").split(","))

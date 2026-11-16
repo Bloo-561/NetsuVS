@@ -20,7 +20,7 @@ Decisions applied (your OK on M1):
 
 Rebuild in Blender:
 ```python
-import runpy; S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+import runpy; S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 runpy.run_path(S + r"\ref_masks.py", run_name="__main__")    # masks + coverage maps
 runpy.run_path(S + r"\profiles.py", run_name="__main__")     # traced profiles -> refs/profiles_m2.json
 runpy.run_path(S + r"\build_blockout.py", run_name="__main__")

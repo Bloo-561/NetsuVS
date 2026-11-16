@@ -13,7 +13,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\ordis_manor"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\ordis_manor"
 TEXD = ROOT + r"\src\tex"
 VARIANT = globals().get("VARIANT") or "day"
 RUIN = VARIANT == "ruined"

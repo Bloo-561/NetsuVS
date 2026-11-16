@@ -1,0 +1,23 @@
+{
+  "videoFile": "Ronald_Painting215.webm",
+  "videoStart": 1,
+  "videoEnd": 0,
+  "videoSpeed": 2,
+  "videoMuted": true,
+  "sceneSpeed": 1.2,
+  "strokeFrames": 45,
+  "revealFrames": 65,
+  "canvasScale": 110,
+  "handScale": 100,
+  "paintings": [
+    "marie",
+    "emily",
+    "eustace",
+    "johan",
+    "ceciliaLeticia",
+    "flanSoranNoah",
+    "saraJuelSilica",
+    "lilaLiliana"
+  ],
+  "cues": []
+}

@@ -1,0 +1,123 @@
+{
+  "Haru": {
+    "sounds": [],
+    "animations": [],
+    "replaceNative": false
+  },
+  "Emily": {
+    "sounds": [],
+    "animations": [],
+    "replaceNative": false
+  },
+  "Naoto": {
+    "sounds": [
+      {
+        "name": "Slash1",
+        "frame": 2,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 4,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 3,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash1",
+        "frame": 8,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 10,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash4",
+        "frame": 12,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash1",
+        "frame": 16,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 18,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 20,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash1",
+        "frame": 24,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Slash3",
+        "frame": 28,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      },
+      {
+        "name": "Evasion2",
+        "frame": 48,
+        "volume": 80,
+        "pitch": 100,
+        "pan": 0
+      }
+    ],
+    "animations": [
+      {
+        "animationId": 23,
+        "trigger": 20,
+        "start": 0,
+        "end": 120,
+        "target": "targets",
+        "scale": 100,
+        "offsetX": 0,
+        "offsetY": 0
+      }
+    ],
+    "replaceNative": true
+  },
+  "Mary": {
+    "sounds": [],
+    "animations": [],
+    "replaceNative": false
+  },
+  "Vivian": {
+    "sounds": [],
+    "animations": [],
+    "replaceNative": false
+  }
+}

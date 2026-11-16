@@ -52,7 +52,7 @@ extends Control
 enum Page { MENU, HOST, JOIN, ROOM }
 
 const MENU_ITEMS := [
-	{"id": "host", "label": "CREATE LOBBY", "blurb": "Open a lobby on this computer and get a 5-digit code to send to your friends."},
+	{"id": "host", "label": "CREATE LOBBY", "blurb": "Set up a lobby on this computer (settings on the right), then open it and send your friends the 5-digit code."},
 	{"id": "join", "label": "JOIN LOBBY", "blurb": "Enter the 5-digit lobby code a friend sent you."},
 	{"id": "spectate", "label": "SPECTATE ONLY", "blurb": ""},
 	{"id": "name", "label": "NAME", "blurb": "The name the other players see in a lobby."},
@@ -120,12 +120,13 @@ var _cursor := 0
 
 # nodes: every page
 var _title: Label
+var _header: Label
 var _footer: Dictionary            # NetsuUI.footer: "text" (what to do now), "prompts" (NetsuPromptBar)
 var _legend_items: Array = []      # the prompts as items (_item), for test_state
 var _panel_root: Control
 # nodes: the pages
 var _menu_labels: Array[Label] = []
-var _menu_bar: ColorRect
+var _menu_bar: Node2D
 var _code_label: Label
 var _join_caption: Label
 var _info: Label
@@ -221,7 +222,7 @@ func _process(delta: float) -> void:
 # --- The frame (every page): the header, the page title, the footer ---------------------------------------------
 
 func _build_header() -> void:
-	NetsuUI.header(self, "ONLINE")
+	_header = NetsuUI.header(self, "ONLINE")
 	_title = NetsuUI.label("", 46, Color.WHITE, NetsuUI.sans(5))
 	NetsuUI.glow(_title, Color(0.25, 0.5, 1.0, 0.35), 8)
 	_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -233,6 +234,12 @@ func _build_header() -> void:
 
 func _set_title(text: String) -> void:
 	_title.text = text
+
+
+## The top-left header ("✦ ONLINE", "✦ ONLINE LOBBY").
+func _set_header(text: String) -> void:
+	if _header:
+		_header.text = text
 
 
 ## The kit's footer, on two rows: what to do now over the line... under it the button prompts.
@@ -318,6 +325,10 @@ func _clear_panel() -> void:
 	_setup_ui = {}
 	_menu_labels.clear()
 	_menu_bar = null
+	_set_header("ONLINE")
+	_menu_values.clear()
+	_menu_globes.clear()
+	_create_ui = {}
 	_code_label = null
 	_join_caption = null
 	_info = null
@@ -340,27 +351,124 @@ func _add_status(y: float) -> void:
 		_status.text = _net.LastStatus
 
 
+## MENU (Nov 8 rework): the list on the left over a dark band, like a network menu: a line globe before each row,
+## the selected row lit white with a blue bar running in from the screen's left edge; NAME / SPECTATE ONLY show
+## their value in a column on the right of the list. The page's name is in the header ("✦ ONLINE"), no centred title.
+const MENU_X := 150.0          # the row text (the globe sits left of it)
+const MENU_TOP := 228.0        # the first row's top
+const MENU_STEP := 82.0
+const MENU_H := 66.0
+const MENU_VALUE_X := 640.0    # NAME / SPECTATE ONLY values
+const MENU_TEXT_IDLE := Color(0.42, 0.76, 1.0)
+const MENU_EDGE_IDLE := Color(0.02, 0.05, 0.2)
+const MENU_EDGE_LIT := Color(0.1, 0.36, 0.95)
+
+var _menu_values: Array[Label] = []
+var _menu_globes: Array = []
+
+
 func _show_menu() -> void:
 	_page = Page.MENU
 	_clear_panel()
-	_set_title("PLAY ONLINE")
-	NetsuUI.frame_panel(_panel_root, Rect2(610, 236, 700, 476))
-	_menu_bar = ColorRect.new()
-	_menu_bar.color = Color(0.2, 0.45, 1.0, 0.28)
-	_menu_bar.size = Vector2(620, 66)
-	_menu_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_set_title("")
+	_menu_values.clear()
+	_menu_globes.clear()
+	# the dark band behind the list (darkest on the left), with glowing hairlines on its edges
+	var band := NetsuUI.gradient_rect(Color(0.01, 0.02, 0.12, 0.86), Color(0.03, 0.07, 0.3, 0.3), false)
+	band.position = Vector2(0, 150)
+	band.size = Vector2(1920, 752)
+	_panel_root.add_child(band)
+	_panel_root.add_child(NetsuUI.hairline(Vector2(0, 150), 1920, Color(NetsuUI.LINE, 0.55), 1.5, "right"))
+	_panel_root.add_child(NetsuUI.hairline(Vector2(0, 902), 1920, Color(NetsuUI.LINE, 0.4), 1.5, "right"))
+	_menu_bar = _build_menu_bar()
 	_panel_root.add_child(_menu_bar)
 	for i in MENU_ITEMS.size():
-		var l := _lbl(_panel_root, _menu_text(i), 38, NetsuUI.DIM, NetsuUI.serif(600, 2), Rect2(650, _menu_y(i), 620, 66),
-			HORIZONTAL_ALIGNMENT_CENTER)
+		var y := _menu_y(i)
+		var g := _menu_globe(false)
+		g.position = Vector2(MENU_X - 34, y + MENU_H / 2.0)
+		_panel_root.add_child(g)
+		_menu_globes.append(g)
+		var l := _lbl(_panel_root, _menu_text(i), 46, MENU_TEXT_IDLE, NetsuUI.sans(4, true), Rect2(MENU_X + 8, y, 470, MENU_H))
+		l.add_theme_constant_override("outline_size", 9)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_IDLE)
 		l.clip_text = true
 		_menu_labels.append(l)
-	_add_status(742)
-	_select(_sel)
+		var v := _lbl(_panel_root, "", 34, NetsuUI.DIM, NetsuUI.sans(3), Rect2(MENU_VALUE_X, y, 560, MENU_H))
+		v.add_theme_constant_override("outline_size", 6)
+		v.add_theme_color_override("font_outline_color", MENU_EDGE_IDLE)
+		v.clip_text = true
+		_menu_values.append(v)
+	_create_row = -1
+	_build_create()
+	_add_status(_menu_y(MENU_ITEMS.size()) + 40)
+	_status.position.x = MENU_X - 50
+	_status.size.x = 820   # (left of CREATE LOBBY's panel)
+	_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	_select(_sel, false)
+	NetsuUI.cascade(_panel_root, 3)   # (after _select: it swaps the lit globe, which would miss the fade-in)
+
+
+## The selected row's bar: from the screen's left edge to under the text, blue fading to clear, a bright top edge.
+func _build_menu_bar() -> Node2D:
+	var root := Node2D.new()
+	var w := 760.0
+	var h := 24.0
+	var lip := 14.0   # the right end leans like the main menu's bar
+	var shape := PackedVector2Array([Vector2(0, 0), Vector2(w + lip, 0), Vector2(w, h), Vector2(0, h)])
+	var fill := Polygon2D.new()
+	fill.polygon = shape
+	fill.vertex_colors = PackedColorArray([Color(0.08, 0.4, 1.0, 0.95), Color(0.3, 0.82, 1.0, 0.0),
+		Color(0.3, 0.82, 1.0, 0.0), Color(0.03, 0.26, 0.85, 0.95)])
+	root.add_child(fill)
+	var glow := Polygon2D.new()   # a soft wide glow behind the whole row
+	glow.polygon = PackedVector2Array([Vector2(0, -MENU_H + h + 6), Vector2(w * 0.9, -MENU_H + h + 6), Vector2(w * 0.9, h + 4),
+		Vector2(0, h + 4)])
+	glow.vertex_colors = PackedColorArray([Color(0.2, 0.45, 1.0, 0.22), Color(0.2, 0.45, 1.0, 0.0),
+		Color(0.2, 0.45, 1.0, 0.0), Color(0.2, 0.45, 1.0, 0.22)])
+	root.add_child(glow)
+	root.add_child(NetsuUI.hairline(Vector2(0, 0), w, Color(0.85, 0.95, 1.0, 0.95), 2.0, "right"))
+	root.add_child(NetsuUI.hairline(Vector2(0, h), w * 0.8, Color(0.45, 0.8, 1.0, 0.7), 1.5, "right"))
+	return root
+
+
+## The row icon: a globe drawn in lines (circle, equator, two parallels, a meridian), on a navy disc.
+func _menu_globe(lit: bool) -> Node2D:
+	var root := Node2D.new()
+	var r := 22.0
+	var edge := Color.WHITE if lit else Color(NetsuUI.LINE, 0.95)
+	var disc := PackedVector2Array()
+	for k in 40:
+		disc.append(Vector2.from_angle(TAU * k / 40.0) * r)
+	root.add_child(NetsuUI.poly(disc, Color(0.05, 0.22, 0.75, 0.95) if lit else Color(0.03, 0.06, 0.22, 0.9)))
+	if lit:
+		root.add_child(NetsuUI.outline(disc, Color(0.45, 0.8, 1.0, 0.35), 8.0))
+	root.add_child(NetsuUI.outline(disc, edge, 2.5))
+	for f in [-0.5, 0.0, 0.5]:   # the equator and two parallels
+		var yy: float = f * r
+		var half := sqrt(r * r - yy * yy)
+		var l := Line2D.new()
+		l.points = PackedVector2Array([Vector2(-half, yy), Vector2(half, yy)])
+		l.width = 1.6
+		l.default_color = edge
+		root.add_child(l)
+	for sx in [0.0, 0.5]:   # the central meridian and an ellipse
+		var pts := PackedVector2Array()
+		for k in 40:
+			var a := TAU * k / 40.0
+			pts.append(Vector2(cos(a) * r * sx, sin(a) * r))
+		if sx == 0.0:
+			pts = PackedVector2Array([Vector2(0, -r), Vector2(0, r)])
+		var m := Line2D.new()
+		m.points = pts
+		m.closed = sx != 0.0
+		m.width = 1.6
+		m.default_color = edge
+		root.add_child(m)
+	return root
 
 
 func _menu_y(i: int) -> float:
-	return 272.0 + i * 86.0
+	return MENU_TOP + i * MENU_STEP
 
 
 func _menu_row(id: String) -> int:
@@ -370,26 +478,61 @@ func _menu_row(id: String) -> int:
 	return 0
 
 
+## The row's name ("NAME", "SPECTATE ONLY"...); the value goes in its own column (_menu_value).
 func _menu_text(i: int) -> String:
-	match MENU_ITEMS[i]["id"]:
-		"name":
-			var n: String = _room.my_name() if _room else ""
-			return "NAME:  %s" % (n.to_upper() if n != "" else "(NONE)")
-		"spectate":
-			return "SPECTATE ONLY:  %s" % ("ON" if _room and _room.spectate_only else "OFF")
 	return MENU_ITEMS[i]["label"]
 
 
-func _select(i: int) -> void:
+func _menu_value(i: int) -> String:
+	match MENU_ITEMS[i]["id"]:
+		"name":
+			var n: String = _room.my_name() if _room else ""
+			return n.to_upper() if n != "" else "(NONE)"
+		"spectate":
+			var v := "ON" if _room and _room.spectate_only else "OFF"
+			return "<   %s   >" % v if i == _sel else v
+	return ""
+
+
+func _select(i: int, animate := true) -> void:
+	var prev := _sel
 	_sel = wrapi(i, 0, MENU_ITEMS.size())
 	for j in _menu_labels.size():
-		_menu_labels[j].add_theme_color_override("font_color", NetsuUI.TEXT if j == _sel else NetsuUI.DIM)
+		var on := j == _sel
+		var l := _menu_labels[j]
+		l.add_theme_color_override("font_color", NetsuUI.TEXT if on else MENU_TEXT_IDLE)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_LIT if on else MENU_EDGE_IDLE)
+		if j < _menu_values.size():
+			_menu_values[j].text = _menu_value(j)
+			_menu_values[j].add_theme_color_override("font_color", NetsuUI.TEXT if on else NetsuUI.DIM)
+		if j < _menu_globes.size() and (on or j == prev):
+			var old: Node2D = _menu_globes[j]
+			var g := _menu_globe(on)
+			g.position = old.position
+			g.modulate = old.modulate
+			_panel_root.add_child(g)
+			_panel_root.move_child(g, old.get_index())
+			old.queue_free()
+			_menu_globes[j] = g
 	if _menu_bar:
-		_menu_bar.position = Vector2(650, _menu_y(_sel))
+		var target := Vector2(0, _menu_y(_sel) + MENU_H - 24.0)
+		if animate:
+			create_tween().tween_property(_menu_bar, "position", target, 0.12).set_trans(Tween.TRANS_CUBIC)
+		else:
+			_menu_bar.position = target
+	_refresh_create()
 	_menu_hud()
 
 
 func _menu_hud() -> void:
+	if _box.get("kind", "") == "comment":
+		if _kb():
+			_set_info("Type the comment everyone sees in the lobby, then press Enter (Esc keeps the old one).")
+			_set_legend([_item(["Enter"], "Keep"), _item(["Esc"], "Cancel"), _item(["Backspace"], "Delete"), _item(["Ctrl+V"], "Paste")])
+		else:
+			_set_info("Comments are typed on a keyboard (or pasted with Ctrl+V). %s keeps it, %s cancels." % [_kn("a"), _kn("b")])
+			_set_legend([_item([_kn("a")], "Keep"), _item([_kn("b")], "Cancel")])
+		return
 	if _box.get("kind", "") == "name":
 		if _kb():
 			_set_info("Type the name the other players see, then press Enter (Esc keeps the old one).")
@@ -397,6 +540,9 @@ func _menu_hud() -> void:
 		else:
 			_set_info("Names are typed on a keyboard (or pasted with Ctrl+V). %s keeps it, %s cancels." % [_kn("a"), _kn("b")])
 			_set_legend([_item([_kn("a")], "Keep"), _item([_kn("b")], "Cancel")])
+		return
+	if _create_row >= 0:
+		_create_hud()
 		return
 	var id: String = MENU_ITEMS[_sel]["id"]
 	var text: String = MENU_ITEMS[_sel]["blurb"]
@@ -412,19 +558,29 @@ func _menu_hud() -> void:
 
 ## MENU > NAME: a box to type the name in (Enter keeps it, Esc doesn't).
 func _open_name_entry() -> void:
+	if _create_row >= 0:   # (CREATE LOBBY's Host row)
+		_create_ui["values"][_create_row].visible = false
+		_open_box("name", _room.my_name() if _room else "", _room.MAX_NAME if _room else 16,
+			Rect2(CREATE_VALUE_X - 56, _create_row_y(_create_row) + 4, 420, CREATE_STEP - 8), 26, "YOUR NAME")
+		_menu_hud()
+		return
 	var row := _menu_row("name")
-	_menu_labels[row].visible = false
+	_menu_values[row].visible = false
 	_open_box("name", _room.my_name() if _room else "", _room.MAX_NAME if _room else 16,
-		Rect2(660, _menu_y(row) - 2, 600, 70), 40, "YOUR NAME")
+		Rect2(MENU_VALUE_X - 16, _menu_y(row) + 2, 540, MENU_H - 4), 36, "YOUR NAME")
 	_menu_hud()
 
 
 func _close_name_entry() -> void:
 	_close_box()
 	var row := _menu_row("name")
-	if row < _menu_labels.size():
-		_menu_labels[row].text = _menu_text(row)
-		_menu_labels[row].visible = true
+	if row < _menu_values.size():
+		_menu_values[row].text = _menu_value(row)
+		_menu_values[row].visible = true
+	if not _create_ui.is_empty():
+		for v in _create_ui["values"]:
+			v.visible = true
+		_refresh_create()
 	_menu_hud()
 
 
@@ -432,7 +588,269 @@ func _toggle_spectate() -> void:
 	if _room:
 		_room.set_spectate(not _room.spectate_only)
 	var row := _menu_row("spectate")
-	_menu_labels[row].text = _menu_text(row)
+	_menu_values[row].text = _menu_value(row)
+	_menu_hud()
+
+
+# --- CREATE LOBBY: the settings panel on the right of the menu (Nov 8) -------------------------------------------
+## Shown while CREATE LOBBY is the selected row; A there moves into it (on its Create Lobby row: A, A opens the lobby).
+## Up / Down = row, Left / Right = change, A = Create Lobby (or type the name / comment), Start = Create Lobby from
+## any row, B = back to the list. Kept for the session in OnlineRoom.host_options (rounds: also Options' online rounds).
+const CREATE_RECT := Rect2(1000, 186, 830, 650)
+const CREATE_ROW_Y := 268.0
+const CREATE_STEP := 56.0
+const CREATE_LABEL_X := 1060.0
+const CREATE_VALUE_X := 1420.0
+const CREATE_ROWS := [["host", "Host"], ["max", "Players"], ["rounds", "Rounds to Win"], ["time", "Round Time"],
+	["stage", "Stage"], ["music", "Music"], ["comment", "Comment"], ["go", "Create Lobby"]]
+const COMMENT_MAX := 24
+
+var _create := {}              # the values {"max", "rounds", "time", "stage", "music", "comment"}
+var _create_row := -1          # the row being changed (-1: the list on the left has the cursor)
+var _create_ui := {}
+
+
+func _create_defaults() -> void:
+	var o: Dictionary = _room.host_options if _room else {}
+	var gs := get_node_or_null("/root/GameSettings")
+	_create = {"max": int(o.get("max", 8)), "rounds": int(o.get("rounds", gs.get_value("game", "rounds_online") if gs else 2)),
+		"time": int(o.get("time", gs.get_value("game", "time_versus") if gs else 99)),
+		"stage": int(MatchSetup.get_meta("online_stage", -1)) if MatchSetup.has_meta("online_stage") else -1,
+		"music": int(MatchSetup.get_meta("online_music", MatchSetup.MUSIC_AUTO)) if MatchSetup.has_meta("online_music") else MatchSetup.MUSIC_AUTO,
+		"comment": str(o.get("comment", ""))}
+
+
+func _build_create() -> void:
+	_create_defaults()
+	var ui := {}
+	var root := Control.new()
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.size = Vector2(1920, 1080)
+	_panel_root.add_child(root)
+	ui["root"] = root
+	# a lighter slab with a glowing left edge (the reference's split), then the title bar
+	var slab := NetsuUI.gradient_rect(Color(0.05, 0.1, 0.36, 0.55), Color(0.04, 0.08, 0.3, 0.15), false)
+	slab.position = CREATE_RECT.position
+	slab.size = CREATE_RECT.size
+	root.add_child(slab)
+	var edge := ColorRect.new()
+	edge.color = Color(NetsuUI.LINE, 0.45)
+	edge.position = CREATE_RECT.position
+	edge.size = Vector2(1.5, CREATE_RECT.size.y)
+	edge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(edge)
+	var head := _lit_bar(CREATE_RECT.size.x - 80.0, 40.0, true)
+	head.position = Vector2(CREATE_RECT.position.x + 20, 206)
+	root.add_child(head)
+	_lbl(root, "CREATE LOBBY", 26, Color.WHITE, NetsuUI.sans(5), Rect2(CREATE_LABEL_X, 206, 600, 40))
+	ui["bar"] = _lit_bar(CREATE_RECT.size.x - 80.0, CREATE_STEP - 10.0, false)
+	root.add_child(ui["bar"])
+	var labels := []
+	var values := []
+	for i in CREATE_ROWS.size():
+		var y := CREATE_ROW_Y + i * CREATE_STEP
+		if CREATE_ROWS[i][0] == "go":
+			y += 18.0
+			NetsuUI.divider(root, CREATE_RECT.position.x + 60, CREATE_RECT.end.x - 60, y - 14)
+		var l := _lbl(root, CREATE_ROWS[i][1], 27, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(CREATE_LABEL_X, y, 340, CREATE_STEP))
+		l.add_theme_constant_override("outline_size", 6)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_IDLE)
+		labels.append(l)
+		var v := _lbl(root, "", 27, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(CREATE_VALUE_X - 40, y, 420, CREATE_STEP))
+		v.add_theme_constant_override("outline_size", 6)
+		v.add_theme_color_override("font_outline_color", MENU_EDGE_IDLE)
+		v.clip_text = true
+		v.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		values.append(v)
+	ui["labels"] = labels
+	ui["values"] = values
+	_create_ui = ui
+	_refresh_create()
+
+
+## A lit bar like the menus' (blue from the left, fading right, a bright top edge); `solid` = the panel's title bar.
+func _lit_bar(w: float, h: float, solid: bool) -> Node2D:
+	var root := Node2D.new()
+	var fill := Polygon2D.new()
+	fill.polygon = PackedVector2Array([Vector2(0, 0), Vector2(w, 0), Vector2(w, h), Vector2(0, h)])
+	var a := 0.9 if solid else 0.75
+	fill.vertex_colors = PackedColorArray([Color(0.06, 0.34, 0.95, a), Color(0.3, 0.82, 1.0, 0.0),
+		Color(0.3, 0.82, 1.0, 0.0), Color(0.03, 0.24, 0.8, a)])
+	root.add_child(fill)
+	root.add_child(NetsuUI.hairline(Vector2(0, 0), w, Color(0.85, 0.95, 1.0, 0.9 if solid else 0.75), 1.5, "right"))
+	root.add_child(NetsuUI.hairline(Vector2(0, h), w * 0.8, Color(0.45, 0.8, 1.0, 0.6), 1.5, "right"))
+	return root
+
+
+func _create_row_y(i: int) -> float:
+	return CREATE_ROW_Y + i * CREATE_STEP + (18.0 if CREATE_ROWS[i][0] == "go" else 0.0)
+
+
+func _create_value(id: String) -> String:
+	match id:
+		"host":
+			var n: String = _room.my_name() if _room else ""
+			return n if n != "" else "(No name: Player 1)"
+		"max":
+			return "%d Players" % int(_create["max"])
+		"rounds":
+			return str(int(_create["rounds"]))
+		"time":
+			var t := int(_create["time"])
+			return "No Limit" if t < 0 else "%d Seconds" % t
+		"stage":
+			var st := int(_create["stage"])
+			return "Random" if st < 0 or st >= MatchSetup.stage_count() else MatchSetup.stage_name(st)
+		"music":
+			return _music_name(int(_create["music"]))
+		"comment":
+			var c := str(_create["comment"])
+			return c if c != "" else "None"
+	return ""
+
+
+func _create_help(id: String) -> String:
+	match id:
+		"host":
+			return "The lobby is shown with your name. Press %s to change it." % _kn("a")
+		"max":
+			return "How many people can be in the lobby, you included (2 to 8). Spectators count too."
+		"rounds":
+			return "Rounds a player needs to win a match."
+		"time":
+			return "Seconds per round."
+		"stage":
+			return "Where the matches are fought. Random: a new stage every match. You can change it later in SETUP."
+		"music":
+			return "The battle music. Auto plays player 1's theme. You can change it later in SETUP."
+		"comment":
+			return "A short line everyone sees in the lobby (\"Casuals\", \"First to 3\"...). Press %s to type it." % _kn("a")
+		"go":
+			return "Open the lobby with these settings and get the code to send to your friends."
+	return ""
+
+
+func _refresh_create() -> void:
+	if _create_ui.is_empty():
+		return
+	var shown: bool = _page == Page.MENU and str(MENU_ITEMS[_sel]["id"]) == "host"
+	_create_ui["root"].visible = shown
+	var focus := _create_row >= 0
+	_create_ui["bar"].visible = focus
+	if focus:
+		_create_ui["bar"].position = Vector2(CREATE_RECT.position.x + 20, _create_row_y(_create_row) + 5)
+	for i in CREATE_ROWS.size():
+		var id: String = CREATE_ROWS[i][0]
+		var on := focus and i == _create_row
+		var l: Label = _create_ui["labels"][i]
+		var v: Label = _create_ui["values"][i]
+		var changeable := id in ["max", "rounds", "time", "stage", "music"]
+		var val := _create_value(id)
+		v.text = ("<   %s   >" % val) if on and changeable else val
+		var dim := Color(NetsuUI.TEXT, 0.82 if focus else 0.7)
+		l.add_theme_color_override("font_color", Color.WHITE if on else dim)
+		v.add_theme_color_override("font_color", Color.WHITE if on else dim)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_LIT if on else MENU_EDGE_IDLE)
+		if id == "go":
+			l.add_theme_color_override("font_color", READY_TEXT if on else Color(READY_TEXT, 0.75))
+			l.add_theme_font_size_override("font_size", 31)
+		if id == "comment" and str(_create["comment"]) == "":
+			v.add_theme_color_override("font_color", Color(NetsuUI.DIM, 0.6))
+
+
+func _create_hud() -> void:
+	var id: String = CREATE_ROWS[_create_row][0]
+	_set_info(_note if _note != "" else _create_help(id))
+	var items := [_item(_dir_keys("up", "down"), "Select")]
+	if id in ["max", "rounds", "time", "stage", "music"]:
+		items.append(_item(_dir_keys("left", "right"), "Change"))
+	if id in ["host", "comment"]:
+		items.append(_item([_kn("a")], "Edit"))
+	items.append(_item([_kn("start")] if id != "go" else [_kn("a")], "Create Lobby"))
+	items.append(_item([_kn("b")], "Back"))
+	_set_legend(items)
+
+
+func _create_step(step: int) -> void:
+	var id: String = CREATE_ROWS[_create_row][0]
+	match id:
+		"max":
+			_create["max"] = wrapi(int(_create["max"]) + step, 2, 9)
+		"rounds":
+			_create["rounds"] = wrapi(int(_create["rounds"]) + step, 1, 6)
+		"time":
+			var times: Array = GameSettings.ROUND_TIMES
+			var i := maxi(0, times.find(int(_create["time"])))
+			_create["time"] = int(times[wrapi(i + step, 0, times.size())])
+		"stage":
+			_create["stage"] = wrapi(int(_create["stage"]) + 1 + step, 0, MatchSetup.stage_count() + 1) - 1
+		"music":
+			_create["music"] = wrapi(int(_create["music"]) + 2 + step, 0, MatchSetup.song_count() + 2) - 2
+		_:
+			return
+	_refresh_create()
+
+
+## CREATE LOBBY's Create Lobby row (or Start): keep the choices, open the lobby.
+func _create_lobby() -> void:
+	if _room:
+		_room.host_options = {"max": int(_create["max"]), "rounds": int(_create["rounds"]), "time": int(_create["time"]),
+			"comment": str(_create["comment"]).strip_edges()}
+	var gs := get_node_or_null("/root/GameSettings")
+	if gs:
+		gs.set_value("game", "rounds_online", int(_create["rounds"]))
+	MatchSetup.set_meta("online_stage", int(_create["stage"]))
+	MatchSetup.set_meta("online_music", int(_create["music"]))
+	if _net and "MaxPlayers" in _net:
+		_net.MaxPlayers = int(_create["max"])
+	_create_row = -1
+	_start_host()
+
+
+func _create_input(event: InputEvent) -> bool:
+	var id: String = CREATE_ROWS[_create_row][0]
+	if _dir(event, "down"):
+		_create_row = wrapi(_create_row + 1, 0, CREATE_ROWS.size())
+	elif _dir(event, "up"):
+		_create_row = wrapi(_create_row - 1, 0, CREATE_ROWS.size())
+	elif _dir(event, "left"):
+		_create_step(-1)
+	elif _dir(event, "right"):
+		_create_step(1)
+	elif _btn(event, "start"):
+		_create_lobby()
+		return true
+	elif _confirm(event):
+		match id:
+			"go":
+				_create_lobby()
+				return true
+			"host":
+				_open_name_entry()
+				return true
+			"comment":
+				_open_box("comment", str(_create["comment"]), COMMENT_MAX,
+					Rect2(CREATE_VALUE_X - 56, _create_row_y(_create_row) + 4, 420, CREATE_STEP - 8), 26, "COMMENT")
+				_create_ui["values"][_create_row].visible = false
+				_set_info("Type the comment, then press Enter (Esc keeps the old one)." if _kb()
+					else "Comments are typed on a keyboard (or pasted with Ctrl+V). %s keeps it, %s cancels." % [_kn("a"), _kn("b")])
+				return true
+	elif _back(event):
+		_create_row = -1
+	else:
+		return false
+	_refresh_create()
+	_menu_hud()
+	return true
+
+
+func _close_comment(keep: bool) -> void:
+	if keep:
+		_create["comment"] = str(_box.get("text", "")).strip_edges()
+	_close_box()
+	if not _create_ui.is_empty():
+		_create_ui["values"][_create_row].visible = true
+	_refresh_create()
 	_menu_hud()
 
 
@@ -440,7 +858,7 @@ func _start_host() -> void:
 	if _net == null:
 		return
 	_net.Host(port)
-	_show_invite()
+	_enter_room()   # (Nov 8: straight into the lobby; the code is in its table, LOBBY MENU > Copy Lobby Code copies it)
 
 
 ## The host's code screen: right after opening the lobby, and from the room (Start).
@@ -603,7 +1021,7 @@ func _open_box(kind: String, text: String, max_len: int, rect: Rect2, font_size:
 	_close_box_nodes()
 	_box = {"kind": kind, "text": text.substr(0, max_len), "max": max_len, "fresh": true, "placeholder": placeholder}
 	var p := _panel(_panel_root, rect, BOX_FILL, BOX_EDGE, 2, 0)
-	var l := _lbl(_panel_root, "", font_size, Color.WHITE, _code_font() if kind != "name" else NetsuUI.serif(700, 2), Rect2(rect.position + Vector2(16, 0),
+	var l := _lbl(_panel_root, "", font_size, Color.WHITE, _code_font() if not kind in ["name", "comment"] else NetsuUI.serif(700, 2), Rect2(rect.position + Vector2(16, 0),
 		rect.size - Vector2(32, 0)), HORIZONTAL_ALIGNMENT_CENTER)
 	l.clip_text = true
 	var caret := ColorRect.new()
@@ -841,6 +1259,8 @@ func _box_submit() -> void:
 			if _room:
 				_room.set_my_name(str(_box.get("text", "")))
 			_close_name_entry()
+		"comment":
+			_close_comment(true)
 		"reply":
 			if _net and _net.AcceptReply(str(_box.get("text", "")).strip_edges()):
 				_close_box()
@@ -864,6 +1284,8 @@ func _box_cancel() -> void:
 				_to_digits_mode()
 		"name":
 			_close_name_entry()
+		"comment":
+			_close_comment(false)
 		"reply":
 			_close_box()
 			_host_info()
@@ -886,81 +1308,190 @@ func _enter_room() -> void:
 	_page = Page.ROOM
 	_clear_panel()
 	_leave_armed = 0.0
-	_set_title("ONLINE LOBBY")
+	_cmd = 0
+	_set_title("")
+	_set_header("ONLINE LOBBY")
 	_build_room()
 	_refresh_room()
 	_fill_log()
 
 
+# --- The room (Nov 8 layout, a network lobby's) ----------------------------------------------------------------
+## Top: the room's table (ROOM, PLAYERS, CODE, ROUNDS, TIME, STAGE, MUSIC, COMMENT) on a lit row across the screen.
+## Left: the NEXT MATCH bar (1P VS 2P, the pick clock / LIVE), then everyone in the lobby as a table: place in line,
+## side (1P / 2P), PLAYER (profile icon with their fighter's chip, name, title plate), FIGHTER (fighter, assist),
+## PING, WINS, STATUS. Your row has the bright edge. Right: the LOBBY MENU (Up / Down, A) and the MESSAGES under it.
+## The old shortcuts still work: AB pass, S spectate, C watch, Start the invite screen (host), B leave / not ready.
+const ROOM_COLS := [["room", "ROOM", 40.0, 380.0], ["players", "PLAYERS", 420.0, 150.0], ["code", "CODE", 570.0, 190.0],
+	["rounds", "ROUNDS", 760.0, 120.0], ["time", "TIME", 880.0, 120.0], ["stage", "STAGE", 1000.0, 300.0],
+	["music", "MUSIC", 1300.0, 300.0], ["comment", "COMMENT", 1600.0, 290.0]]
+const ROOM_HEAD_Y := 150.0
+const ROOM_VAL_Y := 186.0
+const ROOM_VAL_H := 52.0
+const NEXT_RECT := Rect2(40, 252, 1340, 46)
+const TABLE_X := 40.0
+const TABLE_W := 1340.0
+const TABLE_HEAD_Y := 306.0
+const TROW_Y := 340.0
+const TROW_STEP := 70.0
+const TROW_H := 66.0   # (Nov 8: taller, for bigger title plates)
+## The table's columns inside a row: [caption, x, w, centred]
+const TABLE_COLS := [["#", 0.0, 50.0, true], ["SIDE", 50.0, 80.0, true], ["PLAYER", 140.0, 440.0, false],
+	["FIGHTER", 600.0, 320.0, false], ["PING", 920.0, 110.0, true], ["WINS", 1030.0, 90.0, true], ["STATUS", 1120.0, 220.0, true]]
+const CMD_RECT := Rect2(1420, 264, 460, 380)
+const CMD_ROW_Y := 322.0
+const CMD_STEP := 44.0
+const CMD_IDS := ["setup", "ready", "pass", "watch", "spectate", "code", "leave"]
+const MSG_RECT := Rect2(1420, 662, 460, 232)
+
+var _cmd := 0                      # the LOBBY MENU's row
+
+
 func _build_room() -> void:
 	var ui := {}
 	var root := _panel_root
-	# the room bar: the host's lobby ... its code
-	_glass(root, ROOM_BAR)
-	var cy := ROOM_BAR.position.y
-	_lbl(root, "ROOM", 20, NetsuUI.CYAN, NetsuUI.sans(8), Rect2(ROOM_BAR.position.x + 28, cy, 110, ROOM_BAR.size.y))
-	ui["room_name"] = _lbl(root, "", 26, NetsuUI.TEXT, NetsuUI.sans(3), Rect2(ROOM_BAR.position.x + 140, cy, 560, ROOM_BAR.size.y))
-	ui["room_name"].clip_text = true
-	ui["setup_cap"] = _lbl(root, "SETUP", 20, NetsuUI.CYAN, NetsuUI.sans(8), Rect2(0, cy, 200, ROOM_BAR.size.y))
-	ui["setup"] = _lbl(root, "", 22, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(0, cy, 300, ROOM_BAR.size.y))
-	ui["setup"].clip_text = true
-	ui["setup"].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	ui["code_cap"] = _lbl(root, "CODE", 20, NetsuUI.CYAN, NetsuUI.sans(8), Rect2(0, cy, 100, ROOM_BAR.size.y), HORIZONTAL_ALIGNMENT_RIGHT)
-	ui["code"] = _lbl(root, "", 26, Color.WHITE, NetsuUI.sans(4), Rect2(ROOM_BAR.end.x - 330, cy, 300, ROOM_BAR.size.y),
-		HORIZONTAL_ALIGNMENT_RIGHT)
-	_build_vs(ui)
-	# the messages
-	NetsuUI.frame_panel(root, LOG_RECT)
-	_lbl(root, "MESSAGES", 20, NetsuUI.CYAN, NetsuUI.sans(6), Rect2(LOG_RECT.position.x + 30, LOG_RECT.position.y + 14, 400, 32))
-	var lines := []
-	for i in 6:
-		var l := _lbl(root, "", 23, LOG_TEXT, NetsuUI.body(), Rect2(LOG_RECT.position.x + 30, LOG_RECT.position.y + 56 + i * 40,
-			LOG_RECT.size.x - 60, 36))
-		l.clip_text = true
-		l.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		lines.append(l)
-	ui["log"] = lines
-	# the list
-	NetsuUI.frame_panel(root, LIST_RECT)
-	ui["list_title"] = _lbl(root, "", 22, NetsuUI.CYAN, NetsuUI.sans(6), Rect2(LIST_RECT.position.x + 30, LIST_RECT.position.y + 14, 500, 34))
+	# the room's table: captions over a lit row across the screen
+	var head := NetsuUI.gradient_rect(Color(0.01, 0.02, 0.12, 0.88), Color(0.02, 0.04, 0.18, 0.75), false)
+	head.position = Vector2(0, ROOM_HEAD_Y)
+	head.size = Vector2(1920, ROOM_VAL_Y - ROOM_HEAD_Y)
+	root.add_child(head)
+	var row := NetsuUI.gradient_rect(Color(0.05, 0.26, 0.9, 0.82), Color(0.04, 0.2, 0.75, 0.62), false)
+	row.position = Vector2(0, ROOM_VAL_Y)
+	row.size = Vector2(1920, ROOM_VAL_H)
+	root.add_child(row)
+	root.add_child(NetsuUI.hairline(Vector2(0, ROOM_VAL_Y), 1920, Color(0.75, 0.9, 1.0, 0.8), 1.5, "none"))
+	root.add_child(NetsuUI.hairline(Vector2(0, ROOM_VAL_Y + ROOM_VAL_H), 1920, Color(0.45, 0.75, 1.0, 0.7), 1.5, "none"))
+	var cols := {}
+	for i in ROOM_COLS.size():
+		var c: Array = ROOM_COLS[i]
+		_caption(root, c[1], Rect2(c[2], ROOM_HEAD_Y, c[3], ROOM_VAL_Y - ROOM_HEAD_Y))
+		var v := _lbl(root, "", 23, Color.WHITE, NetsuUI.sans(2), Rect2(c[2] + 8, ROOM_VAL_Y, c[3] - 16, ROOM_VAL_H),
+			HORIZONTAL_ALIGNMENT_CENTER)
+		v.clip_text = true
+		v.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		v.add_theme_constant_override("outline_size", 5)
+		v.add_theme_color_override("font_outline_color", Color(0.02, 0.05, 0.25, 0.8))
+		cols[c[0]] = v
+		if i > 0:
+			_dots(root, c[2], ROOM_VAL_Y + 10, ROOM_VAL_H - 20)
+	ui["cols"] = cols
+	# NEXT MATCH: 1P VS 2P and the pick clock
+	_glass(root, NEXT_RECT)
+	var nx := NEXT_RECT.position.x
+	var ny := NEXT_RECT.position.y
+	var nh := NEXT_RECT.size.y
+	var next := {}
+	_lbl(root, "NEXT MATCH", 19, NetsuUI.CYAN, NetsuUI.sans(7), Rect2(nx + 26, ny, 190, nh))
+	next["p1"] = _lbl(root, "", 24, P1_COLOR.lightened(0.45), NetsuUI.sans(2), Rect2(nx + 220, ny, 420, nh), HORIZONTAL_ALIGNMENT_RIGHT)
+	next["vs"] = _lbl(root, "VS", 30, Color.WHITE, NetsuUI.serif(700, 2), Rect2(nx + 650, ny, 80, nh), HORIZONTAL_ALIGNMENT_CENTER)
+	NetsuUI.glow(next["vs"], Color(0.3, 0.5, 1.0, 0.5), 8)
+	next["p2"] = _lbl(root, "", 24, P2_COLOR.lightened(0.45), NetsuUI.sans(2), Rect2(nx + 740, ny, 380, nh))
+	for k in ["p1", "p2"]:
+		next[k].clip_text = true
+		next[k].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	next["clock"] = _lbl(root, "", 24, Color.WHITE, NetsuUI.sans(4), Rect2(nx + 1130, ny, 186, nh), HORIZONTAL_ALIGNMENT_RIGHT)
+	ui["next"] = next
+	# the players' table: captions, then a row each
+	var cap_bg := NetsuUI.gradient_rect(Color(0.01, 0.02, 0.12, 0.7), Color(0.01, 0.02, 0.12, 0.0), false)
+	cap_bg.position = Vector2(TABLE_X, TABLE_HEAD_Y)
+	cap_bg.size = Vector2(TABLE_W, 32)
+	root.add_child(cap_bg)
+	for c in TABLE_COLS:
+		_caption(root, c[0], Rect2(TABLE_X + c[1] + (0.0 if c[3] else 8.0), TABLE_HEAD_Y, c[2], 32),
+			HORIZONTAL_ALIGNMENT_CENTER if c[3] else HORIZONTAL_ALIGNMENT_LEFT)
 	_entries = []
 	for i in 8:
 		_entries.append(_build_entry(i))
+	# the LOBBY MENU
+	var slab := NetsuUI.gradient_rect(Color(0.05, 0.1, 0.36, 0.75), Color(0.03, 0.06, 0.24, 0.55), true)
+	slab.position = CMD_RECT.position
+	slab.size = CMD_RECT.size
+	root.add_child(slab)
+	root.add_child(NetsuUI.outline(_rect_pts(CMD_RECT), Color(NetsuUI.LINE, 0.55), 1.5))
+	var title_bar := _lit_bar(CMD_RECT.size.x - 20.0, 38.0, true)
+	title_bar.position = CMD_RECT.position + Vector2(10, 10)
+	root.add_child(title_bar)
+	_lbl(root, "LOBBY MENU", 22, Color.WHITE, NetsuUI.sans(6), Rect2(CMD_RECT.position.x + 30, CMD_RECT.position.y + 10, 400, 38))
+	var cmd := {"bar": _lit_bar(CMD_RECT.size.x - 20.0, CMD_STEP - 6.0, false), "labels": []}
+	root.add_child(cmd["bar"])
+	for i in CMD_IDS.size():
+		var l := _lbl(root, "", 25, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(CMD_RECT.position.x + 40, CMD_ROW_Y + i * CMD_STEP,
+			CMD_RECT.size.x - 60, CMD_STEP))
+		l.add_theme_constant_override("outline_size", 6)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_IDLE)
+		l.clip_text = true
+		cmd["labels"].append(l)
+	ui["cmd"] = cmd
+	# MESSAGES
+	var mslab := NetsuUI.gradient_rect(Color(0.01, 0.02, 0.12, 0.8), Color(0.02, 0.04, 0.16, 0.65), true)
+	mslab.position = MSG_RECT.position
+	mslab.size = MSG_RECT.size
+	root.add_child(mslab)
+	root.add_child(NetsuUI.outline(_rect_pts(MSG_RECT), Color(NetsuUI.LINE, 0.4), 1.5))
+	_caption(root, "MESSAGES", Rect2(MSG_RECT.position.x + 20, MSG_RECT.position.y + 6, 300, 30), HORIZONTAL_ALIGNMENT_LEFT)
+	var log_l := _lbl(root, "", 18, LOG_TEXT, NetsuUI.body(), Rect2(MSG_RECT.position.x + 20, MSG_RECT.position.y + 40,
+		MSG_RECT.size.x - 40, MSG_RECT.size.y - 50), HORIZONTAL_ALIGNMENT_LEFT, VERTICAL_ALIGNMENT_TOP)
+	log_l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	log_l.max_lines_visible = 8
+	ui["log"] = log_l
 	_room_ui = ui
 
 
-## One row of the player list: [number tab][avatar] [flag] name / [status bar]   wins / ping. Gold frame = you.
+## A table caption (the small light-blue capitals over a column).
+func _caption(parent: Node, text: String, rect: Rect2, align := HORIZONTAL_ALIGNMENT_CENTER) -> Label:
+	var l := _lbl(parent, text, 17, Color(0.78, 0.9, 1.0), NetsuUI.sans(6), rect, align)
+	l.add_theme_constant_override("outline_size", 4)
+	l.add_theme_color_override("font_outline_color", Color(0.02, 0.03, 0.12, 0.8))
+	return l
+
+
+## A dotted divider between two columns.
+func _dots(parent: Node, x: float, y: float, h: float) -> void:
+	var n := int(h / 6.0)
+	for k in n:
+		var d := ColorRect.new()
+		d.color = Color(0.75, 0.9, 1.0, 0.7)
+		d.position = Vector2(x - 1, y + k * 6.0)
+		d.size = Vector2(2, 3)
+		d.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		parent.add_child(d)
+
+
+func _rect_pts(r: Rect2) -> PackedVector2Array:
+	return PackedVector2Array([r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)])
+
+
+## One row of the players' table (see TABLE_COLS). Your own row: brighter, with a light edge.
 func _build_entry(i: int) -> Dictionary:
 	var e := {}
 	var root := Control.new()
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	root.position = Vector2(LIST_RECT.position.x + 12, ROW_Y + i * ROW_STEP)
-	root.size = Vector2(LIST_RECT.size.x - 24, ROW_H)
+	root.position = Vector2(TABLE_X, TROW_Y + i * TROW_STEP)
+	root.size = Vector2(TABLE_W, TROW_H)
 	_panel_root.add_child(root)
 	e["root"] = root
-	var w := root.size.x
-	e["you"] = NetsuUI.row_bar(Vector2(w, ROW_H))   # your own row: the menus' selected-row bar
-	root.add_child(e["you"])
-	if i < 7:
-		root.add_child(NetsuUI.hairline(Vector2(10, ROW_H + 4), w - 20, Color(0.55, 0.75, 1.0, 0.3), 1.0))
-	e["num"] = _lbl(root, "", 28, NetsuUI.CYAN, NetsuUI.sans(2), Rect2(4, 0, 40, ROW_H), HORIZONTAL_ALIGNMENT_CENTER)
-	_profile_avatar(root, Rect2(50, 7, 62, 62), e, 26.0)
-	for side in 2:   # the side in the match: a small diamond in the side's colour
-		var d := NetsuUI.diamond(6.0, Color(0.85, 0.92, 1.0), Color(0.03, 0.05, 0.16), P1_COLOR if side == 0 else P2_COLOR)
-		d.position = Vector2(132, 24)
-		root.add_child(d)
-		e["side%d" % side] = d
-	e["name"] = _lbl(root, "", 23, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(146, 4, w - LIST_PLATE.x - 156, 38))
+	e["bg"] = _panel(root, Rect2(Vector2.ZERO, root.size), Color(0.02, 0.05, 0.2, 0.62), Color(0, 0, 0, 0), 0, 4)
+	for c in TABLE_COLS.slice(1):
+		_dots(root, c[1], 12, TROW_H - 24)
+	e["num"] = _lbl(root, "", 26, NetsuUI.CYAN, NetsuUI.sans(2), Rect2(0, 0, 50, TROW_H), HORIZONTAL_ALIGNMENT_CENTER)
+	e["side"] = _lbl(root, "", 24, Color.WHITE, NetsuUI.sans(3, true), Rect2(50, 0, 80, TROW_H), HORIZONTAL_ALIGNMENT_CENTER)
+	e["side"].add_theme_constant_override("outline_size", 6)
+	_profile_avatar(root, Rect2(144, 4, 58, 58), e, 24.0)
+	e["name"] = _lbl(root, "", 22, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(216, 0, 360, 31))
 	e["name"].clip_text = true
 	e["name"].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	e["status"] = _lbl(root, "", 16, NetsuUI.DIM, NetsuUI.sans(5), Rect2(146, 40, 200, 28))
-	# the title plate, right of the name; wins and ping under it
 	e["plate"] = NetsuTitlePlate.new()
-	e["plate"].position = Vector2(w - LIST_PLATE.x - 4, 6)
-	e["plate"].size = LIST_PLATE
+	e["plate"].position = Vector2(214, 31)
+	e["plate"].size = Vector2(290, 34)
 	root.add_child(e["plate"])
-	e["wins"] = _lbl(root, "", 16, READY_TEXT, NetsuUI.sans(3), Rect2(w - 240, 40, 132, 28), HORIZONTAL_ALIGNMENT_RIGHT)
-	e["ping"] = _lbl(root, "", 16, NetsuUI.DIM, NetsuUI.sans(3), Rect2(w - 104, 40, 94, 28), HORIZONTAL_ALIGNMENT_RIGHT)
+	e["fighter"] = _lbl(root, "", 23, Color.WHITE, NetsuUI.sans(2), Rect2(612, 3, 300, 32))
+	e["assist"] = _lbl(root, "", 17, NetsuUI.DIM, NetsuUI.sans(3), Rect2(612, 35, 300, 26))
+	for k in ["fighter", "assist"]:
+		e[k].clip_text = true
+		e[k].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	e["ping"] = _lbl(root, "", 20, NetsuUI.TEXT, NetsuUI.sans(2), Rect2(920, 0, 110, TROW_H), HORIZONTAL_ALIGNMENT_CENTER)
+	e["wins"] = _lbl(root, "", 24, READY_TEXT, NetsuUI.sans(3), Rect2(1030, 0, 90, TROW_H), HORIZONTAL_ALIGNMENT_CENTER)
+	e["status"] = _lbl(root, "", 18, NetsuUI.DIM, NetsuUI.sans(5), Rect2(1120, 0, 220, TROW_H), HORIZONTAL_ALIGNMENT_CENTER)
 	return e
 
 
@@ -1024,68 +1555,6 @@ func _set_profile_avatar(into: Dictionary, id: int, f: int) -> void:
 		n.visible = id >= 0 and face != null
 
 
-func _build_vs(ui: Dictionary) -> void:
-	var root := _panel_root
-	var r := VS_RECT
-	NetsuUI.frame_panel(root, r)
-	# blue light on the left (player 1), crimson on the right (player 2)
-	var half := (r.size.x - 16.0) / 2.0
-	var lights := [NetsuUI.gradient_rect(Color(P1_COLOR, 0.2), Color(P1_COLOR, 0.0), false),
-		NetsuUI.gradient_rect(Color(P2_COLOR, 0.0), Color(P2_COLOR, 0.2), false)]
-	for side in 2:
-		lights[side].position = Vector2(r.position.x + 8 + side * half, r.position.y + 8)
-		lights[side].size = Vector2(half, r.size.y - 16)
-		root.add_child(lights[side])
-	var cx := r.get_center().x
-	var vs := _lbl(root, "VS", 92, Color.WHITE, NetsuUI.serif(700), Rect2(cx - 100, r.position.y + 40, 200, 120),
-		HORIZONTAL_ALIGNMENT_CENTER)
-	NetsuUI.glow(vs, Color(0.3, 0.5, 1.0, 0.5), 12)
-	NetsuUI.divider(root, r.position.x + 30, r.end.x - 30, r.position.y + 170)
-	var sides := []
-	for side in 2:
-		var s := {}
-		var left := side == 0
-		var accent: Color = P1_COLOR if left else P2_COLOR
-		var al := HORIZONTAL_ALIGNMENT_RIGHT if left else HORIZONTAL_ALIGNMENT_LEFT
-		var tag_x := r.position.x + 30.0 if left else r.end.x - 510.0
-		s["tag"] = _lbl(root, "", 21, accent.lightened(0.35), NetsuUI.sans(6), Rect2(tag_x, r.position.y + 14, 480, 32),
-			HORIZONTAL_ALIGNMENT_LEFT if left else HORIZONTAL_ALIGNMENT_RIGHT)
-		_profile_avatar(root, Rect2(cx - 205 if left else cx + 101, r.position.y + 50, 104, 104), s, 40.0)
-		var nx := r.position.x + 30.0 if left else cx + 225.0
-		var nw := cx - 245 - r.position.x - 30
-		s["name"] = _lbl(root, "", 32, Color.WHITE, NetsuUI.sans(3), Rect2(nx, r.position.y + 46, nw, 44), al)
-		s["name"].clip_text = true
-		s["name"].text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		NetsuUI.glow(s["name"], Color(0.02, 0.03, 0.12, 0.7), 5)
-		s["plate"] = NetsuTitlePlate.new()
-		s["plate"].size = VS_PLATE
-		s["plate"].position = Vector2(nx + nw - VS_PLATE.x + 6 if left else nx - 6, r.position.y + 92)
-		root.add_child(s["plate"])
-		s["status"] = _lbl(root, "", 20, NetsuUI.DIM, NetsuUI.sans(6), Rect2(nx, r.position.y + 130, nw, 30), al)
-		sides.append(s)
-	ui["vs"] = sides
-	# under the names: each side's fighter and assist, the pick clock between them
-	var st := {}
-	var cols := []
-	var col_w := cx - 120.0 - r.position.x - 30.0
-	for side in 2:
-		var left := side == 0
-		var accent: Color = P1_COLOR if left else P2_COLOR
-		var x := r.position.x + 30.0 if left else cx + 120.0
-		var al := HORIZONTAL_ALIGNMENT_RIGHT if left else HORIZONTAL_ALIGNMENT_LEFT
-		var c := {}
-		c["fighter"] = _lbl(root, "", 54, Color.WHITE, NetsuUI.serif(700, 2), Rect2(x, r.position.y + 196, col_w, 66), al)
-		NetsuUI.glow(c["fighter"], Color(accent, 0.45), 8)
-		c["detail"] = _lbl(root, "", 20, NetsuUI.TEXT, NetsuUI.sans(4), Rect2(x, r.position.y + 268, col_w, 30), al)
-		c["fighter"].clip_text = true
-		c["detail"].clip_text = true
-		cols.append(c)
-	st["side"] = cols
-	st["clock"] = _lbl(root, "", 44, Color.WHITE, NetsuUI.sans(4), Rect2(cx - 100, r.position.y + 200, 200, 54), HORIZONTAL_ALIGNMENT_CENTER)
-	st["caption"] = _lbl(root, "", 15, NetsuUI.CYAN, NetsuUI.sans(3), Rect2(cx - 110, r.position.y + 250, 220, 24), HORIZONTAL_ALIGNMENT_CENTER)
-	ui["strip"] = st
-
-
 ## A slim glass bar (the room bar): navy, a light edge, the footer's diamonds at its ends.
 func _glass(parent: Node, rect: Rect2) -> void:
 	var pts := PackedVector2Array([rect.position, Vector2(rect.end.x, rect.position.y), rect.end, Vector2(rect.position.x, rect.end.y)])
@@ -1102,11 +1571,6 @@ func _glass(parent: Node, rect: Rect2) -> void:
 		parent.add_child(d)
 
 
-## Under the VS bar: each side's pick (fighter, colour, assist), the pick clock between them, the stage and rules.
-func _build_strip(_ui: Dictionary) -> void:
-	pass   # (built with the VS panel: _build_vs)
-
-
 func _refresh_room() -> void:
 	if _page != Page.ROOM or _room == null or _room_ui.is_empty():
 		return
@@ -1114,7 +1578,7 @@ func _refresh_room() -> void:
 	if room.is_empty():
 		for e in _entries:
 			e["root"].visible = false
-		_set_info("Joining the lobby...")
+		_set_info("Opening your lobby..." if _net and bool(_net.IsHost) else "Joining the lobby...")
 		_set_legend([_item([_kn("b")], "Leave")])
 		return
 	var m: Dictionary = _room.current_match()
@@ -1124,6 +1588,7 @@ func _refresh_room() -> void:
 	if my_side >= 0 and state == "picking":
 		var mine: Dictionary = _room.pick_of(_room.my_id)
 		if int(_my_pick.get("match", -1)) != int(m.get("id", -1)):
+			_cmd = 0   # (my turn to pick: the menu's first row, so A, A = SETUP, Ready)
 			_my_pick = {"f": int(mine.get("f", 0)), "c": int(mine.get("c", 0)), "a": int(mine.get("a", 0)),
 				"ready": bool(mine.get("ready", false)), "match": int(m.get("id", -1))}
 		elif bool(mine.get("ready", false)):
@@ -1140,45 +1605,34 @@ func _refresh_room() -> void:
 			_build_setup()
 	_fill_top(room)
 	_fill_list(room, m)
-	_fill_vs(room, m, state)
-	_fill_strip(room, m, state)
+	_fill_next(room, m, state)
+	_fill_cmd(m, state)
 	if _setup.is_empty():
 		_room_hud(m, state, my_side)
 	else:
 		_refresh_setup()
 
 
+## The room's table across the top.
 func _fill_top(room: Dictionary) -> void:
-	_set_title("" if not _setup.is_empty() else "ONLINE LOBBY")   # (SETUP draws its own title, over its dimming)
-	var nl: Label = _room_ui["room_name"]
-	nl.text = "%s'S LOBBY" % _room.member_name(0).to_upper()
+	_set_title("")
+	var cols: Dictionary = _room_ui["cols"]
+	cols["room"].text = "%s'S LOBBY" % _room.member_name(0).to_upper()
+	cols["players"].text = "%d / %d" % [room.get("members", {}).size(), int(room.get("max", 8))]
 	var code := str(room.get("code", ""))
-	var cl: Label = _room_ui["code"]
-	cl.text = code
-	var w := cl.get_theme_font("font").get_string_size(code, HORIZONTAL_ALIGNMENT_LEFT, -1, 26).x
-	_room_ui["code_cap"].position.x = cl.position.x + cl.size.x - w - 16.0 - _room_ui["code_cap"].size.x
-	_room_ui["code_cap"].visible = code != ""
-	# your setup, between the lobby's name and the code
-	nl.size.x = 360.0
-	var name_w := minf(nl.get_theme_font("font").get_string_size(nl.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 26).x, nl.size.x)
-	var sc: Label = _room_ui["setup_cap"]
-	var sv: Label = _room_ui["setup"]
-	sc.position.x = nl.position.x + name_w + 48.0
-	sc.size.x = sc.get_theme_font("font").get_string_size(sc.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 20).x + 16.0
-	sv.position.x = sc.position.x + sc.size.x + 4.0
-	sv.size.x = maxf(0.0, (_room_ui["code_cap"].position.x if code != "" else ROOM_BAR.end.x) - 40.0 - sv.position.x)
-	var mine := _setup_text()
-	sv.text = mine if mine != "" else "NOT SET  ·  %s" % _kn("a")
-	sv.add_theme_color_override("font_color", NetsuUI.TEXT if mine != "" else NetsuUI.DIM)
-	var fs := 22
-	while fs > 17 and sv.get_theme_font("font").get_string_size(sv.text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x > sv.size.x:
-		fs -= 1
-	sv.add_theme_font_size_override("font_size", fs)
-	var n: int = room.get("members", {}).size()
-	_room_ui["list_title"].text = "PLAYERS  %d / 8" % n
+	cols["code"].text = code if code != "" else "-"
+	var rules: Dictionary = room.get("rules", {})
+	cols["rounds"].text = str(int(rules.get("rounds", 2)))
+	var t := int(rules.get("time", 99))
+	cols["time"].text = "No Limit" if t < 0 else str(t)
+	var st := int(room.get("stage", -1))
+	cols["stage"].text = "Random" if st < 0 or st >= MatchSetup.stage_count() else MatchSetup.stage_name(st)
+	cols["music"].text = _music_name(int(_room.music()))
+	var c := str(room.get("comment", ""))
+	cols["comment"].text = c if c != "" else "None"
 
 
-## The list: everyone in line order, then whoever is spectating (in the order they came in).
+## Everyone in line order, then whoever is spectating (in the order they came in).
 func _fill_list(room: Dictionary, m: Dictionary) -> void:
 	var members: Dictionary = room.get("members", {})
 	var line: Array = room.get("queue", [])
@@ -1196,154 +1650,229 @@ func _fill_list(room: Dictionary, m: Dictionary) -> void:
 		var id: int = ids[i]
 		var pos := line.find(id)
 		var me: bool = id == _room.my_id
-		e["you"].visible = me
+		var sb: StyleBoxFlat = _sb(e["bg"])
+		sb.bg_color = Color(0.06, 0.28, 0.9, 0.5) if me else Color(0.02, 0.05, 0.2, 0.62)
+		sb.border_color = Color(0.45, 0.9, 1.0, 0.95) if me else Color(0, 0, 0, 0)
+		sb.set_border_width_all(2 if me else 0)
+		sb.shadow_color = Color(0.3, 0.7, 1.0, 0.35) if me else Color(0, 0, 0, 0)
+		sb.shadow_size = 8 if me else 0
 		e["num"].text = str(pos + 1) if pos >= 0 else "-"
 		e["num"].add_theme_color_override("font_color", NetsuUI.CYAN if pos >= 0 else NetsuUI.DIM)
-		var who: String = _room.member_name(id)
-		_set_profile_avatar(e, id, _fighter_of(id, m))
-		e["plate"].title_id = _room.title_of(id)
 		var in_match: bool = _room.turn_of(id) in ["pick", "fight"]
 		var side := 0 if id == int(m.get("p1", -1)) else (1 if id == int(m.get("p2", -1)) else -1)
-		e["side0"].visible = in_match and side == 0
-		e["side1"].visible = in_match and side == 1
+		e["side"].text = ("1P" if side == 0 else "2P") if in_match and side >= 0 else ""
+		e["side"].add_theme_color_override("font_color", (P1_COLOR if side == 0 else P2_COLOR).lightened(0.3))
+		e["side"].add_theme_color_override("font_outline_color", Color(0.02, 0.03, 0.12, 0.9))
+		var f := _fighter_of(id, m)
+		_set_profile_avatar(e, id, f)
+		e["plate"].title_id = _room.title_of(id)
 		var nl: Label = e["name"]
-		nl.position.x = 146.0 if in_match else 126.0
-		nl.size.x = e["plate"].position.x - 14.0 - nl.position.x
-		nl.text = who.to_upper() + ("  ·  HOST" if id == 0 else "")
+		nl.text = _room.member_name(id).to_upper() + ("  ·  HOST" if id == 0 else "")
 		nl.add_theme_color_override("font_color", Color.WHITE if me else NetsuUI.TEXT)
-		var fs := 23   # (a long name: smaller letters before it's cut short)
-		while fs > 18 and nl.get_theme_font("font").get_string_size(nl.text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x > nl.size.x:
+		var fs := 22   # (a long name: smaller letters before it's cut short)
+		while fs > 17 and nl.get_theme_font("font").get_string_size(nl.text, HORIZONTAL_ALIGNMENT_LEFT, -1, fs).x > nl.size.x:
 			fs -= 1
 		nl.add_theme_font_size_override("font_size", fs)
+		# FIGHTER: their pick in the match (or my setup), else the fighter they picked last
+		var a := _assist_of(id, m)
+		if f >= 0 and f < MatchSetup.fighter_count():
+			var prof = MatchSetup.fighter_profile(f)
+			e["fighter"].text = String(prof.ShortName).to_upper() if prof else "?"
+			e["fighter"].add_theme_color_override("font_color", Color.WHITE)
+		else:
+			e["fighter"].text = "NOT PICKED YET"
+			e["fighter"].add_theme_color_override("font_color", Color(NetsuUI.DIM, 0.6))
+		e["assist"].text = ("ASSIST  %s" % MatchSetup.assist_name(a).to_upper()) if a >= 0 else ""
+		e["ping"].text = _ping_text(id) if _ping_text(id) != "" else "-"
+		e["wins"].text = str(int(members.get(str(id), {}).get("wins", 0)))
 		_style_status(e["status"], _status_of(id))
-		e["status"].position.x = nl.position.x
-		var wins := int(members.get(str(id), {}).get("wins", 0))
-		e["wins"].text = ("%d WIN%s" % [wins, "" if wins == 1 else "S"]) if wins > 0 else ""
-		e["ping"].text = _ping_text(id)
 
 
-func _fill_vs(room: Dictionary, m: Dictionary, state: String) -> void:
+## The assist a player fights with: their pick in the match, my own setup, else -1 (not known).
+func _assist_of(id: int, m: Dictionary) -> int:
+	var state := str(m.get("state", ""))
+	var side := 0 if id == int(m.get("p1", -1)) else (1 if id == int(m.get("p2", -1)) else -1)
+	if side >= 0 and state == "fighting":
+		return int(m.get("p", {}).get("a%d" % (side + 1), -1))
+	if side >= 0 and state == "picking":
+		var pk: Dictionary = _my_pick if id == _room.my_id else _room.pick_of(id)
+		if not pk.is_empty():
+			return int(pk.get("a", -1))
+	if id == _room.my_id:
+		return int(_my_setup().get("a", -1))
+	return -1
+
+
+## NEXT MATCH: the two players (in the match, else the first two in line) with their fighters, and the clock.
+func _fill_next(room: Dictionary, m: Dictionary, state: String) -> void:
+	var nx: Dictionary = _room_ui["next"]
 	var ids := [int(m.get("p1", -1)), int(m.get("p2", -1))]
 	if not state in ["picking", "fighting"]:
 		var line: Array = room.get("queue", [])
 		ids = [int(line[0]) if line.size() > 0 else -1, int(line[1]) if line.size() > 1 else -1]
 	var streak := int(room.get("streak", 0))
 	for side in 2:
-		var s: Dictionary = _room_ui["vs"][side]
 		var id: int = ids[side]
-		if side == 0:
-			var king := id >= 0 and id == int(room.get("streak_id", -2)) and streak > 0
-			s["tag"].text = ("1P  ·  KING  ·  %d WIN%s IN A ROW" % [streak, "" if streak == 1 else "S"]) if king else "1P  ·  PLAYER 1 SIDE"
-		else:
-			s["tag"].text = "2P  ·  CHALLENGER"
+		var l: Label = nx["p1" if side == 0 else "p2"]
 		if id < 0:
-			s["name"].text = "WAITING FOR A CHALLENGER" if side == 1 else "WAITING FOR PLAYERS"
-			s["name"].add_theme_color_override("font_color", Color(NetsuUI.DIM, 0.7))
-			s["name"].add_theme_font_size_override("font_size", 24)
-			s["status"].text = "Send them the lobby code!" if side == 1 else ""
-			s["status"].add_theme_color_override("font_color", NetsuUI.DIM)
-			_set_profile_avatar(s, -1, -1)
-			s["plate"].title_id = ""
+			l.text = "WAITING FOR A CHALLENGER" if side == 1 else "WAITING FOR PLAYERS"
+			l.add_theme_color_override("font_color", Color(NetsuUI.DIM, 0.65))
 			continue
-		s["name"].text = _room.member_name(id).to_upper() + ("   (YOU)" if id == _room.my_id else "")
-		s["name"].add_theme_color_override("font_color", Color.WHITE)
-		s["name"].add_theme_font_size_override("font_size", 32)
-		_style_status(s["status"], _status_of(id))
-		_set_profile_avatar(s, id, _fighter_of(id, m))
-		s["plate"].title_id = _room.title_of(id)
-
-
-func _fill_strip(_room_d: Dictionary, m: Dictionary, state: String) -> void:
-	var st: Dictionary = _room_ui["strip"]
-	# (Nov 4: the stage / music / rules line is gone from the panel: SETUP shows the stage and music)
-	for side in 2:
-		var c: Dictionary = st["side"][side]
-		var id := int(m.get("p1" if side == 0 else "p2", -1))
-		var pick := {}
-		if state == "fighting":
-			var p: Dictionary = m.get("p", {})
-			var k := str(side + 1)
-			pick = {"f": int(p.get("f" + k, 0)), "c": int(p.get("c" + k, 0)), "a": int(p.get("a" + k, 0)), "ready": true}
-		elif state == "picking":
-			pick = _my_pick if id == _room.my_id else _room.pick_of(id)
-		if pick.is_empty():
-			c["fighter"].text = ""
-			c["detail"].text = ""
-			continue
-		var f := clampi(int(pick.get("f", 0)), 0, maxi(0, MatchSetup.fighter_count() - 1))
-		var prof = MatchSetup.fighter_profile(f)
-		var fighter := String(prof.ShortName).to_upper() if prof else "?"
-		c["fighter"].text = fighter
-		c["detail"].text = "ASSIST  %s" % MatchSetup.assist_name(int(pick.get("a", 0))).to_upper()
+		var who: String = _room.member_name(id).to_upper() + (" (YOU)" if id == _room.my_id else "")
+		var f := _fighter_of(id, m)
+		var prof = MatchSetup.fighter_profile(f) if f >= 0 and f < MatchSetup.fighter_count() else null
+		var fighter := ("  ·  " + String(prof.ShortName).to_upper()) if prof else ""
+		var king := side == 0 and id == int(room.get("streak_id", -2)) and streak > 0
+		l.text = ("1P  %s%s%s" % [who, fighter, ("  ·  %d WIN STREAK" % streak) if king else ""]) if side == 0 else \
+			("%s%s  2P" % [who, fighter])
+		l.add_theme_color_override("font_color", (P1_COLOR if side == 0 else P2_COLOR).lightened(0.45))
 	_refresh_clock()
 
 
-## The pick clock (every frame).
+## The pick clock (every frame): in the NEXT MATCH bar, and in SETUP while it's open.
 func _refresh_clock() -> void:
-	if _room_ui.is_empty() or _room == null:
+	if _room_ui.is_empty() or _room == null or not _room_ui.has("next"):
 		return
-	var st: Dictionary = _room_ui["strip"]
+	var clock: Label = _room_ui["next"]["clock"]
 	var m: Dictionary = _room.current_match()
 	var state := str(m.get("state", "none"))
-	var clock: Label = st["clock"]
+	var caption := ""
 	if state == "picking":
 		var left := ceili(_room.pick_time_left())
 		var here: bool = _room.pickers_here()
-		clock.text = ("%d" % left) if here else "· · ·"
+		clock.text = ("PICKING  %d" % left) if here else "COMING BACK..."
 		clock.add_theme_color_override("font_color", Color(1.0, 0.45, 0.4) if here and left <= 10 else Color.WHITE)
-		st["caption"].text = "SECONDS TO PICK" if here else "COMING BACK"
+		caption = "SECONDS TO PICK" if here else "COMING BACK"
 		if _setup_ui.has("clock"):
-			_setup_ui["clock"].text = clock.text
+			_setup_ui["clock"].text = ("%d" % left) if here else "· · ·"
 			_setup_ui["clock"].add_theme_color_override("font_color", clock.get_theme_color("font_color"))
-			_setup_ui["clock_cap"].text = st["caption"].text
+			_setup_ui["clock_cap"].text = caption
 	elif state == "fighting":
 		clock.text = "LIVE"
 		clock.add_theme_color_override("font_color", Color(1.0, 0.35, 0.35))
-		st["caption"].text = "FIGHT IN PROGRESS"
 	else:
 		clock.text = ""
-		st["caption"].text = "WAITING FOR PLAYERS" if not _room.room.is_empty() else ""
 
 
-## The message panel: the latest lines of the room log (and this computer's own), oldest at the top.
+## MESSAGES: the latest lines of the room log (and this computer's own), newest at the bottom.
 func _fill_log() -> void:
 	if _page != Page.ROOM or _room_ui.is_empty() or _room == null:
 		return
 	var lines: Array = _room.log_lines
-	var labels: Array = _room_ui["log"]
-	var first := maxi(0, lines.size() - labels.size())
-	var shown := lines.size() - first
-	for i in labels.size():
-		var l: Label = labels[i]
-		if first + i >= lines.size():
-			l.text = ""
-			continue
-		var e: Dictionary = lines[first + i]
-		l.text = str(e.get("text", ""))
-		var a := 1.0 - (shown - 1 - i) * 0.1   # (older lines a little dimmer)
-		l.add_theme_color_override("font_color", Color(LOCAL_TEXT if bool(e.get("local", false)) else LOG_TEXT, a))
+	var l: Label = _room_ui["log"]
+	var parts := []
+	for i in range(maxi(0, lines.size() - 8), lines.size()):
+		var e: Dictionary = lines[i]
+		parts.append(str(e.get("text", "")))
+	l.text = "\n".join(parts)
+	l.lines_skipped = 0
+	var n := l.get_line_count()
+	l.lines_skipped = maxi(0, n - l.max_lines_visible)
+
+
+## The LOBBY MENU's row: [label, usable now].
+func _cmd_row(id: String, m: Dictionary) -> Array:
+	var me: int = _room.my_id
+	var turn: String = _room.turn_of(me)
+	var picking := turn == "pick"
+	var ready := picking and bool(_my_pick.get("ready", false))
+	var host: bool = _net != null and bool(_net.IsHost)
+	var state := str(m.get("state", "none"))
+	match id:
+		"setup":
+			return ["Pick Your Fighter" if picking and not ready else "Change Character", not ready]
+		"ready":
+			return ["Cancel Ready" if ready else "Ready", picking]
+		"pass":
+			return ["Pass", turn in ["pick", "next"] and _room.pass_target(me) >= 0]
+		"watch":
+			return ["Watch the Match", state == "fighting" and not picking]
+		"spectate":
+			return ["Spectate Only:  %s" % ("ON" if _room.spectating(me) else "OFF"), not picking]
+		"code":
+			return ["Copy Lobby Code", str(_room.room.get("code", "")) != ""]
+		"leave":
+			if _leave_armed > 0.0:
+				return ["Press Again to Leave", true]
+			return ["Close Lobby" if host else "Leave Lobby", true]
+	return ["", false]
+
+
+func _fill_cmd(m: Dictionary, _state: String) -> void:
+	var cmd: Dictionary = _room_ui["cmd"]
+	_cmd = clampi(_cmd, 0, CMD_IDS.size() - 1)
+	for i in CMD_IDS.size():
+		var r := _cmd_row(CMD_IDS[i], m)
+		var l: Label = cmd["labels"][i]
+		var on := i == _cmd
+		l.text = r[0]
+		var col: Color = Color.WHITE if on else NetsuUI.TEXT
+		if not bool(r[1]):
+			col = Color(NetsuUI.DIM, 0.45 if not on else 0.7)
+		if CMD_IDS[i] == "leave" and _leave_armed > 0.0:
+			col = Color(1.0, 0.55, 0.6)
+		l.add_theme_color_override("font_color", col)
+		l.add_theme_color_override("font_outline_color", MENU_EDGE_LIT if on and bool(r[1]) else MENU_EDGE_IDLE)
+	var bar: Node2D = cmd["bar"]
+	var target := Vector2(CMD_RECT.position.x + 10, CMD_ROW_Y + _cmd * CMD_STEP + 3)
+	if bar.position != target and bar.position != Vector2.ZERO:
+		create_tween().tween_property(bar, "position", target, 0.1).set_trans(Tween.TRANS_CUBIC)
+	else:
+		bar.position = target
+
+
+## A on a LOBBY MENU row.
+func _cmd_do(id: String) -> void:
+	var m: Dictionary = _room.current_match()
+	var r := _cmd_row(id, m)
+	var host: bool = _net != null and bool(_net.IsHost)
+	if id != "leave":
+		_leave_armed = 0.0
+	match id:
+		"setup":
+			if bool(r[1]):
+				_open_setup()
+			else:
+				_flash("You're ready: Cancel Ready first to change your fighter.")
+		"ready":
+			if bool(r[1]):
+				_set_ready(not bool(_my_pick.get("ready", false)))
+			else:
+				_flash("Ready works when it's your turn to pick.")
+		"pass":
+			_try_pass()
+		"watch":
+			if bool(r[1]):
+				_room.watch()
+			else:
+				_flash("There's no match being fought right now." if str(m.get("state", "")) != "fighting"
+					else "You're picking for the next match.")
+		"spectate":
+			if bool(r[1]):
+				var on: bool = not _room.spectating(_room.my_id)
+				_room.set_spectate(on)
+				_flash("Spectate only: you'll watch the matches." if on else "Back in line: you're at the back.")
+			else:
+				_flash("You can't switch to spectating while you're picking: Pass your turn instead.")
+		"code":
+			_copy_code()
+		"leave":
+			if _leave_armed > 0.0:
+				_leave_lobby("You left the lobby." if not host else "Lobby closed.")
+			else:
+				_leave_armed = LEAVE_SECONDS
+				_refresh_room()
 
 
 ## The INFORMATION line and the buttons for the room.
 func _room_hud(m: Dictionary, state: String, my_side: int) -> void:
 	var me: int = _room.my_id
-	var host: bool = _net != null and bool(_net.IsHost)
 	var turn: String = _room.turn_of(me)
-	var picking := turn == "pick"
-	var ready := picking and bool(_my_pick.get("ready", false))
-	var items := []
-	items.append(_item([_kn("a")], "Setup / Ready" if picking and not ready else "Setup"))
-	if ready:
-		items.append(_item([_kn("b")], "Not Ready"))
-	if not picking:
-		if state == "fighting":
-			items.append(_item([_kn("c")], "Watch"))
-		items.append(_item([_kn("s")], "Back in Line" if turn == "spec" else "Spectate"))
-	items.append(_item([_kn("ab")], "Pass", _room.pass_target(me) < 0))
-	if host:
-		items.append(_item([_kn("start")], "Invite"))
-	if not ready:
-		items.append(_item([_kn("b")], "Leave"))
+	var ready := turn == "pick" and bool(_my_pick.get("ready", false))
+	var items := [_item(_dir_keys("up", "down"), "Select"), _item([_kn("a")], "Confirm"),
+		_item([_kn("ab")], "Pass", _room.pass_target(me) < 0 or not turn in ["pick", "next"])]
+	items.append(_item([_kn("start")], "Copy Code", str(_room.room.get("code", "")) == ""))
+	items.append(_item([_kn("b")], "Not Ready" if ready else "Leave"))
 	_set_legend(items)
 	_set_info(_room_info(m, state, my_side, turn))
 
@@ -1904,6 +2433,13 @@ func _set_status(text: String) -> void:
 
 
 func _on_code_ready(code: String, lan_code: String, note: String) -> void:
+	if _page == Page.ROOM and _room:   # (the host's notes, e.g. port forwarding, go in MESSAGES)
+		if note != "":
+			_room.local_line(note)
+		if lan_code != "" and lan_code != code:
+			_room.local_line("Same network as you? Their code is %s" % lan_code)
+		_refresh_room()
+		return
 	if _page != Page.HOST or _code_label == null:
 		return
 	_code_label.text = code
@@ -2053,6 +2589,8 @@ func _menu_input(event: InputEvent) -> bool:
 		else:
 			return false
 		return true
+	if _create_row >= 0:
+		return _create_input(event)
 	var id: String = MENU_ITEMS[_sel]["id"]
 	if _dir(event, "down"):
 		_select(_sel + 1)
@@ -2063,7 +2601,9 @@ func _menu_input(event: InputEvent) -> bool:
 	elif _confirm(event):
 		match id:
 			"host":
-				_start_host()
+				_create_row = CREATE_ROWS.size() - 1   # (on Create Lobby: A, A opens it with the settings shown)
+				_refresh_create()
+				_menu_hud()
 			"join":
 				_start_join()
 			"spectate":
@@ -2159,21 +2699,24 @@ func _room_input(event: InputEvent) -> bool:
 	var picking := _picking_now()
 	var ready := bool(_my_pick.get("ready", false))
 	var host: bool = _net != null and bool(_net.IsHost)
-	if _btn(event, "ab"):
+	if _dir(event, "down"):
+		_cmd = wrapi(_cmd + 1, 0, CMD_IDS.size())
+		_refresh_room()
+	elif _dir(event, "up"):
+		_cmd = wrapi(_cmd - 1, 0, CMD_IDS.size())
+		_refresh_room()
+	elif _btn(event, "ab"):
 		_try_pass()
-	elif _btn(event, "s"):
-		if not picking:
-			var on: bool = not _room.spectating(_room.my_id)
-			_room.set_spectate(on)
-			_flash("Spectate only: you'll watch the matches." if on else "Back in line: you're at the back.")
+	elif _btn(event, "s"):   # (shortcut: Spectate Only)
+		_cmd_do("spectate")
 	elif _btn(event, "c"):
 		# (C is also a "back" key in menus: never leave with it here)
 		if str(_room.current_match().get("state", "")) == "fighting" and not picking:
 			_room.watch()
-	elif host and _btn(event, "start"):
-		_show_invite()
+	elif _btn(event, "start"):   # (shortcut: copy the lobby code)
+		_copy_code()
 	elif _confirm(event):
-		_open_setup()
+		_cmd_do(CMD_IDS[_cmd])
 	elif _back(event):
 		if picking and ready:
 			_set_ready(false)
@@ -2181,6 +2724,7 @@ func _room_input(event: InputEvent) -> bool:
 			_leave_lobby("You left the lobby." if not host else "Lobby closed.")
 		else:
 			_leave_armed = LEAVE_SECONDS
+			_cmd = CMD_IDS.find("leave")
 			_refresh_room()
 	else:
 		return false
@@ -2301,20 +2845,17 @@ func test_state() -> Dictionary:
 	return {"page": ["MENU", "HOST", "JOIN", "ROOM"][_page], "box": str(_box.get("kind", "")), "text": str(_box.get("text", "")),
 		"digits": _digit_text(), "slots": _digits.duplicate(), "cursor": _cursor, "joining": _joining,
 		"info": _footer["text"].text, "legend": legend, "device": _device, "setup": test_setup(),
-		"your_setup": str(_room_ui["setup"].text) if _room_ui.has("setup") and is_instance_valid(_room_ui["setup"]) else "",
+		"your_setup": _setup_text() if _page == Page.ROOM else "",
 		"vs": _test_vs(), "list": _test_list()}
 
 
-## The VS panel as shown: per side {"name", "title", "fighter", "detail", "icon"}.
+## NEXT MATCH as shown (Nov 8: the VS panel is gone): per side {"name", "fighter"} from the bar's text.
 func _test_vs() -> Array:
 	var out := []
-	if _room_ui.is_empty():
+	if _room_ui.is_empty() or not _room_ui.has("next"):
 		return out
 	for side in 2:
-		var s: Dictionary = _room_ui["vs"][side]
-		var c: Dictionary = _room_ui["strip"]["side"][side]
-		out.append({"name": s["name"].text, "title": s["plate"].title_id, "fighter": c["fighter"].text, "detail": c["detail"].text,
-			"icon": s["avatar"].texture, "chip": s["chip"][1].visible})
+		out.append({"name": _room_ui["next"]["p1" if side == 0 else "p2"].text})
 	return out
 
 
@@ -2323,5 +2864,6 @@ func _test_list() -> Array:
 	var out := []
 	for e in _entries:
 		if e["root"].visible:
-			out.append({"name": e["name"].text, "title": e["plate"].title_id, "icon": e["avatar"].texture})
+			out.append({"name": e["name"].text, "title": e["plate"].title_id, "icon": e["avatar"].texture,
+				"fighter": e["fighter"].text, "assist": e["assist"].text})
 	return out

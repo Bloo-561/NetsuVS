@@ -43,7 +43,8 @@ const CATEGORIES := [
 
 const BUTTON_NAMES := {
 	"up": "Up", "down": "Down", "left": "Left", "right": "Right",
-	"a": "A  (Light Attack)", "b": "B  (Medium Attack)", "c": "C  (Heavy Attack)", "s": "S  (Support)",
+	"a": "A  (Light Attack)", "b": "B  (Medium Attack)", "c": "C  (Heavy Attack)", "d": "D  (Link Drive)",
+	"s": "S1  (Partner 1)", "s2": "S2  (Partner 2)",
 	"ab": "A + B", "bc": "B + C", "abc": "A + B + C", "start": "Start / Pause",
 }
 const MENU_NAMES := {

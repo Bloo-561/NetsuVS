@@ -17,7 +17,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\septian_chapel"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\septian_chapel"
 TEXD = ROOT + r"\src\tex"
 VARIANT = globals().get("VARIANT") or "afternoon"
 
@@ -1201,6 +1201,9 @@ def build_all():
     build_lights(); build_cameras(); setup_render()
     tris = {o.name: sum(len(p.vertices) - 2 for p in o.data.polygons) for o in objs.values()}
     return {"variant": VARIANT, "objects": list(objs), "tris": tris, "total_tris": sum(tris.values()), "tufts": len(GRASS)}
+
+if VARIANT == "trails":      # Trails in the Sky / Crossbell look: see trails_overrides.py
+    exec(open(ROOT + r"\src\trails_overrides.py", encoding="utf-8").read(), globals())
 
 if __name__ == "__main__":
     BUILD_INFO = build_all()

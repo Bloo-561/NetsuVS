@@ -1,7 +1,7 @@
 # Rebuild Cecilia from scratch, add outlines, save the .blend.
 # In Blender's Python console:  exec(open(r"<3d>/scripts/build_all.py").read())
 import bpy, sys, os, importlib
-S = os.path.join(r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d", "scripts")
+S = os.path.join(r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d", "scripts")
 if S not in sys.path: sys.path.insert(0, S)
 import lib; importlib.reload(lib)
 

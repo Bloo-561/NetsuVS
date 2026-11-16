@@ -27,6 +27,10 @@ public partial class StanceManager : Node
 	/// that the move it just input actually came out.</summary>
 	public int ExecutedMoves;
 
+	/// <summary>Nov 13: frames since the current move started (hitstop not counted). MoveSettings.NetsuMinHoldFrames.
+	/// Saved for rollback (StanceManagerState key 5).</summary>
+	public int NetsuMoveAge;
+
 	public void Initialize(SakugaActor owner)
 	{
 		_owner = owner;
@@ -42,6 +46,10 @@ public partial class StanceManager : Node
 	/// being buffered, or replaces a normal that just started from the first button of a two-button press).</param>
 	public bool CheckMoveConditions(int index, bool ignoreStateType)
 	{
+		if (!NetsuLink.LinkMoveAllowed(_owner, GetMove(index)))
+		{
+			return false;   // Nov 8 (Link Break): C + D / D + S1 / D + S2 only while LINK READY
+		}
 		if (!NetsuBurstOrOverdriveState(index))
 		{
 			return false;   // Netsu (Oct 26 late): Burst only in hitstun, Overdrive anywhere else
@@ -68,7 +76,7 @@ public partial class StanceManager : Node
 			// untech time is over; before this, holding to tech could never work in a combo. Hard knockdowns still can't
 			return false;
 		}
-		if (_owner.NetsuAirCounterLock && GetMove(index).AcceptHitReactionStates && !NetsuIsBurst(index) && !NetsuIsOverdrive(index))
+		if ((_owner.NetsuAirCounterLock || _owner.NetsuLinkNoTech()) && GetMove(index).AcceptHitReactionStates && !NetsuIsBurst(index) && !NetsuIsOverdrive(index))
 		{
 			return false;   // Oct 27: air counter hit: no tech (any recovery move) until they land or are hit again
 		}
@@ -663,6 +671,7 @@ public partial class StanceManager : Node
 			{
 				_owner.GetOpponent(0).NetsuAssist.Freeze((uint)GetMove(moveIndex).SuperFlash);   // Netsu: their assist stops too
 			}
+			_owner.GetOpponent(0).NetsuAssist2?.Freeze((uint)GetMove(moveIndex).SuperFlash);   // Nov 8: and the second partner
 			if (NetsuIsExOrSuper(GetMove(moveIndex)) && !GetMove(moveIndex).NetsuFlashOnHit && GameManager.Instance != null)
 			{
 				// Netsu: EX moves and supers stop the whole fight for a moment first (GameManager.NetsuPause)
@@ -689,6 +698,7 @@ public partial class StanceManager : Node
 			}
 			_owner.Body.SetVelocity(Vector2I.Zero);
 		}
+		_owner.NetsuJudithMoveStart(moveIndex, GetMove(moveIndex));   // Nov 12 (Judith): charge / once-per-combo bookkeeping
 		if (GetMove(moveIndex).MoveState >= 0)
 		{
 			_owner.StateManager.PlayState(GetMove(moveIndex).MoveState, reset: true);
@@ -696,6 +706,7 @@ public partial class StanceManager : Node
 		_owner.Parameters.ChangeVariablesBehavior(CustomVariableBehaviorTarget.ON_MOVE_ENTER);
 		_owner.Parameters.SetVariables(GetMove(moveIndex).VariablesChange);
 		CurrentMove = moveIndex;
+		NetsuMoveAge = 0;
 		ExecutedMoves++;
 		BufferedMove = -1;
 		CancelBuffer = false;
@@ -718,6 +729,7 @@ public partial class StanceManager : Node
 			{
 				opponent.NetsuAssist.Freeze((uint)frames);
 			}
+			opponent.NetsuAssist2?.Freeze((uint)frames);
 			if (cutIn && _owner.NetsuFlashCost >= NetsuExCost && GameManager.Instance != null)
 			{
 				GameManager.Instance.NetsuStartPause((int)_owner.playerID, _owner.NetsuFlashCost, CurrentMove >= 0 ? GetCurrentMove().NetsuPauseFrames : -1);   // the pause too
@@ -762,6 +774,10 @@ public partial class StanceManager : Node
 		{
 			return;
 		}
+		if (NetsuLinkCancel())
+		{
+			return;   // Nov 8: a Link Break (C+D / D+S1 / D+S2) wins over the move's own cancels (5C > D would chain into 5D)
+		}
 		MoveCancelSettings[] canCancelTo = GetCurrentMove().CanCancelTo;
 		bool found = false;
 		for (int c = 0; canCancelTo != null && c < canCancelTo.Length; c++)
@@ -784,7 +800,7 @@ public partial class StanceManager : Node
 				break;
 			}
 		}
-		if (!found && !NetsuReverseBeat() && !NetsuJumpCancel() && !NetsuOverdriveCancel() && !NetsuStarCancel() && !NetsuExToSuper())
+		if (!found && !NetsuAirThrowCancel() && !NetsuReverseBeat() && !NetsuJumpCancel() && !NetsuOverdriveCancel() && !NetsuStarCancel() && !NetsuJudithCancel() && !NetsuExToSuper())
 		{
 			NetsuSpecialToEx();
 		}
@@ -1329,6 +1345,69 @@ public partial class StanceManager : Node
 		return true;
 	}
 
+	/// <summary>Nov 8 (Link Break): while LINK READY, any normal or special that hit or was blocked cancels into a Link move
+	/// (C + D: her own Break, D + S1 / D + S2: a partner's), whose input is done. Returns true when it buffered one.</summary>
+	private bool NetsuLinkCancel()
+	{
+		if (CurrentMove < 0 || _owner.NetsuLink == null || !_owner.NetsuLink.Ready)
+		{
+			return false;
+		}
+		MoveSettings current = GetCurrentMove();
+		if (current == null || current.Priority < 6 || current.Priority > 8 || NetsuLink.IsLinkMove(current))
+		{
+			return false;
+		}
+		if ((_owner.CancelConditions & (CancelCondition.HIT_CANCEL | CancelCondition.BLOCK_CANCEL)) == 0)
+		{
+			return false;
+		}
+		FighterStance stance = GetCurrentStance();
+		for (int i = 0; stance != null && stance.Moves != null && i < stance.Moves.Length; i++)
+		{
+			if (!NetsuLink.IsLinkMove(stance.Moves[i]))
+			{
+				continue;
+			}
+			if (CheckMoveConditions(i, true) && NetsuInputDone(i))
+			{
+				BufferMove(i, moveCancel: true);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>Nov 8 (universal hit-grab): an air normal that hit cancels into the fighter's "Air Throw" (it grabs an
+	/// opponent in hitstun: SakugaActor.ThrowDamage). Returns true when it buffered it.</summary>
+	private bool NetsuAirThrowCancel()
+	{
+		if (CurrentMove < 0 || _owner.Body == null || _owner.Body.IsOnGround)
+		{
+			return false;
+		}
+		MoveSettings current = GetCurrentMove();
+		if (current == null || current.Priority != 6 || !current.UseOnAir || (_owner.CancelConditions & CancelCondition.HIT_CANCEL) == 0)
+		{
+			return false;
+		}
+		FighterStance stance = GetCurrentStance();
+		for (int i = 0; stance != null && stance.Moves != null && i < stance.Moves.Length; i++)
+		{
+			MoveSettings m = stance.Moves[i];
+			if (m == null || m.MoveName != "Air Throw")
+			{
+				continue;
+			}
+			if (CheckMoveConditions(i, true) && NetsuInputDone(i))
+			{
+				BufferMove(i, moveCancel: true);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	/// <summary>Netsu (Oct 26 late, TamaDeez): 5A and 5B can be jump-cancelled on hit or block, 2B, 6C (Oct 29) and 5C (Nov 3) on hit only.</summary>
 	private bool NetsuJumpCancel()
 	{
@@ -1504,6 +1583,10 @@ public partial class StanceManager : Node
 		{
 			return;
 		}
+		if (!_owner.OnHitstop())
+		{
+			NetsuMoveAge++;
+		}
 		switch (GetCurrentMove().MoveEnd)
 		{
 		case MoveEndCondition.STATE_END:
@@ -1513,6 +1596,10 @@ public partial class StanceManager : Node
 			}
 			break;
 		case MoveEndCondition.RELEASE_BUTTON:
+			if (NetsuMoveAge < GetCurrentMove().NetsuMinHoldFrames)
+			{
+				break;   // Nov 13: a tapped run still runs a few frames
+			}
 			if (_owner.Inputs.CheckInputEnd(GetCurrentMove().Inputs, _owner.InputSide(GetCurrentMove().SideCheck)))
 			{
 				EndMove();

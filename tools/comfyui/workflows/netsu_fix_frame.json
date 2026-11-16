@@ -1,0 +1,769 @@
+{
+ "last_node_id": 13,
+ "last_link_id": 21,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "Note",
+   "pos": [
+    20,
+    -330
+   ],
+   "size": [
+    760,
+    290
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "REDRAW ONLY THE PART YOU PAINT; every other pixel of the frame stays exactly as it was (no drift).\n\n1. Flatten the frame first:  python tools/comfyui/prep_frame.py <frame.png>  (puts it on the grey background the LoRA was trained on; writes <frame>_flat.png).\n2. Load it in 'Frame to fix', right-click > Open in MaskEditor, paint over the part to redraw (a hand, the face, a ribbon). Paint a bit past the edges.\n3. Say what should be there in the prompt (after the trigger word).\n4. Queue (4 tries). 'Masked area' shows what will change.\n5. cutout.py on the result, like a new pose.\n\nToo little change: denoise 0.7. Too much / off-model: denoise 0.4. Seam visible: grow mask 12."
+   ],
+   "title": "READ ME: Netsu VS fix a frame",
+   "color": "#432",
+   "bgcolor": "#653"
+  },
+  {
+   "id": 2,
+   "type": "CheckpointLoaderSimple",
+   "pos": [
+    20,
+    0
+   ],
+   "size": [
+    380,
+    100
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      1
+     ],
+     "slot_index": 0
+    },
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      2
+     ],
+     "slot_index": 1
+    },
+    {
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      9,
+      17
+     ],
+     "slot_index": 2
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "CheckpointLoaderSimple"
+   },
+   "widgets_values": [
+    "Illustrious-XL-v2.0.safetensors"
+   ],
+   "title": "Base model (same as the LoRA)"
+  },
+  {
+   "id": 3,
+   "type": "LoraLoader",
+   "pos": [
+    20,
+    150
+   ],
+   "size": [
+    380,
+    130
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 1
+    },
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 2
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      12
+     ],
+     "slot_index": 0
+    },
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      3,
+      4
+     ],
+     "slot_index": 1
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoraLoader"
+   },
+   "widgets_values": [
+    "netsu_cecilia.safetensors",
+    0.9,
+    0.9
+   ],
+   "title": "Fighter LoRA",
+   "color": "#232",
+   "bgcolor": "#353"
+  },
+  {
+   "id": 4,
+   "type": "CLIPTextEncode",
+   "pos": [
+    430,
+    0
+   ],
+   "size": [
+    420,
+    180
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 3
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      7
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "netsu_cecilia, 1girl, solo, anime coloring, cel shading, clean lineart, best quality"
+   ],
+   "title": "What goes in the masked area",
+   "color": "#232",
+   "bgcolor": "#353"
+  },
+  {
+   "id": 5,
+   "type": "CLIPTextEncode",
+   "pos": [
+    430,
+    220
+   ],
+   "size": [
+    420,
+    140
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 4
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      8
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "CLIPTextEncode"
+   },
+   "widgets_values": [
+    "lowres, worst quality, low quality, bad anatomy, bad hands, blurry, text, watermark"
+   ],
+   "title": "Negative"
+  },
+  {
+   "id": 6,
+   "type": "LoadImage",
+   "pos": [
+    20,
+    330
+   ],
+   "size": [
+    380,
+    420
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      10,
+      18
+     ],
+     "slot_index": 0
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      5
+     ],
+     "slot_index": 1
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "frame_flat.png",
+    "image"
+   ],
+   "title": "Frame to fix (paint mask in MaskEditor)",
+   "color": "#232",
+   "bgcolor": "#353"
+  },
+  {
+   "id": 7,
+   "type": "GrowMask",
+   "pos": [
+    430,
+    400
+   ],
+   "size": [
+    300,
+    90
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 5
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      6,
+      11,
+      20
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "GrowMask"
+   },
+   "widgets_values": [
+    8,
+    true
+   ],
+   "title": "Grow mask"
+  },
+  {
+   "id": 8,
+   "type": "MaskPreview",
+   "pos": [
+    430,
+    530
+   ],
+   "size": [
+    300,
+    400
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 6
+    }
+   ],
+   "outputs": [],
+   "properties": {
+    "Node name for S&R": "MaskPreview"
+   },
+   "widgets_values": [],
+   "title": "Masked area"
+  },
+  {
+   "id": 9,
+   "type": "InpaintModelConditioning",
+   "pos": [
+    880,
+    0
+   ],
+   "size": [
+    330,
+    140
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 7
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 8
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 9
+    },
+    {
+     "name": "pixels",
+     "type": "IMAGE",
+     "link": 10
+    },
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 11
+    }
+   ],
+   "outputs": [
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "links": [
+      13
+     ],
+     "slot_index": 0
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "links": [
+      14
+     ],
+     "slot_index": 1
+    },
+    {
+     "name": "latent",
+     "type": "LATENT",
+     "links": [
+      15
+     ],
+     "slot_index": 2
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "InpaintModelConditioning"
+   },
+   "widgets_values": [
+    true
+   ]
+  },
+  {
+   "id": 10,
+   "type": "KSampler",
+   "pos": [
+    880,
+    190
+   ],
+   "size": [
+    330,
+    270
+   ],
+   "flags": {},
+   "order": 9,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 12
+    },
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 13
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 14
+    },
+    {
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 15
+    }
+   ],
+   "outputs": [
+    {
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      16
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "KSampler"
+   },
+   "widgets_values": [
+    20261114,
+    "randomize",
+    28,
+    5.5,
+    "euler_ancestral",
+    "normal",
+    0.55
+   ]
+  },
+  {
+   "id": 11,
+   "type": "VAEDecode",
+   "pos": [
+    880,
+    500
+   ],
+   "size": [
+    200,
+    50
+   ],
+   "flags": {},
+   "order": 10,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "LATENT",
+     "link": 16
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 17
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      19
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "VAEDecode"
+   },
+   "widgets_values": []
+  },
+  {
+   "id": 12,
+   "type": "ImageCompositeMasked",
+   "pos": [
+    1240,
+    0
+   ],
+   "size": [
+    300,
+    150
+   ],
+   "flags": {},
+   "order": 11,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "IMAGE",
+     "link": 18
+    },
+    {
+     "name": "source",
+     "type": "IMAGE",
+     "link": 19
+    },
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 20
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      21
+     ],
+     "slot_index": 0
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageCompositeMasked"
+   },
+   "widgets_values": [
+    0,
+    0,
+    false
+   ],
+   "title": "Paste back only the masked area"
+  },
+  {
+   "id": 13,
+   "type": "SaveImage",
+   "pos": [
+    1570,
+    0
+   ],
+   "size": [
+    520,
+    820
+   ],
+   "flags": {},
+   "order": 12,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 21
+    }
+   ],
+   "outputs": [],
+   "properties": {
+    "Node name for S&R": "SaveImage"
+   },
+   "widgets_values": [
+    "netsu/cecilia_fix"
+   ],
+   "title": "Fixed frame (ComfyUI/output/netsu)"
+  }
+ ],
+ "links": [
+  [
+   1,
+   2,
+   0,
+   3,
+   0,
+   "MODEL"
+  ],
+  [
+   2,
+   2,
+   1,
+   3,
+   1,
+   "CLIP"
+  ],
+  [
+   3,
+   3,
+   1,
+   4,
+   0,
+   "CLIP"
+  ],
+  [
+   4,
+   3,
+   1,
+   5,
+   0,
+   "CLIP"
+  ],
+  [
+   5,
+   6,
+   1,
+   7,
+   0,
+   "MASK"
+  ],
+  [
+   6,
+   7,
+   0,
+   8,
+   0,
+   "MASK"
+  ],
+  [
+   7,
+   4,
+   0,
+   9,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   8,
+   5,
+   0,
+   9,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   9,
+   2,
+   2,
+   9,
+   2,
+   "VAE"
+  ],
+  [
+   10,
+   6,
+   0,
+   9,
+   3,
+   "IMAGE"
+  ],
+  [
+   11,
+   7,
+   0,
+   9,
+   4,
+   "MASK"
+  ],
+  [
+   12,
+   3,
+   0,
+   10,
+   0,
+   "MODEL"
+  ],
+  [
+   13,
+   9,
+   0,
+   10,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   14,
+   9,
+   1,
+   10,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   15,
+   9,
+   2,
+   10,
+   3,
+   "LATENT"
+  ],
+  [
+   16,
+   10,
+   0,
+   11,
+   0,
+   "LATENT"
+  ],
+  [
+   17,
+   2,
+   2,
+   11,
+   1,
+   "VAE"
+  ],
+  [
+   18,
+   6,
+   0,
+   12,
+   0,
+   "IMAGE"
+  ],
+  [
+   19,
+   11,
+   0,
+   12,
+   1,
+   "IMAGE"
+  ],
+  [
+   20,
+   7,
+   0,
+   12,
+   2,
+   "MASK"
+  ],
+  [
+   21,
+   12,
+   0,
+   13,
+   0,
+   "IMAGE"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.7,
+   "offset": [
+    40,
+    60
+   ]
+  }
+ },
+ "version": 0.4
+}

@@ -6,7 +6,7 @@
 import bpy, bmesh, math, os, json, struct
 import numpy as np
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\septian_chapel"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\septian_chapel"
 VARIANT = globals().get("VARIANT") or bpy.context.scene.get("ce_variant", "afternoon")
 SUFFIX = "" if VARIANT == "afternoon" else "_" + VARIANT
 OUT = ROOT + r"\textures"
@@ -25,6 +25,8 @@ MARGIN_PX = 16
 LOOKS = {   # keep in sync with the floor material's "look" group in septian_chapel.tscn
     "afternoon": dict(EXPOSURE=0.0, SHOULDER=0.82, SATURATION=1.05, SHADOW_TINT=(0.88, 0.94, 1.12),
                       HIGHLIGHT_TINT=(1.06, 1.0, 0.9), TINT_AMOUNT=0.5),
+    "trails": dict(EXPOSURE=0.05, SHOULDER=0.82, SATURATION=1.1, SHADOW_TINT=(0.86, 0.92, 1.14),
+                   HIGHLIGHT_TINT=(1.07, 1.0, 0.88), TINT_AMOUNT=0.5),      # Trails variant: a touch brighter, richer
 }
 globals().update(LOOKS[VARIANT])
 

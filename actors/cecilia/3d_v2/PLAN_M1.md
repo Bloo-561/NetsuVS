@@ -18,7 +18,7 @@ Everything lives in `actors/cecilia/3d_v2/`. Nothing outside it was touched.
 
 Re-run in Blender's Python console:
 ```python
-import runpy; S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+import runpy; S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 runpy.run_path(S + r"\ref_masks.py", run_name="__main__")   # masks
 runpy.run_path(S + r"\rig_refs.py", run_name="__main__")    # rig + save
 runpy.run_path(S + r"\silhouette.py")["run"]("my_tag")      # IoU of whatever is in MODEL

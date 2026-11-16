@@ -5,7 +5,7 @@
 import bpy, bmesh, math, os, json, struct
 import numpy as np
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\schoolhouse_depths"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\schoolhouse_depths"
 OUT = ROOT + r"\textures"
 ATLAS_DIR = ROOT + r"\src\baked"
 CACHE = ROOT + r"\src\cache"

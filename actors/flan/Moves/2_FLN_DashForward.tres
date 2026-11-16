@@ -16,3 +16,4 @@ VariablesRequirement = null
 VariablesChange = null
 CanBeOverrided = true
 UseOnGround = true
+NetsuMinHoldFrames = 9

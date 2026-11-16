@@ -1,0 +1,202 @@
+[
+  {
+    "motion": "thunder",
+    "frame": 19,
+    "name": "Attack1",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "thunder",
+    "frame": 10,
+    "name": "Wind1",
+    "volume": 55,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "defense",
+    "frame": 1,
+    "name": "Flash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "defense",
+    "frame": 2,
+    "name": "Sword1",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "fujin",
+    "frame": 35,
+    "name": "Slash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "fujin",
+    "frame": 45,
+    "name": "Slash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "fujin",
+    "frame": 55,
+    "name": "Slash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "fujin",
+    "frame": 65,
+    "name": "Slash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "fujin",
+    "frame": 75,
+    "name": "Slash2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "focus",
+    "frame": 27,
+    "name": "Flash1",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 118,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 122,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 143,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 155,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 165,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 176,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 250,
+    "name": "Skill3",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 140,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 61,
+    "name": "Thunder12",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "raijin",
+    "frame": 21,
+    "name": "Particles1",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "iaido",
+    "frame": 10,
+    "name": "Thunder1",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "moon",
+    "frame": 24,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "moon",
+    "frame": 40,
+    "name": "Sword7",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "moon",
+    "frame": 115,
+    "name": "Skill2",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  },
+  {
+    "motion": "divider",
+    "frame": 22,
+    "name": "Wind6",
+    "volume": 80,
+    "pitch": 100,
+    "pan": 0
+  }
+]

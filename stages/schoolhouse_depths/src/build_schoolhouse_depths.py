@@ -14,7 +14,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\schoolhouse_depths"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\schoolhouse_depths"
 TEXD = ROOT + r"\textures"
 
 # ---------------- layout (Godot space, metres) ----------------

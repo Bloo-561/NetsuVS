@@ -1,0 +1,21 @@
+{
+ "stats": {
+  "CH_Chapel": {
+   "texels": 12241809,
+   "painted_frac": 0.093
+  },
+  "CH_Village": {
+   "texels": 8547993,
+   "painted_frac": 0.088
+  },
+  "CH_Land": {
+   "texels": 12391404,
+   "painted_frac": 0.008
+  }
+ },
+ "export": {
+  "glb": "E:\\Netsu Projects\\NetsuVS\\stages\\septian_chapel\\septian_chapel_painted.glb",
+  "bytes": 39005036
+ },
+ "seconds": 49
+}

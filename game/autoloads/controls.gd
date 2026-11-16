@@ -4,7 +4,8 @@ extends Node
 ## Sets up every player's buttons when the game starts, Dengeki Bunko
 ## Fighting Climax style:
 ##   A / B / C  = attacks (light, medium, heavy)
-##   S          = support (call your assist)
+##   D          = Link Drive (Nov 8: the fighter's 5D / 2D / j.D, which place her Link Break crest)
+##   S / S2     = call partner 1 / partner 2 (Nov 8: two partners per fighter; "s" is S1)
 ##   AB, BC, ABC = macro buttons that press several buttons at once
 ##   Start      = pause / confirm
 ##
@@ -33,6 +34,10 @@ const BIT_B := 1 << 5
 const BIT_C := 1 << 6
 const BIT_S := 1 << 7
 const BIT_START := 1 << 8
+## Nov 8 (Link Break). (This GDScript packing is only for get_frame_input; the engine reads the actions itself in
+## GameManager.ReadInputs: D -> FACE_E, S2 -> FACE_F.)
+const BIT_D := 1 << 9
+const BIT_S2 := 1 << 10
 
 ## Training mode shortcuts: [action, keyboard key, controller button].
 ##   training_reset   Q / Back          (hold a direction for a corner, down to swap sides)
@@ -45,7 +50,7 @@ const TRAINING_SHORTCUTS := [
 ]
 
 ## Every action each player gets (becomes "p1_<name>" and "p2_<name>").
-const BUTTONS := ["up", "down", "left", "right", "a", "b", "c", "s", "ab", "bc", "abc", "start"]
+const BUTTONS := ["up", "down", "left", "right", "a", "b", "c", "s", "ab", "bc", "abc", "start", "d", "s2"]
 
 ## Which real buttons each macro presses. Add a new macro here + in the tables.
 const MACROS := {
@@ -55,8 +60,8 @@ const MACROS := {
 }
 
 ## Buttons listed on the Options screen, in order.
-const REBIND_KEYBOARD := ["up", "down", "left", "right", "a", "b", "c", "s", "ab", "bc", "abc", "start"]
-const REBIND_PAD := ["a", "b", "c", "s", "ab", "bc", "abc", "start"]   # directions stay on D-pad + stick
+const REBIND_KEYBOARD := ["up", "down", "left", "right", "a", "b", "c", "d", "s", "s2", "ab", "bc", "abc", "start"]
+const REBIND_PAD := ["a", "b", "c", "d", "s", "s2", "ab", "bc", "abc", "start"]   # directions stay on D-pad + stick
 const REBIND_MENU := ["ui_up", "ui_down", "ui_left", "ui_right", "ui_accept", "ui_cancel"]
 
 ## How far a stick/trigger must be pushed to count as pressed (0 to 1).
@@ -67,14 +72,14 @@ const DEADZONE := 0.5
 const KEYBOARD := {
 	1: {
 		"up": KEY_W, "down": KEY_S, "left": KEY_A, "right": KEY_D,
-		"a": KEY_J, "b": KEY_K, "c": KEY_L, "s": KEY_I,
-		"ab": KEY_U, "bc": KEY_O, "abc": KEY_P,
+		"a": KEY_J, "b": KEY_K, "c": KEY_L, "d": KEY_SEMICOLON, "s": KEY_I, "s2": KEY_O,
+		"ab": KEY_U, "bc": KEY_P, "abc": KEY_BRACKETLEFT,
 		"start": KEY_ENTER,
 	},
 	2: {
 		"up": KEY_UP, "down": KEY_DOWN, "left": KEY_LEFT, "right": KEY_RIGHT,
-		"a": KEY_KP_4, "b": KEY_KP_5, "c": KEY_KP_6, "s": KEY_KP_8,
-		"ab": KEY_KP_7, "bc": KEY_KP_9, "abc": KEY_KP_ADD,
+		"a": KEY_KP_4, "b": KEY_KP_5, "c": KEY_KP_6, "d": KEY_KP_3, "s": KEY_KP_8, "s2": KEY_KP_9,
+		"ab": KEY_KP_7, "bc": KEY_KP_SUBTRACT, "abc": KEY_KP_ADD,
 		"start": KEY_KP_ENTER,
 	},
 }
@@ -87,13 +92,16 @@ const PAD := {
 	"down": [{"button": JOY_BUTTON_DPAD_DOWN}, {"axis": JOY_AXIS_LEFT_Y, "dir": 1.0}],
 	"left": [{"button": JOY_BUTTON_DPAD_LEFT}, {"axis": JOY_AXIS_LEFT_X, "dir": -1.0}],
 	"right": [{"button": JOY_BUTTON_DPAD_RIGHT}, {"axis": JOY_AXIS_LEFT_X, "dir": 1.0}],
+	# Nov 8 (Link Break): A B C D on the four face buttons, the two partners on the shoulders (S1 LB, S2 RB)
 	"a": [{"button": JOY_BUTTON_X}],
 	"b": [{"button": JOY_BUTTON_Y}],
 	"c": [{"button": JOY_BUTTON_B}],
-	"s": [{"button": JOY_BUTTON_A}],
-	"ab": [{"button": JOY_BUTTON_RIGHT_SHOULDER}],
+	"d": [{"button": JOY_BUTTON_A}],
+	"s": [{"button": JOY_BUTTON_LEFT_SHOULDER}],
+	"s2": [{"button": JOY_BUTTON_RIGHT_SHOULDER}],
+	"ab": [{"axis": JOY_AXIS_TRIGGER_LEFT, "dir": 1.0}],
 	"bc": [{"axis": JOY_AXIS_TRIGGER_RIGHT, "dir": 1.0}],
-	"abc": [{"button": JOY_BUTTON_LEFT_SHOULDER}],
+	"abc": [],
 	"start": [{"button": JOY_BUTTON_START}],
 }
 
@@ -143,6 +151,15 @@ const PAD_AXIS_NAMES := {JOY_AXIS_TRIGGER_LEFT: "LT", JOY_AXIS_TRIGGER_RIGHT: "R
 ## Emitted after any layout changes (the Options screen redraws on it).
 signal bindings_changed
 
+## Nov 8: the button prompts follow what was pressed last. prompt_style is "kb" (a keyboard), "xbox" (an Xbox or
+## other XInput-style controller) or "ps" (a PlayStation controller: DualSense / DualShock, found by its name).
+## NetsuPromptBar redraws on prompt_style_changed; pad_name() gives PlayStation names ("SQUARE", "L1") in "ps".
+signal prompt_style_changed
+var prompt_style := "kb"
+## Xbox names -> PlayStation names (same place on the pad).
+const PS_NAMES := {"A": "CROSS", "B": "CIRCLE", "X": "SQUARE", "Y": "TRIANGLE", "LB": "L1", "RB": "R1", "LT": "L2",
+	"RT": "R2", "START": "OPTIONS", "BACK": "CREATE", "LSB": "L3", "RSB": "R3", "SHARE": "CREATE", "HOME": "PS"}
+
 ## Which player pressed a button on the title screen (1 or 2, 0 = unknown).
 ## Menus can use this to know who is "in control".
 var menu_owner := 0
@@ -190,6 +207,11 @@ func _ready() -> void:
 	start_button.button_index = JOY_BUTTON_START
 	start_button.device = -1  # any controller
 	InputMap.action_add_event("pause", start_button)
+	prompt_style = "kb"
+	for i in Input.get_connected_joypads():
+		prompt_style = pad_family(i)
+		break
+	Input.joy_connection_changed.connect(_on_joy_connection)
 
 	# Training mode shortcuts (game/ui/training/netsu_training_hud.gd), on any keyboard / controller.
 	for shortcut in TRAINING_SHORTCUTS:
@@ -277,7 +299,7 @@ func device_pressed(event: InputEvent, device: String, what: String) -> bool:
 	var ui := {"left": "ui_left", "right": "ui_right", "confirm": "ui_accept", "back": "ui_cancel"}
 	if event.is_action_pressed(ui[what], true):
 		return true
-	var buttons := {"left": ["left"], "right": ["right"], "confirm": ["a", "s", "start"], "back": ["b", "c"]}
+	var buttons := {"left": ["left"], "right": ["right"], "confirm": ["a", "d", "s", "start"], "back": ["b", "c"]}
 	if device.begins_with("kb") and event is InputEventKey and event.pressed and (not event.echo or what in ["left", "right"]):
 		var layout: Dictionary = keyboard[int(device.substr(2))]
 		for b in buttons[what]:
@@ -381,6 +403,14 @@ func export_bindings() -> Dictionary:
 func import_bindings(data: Dictionary) -> void:
 	for player in [1, 2]:
 		var k = data.get("keyboard", {}).get(player)
+		# Nov 8 (Link Break): a layout saved before the D / S2 buttons existed is dropped (its keys would clash with
+		# the new defaults: the old S was on the pad's A button, now D); that player starts from the new defaults
+		if k is Dictionary and not k.has("d"):
+			k = null
+		var p_old = data.get("pad", {}).get(player)
+		if p_old is Dictionary and not p_old.has("d"):
+			data = data.duplicate(true)
+			data["pad"].erase(player)
 		if k is Dictionary:
 			for button in k:
 				if button in BUTTONS:
@@ -417,13 +447,15 @@ func key_name(key) -> String:
 
 
 func pad_name(pad_input) -> String:
-	if not pad_input is Dictionary:
+	if not pad_input is Dictionary or pad_input.is_empty():
 		return "---"
 	if pad_input.has("button"):
-		return PAD_BUTTON_NAMES.get(int(pad_input["button"]), "B%d" % int(pad_input["button"]))
+		var bn: String = PAD_BUTTON_NAMES.get(int(pad_input["button"]), "B%d" % int(pad_input["button"]))
+		return PS_NAMES.get(bn, bn) if prompt_style == "ps" else bn
 	var axis := int(pad_input.get("axis", -1))
 	if PAD_AXIS_NAMES.has(axis):
-		return PAD_AXIS_NAMES[axis]
+		var an: String = PAD_AXIS_NAMES[axis]
+		return PS_NAMES.get(an, an) if prompt_style == "ps" else an
 	return "AXIS %d%s" % [axis, "+" if pad_input.get("dir", 1.0) > 0 else "-"]
 
 
@@ -461,8 +493,40 @@ func _same_input(a: Dictionary, b: Dictionary) -> bool:
 
 # --- Everything else (unchanged) ---------------------------------------------------------
 
+## Nov 8: "ps" for a PlayStation controller (by the name the system gives it), else "xbox".
+func pad_family(device_index: int) -> String:
+	var n := Input.get_joy_name(device_index).to_lower()
+	for word in ["ps5", "ps4", "ps3", "dualsense", "dualshock", "playstation", "sony", "wireless controller"]:
+		if word in n:
+			return "ps"
+	return "xbox"
+
+
+func _set_prompt_style(style: String) -> void:
+	if style != prompt_style:
+		prompt_style = style
+		prompt_style_changed.emit()
+
+
+func _track_prompt_style(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		_set_prompt_style("kb")
+	elif event is InputEventJoypadButton and event.pressed:
+		_set_prompt_style(pad_family(event.device))
+	elif event is InputEventJoypadMotion and absf(event.axis_value) >= DEADZONE:
+		_set_prompt_style(pad_family(event.device))
+
+
+func _on_joy_connection(device: int, connected: bool) -> void:
+	if connected:
+		_set_prompt_style(pad_family(device))
+	elif prompt_style != "kb" and Input.get_connected_joypads().is_empty():
+		_set_prompt_style("kb")
+
+
 ## Alt+Enter or F11 toggles fullscreen anywhere in the game.
 func _input(event: InputEvent) -> void:
+	_track_prompt_style(event)
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_F11 or (event.keycode == KEY_ENTER and event.alt_pressed):
 			var settings := get_node_or_null("/root/GameSettings")
@@ -501,6 +565,10 @@ func get_frame_input(player: int) -> int:
 		bits |= BIT_C
 	if Input.is_action_pressed(p + "s"):
 		bits |= BIT_S
+	if Input.is_action_pressed(p + "d"):
+		bits |= BIT_D
+	if Input.is_action_pressed(p + "s2"):
+		bits |= BIT_S2
 	if Input.is_action_pressed(p + "start"):
 		bits |= BIT_START
 	for macro in MACROS:

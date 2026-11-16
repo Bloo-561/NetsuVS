@@ -42,6 +42,10 @@ public partial class MatchSettings : Resource
 	[Export(PropertyHint.None, "")]
 	public int P1SelectedAssist = -1;
 
+	/// <summary>Netsu (Nov 8, Link Break): Player 1's second partner (index in data/assist_list.tres), -1 = the next one after the first.</summary>
+	[Export(PropertyHint.None, "")]
+	public int P1SelectedAssist2 = -1;
+
 	[ExportCategory("Player 2")]
 	[Export(PropertyHint.None, "")]
 	public int P2SelectedCharacter;
@@ -55,6 +59,10 @@ public partial class MatchSettings : Resource
 	/// <summary>Netsu: Player 2's assist (index in data/assist_list.tres), -1 = none.</summary>
 	[Export(PropertyHint.None, "")]
 	public int P2SelectedAssist = -1;
+
+	/// <summary>Netsu (Nov 8, Link Break): Player 2's second partner (index in data/assist_list.tres), -1 = the next one after the first.</summary>
+	[Export(PropertyHint.None, "")]
+	public int P2SelectedAssist2 = -1;
 
 	[ExportCategory("Online Settings")]
 	[Export(PropertyHint.None, "")]

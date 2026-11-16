@@ -31,9 +31,11 @@ public partial class NetsuAssistBuffAction : FrameDataAction
 		{
 			return;
 		}
-		if (fighter.NetsuAssist != null)
+		// Nov 8 (Link Break): the partner this assist is (S1 or S2) gets the buff
+		NetsuAssist partner = fighter.NetsuPartnerOf(Actor) ?? fighter.NetsuAssist;
+		if (partner != null)
 		{
-			fighter.NetsuAssist.StartBuff(Duration, DamagePercent, GaugePercent);
+			partner.StartBuff(Duration, DamagePercent, GaugePercent);
 		}
 		if (AddGauge > 0 && fighter.Parameters != null && fighter.Parameters.SuperGauge != null)
 		{

@@ -206,7 +206,7 @@ From Python: `runpy.run_path(r"<3d_v2>\scripts\rig_poses.py")["pose"]("idle")`.
 ## Rebuild
 
 ```python
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 runpy.run_path(S + r"\rig_build.py")["build"]()              # armature (works on a posed rig too)
 runpy.run_path(S + r"\rig_weights.py")["run"]()              # skinning + rigid parts
 runpy.run_path(S + r"\rig_eyes.py")["run"]()                 # eye layers, face material, drivers

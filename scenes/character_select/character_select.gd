@@ -85,6 +85,10 @@ var _coloring: Array[bool] = [false, false]   # choosing a color right now
 var _color: Array[int] = [0, 0]
 var _assisting: Array[bool] = [false, false]  # choosing an assist right now
 var _assist: Array[int] = [0, 0]              # index in data/assist_list.tres (everyone has one)
+# Nov 8 (Link Break): two partners. While choosing the second one (_slot = 1), _assist is its cursor and the first
+# partner is kept in _first; once locked, _first = partner 1 (S1) and _assist = partner 2 (S2).
+var _slot: Array[int] = [0, 0]
+var _first: Array[int] = [-1, -1]
 var _assist_cards: Array[Dictionary] = []
 var _assist_grids: Array[Dictionary] = []      # per side: the grid panel shown while choosing an assist
 var _human: Array[bool] = [true, false]       # side is played by a person
@@ -395,7 +399,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _is_pick(event: InputEvent, player: int) -> bool:
 	var p := "p%d_" % player
-	return event.is_action_pressed(p + "a") or event.is_action_pressed(p + "s") \
+	# Nov 8: + D (the pad's bottom face button, Cross / A: it was S before the Link Break layout)
+	return event.is_action_pressed(p + "a") or event.is_action_pressed(p + "d") or event.is_action_pressed(p + "s") \
 		or event.is_action_pressed(p + "start")
 
 
@@ -473,7 +478,19 @@ func _pick(player: int) -> void:
 	if not _assisting[side] and _wants_assist(side):
 		_coloring[side] = false
 		_assisting[side] = true   # color chosen -> now the assist
+		_slot[side] = 0
+		_first[side] = -1
 		_play(SFX_PICK)
+		_refresh()
+		return
+	if _assisting[side] and _slot[side] == 0 and MatchSetup.assist_count() > 1:
+		# Nov 8 (Link Break): partner 1 chosen -> now partner 2 (any other one)
+		_first[side] = _assist[side]
+		_slot[side] = 1
+		var second := int(MatchSetup.assist_picks2[side]) if MatchSetup.assist_picks2.size() > side else -1
+		_assist[side] = MatchSetup.second_partner(_first[side], second)
+		_play(SFX_PICK)
+		_update_assist_grid(side, true)
 		_refresh()
 		return
 	_coloring[side] = false
@@ -511,9 +528,14 @@ func _step_back(side: int) -> bool:
 	if _locked[side]:
 		_locked[side] = false
 		if _wants_assist(side):
-			_assisting[side] = true
+			_assisting[side] = true   # back to choosing partner 2 (_slot stays 1)
 		else:
 			_coloring[side] = MatchSetup.palette_count(_cursor[side]) > 1
+		return true
+	if _assisting[side] and _slot[side] == 1:
+		_slot[side] = 0   # Nov 8: back to partner 1
+		_assist[side] = maxi(_first[side], 0)
+		_first[side] = -1
 		return true
 	if _assisting[side]:
 		_assisting[side] = false
@@ -531,9 +553,11 @@ func _start() -> void:
 	var flash := create_tween()
 	flash.tween_property(_ready_label, "scale", Vector2(1.1, 1.1), 0.08)
 	flash.tween_property(_ready_label, "scale", Vector2.ONE, 0.12)
-	MatchSetup.assist_picks = [_assist[0], _assist[1]]
-	var a1 := _assist[0]
-	var a2 := _assist[1]
+	# Nov 8 (Link Break): partner 1 (S1) and partner 2 (S2) per side
+	var a1 := _partner1(0)
+	var a2 := _partner1(1)
+	MatchSetup.assist_picks = [a1, a2]
+	MatchSetup.assist_picks2 = [_partner2(0), _partner2(1)]
 	await get_tree().create_timer(0.3).timeout
 	_picked = true
 	MatchSetup.choose_stage(_cursor[0], _cursor[1], 0 if _human[0] else -1, 1 if _human[1] else -1,
@@ -583,6 +607,18 @@ func _cycle_color(side: int, dir: int) -> void:
 func _wants_assist(_side: int) -> bool:
 	return MatchSetup.assist_count() > 0
 
+## Nov 8 (Link Break): the side's partner 1 / partner 2 (also before they're both chosen: the defaults).
+func _partner1(side: int) -> int:
+	return _first[side] if _slot[side] == 1 and _first[side] >= 0 else _assist[side]
+
+
+func _partner2(side: int) -> int:
+	if _slot[side] == 1 and _first[side] >= 0:
+		return _assist[side]
+	var second := int(MatchSetup.assist_picks2[side]) if MatchSetup.assist_picks2.size() > side else -1
+	return MatchSetup.second_partner(_assist[side], second)
+
+
 ## Moves the assist cursor: +-1 along the grid (wrapping round), +-ASSIST_COLUMNS a row down / up.
 func _assist_step(side: int, step: int) -> void:
 	var n := MatchSetup.assist_count()
@@ -592,6 +628,8 @@ func _assist_step(side: int, step: int) -> void:
 	var next := cur
 	if absi(step) == 1:
 		next = posmod(cur + step, n)
+		if _slot[side] == 1 and next == _first[side] and n > 1:
+			next = posmod(next + step, n)   # Nov 8: partner 2 can't be partner 1
 	else:
 		next = cur + step
 		if next < 0 or next >= n:
@@ -600,6 +638,8 @@ func _assist_step(side: int, step: int) -> void:
 			var rows := ceili(float(n) / ASSIST_COLUMNS)
 			var row := (rows - 1) if step < 0 else 0
 			next = mini(row * ASSIST_COLUMNS + col, n - 1)
+	if _slot[side] == 1 and next == _first[side] and n > 1:
+		next = cur   # Nov 8: partner 2 can't be partner 1
 	if next == cur:
 		return
 	_assist[side] = next
@@ -738,9 +778,10 @@ func _update_assist_grid(side: int, pop: bool = false) -> void:
 	for i in tiles.size():
 		var tile: Dictionary = tiles[i]
 		var on := i == pick
-		tile["rim"].default_color = accent.lightened(0.35) if on else Color(0.55, 0.65, 0.9, 0.45)
+		var taken: bool = _slot[side] == 1 and i == _first[side]   # Nov 8: partner 1, already in the party
+		tile["rim"].default_color = accent.lightened(0.35) if on else (Color(1.0, 0.85, 0.4, 0.8) if taken else Color(0.55, 0.65, 0.9, 0.45))
 		tile["rim"].width = 4.0 if on else 2.0
-		tile["pic"].modulate = Color.WHITE if on else Color(0.62, 0.64, 0.74)
+		tile["pic"].modulate = Color.WHITE if on else (Color(0.4, 0.4, 0.46) if taken else Color(0.62, 0.64, 0.74))
 		tile["name"].add_theme_color_override("font_color", Color.WHITE if on else NetsuUI.DIM)
 		var target := Vector2(1.07, 1.07) if on else Vector2.ONE
 		if on and pop:
@@ -760,7 +801,7 @@ func _update_assist_grid(side: int, pop: bool = false) -> void:
 	create_tween().tween_property(g["scroll"], "position:y", -first * (ASSIST_TILE.y + ASSIST_TILE_GAP.y), 0.12)
 	g["up"].visible = first > 0
 	g["down"].visible = first + int(g["shown"]) < int(g["rows"])
-	g["big"].text = MatchSetup.assist_name(pick).to_upper()
+	g["big"].text = ("PARTNER %d  ·  " % (_slot[side] + 1)) + MatchSetup.assist_name(pick).to_upper()
 	var calls := ""
 	for m in MatchSetup.assist_moves(pick):
 		calls += ("%s  %s        " % [m["input"], m["display"]])
@@ -816,9 +857,9 @@ func _update_assist_card(side: int, pop: bool = false) -> void:
 	if _assist_cards.size() <= side:
 		return
 	var card: Dictionary = _assist_cards[side]
-	var a := _assist[side]
+	var a := _partner1(side)
 	card["pic"].texture = MatchSetup.assist_icon(a)
-	card["name"].text = MatchSetup.assist_name(a).to_upper()
+	card["name"].text = MatchSetup.assist_name(a).to_upper() + "  &  " + MatchSetup.assist_name(_partner2(side)).to_upper()
 	card["root"].visible = _wants_assist(side) and _locked[side]
 	if pop and card["root"].visible:
 		var t := create_tween()
@@ -876,7 +917,7 @@ func _refresh() -> void:
 				MatchSetup.palette_name(_cursor[side], _color[side]).to_upper()]
 			lit = true
 		elif _assisting[side]:
-			status = "ASSIST  ·  %s" % MatchSetup.assist_name(_assist[side]).to_upper()
+			status = "PARTNER %d  ·  %s" % [_slot[side] + 1, MatchSetup.assist_name(_assist[side]).to_upper()]
 			lit = true
 		elif active:
 			status = "SELECTING..."
@@ -906,7 +947,7 @@ func _refresh() -> void:
 			_footer["text"].text = "%s - choose a color with left / right, then A." % _who(side)
 			return
 		if _assisting[side]:
-			_footer["text"].text = "%s - choose an assist with the arrows, then A.  (B: back to the colour)" % _who(side)
+			_footer["text"].text = ("%s - choose partner %d with the arrows, then A.  (B: back)" % [_who(side), _slot[side] + 1])
 			return
 	for side in 2:
 		if _side_active(side) and not _locked[side]:

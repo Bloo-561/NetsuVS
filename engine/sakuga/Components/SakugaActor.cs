@@ -37,6 +37,12 @@ public partial class SakugaActor : SakugaNode, IDamage
 	/// Made by GameManager.CreateFighter; see NetsuAssist.cs.</summary>
 	public NetsuAssist NetsuAssist;
 
+	/// <summary>Nov 8 (Link Break): the second partner (S2). NetsuAssist is the first (S1).</summary>
+	public NetsuAssist NetsuAssist2;
+
+	/// <summary>Nov 8 (Link Break): this fighter's crests and Break (NetsuLink.cs). Null for assists and projectiles.</summary>
+	public NetsuLink NetsuLink;
+
 	[ExportCategory("Variables")]
 	[Export(PropertyHint.None, "")]
 	public FrameProperties InitialProperties;
@@ -922,10 +928,13 @@ public partial class SakugaActor : SakugaNode, IDamage
 		HitCheck = AllowHit;
 		NetsuAirTechClear();
 		NetsuStarStacks = 0;   // Oct 29: Flan's stars start empty every round
+		NetsuJudithClear();    // Nov 12 (Judith): no charge carried into a new round
 		if (NetsuAssist != null)
 		{
 			NetsuAssist.ResetRound();   // Netsu: the assist leaves and its gauge refills for the new round
 		}
+		NetsuAssist2?.ResetRound();   // Nov 8 (Link Break): the second partner too
+		NetsuLink?.ResetRound();      // and the crests
 	}
 
 	public override void PreTick()
@@ -1023,6 +1032,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 				Hitstun.Start(2u);
 			}
 		}
+		if (NetsuLinkNoTech() && Body != null && !Body.IsOnGround && CanHitstun() && Hitstun.TimeLeft <= 1)
+		{
+			Hitstun.Start(2u);   // Nov 8: a partner's wall bounce Break: no tech until she lands (floor bounces included)
+		}
 		NetsuComboFrames = (StateManager.CurrentStateType() == StateType.HIT_REACTION && Parameters != null && Parameters.Tracker != null
 			&& Parameters.Tracker.HitCombo > 0) ? NetsuComboFrames + 1 : 0;
 		if (NetsuComboFrames == 0)
@@ -1066,6 +1079,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			NetsuThrowProtect--;
 		}
+		if (NetsuHitGrab && HitstunType != HitstunType.GRABBED)
+		{
+			NetsuHitGrab = false;   // Nov 8: the hit-grab is over
+		}
 		if (Parameters != null)
 		{
 			Parameters.Tick();
@@ -1075,7 +1092,8 @@ public partial class SakugaActor : SakugaNode, IDamage
 		bool netsuWasHit = StateManager.CurrentStateType() == StateType.HIT_REACTION;
 		bool netsuHoldDown = StateManager != null && NetsuKeepLying()
 			&& StateManager.CurrentStateFrame >= StateManager.GetCurrentState().AnimationData.Duration - 2;   // c18/c20: stay down
-		if (StateManager != null && !IsStunLocked() && !netsuHoldDown)
+		bool netsuJudithHold = NetsuJudithChargeTick();   // Nov 12 (Judith): holding a special's button: it waits
+		if (StateManager != null && !IsStunLocked() && !netsuHoldDown && !netsuJudithHold)
 		{
 			StateManager.RunState();
 		}
@@ -1131,7 +1149,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		}
 		if (!OnHitstop())
 		{
-			FrameDataEvent[] onTickEvents = StateManager.GetCurrentState().OnTickEvents;
+			FrameDataEvent[] onTickEvents = (NetsuJudithHolding && NetsuJChargeFrames > 0) ? null : StateManager.GetCurrentState().OnTickEvents;   // Nov 12: frozen while charging
 			for (int i = 0; onTickEvents != null && i < onTickEvents.Length; i++)
 			{
 				onTickEvents[i].RunEvent(ref actor);
@@ -1307,6 +1325,11 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	private void NetsuFloatStart(HitboxElement box)
 	{
+		if (GameManager.Instance != null && !GameManager.Instance.NetsuHitFloats)
+		{
+			NetsuFloatFrame = 0;   // Nov 12 (Million Arthur style): no floating hits anywhere; the hit's own knockback applies
+			return;
+		}
 		if (box == null || box.NetsuFloatFrames <= 0 || Body == null || (Body.IsOnGround && !box.NetsuFloatFromGround))
 		{
 			NetsuFloatFrame = 0;
@@ -1382,7 +1405,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return;
 		}
-		if ((CanHitstun() && Hitstun.IsRunning()) || NetsuFloatFrame > 0 || NetsuCarryFrames > 0)
+		if ((CanHitstun() && Hitstun.IsRunning()) || NetsuFloatFrame > 0 || NetsuCarryFrames > 0 || NetsuLinkNoTech())
 		{
 			return;
 		}
@@ -1485,11 +1508,12 @@ public partial class SakugaActor : SakugaNode, IDamage
 		if (Animator != null)
 		{
 			Animator.SetDepth(LayerSorting);
-			Animator.ViewAnimations(NetsuPauseAnimation() ?? StateManager.GetCurrentAnimationSettings(), Body != null && Body.HitBodies.Count > 0);
+			Animator.ViewAnimations(NetsuPauseAnimation() ?? NetsuJudithHoldAnimation() ?? StateManager.GetCurrentAnimationSettings(), Body != null && Body.HitBodies.Count > 0);   // Nov 13: the Judith hold pose
 			AnimationData netsuAnim = StateManager.GetCurrentState().AnimationData;
 			Animator.SetAfterimages(netsuAnim != null && netsuAnim.Afterimages, netsuAnim != null && netsuAnim.NetsuSolidAfterimages);
 			NetsuSuperFlashLook();
 			NetsuChargeFlareLook();
+			NetsuBloomFlowerLook();   // Nov 13 (Judith): the sakura on a Bloom hit
 		}
 		NetsuStockHud();
 		NetsuStarHud();
@@ -1730,6 +1754,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 	/// FighterState.NetsuChargeFlash frames of its state. Presentation only, from the state frame.</summary>
 	private void NetsuChargeFlareLook()
 	{
+		if (NetsuJudithFlare())
+		{
+			return;   // Nov 12 (Judith): the charge spark while she holds
+		}
 		FighterState st = StateManager?.GetCurrentState();
 		int f = StateManager != null ? StateManager.CurrentStateFrame : -1;
 		float scale = 0f;
@@ -2633,9 +2661,11 @@ public partial class SakugaActor : SakugaNode, IDamage
 		NetsuLastPushX = Mathf.Abs(finalDamageKnockback.X);   // Oct 27 c28: for the attacker's corner pushback (HitPushback)
 		NetsuLastPushTime = finalKnockbackTime;
 		PushActor(finalKnockbackTime, finalDamageKnockback.X * -target.Body.PlayerSide, finalDamageKnockback.Y - decayingKnockback, finalKnockbackGravity);
+		NetsuLaunchShape(target);   // Nov 13 (Million Arthur): launches lower and wider, for everyone
 		NetsuFloatStart(box);   // Netsu (Oct 28): a float hit (Leticia's j.236) holds them up; any other hit ends a float
 		NetsuCarryStart(target, box);   // Netsu (Oct 29): Flan's upward Star Rush carries them up with her
 		NetsuExHoldStart(target, finalDamageKnockback.Y - decayingKnockback);   // Netsu (Oct 29): an EX move's hit keeps them up until the EX is over (Nov 3: not a slam)
+		NetsuJudithOnHit(target);   // Nov 12 (Judith): 236B floats them, a Bloom hit pops them up
 		if (Parameters != null)
 		{
 			int stunFrame = ((target.StateManager != null) ? (target.StateManager.GetCurrentState().AnimationData.Duration - target.StateManager.CurrentStateFrame) : 0);
@@ -2643,6 +2673,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 			int finalDamage = Parameters.CalculateProrations(box.BaseDamage, finalAttack, Parameters.Prorations.CurrentDefense, (ushort)box.DamageScalingSubtract, NetsuScalingKind(target));   // Oct 29: EX / supers scale less
 			finalDamage = target.Parameters.OverdriveDamage(finalDamage);   // Netsu: Overdrive damage bonus
 			finalDamage = NetsuSuperDamage(target, finalDamage);              // Netsu (Oct 26 late): 3-bar supers hit harder
+			finalDamage = NetsuJudithDamage(target, finalDamage);             // Nov 12 (Judith): Tap 85% / Bud 100% / Bloom 112%
 			finalDamage = finalDamage * NetsuRepeatDamagePercent[Mathf.Clamp(netsuRepeatUses, 0, 3)] / 100;   // Oct 28: same move again
 			finalDamage = Parameters.NetsuOverdriveTaken(finalDamage);   // Oct 28: Overdrive takes 10% less
 			Parameters.TakeDamage(finalDamage, box.OpponentSuperGaugeGain, box.KillingBlow);
@@ -2873,7 +2904,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	public void ThrowEscape(SakugaActor target)
 	{
-		if (Hitstop.IsRunning() && HitstunType >= HitstunType.GRABBED && Inputs.CheckMotionInputs(StanceManager.GetCurrentStance().ThrowEscapeInput, InputSide()))
+		if (!NetsuHitGrab && Hitstop.IsRunning() && HitstunType >= HitstunType.GRABBED && Inputs.CheckMotionInputs(StanceManager.GetCurrentStance().ThrowEscapeInput, InputSide()))
 		{
 			HitstunType = HitstunType.NONE;
 			ThrowEscapeAction();
@@ -2964,20 +2995,37 @@ public partial class SakugaActor : SakugaNode, IDamage
 	public bool NetsuIsAssistHit()
 	{
 		SakugaActor root = NetsuRoot();
-		if (root == this || root == null || root.NetsuAssist == null || root.NetsuAssist.Actor == null)
+		if (root == this || root == null)
 		{
 			return false;
 		}
-		SakugaActor a = this;
-		for (int guard = 0; a != null && a != root && guard < 8; guard++)
+		return root.NetsuPartnerOf(this) != null;
+	}
+
+	/// <summary>Nov 8 (Link Break): which of this fighter's partners `a` is (or spawned `a`), null if neither.</summary>
+	/// <summary>Nov 8 (Link Break): the opponent's partner Break (a wall bounce) says no air tech until she lands
+	/// (NetsuLink.NoTechTillGround, kept by the opponent's NetsuLink and saved there).</summary>
+	public bool NetsuLinkNoTech()
+	{
+		SakugaActor o = GetMaster() == null ? GetOpponent(0) : null;
+		return o != null && o.NetsuLink != null && o.NetsuLink.NoTechTillGround;
+	}
+
+	public NetsuAssist NetsuPartnerOf(SakugaActor a)
+	{
+		for (int guard = 0; a != null && a != this && guard < 8; guard++)
 		{
-			if (a == root.NetsuAssist.Actor)
+			if (NetsuAssist != null && a == NetsuAssist.Actor)
 			{
-				return true;
+				return NetsuAssist;
+			}
+			if (NetsuAssist2 != null && a == NetsuAssist2.Actor)
+			{
+				return NetsuAssist2;
 			}
 			a = a.GetMaster();
 		}
-		return false;
+		return null;
 	}
 
 	/// <summary>Nov 4 (TamaDeez): an assist knocked out of its move by a hit takes its projectiles with it (Mary's notes
@@ -2985,10 +3033,16 @@ public partial class SakugaActor : SakugaNode, IDamage
 	private static void NetsuAssistStruck(SakugaActor a)
 	{
 		SakugaActor fighter = a?.GetMaster();
-		if (a != null && a.Pool != null && fighter != null && fighter.NetsuAssist != null && fighter.NetsuAssist.Actor == a)
+		NetsuAssist p = fighter?.NetsuPartnerOf(a);
+		if (p == null || p.Actor != a)
+		{
+			return;
+		}
+		if (a.Pool != null)
 		{
 			a.Pool.NetsuClearSpawns();
 		}
+		p.Struck = true;   // Nov 8 (Link Break): hit while acting: out for the round (NetsuAssist.Tick)
 	}
 
 	public void BaseDamage(SakugaActor target, HitboxElement box, Vector2I contact)
@@ -3013,6 +3067,8 @@ public partial class SakugaActor : SakugaNode, IDamage
 			}
 			return;
 		}
+		// Nov 8 (Link Break): the hit leading a Break becomes its Link version (wall bounce, restand, ground bounce)
+		box = NetsuLink.LinkBox(this, box);
 		// Nov 3 (TamaDeez): a splash hit (HitboxElement.NetsuOtgRelaunch) picks a downed opponent back up: it gets past
 		// the wake-up invincibility and the super OTG rule, and HitDamage treats it as a normal hit (not an OTG hit)
 		target.NetsuRelaunchNow = false;
@@ -3130,6 +3186,7 @@ public partial class SakugaActor : SakugaNode, IDamage
 				target.NetsuCounterHitstunBonus = NetsuCounterHitstun;
 			}
 			target.HitDamage(actor, box, isTrade: false);
+			NetsuRoot()?.NetsuLink?.OnLanded(this, target, NetsuIsAssistHit());   // Nov 8: crests and Breaks
 			if (box.AllowSelfPushback)
 			{
 				HitPushback(target, box.SelfPushbackDuration, box.SelfPushbackForce);
@@ -3551,6 +3608,10 @@ public partial class SakugaActor : SakugaNode, IDamage
 
 	public const int NetsuThrowProtectFrames = 5;
 
+	/// <summary>Nov 8: grabbed by an air throw out of hitstun (a hit-grab): it can't be broken. Cleared once she isn't
+	/// grabbed any more. Saved for rollback (SakugaActorState key 72).</summary>
+	public bool NetsuHitGrab;
+
 	public int NetsuThrowProtect;
 
 	/// <summary>Netsu: can `target` be thrown right now? Not in block / hit stun, not just out of it, not knocked out.</summary>
@@ -3570,7 +3631,11 @@ public partial class SakugaActor : SakugaNode, IDamage
 		{
 			return;   // Netsu (Nov 4): an assist's hurtbox can't be thrown
 		}
-		if (target.Data != null && !NetsuThrowable(target))
+		// Nov 8 (universal hit-grab): an air throw also grabs an opponent in hitstun in the air (a combo ender); it can't
+		// be broken, and it places the thrower's Link Break crest
+		bool netsuHitGrab = box.AirThrow && !box.GroundThrow && target.StateManager != null && !target.IsKO() && !target.IsGrabbed()
+			&& target.StateManager.CurrentStateType() == StateType.HIT_REACTION && target.Body != null && !target.Body.IsOnGround;
+		if (target.Data != null && !netsuHitGrab && !NetsuThrowable(target))
 		{
 			return;   // Netsu: a fighter in or just out of stun can't be grabbed (the throw whiffs)
 		}
@@ -3580,6 +3645,11 @@ public partial class SakugaActor : SakugaNode, IDamage
 			if (target.StateManager.CurrentStateType() == StateType.HIT_REACTION)
 			{
 				finalHitstop = (uint)box.ThrowHitstopAfterHit;
+			}
+			target.NetsuHitGrab = netsuHitGrab;
+			if (box.AirThrow && !box.GroundThrow && GetMaster() == null)
+			{
+				NetsuLink?.OnAirThrow();   // Nov 8: an air throw places her crest (it can never spend it)
 			}
 			target.ThrowHit(this, box, finalHitstop);   // Netsu fix: Mahou passed the thrown fighter itself here, so
 			                                            // it turned to face away (and a throw break pushed both one way)

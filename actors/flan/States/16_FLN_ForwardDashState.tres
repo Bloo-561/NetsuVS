@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b1wnmgsdqaa50" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/GoToFrameActions.cs" id="8"]
 [ext_resource type="Script" uid="uid://bho4h38y7suxk" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/StateEndedCondition.cs" id="9"]
 [ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="10"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRunAction.cs" id="netsu_run"]
 
 [sub_resource type="Resource" id="Resource_s3jbf"]
 script = ExtResource("2")
@@ -43,10 +44,9 @@ Actions = [SubResource("Resource_s3jbf"), SubResource("Resource_udfrb"), SubReso
 metadata/_custom_type_script = "uid://c076jc3huncn2"
 
 [sub_resource type="Resource" id="Resource_hwduh"]
-script = ExtResource("2")
-Velocity = 74000
-UseInertia = true
-metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+script = ExtResource("netsu_run")
+TopSpeed = 74000
+Acceleration = 13500
 
 [sub_resource type="Resource" id="Resource_4m50j"]
 script = ExtResource("6")

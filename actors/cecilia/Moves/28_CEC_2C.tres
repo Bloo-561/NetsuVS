@@ -88,6 +88,24 @@ MoveIndex = 59
 Conditions = 6
 FrameThreshold = Vector2i(0, 999)
 
+[sub_resource type="Resource" id="lb_64"]
+script = ExtResource("1")
+MoveIndex = 64
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="lb_65"]
+script = ExtResource("1")
+MoveIndex = 65
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="lb_67"]
+script = ExtResource("1")
+MoveIndex = 67
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
 [resource]
 script = ExtResource("3")
 MoveName = "2C"
@@ -95,7 +113,7 @@ MoveState = 68
 Inputs = ExtResource("2")
 Priority = 6
 MoveEnd = 2
-CanCancelTo = [SubResource("fdk_57"), SubResource("fdk_56"), SubResource("fdk_52"), SubResource("fdk_51"), SubResource("fdk_50"), SubResource("fdk_49"), SubResource("fdk_48"), SubResource("fdk_47"), SubResource("fdk_43"), SubResource("fdk_42"), SubResource("fdk_41"), SubResource("gat_50"), SubResource("fdk_59"), SubResource("gat_25")]
+CanCancelTo = [SubResource("fdk_57"), SubResource("fdk_56"), SubResource("fdk_52"), SubResource("fdk_51"), SubResource("fdk_50"), SubResource("fdk_49"), SubResource("fdk_48"), SubResource("fdk_47"), SubResource("fdk_43"), SubResource("fdk_42"), SubResource("fdk_41"), SubResource("gat_50"), SubResource("fdk_59"), SubResource("gat_25"), SubResource("lb_64"), SubResource("lb_65"), SubResource("lb_67")]
 VariablesRequirement = null
 VariablesChange = null
 CanBeOverrided = true

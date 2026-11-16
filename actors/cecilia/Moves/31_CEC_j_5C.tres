@@ -34,6 +34,12 @@ MoveIndex = 44
 Conditions = 6
 FrameThreshold = Vector2i(0, 999)
 
+[sub_resource type="Resource" id="lb_66"]
+script = ExtResource("1")
+MoveIndex = 66
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
 [resource]
 script = ExtResource("3")
 MoveName = "j.5C"
@@ -41,7 +47,7 @@ MoveState = 71
 Inputs = ExtResource("2")
 Priority = 6
 MoveEnd = 2
-CanCancelTo = [SubResource("fdk_55"), SubResource("fdk_46"), SubResource("fdk_45"), SubResource("fdk_44"), SubResource("gat_50")]
+CanCancelTo = [SubResource("fdk_55"), SubResource("fdk_46"), SubResource("fdk_45"), SubResource("fdk_44"), SubResource("gat_50"), SubResource("lb_66")]
 VariablesRequirement = null
 VariablesChange = null
 CanBeOverrided = true

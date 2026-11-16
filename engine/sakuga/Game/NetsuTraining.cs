@@ -66,6 +66,8 @@ public class NetsuTraining
 	public int AutoBurstHits = 3;
 	/// <summary>The assist gauge refills the moment the assist has left.</summary>
 	public bool AssistInstant = true;
+	/// <summary>Nov 8 (Link Break): both sides' three crests are always lit (LINK READY) for practising the Breaks.</summary>
+	public bool LinkReady;
 	/// <summary>Playback started with the shortcut repeats until stopped.</summary>
 	public bool PlaybackRepeat;
 
@@ -127,6 +129,7 @@ public class NetsuTraining
 		Burst[0] = Get(o, "p1_burst", Burst[0]);
 		Burst[1] = Get(o, "p2_burst", Burst[1]);
 		AssistInstant = Get(o, "assist_instant", AssistInstant ? 1 : 0) != 0;
+		LinkReady = Get(o, "link_ready", LinkReady ? 1 : 0) != 0;
 		PlaybackRepeat = Get(o, "playback_repeat", PlaybackRepeat ? 1 : 0) != 0;
 		AutoBurst = Mathf.Clamp(Get(o, "auto_burst", AutoBurst), 0, 3);
 		AutoBurstHits = Mathf.Clamp(Get(o, "auto_burst_hits", AutoBurstHits), 1, 99);

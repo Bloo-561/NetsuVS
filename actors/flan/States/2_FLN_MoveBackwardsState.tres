@@ -16,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_xibs5"]
 script = ExtResource("2")
-Velocity = -19000
+Velocity = -10000
 metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
 
 [sub_resource type="Resource" id="Resource_pmcsu"]

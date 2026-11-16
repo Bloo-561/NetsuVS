@@ -30,7 +30,7 @@ Every object has a live preview material `PROJ_<name>` (emission only) that proj
 
 Rebuild in Blender (after the M2 steps in `M2_NOTES.md`):
 ```python
-import runpy; S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+import runpy; S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 runpy.run_path(S + r"\head_profiles.py", run_name="__main__")   # traced head data -> refs/profiles_head.json
 runpy.run_path(S + r"\layers.py", run_name="__main__")          # colour layers -> refs/layers/
 runpy.run_path(S + r"\build_head.py", run_name="__main__")      # head meshes

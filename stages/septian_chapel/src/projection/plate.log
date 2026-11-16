@@ -1,0 +1,11 @@
+00:00.016  color_management | Using OCIO=C:\Program Files\Blender Foundation\Blender 5.2\5.2\datafiles\colormanagement\config.ocio
+00:01.266  blend            | Read blend: "E:\Netsu Projects\NetsuVS\stages\septian_chapel\src\septian_chapel.blend"
+E:\Netsu Projects\NetsuVS\_tmp_claude\plate.py:17: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if m.use_nodes:
+00:16.469  render           | Saved: 'E:\Netsu Projects\NetsuVS\_tmp_claude\chapel_plate.png'
+00:20.125  render           | Saved: 'E:\Netsu Projects\NetsuVS\_tmp_claude\chapel_plate_far.png'
+00:23.735  render           | Saved: 'E:\Netsu Projects\NetsuVS\_tmp_claude\chapel_plate_near_r.png'
+PLATE_DONE
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

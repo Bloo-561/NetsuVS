@@ -269,6 +269,8 @@ func _tab_rows(id: String) -> Array:
 				_pick("P2 Burst Gauge", "p2_burst", burst[0], burst[1], burst_help),
 				_pick("Assist Gauge", "assist_instant", [true, false], ["Instant Refill", "Normal"],
 					"Instant Refill: the assist is ready again as soon as it has left."),
+				_pick("Unbalance (Link Break)", "link_ready", [false, true], ["Normal", "Always Ready"],
+					"Always Ready: all three crests are always lit (LINK READY), so C+D / D+S1 / D+S2 work at once, again and again."),
 			]
 		"display":
 			return [

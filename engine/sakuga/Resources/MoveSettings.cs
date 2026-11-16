@@ -198,4 +198,35 @@ public partial class MoveSettings : Resource
 	/// super hit until the combo ends), 1 = always allowed, 2 = never (until the combo ends).</summary>
 	[Export(PropertyHint.Enum, "Default,Allowed,Blocked")]
 	public int NetsuBurstRule;
+
+	/// <summary>Nov 12 (Judith variation): hold the move's button to charge it (Tap / Bud / Bloom). SakugaActor.NetsuJudith*.
+	/// Only for a fighter playing the Judith variation.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuChargeable;
+
+	/// <summary>Nov 12 (Judith variation): on hit or block this move cancels into any special (236A / 236B).</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuJudithHub;
+
+	/// <summary>Nov 12 (Judith variation): this move's hit launches them at this speed (X = away from her, Y = up), at the
+	/// hit's normal gravity (236B: the time to charge the next special). Air time = 120 x Y / gravity (200000 usually).
+	/// (0, 0) = the hit's own launch.</summary>
+	[Export(PropertyHint.None, "")]
+	public Vector2I NetsuJudithLaunch;
+
+	/// <summary>Nov 13 (Judith variation): the gravity they fall with after this move's NetsuJudithLaunch (0 = the usual
+	/// juggle gravity). 236B: a low, slow arc that leaves time to charge the next special to Bloom.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuJudithLaunchGravity;
+
+	/// <summary>Nov 13 (Judith): while this move's charge is held, she shows this state's animation instead (a
+	/// ready-to-draw pose), so the attack's own first frames (214B's lightning trail) only show after the release.
+	/// -1 = the move's own frame. Presentation only.</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuJudithHoldState = -1;
+
+	/// <summary>Nov 13 (run): a RELEASE_BUTTON move (Dash Forward) can't end before it has run this many frames, so a tap
+	/// of 66 still gives a short burst. Counted from the move's start (StanceManager.NetsuMoveAge).</summary>
+	[Export(PropertyHint.None, "")]
+	public int NetsuMinHoldFrames;
 }

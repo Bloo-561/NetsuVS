@@ -1,0 +1,1432 @@
+[
+ {
+  "file": "23_CEC_5A.tres",
+  "name": "5A",
+  "state": 63,
+  "priority": 6,
+  "cost": 0,
+  "input": "11_Input_5A",
+  "seq": false,
+  "air": false,
+  "display": "5A",
+  "desc": "Fast jab. Chains into B or C, and into another normal once per chain.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   63
+  ],
+  "state_name": "5A",
+  "frames": [
+   {
+    "anim": "48_CEC_5A",
+    "total": 23,
+    "startup": 6,
+    "active": 2,
+    "recovery": 16,
+    "damage": 250,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "11_Input_5A_5A.gif"
+ },
+ {
+  "file": "24_CEC_5B.tres",
+  "name": "5B",
+  "state": 64,
+  "priority": 6,
+  "cost": 0,
+  "input": "12_Input_5B",
+  "seq": false,
+  "air": false,
+  "display": "5B",
+  "desc": "Long-reach mid slash. Your main button in footsies.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   64
+  ],
+  "state_name": "5B",
+  "frames": [
+   {
+    "anim": "49_CEC_5B",
+    "total": 28,
+    "startup": 8,
+    "active": 4,
+    "recovery": 17,
+    "damage": 420,
+    "guard": "Low",
+    "hits": 1
+   }
+  ],
+  "gif": "12_Input_5B_5B.gif"
+ },
+ {
+  "file": "25_CEC_5C.tres",
+  "name": "5C",
+  "state": 65,
+  "priority": 6,
+  "cost": 0,
+  "input": "13_Input_5C",
+  "seq": false,
+  "air": false,
+  "display": "5C",
+  "desc": "Heavy slash. Cancels into specials, EX moves and 6C.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   65
+  ],
+  "state_name": "5C",
+  "frames": [
+   {
+    "anim": "50_CEC_5C",
+    "total": 33,
+    "startup": 10,
+    "active": 6,
+    "recovery": 18,
+    "damage": 650,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "13_Input_5C_5C.gif"
+ },
+ {
+  "file": "26_CEC_2A.tres",
+  "name": "2A",
+  "state": 66,
+  "priority": 6,
+  "cost": 0,
+  "input": "15_Input_2A",
+  "seq": false,
+  "air": false,
+  "display": "2A",
+  "desc": "Quick low. Starts most low-to-high pressure.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   66
+  ],
+  "state_name": "2A",
+  "frames": [
+   {
+    "anim": "51_CEC_2A",
+    "total": 17,
+    "startup": 6,
+    "active": 2,
+    "recovery": 10,
+    "damage": 230,
+    "guard": "Low",
+    "hits": 1
+   }
+  ],
+  "gif": "15_Input_2A_2A.gif"
+ },
+ {
+  "file": "27_CEC_2B.tres",
+  "name": "2B",
+  "state": 67,
+  "priority": 6,
+  "cost": 0,
+  "input": "16_Input_2B",
+  "seq": false,
+  "air": false,
+  "display": "2B",
+  "desc": "Low poke. Chains into 5B, 5C, 2C and jump.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   67
+  ],
+  "state_name": "2B",
+  "frames": [
+   {
+    "anim": "52_CEC_2B",
+    "total": 22,
+    "startup": 8,
+    "active": 2,
+    "recovery": 13,
+    "damage": 380,
+    "guard": "Low",
+    "hits": 1
+   }
+  ],
+  "gif": "16_Input_2B_2B.gif"
+ },
+ {
+  "file": "28_CEC_2C.tres",
+  "name": "2C",
+  "state": 68,
+  "priority": 6,
+  "cost": 0,
+  "input": "17_Input_2C",
+  "seq": false,
+  "air": false,
+  "display": "2C",
+  "desc": "Sweep (Sixth Form, Scarlet Sky). Knocks down.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   68
+  ],
+  "state_name": "2C",
+  "frames": [
+   {
+    "anim": "53_CEC_2C",
+    "total": 42,
+    "startup": 10,
+    "active": 11,
+    "recovery": 22,
+    "damage": 460,
+    "guard": "Low",
+    "hits": 1
+   }
+  ],
+  "gif": "17_Input_2C_2C.gif"
+ },
+ {
+  "file": "29_CEC_j_5A.tres",
+  "name": "j.5A",
+  "state": 69,
+  "priority": 6,
+  "cost": 0,
+  "input": "11_Input_5A",
+  "seq": false,
+  "air": true,
+  "display": "j.A",
+  "desc": "Fast air jab. Air-to-air and the start of air combos.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   69
+  ],
+  "state_name": "j_5A",
+  "frames": [
+   {
+    "anim": "54_CEC_j5A",
+    "total": 15,
+    "startup": 5,
+    "active": 4,
+    "recovery": 7,
+    "damage": 220,
+    "guard": "High",
+    "hits": 1
+   }
+  ],
+  "gif": "11_Input_5A_j_5A.gif"
+ },
+ {
+  "file": "30_CEC_j_5B.tres",
+  "name": "j.5B",
+  "state": 70,
+  "priority": 6,
+  "cost": 0,
+  "input": "12_Input_5B",
+  "seq": false,
+  "air": true,
+  "display": "j.B",
+  "desc": "Wide air slash. Your main jump-in.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   70
+  ],
+  "state_name": "j_5B",
+  "frames": [
+   {
+    "anim": "55_CEC_j5B",
+    "total": 19,
+    "startup": 7,
+    "active": 4,
+    "recovery": 9,
+    "damage": 320,
+    "guard": "High",
+    "hits": 1
+   }
+  ],
+  "gif": "12_Input_5B_j_5B.gif"
+ },
+ {
+  "file": "31_CEC_j_5C.tres",
+  "name": "j.5C",
+  "state": 71,
+  "priority": 6,
+  "cost": 0,
+  "input": "13_Input_5C",
+  "seq": false,
+  "air": true,
+  "display": "j.C",
+  "desc": "Big downward slash. Ends air combos and covers below you.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   71
+  ],
+  "state_name": "j_5C",
+  "frames": [
+   {
+    "anim": "56_CEC_j5C",
+    "total": 29,
+    "startup": 13,
+    "active": 5,
+    "recovery": 12,
+    "damage": 550,
+    "guard": "High",
+    "hits": 1
+   }
+  ],
+  "gif": "13_Input_5C_j_5C.gif"
+ },
+ {
+  "file": "32_CEC_4A.tres",
+  "name": "4A",
+  "state": 72,
+  "priority": 6,
+  "cost": 0,
+  "input": "11_Input_4A",
+  "seq": false,
+  "air": false,
+  "display": "4A",
+  "desc": "Close slash with a tight hitbox. A fast check up close.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   72
+  ],
+  "state_name": "4A",
+  "frames": [
+   {
+    "anim": "57_CEC_4A",
+    "total": 22,
+    "startup": 8,
+    "active": 3,
+    "recovery": 12,
+    "damage": 250,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "11_Input_4A_4A.gif"
+ },
+ {
+  "file": "50_CEC_ExcelCancel.tres",
+  "name": "Overdrive",
+  "state": 86,
+  "priority": 10,
+  "cost": 0,
+  "input": "35_Input_ABC",
+  "seq": false,
+  "air": false,
+  "display": "Overdrive",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   86
+  ],
+  "state_name": "Excel Cancel",
+  "frames": [
+   {
+    "anim": "1000_CEC_Cancel",
+    "total": 14
+   }
+  ],
+  "gif": "35_Input_ABC_Overdrive.gif"
+ },
+ {
+  "file": "51_CEC_Burst.tres",
+  "name": "Brave Burst",
+  "state": 87,
+  "priority": 10,
+  "cost": 0,
+  "input": "23_Input_AC",
+  "seq": false,
+  "air": false,
+  "display": "Brave Burst",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   87
+  ],
+  "state_name": "Burst",
+  "frames": [
+   {
+    "anim": "1001_CEC_Burst",
+    "total": 55,
+    "startup": 5,
+    "active": 9,
+    "recovery": 42,
+    "damage": null,
+    "guard": "Unblockable",
+    "hits": 1
+   }
+  ],
+  "gif": "23_Input_AC_Brave_Burst.gif"
+ },
+ {
+  "file": "CEC_Breakthrough.tres",
+  "name": "Pushblock",
+  "state": 96,
+  "priority": 10,
+  "cost": 10000,
+  "input": "23_Input_AB",
+  "seq": false,
+  "air": false,
+  "display": "Pushblock",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   96
+  ],
+  "state_name": "Pushblock_Stand",
+  "frames": [
+   {
+    "anim": "CEC_Pushblock_Stand",
+    "total": 18
+   }
+  ],
+  "gif": "23_Input_AB_Pushblock.gif"
+ },
+ {
+  "file": "57_CEC_236A.tres",
+  "name": "Iaido",
+  "state": 79,
+  "priority": 7,
+  "cost": 0,
+  "input": "44_Input_236A",
+  "seq": false,
+  "air": false,
+  "display": "Iaido",
+  "desc": "Stationary quickdraw: a long lightning slash straight ahead.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   79
+  ],
+  "state_name": "Iaido",
+  "frames": [
+   {
+    "anim": "79_CEC_236A",
+    "total": 36,
+    "startup": 11,
+    "active": 4,
+    "recovery": 22,
+    "damage": 900,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "44_Input_236A_Iaido.gif"
+ },
+ {
+  "file": "58_CEC_236B.tres",
+  "name": "Iaido: Rising Cut",
+  "state": 80,
+  "priority": 7,
+  "cost": 0,
+  "input": "45_Input_236B_or_C",
+  "seq": false,
+  "air": false,
+  "display": "Iaido: Rising Cut",
+  "desc": "Quickdraw cut diagonally upward. Anti-air that launches.",
+  "tags": [
+   "ANTI-AIR"
+  ],
+  "hide": false,
+  "chain": [
+   80
+  ],
+  "state_name": "Iaido: Rising Cut",
+  "frames": [
+   {
+    "anim": "80_CEC_236B",
+    "total": 38,
+    "startup": 12,
+    "active": 4,
+    "recovery": 23,
+    "damage": 950,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "45_Input_236B_or_C_Iaido_Rising_Cut.gif"
+ },
+ {
+  "file": "59_CEC_236C.tres",
+  "name": "EX Iaido: Thunder Barrage",
+  "state": 81,
+  "priority": 9,
+  "cost": 10000,
+  "input": "20_Input_236C",
+  "seq": false,
+  "air": false,
+  "display": "Thunder Barrage",
+  "desc": "Stationary six-hit slash barrage. The last hit blasts them away (hard knockdown).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   81
+  ],
+  "state_name": "EX Iaido: Thunder Barrage",
+  "frames": [
+   {
+    "anim": "81_CEC_236C",
+    "total": 64,
+    "startup": 11,
+    "active": 36,
+    "recovery": 18,
+    "damage": 320,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "20_Input_236C_EX_Iaido_Thunder_Barrage.gif"
+ },
+ {
+  "file": "71_CEC_J236A.tres",
+  "name": "Skyfall Slash",
+  "state": 108,
+  "priority": 7,
+  "cost": 0,
+  "input": "44_Input_236A",
+  "seq": false,
+  "air": true,
+  "display": "Skyfall Slash",
+  "desc": "Diving slash from the air. Slams airborne opponents down.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   108,
+   111
+  ],
+  "state_name": "Skyfall Slash",
+  "frames": [
+   {
+    "anim": "108_CEC_J236A",
+    "total": 90,
+    "startup": 4,
+    "active": 87,
+    "recovery": 0,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "111_CEC_J236_LAND",
+    "total": 15
+   }
+  ],
+  "gif": "44_Input_236A_Skyfall_Slash.gif"
+ },
+ {
+  "file": "72_CEC_J236B.tres",
+  "name": "Skyfall Slash",
+  "state": 109,
+  "priority": 7,
+  "cost": 0,
+  "input": "45_Input_236B_or_C",
+  "seq": false,
+  "air": true,
+  "display": "Skyfall Slash",
+  "desc": "Diving slash from the air. Slams airborne opponents down.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   109,
+   111
+  ],
+  "state_name": "Skyfall Slash",
+  "frames": [
+   {
+    "anim": "109_CEC_J236B",
+    "total": 90,
+    "startup": 5,
+    "active": 86,
+    "recovery": 0,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "111_CEC_J236_LAND",
+    "total": 15
+   }
+  ],
+  "gif": "45_Input_236B_or_C_Skyfall_Slash.gif"
+ },
+ {
+  "file": "73_CEC_J236C.tres",
+  "name": "EX Skyfall Slash",
+  "state": 110,
+  "priority": 9,
+  "cost": 10000,
+  "input": "20_Input_236C",
+  "seq": false,
+  "air": true,
+  "display": "EX Skyfall Slash",
+  "desc": "Invincible dive. The lightning X on landing is a pillar that launches them (+3 on block).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   110,
+   112
+  ],
+  "state_name": "EX Skyfall Slash",
+  "frames": [
+   {
+    "anim": "110_CEC_J236C",
+    "total": 90,
+    "startup": 4,
+    "active": 87,
+    "recovery": 0,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "112_CEC_J236C_LAND",
+    "total": 16,
+    "startup": 1,
+    "active": 4,
+    "recovery": 12,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "20_Input_236C_EX_Skyfall_Slash.gif"
+ },
+ {
+  "file": "60_CEC_623A.tres",
+  "name": "Teleport Slash",
+  "state": 82,
+  "priority": 8,
+  "cost": 0,
+  "input": "46_Input_623A",
+  "seq": false,
+  "air": false,
+  "display": "Crescent Slash",
+  "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   82,
+   120
+  ],
+  "state_name": "Crescent Slash A",
+  "frames": [
+   {
+    "anim": "82_CEC_623A",
+    "total": 200,
+    "startup": 7,
+    "active": 8,
+    "recovery": 186,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 2
+   },
+   {
+    "anim": "CEC_DP2_Land",
+    "total": 10
+   }
+  ],
+  "gif": "46_Input_623A_Teleport_Slash.gif"
+ },
+ {
+  "file": "61_CEC_623B.tres",
+  "name": "Teleport Slash",
+  "state": 83,
+  "priority": 8,
+  "cost": 0,
+  "input": "47_Input_623B_or_C",
+  "seq": false,
+  "air": false,
+  "display": "Crescent Slash",
+  "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   83,
+   120
+  ],
+  "state_name": "Crescent Slash B",
+  "frames": [
+   {
+    "anim": "83_CEC_623B",
+    "total": 200,
+    "startup": 7,
+    "active": 8,
+    "recovery": 186,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 2
+   },
+   {
+    "anim": "CEC_DP2_Land",
+    "total": 10
+   }
+  ],
+  "gif": "47_Input_623B_or_C_Teleport_Slash.gif"
+ },
+ {
+  "file": "62_CEC_623C.tres",
+  "name": "EX Teleport Slash",
+  "state": 84,
+  "priority": 9,
+  "cost": 10000,
+  "input": "24_Input_623C",
+  "seq": false,
+  "air": false,
+  "display": "EX Crescent Slash",
+  "desc": "Invincible two-hit rising crescent. On hit she turns into lightning at the peak, slashes straight down onto them, holds them while she sheathes, and the click unleashes a last slash (hard knockdown).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   84,
+   121,
+   122,
+   123
+  ],
+  "state_name": "EX Crescent Slash",
+  "frames": [
+   {
+    "anim": "84_CEC_623C",
+    "total": 200,
+    "startup": 7,
+    "active": 8,
+    "recovery": 186,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 2
+   },
+   {
+    "anim": "CEC_DP2_Vanish",
+    "total": 37
+   },
+   {
+    "anim": "CEC_DP2_Bolt",
+    "total": 5,
+    "startup": 1,
+    "active": 4,
+    "recovery": 1,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "CEC_DP2_Sheath",
+    "total": 42
+   }
+  ],
+  "gif": "24_Input_623C_EX_Teleport_Slash.gif"
+ },
+ {
+  "file": "66_CEC_214A.tres",
+  "name": "Command Dash",
+  "state": 73,
+  "priority": 7,
+  "cost": 0,
+  "input": "40_Input_214A",
+  "seq": false,
+  "air": false,
+  "display": "Command Dash",
+  "desc": "A: short dash, B: longer dash. The dash itself doesn't hit. Press A during it for a palm strike, or C (or hold B) for the slash-through: she ends up on their other side, but it is blocked toward the side she came from (never a cross-up).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   73
+  ],
+  "state_name": "Command Dash",
+  "frames": [
+   {
+    "anim": "73_CEC_214A",
+    "total": 24
+   }
+  ],
+  "gif": "40_Input_214A_Command_Dash.gif"
+ },
+ {
+  "file": "67_CEC_214B.tres",
+  "name": "Command Dash",
+  "state": 74,
+  "priority": 7,
+  "cost": 0,
+  "input": "41_Input_214B_or_C",
+  "seq": false,
+  "air": false,
+  "display": "Command Dash",
+  "desc": "A: short dash, B: longer dash. The dash itself doesn't hit. Press A during it for a palm strike, or C (or hold B) for the slash-through: she ends up on their other side, but it is blocked toward the side she came from (never a cross-up).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   74
+  ],
+  "state_name": "Command Dash (long)",
+  "frames": [
+   {
+    "anim": "74_CEC_214B",
+    "total": 32
+   }
+  ],
+  "gif": "41_Input_214B_or_C_Command_Dash.gif"
+ },
+ {
+  "file": "68_CEC_214C.tres",
+  "name": "EX Dash Slash",
+  "state": 115,
+  "priority": 9,
+  "cost": 10000,
+  "input": "21_Input_214C",
+  "seq": false,
+  "air": false,
+  "display": "EX Dash Slash",
+  "desc": "Invincible lightning dash. On hit she slashes through them again and again.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   115,
+   97
+  ],
+  "state_name": "EX Dash Slash",
+  "frames": [
+   {
+    "anim": "115_CEC_214C_DashSlash",
+    "total": 38,
+    "startup": 4,
+    "active": 15,
+    "recovery": 20,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "97_CEC_RUSH",
+    "total": 105,
+    "startup": 11,
+    "active": 72,
+    "recovery": 23,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 5
+   }
+  ],
+  "gif": "21_Input_214C_EX_Dash_Slash.gif"
+ },
+ {
+  "file": "69_CEC_214R2.tres",
+  "name": "Command Dash: Pierce",
+  "state": 75,
+  "priority": 8,
+  "cost": 0,
+  "input": "11_Input_5A",
+  "seq": false,
+  "air": false,
+  "display": "Palm Strike",
+  "desc": "A palm strike out of either dash.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   75
+  ],
+  "state_name": "Command Dash: Pierce",
+  "frames": [
+   {
+    "anim": "75_CEC_214A_SL",
+    "total": 26,
+    "startup": 4,
+    "active": 4,
+    "recovery": 19,
+    "damage": 800,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "11_Input_5A_Command_Dash_Pierce.gif"
+ },
+ {
+  "file": "64_CEC_Raijin.tres",
+  "name": "Sakura Morning Moon",
+  "state": 124,
+  "priority": 10,
+  "cost": 30000,
+  "input": "49_Input_236236",
+  "seq": false,
+  "air": false,
+  "display": "Sakura Morning Moon",
+  "desc": "Invincible lightning dash. On hit she cuts through them back and forth, launches them with a rising slash, then turns into lightning and strikes straight down through them. They hang in the air while she kneels and sheathes: the click sets off the last cut, a burst of cherry blossoms and a white flash. When the screen comes back she is standing and they fall into a hard knockdown under falling petals.",
+  "tags": [
+   "SUPER"
+  ],
+  "hide": false,
+  "chain": [
+   124,
+   125,
+   126,
+   127,
+   128
+  ],
+  "state_name": "Sakura Morning Moon",
+  "frames": [
+   {
+    "anim": "115_CEC_214C_DashSlash",
+    "total": 38,
+    "startup": 4,
+    "active": 15,
+    "recovery": 20,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "125_CEC_SMM_hit",
+    "total": 154,
+    "startup": 19,
+    "active": 126,
+    "recovery": 10,
+    "damage": null,
+    "guard": "Unblockable",
+    "hits": 8
+   },
+   {
+    "anim": "126_CEC_SMM_launch",
+    "total": 24,
+    "startup": 6,
+    "active": 4,
+    "recovery": 15,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "127_CEC_SMM_sky",
+    "total": 190,
+    "startup": 19,
+    "active": 103,
+    "recovery": 69,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 2
+   },
+   {
+    "anim": "128_CEC_SMM_end",
+    "total": 90
+   }
+  ],
+  "gif": "49_Input_236236_Sakura_Morning_Moon.gif"
+ },
+ {
+  "file": "63_CEC_SakuraMorningMoon.tres",
+  "name": "Counter \u00b7 Thunderclap",
+  "state": 85,
+  "priority": 10,
+  "cost": 30000,
+  "input": "50_Input_214214",
+  "seq": false,
+  "air": false,
+  "display": "Counter \u00b7 Thunderclap",
+  "desc": "Counter stance. When it catches a hit she crosses through them four times, then sheathes on her own side: the final cut lands the moment the blade clicks home.",
+  "tags": [
+   "SUPER",
+   "COUNTER"
+  ],
+  "hide": false,
+  "chain": [
+   85,
+   92
+  ],
+  "state_name": "Counter \u00b7 Thunderclap",
+  "frames": [
+   {
+    "anim": "85_CEC_S1",
+    "total": 72
+   },
+   {
+    "anim": "92_CEC_S1_hit",
+    "total": 154,
+    "startup": 19,
+    "active": 126,
+    "recovery": 10,
+    "damage": null,
+    "guard": "Unblockable",
+    "hits": 8
+   }
+  ],
+  "gif": "50_Input_214214_Counter_Thunderclap.gif"
+ },
+ {
+  "file": "CEC_Throw.tres",
+  "name": "Throw",
+  "state": 100,
+  "priority": 7,
+  "cost": 0,
+  "input": "51_Input_Throw",
+  "seq": false,
+  "air": false,
+  "display": "Throw",
+  "desc": "Close range. 4 + B+C throws behind you. Break a throw with B+C within 10 frames.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   100,
+   101
+  ],
+  "state_name": "Throw",
+  "frames": [
+   {
+    "anim": "CEC_Throw",
+    "total": 28
+   },
+   {
+    "anim": "CEC_ThrowHit",
+    "total": 32,
+    "startup": 13,
+    "active": 1,
+    "recovery": 19,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "51_Input_Throw_Throw.gif"
+ },
+ {
+  "file": "33_CEC_6C.tres",
+  "name": "6C",
+  "state": 113,
+  "priority": 6,
+  "cost": 0,
+  "input": "14_Input_6C",
+  "seq": false,
+  "air": false,
+  "display": "Rising Slash",
+  "desc": "Launches. Any ground normal cancels into it on hit or block. Jump (8) on hit to chase into an air combo; no jump cancel on block.",
+  "tags": [
+   "LAUNCHER"
+  ],
+  "hide": false,
+  "chain": [
+   113
+  ],
+  "state_name": "6C",
+  "frames": [
+   {
+    "anim": "113_CEC_6C",
+    "total": 42,
+    "startup": 15,
+    "active": 4,
+    "recovery": 24,
+    "damage": null,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "14_Input_6C_6C.gif"
+ },
+ {
+  "file": "CEC_AirThrow.tres",
+  "name": "Air Throw",
+  "state": 116,
+  "priority": 7,
+  "cost": 0,
+  "input": "51_Input_Throw",
+  "seq": false,
+  "air": true,
+  "display": "Air Throw",
+  "desc": "Also grabs an opponent you're juggling (a hit-grab: air normals cancel into it on hit, and it can't be broken). Ends the combo and places your Link Break crest (it can never spend it).",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   116
+  ],
+  "state_name": "Air Throw",
+  "frames": [
+   {
+    "anim": "CEC_AirThrow",
+    "total": 28
+   }
+  ],
+  "gif": "51_Input_Throw_Air_Throw.gif"
+ },
+ {
+  "file": "CEC_Pushblock_Crouch.tres",
+  "name": "Pushblock",
+  "state": 119,
+  "priority": 10,
+  "cost": 10000,
+  "input": "23_Input_AB",
+  "seq": false,
+  "air": false,
+  "display": "Pushblock",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   119
+  ],
+  "state_name": "Pushblock_Crouch",
+  "frames": [
+   {
+    "anim": "CEC_Pushblock_Crouch",
+    "total": 18
+   }
+  ],
+  "gif": "23_Input_AB_Pushblock.gif"
+ },
+ {
+  "file": "CEC_214_SlashB.tres",
+  "name": "Command Dash: Slash-Through",
+  "state": 77,
+  "priority": 8,
+  "cost": 0,
+  "input": "12_Input_5B",
+  "seq": false,
+  "air": false,
+  "display": "Command Dash: Slash-Through",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   77
+  ],
+  "state_name": "Command Dash: Lightning Slash-Through",
+  "frames": [
+   {
+    "anim": "77_CEC_214B_SL",
+    "total": 35,
+    "startup": 7,
+    "active": 3,
+    "recovery": 26,
+    "damage": 1100,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "12_Input_5B_Command_Dash_Slash_Through.gif"
+ },
+ {
+  "file": "CEC_214_SlashC.tres",
+  "name": "Command Dash: Slash-Through",
+  "state": 77,
+  "priority": 8,
+  "cost": 0,
+  "input": "13_Input_5C",
+  "seq": false,
+  "air": false,
+  "display": "Command Dash: Slash-Through",
+  "desc": "",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   77
+  ],
+  "state_name": "Command Dash: Lightning Slash-Through",
+  "frames": [
+   {
+    "anim": "77_CEC_214B_SL",
+    "total": 35,
+    "startup": 7,
+    "active": 3,
+    "recovery": 26,
+    "damage": 1100,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "13_Input_5C_Command_Dash_Slash_Through.gif"
+ },
+ {
+  "file": "74_CEC_5D.tres",
+  "name": "5D",
+  "state": 79,
+  "priority": 6,
+  "cost": 0,
+  "input": "70_Input_5D",
+  "seq": false,
+  "air": false,
+  "display": "5D (Drive placeholder)",
+  "desc": "(Placeholder: Iaido's slash as a normal.) Her D normals will be her own Drive moves, like BlazBlue's. Chains like her other normals.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   79
+  ],
+  "state_name": "Iaido",
+  "frames": [
+   {
+    "anim": "79_CEC_236A",
+    "total": 36,
+    "startup": 11,
+    "active": 4,
+    "recovery": 22,
+    "damage": 900,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "70_Input_5D_5D.gif"
+ },
+ {
+  "file": "75_CEC_2D.tres",
+  "name": "2D",
+  "state": 68,
+  "priority": 6,
+  "cost": 0,
+  "input": "71_Input_2D",
+  "seq": false,
+  "air": false,
+  "display": "2D (Drive placeholder)",
+  "desc": "(Placeholder: 2C's sweep.) Chains like her other normals.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   68
+  ],
+  "state_name": "2C",
+  "frames": [
+   {
+    "anim": "53_CEC_2C",
+    "total": 42,
+    "startup": 10,
+    "active": 11,
+    "recovery": 22,
+    "damage": 460,
+    "guard": "Low",
+    "hits": 1
+   }
+  ],
+  "gif": "71_Input_2D_2D.gif"
+ },
+ {
+  "file": "76_CEC_jD.tres",
+  "name": "j.D",
+  "state": 71,
+  "priority": 6,
+  "cost": 0,
+  "input": "70_Input_5D",
+  "seq": false,
+  "air": true,
+  "display": "j.D (Drive placeholder)",
+  "desc": "(Placeholder: j.5C's slash.) Chains like her other air normals.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   71
+  ],
+  "state_name": "j_5C",
+  "frames": [
+   {
+    "anim": "56_CEC_j5C",
+    "total": 29,
+    "startup": 13,
+    "active": 5,
+    "recovery": 12,
+    "damage": 550,
+    "guard": "High",
+    "hits": 1
+   }
+  ],
+  "gif": "70_Input_5D_j_D.gif"
+ },
+ {
+  "file": "77_CEC_214D.tres",
+  "name": "Thunder Pierce (D)",
+  "state": 75,
+  "priority": 7,
+  "cost": 0,
+  "input": "72_Input_214D",
+  "seq": false,
+  "air": false,
+  "display": "214D Thunder Pierce",
+  "desc": "(Placeholder D special: Command Dash's pierce.) A lunging slash. On hit it places your Link Break crest. A normal special: cancels into EX moves and supers.",
+  "tags": [],
+  "hide": false,
+  "chain": [
+   75
+  ],
+  "state_name": "Command Dash: Pierce",
+  "frames": [
+   {
+    "anim": "75_CEC_214A_SL",
+    "total": 26,
+    "startup": 4,
+    "active": 4,
+    "recovery": 19,
+    "damage": 800,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "72_Input_214D_Thunder_Pierce_D.gif"
+ },
+ {
+  "file": "78_CEC_LinkBreak.tres",
+  "name": "Link Break: Moonlit Stillness",
+  "state": 135,
+  "priority": 10,
+  "cost": 0,
+  "input": "73_Input_CD",
+  "seq": false,
+  "air": false,
+  "display": "Link Break: Moonlit Stillness",
+  "desc": "Only while LINK READY (three crests). The world goes still: one lightning draw through them leaves them Unbalanced on their feet (60-frame stagger, no Burst). She ends behind them; hold back as it ends to land in front. Cancels from normals and specials.",
+  "tags": [
+   "LINK READY"
+  ],
+  "hide": false,
+  "chain": [
+   135
+  ],
+  "state_name": "Link Break: Moonlit Stillness",
+  "frames": [
+   {
+    "anim": "77_CEC_214B_SL",
+    "total": 35,
+    "startup": 7,
+    "active": 3,
+    "recovery": 26,
+    "damage": 1100,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "73_Input_CD_Link_Break_Moonlit_Stillness.gif"
+ },
+ {
+  "file": "79_CEC_LinkCallS1.tres",
+  "name": "Link Call S1",
+  "state": 136,
+  "priority": 10,
+  "cost": 0,
+  "input": "74_Input_DS1",
+  "seq": false,
+  "air": false,
+  "display": "Link Break: Partner 1",
+  "desc": "Only while LINK READY. Partner 1 comes at once and leads the Link Break (its Link version: Eren / Harie / Adin wall bounce, Mary's buff twice as long + stagger).",
+  "tags": [
+   "LINK READY"
+  ],
+  "hide": false,
+  "chain": [
+   136
+  ],
+  "state_name": "Link Call",
+  "frames": [
+   {
+    "anim": "136_CEC_LinkCall",
+    "total": 10
+   }
+  ],
+  "gif": "74_Input_DS1_Link_Call_S1.gif"
+ },
+ {
+  "file": "80_CEC_LinkCallS2.tres",
+  "name": "Link Call S2",
+  "state": 136,
+  "priority": 10,
+  "cost": 0,
+  "input": "75_Input_DS2",
+  "seq": false,
+  "air": false,
+  "display": "Link Break: Partner 2",
+  "desc": "Only while LINK READY. Partner 2 leads the Link Break.",
+  "tags": [
+   "LINK READY"
+  ],
+  "hide": false,
+  "chain": [
+   136
+  ],
+  "state_name": "Link Call",
+  "frames": [
+   {
+    "anim": "136_CEC_LinkCall",
+    "total": 10
+   }
+  ],
+  "gif": "75_Input_DS2_Link_Call_S2.gif"
+ },
+ {
+  "name": "Lightning Slash-Through",
+  "display": "Lightning Slash-Through",
+  "input": "> C",
+  "after": "Command Dash",
+  "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up. Keep holding the button for the charged version.",
+  "tags": [
+   "UNSAFE"
+  ],
+  "chain": [
+   74,
+   77
+  ],
+  "frames": [
+   {
+    "anim": "74_CEC_214B",
+    "total": 32
+   },
+   {
+    "anim": "77_CEC_214B_SL",
+    "total": 35,
+    "startup": 7,
+    "active": 3,
+    "recovery": 26,
+    "damage": 1100,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "extra_Lightning_Slash_Through.gif",
+  "extra": true
+ },
+ {
+  "name": "Charged Slash-Through",
+  "display": "Charged Slash-Through",
+  "input": "> [C]",
+  "after": "Lightning Slash-Through",
+  "desc": "Keep holding C (or B) as she reaches them: she stops in front of them and charges, then a heavier slash-through. Much slower and she can be hit while charging, but a hit crumples them, standing or crouching, for a full combo. Let go early and the normal slash comes out at once.",
+  "tags": [
+   "CRUMPLE",
+   "UNSAFE"
+  ],
+  "chain": [
+   74,
+   77,
+   129,
+   131
+  ],
+  "frames": [
+   {
+    "anim": "74_CEC_214B",
+    "total": 32
+   },
+   {
+    "anim": "77_CEC_214B_SL",
+    "total": 35,
+    "startup": 7,
+    "active": 3,
+    "recovery": 26,
+    "damage": 1100,
+    "guard": "Mid",
+    "hits": 1
+   },
+   {
+    "anim": "129_CEC_214_Charge",
+    "total": 16
+   },
+   {
+    "anim": "131_CEC_214_SL_Charged",
+    "total": 32,
+    "startup": 7,
+    "active": 3,
+    "recovery": 23,
+    "damage": 1350,
+    "guard": "Mid",
+    "hits": 1
+   }
+  ],
+  "gif": "extra_Charged_Slash_Through.gif",
+  "extra": true
+ }
+]

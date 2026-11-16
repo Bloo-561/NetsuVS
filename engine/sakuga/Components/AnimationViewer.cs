@@ -101,6 +101,67 @@ public partial class AnimationViewer : Node
 		_flare.SortingOffset = Sprites[0].SortingOffset + 2f;
 		_flare.Visible = true;
 	}
+	// --- Nov 13 (Judith): bloom flower --------------------------------------------------------------------
+	// A pink sakura (assets/sprites/netsu_bloom_flower.png) that opens and turns where a Bloom hit lands.
+	// SakugaActor.NetsuBloomFlowerLook drives it every render.
+	private Sprite3D _bloom;
+	private bool _bloomOn;
+
+	private void NetsuCreateBloom()
+	{
+		if (Engine.IsEditorHint() || Sprites == null || Sprites.Length == 0 || Sprites[0] == null)
+		{
+			return;
+		}
+		const string path = "res://assets/sprites/netsu_bloom_flower.png";
+		Texture2D tex = ResourceLoader.Exists(path) ? GD.Load<Texture2D>(path) : null;
+		if (tex == null)
+		{
+			return;
+		}
+		StandardMaterial3D mat = new StandardMaterial3D();
+		mat.ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded;
+		mat.Transparency = BaseMaterial3D.TransparencyEnum.Alpha;
+		mat.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
+		mat.NoDepthTest = true;
+		mat.VertexColorUseAsAlbedo = true;
+		mat.AlbedoTexture = tex;
+		_bloom = new Sprite3D();
+		_bloom.TopLevel = true;
+		_bloom.Visible = false;
+		_bloom.Texture = tex;
+		_bloom.PixelSize = Sprites[0].PixelSize;
+		_bloom.Layers = Sprites[0].Layers;
+		_bloom.Shaded = false;
+		_bloom.MaterialOverride = mat;
+		Sprites[0].GetParent().CallDeferred(Node.MethodName.AddChild, _bloom);
+	}
+
+	/// <summary>Nov 13: the bloom flower, `scale` times its picture (0 = off), `alpha` strong, turned `angle` radians,
+	/// centred on `at` (world).</summary>
+	public void SetBloomFlower(float scale, float alpha, float angle, Vector3 at)
+	{
+		if (_bloom == null || !_bloom.IsInsideTree())
+		{
+			return;
+		}
+		if (scale <= 0f)
+		{
+			if (_bloomOn)
+			{
+				_bloom.Visible = false;
+				_bloomOn = false;
+			}
+			return;
+		}
+		Basis basis = new Basis(Vector3.Back, angle).Scaled(new Vector3(scale, scale, 1f));
+		_bloom.GlobalTransform = new Transform3D(basis, at);
+		_bloom.Modulate = new Color(1f, 1f, 1f, alpha);
+		_bloom.SortingOffset = Sprites[0].SortingOffset + 3f;
+		_bloom.Visible = true;
+		_bloomOn = true;
+	}
+
 	private ShaderMaterial[] _ghostMats;   // Oct 29: flat tint copies (the aura shader), so they show up on dark sprites
 	private GhostFrame[] _history;
 	private int _historyHead;
@@ -114,6 +175,7 @@ public partial class AnimationViewer : Node
 		NetsuCreateGhosts();
 		NetsuCreateAura();
 		NetsuCreateFlare();
+		NetsuCreateBloom();   // Nov 13 (Judith)
 		// Netsu: extra layers (slash trails) get their own copy of the palette material,
 		// because ViewAnimations writes each layer's texture into its material.
 		if (Sprites != null)

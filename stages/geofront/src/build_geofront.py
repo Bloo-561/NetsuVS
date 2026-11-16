@@ -15,7 +15,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\geofront"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\geofront"
 TEXD = ROOT + r"\textures"
 VARIANT = globals().get("VARIANT") or "vault"
 

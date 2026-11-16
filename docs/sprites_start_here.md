@@ -47,7 +47,7 @@ Netsu VS is a 2D anime fighting game based on the user's D&D campaign Netsu No K
 inspired). Godot 4.7.2 mono (C#) on the Mahou SakugaEngine (rollback, fixed-point). Model: Dengeki Bunko Fighting
 Climax / BlazBlue / Guilty Gear feel: 2D sprite fighters on 3D stages. Three fighters: **Cecilia Richter** (katana
 rushdown), **Flan Returna** (gauntlet brawler) and **Leticia** (hover-board gunslinger, zoner), plus four assists
-(Mary, Adin, Eren, Harie). Project on the user's PC: `E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs`, reached
+(Mary, Adin, Eren, Harie). Project on the user's PC: `E:\Netsu Projects\NetsuVS`, reached
 through the linked computer (device bridge; its shell has Python with numpy / OpenCV / Pillow, so the tools run
 there); Blender, Aseprite and PixelLab connectors may also be available.
 

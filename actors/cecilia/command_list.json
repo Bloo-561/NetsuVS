@@ -3,7 +3,13 @@
   "note": "Notes for the command list (docs/command_list.md). The list itself comes from the fighter's data: every move in Stances[0].Moves shows up by itself with its input, frame data and animation. Here, keyed by the ENGINE move name (MoveSettings.MoveName), you can give a move a display name, a description, tags, an input to show instead of the worked-out one, which states the preview plays, a group to merge it into, or hide it. extra = rows the data can't show (moves reached by holding a button or by a state change).",
   "moves": {
     "5A": {
-      "desc": "Fast jab. Chains into B or C, and into another normal once per chain."
+      "desc": "A quick jab with the hilt of the sword. Press A again for 5AA. Mainly starts stagger pressure strings."
+    },
+    "5AA": {
+      "desc": "(Placeholder: 5B animation.) She thrusts the sheathed sword while moving forward. Good for stagger pressure, not safe on block. A again for 5AAA."
+    },
+    "5AAA": {
+      "desc": "(Placeholder: 5C animation.) Last hit of the autocombo."
     },
     "5B": {
       "desc": "Long-reach mid slash. Your main button in footsies."
@@ -43,28 +49,33 @@
       "desc": "Big downward slash. Ends air combos and covers below you."
     },
     "Iaido": {
-      "desc": "Stationary quickdraw: a long lightning slash straight ahead."
+      "desc": "Stationary quickdraw: a long lightning slash straight ahead. Judith: on hit or block it cancels into any special. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge."
     },
     "Iaido: Rising Cut": {
       "tags": [
         "ANTI-AIR"
       ],
-      "desc": "Quickdraw cut diagonally upward. Anti-air that launches."
+      "desc": "Quickdraw cut diagonally upward. Anti-air that launches. Judith: on hit or block it cancels into any special. Its hit floats them long enough to charge the next special to Bloom. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge."
     },
     "EX Iaido: Thunder Barrage": {
       "name": "Thunder Barrage",
       "desc": "Stationary six-hit slash barrage. The last hit blasts them away (hard knockdown)."
     },
-    "Command Dash": {
-      "states": [
-        73
+    "Low Slash": {
+      "name": "Low Slash",
+      "desc": "(Placeholder: 2C animation.) A slashing low attack straight from the motion. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge."
+    },
+    "Lightning Slash-Through": {
+      "tags": [
+        "UNSAFE"
       ],
-      "desc": "A: short dash, B: longer dash. The dash itself doesn't hit. Press A during it for a palm strike, or C (or hold B) for the slash-through: she ends up on their other side, but it is blocked toward the side she came from (never a cross-up)."
+      "desc": "(Placeholder: the old slash-through.) She slashes them from the front and passes through to the other side. Very unsafe on block. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge."
+    },
+    "Command Dash": {
+      "hide": true
     },
     "Command Dash: Pierce": {
-      "name": "Palm Strike",
-      "input": "> A",
-      "desc": "A palm strike out of either dash."
+      "hide": true
     },
     "Lightning Dash: Final Slash": {
       "hide": true
@@ -74,7 +85,7 @@
     },
     "Teleport Slash": {
       "name": "Crescent Slash",
-      "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher."
+      "desc": "Two-hit rising crescent slash. A rises about as high as Leticia's 623A and isn't invincible; a hard knockdown early in a combo. B starts invincible and goes higher. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge. Invincible only from the release, never during the hold."
     },
     "EX Teleport Slash": {
       "name": "EX Crescent Slash",
@@ -85,7 +96,7 @@
         108,
         111
       ],
-      "desc": "Diving slash from the air. Slams airborne opponents down."
+      "desc": "Diving slash from the air. Slams airborne opponents down. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge."
     },
     "EX Skyfall Slash": {
       "states": [
@@ -116,50 +127,54 @@
       "desc": "Close range. 4 + B+C throws behind you. Break a throw with B+C within 10 frames."
     },
     "Air Throw": {
-      "desc": "Throw in the air, close range."
+      "desc": "Also grabs an opponent you're juggling (a hit-grab: air normals cancel into it on hit, and it can't be broken). Ends the combo and places your Link Break crest (it can never spend it)."
     },
     "Sakura Morning Moon": {
       "tags": [
         "SUPER"
       ],
       "desc": "Invincible lightning dash. On hit she cuts through them back and forth, launches them with a rising slash, then turns into lightning and strikes straight down through them. They hang in the air while she kneels and sheathes: the click sets off the last cut, a burst of cherry blossoms and a white flash. When the screen comes back she is standing and they fall into a hard knockdown under falling petals."
+    },
+    "5D": {
+      "name": "5D (Drive placeholder)",
+      "desc": "(Placeholder: Iaido's slash as a normal.) Her D normals will be her own Drive moves, like BlazBlue's. Chains like her other normals."
+    },
+    "2D": {
+      "name": "2D (Drive placeholder)",
+      "desc": "(Placeholder: 2C's sweep.) Chains like her other normals."
+    },
+    "j.D": {
+      "name": "j.D (Drive placeholder)",
+      "desc": "(Placeholder: j.5C's slash.) Chains like her other air normals."
+    },
+    "Palm Strike": {
+      "name": "Palm Strike",
+      "desc": "Open-palm strike on 214D. Judith (prototype): hold the button to charge it: Tap 85% damage, Bud (15F) 100%, Bloom (35F) 112%, pops them up and cancels into another special. D drops the charge. (Charged with D, so D can't drop it.)"
+    },
+    "Link Break: Moonlit Stillness": {
+      "name": "Link Break: Moonlit Stillness",
+      "tags": [
+        "LINK READY"
+      ],
+      "desc": "Only while LINK READY (three crests). The world goes still: one lightning draw through them leaves them Unbalanced on their feet (60-frame stagger, no Burst). She ends behind them; hold back as it ends to land in front. Cancels from normals and specials."
+    },
+    "Link Call S1": {
+      "name": "Link Break: Partner 1",
+      "tags": [
+        "LINK READY"
+      ],
+      "desc": "Only while LINK READY. Partner 1 comes at once and leads the Link Break (its Link version: Eren / Harie / Adin wall bounce, Mary's buff twice as long + stagger)."
+    },
+    "Link Call S2": {
+      "name": "Link Break: Partner 2",
+      "tags": [
+        "LINK READY"
+      ],
+      "desc": "Only while LINK READY. Partner 2 leads the Link Break."
+    },
+    "Command Dash: Slash-Through": {
+      "hide": true
     }
   },
-  "extra": [
-    {
-      "name": "Lightning Slash-Through",
-      "input": "> C",
-      "after": "Command Dash",
-      "states": [
-        74,
-        77
-      ],
-      "tags": [
-        "UNSAFE"
-      ],
-      "desc": "C during the dash (or hold B): she slashes them from the front and passes through to the other side. Very unsafe on block. On hit they're lifted slightly; a counter hit gives extra time to follow up. Keep holding the button for the charged version."
-    },
-    {
-      "name": "Charged Slash-Through",
-      "input": "> [C]",
-      "after": "Lightning Slash-Through",
-      "states": [
-        74,
-        77,
-        129,
-        131
-      ],
-      "data_states": [
-        131
-      ],
-      "data": {
-        "STARTUP": "26"
-      },
-      "tags": [
-        "CRUMPLE",
-        "UNSAFE"
-      ],
-      "desc": "Keep holding C (or B) as she reaches them: she stops in front of them and charges, then a heavier slash-through. Much slower and she can be hit while charging, but a hit crumples them, standing or crouching, for a full combo. Let go early and the normal slash comes out at once."
-    }
-  ]
+  "extra": []
 }

@@ -172,6 +172,8 @@ func _ready() -> void:
 	get_viewport().size_changed.connect(_fit)
 	_fit()
 	MatchSetup.assist_hud = [{}, {}]   # filled again by the engine every frame of this fight
+	MatchSetup.assist_hud2 = [{}, {}]  # Nov 8 (Link Break): second partners
+	MatchSetup.link_hud = [{}, {}]     # Nov 8 (Link Break): crests
 	MatchSetup.stock_hud = [{}, {}]    # Oct 26: Noah's stocked energy (SakugaActor.NetsuStockHud)
 	MatchSetup.star_hud = [{}, {}]     # Oct 29: Flan's star stacks (SakugaActor.NetsuStarHud)
 	MatchSetup.overdrive_hud = [0, 0]  # Oct 26 evening: Overdrive time left (SakugaActor.NetsuOverdriveHud)
@@ -181,6 +183,14 @@ func _ready() -> void:
 	cut_in.name = "CutIn"
 	cut_in.set_script(load("res://game/ui/battle_hud/netsu_cut_in.gd"))
 	add_child(cut_in)
+	# Nov 8 (Link Break): the Unbalance cut-in (kanji stamp + Link Attack bands), over everything (the HUD too)
+	var link_fx := Control.new()
+	link_fx.name = "LinkBreakFx"
+	link_fx.set_script(load("res://game/ui/battle_hud/netsu_link_fx.gd"))
+	if root:
+		root.add_child.call_deferred(link_fx)   # Nov 9: the last child of the battle's CanvasLayer: over the HUD too
+	else:
+		add_child(link_fx)
 	# EX / super flash: dark stage + burst of light at the fighter (netsu_super_flash.gd). It goes
 	# straight under the CanvasLayer, above the fighters' layer and under this HUD.
 	var flash := Control.new()
@@ -203,6 +213,13 @@ var _burst_used_flash := [0.0, 0.0]     # Burst just used: the diamond empties w
 var _burst_ready_flash := [0.0, 0.0]    # Burst just refilled: the diamond lights up
 var _assist_prev_phase := [0, 0]
 var _assist_flash := [0.0, 0.0]         # assist ready again: the card flashes in the side's colour
+var _assist_prev_phase2 := [0, 0]       # Nov 8: the same for the second partner (S2)
+var _assist_flash2 := [0.0, 0.0]
+## Nov 8 (Link Break): crest / ready / break / out popups. Per side: {"kind", "who", "t" (seconds left)}.
+const LINK_POP_TIME := 1.3
+var _link_seen := [0, 0]
+var _link_pop := [{}, {}]
+var _crest_pop := [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]   # a crest just lit: its diamond pops
 var _gray_icons := {}                   # assist icon -> grey copy (made once)
 var _timer_text := ""
 var _timer_pop := 0.0                   # the number just changed: it pops
@@ -247,6 +264,14 @@ func _process(delta: float) -> void:
 				_assist_flash[side] = ASSIST_FLASH_TIME
 			_assist_prev_phase[side] = phase
 		_assist_flash[side] = maxf(0.0, _assist_flash[side] - delta)
+		var info2: Dictionary = MatchSetup.assist_hud2[side] if MatchSetup.assist_hud2.size() > side else {}
+		if not info2.is_empty():
+			var phase2 := int(info2.get("phase", 0))
+			if phase2 == 0 and _assist_prev_phase2[side] != 0:
+				_assist_flash2[side] = ASSIST_FLASH_TIME
+			_assist_prev_phase2[side] = phase2
+		_assist_flash2[side] = maxf(0.0, _assist_flash2[side] - delta)
+		_update_link(side, delta)
 	# Oct 30: the timer number pops when it changes
 	var label = _src.get("timer")
 	var t: String = str(label.text) if label else ""
@@ -384,8 +409,11 @@ func _draw() -> void:
 		_draw_stars(side)
 		_draw_meter(side)
 		_draw_assist(side)
+		_draw_link(side)
 		_draw_combo(side)
 	_draw_timer()
+	for side in 2:
+		_draw_link_popup(side)
 
 
 ## Hexagon in the corner (mockup points; P2 mirrored). The picture itself is never flipped.
@@ -845,8 +873,16 @@ func _draw_meter(side: int) -> void:
 ## Mary's buff: a thin teal bar under the card. Overdrive Link: a small diamond beside the card.
 ## Settings: Assist Gauge group. Data: MatchSetup.assist_hud (engine: NetsuAssist.Render; "frames_left" from the engine,
 ## or estimated here from how fast the gauge fills if the engine is an older build).
+## Nov 8 (Link Break): two partner cards side by side, S1 at the screen edge, S2 next to it (inner side).
+const ASSIST_CARD2_DX := 150.0
 func _draw_assist(side: int) -> void:
 	var info: Dictionary = MatchSetup.assist_hud[side] if MatchSetup.assist_hud.size() > side else {}
+	var info2: Dictionary = MatchSetup.assist_hud2[side] if MatchSetup.assist_hud2.size() > side else {}
+	_draw_assist_card(side, info, 0.0, 0)
+	_draw_assist_card(side, info2, ASSIST_CARD2_DX, 1)
+
+
+func _draw_assist_card(side: int, info: Dictionary, dx: float, slot: int) -> void:
 	if info.is_empty() or Time.get_ticks_msec() - int(info.get("msec", 0)) > 600:
 		return
 	var accent := _accent(side)
@@ -854,9 +890,10 @@ func _draw_assist(side: int) -> void:
 	var h := assist_card_height
 	var ratio: float = clampf(float(info.get("ratio", 0.0)), 0.0, 1.0)
 	var phase: int = int(info.get("phase", 0))
-	var ready := phase == 0
-	var x0 := assist_card_x.x
-	var x1 := assist_card_x.y
+	var out: bool = bool(info.get("out", false))
+	var ready := phase == 0 and not out
+	var x0 := assist_card_x.x + dx
+	var x1 := assist_card_x.y + dx
 	var sl := 12.0
 	var tip := 11.0
 	var card := _pts([Vector2(x0 + sl, y), Vector2(x1, y), Vector2(x1 + tip, y + h * 0.42), Vector2(x1, y + h), Vector2(x0, y + h)], side)
@@ -876,11 +913,11 @@ func _draw_assist(side: int) -> void:
 	# team-colour corner at the bottom outer end
 	draw_colored_polygon(_pts([Vector2(x0, y + h), Vector2(x0 + 14, y + h), Vector2(x0 + 4, y + h - 9)], side), accent if ready else Color(accent, 0.5))
 	# ready again: one white blink of the outline
-	var fl: float = _assist_flash[side] / ASSIST_FLASH_TIME
+	var fl: float = (_assist_flash2[side] if slot == 1 else _assist_flash[side]) / ASSIST_FLASH_TIME
 	if fl > 0.0:
 		draw_polyline(_closed(card), Color(1, 1, 1, fl), 2.6, true)
 	# countdown diamond (cooldown only), over the outer part of the portrait
-	if phase == 2:
+	if phase == 2 and not out:
 		var secs := _assist_seconds(side, info, ratio)
 		var bc := _p(x0 + sl + 22.0, y, side)   # Nov 2: sits on the card's top edge, outer end
 		var br := 18.0 * K
@@ -893,8 +930,20 @@ func _draw_assist(side: int) -> void:
 			var ts := 26
 			var tw := _width(_serif, t, ts)
 			_text(_serif, Vector2(bc.x - tw / 2.0 - 1.0, bc.y + ts * 0.36), t, ts, text_color, 3)
+	# Nov 8 (Link Break): S1 / S2 tag on the card's top inner corner; OUT = knocked out for the round
+	var tag := "S%d" % (slot + 1)
+	var tagp := _p(x1 - 6.0, y + 13.0, side)
+	var tw2 := _width(_thin, tag, 16)
+	_text(_thin, Vector2(tagp.x - (tw2 if side == 0 else 0.0), tagp.y), tag, 16, Color(1, 1, 1, 0.9), 3)
+	if out:
+		var red := Color(1.0, 0.25, 0.3)
+		draw_line(_p(x0 + sl + 6.0, y + 6.0, side), _p(x1 - 4.0, y + h - 6.0, side), red, 4.0, true)
+		draw_line(_p(x1 - 4.0, y + 6.0, side), _p(x0 + sl + 6.0, y + h - 6.0, side), red, 4.0, true)
+		var ow := _width(_serif, "OUT", 24)
+		var oc := _p((x0 + x1 + sl) / 2.0, y + h * 0.5, side)
+		_text(_serif, Vector2(oc.x - ow / 2.0, oc.y + 9.0), "OUT", 24, red.lightened(0.3), 4)
 	# Overdrive Link marker (the next assist call comes back faster)
-	if _od_link(side):
+	if slot == 0 and _od_link(side):
 		_diamond(_p(x1 + tip + 12, y + h * 0.42, side), 6.0, Color(1.0, 0.55, 0.3), true)
 	# buff time left (Mary's 5S)
 	var buff: float = clampf(float(info.get("buff", 0.0)), 0.0, 1.0)
@@ -1115,3 +1164,124 @@ func _draw_combo(side: int) -> void:
 		var dx := 90.0 * K if side == 0 else CANVAS.x - 90.0 * K - dw - 8.0 - lw
 		_text(_serif, Vector2(dx, line_y + dsize + 2.0), dmg, dsize, Color(1, 1, 1, a), 4)
 		_text(_serif, Vector2(dx + dw + 8.0, line_y + dsize), combo_damage_label, lsize, Color(0.85, 0.93, 1.0, a), 3)
+
+
+# --- Nov 8: Link Break crests ----------------------------------------------------------------------
+# Under the partner cards: three diamonds, one per party member ("D" = your fighter, then the two partner slots, which
+# fill with the partners' crests in order). LINK READY pulses gold beside them. Popups: LINK BREAK! (big, under the
+# timer), "S1 OUT". Data: MatchSetup.link_hud (engine: NetsuLink.Render).
+
+@export var link_y: float = 225.0                         ## centre line of the crest diamonds (mockup px)
+@export var link_x: Vector2 = Vector2(26.0, 30.0)         ## first diamond's x, then the step between them
+@export var link_gold: Color = Color(1.0, 0.82, 0.35)
+
+
+func _link_info(side: int) -> Dictionary:
+	var info: Dictionary = MatchSetup.link_hud[side] if MatchSetup.link_hud.size() > side else {}
+	if info.is_empty() or Time.get_ticks_msec() - int(info.get("msec", 0)) > 600:
+		return {}
+	return info
+
+
+func _update_link(side: int, delta: float) -> void:
+	for i in 3:
+		_crest_pop[side][i] = maxf(0.0, float(_crest_pop[side][i]) - delta)
+	var pop: Dictionary = _link_pop[side]
+	if not pop.is_empty():
+		pop["t"] = float(pop["t"]) - delta
+		if float(pop["t"]) <= 0.0:
+			_link_pop[side] = {}
+	var info := _link_info(side)
+	if info.is_empty():
+		return
+	var seq := int(info.get("seq", 0))
+	if seq == int(_link_seen[side]):
+		return
+	var first := int(_link_seen[side]) == 0 and seq > 1
+	_link_seen[side] = seq
+	if first:
+		return   # joined late (a new HUD): don't replay an old event
+	var kind := int(info.get("kind", 0))
+	var who := int(info.get("who", 0))
+	if kind == 1:
+		var idx := 0 if who == 1 else clampi(int(info.get("p0", 0)) + int(info.get("p1", 0)), 1, 2)
+		_crest_pop[side][idx] = 0.35
+	elif kind == 2 or kind == 4:   # (kind 3, the Break itself, is netsu_link_fx.gd's cut-in)
+		_link_pop[side] = {"kind": kind, "who": who, "t": LINK_POP_TIME}
+
+
+func _draw_link(side: int) -> void:
+	var info := _link_info(side)
+	if info.is_empty():
+		return
+	var ready := bool(info.get("ready", false))
+	var partner := int(info.get("p0", 0)) + int(info.get("p1", 0))
+	var lit := [bool(info.get("fighter", false)), partner >= 1, partner >= 2]
+	var labels := ["YOU", "S1", "S2"]
+	var outs := [false, bool(info.get("out0", false)), bool(info.get("out1", false))]
+	var accent := _accent(side)
+	var pulse := 0.5 + 0.5 * sin(_time * 7.0)
+	for i in 3:
+		var c := _p(link_x.x + link_x.y * i, link_y, side)
+		var r := 10.0 * K * (1.0 + 0.5 * float(_crest_pop[side][i]) / 0.35)
+		var col: Color = link_gold if i == 0 else accent.lightened(0.35)
+		if ready:
+			col = link_gold.lerp(Color.WHITE, 0.4 * pulse)
+			_diamond(c, r + 4.0 * K, Color(link_gold, 0.25 + 0.25 * pulse), true)
+		_diamond(c, r, Color(0.02, 0.04, 0.14, 0.92), true)
+		if lit[i]:
+			_diamond(c, r * 0.72, col, true)
+		_diamond(c, r, col if lit[i] else Color(0.7, 0.75, 0.9, 0.6), false)
+		var lab: String = labels[i]
+		var lcol := Color(0.85, 0.88, 0.95)
+		if outs[i]:
+			lab = "OUT"
+			lcol = Color(1.0, 0.35, 0.4)
+		var lw := _width(_thin, lab, 14)
+		_text(_thin, Vector2(c.x - lw / 2.0, c.y + r + 15.0), lab, 14, lcol, 3)
+	if ready:
+		var t := "LINK READY"
+		var x := _x(link_x.x + link_x.y * 3 - 6.0, side)
+		var tw := _width(_serif, t, 22)
+		var pos := Vector2(x if side == 0 else x - tw, link_y * K + 2.0)
+		_text(_serif, pos, t, 22, link_gold.lerp(Color.WHITE, 0.35 * pulse), 4)
+		# Nov 8: the three ways to Break (pick the leader)
+		var hint := "C+D  ·  D+S1  ·  D+S2"
+		var hw := _width(_thin, hint, 15)
+		_text(_thin, Vector2(x if side == 0 else x - hw, link_y * K + 20.0), hint, 15, Color(1, 1, 1, 0.85), 3)
+
+
+func _draw_link_popup(side: int) -> void:
+	var pop: Dictionary = _link_pop[side]
+	if pop.is_empty():
+		return
+	var kind := int(pop["kind"])
+	var a := clampf(float(pop["t"]) / 0.35, 0.0, 1.0)
+	var grow := 1.0 - clampf((float(pop["t"]) - (LINK_POP_TIME - 0.15)) / 0.15, 0.0, 1.0)
+	if kind == 3:
+		# LINK BREAK!: big, under the timer, in the side's colour with gold
+		var t := "LINK BREAK!"
+		var fsize := int(round(58.0 * (0.8 + 0.2 * grow)))
+		var tw := _width(_serif, t, fsize)
+		var cx := CANVAS.x / 2.0
+		var y := 210.0 * K
+		_text(_serif, Vector2(cx - tw / 2.0, y), t, fsize, Color(link_gold.lerp(_accent(side).lightened(0.4), 0.3), a), 8)
+		var who := int(pop["who"])
+		var sub := "" if who <= 1 else ("D+S%d" % (who - 1))
+		if who == 1:
+			sub = "C+D"
+		if sub != "":
+			var sw := _width(_thin, sub, 22)
+			_text(_thin, Vector2(cx - sw / 2.0, y + 30.0), sub, 22, Color(1, 1, 1, a), 4)
+	elif kind == 2:
+		var t2 := "LINK READY"
+		var x := _x(link_x.x + link_x.y * 3 - 6.0, side)
+		var tw2 := _width(_serif, t2, 30)
+		var y2 := (link_y - 26.0) * K
+		_text(_serif, Vector2((x if side == 0 else x - tw2), y2), t2, 30, Color(link_gold, a), 6)
+	elif kind == 4:
+		var t3 := "S%d OUT" % (int(pop["who"]) - 1)
+		var x3 := _x(link_x.x + link_x.y * 3 - 6.0, side)
+		var tw3 := _width(_serif, t3, 26)
+		_text(_serif, Vector2((x3 if side == 0 else x3 - tw3), (link_y - 26.0) * K), t3, 26, Color(1.0, 0.35, 0.4, a), 5)
+

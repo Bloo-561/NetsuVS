@@ -1,0 +1,16 @@
+{
+  "cutInPhase": "videoEnd",
+  "cutInTime": 0.2,
+  "cutInName": "",
+  "backgroundFile": "grassland",
+  "backgroundX": 0,
+  "backgroundY": 0,
+  "backgroundScale": 100,
+  "backgroundFit": "cover",
+  "videoFile": "RonnieStampede.mp4",
+  "videoStart": 0,
+  "videoEnd": 0,
+  "videoSpeed": 1.3,
+  "animationId": -1,
+  "count": 6
+}

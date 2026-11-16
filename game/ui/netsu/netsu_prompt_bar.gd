@@ -10,6 +10,10 @@ extends Control
 ##   directions (UP / DOWN)  -> d-pad cross;  LEFT / RIGHT -> "< >" arrows
 ##   anything else ("RB / U", "ESC") -> white pills, one per " / " part
 ## A group with no key ("SELECT") gets the d-pad when it says SELECT, otherwise it's plain text.
+## Nov 8: the keys follow the controller in use (Controls.prompt_style). The letters in `text` are Xbox names (where
+## the button is): on a PlayStation pad A / B / X / Y are drawn as Cross / Circle / Square / Triangle and LB / RB /
+## LT / RT / START as L1 / R1 / L2 / R2 / OPTIONS; on a keyboard A / B show player 1's keys (J / K). Xbox: coloured
+## letters. The bar redraws by itself when another device is used.
 
 var text: String = "":
 	set(value):
@@ -30,6 +34,11 @@ var outline_size: int = 0
 var outline_color := Color(0.02, 0.03, 0.12, 0.8)
 
 const CIRCLE_KEYS := ["A", "B", "C", "S", "X", "Y"]
+const PS_KEYS := ["CROSS", "CIRCLE", "SQUARE", "TRIANGLE"]
+const PS_INK := {"CROSS": Color(0.25, 0.48, 1.0), "CIRCLE": Color(0.95, 0.22, 0.32), "SQUARE": Color(0.86, 0.38, 0.8),
+	"TRIANGLE": Color(0.1, 0.68, 0.55)}
+const XBOX_INK := {"A": Color(0.18, 0.62, 0.22), "B": Color(0.86, 0.18, 0.2), "X": Color(0.16, 0.42, 0.95),
+	"Y": Color(0.86, 0.62, 0.05)}
 const DIRECTIONS := ["UP", "DOWN", "LEFT", "RIGHT"]
 
 var _groups: Array = []   # [{"glyphs": [{"kind", "text"}], "label": String}]
@@ -37,6 +46,34 @@ var _groups: Array = []   # [{"glyphs": [{"kind", "text"}], "label": String}]
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var c := get_node_or_null("/root/Controls")
+	if c and c.has_signal("prompt_style_changed"):
+		c.prompt_style_changed.connect(_on_style_changed)
+
+
+func _on_style_changed() -> void:
+	_parse()
+	queue_redraw()
+
+
+func _style() -> String:
+	var c: Node = get_node_or_null("/root/Controls") if is_inside_tree() else null
+	return str(c.prompt_style) if c and "prompt_style" in c else "xbox"
+
+
+## One key name as the device in use shows it ("A" -> "CROSS" on a PlayStation pad, "J" on a keyboard).
+func _restyle(k: String) -> String:
+	var style := _style()
+	if style == "ps":
+		return str(Controls.PS_NAMES.get(k, k))
+	if style == "kb" and k in ["A", "B"]:
+		var n := str(Controls.key_name(Controls.keyboard[1].get(k.to_lower())))
+		return n.to_upper() if n != "" and n != "---" else k
+	if style == "xbox":   # (PlayStation names given to an Xbox pad, the other way)
+		for x in Controls.PS_NAMES:
+			if Controls.PS_NAMES[x] == k and x in ["A", "B", "X", "Y", "LB", "RB", "LT", "RT", "START", "BACK"]:
+				return x
+	return k
 
 
 func _parse() -> void:
@@ -50,10 +87,17 @@ func _parse() -> void:
 		if parts.size() >= 2:
 			key = parts[0].strip_edges()
 			lab = "  ".join(parts.slice(1)).strip_edges()
+		if key != "":
+			var restyled: Array = []
+			for n in key.split("/", false):
+				restyled.append(_restyle(n.strip_edges()))
+			key = " / ".join(restyled)
 		var glyphs: Array = []
 		if key == "":
 			if lab == "SELECT":
 				glyphs.append({"kind": "dpad", "text": ""})
+		elif key in PS_KEYS:
+			glyphs.append({"kind": "ps", "text": key})
 		elif key in CIRCLE_KEYS:
 			glyphs.append({"kind": "circle", "text": key})
 		else:
@@ -68,13 +112,19 @@ func _parse() -> void:
 				glyphs.append({"kind": "dpad", "text": ""})
 			else:
 				for n in names:
-					glyphs.append({"kind": "pill", "text": n.strip_edges()})
+					var nn: String = n.strip_edges()
+					if nn in PS_KEYS:
+						glyphs.append({"kind": "ps", "text": nn})
+					elif nn in CIRCLE_KEYS:
+						glyphs.append({"kind": "circle", "text": nn})
+					else:
+						glyphs.append({"kind": "pill", "text": nn})
 		_groups.append({"glyphs": glyphs, "label": lab})
 
 
 func _glyph_width(g: Dictionary) -> float:
 	match g["kind"]:
-		"circle":
+		"circle", "ps":
 			return glyph_radius * 2.0
 		"dpad":
 			return glyph_radius * 2.0
@@ -132,7 +182,7 @@ func _draw_halo(g: Dictionary, c: Vector2) -> void:
 	var r := glyph_radius
 	var e := outline_size * 0.5
 	match g["kind"]:
-		"circle":
+		"circle", "ps":
 			draw_circle(c, r + e, outline_color)
 		"dpad":
 			var arm := r * 0.62 + e * 2.0
@@ -162,7 +212,26 @@ func _draw_glyph(g: Dictionary, c: Vector2) -> void:
 			draw_circle(c, r, glyph_color)
 			var size := int(round(r * 1.15))
 			var w := _ink_width(g["text"], size)
-			draw_string(font, c + Vector2(-w / 2.0, size * 0.33), g["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, size, glyph_ink)
+			var ink: Color = XBOX_INK.get(g["text"], glyph_ink) if _style() == "xbox" else glyph_ink
+			draw_string(font, c + Vector2(-w / 2.0, size * 0.33), g["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, size, ink)
+		"ps":   # a PlayStation face button: the white disc with its shape in its colour
+			draw_circle(c, r, glyph_color)
+			var ink: Color = PS_INK.get(g["text"], glyph_ink)
+			var s := r * 0.48
+			var lw := maxf(2.0, r * 0.17)
+			match g["text"]:
+				"CROSS":
+					draw_line(c + Vector2(-s, -s), c + Vector2(s, s), ink, lw, true)
+					draw_line(c + Vector2(-s, s), c + Vector2(s, -s), ink, lw, true)
+				"CIRCLE":
+					draw_arc(c, s * 1.05, 0.0, TAU, 28, ink, lw, true)
+				"SQUARE":
+					var q := s * 0.88
+					draw_rect(Rect2(c - Vector2(q, q), Vector2(q, q) * 2.0), ink, false, lw)
+				"TRIANGLE":
+					var tri := PackedVector2Array([c + Vector2(0, -s * 1.1), c + Vector2(s * 1.05, s * 0.75),
+						c + Vector2(-s * 1.05, s * 0.75), c + Vector2(0, -s * 1.1)])
+					draw_polyline(tri, ink, lw, true)
 		"dpad":
 			var arm := r * 0.62
 			var long := r * 1.0

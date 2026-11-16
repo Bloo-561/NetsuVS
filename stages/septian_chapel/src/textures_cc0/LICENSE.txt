@@ -1,0 +1,23 @@
+All textures from Poly Haven (polyhaven.com), CC0 1.0 public domain. Downloaded 2026-11-09.
+leafy_grass
+sparse_grass
+park_dirt
+forest_ground_04
+patterned_cobblestone
+church_bricks_02
+castle_brick_07
+roof_slates_02
+weathered_planks
+flower_scattered_dirt
+castle_wall_slates
+stone_brick_wall_001
+grey_roof_tiles
+old_stone_wall
+
+clay_roof_tiles
+plastered_stone_wall
+red_brick_03
+
+white_planks_clean
+distressed_painted_planks
+mossy_cobblestone

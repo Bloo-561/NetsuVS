@@ -109,7 +109,7 @@ The ready-made poses are in `scripts/rig_poses.py`: `idle` (the sprite stance), 
 
 ```python
 import runpy
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d_v2\scripts"
+S = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d_v2\scripts"
 P = runpy.run_path(S + r"\rig_poses.py")
 P["pose"]("idle")                          # or "draw_slash_sprite", "rest", ...
 P["pose"]("idle", head_yaw=-20.0)          # keyword overrides (see IDLE in rig_poses.py)

@@ -213,7 +213,43 @@ public partial class GameManager : Node, IGameState
 	/// <summary>Netsu (Nov 3, TamaDeez): juggle gravity. A fighter being hit whose hit state asks for the "default" gravity
 	/// falls with this instead of 260000 (jumps and other movement keep 260000). Lower = floatier juggles.</summary>
 	[Export(PropertyHint.Range, "100000,300000,1000")]
-	public int NetsuJuggleGravity = 200000;
+	public int NetsuJuggleGravity = 120000;   // Nov 13: 200000 -> 120000 (Million Arthur: launches fall at about half the jump gravity)
+
+	/// <summary>Nov 12 (TamaDeez, Million Arthur feel): juggles hang at the top, then drop fast. A fighter in a hit state
+	/// falls with its usual gravity while going up, NetsuJuggleHangPercent of it while its vertical speed is within
+	/// +-NetsuJuggleHangBand (the top of the arc), and NetsuJuggleFallPercent of it on the way down. Heights are unchanged
+	/// (the rise is the same); measured on Iai Arthur's launches: ~28F up with a hang, ~20F down. 100 / 100 = the old
+	/// even arc. Gravities under 50000 (hits that hold them up on purpose) are left alone. AddGravityAction.</summary>
+	/// <summary>Nov 12 (TamaDeez, Million Arthur style): hit boxes with NetsuFloatFrames (2C on every fighter, Leticia's
+	/// j.236) no longer float the opponent; they just use the hit's own knockback. True = the old floats come back.</summary>
+	[Export(PropertyHint.None, "")]
+	public bool NetsuHitFloats = false;
+
+	[Export(PropertyHint.Range, "0,30000,500")]
+	public int NetsuJuggleHangBand = 8000;
+
+	[Export(PropertyHint.Range, "10,100,1")]
+	public int NetsuJuggleHangPercent = 100;   // Nov 13: back to an even arc (Million Arthur has no hang / fast fall)
+
+	[Export(PropertyHint.Range, "100,400,1")]
+	public int NetsuJuggleFallPercent = 100;
+
+	/// <summary>Nov 13 (TamaDeez, Million Arthur): launches are low and wide. Every hit that sends someone up is scaled to
+	/// NetsuLaunchHeightPercent of its upward speed (with the lighter juggle gravity that is ~55% of the old height and
+	/// about the same air time). A real launch (upward speed at least NetsuLaunchMinVy before scaling) also flies away
+	/// at least NetsuLaunchMinX, slowed by NetsuJuggleDrag every frame in the air (6C: ~0.8 body heights up, ~1.7 away).
+	/// SakugaActor.NetsuLaunchShape, AddGravityAction.</summary>
+	[Export(PropertyHint.Range, "20,100,1")]
+	public int NetsuLaunchHeightPercent = 57;
+
+	[Export(PropertyHint.Range, "0,200000,1000")]
+	public int NetsuLaunchMinVy = 50000;
+
+	[Export(PropertyHint.Range, "0,150000,1000")]
+	public int NetsuLaunchMinX = 60000;
+
+	[Export(PropertyHint.Range, "0,10000,100")]
+	public int NetsuJuggleDrag = 2000;
 
 	/// <summary>Netsu (Nov 3): every air hit in a combo takes this much off the upward knockback of the hits after it
 	/// (was a fixed 2500). Lower = relaunches keep working deeper into a combo.</summary>
@@ -571,8 +607,38 @@ public partial class GameManager : Node, IGameState
 		Fighters[playerIndex].Inputs = Inputs[playerIndex];
 		Fighters[playerIndex].Initialize();
 		Fighters[playerIndex].InitializeBrain(AIcontrolled, Match.Difficulty);
+		SakugaActor.NetsuJudithAssign(Fighters[playerIndex]);   // Nov 12: prototype: Cecilia plays the Judith variation
 		// Netsu: the assist this player picked (Mary, Adin, Eren...), called with S
 		Fighters[playerIndex].NetsuAssist = NetsuAssist.Create(Fighters[playerIndex], playerIndex == 0 ? Match.P1SelectedAssist : Match.P2SelectedAssist);
+		// Nov 8 (Link Break): the second partner (S2), then the crests / Break
+		int first = Fighters[playerIndex].NetsuAssist != null ? Fighters[playerIndex].NetsuAssist.Index : -1;
+		int second = NetsuSecondPartner(first, playerIndex == 0 ? Match.P1SelectedAssist2 : Match.P2SelectedAssist2);
+		if (second >= 0)
+		{
+			Fighters[playerIndex].NetsuAssist2 = NetsuAssist.Create(Fighters[playerIndex], second, 1);
+		}
+		Fighters[playerIndex].NetsuLink = NetsuLink.Create(Fighters[playerIndex]);
+	}
+
+	/// <summary>Nov 8 (Link Break): the second partner's index: the pick if it's a real one and not the first partner,
+	/// otherwise the next one in data/assist_list.tres after the first. -1 if there is only one assist.</summary>
+	private static int NetsuSecondPartner(int first, int pick)
+	{
+		if (!ResourceLoader.Exists(NetsuAssist.ListPath))
+		{
+			return -1;
+		}
+		NetsuAssistList list = GD.Load<NetsuAssistList>(NetsuAssist.ListPath);
+		int n = list?.Assists?.Length ?? 0;
+		if (n < 2)
+		{
+			return -1;
+		}
+		if (pick >= 0 && pick < n && pick != first)
+		{
+			return pick;
+		}
+		return ((first < 0 ? 0 : first) + 1) % n;
 	}
 
 	/// <summary>Netsu (Oct 25): Training - a frame data spreadsheet (data/frame_data) was saved again since the fight
@@ -595,6 +661,10 @@ public partial class GameManager : Node, IGameState
 			if (f.NetsuAssist?.Element != null && f.NetsuAssist.Actor != null)
 			{
 				NetsuFrameData.ApplyAssist(f.NetsuAssist.Element, f.NetsuAssist.Actor.Data);
+			}
+			if (f.NetsuAssist2?.Element != null && f.NetsuAssist2.Actor != null)
+			{
+				NetsuFrameData.ApplyAssist(f.NetsuAssist2.Element, f.NetsuAssist2.Actor.Data);
 			}
 		}
 		string report = NetsuFrameData.TakeReport();
@@ -980,7 +1050,7 @@ public partial class GameManager : Node, IGameState
 	// Oct 25: the action names as StringNames made once per player ("p1_up"...): building them from strings
 	// every frame (13 per player) was garbage for the collector, whose pauses were hitches in the fight.
 	private static readonly System.Collections.Generic.Dictionary<string, StringName[]> _netsuActionNames = new();
-	private static readonly string[] NetsuActionSuffixes = { "_up", "_down", "_left", "_right", "_a", "_b", "_c", "_s", "_ab", "_bc", "_abc", "_start" };
+	private static readonly string[] NetsuActionSuffixes = { "_up", "_down", "_left", "_right", "_a", "_b", "_c", "_s", "_ab", "_bc", "_abc", "_start", "_d", "_s2" };
 	private static readonly StringName NetsuPauseAction = new StringName("pause");
 	private static readonly StringName NetsuAcceptAction = new StringName("ui_accept");
 	private static readonly StringName NetsuCancelAction = new StringName("ui_cancel");
@@ -1053,6 +1123,15 @@ public partial class GameManager : Node, IGameState
 		{
 			input |= PlayerInputs.FACE_D;
 		}
+		// Nov 8 (Link Break): D (the fighter's Link Drive moves) -> FACE_E, S2 (second partner) -> FACE_F
+		if (Input.IsActionPressed(act[12]))
+		{
+			input |= PlayerInputs.FACE_E;
+		}
+		if (Input.IsActionPressed(act[13]))
+		{
+			input |= PlayerInputs.FACE_F;
+		}
 		if (Input.IsActionPressed(act[8]))
 		{
 			input |= PlayerInputs.FACE_A | PlayerInputs.FACE_B;
@@ -1067,7 +1146,7 @@ public partial class GameManager : Node, IGameState
 		}
 		if (holdAfterPause.Contains(prefix))
 		{
-			PlayerInputs buttons = PlayerInputs.FACE_A | PlayerInputs.FACE_B | PlayerInputs.FACE_C | PlayerInputs.FACE_D;
+			PlayerInputs buttons = PlayerInputs.FACE_A | PlayerInputs.FACE_B | PlayerInputs.FACE_C | PlayerInputs.FACE_D | PlayerInputs.FACE_E | PlayerInputs.FACE_F;
 			if ((input & buttons) == 0 && !Input.IsActionPressed(act[11]))
 				holdAfterPause.Remove(prefix);   // everything released: buttons work again
 			else

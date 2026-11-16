@@ -1,0 +1,297 @@
+# ============================================================================
+#  Netsu iF — battle banter
+#  Edit this file and save it: the next battle uses it. No export, no restart.
+#
+#  How a block looks:
+#
+#    [start] Cecilia + Eustace          <- said when a battle starts
+#    Eustace: What he says.
+#    Cecilia: What she says.
+#                                       <- a blank line ends the block
+#    [victory] Soran + Cecilia          <- said after a won battle
+#    Cecilia: ...
+#    Soran: ...
+#
+#  - Everyone named in the [ ] line has to be in the party (alive, for victory).
+#  - Each line is   Name: what they say   (any number of lines, any order).
+#  - [start replace] also hides the old plugin exchange between exactly those
+#    characters (used once below, for Liliana + Lila).
+#  - Lines starting with # are notes and are ignored.
+#  - Names: Cecilia, Lila, Eustace, Ronald, Leticia, Flan, Noah, Sara, Liliana,
+#    Soran, Juel, Silica, Lucia, Sophia.
+#  - A typo in a name skips that block (Godot's Output panel says which line).
+#  - Online: give the other players the same file, or they see other lines.
+#    (Only the words differ; it can't knock the game out of sync.)
+#
+#  How often: battle-start banter has an 18% chance in normal battles (none in
+#  Elite / boss fights); a victory exchange 25% after a win. Both are set in
+#  the plugin (TA_RogueliteVictoryBanter: StartBanterChance / VictoryExchangeChance).
+# ============================================================================
+
+
+# ---------------------------------------------------------------- already in the game (moved here from the code)
+
+[start] Liliana + Eustace
+Liliana: So, Eustace, have you ever encountered a situation like this in your Dragons and Dungeons game?
+Eustace: Of course! And as my character, Giacamo, would say... Let's KICK SOME ASS!... as they say!
+
+[start replace] Liliana + Lila
+Lila: Ugh, they won't stop coming. Can't they just leave us alone!
+Liliana: Then let us take care of them together, so that you can finally hear that melody again.
+
+[start] Sophia + Liliana
+Sophia: Let's say we have a nice cup of chamomile tea once we deal with the pests, Milady?
+Liliana: Your tea is always the best after a workout. Prepare yourselves!
+
+[start] Soran + Sophia
+Soran: I didn't think you were this fast, Sophia. No wonder your cooking was with speed.
+Sophia: I appreciate the compliment Soran however speed cannot compete cooking with the power of love.
+
+[start] Juel + Sophia
+Juel: All those lessons you taught me... I can't believe it was assassin techniques!
+Sophia: I taught you what I thought you needed for survival but at least you aren't afraid of me.
+
+[victory] Sophia + Liliana
+Sophia: Milady, here is some chamomile tea just the way you like it.
+Liliana: Thank you, Sophia. I hope once we're out of here we can enjoy it with the rest of our sisters.
+
+[victory] Soran + Sophia
+Soran: Sophia, it may not be the time and place but could you give me more lessons on cooking?
+Sophia: Ahaha, Soran you're already better than you make yourself out to be but how could I possibly refuse?
+
+[victory] Sophia + Juel
+Sophia: Owayne? Why are you standing all the way over there, I was going to treat your injury.
+Juel: Sophia with all due respect... you get a little too close when tending to others.... I don't think my heart can take it!
+
+
+# ---------------------------------------------------------------- Cecilia (Quotes doc, 2026-11-09)
+
+[start] Cecilia + Eustace
+Eustace: Let's knock them out, one bird, two stones, as they say!
+Cecilia: That's not quite right... BUT LET'S DO IT!
+
+[start] Cecilia + Ronald
+Ronald: I'll try not to hold you back.
+Cecilia: You've got my back, and I've got yours. Ready?
+
+[start] Cecilia + Flan
+Flan: Hope you're ready, Cecilia! I'm taking down the most!
+Cecilia: Then I'd better give you some competition!
+
+[start] Cecilia + Noah
+Noah: You're really willing to take those odds?
+Cecilia: I'm willing to go all in!
+Noah: ...Heh. That used to be my line.
+
+[start] Cecilia + Sara
+Cecilia: One day, I'll beat you to the front!
+Sara: Go ahead... I'll take five more minutes.
+
+[start] Cecilia + Sophia
+Cecilia: You're getting harder to sense, Sophia!
+Sophia: And yet you found me. Your training is paying off.
+
+[start] Cecilia + Soran
+Soran: You seem eager today, Cecilia.
+Cecilia: Of course! I know you can keep up!
+
+[victory] Cecilia + Soran
+Cecilia: You've gotten stronger again, haven't you?
+Soran: You helped me get here. I'm glad we can keep growing together.
+
+
+# ---------------------------------------------------------------- Lila
+
+[start] Lila + Leticia
+Leticia: These idiots picked a bad time.
+Lila: Wrong people, too. Let's make that clear.
+
+[start] Lila + Ronald
+Lila: You'd stand your ground for Emily, wouldn't you?
+Ronald: Of course I would... I'm not backing down here, either.
+
+[start] Lila + Flan
+Lila: Let's play them a song they won't forget.
+Flan: Yeah! Let's make it loud!
+
+[start] Lila + Noah
+Lila: Come on. Give Haru something to smile about.
+Noah: ...You really know where to aim, don't you?
+
+[start] Lila + Sara
+Sara: You know... acting tough all the time sounds exhausting.
+Lila: And yet you're the one who needs a nap.
+
+[start] Lila + Lucia
+Lila: You want a real challenge? I know some jaegers worth your time.
+Lucia: They'd better last longer than this lot!
+
+[start] Lila + Sophia
+Sophia: Are you prepared to shoulder the responsibility of protecting Milady?
+Lila: I know what I'm taking on. I'm not giving up on her.
+
+[start] Lila + Soran
+Lila: Try not to get yourself killed. You'd be a pain to avenge.
+Soran: I'm not worried. I know you'll have my back, Lila.
+Lila: ...Hmph.
+
+[victory] Lila + Soran
+Lila: Don't look so pleased. I wasn't about to let you die.
+Soran: I know, Lila. That's why I trust you as my friend.
+
+
+# ---------------------------------------------------------------- Eustace
+
+[start] Eustace + Leticia
+Eustace: Once we're done here, your board against Ronnie! What do you say!
+Leticia: You're on. Hope your sheep doesn't mind second place.
+
+[start] Eustace + Ronald
+Eustace: Hop on Ronnie, Ronald! Best seat in the house, as they say!
+Ronald: I thought you said... never mind. Thanks, Eustace. I'll cover you from up there.
+
+[start] Eustace + Flan
+Eustace: Fancy a ride on Ronnie, Flan—wait, when did you get up there?!
+Flan: Come on, slowpoke! Let's go!
+
+[start] Eustace + Noah
+Eustace: Turn that frown upside down, Noah! I'd wager we've got a winning hand!
+Noah: Heh... you're terrible at this. But I'll take that bet.
+
+[start] Eustace + Sara
+Eustace: Sara! Lend the Game Club your genius! We offer glory, snacks, and... mostly snacks!
+Sara: Mm... leave some by my pillow. I'll think about it.
+
+[start] Eustace + Lucia
+Eustace: Cecilia? Purple hair? Wait—Zekken's on our side, right? SWITCH!
+Lucia: ...What the hell are you babbling about?! Just stay out of my way!
+
+[start] Eustace + Sophia
+Eustace: Let's wrap this up! Soran's cooking tonight—truly the highlight of dorm life!
+Sophia: How curious. My dinners never seem to inspire such enthusiasm.
+
+[start] Eustace + Soran
+Eustace: Come on, Soran! Let's blaze our own trail, as they say!
+Soran: Right beside you, Eustace. Let's mosey.
+
+[victory] Eustace + Soran
+Eustace: Another splendid victory! Now, about that position as our family chef...
+Soran: I'll have to pass, but when Vivian and I open our restaurant, we'd be happy to have you.
+
+[start] Eustace + Juel
+Eustace: Step it up, Juel! The Blue Blur waits for no one!
+Juel: Oh no... not this again.
+
+
+# ---------------------------------------------------------------- Leticia
+
+[start] Leticia + Ronald
+Leticia: Quit second-guessing yourself! I've got you covered, so you'd better cover me!
+Ronald: Right... You can count on me, Leticia.
+
+[start] Leticia + Flan
+Leticia: Let's see your stigmata keep up with my inventions!
+Flan: Ooh, a contest! I like contests! I'm PRETTY STRONG, you know!
+
+[start] Leticia + Noah
+Leticia: That new arm isn't just for show. Let's see you put it to work!
+Noah: Yeah, yeah... suppose I should give it a proper test.
+
+[start] Leticia + Sara
+Sara: You always look tired... I've got a spare pillow if you need one.
+Leticia: I'm doing fine! Keep your pillow to yourself.
+
+[start] Leticia + Soran
+Soran: With the shield you made me, Leticia, I'll protect everyone here!
+Leticia: Damn right you will! I don't cut corners on my work!
+
+[victory] Leticia + Soran
+Soran: How about a break? I could make that dish you liked.
+Leticia: If you're already making it... I-I guess I can have a little.
+
+
+# ---------------------------------------------------------------- Ronald
+
+[start] Ronald + Flan
+Flan: Your art's so cool, Ronald! You come up with all sorts of things in battle! You're PRETTY STRONG!
+Ronald: Haha... thanks, Flan. I guess I'll have to show you what else I can do.
+
+[start] Ronald + Noah
+Ronald: There's someone I want to come back to, too... We have to keep going, Noah.
+Noah: ...Yeah. Can't leave them waiting on us.
+
+[start] Ronald + Sara
+Sara: You always find the right spot... and the right moment. Give yourself some credit.
+Ronald: You noticed all that? ...Thanks, Sara. I'll keep an eye out for you, too.
+
+[start] Ronald + Soran
+Ronald: I'll watch your back, Soran. You don't have to worry about everyone at once.
+Soran: Thanks, Ronald. Knowing you're there makes it easier to focus.
+
+[victory] Ronald + Soran
+Ronald: You were right... I can make a difference from back here.
+Soran: You always have, Ronald. I'm glad you're starting to see it.
+
+
+# ---------------------------------------------------------------- Flan
+
+[start] Flan + Noah
+Flan: Come on, Noah! Haru's waiting for us! It's like you always say... when the stakes are high!
+Noah: Haha... I'm going all in!
+
+[start] Flan + Sara
+Flan: Is your pillow really that comfy? Can I get one too?!
+Sara: Mm... sure. Then you can help me find the best nap spots.
+
+[start] Flan + Lucia
+Flan: Whoa! You can transform?! I can transform! So... do I call you Purple Cecilia? Purpilia?!
+Lucia: It's LUCIA! Now hit something before I lose my patience!
+
+[start] Flan + Soran
+Flan: With you here, this'll be easy! You're my hero, Soran!
+Soran: T-That's flattering, Flan. I'm glad we're facing this together.
+
+[victory] Flan + Soran
+Flan: See?! I told you Soran's a hero!
+Soran: You were pretty strong yourself, Flan. I know I can always count on you.
+
+
+# ---------------------------------------------------------------- Noah, Sara, Lucia, Soran
+
+[start] Noah + Soran
+Soran: Let's get through this, Noah. You'll want to be there when Haru wakes up.
+Noah: ...Yeah. I don't want her waking up alone.
+
+[victory] Noah + Soran
+Noah: We made it out in one piece. You'd better not keep Vivian waiting.
+Soran: I won't. We'll all be there with you to watch over Haru.
+
+[start] Sara + Lucia
+Sara: Mm... so this is the power tied to the Black God One Blade. Interesting.
+Lucia: You know your stuff. Now let's see you keep up—and don't even think about napping!
+
+[start] Sara + Soran
+Sara: Good with a sword, strange powers... mm, seems you can handle yourself.
+Soran: You're pretty incredible yourself, Sara. Let's finish this quickly so you can get some rest.
+
+[victory] Sara + Soran
+Sara: Mm... nicely done. Wake me when we're back.
+Soran: Rest easy, Sara. I'll wake you up when we arrive.
+
+[start] Lucia + Soran
+Lucia: Show me that fire from our last fight, Soran! Don't hold me back!
+Soran: I won't. But I'm watching you. Put anyone here in danger, and I'll stop you.
+
+[victory] Lucia + Soran
+Lucia: There's that strength I remember! You're more fun when you stop hesitating.
+Soran: I'll work with you for now. But I'm bringing Cecilia back.
+
+[start] Soran + Juel
+Soran: Hey, you should run up to them and ask how it's going.
+Juel: Not the time for that, Soran!
+
+
+# ---------------------------------------------------------------- still to write (from the Quotes doc)
+# Lila + Eustace · Leticia + Sophia · Ronald + Lucia · Ronald + Sophia · Flan + Sophia
+# Noah + Sara · Noah + Lucia · Noah + Sophia · Sara + Sophia · Lucia + Sophia
+# Soran + Juel (victory) · Soran + Silica · Soran + Liliana · Lila + Noah (victory idea)

@@ -1,0 +1,170 @@
+00:00.015  color_management | Using OCIO=C:\Program Files\Blender Foundation\Blender 5.2\5.2\datafiles\colormanagement\config.ocio
+<string>:173: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+<string>:173: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node DiameterSmall.012
+12:10:07 | INFO: Blender create Mesh node Cylinder.014
+12:10:07 | INFO: Blender create Mesh node Plane.006
+12:10:07 | INFO: Blender create Mesh node DiameterSmall.004
+12:10:07 | INFO: glTF import finished in 0.02s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node DiameterSmall.012
+12:10:07 | INFO: Blender create Mesh node Cylinder.014
+12:10:07 | INFO: Blender create Mesh node Plane.006
+12:10:07 | INFO: Blender create Mesh node DiameterSmall.004
+12:10:07 | INFO: glTF import finished in 0.02s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Cube.006
+12:10:07 | INFO: Blender create Mesh node Cube.008
+12:10:07 | INFO: glTF import finished in 0.01s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Cube.005
+12:10:07 | INFO: Blender create Mesh node Cube.020
+12:10:07 | INFO: Blender create Mesh node Cube.001
+12:10:07 | INFO: glTF import finished in 0.01s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Plane.001
+12:10:07 | INFO: glTF import finished in 0.02s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Plane.001
+12:10:07 | INFO: glTF import finished in 0.02s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Cube.003
+12:10:07 | INFO: glTF import finished in 0.02s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Cube.006
+12:10:07 | INFO: Blender create Mesh node Cube.008
+12:10:07 | INFO: glTF import finished in 0.01s
+12:10:07 | INFO: Data are loaded, start creating Blender stuff
+12:10:07 | INFO: Blender create Mesh node Cylinder
+12:10:07 | INFO: Blender create Mesh node Plane
+12:10:07 | INFO: glTF import finished in 0.01s
+<string>:1138: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+00:10.437  cycles           | WARNING CUEW initialization failed: Error opening the library
+01:37.500  render           | Saved: 'E:\Netsu Projects\NetsuVS\stages\septian_chapel\renders\pv_trails_CAM_mid.png'
+Info: Saved as "septian_chapel_trails.blend"
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Saved "septian_chapel_trails.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+12:11:40 | INFO: Starting glTF 2.0 export
+12:11:40 | INFO: Extracting primitive: CH_Birds_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Chapel_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Cloth_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Glass_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Grass_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Land_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Sails_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Sky_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Smoke_export
+12:11:40 | INFO: Primitives created: 1
+12:11:40 | INFO: Extracting primitive: CH_Village_export
+12:11:41 | INFO: Primitives created: 1
+12:11:41 | INFO: Finished glTF 2.0 export in 0.7013967037200928 s
+
+Info: Saved "septian_chapel_trails.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
+Godot Engine v4.7.2.stable.mono.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (14 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | sakura_petal_0.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | sakura_petal_1.png[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | sakura_petal_2.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | white_4.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | pv_trails_CAM_mid.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | ch_chapel.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | ch_land.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | ch_village.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | _floor_preview.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | floor_light_trails.png[39m[0m
+[  66% ] [90m[1m_update_scan_actions[22m | septian_chapel_trails.glb[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | septian_chapel_trails_ch_chapel.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | septian_chapel_trails_ch_land.png[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | septian_chapel_trails_ch_village.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (10 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  27% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  45% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  54% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  72% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Started Preparing scenes for reload (1 steps)[39m[0m
+[   0% ] [90m[1mpreload_reimporting_scene[22m | Analyzing scene [empty][39m[0m
+[  50% ] [90m[1mpreload_reimporting_scene[22m | Preparation done.[39m[0m
+[92m[ DONE ][39m [1mpreload_reimporting_scene[22m
+[0m
+[   0% ] [90m[1mreimport[22m | pv_trails_CAM_mid.png[39m[0m
+[   9% ] [90m[1mreimport[22m | ch_chapel.png[39m[0m
+[  18% ] [90m[1mreimport[22m | ch_land.png[39m[0m
+[  27% ] [90m[1mreimport[22m | ch_village.png[39m[0m
+[  27% ] [90m[1mreimport[22m | ch_village.png[39m[0m
+[  36% ] [90m[1mreimport[22m | _floor_preview.png[39m[0m
+[  45% ] [90m[1mreimport[22m | floor_light_trails.png[39m[0m
+[  54% ] [90m[1mreimport[22m | septian_chapel_trails_ch_chapel.png[39m[0m
+[  63% ] [90m[1mreimport[22m | septian_chapel_trails_ch_land.png[39m[0m
+[  72% ] [90m[1mreimport[22m | septian_chapel_trails_ch_village.png[39m[0m
+[  81% ] [90m[1mreimport[22m | septian_chapel_trails.glb[39m[0m
+[   0% ] [90m[1mimport[22m | Started Import Scene (104 steps)[39m[0m
+[   0% ] [90m[1mimport[22m | Importing Scene...[39m[0m
+[   1% ] [90m[1mimport[22m | Running Custom Script...[39m[0m
+[  99% ] [90m[1mimport[22m | Saving...[39m[0m
+[92m[ DONE ][39m [1mimport[22m
+[0m
+[  90% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (10 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.2.stable.mono.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 Core Profile Context 26.10.1.261008 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon RX 9070 XT
+

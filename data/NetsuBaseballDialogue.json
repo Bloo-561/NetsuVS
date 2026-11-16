@@ -1,0 +1,178 @@
+{
+  "version": 1,
+  "events": {
+    "pitch": [
+      {
+        "speaker": "Harie",
+        "text": "Ready, Eren? Here it comes!"
+      },
+      {
+        "speaker": "Harie",
+        "text": "Keep your eyes on the ball!"
+      },
+      {
+        "speaker": "Harie",
+        "text": "Let’s see you hit this one!"
+      }
+    ],
+    "combo": [
+      {
+        "speaker": "Eren",
+        "text": "That’s {combo}! Keep them coming!"
+      },
+      {
+        "speaker": "Eren",
+        "text": "{combo} in a row! We’re getting somewhere!"
+      },
+      {
+        "speaker": "Eren",
+        "text": "Still going! That makes {combo}!"
+      }
+    ],
+    "catch": [
+      {
+        "speaker": "Flan",
+        "text": "Got it! Coming right back!"
+      },
+      {
+        "speaker": "Flan",
+        "text": "Caught it! Don’t put that bat down!"
+      }
+    ],
+    "dive": [
+      {
+        "speaker": "Flan",
+        "text": "Just made it! Did you see that?"
+      }
+    ],
+    "shield": [
+      {
+        "speaker": "Adin",
+        "text": "Right back at you, Eren!"
+      },
+      {
+        "speaker": "Adin",
+        "text": "No waiting around—your move!"
+      }
+    ],
+    "judith": [
+      {
+        "speaker": "Judith",
+        "text": "My hat! Please mind the flowers!"
+      },
+      {
+        "speaker": "Judith",
+        "text": "Oh! Careful over here!"
+      }
+    ],
+    "dodge": [
+      {
+        "speaker": "Harie",
+        "text": "Whoa! That was a little too close!"
+      },
+      {
+        "speaker": "Harie",
+        "text": "Hey! I’m pitching, not the target!"
+      }
+    ],
+    "ready": [
+      {
+        "speaker": "Eren",
+        "text": "All right, let's get a rally going!",
+        "duration": 160
+      }
+    ],
+    "rinneHit": [
+      [
+        {
+          "speaker": "Rinne",
+          "text": "Oof... why is the field spinning?",
+          "duration": 130
+        },
+        {
+          "speaker": "Vivian",
+          "text": "Rinne! Are you okay? Hold still, I’m right here!",
+          "duration": 150
+        }
+      ]
+    ],
+    "vivianHit": [
+      [
+        {
+          "speaker": "Vivian",
+          "text": "Wah... I think I need a moment...",
+          "duration": 130
+        },
+        {
+          "speaker": "Rinne",
+          "text": "Vivian! Are you okay? Hold still, I’m right here!",
+          "duration": 150
+        }
+      ]
+    ],
+    "stand": [
+      [
+        {
+          "speaker": "Silk",
+          "text": "Easy there, Eren! Them drinks ain't meant for target practice!",
+          "duration": 140
+        },
+        {
+          "speaker": "Ian",
+          "text": "Eren... we spent a lot time working on this. Keep your eyes open...",
+          "duration": 140
+        }
+      ],
+      [
+        {
+          "speaker": "Ian",
+          "text": "Woah! Maybe we should set somewhere else...!",
+          "duration": 130
+        },
+        {
+          "speaker": "Silk",
+          "text": "Ahahaha! But this is much more exciting for a merchant!",
+          "duration": 140
+        }
+      ]
+    ],
+    "charles": [
+      [
+        {
+          "speaker": "Charles",
+          "text": "Do try to keep up, commoner. This barely qualifies as practice.",
+          "duration": 140
+        },
+        {
+          "speaker": "Eren",
+          "text": "Keep talking, Charles. The next one is coming right back.",
+          "duration": 130
+        }
+      ],
+      [
+        {
+          "speaker": "Charles",
+          "text": "Such an uncultivated swing. Allow me to demonstrate.",
+          "duration": 140
+        },
+        {
+          "speaker": "Eren",
+          "text": "Funny. Your fancy technique still sends it straight to me.",
+          "duration": 130
+        }
+      ],
+      [
+        {
+          "speaker": "Charles",
+          "text": "Hmph. Surely that is not the best a commoner can manage?",
+          "duration": 140
+        },
+        {
+          "speaker": "Eren",
+          "text": "Then stay right there and watch.",
+          "duration": 110
+        }
+      ]
+    ]
+  }
+}

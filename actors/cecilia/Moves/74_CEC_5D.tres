@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="MoveSettings" format=3]
+
+[ext_resource type="Script" uid="uid://gk1rkw667o4n" path="res://engine/sakuga/Resources/MoveSettings.cs" id="1"]
+[ext_resource type="Resource" path="res://actors/_shared/sakuga/Inputs/70_Input_5D.tres" id="2"]
+[ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="mc"]
+
+[sub_resource type="Resource" id="gat_50"]
+script = ExtResource("mc")
+MoveIndex = 38
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_28"]
+script = ExtResource("mc")
+MoveIndex = 28
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_4"]
+script = ExtResource("mc")
+MoveIndex = 4
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_5"]
+script = ExtResource("mc")
+MoveIndex = 5
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="gat_6"]
+script = ExtResource("mc")
+MoveIndex = 6
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_57"]
+script = ExtResource("mc")
+MoveIndex = 57
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_56"]
+script = ExtResource("mc")
+MoveIndex = 56
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_52"]
+script = ExtResource("mc")
+MoveIndex = 52
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_51"]
+script = ExtResource("mc")
+MoveIndex = 51
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_50"]
+script = ExtResource("mc")
+MoveIndex = 50
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_49"]
+script = ExtResource("mc")
+MoveIndex = 49
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_48"]
+script = ExtResource("mc")
+MoveIndex = 48
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_47"]
+script = ExtResource("mc")
+MoveIndex = 47
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_43"]
+script = ExtResource("mc")
+MoveIndex = 43
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_42"]
+script = ExtResource("mc")
+MoveIndex = 42
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_41"]
+script = ExtResource("mc")
+MoveIndex = 41
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="fdk_59"]
+script = ExtResource("mc")
+MoveIndex = 59
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[sub_resource type="Resource" id="lb_67"]
+script = ExtResource("mc")
+MoveIndex = 67
+Conditions = 6
+FrameThreshold = Vector2i(0, 999)
+
+[resource]
+script = ExtResource("1")
+MoveName = "5D"
+MoveState = 79
+Inputs = ExtResource("2")
+Priority = 6
+MoveEnd = 2
+CanCancelTo = [SubResource("gat_50"), SubResource("gat_28"), SubResource("gat_4"), SubResource("gat_5"), SubResource("gat_6"), SubResource("fdk_57"), SubResource("fdk_56"), SubResource("fdk_52"), SubResource("fdk_51"), SubResource("fdk_50"), SubResource("fdk_49"), SubResource("fdk_48"), SubResource("fdk_47"), SubResource("fdk_43"), SubResource("fdk_42"), SubResource("fdk_41"), SubResource("fdk_59"), SubResource("lb_67")]
+VariablesRequirement = null
+VariablesChange = null
+CanBeOverrided = true
+IgnoreSelf = false
+IgnoreSamePriority = false
+AcceptNullStates = true
+AcceptCombatStates = true
+UseOnGround = true

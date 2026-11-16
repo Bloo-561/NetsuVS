@@ -8,11 +8,11 @@
 [ext_resource type="Script" uid="uid://da4kqpf635oin" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/PlayStateAction.cs" id="6"]
 [ext_resource type="Script" uid="uid://crxpnvf7li0aq" path="res://engine/sakuga/Resources/FrameDataEvents/Conditions/CheckXVelocityCondition.cs" id="7"]
 [ext_resource type="Script" uid="uid://bf60srwkccsm8" path="res://engine/sakuga/Resources/FighterState.cs" id="8"]
+[ext_resource type="Script" path="res://engine/sakuga/Resources/FrameDataEvents/Actions/NetsuRunAction.cs" id="netsu_run"]
 
 [sub_resource type="Resource" id="Resource_211uq"]
-script = ExtResource("2")
-UseInertia = true
-metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
+script = ExtResource("netsu_run")
+Brake = 12000
 
 [sub_resource type="Resource" id="Resource_ctwvl"]
 script = ExtResource("3")

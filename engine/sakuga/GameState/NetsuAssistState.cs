@@ -61,6 +61,18 @@ public struct NetsuAssistState
 	[Key(17)]
 	public bool LinkCall;    // Netsu (Oct 28): the assist on screen was called with the Link
 
+	[Key(18)]
+	public bool Out;         // Netsu (Nov 8, Link Break): knocked out for the rest of the round
+
+	[Key(19)]
+	public bool Struck;      // hit while acting this frame (Tick turns it into Out)
+
+	[Key(20)]
+	public bool Acted;       // this call already placed its crest (or led its Break)
+
+	[Key(21)]
+	public bool LinkLead;    // this call is leading a Link Break
+
 	public void GetStateData(NetsuAssist reference)
 	{
 		if (reference == null)
@@ -85,6 +97,10 @@ public struct NetsuAssistState
 		PendingSide = reference.PendingSide;
 		LinkReady = reference.LinkReady;
 		LinkCall = reference.LinkCall;
+		Out = reference.Out;
+		Struck = reference.Struck;
+		Acted = reference.Acted;
+		LinkLead = reference.LinkLead;
 	}
 
 	public void SetStateData(NetsuAssist reference)
@@ -111,5 +127,9 @@ public struct NetsuAssistState
 		reference.PendingSide = PendingSide == 0 ? 1 : PendingSide;
 		reference.LinkReady = LinkReady;
 		reference.LinkCall = LinkCall;
+		reference.Out = Out;
+		reference.Struck = Struck;
+		reference.Acted = Acted;
+		reference.LinkLead = LinkLead;
 	}
 }

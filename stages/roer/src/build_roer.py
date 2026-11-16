@@ -16,7 +16,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\roer"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\roer"
 TEXD = ROOT + r"\src\tex"
 VARIANT = globals().get("VARIANT") or "dusk"
 

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dykxth60olo4l" path="res://stages/schoolhouse_entrance/schoolhouse_entrance_thumb.png" id="32"]
 [ext_resource type="Texture2D" uid="uid://ccbr35sud7y8j" path="res://stages/roer/roer_thumb.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://bk003gmb7bpio" path="res://stages/septian_chapel/septian_chapel_thumb.png" id="36"]
+[ext_resource type="Texture2D" path="res://stages/septian_chapel/septian_chapel_trails_thumb.png" id="37"]
 
 [sub_resource type="Resource" id="Resource_th3d"]
 script = ExtResource("3")
@@ -120,6 +121,14 @@ Thumbnail = ExtResource("36")
 NetsuCameraTop = 20.0
 metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
 
+[sub_resource type="Resource" id="Resource_septian_chapel_trails"]
+script = ExtResource("3")
+ScenePath = "res://stages/septian_chapel/septian_chapel_trails.tscn"
+Name = "Septian Chapel - Trails"
+Thumbnail = ExtResource("37")
+NetsuCameraTop = 20.0
+metadata/_custom_type_script = "uid://dw7uv2j4bk58i"
+
 [resource]
 script = ExtResource("6")
-elements = [SubResource("Resource_th3d"), SubResource("Resource_th3d_dusk"), SubResource("Resource_crimson"), SubResource("Resource_schoolhouse"), SubResource("Resource_celdic"), SubResource("Resource_celdic_burning"), SubResource("Resource_geofront"), SubResource("Resource_north_ambria"), SubResource("Resource_ordis"), SubResource("Resource_ordis_ruined"), SubResource("Resource_schoolhouse_entrance"), SubResource("Resource_roer"), SubResource("Resource_septian_chapel")]
+elements = [SubResource("Resource_th3d"), SubResource("Resource_th3d_dusk"), SubResource("Resource_crimson"), SubResource("Resource_schoolhouse"), SubResource("Resource_celdic"), SubResource("Resource_celdic_burning"), SubResource("Resource_geofront"), SubResource("Resource_north_ambria"), SubResource("Resource_ordis"), SubResource("Resource_ordis_ruined"), SubResource("Resource_schoolhouse_entrance"), SubResource("Resource_roer"), SubResource("Resource_septian_chapel"), SubResource("Resource_septian_chapel_trails")]

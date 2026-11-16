@@ -20,6 +20,9 @@ public struct StanceManagerState
 	[Key(4)]
 	public int ExecutedMoves;   // Netsu (Oct 27 c27): counts move uses (repeat proration tells one use from the next)
 
+	[Key(5)]
+	public int NetsuMoveAge;    // Nov 13: frames since the move started (the run's minimum length)
+
 	public void GetStateData(ref StanceManager reference)
 	{
 		if (reference != null)
@@ -29,6 +32,7 @@ public struct StanceManagerState
 			CurrentMove = reference.CurrentMove;
 			CancelBuffer = reference.CancelBuffer;
 			ExecutedMoves = reference.ExecutedMoves;
+			NetsuMoveAge = reference.NetsuMoveAge;
 		}
 	}
 
@@ -41,6 +45,7 @@ public struct StanceManagerState
 			reference.CurrentMove = CurrentMove;
 			reference.CancelBuffer = CancelBuffer;
 			reference.ExecutedMoves = ExecutedMoves;
+			reference.NetsuMoveAge = NetsuMoveAge;
 		}
 	}
 }

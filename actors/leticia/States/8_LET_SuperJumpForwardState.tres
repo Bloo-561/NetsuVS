@@ -63,12 +63,12 @@ metadata/_custom_type_script = "uid://c076jc3huncn2"
 
 [sub_resource type="Resource" id="Resource_re3t0"]
 script = ExtResource("2")
-Velocity = 36000
+Velocity = 16000
 metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
 
 [sub_resource type="Resource" id="Resource_le43o"]
 script = ExtResource("6")
-Velocity = 130000
+Velocity = 94000
 metadata/_custom_type_script = "uid://bw1835rb2hj7y"
 
 [sub_resource type="Resource" id="Resource_a768y"]

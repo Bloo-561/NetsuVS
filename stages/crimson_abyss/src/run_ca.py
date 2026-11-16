@@ -1,8 +1,8 @@
 # Background pipeline for Crimson Abyss. Launched as:
 #   blender --background --factory-startup --python run_ca.py -- STEPS=build,preview TAG=gb
 import bpy, sys, os, json, time, traceback
-S = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\crimson_abyss\src"
-R = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\crimson_abyss\renders"
+S = r"E:\Netsu Projects\NetsuVS\stages\crimson_abyss\src"
+R = r"E:\Netsu Projects\NetsuVS\stages\crimson_abyss\renders"
 args = dict(a.split("=", 1) for a in sys.argv[sys.argv.index("--") + 1:] if "=" in a) if "--" in sys.argv else {}
 STEPS = set(args.get("STEPS", "build,preview").split(","))
 TAG = args.get("TAG", "gb")

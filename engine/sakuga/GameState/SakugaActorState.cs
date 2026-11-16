@@ -219,6 +219,28 @@ public struct SakugaActorState
 	public int NetsuBurstHold;          // Nov 5 (BlazBlue): frames left of the green hold before the Burst
 	[Key(71)]
 	public int NetsuBurstHoldMove;      // the Burst move it starts (only read while NetsuBurstHold > 0)
+	[Key(72)]
+	public bool NetsuHitGrab;           // Nov 8: grabbed by an air throw out of hitstun (can't be broken)
+	[Key(73)]
+	public int NetsuJChargeMove;        // Nov 12 (Judith): the move being / last charged
+	[Key(74)]
+	public int NetsuJChargeFrames;
+	[Key(75)]
+	public int NetsuJLevel;             // -1 none, 0 Tap, 1 Bud, 2 Bloom
+	[Key(76)]
+	public bool NetsuJudithHolding;
+	[Key(77)]
+	public int NetsuJButton;
+	[Key(78)]
+	public int NetsuJSavedVelX;
+	[Key(79)]
+	public int NetsuJSavedVelY;
+	[Key(80)]
+	public FrameProperties NetsuJSavedProps;
+	[Key(81)]
+	public ulong NetsuJUsed;            // specials used in this combo
+	[Key(82)]
+	public int NetsuJGravity;           // Nov 13: a Judith launch's own gravity (0 = the juggle gravity)
 
 	public void GetStateData(ref SakugaActor reference)
 	{
@@ -294,6 +316,17 @@ public struct SakugaActorState
 		NetsuFastState = reference.NetsuFastState;
 		NetsuFastPct = reference.NetsuFastPct;
 		NetsuFastAcc = reference.NetsuFastAcc;
+		NetsuHitGrab = reference.NetsuHitGrab;
+		NetsuJChargeMove = reference.NetsuJChargeMove;
+		NetsuJChargeFrames = reference.NetsuJChargeFrames;
+		NetsuJLevel = reference.NetsuJLevel;
+		NetsuJudithHolding = reference.NetsuJudithHolding;
+		NetsuJButton = reference.NetsuJButton;
+		NetsuJSavedVelX = reference.NetsuJSavedVel.X;
+		NetsuJSavedVelY = reference.NetsuJSavedVel.Y;
+		NetsuJSavedProps = reference.NetsuJSavedProps;
+		NetsuJUsed = reference.NetsuJUsed;
+		NetsuJGravity = reference.NetsuJGravity;
 	}
 
 	public void SetStateData(ref SakugaActor reference)
@@ -370,5 +403,15 @@ public struct SakugaActorState
 		reference.NetsuFastState = NetsuFastState;
 		reference.NetsuFastPct = NetsuFastPct;
 		reference.NetsuFastAcc = NetsuFastAcc;
+		reference.NetsuHitGrab = NetsuHitGrab;
+		reference.NetsuJChargeMove = NetsuJChargeMove;
+		reference.NetsuJChargeFrames = NetsuJChargeFrames;
+		reference.NetsuJLevel = NetsuJLevel;
+		reference.NetsuJudithHolding = NetsuJudithHolding;
+		reference.NetsuJButton = NetsuJButton;
+		reference.NetsuJSavedVel = new Godot.Vector2I(NetsuJSavedVelX, NetsuJSavedVelY);
+		reference.NetsuJSavedProps = NetsuJSavedProps;
+		reference.NetsuJUsed = NetsuJUsed;
+		reference.NetsuJGravity = NetsuJGravity;
 	}
 }

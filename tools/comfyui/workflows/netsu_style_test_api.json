@@ -1,0 +1,525 @@
+{
+ "2": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "Illustrious-XL-v2.0.safetensors"
+  },
+  "_meta": {
+   "title": "Base model (Illustrious-XL)"
+  }
+ },
+ "3": {
+  "class_type": "CLIPSetLastLayer",
+  "inputs": {
+   "stop_at_clip_layer": -2,
+   "clip": [
+    "2",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "Clip skip 2"
+  }
+ },
+ "4": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "1girl, solo, full body, short hair, black hair, purple hair tips, two-tone hair, ahoge, hair between eyes, red hairband, yellow eyes, smile, black jacket, cropped jacket, open jacket, grey sleeves, sleeves rolled up, white cuffs, brown armband, white shirt, frilled collar, black necktie, grey sailor collar, white flower brooch, yellow neckerchief, dark red dress, crimson pinafore dress, pleated skirt, white stripes on skirt, white scalloped petticoat, two thin maroon belts, crossed belts, silver buckles, black fingerless gloves, asymmetrical legwear, black thighhigh with red cross-laced ribbons on one leg, black kneehigh on other leg, brown loafers, red bows on shoes, katana, sheathed katana at hip, white sheath, red and gold hilt, gold tsuba, pixel art, simple background, grey background, game sprite, fighting game",
+   "clip": [
+    "3",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Cecilia's look (keep)"
+  }
+ },
+ "5": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "standing, neutral stance, relaxed, one hand on hilt of sheathed katana at hip, fist at chest, looking at viewer",
+   "clip": [
+    "3",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Pose (write this)"
+  }
+ },
+ "6": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "lowres, worst quality, low quality, bad anatomy, bad hands, extra digits, fewer digits, extra arms, multiple views, reference sheet, cropped, out of frame, text, watermark, signature, outline, white outline, gradient background, scenery, shadow, blurry, purple hair, blue hair, hair bow, hair ribbon, red ribbon on chest, bowtie, pink dress, pink skirt, blue frills, brown belt, white socks, grey legwear, red socks, boots, garter, drawn sword, unsheathed, holding sword, blade, two swords, blue sheath, yellow sheath, lightning, black background, orange background, pink background, hood, scarf, sash",
+   "clip": [
+    "3",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Negative"
+  }
+ },
+ "7": {
+  "class_type": "ConditioningConcat",
+  "inputs": {
+   "conditioning_to": [
+    "4",
+    0
+   ],
+   "conditioning_from": [
+    "5",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "ConditioningConcat"
+  }
+ },
+ "8": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "Cecilia_NetsuII_Reference.png"
+  },
+  "_meta": {
+   "title": "Character reference"
+  }
+ },
+ "9": {
+  "class_type": "ImageScale",
+  "inputs": {
+   "upscale_method": "lanczos",
+   "width": 832,
+   "height": 1216,
+   "crop": "center",
+   "image": [
+    "8",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Fit to 832x1216"
+  }
+ },
+ "10": {
+  "class_type": "DWPreprocessor",
+  "inputs": {
+   "detect_hand": "enable",
+   "detect_body": "enable",
+   "detect_face": "enable",
+   "resolution": 1024,
+   "bbox_detector": "yolox_l.torchscript.pt",
+   "pose_estimator": "dw-ll_ucoco_384_bs5.torchscript.pt",
+   "scale_stick_for_xinsr_cn": "enable",
+   "image": [
+    "9",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Pose from reference"
+  }
+ },
+ "11": {
+  "class_type": "AnimeLineArtPreprocessor",
+  "inputs": {
+   "resolution": 1024,
+   "image": [
+    "9",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Line art from reference"
+  }
+ },
+ "12": {
+  "class_type": "PreviewImage",
+  "inputs": {
+   "images": [
+    "10",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Pose map"
+  }
+ },
+ "13": {
+  "class_type": "PreviewImage",
+  "inputs": {
+   "images": [
+    "11",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Line-art map"
+  }
+ },
+ "14": {
+  "class_type": "ControlNetLoader",
+  "inputs": {
+   "control_net_name": "controlnet-union-sdxl-1.0-promax.safetensors"
+  },
+  "_meta": {
+   "title": "ControlNet (xinsir union promax)"
+  }
+ },
+ "15": {
+  "class_type": "SetUnionControlNetType",
+  "inputs": {
+   "type": "openpose",
+   "control_net": [
+    "14",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "type: pose"
+  }
+ },
+ "16": {
+  "class_type": "SetUnionControlNetType",
+  "inputs": {
+   "type": "canny/lineart/anime_lineart/mlsd",
+   "control_net": [
+    "14",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "type: line art"
+  }
+ },
+ "17": {
+  "class_type": "ControlNetApplyAdvanced",
+  "inputs": {
+   "strength": 0.5,
+   "start_percent": 0.0,
+   "end_percent": 0.6,
+   "positive": [
+    "7",
+    0
+   ],
+   "negative": [
+    "6",
+    0
+   ],
+   "control_net": [
+    "15",
+    0
+   ],
+   "image": [
+    "10",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "Pose guide"
+  }
+ },
+ "18": {
+  "class_type": "ControlNetApplyAdvanced",
+  "inputs": {
+   "strength": 0.35,
+   "start_percent": 0.0,
+   "end_percent": 0.5,
+   "positive": [
+    "17",
+    0
+   ],
+   "negative": [
+    "17",
+    1
+   ],
+   "control_net": [
+    "16",
+    0
+   ],
+   "image": [
+    "11",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "Line-art guide"
+  }
+ },
+ "19": {
+  "class_type": "IPAdapterUnifiedLoader",
+  "inputs": {
+   "preset": "PLUS (high strength)",
+   "model": [
+    "2",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "IP-Adapter (SDXL PLUS)"
+  }
+ },
+ "20": {
+  "class_type": "VAEEncode",
+  "inputs": {
+   "pixels": [
+    "9",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "Start from the reference"
+  }
+ },
+ "21": {
+  "class_type": "RepeatLatentBatch",
+  "inputs": {
+   "amount": 2,
+   "samples": [
+    "20",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "2 pictures per style"
+  }
+ },
+ "22": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "lora_name": "arcsys_blazblue_sprite_style_illustrious.safetensors",
+   "strength_model": 0.9,
+   "model": [
+    "19",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "BlazBlue style"
+  }
+ },
+ "23": {
+  "class_type": "IPAdapterAdvanced",
+  "inputs": {
+   "weight": 0.3,
+   "weight_type": "linear",
+   "combine_embeds": "concat",
+   "start_at": 0.0,
+   "end_at": 0.6,
+   "embeds_scaling": "V only",
+   "model": [
+    "22",
+    0
+   ],
+   "ipadapter": [
+    "19",
+    1
+   ],
+   "image": [
+    "8",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Her look (BlazBlue)"
+  }
+ },
+ "24": {
+  "class_type": "KSampler",
+  "inputs": {
+   "seed": 20261115,
+   "steps": 30,
+   "cfg": 5.0,
+   "sampler_name": "euler_ancestral",
+   "scheduler": "normal",
+   "denoise": 0.6,
+   "model": [
+    "23",
+    0
+   ],
+   "positive": [
+    "18",
+    0
+   ],
+   "negative": [
+    "18",
+    1
+   ],
+   "latent_image": [
+    "21",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Sampler (BlazBlue)"
+  }
+ },
+ "25": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "24",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "VAEDecode"
+  }
+ },
+ "26": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "netsu/style_test/blazblue",
+   "images": [
+    "25",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "BlazBlue"
+  }
+ },
+ "27": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "lora_name": "dengeki_bunko_sprite_style_illustrious.safetensors",
+   "strength_model": 0.9,
+   "model": [
+    "19",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Dengeki Bunko style"
+  }
+ },
+ "28": {
+  "class_type": "IPAdapterAdvanced",
+  "inputs": {
+   "weight": 0.3,
+   "weight_type": "linear",
+   "combine_embeds": "concat",
+   "start_at": 0.0,
+   "end_at": 0.6,
+   "embeds_scaling": "V only",
+   "model": [
+    "27",
+    0
+   ],
+   "ipadapter": [
+    "19",
+    1
+   ],
+   "image": [
+    "8",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Her look (Dengeki Bunko)"
+  }
+ },
+ "29": {
+  "class_type": "KSampler",
+  "inputs": {
+   "seed": 20261115,
+   "steps": 30,
+   "cfg": 5.0,
+   "sampler_name": "euler_ancestral",
+   "scheduler": "normal",
+   "denoise": 0.6,
+   "model": [
+    "28",
+    0
+   ],
+   "positive": [
+    "18",
+    0
+   ],
+   "negative": [
+    "18",
+    1
+   ],
+   "latent_image": [
+    "21",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Sampler (Dengeki Bunko)"
+  }
+ },
+ "30": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "29",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "VAEDecode"
+  }
+ },
+ "31": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "netsu/style_test/dengeki",
+   "images": [
+    "30",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Dengeki Bunko"
+  }
+ },
+ "32": {
+  "class_type": "ImageBatch",
+  "inputs": {
+   "image1": [
+    "25",
+    0
+   ],
+   "image2": [
+    "30",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "ImageBatch"
+  }
+ },
+ "33": {
+  "class_type": "PreviewImage",
+  "inputs": {
+   "images": [
+    "32",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Compare"
+  }
+ }
+}

@@ -1,0 +1,202 @@
+{
+ "2": {
+  "class_type": "CheckpointLoaderSimple",
+  "inputs": {
+   "ckpt_name": "Illustrious-XL-v2.0.safetensors"
+  },
+  "_meta": {
+   "title": "Base model (same as the LoRA)"
+  }
+ },
+ "3": {
+  "class_type": "LoraLoader",
+  "inputs": {
+   "lora_name": "netsu_cecilia.safetensors",
+   "strength_model": 0.9,
+   "strength_clip": 0.9,
+   "model": [
+    "2",
+    0
+   ],
+   "clip": [
+    "2",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "Fighter LoRA"
+  }
+ },
+ "4": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "netsu_cecilia, 1girl, solo, anime coloring, cel shading, clean lineart, best quality",
+   "clip": [
+    "3",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "What goes in the masked area"
+  }
+ },
+ "5": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "text": "lowres, worst quality, low quality, bad anatomy, bad hands, blurry, text, watermark",
+   "clip": [
+    "3",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "Negative"
+  }
+ },
+ "6": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "frame_flat.png"
+  },
+  "_meta": {
+   "title": "Frame to fix (paint mask in MaskEditor)"
+  }
+ },
+ "7": {
+  "class_type": "GrowMask",
+  "inputs": {
+   "expand": 8,
+   "tapered_corners": true,
+   "mask": [
+    "6",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "Grow mask"
+  }
+ },
+ "8": {
+  "class_type": "MaskPreview",
+  "inputs": {
+   "mask": [
+    "7",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Masked area"
+  }
+ },
+ "9": {
+  "class_type": "InpaintModelConditioning",
+  "inputs": {
+   "noise_mask": true,
+   "positive": [
+    "4",
+    0
+   ],
+   "negative": [
+    "5",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ],
+   "pixels": [
+    "6",
+    0
+   ],
+   "mask": [
+    "7",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "InpaintModelConditioning"
+  }
+ },
+ "10": {
+  "class_type": "KSampler",
+  "inputs": {
+   "seed": 20261114,
+   "steps": 28,
+   "cfg": 5.5,
+   "sampler_name": "euler_ancestral",
+   "scheduler": "normal",
+   "denoise": 0.55,
+   "model": [
+    "3",
+    0
+   ],
+   "positive": [
+    "9",
+    0
+   ],
+   "negative": [
+    "9",
+    1
+   ],
+   "latent_image": [
+    "9",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "KSampler"
+  }
+ },
+ "11": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "10",
+    0
+   ],
+   "vae": [
+    "2",
+    2
+   ]
+  },
+  "_meta": {
+   "title": "VAEDecode"
+  }
+ },
+ "12": {
+  "class_type": "ImageCompositeMasked",
+  "inputs": {
+   "x": 0,
+   "y": 0,
+   "resize_source": false,
+   "destination": [
+    "6",
+    0
+   ],
+   "source": [
+    "11",
+    0
+   ],
+   "mask": [
+    "7",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Paste back only the masked area"
+  }
+ },
+ "13": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "filename_prefix": "netsu/cecilia_fix",
+   "images": [
+    "12",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Fixed frame (ComfyUI/output/netsu)"
+  }
+ }
+}

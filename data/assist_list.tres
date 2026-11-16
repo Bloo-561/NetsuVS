@@ -77,12 +77,24 @@ Cooldown = 720
 AIRange = Vector2i(8250, 101750)
 Description = "Adin throws his shield across the whole screen and it flies back to him. If it hits, it drags the opponent back toward him."
 
+[sub_resource type="Resource" id="lb_adn_rush"]
+script = ExtResource("5")
+MoveName = "Combo S"
+DisplayName = "Shield Rush"
+Direction = 3
+StateIndex = 7
+SpawnOffset = Vector2i(-2000, 0)
+OnGround = true
+Cooldown = 540
+AIRange = Vector2i(0, 40000)
+Description = "Called during a combo (S1 / S2 while the opponent is being hit): Adin charges in from behind you and launches them into the air. Leading a Link Break: wall bounce back to you."
+
 [sub_resource type="Resource" id="s6"]
 script = ExtResource("2")
 AssistName = "Adin"
 Instance = ExtResource("10")
 Icon = ExtResource("11")
-Moves = [SubResource("s4"), SubResource("s5")]
+Moves = [SubResource("s4"), SubResource("s5"), SubResource("lb_adn_rush")]
 StartingCooldown = 600
 MaxOnScreen = 600
 Description = "Shield knight. 5S counters the next attack with a rising shield bash; 6S throws his shield, which pulls the opponent toward him."

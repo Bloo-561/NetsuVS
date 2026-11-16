@@ -1,0 +1,121 @@
+[
+  {
+    "frame": 127,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 132,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 159,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 164,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 191,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 196,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 223,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 228,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 255,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 260,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 287,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 292,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 110,
+    "pan": 0
+  },
+  {
+    "frame": 333,
+    "name": "Wind1",
+    "volume": 60,
+    "pitch": 120,
+    "pan": 0
+  },
+  {
+    "frame": 338,
+    "name": "Slash10",
+    "volume": 80,
+    "pitch": 85,
+    "pan": 0
+  },
+  {
+    "frame": 96,
+    "name": "Bell3",
+    "volume": 65,
+    "pitch": 135,
+    "pan": 0
+  },
+  {
+    "frame": 412,
+    "name": "Equip1",
+    "volume": 85,
+    "pitch": 95,
+    "pan": 0
+  },
+  {
+    "frame": 414,
+    "name": "Skill2",
+    "volume": 85,
+    "pitch": 80,
+    "pan": 0
+  }
+]

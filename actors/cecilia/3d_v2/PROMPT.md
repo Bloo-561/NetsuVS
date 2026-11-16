@@ -4,7 +4,7 @@ WHAT IT'S FOR
 A cel-shaded 3D model, Guilty Gear Xrd style, that we can pose and render into 2D sprite frames that always stay on-model. It must match the sheet, be rigged, and render as clean anime-style art.
 
 FILES (on my PC, through the linked computer)
-- Project: E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs
+- Project: E:\Netsu Projects\NetsuVS
 - Work ONLY in actors/cecilia/3d_v2/ (it has a .gdignore so Godot skips it). The old attempt in actors/cecilia/3d/ stays untouched; you may look at it for what NOT to do.
 - References, already cut from the sheet at its original resolution:
   - actors/cecilia/3d_v2/refs/cecilia_ref_front.png, cecilia_ref_back.png, cecilia_ref_side.png: T-pose orthographic views. All three crops share the same top and bottom, so the head top and the soles line up across them. The figure is about 682 px tall in each.

@@ -3,7 +3,7 @@
 import bpy, bmesh, math
 from mathutils import Vector, Matrix
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\actors\cecilia\3d"
+ROOT = r"E:\Netsu Projects\NetsuVS\actors\cecilia\3d"
 COLL = "Cecilia"
 LIGHT_DIR = Vector((-0.45, -0.65, 0.62)).normalized()   # fixed key light (world space): front, her right, above
 

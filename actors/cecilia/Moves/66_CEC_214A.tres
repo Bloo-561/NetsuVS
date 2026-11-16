@@ -4,12 +4,6 @@
 [ext_resource type="Resource" uid="uid://xwwqa2rafknfk" path="res://actors/_shared/sakuga/Inputs/40_Input_214A.tres" id="2"]
 [ext_resource type="Script" uid="uid://dpgs1fcn5u351" path="res://engine/sakuga/Resources/MoveCancelSettings.cs" id="3"]
 
-[sub_resource type="Resource" id="s1"]
-script = ExtResource("3")
-MoveIndex = 53
-Conditions = 7
-FrameThreshold = Vector2i(5, 20)
-
 [sub_resource type="Resource" id="s2"]
 script = ExtResource("3")
 MoveIndex = 56
@@ -22,28 +16,17 @@ MoveIndex = 57
 Conditions = 2
 FrameThreshold = Vector2i(0, 60)
 
-[sub_resource type="Resource" id="n3_b"]
-script = ExtResource("3")
-MoveIndex = 62
-Conditions = 7
-FrameThreshold = Vector2i(4, 13)
-
-[sub_resource type="Resource" id="n3_c"]
-script = ExtResource("3")
-MoveIndex = 63
-Conditions = 7
-FrameThreshold = Vector2i(4, 13)
-
 [resource]
 script = ExtResource("1")
-MoveName = "Command Dash"
-MoveState = 73
+MoveName = "Low Slash"
+MoveState = 68
 Inputs = ExtResource("2")
 Priority = 7
 MoveEnd = 2
-CanCancelTo = [SubResource("n3_b"), SubResource("n3_c"), SubResource("s1"), SubResource("s2"), SubResource("s3")]
+CanCancelTo = [SubResource("s2"), SubResource("s3")]
 CanBeOverrided = true
 IgnoreSamePriority = false
 AcceptNullStates = true
 AcceptCombatStates = true
 UseOnGround = true
+NetsuChargeable = true

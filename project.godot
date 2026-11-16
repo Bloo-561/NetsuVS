@@ -32,8 +32,10 @@ SceneRouter="*res://game/autoloads/scene_router.gd"
 LoadingScreenManager="*res://engine/autoloads/LoadingScreenManager.cs"
 AudioManager="*res://engine/autoloads/AudioManager.tscn"
 NetsuOnline="*res://engine/netcode/NetsuOnline.cs"
+DevNet="*res://game/systems/dev/fake_online.gd"
 MatchSetup="*res://game/autoloads/match_setup.gd"
 OnlineRoom="*res://game/autoloads/online_room.gd"
+DevBoot="*res://game/autoloads/dev_boot.gd"
 
 [display]
 

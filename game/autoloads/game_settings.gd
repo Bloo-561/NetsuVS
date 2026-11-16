@@ -40,7 +40,7 @@ const DEFAULTS := {
 	"training": {"dummy": 0, "cpu_level": 2, "guard": 0, "counter_hit": false, "reset_mode": 0,
 		"air_recovery": 0, "wakeup": 0, "wakeup_action": 0, "auto_burst": 0, "auto_burst_hits": 3,
 		"p1_health": 100, "p2_health": 100, "p1_craft": -1, "p2_craft": -1, "p1_burst": -1, "p2_burst": -1,
-		"assist_instant": true, "playback_repeat": false,
+		"assist_instant": true, "link_ready": false, "playback_repeat": false,
 		"show_info": true, "show_inputs": true, "show_hitboxes": false, "show_guide": true},
 	# Online lobbies (scenes/online/online_lobby.gd): the name the other players see ("" = "Player N").
 	"online": {"name": "", "spectate": false},

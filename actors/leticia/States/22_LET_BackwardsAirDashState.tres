@@ -18,18 +18,18 @@
 
 [sub_resource type="Resource" id="ad_vy"]
 script = ExtResource("3")
-Velocity = 15000
+Velocity = 0
 
 [sub_resource type="Resource" id="ad_r1"]
 script = ExtResource("ad_r")
 MinFrame = 4
-MaxFrame = 15
+MaxFrame = 20
 
 [sub_resource type="Resource" id="ad_g1"]
 script = ExtResource("ad_g")
 SetValue = true
 UseDefault = false
-Force = 75000
+Force = 0
 
 [sub_resource type="Resource" id="ad_e1"]
 script = ExtResource("5")
@@ -38,14 +38,14 @@ Actions = [SubResource("ad_g1")]
 
 [sub_resource type="Resource" id="ad_r2"]
 script = ExtResource("ad_r")
-MinFrame = 16
+MinFrame = 21
 MaxFrame = 999
 
 [sub_resource type="Resource" id="ad_g2"]
 script = ExtResource("ad_g")
 SetValue = true
 UseDefault = false
-Force = 300000
+Force = 260000
 
 [sub_resource type="Resource" id="ad_e2"]
 script = ExtResource("5")
@@ -103,7 +103,7 @@ metadata/_custom_type_script = "uid://c076jc3huncn2"
 
 [sub_resource type="Resource" id="Resource_2inp6"]
 script = ExtResource("2")
-Velocity = -8000
+Velocity = -35000
 metadata/_custom_type_script = "uid://bgwrlqrhqb2a4"
 
 [sub_resource type="Resource" id="Resource_kqndp"]
@@ -156,6 +156,15 @@ Actions = [SubResource("Resource_kc2vs")]
 metadata/_custom_type_script = "uid://c076jc3huncn2"
 
 
+[sub_resource type="Resource" id="ad_f21"]
+script = ExtResource("8")
+Frame = 21
+
+[sub_resource type="Resource" id="ad_e3"]
+script = ExtResource("5")
+Conditions = [SubResource("ad_f21")]
+Actions = [SubResource("netsu_endx")]
+
 [resource]
 script = ExtResource("11")
 StateName = "Air Dash Backwards"
@@ -163,7 +172,7 @@ Type = 1
 AnimationData = ExtResource("1")
 TransitionEvents = [SubResource("ad_land"), SubResource("Resource_mp00y")]
 OnEnterEvents = [SubResource("Resource_lu0xe")]
-OnTickEvents = [SubResource("Resource_ecovm"), SubResource("ad_e1"), SubResource("ad_e2")]
+OnTickEvents = [SubResource("Resource_ecovm"), SubResource("ad_e1"), SubResource("ad_e2"), SubResource("ad_e3")]
 OnExitEvents = [SubResource("Resource_cilpm")]
 OnHitConfirmEvents = null
 OnHitReactionEvents = [SubResource("Resource_cilpm")]

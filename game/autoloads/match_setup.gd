@@ -116,10 +116,27 @@ func start_match(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_device
 		stage: int = -1, p1_color: int = -1, p2_color: int = -1, p1_assist: int = -2, p2_assist: int = -2,
 		skip_vs: bool = false) -> void:
 	# Nov 3: skip_vs = straight into the fight behind the loading screen (Training's Quick Select), no VS screen
+	fill_match_settings(p1_fighter, p2_fighter, p1_device, p2_device, stage, p1_color, p2_color, p1_assist, p2_assist)
+	bg_release(_match_paths)
+	_match_paths = []
+	if not skip_vs and mode_name in VS_SCREEN_MODES and ResourceLoader.exists(VS_SCREEN):
+		SceneRouter.go_to(VS_SCREEN)   # it loads the fight while it plays, then calls enter_battle()
+	else:
+		await SceneRouter.go_to(BATTLE_SCENE)
+		release_match_preload()   # the fight is built: let go of what was kept loaded for it
+
+
+## Nov 11: the part of start_match() that writes the fight into data/match_settings.tres, without changing screen.
+## Also used by DevBoot (game/autoloads/dev_boot.gd) when a scene is run on its own (F6) with a test match.
+func fill_match_settings(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_device: int = -1,
+		stage: int = -1, p1_color: int = -1, p2_color: int = -1, p1_assist: int = -2, p2_assist: int = -2) -> void:
 	var cfg = settings()
 	if "P1SelectedAssist" in cfg:   # (only after the C# project is built)
 		cfg.P1SelectedAssist = _valid_assist(assist_picks[0] if p1_assist == -2 else p1_assist)
 		cfg.P2SelectedAssist = _valid_assist(assist_picks[1] if p2_assist == -2 else p2_assist)
+	if "P1SelectedAssist2" in cfg:   # Nov 8 (Link Break): the second partners (the engine fixes a clash with the first)
+		cfg.P1SelectedAssist2 = second_partner(int(cfg.P1SelectedAssist), int(assist_picks2[0]))
+		cfg.P2SelectedAssist2 = second_partner(int(cfg.P2SelectedAssist), int(assist_picks2[1]))
 	cfg.SelectedMode = _find_mode(mode_name)
 	cfg.P1SelectedCharacter = p1_fighter
 	cfg.P1SelectedColor = maxi(p1_color, 0)
@@ -143,13 +160,6 @@ func start_match(p1_fighter: int, p2_fighter: int, p1_device: int = 0, p2_device
 		cfg.RoundsToWin = int(online_rules.get("rounds", cfg.RoundsToWin))
 		cfg.TimeLimit = int(online_rules.get("time", cfg.TimeLimit))
 		cfg.GameModes[cfg.SelectedMode].ShowMatchIntro = bool(online_rules.get("intros", true))
-	bg_release(_match_paths)
-	_match_paths = []
-	if not skip_vs and mode_name in VS_SCREEN_MODES and ResourceLoader.exists(VS_SCREEN):
-		SceneRouter.go_to(VS_SCREEN)   # it loads the fight while it plays, then calls enter_battle()
-	else:
-		await SceneRouter.go_to(BATTLE_SCENE)
-		release_match_preload()   # the fight is built: let go of what was kept loaded for it
 
 
 ## Name of a fighter's colour ("Crimson", "Azure"...).
@@ -372,6 +382,12 @@ var online_notice := ""     # shown by the lobby when it opens (the opponent lef
 ## p: {"f1", "c1", "a1", "f2", "c2", "a2", "stage", "music", "rules": {...}, "n1", "n2"} (fighter, colour, assist for each
 ## side, the players' names). side: 0 / 1 = this computer plays that side, -1 = it watches.
 func start_online_room(p: Dictionary, side: int) -> void:
+	# Nov 11: DevBoot's fake online room (dev only, game/systems/dev/fake_online.gd) has no real peer to fight:
+	# it runs the match as a local fight instead
+	var dev_net := get_node_or_null("/root/NetsuOnline")
+	if dev_net and dev_net.has_method("dev_local_fight"):
+		dev_net.dev_local_fight(p, side)
+		return
 	mode_name = "Online"
 	humans = [true, true]
 	online_rules = p.get("rules", {})
@@ -387,6 +403,8 @@ func start_online_room(p: Dictionary, side: int) -> void:
 	if controls and controls.has_method("clear_sides"):
 		controls.clear_sides()   # keyboard 1 and controller 1 both drive this computer's player
 	assist_picks = [int(p.get("a1", 0)), int(p.get("a2", 0))]
+	# Nov 8 (Link Break): the lobby doesn't pick second partners yet: the same default on both computers
+	assist_picks2 = [int(p.get("b1", -1)), int(p.get("b2", -1))]
 	music_choice = int(p.get("music", MUSIC_AUTO))   # the host's music, already one song (the same on every computer)
 	start_match(int(p.get("f1", 0)), int(p.get("f2", 0)), 0, 1, int(p.get("stage", 0)),
 		int(p.get("c1", 0)), int(p.get("c2", 0)), int(p.get("a1", 0)), int(p.get("a2", 0)))
@@ -690,6 +708,8 @@ var _assists
 ## every fighter has an assist (the engine also turns -1 into the first one).
 ## The character select changes it; start_match() uses it when it isn't told otherwise.
 var assist_picks: Array = [0, 2]
+## Nov 8 (Link Break): each side's second partner (S2). -1 = the one after the first partner.
+var assist_picks2: Array = [1, 3]
 
 
 func assists():
@@ -703,6 +723,24 @@ func assist_count() -> int:
 	if list == null or list.get("Assists") == null:
 		return 0
 	return list.Assists.size()
+
+
+## Nov 8 (Link Break): the second partner for a side: the pick if it's real and not the first partner, else the next one.
+func second_partner(first: int, pick: int) -> int:
+	var n := assist_count()
+	if n < 2:
+		return -1
+	if pick >= 0 and pick < n and pick != first:
+		return pick
+	return (maxi(first, 0) + 1) % n
+
+
+## Nov 8: which second partner a side has in the match being set up / played (-1 = none / not built).
+func assist2_for_side(side: int) -> int:
+	var cfg = settings()
+	if cfg == null or not ("P1SelectedAssist2" in cfg):
+		return -1
+	return int(cfg.P1SelectedAssist2 if side == 0 else cfg.P2SelectedAssist2)
 
 
 ## index if it's a real assist, else 0 (the first one).
@@ -727,10 +765,12 @@ func assist_moves(index: int) -> Array:
 	var out: Array = []
 	if index < 0 or index >= assist_count():
 		return out
-	var inputs := {0: "S", 1: "6 + S", 2: "4 + S"}
+	var inputs := {0: "S", 1: "6 + S", 2: "4 + S", 3: "S in a combo"}
 	for mv in assists().Assists[index].Moves:
 		if mv == null:
 			continue
+		if int(mv.Direction) != 0 and int(mv.Direction) != 3:
+			continue   # Nov 8 (Link Break): one move per partner (5S, + a combo version: 3); the others stay in the data, unused
 		out.append({"name": str(mv.MoveName), "display": str(mv.DisplayName), "input": inputs.get(int(mv.Direction), "S"),
 			"text": str(mv.Description), "cooldown": int(mv.Cooldown)})
 	return out
@@ -755,15 +795,47 @@ func assist_command_section(index: int) -> Dictionary:
 		rows.append([m["display"] if m["display"] != "" else m["name"], m["input"],
 			"%s (gauge refills in %.0f s)" % [m["text"], secs]])
 	# how calling works (engine/sakuga/Components/NetsuAssist.cs)
-	rows.append(["Calling from neutral", "S on the ground", "your fighter poses while the assist comes in (can't act or block); free in the air"])
-	rows.append(["Assist Cancel", "S during your attack", "calls the assist at once, no pose; costs %d bar%s" % [ASSIST_CANCEL_BARS, "" if ASSIST_CANCEL_BARS == 1 else "s"]])
-	return {"title": "Assist: " + assist_name(index), "moves": rows}
+	rows.append(["Calling from neutral", "S1 / S2 on the ground", "your fighter poses while the partner comes in (can't act or block)"])
+	rows.append(["Assist Cancel", "S1 / S2 during your attack", "calls the partner at once, no pose; costs %d bar%s" % [ASSIST_CANCEL_BARS, "" if ASSIST_CANCEL_BARS == 1 else "s"]])
+	return {"title": "Partner: " + assist_name(index), "moves": rows}
+
+
+## Nov 8 (Link Break): the System rows that explain the party mechanic (pause menu command list).
+func link_break_section() -> Dictionary:
+	return {"title": "Link Break", "moves": [
+		["Crest", "D special / Air Throw / S1 / S2", "each party member places one crest: your D specials on hit and your air throw (a hit-grab), a fighting partner on hit, a support partner just by acting. Crests stay until you Break or the round ends."],
+		["Partner out", "-", "a partner hit while acting is out for the round; the other partner fills its slot (places two crests). Both out: no Break."],
+		["LINK READY", "3 crests", "your partners are ready at once. Pick your Link Break: C+D (your own), D+S1 or D+S2 (that partner leads). They cancel from normals and specials."],
+		["LINK BREAK", "C+D / D+S1 / D+S2", "Cecilia's C+D: Moonlit Stillness, a slash-through that leaves them staggered on their feet (hold back as it ends to land in front). Eren / Harie / Adin: wall bounce. Mary: buff twice as long + stagger. The opponent can't Burst until the combo ends."],
+	]}
 
 
 ## The battle HUD's assist gauges. The engine (NetsuAssist.cs) reports both every
 ## frame; game/ui/battle_hud/netsu_hud.gd draws them.
 ##   phase: 0 ready, 1 on screen, 2 refilling.  ratio: gauge 0..1.  buff: buff time left 0..1.
 var assist_hud: Array = [{}, {}]
+## Nov 8 (Link Break): the second partners' cards (same keys + "out").
+var assist_hud2: Array = [{}, {}]
+## Nov 8 (Link Break): each side's crests (NetsuLink.Render): {"fighter": bool, "p0": int, "p1": int, "ready": bool,
+## "leader": 0 none / 1 fighter / 2 S1 / 3 S2, "out0", "out1", "seq", "kind" (1 crest, 2 ready, 3 break, 4 out), "who"}.
+var link_hud: Array = [{}, {}]
+
+
+## Nov 8 (Link Break): the engine (NetsuLink.Render) calls this as a Break connects and the fight stops for the
+## Unbalance cut-in: pos = the opponent's chest in the 3D world, leader = 1 the fighter (C+D), 2 / 3 partner 1 / 2.
+## game/ui/battle_hud/netsu_link_fx.gd listens (the kanji stamp and the Link Attack style bands).
+signal link_break(side: int, pos: Vector3, leader: int)
+
+func netsu_link_break(side: int, pos: Vector3, leader: int) -> void:
+	link_break.emit(side, pos, leader)
+
+
+func netsu_link_hud(side: int, crest_fighter: bool, p0: int, p1: int, ready: bool, leader: int, out0: bool, out1: bool,
+		seq: int, kind: int, who: int) -> void:
+	if side < 0 or side > 1:
+		return
+	link_hud[side] = {"fighter": crest_fighter, "p0": p0, "p1": p1, "ready": ready, "leader": leader, "out0": out0,
+		"out1": out1, "seq": seq, "kind": kind, "who": who, "msec": Time.get_ticks_msec()}
 
 
 ## Oct 26 (TamaDeez): a fighter's stocked resource (Noah's energy from 214, his custom variable "Stock"). The engine
@@ -830,9 +902,15 @@ func netsu_burst_wait(side: int, on: bool) -> void:
 	burst_wait[side] = on
 
 
-func netsu_assist_hud(side: int, assist_name_text: String, ratio: float, phase: int, buff: float, icon, frames_left: int = -1) -> void:
+func netsu_assist_hud(side: int, assist_name_text: String, ratio: float, phase: int, buff: float, icon, frames_left: int = -1,
+		slot: int = 0, out: bool = false) -> void:
 	if side < 0 or side > 1:
 		return
+	# Nov 8 (Link Break): slot 1 = the second partner (S2): its own row
+	if slot == 1:
+		assist_hud2[side] = {"name": assist_name_text, "ratio": ratio, "phase": phase, "buff": buff, "icon": icon,
+			"frames_left": frames_left, "out": out, "msec": Time.get_ticks_msec()}
+		return
 	# Oct 30: frames_left = frames until the assist is ready (countdown badge); -1 = not cooling down / older engine build
-	assist_hud[side] = {"name": assist_name_text, "ratio": ratio, "phase": phase, "buff": buff, "icon": icon,
+	assist_hud[side] = {"out": out, "name": assist_name_text, "ratio": ratio, "phase": phase, "buff": buff, "icon": icon,
 		"frames_left": frames_left, "msec": Time.get_ticks_msec()}

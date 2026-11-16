@@ -23,3 +23,4 @@ IgnoreSamePriority = false
 AcceptNullStates = true
 AcceptCombatStates = true
 UseOnAir = true
+NetsuChargeable = true

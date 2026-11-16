@@ -5,7 +5,7 @@
 import bpy, bmesh, math, os, json, struct
 import numpy as np
 
-ROOT = r"E:\Netsu Projects\Netsu Fighter\Godot\netsu-vs\stages\schoolhouse_entrance"
+ROOT = r"E:\Netsu Projects\NetsuVS\stages\schoolhouse_entrance"
 VARIANT = globals().get("VARIANT") or bpy.context.scene.get("ce_variant", "night")
 SUFFIX = "" if VARIANT == "night" else "_" + VARIANT
 OUT = ROOT + r"\textures"
